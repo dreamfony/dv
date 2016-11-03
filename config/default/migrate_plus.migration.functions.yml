@@ -1,0 +1,37 @@
+uuid: 0258c608-0ee0-4e51-86d8-1c5dbabde17e
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - import_organisations
+_core:
+  default_config_hash: nWCDtUrdCWLBnn-0yhr9Q3PrAefax4TUop63qYXaqQM
+id: functions
+migration_tags: null
+migration_group: organisations
+label: 'XML feed of organisations'
+source:
+  plugin: file_proxy
+  preprocess: true
+  data_fetcher_plugin: http
+  data_parser_plugin: xml2
+  urls:
+    - 'https://drive.google.com/uc?export=download&id=0B0o4prxPrMJsU2xxa3ZOUUxGSEE'
+  item_selector: /DATABASE_BIB/RECORD/PERSON
+  fields:
+    -
+      name: function
+      label: Function
+      selector: Funkcija
+  ids:
+    function:
+      type: string
+process:
+  name: function
+  vid:
+    plugin: default_value
+    default_value: functions
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies: {  }

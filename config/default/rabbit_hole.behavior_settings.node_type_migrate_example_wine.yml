@@ -1,0 +1,9 @@
+uuid: efe928df-39cd-477c-9523-43cb89d48954
+langcode: en
+status: true
+dependencies: {  }
+id: node_type_migrate_example_wine
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

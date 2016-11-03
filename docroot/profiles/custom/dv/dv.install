@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the dv installation profile.
+ */
+
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_install().
+ *
+ * Performs actions to set up the site for this profile.
+ *
+ * @see system_install()
+ */
+
+function dv_install() {
+  $user = User::load(1);
+  $user->roles[] = 'administrator';
+  $user->save();
+}
+
+function dv_update_8001() {
+
+}
+

@@ -1,0 +1,33 @@
+link_domain: null
+bc_entity_resource_permissions: false
+_core:
+  default_config_hash: bwcdqlollZ-bMAg90HtLMFFBgY7UXJohIln7BICIooE
+resources:
+  migrate_example_advanced_position:
+    GET:
+      supported_formats:
+        - json
+        - xml
+      supported_auth:
+        - cookie
+  migrate_example_advanced_variety_multiple:
+    GET:
+      supported_formats:
+        - json
+        - xml
+      supported_auth:
+        - cookie
+  migrate_example_advanced_variety_list:
+    GET:
+      supported_formats:
+        - json
+        - xml
+      supported_auth:
+        - cookie
+  migrate_example_advanced_variety_items:
+    GET:
+      supported_formats:
+        - json
+        - xml
+      supported_auth:
+        - cookie

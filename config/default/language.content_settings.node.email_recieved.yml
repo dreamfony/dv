@@ -1,0 +1,11 @@
+uuid: 26bf6835-63b9-4919-9a02-b9f636a38ee5
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.email_recieved
+id: node.email_recieved
+target_entity_type_id: node
+target_bundle: email_recieved
+default_langcode: site_default
+language_alterable: false

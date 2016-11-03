@@ -1,0 +1,20 @@
+uuid: 1997f611-8b73-4ecb-b368-70d621b63bc1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_o_organisation_group
+field_name: field_o_organisation_group
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

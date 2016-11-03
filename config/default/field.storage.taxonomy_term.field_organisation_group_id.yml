@@ -1,0 +1,20 @@
+uuid: d03e25a9-ea66-43cc-8dcf-526ba5a52236
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_organisation_group_id
+field_name: field_organisation_group_id
+entity_type: taxonomy_term
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

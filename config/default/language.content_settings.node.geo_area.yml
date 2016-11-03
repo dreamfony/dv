@@ -1,0 +1,11 @@
+uuid: a1a4b273-2ee3-4ecd-966c-3ad120e47d75
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.geo_area
+id: node.geo_area
+target_entity_type_id: node
+target_bundle: geo_area
+default_langcode: site_default
+language_alterable: false

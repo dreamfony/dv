@@ -1,0 +1,22 @@
+uuid: a1c1f207-a34b-4444-951e-a53accbdc07a
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'use text format restricted_html'
+  - 'access comments'
+  - 'access site-wide contact form'
+  - 'search content'
+  - 'restful get migrate_example_advanced_position'
+  - 'restful get migrate_example_advanced_variety_multiple'
+  - 'restful get migrate_example_advanced_variety_list'
+  - 'restful get migrate_example_advanced_variety_items'
+  - 'view files'
+  - 'display eu cookie compliance popup'

@@ -1,0 +1,19 @@
+uuid: c8d4c519-917c-42f2-b83d-01b8ee061742
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.work_group
+  enforced:
+    module:
+      - grolesync
+    config:
+      - user.role.administrator
+id: work_group-a416e6833
+label: Administrator
+weight: 2
+internal: true
+audience: outsider
+group_type: work_group
+permissions_ui: false
+permissions: {  }

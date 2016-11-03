@@ -1,0 +1,8 @@
+name: DMT Group
+type: module
+description: DMT Group.
+core: 8.x
+package: DMT
+dependencies:
+  - group
+  - ggroup

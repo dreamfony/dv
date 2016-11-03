@@ -1,0 +1,14 @@
+{
+  "name": "drupal/geo_area",
+  "type": "drupal-module",
+  "description": "Geo Area Content type and Migration import",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/geo_area",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/geo_area",
+    "source": "http://cgit.drupalcode.org/geo_area"
+  },
+  "require": { }
+}

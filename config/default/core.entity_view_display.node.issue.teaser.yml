@@ -1,0 +1,35 @@
+uuid: 16197d6e-92f0-436e-98c6-17023f33222f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.issue.field_i_address
+    - field.field.node.issue.field_i_attachments
+    - field.field.node.issue.field_i_description
+    - field.field.node.issue.field_i_issue_type
+    - field.field.node.issue.field_i_private
+    - field.field.node.issue.field_i_tags
+    - node.type.issue
+  module:
+    - user
+id: node.issue.teaser
+targetEntityType: node
+bundle: issue
+mode: teaser
+content:
+  content_moderation_control:
+    type: visible
+    region: content
+    weight: -20
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_i_address: true
+  field_i_attachments: true
+  field_i_description: true
+  field_i_issue_type: true
+  field_i_private: true
+  field_i_tags: true
+  langcode: true

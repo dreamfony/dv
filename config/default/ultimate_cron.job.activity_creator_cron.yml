@@ -1,0 +1,17 @@
+uuid: 7a0480c1-2371-4b8c-baf0-ae363742eede
+langcode: en
+status: true
+dependencies:
+  module:
+    - activity_creator
+title: 'Default cron handler'
+id: activity_creator_cron
+weight: 0
+module: activity_creator
+callback: activity_creator_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

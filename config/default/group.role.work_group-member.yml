@@ -1,0 +1,14 @@
+uuid: 40504fad-a8a1-40f7-830b-f648d117d9e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.work_group
+id: work_group-member
+label: Member
+weight: -100
+internal: true
+audience: member
+group_type: work_group
+permissions_ui: true
+permissions: {  }

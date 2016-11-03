@@ -1,0 +1,11 @@
+uuid: fb48ba11-cbd6-48e9-89c0-fb968be50b29
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.email_sent
+id: node.email_sent
+target_entity_type_id: node
+target_bundle: email_sent
+default_langcode: site_default
+language_alterable: false

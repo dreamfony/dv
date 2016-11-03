@@ -1,0 +1,14 @@
+uuid: 119ea7b3-371a-4d2f-8fac-12620f5760f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.geo_area_group
+id: geo_area_group-member
+label: Member
+weight: -100
+internal: true
+audience: member
+group_type: geo_area_group
+permissions_ui: true
+permissions: {  }

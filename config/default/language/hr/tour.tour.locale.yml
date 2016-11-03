@@ -1,0 +1,6 @@
+label: Prijevod
+tips:
+  locale-search:
+    label: Pretraga
+  locale-translate:
+    label: Prevedi

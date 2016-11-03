@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains dmt_group.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function dmt_group_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the dmt_group module.
+    case 'help.page.dmt_group':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('DMT Group.') . '</p>';
+      return $output;
+
+    default:
+  }
+}

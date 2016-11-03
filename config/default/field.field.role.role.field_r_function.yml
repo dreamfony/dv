@@ -1,0 +1,28 @@
+uuid: cbe83a07-da0c-4fde-9d27-989031a0525c
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.role.role
+    - field.storage.role.field_r_function
+    - taxonomy.vocabulary.functions
+id: role.role.field_r_function
+field_name: field_r_function
+entity_type: role
+bundle: role
+label: Function
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      functions: functions
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

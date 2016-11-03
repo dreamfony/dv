@@ -1,0 +1,7 @@
+tips:
+  views-ui-fields:
+    label: Polja
+  views-ui-sorts:
+    label: 'Kriteriji sortiranja'
+  views-ui-preview:
+    label: Pregled

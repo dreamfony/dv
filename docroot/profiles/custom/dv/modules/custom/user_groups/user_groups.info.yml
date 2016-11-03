@@ -1,0 +1,7 @@
+name: User Groups
+type: module
+description: User Groups.
+core: 8.x
+package: Custom
+dependencies:
+  - group

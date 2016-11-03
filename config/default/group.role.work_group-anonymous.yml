@@ -1,0 +1,14 @@
+uuid: 92a060ea-2c35-433c-9794-9f73543dcbe4
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.work_group
+id: work_group-anonymous
+label: Anonymous
+weight: -102
+internal: true
+audience: anonymous
+group_type: work_group
+permissions_ui: true
+permissions: {  }

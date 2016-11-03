@@ -1,0 +1,6 @@
+services:
+  geo_area.prepare_row:
+    class: Drupal\geo_area\EventSubscriber\GeoAreaPrepareRow
+    arguments: []
+    tags:
+      - { name: event_subscriber }

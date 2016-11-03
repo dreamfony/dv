@@ -1,0 +1,22 @@
+label: 'Posljednji sadržaji'
+display:
+  default:
+    display_title: Master
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Primjeni
+          reset_button_label: Poništi
+          exposed_sorts_label: 'Rasporedi po'
+          sort_asc_label: Uzlazno
+          sort_desc_label: Silazno
+      fields:
+        changed:
+          separator: ', '
+      title: 'Posljednji sadržaji'
+      empty:
+        area_text_custom:
+          content: 'Nema sadržaja.'
+      use_more_text: Više
+  block_1:
+    display_title: Blok

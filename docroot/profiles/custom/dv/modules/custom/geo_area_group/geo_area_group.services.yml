@@ -1,0 +1,6 @@
+services:
+  geo_area_group.geo_area_node:
+    class: Drupal\geo_area_group\EventSubscriber\GeoAreaNode
+    arguments: ['@dmt_group.add_group_to_subgroup']
+    tags:
+      - { name: 'event_subscriber' }

@@ -1,0 +1,9 @@
+uuid: 8b04bbdd-1d3c-47e7-89c9-0cbe955b2398
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_migrate_example_wine_regions
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

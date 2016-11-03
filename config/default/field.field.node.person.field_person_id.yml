@@ -1,0 +1,23 @@
+uuid: 9d58628d-754c-4965-ab6b-6d6a22a03934
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_person_id
+    - node.type.person
+id: node.person.field_person_id
+field_name: field_person_id
+entity_type: node
+bundle: person
+label: 'Person ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

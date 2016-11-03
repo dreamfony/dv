@@ -1,0 +1,21 @@
+uuid: 89e5812b-0a03-4c6b-9ce8-b372cff2ef0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group_content.field_datum
+    - group.content_type.organisation-group_node-person
+  module:
+    - datetime
+id: group_content.organisation-group_node-person.field_datum
+field_name: field_datum
+entity_type: group_content
+bundle: organisation-group_node-person
+label: datum
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

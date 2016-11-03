@@ -1,0 +1,32 @@
+uuid: fce20491-7cba-41ff-84fd-86d94bf87f86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_area_of_activity_id
+    - taxonomy.vocabulary.area_of_activity
+  module:
+    - geocoder_field
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: name
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: taxonomy_term.area_of_activity.field_area_of_activity_id
+field_name: field_area_of_activity_id
+entity_type: taxonomy_term
+bundle: area_of_activity
+label: 'Area of Activity ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

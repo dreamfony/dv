@@ -1,0 +1,20 @@
+uuid: a7c7eeb5-875c-469a-a363-17a5467bc798
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.email_recieved
+  module:
+    - user
+id: node.email_recieved.teaser
+targetEntityType: node
+bundle: email_recieved
+mode: teaser
+content:
+  links:
+    type: visible
+    region: content
+    weight: 100
+hidden:
+  langcode: true

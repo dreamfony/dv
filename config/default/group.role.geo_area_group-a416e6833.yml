@@ -1,0 +1,19 @@
+uuid: 6ce7a7ba-b0aa-4022-a219-3da22ca26f7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.geo_area_group
+  enforced:
+    module:
+      - grolesync
+    config:
+      - user.role.administrator
+id: geo_area_group-a416e6833
+label: Administrator
+weight: 2
+internal: true
+audience: outsider
+group_type: geo_area_group
+permissions_ui: false
+permissions: {  }

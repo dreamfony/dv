@@ -1,0 +1,21 @@
+display:
+  default:
+    display_title: Master
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Primjeni
+          reset_button_label: Poništi
+          exposed_sorts_label: 'Rasporedi po'
+          sort_asc_label: Uzlazno
+          sort_desc_label: Silazno
+      filters:
+        access:
+          expose:
+            label: 'Zadnji pristup'
+            description: 'Vrijeme u kojem se korisnik smatra prijavljenim i nakon što je napustio lokaciju.'
+      title: 'Tko je umrežen'
+  who_s_online_block:
+    display_title: 'Tko je umrežen'
+    display_options:
+      block_description: 'Tko je umrežen'

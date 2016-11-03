@@ -1,0 +1,22 @@
+uuid: 5b53bfbc-6c20-4e4c-b1ed-4e8a2eab2e32
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - socialbase
+_core:
+  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
+id: socialbase_powered
+theme: socialbase
+region: header
+weight: -9
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

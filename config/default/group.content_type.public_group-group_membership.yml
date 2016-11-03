@@ -1,0 +1,18 @@
+uuid: 17cf444b-f41a-4b5a-bddf-80d06bcfadea
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.public_group
+  module:
+    - user
+id: public_group-group_membership
+label: 'Public group: Group membership'
+description: 'Adds users to groups as members.'
+group_type: public_group
+content_plugin: group_membership
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  info_text:
+    value: '<p>By submitting this form you will become a member of the group.<br />Please fill out any available fields to complete your membership information.</p>'

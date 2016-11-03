@@ -1,0 +1,23 @@
+uuid: 51708595-bced-4984-9f06-46a5752ceb37
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_organisation_group_id
+    - taxonomy.vocabulary.organisation_group
+id: taxonomy_term.organisation_group.field_organisation_group_id
+field_name: field_organisation_group_id
+entity_type: taxonomy_term
+bundle: organisation_group
+label: 'Organisation Group ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

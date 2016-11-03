@@ -1,0 +1,12 @@
+uuid: 2d9611a3-c6fd-469e-84a3-b497d185481c
+langcode: en
+status: true
+dependencies:
+  module:
+    - profile
+_core:
+  default_config_hash: PBKU-5P9VibEeBZYsEBqYs6nSWb-IHDNaXrooA5I50M
+id: profile.compact
+label: Compact
+targetEntityType: profile
+cache: true

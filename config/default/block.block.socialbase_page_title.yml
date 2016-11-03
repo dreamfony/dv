@@ -1,0 +1,20 @@
+uuid: 5f1f0439-d98a-4061-a6af-a3c0ea99a082
+langcode: en
+status: false
+dependencies:
+  theme:
+    - socialbase
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: socialbase_page_title
+theme: socialbase
+region: header
+weight: -8
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

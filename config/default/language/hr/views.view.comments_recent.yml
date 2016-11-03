@@ -1,0 +1,13 @@
+label: 'Posljednji komentari'
+display:
+  default:
+    display_title: Master
+    display_options:
+      title: 'Posljednji komentari'
+      empty:
+        area_text_custom:
+          content: 'Nema dostupnih komentara.'
+  block_1:
+    display_title: Blok
+    display_options:
+      block_description: 'Posljednji komentari'

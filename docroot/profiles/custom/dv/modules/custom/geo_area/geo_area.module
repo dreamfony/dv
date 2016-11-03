@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains geo_area.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function geo_area_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the geo_area module.
+    case 'help.page.geo_area':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Geo Area Content type and Migration import') . '</p>';
+      return $output;
+
+    default:
+  }
+}

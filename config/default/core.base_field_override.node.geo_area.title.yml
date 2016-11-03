@@ -1,0 +1,18 @@
+uuid: c718c2ba-1551-48bc-9b0a-a6e21304d5c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.geo_area
+id: node.geo_area.title
+field_name: title
+entity_type: node
+bundle: geo_area
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

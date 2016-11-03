@@ -1,0 +1,14 @@
+{
+  "name": "drupal/geo_area_group",
+  "type": "drupal-module",
+  "description": "Geo Area Group",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/geo_area_group",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/geo_area_group",
+    "source": "http://cgit.drupalcode.org/geo_area_group"
+  },
+  "require": { }
+}

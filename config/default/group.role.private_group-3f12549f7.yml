@@ -1,0 +1,19 @@
+uuid: b4a020c3-85ae-4dbb-b725-b45b403221af
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private_group
+  enforced:
+    module:
+      - grolesync
+    config:
+      - user.role.moderator
+id: private_group-3f12549f7
+label: Moderator
+weight: 3
+internal: true
+audience: outsider
+group_type: private_group
+permissions_ui: false
+permissions: {  }

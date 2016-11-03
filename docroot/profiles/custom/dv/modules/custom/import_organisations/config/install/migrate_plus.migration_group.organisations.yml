@@ -1,0 +1,11 @@
+id: organisations
+label: Organisation Imports
+description: Organisation Imports.
+source_type: XML
+shared_configuration:
+  source:
+    key: default
+dependencies:
+  enforced:
+    module:
+      - import_organisations

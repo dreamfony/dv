@@ -1,0 +1,10 @@
+uuid: 9d490bdd-2c9d-485d-adbe-10f1a5a7611f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: oNz650PO1orDMqoiW9r-X59cklOJFD8KjFJoHu3h5PA
+id: social_time
+label: 'Social time'
+locked: false
+pattern: 'H:i'

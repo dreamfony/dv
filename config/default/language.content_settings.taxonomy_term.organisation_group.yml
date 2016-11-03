@@ -1,0 +1,11 @@
+uuid: e07c393e-4ba3-4828-ab5f-c8ff595baa8b
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.organisation_group
+id: taxonomy_term.organisation_group
+target_entity_type_id: taxonomy_term
+target_bundle: organisation_group
+default_langcode: site_default
+language_alterable: false

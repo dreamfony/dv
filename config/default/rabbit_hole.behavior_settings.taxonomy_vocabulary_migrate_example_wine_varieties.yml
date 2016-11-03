@@ -1,0 +1,9 @@
+uuid: dbd1efe2-0316-495c-84eb-f337dcb5c595
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_migrate_example_wine_varieties
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

@@ -1,0 +1,56 @@
+id: geoarea
+label: import geoarea
+migration_group: geoarea
+source:
+  plugin: geo_names
+  data_parser_plugin: xml_crawler
+  geonameid:
+    - 3202326
+  item_selector: /geonames/geoname
+  fields:
+    -
+      name: geoname_id
+      label: ID
+      selector: geonameId
+    -
+      name: name
+      label: Name
+      selector: toponymName
+    -
+      name: fcode
+      label: Fcode
+      selector: fcode
+    -
+      name: num_of_children
+      label: Number of children
+      selector: numberOfChildren
+    -
+      name: population
+      label: Population
+      selector: population
+  ids:
+    geoname_id:
+      type: integer
+process:
+  title: name
+  type:
+    plugin: default_value
+    default_value: geo_area
+  uid:
+    plugin: default_value
+    default_value: 1
+  field_geo_area_geonames_id: geoname_id
+  field_geo_area_admin_area_level:
+    plugin: field_geo_area_admin_area_level
+    source: fcode
+  field_geo_area_parent:
+    plugin: field_geo_area_parent
+    source: geoname_id
+  field_geo_area_population: population
+destination:
+  plugin: entity:node
+dependencies:
+  enforced:
+    module:
+      - geo_area
+migration_dependencies: {}

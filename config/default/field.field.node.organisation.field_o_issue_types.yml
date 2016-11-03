@@ -1,0 +1,28 @@
+uuid: f25cf835-c985-4afb-92ae-7f12ce4586aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_o_issue_types
+    - node.type.organisation
+    - taxonomy.vocabulary.issue_type
+id: node.organisation.field_o_issue_types
+field_name: field_o_issue_types
+entity_type: node
+bundle: organisation
+label: 'Issue Types'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      issue_type: issue_type
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

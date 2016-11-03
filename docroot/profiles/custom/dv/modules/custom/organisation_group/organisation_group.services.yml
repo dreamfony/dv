@@ -1,0 +1,6 @@
+services:
+  organisation_group.organisation_node:
+    class: Drupal\organisation_group\EventSubscriber\OrganisationNode
+    arguments: ['@dmt_group.add_group_to_subgroup']
+    tags:
+      - { name: 'event_subscriber' }

@@ -1,0 +1,14 @@
+uuid: 3f0e1f3a-287f-4494-92fa-15eef639b82f
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.geo_area_group
+id: geo_area_group-outsider
+label: Outsider
+weight: -101
+internal: true
+audience: outsider
+group_type: geo_area_group
+permissions_ui: true
+permissions: {  }

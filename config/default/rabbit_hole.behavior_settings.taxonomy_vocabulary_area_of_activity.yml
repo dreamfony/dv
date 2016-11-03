@@ -1,0 +1,9 @@
+uuid: 600aa451-8392-4a52-9fc5-e30802efb322
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_area_of_activity
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

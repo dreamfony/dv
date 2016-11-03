@@ -1,0 +1,20 @@
+uuid: 8d511aac-75ec-43f9-9b11-bf381d1cf94c
+langcode: en
+status: true
+dependencies:
+  theme:
+    - socialbase
+_core:
+  default_config_hash: g_iQJHOc4hAoQ7TCha7RcvICZ-sj5U8keOEsQYXCBsU
+id: socialbase_local_actions
+theme: socialbase
+region: content
+weight: -10
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

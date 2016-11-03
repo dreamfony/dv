@@ -1,0 +1,9 @@
+uuid: abf919b4-e24a-4c07-9c75-43ca04c5ef5c
+langcode: en
+status: true
+dependencies: {  }
+name: 'Area of Activity'
+vid: area_of_activity
+description: ''
+hierarchy: 0
+weight: 0

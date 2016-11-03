@@ -1,0 +1,14 @@
+{
+  "name": "drupal/dmt_group",
+  "type": "drupal-module",
+  "description": "DMT Group.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/dmt_group",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/dmt_group",
+    "source": "http://cgit.drupalcode.org/dmt_group"
+  },
+  "require": { }
+}

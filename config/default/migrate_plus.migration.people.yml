@@ -1,0 +1,45 @@
+uuid: 441efacc-c4c7-47b3-af7f-76062f4f3df6
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - import_organisations
+_core:
+  default_config_hash: C9P1fFcrxDxt8E8E-42qRGgxbp2rEtl4Ttbn4uP7RMw
+id: people
+migration_tags: null
+migration_group: organisations
+label: 'XML feed of organisations'
+source:
+  plugin: file_proxy
+  preprocess: true
+  data_fetcher_plugin: http
+  data_parser_plugin: xml2
+  urls:
+    - 'https://drive.google.com/uc?export=download&id=0B0o4prxPrMJsU2xxa3ZOUUxGSEE'
+  item_selector: /DATABASE_BIB/RECORD/PERSON
+  fields:
+    -
+      name: function_upholder
+      label: 'Function Upholder'
+      selector: NositeljFunkcije
+    -
+      name: function_upholder_id
+      label: 'Function Upholder ID'
+      selector: NositeljFunkcije_ID
+  ids:
+    function_upholder_id:
+      type: integer
+process:
+  title: function_upholder
+  field_person_id: function_upholder_id
+  uid:
+    plugin: default_value
+    default_value: 1
+  type:
+    plugin: default_value
+    default_value: person
+destination:
+  plugin: 'entity:node'
+migration_dependencies: {  }

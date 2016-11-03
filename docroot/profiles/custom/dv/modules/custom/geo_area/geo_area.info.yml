@@ -1,0 +1,7 @@
+name: Geo Area
+type: module
+description: Geo Area Content type and Migration import
+core: 8.x
+package: Geo Area
+dependencies:
+  - migrate_plus

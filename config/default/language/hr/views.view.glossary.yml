@@ -1,0 +1,31 @@
+label: Rječnik
+display:
+  default:
+    display_title: Master
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Primjeni
+          reset_button_label: Poništi
+          exposed_sorts_label: 'Rasporedi po'
+          sort_asc_label: Uzlazno
+          sort_desc_label: Silazno
+      pager:
+        options:
+          tags:
+            previous: ‹‹
+            next: ››
+      fields:
+        title:
+          label: Naziv
+        name:
+          label: Autor
+        changed:
+          label: 'Posljednje osvježenje'
+  attachment_1:
+    display_title: Prilog
+  page_1:
+    display_title: Stranica
+    display_options:
+      menu:
+        title: Rječnik

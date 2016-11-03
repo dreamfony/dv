@@ -1,0 +1,9 @@
+name: Geo Area Group
+type: module
+description: Geo Area Group
+core: 8.x
+package: Geo Area
+dependencies:
+  - group
+  - ggroup
+  - geo_area

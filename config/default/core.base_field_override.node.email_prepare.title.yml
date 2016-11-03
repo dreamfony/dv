@@ -1,0 +1,18 @@
+uuid: 9715e9f0-cd34-466a-9316-9a3a80ae06b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.email_prepare
+id: node.email_prepare.title
+field_name: title
+entity_type: node
+bundle: email_prepare
+label: Subject
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

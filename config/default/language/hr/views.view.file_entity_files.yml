@@ -1,0 +1,68 @@
+display:
+  default:
+    display_title: Master
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Pročisti
+          reset_button_label: Poništi
+          exposed_sorts_label: 'Rasporedi po'
+          sort_asc_label: Uzlazno
+          sort_desc_label: Silazno
+      pager:
+        options:
+          tags:
+            previous: '‹ prethodna'
+            next: 'sljedeća ›'
+      fields:
+        filename:
+          label: Naziv
+        type:
+          label: Vrsta
+        filemime:
+          label: 'Mime vrsta'
+        filesize:
+          label: Veličina
+        status:
+          label: Status
+        changed:
+          label: Promijenjeno
+          separator: ', '
+        created:
+          label: Stvoreno
+          separator: ', '
+        count:
+          label: 'Korišteno u'
+        operations:
+          label: Operacije
+      filters:
+        filename:
+          expose:
+            label: 'Naziv datoteke'
+        filemime:
+          expose:
+            label: 'Mime vrsta'
+        status:
+          expose:
+            label: Status
+        type:
+          expose:
+            label: Vrsta
+      title: Datoteke
+  overview:
+    display_options:
+      menu:
+        title: Datoteke
+  usage:
+    display_options:
+      pager:
+        options:
+          tags:
+            previous: '‹ prethodna'
+            next: 'sljedeća ›'
+      arguments:
+        fid:
+          exception:
+            title: Svi
+      menu:
+        title: Upotreba
