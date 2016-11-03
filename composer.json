@@ -14,7 +14,7 @@
         "composer/installers": "^1.0.20",
         "drupal-composer/drupal-scaffold": "^2.0.1",
         "cweagans/composer-patches": "^1.5.0",
-        "drupal/core": "~8.3.0",
+        "drupal/core": "~8",
         "drush/drush": "9.0.0-alpha1",
         "drupal/console": "1.0.0-beta5",
         "drupal/address": "^1@beta",

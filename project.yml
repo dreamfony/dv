@@ -1,7 +1,7 @@
 project:
     machine_name: dv
     prefix: DV
-    human_name: 'Dv'
+    human_name: Dv
     profile:
         name: dv
     local:
