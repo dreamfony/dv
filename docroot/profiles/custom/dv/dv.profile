@@ -38,7 +38,6 @@ function social_install_profile_modules(&$install_state) {
     'social_core' => 'social_core',
     'social_user' => 'social_user',
     'social_profile' => 'social_profile',
-    'social_page' => 'social_page',
   );
   $social_modules = $modules;
   // Always install required modules first. Respect the dependencies between

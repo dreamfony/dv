@@ -59,7 +59,6 @@ module:
   geocoder_field: 0
   geocoder_geofield: 0
   geofield: 0
-  geonames: 0
   ggroup: 0
   gnode: 0
   grolesync: 0
@@ -127,7 +126,6 @@ module:
   menu_link_content: 1
   pathauto: 1
   views: 10
-  standard: 1000
 theme:
   stable: 0
   classy: 0

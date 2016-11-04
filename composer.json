@@ -49,7 +49,6 @@
         "drupal/rules": "~3.0",
         "drupal/coffee": "~1.0",
         "drupal/hook_event_dispatcher": "~1.0",
-        "drupal/config_installer": "~1.0",
         "nikkobautista/geonames": "~1.0",
         "drupal/file_entity": "~2.0",
         "drupal/message": "~1.0",
@@ -89,9 +88,6 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
-        ],
-        "post-update-cmd": [
             "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
         ],
         "post-create-project-cmd": [
