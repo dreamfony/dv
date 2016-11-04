@@ -3,7 +3,7 @@ project:
     prefix: DV
     human_name: Dv
     profile:
-        name: dv
+        name: standard
     local:
         protocol: http
         hostname: 'local.${project.machine_name}.com'

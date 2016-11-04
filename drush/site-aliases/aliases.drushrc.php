@@ -363,9 +363,9 @@ $aliases['dv.local'] = array(
   // /var/www/[vagrant_machine_name]/docroot
   'root' => '/var/www/dv/docroot',
   // vagrant_hostname
-  'uri' => 'http://local.dv.com',
+  'uri' => 'http://localhost',
   // vagrant_hostname
-  'remote-host' => 'local.dv.com',
-  'remote-user' => 'vagrant',
-  'ssh-options' => '-o PasswordAuthentication=no -i ' . drush_server_home() . '/.vagrant.d/insecure_private_key'
+//  'remote-host' => 'local.dv.com',
+//  'remote-user' => 'vagrant',
+//  'ssh-options' => '-o PasswordAuthentication=no -i ' . drush_server_home() . '/.vagrant.d/insecure_private_key'
 );
