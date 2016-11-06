@@ -30,6 +30,8 @@ addons:
     - mysql-server-5.6
     - mysql-client-core-5.6
     - mysql-client-5.6
+  code_climate:
+    secure: bXgnZp8Pp+5AbuGm3dNjYVk3q1sFWirW3t12taKvrkiXhjUTwEyU7Tk5PMyK4t3PhwJ368X9GJUXms+3u8fnnAJ7pWgISEOROCHAfCEAaVofAnsk5IaDzDQclD7lIlvwQvnm/51vy6uUhc4mtBPEubR1bjd18Jf1k47azoeLzzmx1CS9vEHsJ3Z3nqjuStrIxkGEtZnSDS/dlu7JT+3+jbSm957uVQ1/w1Nfy4EZQlmIOov96rgVw8Gozecrzk1c6TEKB6ZP0HWxeHgB8kmQTnPvQK57s9GvdhavT5YLHmYxAoR7+vSw2Vpb+G3dnymyKHb+GDCPEvQMC1vDuxh1rrJ4JaXomVgGHIVFPvppBR1X4rrRtoSQi+PiewcnoVGIqcyGBaNHhVp3VRlB64z5gZRWMpY7ecs0MJou2xAwijtRWyPKuVAjfYVa8CAdWRqQyJfJSPMYaz3uUNDTcWsiaL7A/0HCeB2ZqLGNdJh5PITs2AT6tB7haGeAAawofTkgJDd0HbIrFiHGEiBCzKHi3h2ywaGSIxb95oLSEY323NPZQmm/HurvM1vcgsV8E9qdtq8KvNyenCrbM5g8flQFpKDMN01ECXaWlFRfCgKihQBoO1OXG7PNu3LD2ZiiNg2obPdZjUEWAzIySMYCU6j/vHCMpmJelqU1whqRwyE1tDY=
 
 # @see https://docs.travis-ci.com/user/notifications
 notifications:
@@ -78,8 +80,13 @@ before_script:
   # The local.hostname must be set to 127.0.0.1:8888 because we are using drush runserver to run the site on Travis CI.
   - drupal yaml:update:value project.yml project.local.hostname '127.0.0.1:8888'
 
+
 script:
   - blt -Dbehat.run-server=true -Dcreate_alias=false -Dbehat.launch-phantom=true ci:build:validate:test
+
+# Support for CodeClimate
+after_script:
+  - ./vendor/bin/test-reporter
 
 deploy:
    - provider: script
