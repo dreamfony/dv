@@ -26,6 +26,7 @@ addons:
   ssh_known_hosts:
   # - svn-4786.devcloud.hosting.acquia.com
     - svn-5223.devcloud.hosting.acquia.com
+    - svn-6182.devcloud.hosting.acquia.com
 
   apt:
     packages:
