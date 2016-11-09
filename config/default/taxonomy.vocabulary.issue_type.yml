@@ -1,9 +1,0 @@
-uuid: 30ca581a-33ac-4761-842b-9b4cc2ebff2b
-langcode: en
-status: true
-dependencies: {  }
-name: 'Issue Type'
-vid: issue_type
-description: ''
-hierarchy: 0
-weight: 0

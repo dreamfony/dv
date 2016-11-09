@@ -1,9 +1,0 @@
-uuid: 327b02f9-5574-4827-a0a8-adb5507c3ef6
-langcode: en
-status: true
-dependencies: {  }
-id: node_type_quarter
-action: display_page
-allow_override: 1
-redirect: ''
-redirect_code: 301

@@ -1,9 +1,0 @@
-uuid: 8ad51266-cc9d-4398-b887-3fc7424bade3
-langcode: en
-status: true
-dependencies:
-  config:
-    - eck.eck_entity_type.role
-name: Role
-type: role
-description: ''

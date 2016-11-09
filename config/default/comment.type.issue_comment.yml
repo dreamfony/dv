@@ -1,8 +1,0 @@
-uuid: f87e48e3-5726-476d-ae38-9ec195f4fe66
-langcode: en
-status: true
-dependencies: {  }
-id: issue_comment
-label: 'Issue comment'
-target_entity_type_id: node
-description: ''

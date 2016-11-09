@@ -1,9 +1,0 @@
-uuid: fe058791-4abb-426e-a4f2-d255fbe762c6
-langcode: en
-status: true
-dependencies: {  }
-id: node_type_city
-action: display_page
-allow_override: 1
-redirect: ''
-redirect_code: 301

@@ -1,7 +1,0 @@
-uuid: c7c4ece2-9d42-48cd-8602-5631f0af3fb7
-langcode: en
-status: true
-dependencies: {  }
-id: geo_area_group
-label: 'Geo Area Group'
-description: ''

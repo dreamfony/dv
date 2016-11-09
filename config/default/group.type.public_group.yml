@@ -1,7 +1,0 @@
-uuid: 7bb38974-616c-484b-86e1-0374a3662c89
-langcode: en
-status: true
-dependencies: {  }
-id: public_group
-label: 'Public group'
-description: 'Public user Issues. Used to group up Issues that are publicly available, so other users can follow.'

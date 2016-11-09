@@ -1,2 +1,0 @@
-register_admin_created:
-  subject: 'Administrator vam je otvorio račun pri [site:name]'

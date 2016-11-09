@@ -1,9 +1,0 @@
-uuid: 8715c000-1dc1-4604-a441-b1e802441238
-langcode: en
-status: true
-dependencies: {  }
-id: node_type_area
-action: display_page
-allow_override: 1
-redirect: ''
-redirect_code: 301

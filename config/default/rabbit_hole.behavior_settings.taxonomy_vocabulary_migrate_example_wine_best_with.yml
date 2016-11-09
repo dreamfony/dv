@@ -1,9 +1,0 @@
-uuid: 49e89a45-1433-4391-9173-59795e2dc0cd
-langcode: en
-status: true
-dependencies: {  }
-id: taxonomy_vocabulary_migrate_example_wine_best_with
-action: display_page
-allow_override: 1
-redirect: ''
-redirect_code: 301
