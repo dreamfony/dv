@@ -17,8 +17,10 @@ deployed_tag="$4"
 repo_url="$5"
 repo_type="$6"
 
+echo "Hello, Cloud!"
+
 # Load the Slack webhook URL (which is not stored in this repo).
-. $HOME/dv1/slack_settings
+. $HOME/slack_settings
 
 # Post deployment notice to Slack
 
