@@ -1,0 +1,22 @@
+uuid: 88e31a32-039c-4460-ba6f-103698ce460a
+langcode: hr
+status: true
+dependencies:
+  module:
+    - eck
+    - node
+_core:
+  default_config_hash: n-p3MI_knQmBDNGDBPfOUciIfTTTvJjy6XQm-SqDag8
+id: role.field_r_organisation
+field_name: field_r_organisation
+entity_type: role
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,16 @@
+uuid: 04a9ca1f-911e-417c-be47-1dcbc0dadd8b
+langcode: hr
+status: true
+dependencies:
+  config:
+    - group.type.organisation
+_core:
+  default_config_hash: 1bKQ1GGZYWAkF0UJyrxY6vCIsYo-Kd4CJmKHbIwLOxk
+id: organisation-member
+label: Member
+weight: -100
+internal: true
+audience: member
+group_type: organisation
+permissions_ui: true
+permissions: {  }

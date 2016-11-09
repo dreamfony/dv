@@ -1,0 +1,11 @@
+uuid: 5bb130fb-fdfa-4e92-8d65-3a3c294b9c36
+langcode: hr
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.role
+_core:
+  default_config_hash: am6XyF3-Sj2C7kX_L7wEXxn7jrvapdx4oim_Gcf4i4U
+name: Role
+type: role
+description: ''

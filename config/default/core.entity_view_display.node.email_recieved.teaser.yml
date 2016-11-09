@@ -1,0 +1,22 @@
+uuid: 30e51fd3-90b9-482c-a2f7-3a3e815eb80a
+langcode: hr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.email_recieved
+  module:
+    - user
+_core:
+  default_config_hash: enuSNP4gtcONb6rTYNaEWvk-18o2dNss43zcgMILqOQ
+id: node.email_recieved.teaser
+targetEntityType: node
+bundle: email_recieved
+mode: teaser
+content:
+  links:
+    type: visible
+    region: content
+    weight: 100
+hidden:
+  langcode: true

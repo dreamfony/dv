@@ -1,0 +1,25 @@
+uuid: d4348533-a923-4fce-b606-2537d588d6e4
+langcode: hr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_o_organisation_id
+    - node.type.organisation
+_core:
+  default_config_hash: 1bnSFOuYDXhNq9LMAKER3nORnQZDyLs14dYZM1P_blU
+id: node.organisation.field_o_organisation_id
+field_name: field_o_organisation_id
+entity_type: node
+bundle: organisation
+label: 'Organisation ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

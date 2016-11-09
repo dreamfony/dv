@@ -1,0 +1,125 @@
+uuid: fa1ddaea-67d6-44a0-a052-a389109180c2
+langcode: hr
+status: true
+dependencies:
+  config:
+    - field.field.node.organisation.field_o_address
+    - field.field.node.organisation.field_o_area_of_activity
+    - field.field.node.organisation.field_o_email
+    - field.field.node.organisation.field_o_fax
+    - field.field.node.organisation.field_o_issue_types
+    - field.field.node.organisation.field_o_organisation_group
+    - field.field.node.organisation.field_o_organisation_id
+    - field.field.node.organisation.field_o_parent_organisation
+    - field.field.node.organisation.field_o_private_issue
+    - field.field.node.organisation.field_o_telephone
+    - field.field.node.organisation.field_o_web_site
+    - node.type.organisation
+  module:
+    - address
+    - link
+    - user
+_core:
+  default_config_hash: W8yEzc9Vg-oxVS57Sy5Z95L90J7u3Fnm6ecOGc_2T1g
+id: node.organisation.default
+targetEntityType: node
+bundle: organisation
+mode: default
+content:
+  field_o_address:
+    weight: 112
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_o_area_of_activity:
+    weight: 109
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_o_email:
+    weight: 104
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_o_fax:
+    weight: 111
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_o_issue_types:
+    weight: 113
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_o_organisation_group:
+    weight: 108
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_o_organisation_id:
+    weight: 107
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_o_parent_organisation:
+    weight: 102
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_o_private_issue:
+    weight: 114
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_o_telephone:
+    weight: 110
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_o_web_site:
+    weight: 103
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  links:
+    type: visible
+    region: content
+    weight: 100
+hidden:
+  langcode: true

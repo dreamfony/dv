@@ -1,0 +1,20 @@
+uuid: a472a4a5-c4ab-4e65-bfdf-51c8b449cefd
+langcode: hr
+status: true
+dependencies:
+  config:
+    - node.type.email_prepare
+_core:
+  default_config_hash: 7qnyoocGBgOFdrC8n-RzKdjnHQ8Hq0WarT5nYu4305U
+id: node.email_prepare.title
+field_name: title
+entity_type: node
+bundle: email_prepare
+label: Naziv
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

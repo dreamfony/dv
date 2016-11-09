@@ -1,0 +1,20 @@
+uuid: 59e669d8-9174-4af2-9b21-8694c9311e30
+langcode: hr
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+_core:
+  default_config_hash: JTTqZwJG43BtEtYO1QwCaTYfvtNghN-fTmGWsxp7H5g
+name: Person
+type: person
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

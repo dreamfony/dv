@@ -1,0 +1,23 @@
+uuid: f86b7c0f-0e5a-45ef-bcf2-229cb281b38f
+langcode: hr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_p_role
+    - node.type.person
+_core:
+  default_config_hash: c7i9qqwdq7s4M5YBxlA_QUarcYOvHHjDaBCVU_JEnF4
+id: node.person.field_p_role
+field_name: field_p_role
+entity_type: node
+bundle: person
+label: Role
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:role'
+  handler_settings: {  }
+field_type: entity_reference

@@ -1,0 +1,23 @@
+uuid: add216b7-0954-40c5-a21c-5496a92a1c3f
+langcode: hr
+status: true
+dependencies:
+  config:
+    - field.storage.message.field_message_context
+    - message.template.issue
+  module:
+    - options
+_core:
+  default_config_hash: hyDHCC07Ie_TXNQJXUJ6di2r51Dal5-5nZEo8ZS7sEk
+id: message.issue.field_message_context
+field_name: field_message_context
+entity_type: message
+bundle: issue
+label: field_message_context
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

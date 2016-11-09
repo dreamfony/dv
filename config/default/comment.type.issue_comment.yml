@@ -1,0 +1,10 @@
+uuid: 0618e3a8-8183-4e85-9fa0-d16ac5040150
+langcode: hr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: MlzcaUqGDSUXboWK1aFHKFPLwXD4O9YR9L6zbmpM0hE
+id: issue_comment
+label: 'Issue comment'
+target_entity_type_id: node
+description: ''

@@ -1,0 +1,29 @@
+uuid: 5fb990c6-ee7c-47c4-87e8-42adf1170a99
+langcode: hr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_m_attachments
+    - node.type.email_prepare
+  module:
+    - file
+_core:
+  default_config_hash: aWULNs2PGax3OXEv9CCrrX53IlEH-e_WmYSeiiOwkKE
+id: node.email_prepare.field_m_attachments
+field_name: field_m_attachments
+entity_type: node
+bundle: email_prepare
+label: Attachments
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: txt
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

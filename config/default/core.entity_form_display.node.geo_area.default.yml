@@ -1,0 +1,111 @@
+uuid: 58f73110-2f89-4dd2-9202-c8e225fc6451
+langcode: hr
+status: true
+dependencies:
+  config:
+    - field.field.node.geo_area.body
+    - field.field.node.geo_area.field_geo_area_admin_area_level
+    - field.field.node.geo_area.field_geo_area_geonames_id
+    - field.field.node.geo_area.field_geo_area_parent
+    - field.field.node.geo_area.field_geo_area_population
+    - node.type.geo_area
+  module:
+    - content_moderation
+    - path
+    - text
+_core:
+  default_config_hash: rkIfef9nESvlhYzjbdASNBVpZwwXgfJ9fKP93CF7f3w
+id: node.geo_area.default
+targetEntityType: node
+bundle: geo_area
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 31
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_geo_area_admin_area_level:
+    weight: 34
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_geo_area_geonames_id:
+    weight: 33
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_geo_area_parent:
+    weight: 32
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_geo_area_population:
+    weight: 35
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 15
+    third_party_settings: {  }
+    region: content
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 16
+    third_party_settings: {  }
+    region: content
+  title:
+    type: string_textfield
+    weight: -5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

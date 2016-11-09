@@ -1,0 +1,30 @@
+uuid: 666255d9-e7b6-413a-8921-17806f1026e3
+langcode: hr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_i_issue_type
+    - node.type.issue
+    - taxonomy.vocabulary.issue_type
+_core:
+  default_config_hash: _QJLfvcm9MXCB7DDDA3FsV97CLxcxjSqvSpLa18nbtM
+id: node.issue.field_i_issue_type
+field_name: field_i_issue_type
+entity_type: node
+bundle: issue
+label: 'Issue Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      issue_type: issue_type
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

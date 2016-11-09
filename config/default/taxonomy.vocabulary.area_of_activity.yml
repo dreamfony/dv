@@ -1,0 +1,11 @@
+uuid: 6bb27006-3d23-4771-a004-cda5c73885d2
+langcode: hr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sBbU96aUS5z68Bg3ycDTcZrxzrs03tyEcwHXbuKldPk
+name: 'Area of Activity'
+vid: area_of_activity
+description: ''
+hierarchy: 0
+weight: 0

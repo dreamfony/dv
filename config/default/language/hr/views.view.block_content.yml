@@ -1,0 +1,27 @@
+display:
+  default:
+    display_title: Master
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Primjeni
+          reset_button_label: Poništi
+          exposed_sorts_label: 'Rasporedi po'
+          sort_asc_label: Uzlazno
+          sort_desc_label: Silazno
+      fields:
+        info:
+          label: 'Opis bloka'
+          separator: ', '
+        type:
+          separator: ', '
+        changed:
+          label: Osvježeno
+        operations:
+          label: Operacije
+      filters:
+        info:
+          expose:
+            label: 'Opis bloka'
+  page_1:
+    display_title: Stranica

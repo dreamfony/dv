@@ -1,0 +1,23 @@
+uuid: 6b37d9ec-2524-48a3-9d4e-9f00eed714c5
+langcode: hr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_o_fax
+    - node.type.organisation
+  module:
+    - telephone
+_core:
+  default_config_hash: _3gyr3Q2nfsgkMWlAll7m0mu7YhWeBJeCT53lnFQIdk
+id: node.organisation.field_o_fax
+field_name: field_o_fax
+entity_type: node
+bundle: organisation
+label: Fax
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

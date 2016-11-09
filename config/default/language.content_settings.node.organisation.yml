@@ -1,0 +1,13 @@
+uuid: 1c4624ae-2275-460e-92a1-5a6fbd966424
+langcode: hr
+status: true
+dependencies:
+  config:
+    - node.type.organisation
+_core:
+  default_config_hash: B23zAagokTUTQtVtQO8MoJH1Y_ZEME8SItu7wmaAS_E
+id: node.organisation
+target_entity_type_id: node
+target_bundle: organisation
+default_langcode: site_default
+language_alterable: false

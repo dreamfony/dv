@@ -1,0 +1,14 @@
+uuid: 03bb4dfa-f3fe-4532-912e-2079eefbc757
+name: Drupal
+mail: damir.miric@gmail.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: hr
+default_langcode: hr
+_core:
+  default_config_hash: AyT9s8OUcclfALRE_imByOMgtZ19eOlqdF6zI3p7yqo

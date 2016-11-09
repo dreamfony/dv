@@ -1,0 +1,16 @@
+uuid: a4a37da4-3854-4d84-8662-8d451e1a4427
+langcode: hr
+status: true
+dependencies:
+  config:
+    - group.type.organisation
+_core:
+  default_config_hash: FeA5PTUqQX6Ndu85nI5TGtn8w6GwYgu7jdlCM6Za3NQ
+id: organisation-outsider
+label: Outsider
+weight: -101
+internal: true
+audience: outsider
+group_type: organisation
+permissions_ui: true
+permissions: {  }

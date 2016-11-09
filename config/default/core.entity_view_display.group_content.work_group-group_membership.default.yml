@@ -1,0 +1,26 @@
+uuid: e18486d2-a4ab-4ba3-b03a-eb9ed9f8f3e2
+langcode: hr
+status: true
+dependencies:
+  config:
+    - field.field.group_content.work_group-group_membership.group_roles
+    - group.content_type.work_group-group_membership
+_core:
+  default_config_hash: rvcYkJfypbtp7j6-1a0jf1nkEQeujRyxp5o2QGgcxPM
+id: group_content.work_group-group_membership.default
+targetEntityType: group_content
+bundle: work_group-group_membership
+mode: default
+content:
+  group_roles:
+    label: above
+    type: entity_reference_label
+    settings:
+      link: false
+    weight: -4
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_id: true
+  langcode: true
+  uid: true

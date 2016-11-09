@@ -1,0 +1,11 @@
+uuid: 03e26580-9eb8-4649-b414-cc15402425a8
+langcode: hr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: yMaUhNEL_q7h4FRBnSCo3z6R5x__9G1jU8ZRXiBSAkk
+id: draft
+label: Draft
+published: false
+default_revision: false
+weight: -10

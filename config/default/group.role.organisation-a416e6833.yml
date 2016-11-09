@@ -1,0 +1,21 @@
+uuid: 91f90b8f-e05a-404f-b95b-5994feea2f6a
+langcode: hr
+status: true
+dependencies:
+  config:
+    - group.type.organisation
+  enforced:
+    module:
+      - grolesync
+    config:
+      - user.role.administrator
+_core:
+  default_config_hash: d5x-2NvmFnsfCgxAZ3Gjf0iB_0XsS9Sf13HQ2dr2TJk
+id: organisation-a416e6833
+label: Administrator
+weight: 2
+internal: true
+audience: outsider
+group_type: organisation
+permissions_ui: false
+permissions: {  }

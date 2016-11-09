@@ -1,0 +1,11 @@
+uuid: 4c28a81d-d365-40e9-9984-13061651d490
+langcode: hr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 7JI4uS_gcR1bj9qGU6M1f7NGjhouOK4AaMtteODLKhc
+name: Role
+vid: role
+description: ''
+hierarchy: 0
+weight: 0

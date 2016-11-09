@@ -1,0 +1,22 @@
+uuid: 4872810c-8d08-4d8c-b238-7e75f58cd230
+langcode: hr
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+_core:
+  default_config_hash: wdyQhy2_dpsAR0OO1taFsy-Cm80nTX3EGnf8DZPwvI8
+id: node.field_o_issue_types
+field_name: field_o_issue_types
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

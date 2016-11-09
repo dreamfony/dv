@@ -1,0 +1,22 @@
+uuid: 76be675a-a559-4550-a2f3-8c1d263c7229
+langcode: hr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.email_sent
+  module:
+    - user
+_core:
+  default_config_hash: 1sOaYnJJWVRx1A5sjdi9p83gt1NpxdyHYsWPtrz9yaM
+id: node.email_sent.teaser
+targetEntityType: node
+bundle: email_sent
+mode: teaser
+content:
+  links:
+    type: visible
+    region: content
+    weight: 100
+hidden:
+  langcode: true

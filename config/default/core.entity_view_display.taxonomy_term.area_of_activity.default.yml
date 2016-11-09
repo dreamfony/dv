@@ -1,0 +1,33 @@
+uuid: 6e270c30-f985-4119-9cd5-7b374a1139ef
+langcode: hr
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.area_of_activity.field_area_of_activity_id
+    - taxonomy.vocabulary.area_of_activity
+  module:
+    - text
+_core:
+  default_config_hash: SlqbSQn8mWdy00gS4iM1KI0cm5bAYKVajSkYhQbJZRs
+id: taxonomy_term.area_of_activity.default
+targetEntityType: taxonomy_term
+bundle: area_of_activity
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_area_of_activity_id:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,22 @@
+uuid: d0bede32-1295-41bc-b0cf-b59b075e0b89
+langcode: hr
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: B1Drwc2dgPcvKW3la-KJKi-ycD-u4tosjSrajeHp010
+id: node.field_o_organisation_id
+field_name: field_o_organisation_id
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

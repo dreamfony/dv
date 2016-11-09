@@ -1,0 +1,11 @@
+uuid: 7ce5fcd3-c5e0-4ddc-87dd-28721e5046f1
+langcode: hr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 5mD2jG-zch_9WheXilLegpSoX_EE0s6jv5pZgEkmdpQ
+id: node_type_area
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

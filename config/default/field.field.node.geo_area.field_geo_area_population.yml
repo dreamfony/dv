@@ -1,0 +1,25 @@
+uuid: d911cd10-8841-4617-9783-3b41b0d2825f
+langcode: hr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_geo_area_population
+    - node.type.geo_area
+_core:
+  default_config_hash: xsMLurGktqvau1rVy398nO02xANmI2U44DHNHUaIt7s
+id: node.geo_area.field_geo_area_population
+field_name: field_geo_area_population
+entity_type: node
+bundle: geo_area
+label: Population
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

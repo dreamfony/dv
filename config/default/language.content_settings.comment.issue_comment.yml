@@ -1,0 +1,13 @@
+uuid: 43f6aa63-583b-4bbf-91ac-be06a9a494b2
+langcode: hr
+status: true
+dependencies:
+  config:
+    - comment.type.issue_comment
+_core:
+  default_config_hash: sOMmbLdZGYRaeftSeiCkomo9D3fgFxzIVBKgzJeflXI
+id: comment.issue_comment
+target_entity_type_id: comment
+target_bundle: issue_comment
+default_langcode: site_default
+language_alterable: false

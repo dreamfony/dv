@@ -1,0 +1,25 @@
+uuid: f6925ed3-b4fb-4420-8f26-56efc54de0b3
+langcode: hr
+status: true
+dependencies:
+  module:
+    - file
+    - node
+_core:
+  default_config_hash: eYEhBPI014w9bp1CBYYhbUEaFlCwKn9En1kvWuBE_74
+id: node.field_i_attachments
+field_name: field_i_attachments
+entity_type: node
+type: file
+settings:
+  display_field: false
+  display_default: false
+  uri_scheme: public
+  target_type: file
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

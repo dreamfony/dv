@@ -1,0 +1,35 @@
+uuid: 0469f229-d234-45ea-aca5-74a3dcc8c19f
+langcode: hr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_i_description
+    - node.type.issue
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: title
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+_core:
+  default_config_hash: V1NxXUztTLcoKDMXbnZCXkbFt--SDRRsnE20CnG7bZE
+id: node.issue.field_i_description
+field_name: field_i_description
+entity_type: node
+bundle: issue
+label: Opis
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

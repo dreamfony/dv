@@ -1,0 +1,38 @@
+uuid: fd1131ec-61c7-4de2-8c1c-e8404b10474d
+langcode: hr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_i_address
+    - node.type.issue
+  module:
+    - address
+_core:
+  default_config_hash: vK96r-bTby4pTrSzIWgZ-LalP_uOZjKlwGEUPi-QFb8
+id: node.issue.field_i_address
+field_name: field_i_address
+entity_type: node
+bundle: issue
+label: Adresa
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_countries:
+    HR: HR
+  fields:
+    administrativeArea: administrativeArea
+    locality: locality
+    dependentLocality: dependentLocality
+    postalCode: postalCode
+    sortingCode: sortingCode
+    addressLine1: addressLine1
+    addressLine2: addressLine2
+    organization: '0'
+    givenName: '0'
+    additionalName: '0'
+    familyName: '0'
+  langcode_override: ''
+field_type: address

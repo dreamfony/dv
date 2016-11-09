@@ -1,0 +1,25 @@
+uuid: 4b0495c0-9d88-42c2-a7ba-33697a42ef2e
+langcode: hr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_i_private
+    - node.type.issue
+_core:
+  default_config_hash: q8SIh-WJ5pKOvzzugwRzf88DqpMinNHKoSpZ8TfQPb8
+id: node.issue.field_i_private
+field_name: field_i_private
+entity_type: node
+bundle: issue
+label: Private
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Private
+  off_label: Public
+field_type: boolean

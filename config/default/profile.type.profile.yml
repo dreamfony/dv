@@ -1,0 +1,14 @@
+uuid: 7503db5d-cedf-4ad3-b19c-29c64cdcb73e
+langcode: hr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: BKqpkcpQ6vRhAciVQT_3sOA3bKs1vtrCini-GiyGcKs
+id: profile
+label: Profil
+registration: false
+multiple: false
+roles:
+  authenticated: '0'
+  administrator: '0'
+weight: 0

@@ -1,0 +1,45 @@
+uuid: 3b65ff57-e0b6-4813-a2f4-aa14f8c17b2b
+langcode: hr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.issue.field_i_address
+    - field.field.node.issue.field_i_attachments
+    - field.field.node.issue.field_i_comments
+    - field.field.node.issue.field_i_description
+    - field.field.node.issue.field_i_emails
+    - field.field.node.issue.field_i_issue_type
+    - field.field.node.issue.field_i_private
+    - field.field.node.issue.field_i_tags
+    - node.type.issue
+  module:
+    - user
+_core:
+  default_config_hash: '-zDhNvVfLeTFq-g10bKr1cmM7-JzloNlxuLMORuyDzY'
+id: node.issue.teaser
+targetEntityType: node
+bundle: issue
+mode: teaser
+content:
+  content_moderation_control:
+    type: visible
+    region: content
+    weight: -20
+  flag_follow_issue:
+    weight: 10
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_i_address: true
+  field_i_attachments: true
+  field_i_comments: true
+  field_i_description: true
+  field_i_emails: true
+  field_i_issue_type: true
+  field_i_private: true
+  field_i_tags: true
+  langcode: true
+  like_and_dislike: true

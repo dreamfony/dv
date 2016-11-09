@@ -1,0 +1,24 @@
+uuid: cdbb73e2-82ef-4260-8222-8b59264c8caa
+langcode: hr
+status: true
+dependencies:
+  config:
+    - node.type.page
+_core:
+  default_config_hash: fPUEnm4T5zfZRr3ttDUqq7yCDd2uW3clWD-pvos4tlQ
+id: node.page.promote
+field_name: promote
+entity_type: node
+bundle: page
+label: 'Promovirano na naslovnici'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Uključi
+  off_label: 'Off'
+field_type: boolean

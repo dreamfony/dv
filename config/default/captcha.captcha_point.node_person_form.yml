@@ -1,0 +1,9 @@
+uuid: 97811a92-2968-48ab-8739-0ff522beea1c
+langcode: hr
+status: false
+dependencies: {  }
+_core:
+  default_config_hash: wsrDy4lJu2eFAqsk6BIkLIq-ACaUPKpG8sL38Ozo5k0
+formId: node_person_form
+captchaType: default
+label: null

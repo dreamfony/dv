@@ -1,0 +1,14 @@
+uuid: a2496a81-8f9b-43f5-a9d3-7d0d3916e340
+langcode: hr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: XByY0eo6qILd28szH_3g70JTQNdErJvLNlMcvm7GRrY
+id: feedback
+label: 'Website feedback'
+recipients:
+  - damir.miric@gmail.com
+reply: ''
+weight: 0
+message: 'Vaša poruka je poslana.'
+redirect: ''

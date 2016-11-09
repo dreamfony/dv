@@ -1,0 +1,29 @@
+uuid: d74ebe88-4b88-452b-89de-51f34aef3c80
+langcode: hr
+status: true
+dependencies:
+  config:
+    - field.field.node.page.body
+    - node.type.page
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: FqORsygZ944Gezrx3UOZDmJN-r8ihMXVO4XMxvInQfA
+id: node.page.default
+targetEntityType: node
+bundle: page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 101
+    region: content
+hidden:
+  langcode: true

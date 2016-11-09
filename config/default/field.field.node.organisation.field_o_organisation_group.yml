@@ -1,0 +1,30 @@
+uuid: 418c33d2-cd66-4317-baed-f53daee11c00
+langcode: hr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_o_organisation_group
+    - node.type.organisation
+    - taxonomy.vocabulary.organisation_group
+_core:
+  default_config_hash: uE5zjsoHSyAAFHd9DM-ee2E-GCs3Zu-25GkVZ8iWrDg
+id: node.organisation.field_o_organisation_group
+field_name: field_o_organisation_group
+entity_type: node
+bundle: organisation
+label: 'Organisation Group'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      organisation_group: organisation_group
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

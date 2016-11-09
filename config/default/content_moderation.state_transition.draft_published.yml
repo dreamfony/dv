@@ -1,0 +1,14 @@
+uuid: b3b61523-9323-4aea-b36a-eaee844bebc8
+langcode: hr
+status: true
+dependencies:
+  config:
+    - content_moderation.state.draft
+    - content_moderation.state.published
+_core:
+  default_config_hash: RUvIDJSYK301WYC0MoV4_JInYBhHvrHWooLVo540ql0
+id: draft_published
+label: Publish
+stateFrom: draft
+stateTo: published
+weight: -9

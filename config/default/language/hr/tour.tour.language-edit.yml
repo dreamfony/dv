@@ -1,0 +1,5 @@
+tips:
+  language-edit-langcode:
+    label: 'Kôd jezika'
+  language-edit-label:
+    label: 'Naziv jezika'

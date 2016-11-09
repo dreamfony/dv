@@ -1,0 +1,11 @@
+uuid: 985c25a2-962d-4f78-bd3b-a5d125026009
+langcode: hr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Effb3JZKDIVdKH4MoosEZwBMOCvqr0M2UrIFKascAQw
+id: node_type_email_sent
+action: page_not_found
+allow_override: 1
+redirect: ''
+redirect_code: 301

@@ -1,0 +1,11 @@
+uuid: c2ec0179-412f-40cd-94f1-1a6816c92b47
+langcode: hr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 7e34JTIvW5Is3o-LH2OWlgSsm404GpoObSbWtcYXZUs
+id: moderator
+label: Moderator
+weight: 3
+is_admin: null
+permissions: {  }

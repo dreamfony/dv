@@ -1,0 +1,11 @@
+uuid: e99406be-7358-4fa9-8cab-688905a3e672
+langcode: hr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: jOJxkMO69cCayqzbi55ZueGo2Jqnp1f3_ykRS7VK4nc
+name: Functions
+vid: functions
+description: ''
+hierarchy: 0
+weight: 0

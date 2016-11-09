@@ -1,0 +1,20 @@
+uuid: ea0746ae-79db-48bc-8a7e-12ae2d72c183
+langcode: hr
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+_core:
+  default_config_hash: snTfBlrfwbd27QqPngmmrAnpVttC5YELd-t1TfS8khA
+name: 'Email Recieved'
+type: email_recieved
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,23 @@
+uuid: 1354a3b5-431b-4bfa-94e2-1dc9bd5c1391
+langcode: hr
+status: true
+dependencies:
+  config:
+    - field.storage.activity.field_activity_destinations
+  module:
+    - activity_creator
+    - options
+_core:
+  default_config_hash: ifFlN1p18KKSRLYpdDTnNk-6b_ukzBltilGAq-zsj0k
+id: activity.activity.field_activity_destinations
+field_name: field_activity_destinations
+entity_type: activity
+bundle: activity
+label: Destinations
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

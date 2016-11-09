@@ -1,0 +1,13 @@
+uuid: 4f2a1841-9176-4ea1-8440-ff8e980fd6c4
+langcode: hr
+status: true
+dependencies:
+  module:
+    - pathauto
+_core:
+  default_config_hash: kSEQOYMrW3XqboFDIN2CqhZzT6GuCcUAS8lP7tta1eg
+id: pathauto_update_alias_node
+label: 'Osvježi URL nadimak'
+type: node
+plugin: pathauto_update_alias
+configuration: {  }

@@ -1,0 +1,28 @@
+uuid: ff85a1b0-1593-46b7-b5d0-3fb5a945471b
+langcode: hr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.page.body
+    - node.type.page
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: Dteu0gtPtt00oQzicxyxLvZ6jZEmoOLKiQEL5SdwN4Q
+id: node.page.search_index
+targetEntityType: node
+bundle: page
+mode: search_index
+content:
+  body:
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    label: hidden
+    region: content
+hidden:
+  langcode: true
+  links: true

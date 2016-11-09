@@ -1,0 +1,23 @@
+uuid: 8a330644-5fed-4de5-b194-f20d3e1b7329
+langcode: hr
+status: true
+dependencies:
+  config:
+    - field.storage.group_content.field_datum
+    - group.content_type.organisation-group_node-person
+  module:
+    - datetime
+_core:
+  default_config_hash: sXkbMUTR3jlQ6J0l691hiuLf74yCYtkgaB0QwbQ6mPI
+id: group_content.organisation-group_node-person.field_datum
+field_name: field_datum
+entity_type: group_content
+bundle: organisation-group_node-person
+label: datum
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

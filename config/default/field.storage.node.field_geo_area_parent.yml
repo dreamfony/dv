@@ -1,0 +1,21 @@
+uuid: 421836f1-6b47-4846-b8e3-ab93d3214803
+langcode: hr
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: zhTh8kRUGCw0uiYLQB2gvqoUCisOOB9S2Iw_z_XJSu8
+id: node.field_geo_area_parent
+field_name: field_geo_area_parent
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 655eaeeb-d0a7-4da6-9f14-bbf901f239a4
+langcode: hr
+status: true
+dependencies:
+  module:
+    - group
+_core:
+  default_config_hash: 6SE-yE1uyNTD8F3WCnqh71YgIRDOR_cc0UWcgKfAj0I
+id: group_content.group_roles
+field_name: group_roles
+entity_type: group_content
+type: entity_reference
+settings:
+  target_type: group_role
+module: core
+locked: true
+cardinality: -1
+translatable: false
+indexes: {  }
+persist_with_no_fields: true
+custom_storage: false

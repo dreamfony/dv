@@ -1,0 +1,20 @@
+uuid: bff4da08-5d74-4dcd-a9fc-05074a628328
+langcode: hr
+status: true
+dependencies:
+  config:
+    - group.type.organisation
+  module:
+    - user
+_core:
+  default_config_hash: J_h8WH8rSMdLACX-1X9YY2-ZkWUjA54e_sQjj3iOzB4
+id: organisation-group_membership
+label: 'Organisation: Group membership'
+description: 'Adds users to groups as members.'
+group_type: organisation
+content_plugin: group_membership
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  info_text:
+    value: '<p>By submitting this form you will become a member of the group.<br />Please fill out any available fields to complete your membership information.</p>'

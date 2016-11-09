@@ -1,0 +1,28 @@
+uuid: 49aaf47f-4919-479c-b86a-63db7e33c12b
+langcode: hr
+status: false
+dependencies:
+  module:
+    - social_core
+    - system
+  theme:
+    - socialbase
+_core:
+  default_config_hash: XlcqhiFUha2cNLhkfWUo9S0WLJh8joRUeTPi9vujuR8
+id: pagetitleblock_content
+theme: socialbase
+region: ''
+weight: 0
+provider: null
+plugin: social_page_title_block
+settings:
+  id: social_page_title_block
+  label: 'Page title block'
+  provider: social_core
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '/search/*'
+    negate: true
+    context_mapping: {  }

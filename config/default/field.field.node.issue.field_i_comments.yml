@@ -1,0 +1,35 @@
+uuid: 2e56aec0-c84c-46c9-aef5-90ebb1a81793
+langcode: hr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_i_comments
+    - node.type.issue
+  module:
+    - comment
+_core:
+  default_config_hash: jYWv27s-wU4mybrWTXD1XGm7CP7-9ZMsDmwzLbrb0sY
+id: node.issue.field_i_comments
+field_name: field_i_comments
+entity_type: node
+bundle: issue
+label: Komentari
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    status: 2
+    cid: 0
+    last_comment_timestamp: 0
+    last_comment_name: null
+    last_comment_uid: 0
+    comment_count: 0
+default_value_callback: ''
+settings:
+  default_mode: 1
+  per_page: 50
+  anonymous: 0
+  form_location: true
+  preview: 1
+field_type: comment

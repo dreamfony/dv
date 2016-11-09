@@ -1,0 +1,55 @@
+uuid: 8e55ff7b-ebea-4c65-bfbf-25d76ab1dd09
+langcode: hr
+status: true
+dependencies:
+  config:
+    - eck.eck_type.role.role
+    - field.field.role.role.field_r_date_range
+    - field.field.role.role.field_r_function
+    - field.field.role.role.field_r_organisation
+  module:
+    - datetime_range
+_core:
+  default_config_hash: s2aLmWMOjdt-G0ErbwDB44qePtWz1zJEXuUh1RKPB3k
+id: role.role.default
+targetEntityType: role
+bundle: role
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_r_date_range:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  field_r_function:
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_r_organisation:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  langcode:
+    type: language_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

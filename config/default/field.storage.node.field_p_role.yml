@@ -1,0 +1,22 @@
+uuid: f4fde3be-30d7-4611-a97e-7480625df133
+langcode: hr
+status: true
+dependencies:
+  module:
+    - eck
+    - node
+_core:
+  default_config_hash: A-PVU9-mKUzzjzNtQ93dFN42qQnMdL0cu79rL4qsuGA
+id: node.field_p_role
+field_name: field_p_role
+entity_type: node
+type: entity_reference
+settings:
+  target_type: role
+module: core
+locked: false
+cardinality: 50
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

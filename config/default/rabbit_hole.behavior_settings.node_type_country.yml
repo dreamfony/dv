@@ -1,0 +1,11 @@
+uuid: 01d2ffbf-c038-45c8-81aa-98353d078f1b
+langcode: hr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dVXsx03U4auqWETkHLrJbOD_zHznzjqWUvQow2h7cFo
+id: node_type_country
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

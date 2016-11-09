@@ -1,0 +1,13 @@
+uuid: 4de03f38-9ba4-4c44-9eda-309dd58255a1
+langcode: hr
+status: true
+dependencies:
+  config:
+    - node.type.email_sent
+_core:
+  default_config_hash: 2nAl9V4TOZNlFKsKISBtUUSb24ncCKDkSoakLtA0kTw
+id: node.email_sent
+target_entity_type_id: node
+target_bundle: email_sent
+default_langcode: site_default
+language_alterable: false

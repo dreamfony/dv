@@ -1,0 +1,11 @@
+uuid: 81e8f45b-0421-4e19-a49e-5a5ea4678e72
+langcode: hr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: lghj2DWV2hD2lv7wu7yZf95bHpQC34OAF0b_dnkfQO0
+id: taxonomy_vocabulary_area_of_activity
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

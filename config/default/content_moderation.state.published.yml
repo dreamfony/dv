@@ -1,0 +1,11 @@
+uuid: 5f6669b2-5f6f-49f7-97f5-8ef2b4e3347d
+langcode: hr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: xXNQquMx-xkHje0RYjdxm2eUzMEr3qaOYHa-qaimATE
+id: published
+label: Published
+published: true
+default_revision: true
+weight: -9

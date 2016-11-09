@@ -1,0 +1,22 @@
+uuid: 62a544ae-a801-4126-bf7d-f4bc4faeccf9
+langcode: hr
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: PfRSJ3MN2DVfMJ2j1ERvYH_bxSDy1ZjV83oKpRoxvjc
+id: node.field_person_id
+field_name: field_person_id
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

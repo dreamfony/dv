@@ -1,0 +1,30 @@
+uuid: 5f9a9839-f362-4547-af86-7bd893d8bd73
+langcode: hr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.email_prepare.field_m_attachments
+    - field.field.node.email_prepare.field_m_body
+    - field.field.node.email_prepare.field_m_recipient
+    - field.field.node.email_prepare.field_m_send_date
+    - node.type.email_prepare
+  module:
+    - user
+_core:
+  default_config_hash: AMJ_WEsFeecHpl41XivA_aemOE1emLFsMliUb78ApUc
+id: node.email_prepare.teaser
+targetEntityType: node
+bundle: email_prepare
+mode: teaser
+content:
+  links:
+    type: visible
+    region: content
+    weight: 100
+hidden:
+  field_m_attachments: true
+  field_m_body: true
+  field_m_recipient: true
+  field_m_send_date: true
+  langcode: true

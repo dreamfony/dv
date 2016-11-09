@@ -1,0 +1,12 @@
+uuid: 5d6a01e8-6465-4de2-9099-3292a45bc84b
+langcode: hr
+status: false
+dependencies:
+  module:
+    - message
+_core:
+  default_config_hash: Pl6xok1fBCKaPlLC4iDJVaucp2W72csXt7M3Jwa95nU
+id: message.full
+label: 'Puni sadržaj'
+targetEntityType: message
+cache: true

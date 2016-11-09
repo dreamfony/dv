@@ -1,0 +1,37 @@
+uuid: 8fc0b41f-5d73-42b4-8088-bfa6700348a0
+langcode: hr
+status: true
+dependencies:
+  config:
+    - comment.type.issue_comment
+    - field.field.comment.issue_comment.comment_body
+    - field.field.comment.issue_comment.field_c_emails
+  module:
+    - text
+_core:
+  default_config_hash: 2IV1LVqNOVo7dI0wUAlZOGnWcvWlC9d_LNUeGJE2csA
+id: comment.issue_comment.default
+targetEntityType: comment
+bundle: issue_comment
+mode: default
+content:
+  comment_body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_c_emails:
+    weight: 101
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,25 @@
+uuid: 763a33f3-b4d9-4711-abd9-70cde19389cd
+langcode: hr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: iicZXek7-gWO0JkMKmSY22lxwyCAaAxXphkVM7VT-3I
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'view files'
+  - 'view own unpublished content'
+  - 'use text format basic_html'
+  - 'use text format simple_text'
+  - 'add own profile profile'
+  - 'edit own profile profile'
+  - 'view any profile profile'
+  - 'view own profile profile'
+  - 'access comments'
+  - 'post comments'
+  - 'skip comment approval'
+  - 'access site-wide contact form'
+  - 'access shortcuts'

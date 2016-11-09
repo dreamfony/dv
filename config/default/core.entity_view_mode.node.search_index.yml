@@ -1,0 +1,12 @@
+uuid: ef409e48-47af-440b-b490-c376a60407eb
+langcode: hr
+status: false
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: fVFfJv_GzBRE-wpRHbfD5a3VjnhbEOXG6lvRd3uaccY
+id: node.search_index
+label: 'Indeks pretraživanja'
+targetEntityType: node
+cache: true

@@ -1,0 +1,13 @@
+uuid: 351da77c-8f55-4013-909f-24eb27d58fea
+langcode: hr
+status: true
+dependencies:
+  config:
+    - node.type.issue
+_core:
+  default_config_hash: wo56FJhtxPKhGdO5zthv9Onn7pHiFNSJS10YUbyMl60
+id: node.issue
+target_entity_type_id: node
+target_bundle: issue
+default_langcode: site_default
+language_alterable: false

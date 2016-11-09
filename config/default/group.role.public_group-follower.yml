@@ -1,0 +1,16 @@
+uuid: dca84b25-99a7-4aa0-92c1-436fde14f328
+langcode: hr
+status: true
+dependencies:
+  config:
+    - group.type.public_group
+_core:
+  default_config_hash: CiVqqn_fqwEXofkGZ5MMlyA_hrdxflbme6U3w_t81Ts
+id: public_group-follower
+label: Follower
+weight: 4
+internal: false
+audience: member
+group_type: public_group
+permissions_ui: true
+permissions: {  }

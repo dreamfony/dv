@@ -1,0 +1,16 @@
+uuid: 48785524-1526-446b-99b3-5a16c1621cdd
+langcode: hr
+status: true
+dependencies:
+  config:
+    - group.type.geo_area_group
+_core:
+  default_config_hash: MjVhUpnpC5AqsMNsg5058k7ppPe5IiWmqtPAMTgD3O4
+id: geo_area_group-anonymous
+label: Anoniman
+weight: -102
+internal: true
+audience: anonymous
+group_type: geo_area_group
+permissions_ui: true
+permissions: {  }

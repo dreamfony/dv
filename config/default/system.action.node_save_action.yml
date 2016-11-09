@@ -1,0 +1,13 @@
+uuid: e5c620dc-39e3-4131-ab8c-4346993bd7fb
+langcode: hr
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: U9HspszLxcw6pZmRacFa6yDbbheyMN-We4fPbrWWHGg
+id: node_save_action
+label: 'Spremi sadržaj'
+type: node
+plugin: node_save_action
+configuration: {  }

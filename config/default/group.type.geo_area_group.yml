@@ -1,0 +1,9 @@
+uuid: 3cc79c97-ca70-4338-9f10-78c7cc59857e
+langcode: hr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: xCZr21VT5Cnf1Dffbbu7aNRqCLJBynox5z7paqv9V3I
+id: geo_area_group
+label: 'Geo Area Group'
+description: ''

@@ -1,0 +1,9 @@
+uuid: 06fe366f-a806-4763-bb15-dfeb8c29f294
+langcode: hr
+status: false
+dependencies: {  }
+_core:
+  default_config_hash: A8KoEECqls96Rm_i-U5p8Y6N1J8i0i3AdMITrdQnZlg
+formId: node_email_sent_form
+captchaType: default
+label: null

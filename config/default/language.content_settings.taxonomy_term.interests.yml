@@ -1,0 +1,13 @@
+uuid: 5de16686-4a9b-48fb-903a-49282aee1ccb
+langcode: hr
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.interests
+_core:
+  default_config_hash: 2qTvSvieqaPKYwuZvGNEkHIm4qns6VJB3yGn3DzxheQ
+id: taxonomy_term.interests
+target_entity_type_id: taxonomy_term
+target_bundle: interests
+default_langcode: site_default
+language_alterable: false

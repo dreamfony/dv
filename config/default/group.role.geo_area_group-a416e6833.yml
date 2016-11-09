@@ -1,0 +1,21 @@
+uuid: 85c29da9-01ca-443a-a20f-d3a8e052a2dd
+langcode: hr
+status: true
+dependencies:
+  config:
+    - group.type.geo_area_group
+  enforced:
+    module:
+      - grolesync
+    config:
+      - user.role.administrator
+_core:
+  default_config_hash: P1e-g7O_hos8O2FegQYIZvdOt4a_FhTF8JtvqSUjha4
+id: geo_area_group-a416e6833
+label: Administrator
+weight: 2
+internal: true
+audience: outsider
+group_type: geo_area_group
+permissions_ui: false
+permissions: {  }

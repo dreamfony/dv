@@ -1,0 +1,9 @@
+uuid: 99569ae6-6350-4a95-a5d4-f7007b9e6722
+langcode: hr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: PpH8F-KMJV3KA9Cj3hojlqcQRQKgv7VntormDDLlHgw
+id: public_group
+label: 'Public group'
+description: 'Public user Issues. Used to group up Issues that are publicly available, so other users can follow.'
