@@ -41,7 +41,6 @@
         "drupal/search_api": "~1.0",
         "drupal/search_api_db": "~1.0",
         "drupal/config_update": "~1.0",
-        "drupal/devel": "~1.0",
         "drupal/features": "~3.0",
         "drupal/migrate_plus": "~2.0",
         "drupal/migrate_tools": "~2.0",
