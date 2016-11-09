@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3fc4d85712c18cd0e25fdfb417c25fc3",
-    "content-hash": "59d80b0e39b30e3c0cdbaafab855b7c4",
+    "hash": "aaf9347acf99e74d64ca409fc0d53131",
+    "content-hash": "af1e4777152998f61ff1055ccb070d7f",
     "packages": [
         {
             "name": "acquia/blt",
@@ -1205,16 +1205,16 @@
         },
         {
             "name": "drupal-composer/drupal-scaffold",
-            "version": "2.1.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal-composer/drupal-scaffold.git",
-                "reference": "617fa3a2466795b148e3255651591682f2325ede"
+                "reference": "3ad465ac853c2e52e6a808f5529859917662c256"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-composer/drupal-scaffold/zipball/617fa3a2466795b148e3255651591682f2325ede",
-                "reference": "617fa3a2466795b148e3255651591682f2325ede",
+                "url": "https://api.github.com/repos/drupal-composer/drupal-scaffold/zipball/3ad465ac853c2e52e6a808f5529859917662c256",
+                "reference": "3ad465ac853c2e52e6a808f5529859917662c256",
                 "shasum": ""
             },
             "require": {
@@ -1242,7 +1242,7 @@
                 "GPL-2.0+"
             ],
             "description": "Composer Plugin for updating the Drupal scaffold files when using drupal/core",
-            "time": "2016-08-29 16:56:02"
+            "time": "2016-11-05 10:46:44"
         },
         {
             "name": "drupal/acquia_connector",
@@ -1976,16 +1976,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "8.2.2",
+            "version": "8.3.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal-composer/drupal-core.git",
-                "reference": "399b52eee9e80492ce6928d6784a8399e0da961c"
+                "reference": "f510b6fd021043debb68c9a0fcf3e8a16ea95ea9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/399b52eee9e80492ce6928d6784a8399e0da961c",
-                "reference": "399b52eee9e80492ce6928d6784a8399e0da961c",
+                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/f510b6fd021043debb68c9a0fcf3e8a16ea95ea9",
+                "reference": "f510b6fd021043debb68c9a0fcf3e8a16ea95ea9",
                 "shasum": ""
             },
             "require": {
@@ -1997,13 +1997,14 @@
                 "egulias/email-validator": "1.2.*",
                 "guzzlehttp/guzzle": "^6.2.1",
                 "masterminds/html5": "~2.1",
-                "paragonie/random_compat": "~1.0",
+                "paragonie/random_compat": "^1.0|^2.0",
                 "php": ">=5.5.9",
                 "stack/builder": "1.0.*",
                 "symfony-cmf/routing": "~1.4",
                 "symfony/class-loader": "~2.8",
                 "symfony/console": "~2.8",
                 "symfony/dependency-injection": "~2.8",
+                "symfony/dom-crawler": ">=2.8.13 <3.0",
                 "symfony/event-dispatcher": "~2.8",
                 "symfony/http-foundation": "~2.8",
                 "symfony/http-kernel": "~2.8",
@@ -2119,7 +2120,7 @@
                 "drupal/views_ui": "self.version"
             },
             "require-dev": {
-                "behat/mink": "~1.7",
+                "behat/mink": "1.7.x-dev",
                 "behat/mink-goutte-driver": "~1.2",
                 "jcalderonzumba/gastonjs": "~1.0.2",
                 "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
@@ -2134,7 +2135,8 @@
                     "Clean up user input for exposed checkboxes": "https://www.drupal.org/files/issues/2687773-18-Cleanup-user-input-for-checkboxes-8.2.patch",
                     "Field Storage Does not validate if the class exists": "https://www.drupal.org/files/issues/2723707-field-storage-does-not-validate-5.patch",
                     "views_query_views_alter does not handle IN queries": "https://www.drupal.org/files/issues/2744069-5-views-in-queries.patch",
-                    "Ignore front end vendor folders to improve directory search performance": "https://www.drupal.org/files/issues/ignore_front_end_vendor-2329453-116.patch"
+                    "Ignore front end vendor folders to improve directory search performance": "https://www.drupal.org/files/issues/ignore_front_end_vendor-2329453-116.patch",
+                    "https://www.drupal.org/node/2788087": "https://www.drupal.org/files/issues/2788087-7.patch"
                 }
             },
             "autoload": {
@@ -2158,7 +2160,7 @@
                 "GPL-2.0+"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2016-11-02 17:43:45"
+            "time": "2016-11-09 14:09:00"
         },
         {
             "name": "drupal/ctools",
@@ -2333,17 +2335,17 @@
         },
         {
             "name": "drupal/dynamic_entity_reference",
-            "version": "1.0.0-rc5",
+            "version": "1.0.0-rc6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/dynamic_entity_reference",
-                "reference": "8.x-1.0-rc5"
+                "reference": "8.x-1.0-rc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/dynamic_entity_reference-8.x-1.0-rc5.zip",
-                "reference": "8.x-1.0-rc5",
-                "shasum": "4627583009c015a325ff5b0a4c782c4d6a5d8070"
+                "url": "https://ftp.drupal.org/files/projects/dynamic_entity_reference-8.x-1.0-rc6.zip",
+                "reference": null,
+                "shasum": "2d9f6224ccf9ab9845efa75dc1a03bd2eae2ba1c"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -2354,8 +2356,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-rc5",
-                    "datestamp": "1469319839"
+                    "version": "8.x-1.0-rc6",
+                    "datestamp": "1478429940"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2388,20 +2390,20 @@
         },
         {
             "name": "drupal/eck",
-            "version": "1.0.0-alpha1",
+            "version": "1.0.0-alpha2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/eck",
-                "reference": "8.x-1.0-alpha1"
+                "reference": "8.x-1.0-alpha2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/eck-8.x-1.0-alpha1.zip",
-                "reference": "8.x-1.0-alpha1",
-                "shasum": "8db988a2aa6407b86311ace65379c9a208a3b0ac"
+                "url": "https://ftp.drupal.org/files/projects/eck-8.x-1.0-alpha2.zip",
+                "reference": null,
+                "shasum": "0cba307461373248273cfa490091218733d684c4"
             },
             "require": {
-                "drupal/core": "~8.0"
+                "drupal/core": "^8"
             },
             "type": "drupal-module",
             "extra": {
@@ -2409,8 +2411,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha1",
-                    "datestamp": "1453547639"
+                    "version": "8.x-1.0-alpha2",
+                    "datestamp": "1478443139"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2419,8 +2421,8 @@
             ],
             "authors": [
                 {
-                    "name": "acrazyanimal",
-                    "homepage": "https://www.drupal.org/user/696648"
+                    "name": "See contributors",
+                    "homepage": "https://www.drupal.org/node/1155832/committers"
                 },
                 {
                     "name": "dpopdan",
@@ -2451,10 +2453,11 @@
                     "homepage": "https://www.drupal.org/user/813890"
                 }
             ],
-            "description": "ECK (Entity Contruction Kit) allows users to create and administer entity types, bundles and entities from UI",
+            "description": "ECK (Entity Contruction Kit) allows users to create and administer entity types, bundles and entities from the UI.",
             "homepage": "https://www.drupal.org/project/eck",
             "support": {
-                "source": "http://cgit.drupalcode.org/eck"
+                "source": "http://git.drupal.org/project/eck.git",
+                "issues": "https://www.drupal.org/project/issues/eck"
             }
         },
         {
@@ -2573,17 +2576,17 @@
         },
         {
             "name": "drupal/entity_browser",
-            "version": "1.0.0-alpha10",
+            "version": "1.0.0-alpha11",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/entity_browser",
-                "reference": "8.x-1.0-alpha10"
+                "reference": "8.x-1.0-alpha11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-1.0-alpha10.zip",
-                "reference": "8.x-1.0-alpha10",
-                "shasum": "10cd670eff7a6c8817083addc2758ac6073e7e5d"
+                "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-1.0-alpha11.zip",
+                "reference": null,
+                "shasum": "1746718eb8e6660699b647effd8164e3ccba74a6"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -2602,8 +2605,8 @@
                     "dev-8.x-1.x": "8.1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha10",
-                    "datestamp": "1477571940"
+                    "version": "8.x-1.0-alpha11",
+                    "datestamp": "1478642039"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -5615,16 +5618,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v1.4.1",
+            "version": "v2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "c7e26a21ba357863de030f0b9e701c7d04593774"
+                "reference": "a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/c7e26a21ba357863de030f0b9e701c7d04593774",
-                "reference": "c7e26a21ba357863de030f0b9e701c7d04593774",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e",
+                "reference": "a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e",
                 "shasum": ""
             },
             "require": {
@@ -5659,7 +5662,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-03-18 20:34:03"
+            "time": "2016-11-07 23:38:38"
         },
         {
             "name": "pear/console_table",
@@ -10001,16 +10004,16 @@
         },
         {
             "name": "geerlingguy/drupal-vm",
-            "version": "3.5.0",
+            "version": "3.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/geerlingguy/drupal-vm.git",
-                "reference": "e3dcbf4d0ab594c5e9a0b1eca136639260412d7d"
+                "reference": "835ffe54f262663fd896fcc4880a5b217a309bda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/geerlingguy/drupal-vm/zipball/e3dcbf4d0ab594c5e9a0b1eca136639260412d7d",
-                "reference": "e3dcbf4d0ab594c5e9a0b1eca136639260412d7d",
+                "url": "https://api.github.com/repos/geerlingguy/drupal-vm/zipball/835ffe54f262663fd896fcc4880a5b217a309bda",
+                "reference": "835ffe54f262663fd896fcc4880a5b217a309bda",
                 "shasum": ""
             },
             "type": "project",
@@ -10036,7 +10039,7 @@
                 "virtual machine",
                 "vm"
             ],
-            "time": "2016-11-02 21:06:23"
+            "time": "2016-11-07 18:46:35"
         },
         {
             "name": "instaclick/php-webdriver",
