@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_geo_area_geonames_id
+    - node.type.geo_area
+id: node.geo_area.field_geo_area_geonames_id
+field_name: field_geo_area_geonames_id
+entity_type: node
+bundle: geo_area
+label: 'GeoNames ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

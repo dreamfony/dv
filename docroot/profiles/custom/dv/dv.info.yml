@@ -1,16 +1,89 @@
-name: Dv
+name: DV
+description: 'Auto-generated bundle from package DV'
 type: profile
-description: 'Dv'
-version: 1.0
 core: 8.x
 dependencies:
-  - config
-  - system
-  - user
+  - address
+  - automated_cron
+  - basic_auth
+  - block
+  - block_content
   - breakpoint
+  - captcha
+  - ckeditor
+  - color
+  - comment
+  - config
+  - contact
+  - content_moderation
+  - content_translation
+  - contextual
+  - datetime
+  - datetime_range
+  - dblog
+  - dynamic_entity_reference
+  - dynamic_page_cache
+  - eck
+  - editor
+  - entity_browser
   - features
+  - field
+  - field_ui
+  - file
+  - file_entity
+  - filter
+  - flag
+  - geocoder_field
+  - group
+  - hal
+  - help
+  - history
+  - image
+  - inline_entity_form
+  - language
+  - link
+  - locale
+  - menu_link_content
+  - menu_ui
+  - message
+  - node
+  - options
+  - page_cache
+  - path
+  - pathauto
+  - persistent_login
+  - profile
+  - quickedit
+  - rabbit_hole
+  - rdf
+  - rest
+  - search_api
+  - search_api_db
+  - shortcut
+  - social_profile
+  - system
+  - taxonomy
+  - telephone
+  - text
+  - toolbar
+  - tour
+  - ultimate_cron
+  - update
+  - user
+  - views
+  - views_ui
+  - votingapi
+  - activity_creator
+  - activity_logger
+  - like_and_dislike
+  - coffee
+  - email_registration
+  - ggroup
+  - gnode
+  - devel
 themes:
-  - seven
   - bartik
-  - socialbase
-features: true
+  - seven
+package: DV
+distribution:
+  name: DV

@@ -1,0 +1,7 @@
+name: Comment Plus
+type: module
+description: Comment Plus adds new features on top of comment module.
+core: 8.x
+package: Custom
+dependencies:
+  - comment

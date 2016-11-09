@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.area_of_activity
+id: taxonomy_term.area_of_activity
+target_entity_type_id: taxonomy_term
+target_bundle: area_of_activity
+default_langcode: site_default
+language_alterable: false

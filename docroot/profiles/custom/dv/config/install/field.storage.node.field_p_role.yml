@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - node
+id: node.field_p_role
+field_name: field_p_role
+entity_type: node
+type: entity_reference
+settings:
+  target_type: role
+module: core
+locked: false
+cardinality: 50
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

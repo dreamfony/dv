@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.role.role
+    - field.storage.role.field_r_date_range
+  module:
+    - datetime_range
+id: role.role.field_r_date_range
+field_name: field_r_date_range
+entity_type: role
+bundle: role
+label: 'Date Range'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

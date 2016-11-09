@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_i_attachments
+    - node.type.issue
+  module:
+    - file
+id: node.issue.field_i_attachments
+field_name: field_i_attachments
+entity_type: node
+bundle: issue
+label: Attachments
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'issue_attachments/[date:custom:Y]/[date:custom:m]/[date:custom:d]/[random:hash:md5]'
+  file_extensions: txt
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file
