@@ -6,7 +6,7 @@ vagrant_ip: 192.168.88.88
 drupalvm_vagrant_version_min: '1.8.5'
 
 # Sometimes, on windows, VM http is only accessible with this 
-vagrant_public_ip: "192.168.1.55"
+# vagrant_public_ip: "192.168.1.55"
 
 # Set drupal_site_name to the project's human-readable name.
 drupal_site_name: "Dv"
@@ -58,6 +58,7 @@ installed_extras:
   - pimpmylog
   - varnish
   - xdebug
+  - drupalconsole
 
 
 php_xdebug_default_enable: 1
