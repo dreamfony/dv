@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bb0573ffa0180a9ae2f436f89298a1f5",
-    "content-hash": "3bd571de027a346bf02c3188884643fc",
+    "hash": "b3c2a4052b7435d8d3eb15a4e5346427",
+    "content-hash": "4dfd1d011af1f2fc924501e97f8f7f32",
     "packages": [
         {
             "name": "acquia/blt",
@@ -1205,16 +1205,16 @@
         },
         {
             "name": "drupal-composer/drupal-scaffold",
-            "version": "2.1.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal-composer/drupal-scaffold.git",
-                "reference": "617fa3a2466795b148e3255651591682f2325ede"
+                "reference": "3ad465ac853c2e52e6a808f5529859917662c256"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-composer/drupal-scaffold/zipball/617fa3a2466795b148e3255651591682f2325ede",
-                "reference": "617fa3a2466795b148e3255651591682f2325ede",
+                "url": "https://api.github.com/repos/drupal-composer/drupal-scaffold/zipball/3ad465ac853c2e52e6a808f5529859917662c256",
+                "reference": "3ad465ac853c2e52e6a808f5529859917662c256",
                 "shasum": ""
             },
             "require": {
@@ -1242,7 +1242,7 @@
                 "GPL-2.0+"
             ],
             "description": "Composer Plugin for updating the Drupal scaffold files when using drupal/core",
-            "time": "2016-08-29 16:56:02"
+            "time": "2016-11-05 10:46:44"
         },
         {
             "name": "drupal/acquia_connector",
@@ -2243,107 +2243,18 @@
             }
         },
         {
-            "name": "drupal/devel",
-            "version": "1.0.0-alpha1",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/devel",
-                "reference": "8.x-1.0-alpha1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/devel-8.x-1.0-alpha1.zip",
-                "reference": "8.x-1.0-alpha1",
-                "shasum": "f05e874d4ae2515e0a86df3017a081d4cce31fef"
-            },
-            "require": {
-                "drupal/core": "~8.0"
-            },
-            "suggest": {
-                "drupal/core": "Required by drupal/devel_node_access"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.0-alpha1",
-                    "datestamp": "1466970239"
-                },
-                "patches_applied": {
-                    "Fix vars in function in entity manager wrapper": "https://www.drupal.org/files/issues/fix_entity_manager_wrapper_2749249_5.patch"
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Moshe Weitzman",
-                    "homepage": "https://github.com/weitzman",
-                    "email": "weitzman@tejasa.com",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "catch",
-                    "homepage": "https://www.drupal.org/user/35733"
-                },
-                {
-                    "name": "effulgentsia",
-                    "homepage": "https://www.drupal.org/user/78040"
-                },
-                {
-                    "name": "juampynr",
-                    "homepage": "https://www.drupal.org/user/682736"
-                },
-                {
-                    "name": "lussoluca",
-                    "homepage": "https://www.drupal.org/user/138068"
-                },
-                {
-                    "name": "moshe weitzman",
-                    "homepage": "https://www.drupal.org/user/23"
-                },
-                {
-                    "name": "pcambra",
-                    "homepage": "https://www.drupal.org/user/122101"
-                },
-                {
-                    "name": "salvis",
-                    "homepage": "https://www.drupal.org/user/82964"
-                },
-                {
-                    "name": "willzyx",
-                    "homepage": "https://www.drupal.org/user/1043862"
-                },
-                {
-                    "name": "yched",
-                    "homepage": "https://www.drupal.org/user/39567"
-                }
-            ],
-            "description": "Various blocks, pages, and functions for developers.",
-            "homepage": "http://drupal.org/project/devel",
-            "support": {
-                "source": "http://cgit.drupalcode.org/devel",
-                "issues": "http://drupal.org/project/devel",
-                "irc": "irc://irc.freenode.org/drupal-contribute"
-            }
-        },
-        {
             "name": "drupal/dynamic_entity_reference",
-            "version": "1.0.0-rc5",
+            "version": "1.0.0-rc6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/dynamic_entity_reference",
-                "reference": "8.x-1.0-rc5"
+                "reference": "8.x-1.0-rc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/dynamic_entity_reference-8.x-1.0-rc5.zip",
-                "reference": "8.x-1.0-rc5",
-                "shasum": "4627583009c015a325ff5b0a4c782c4d6a5d8070"
+                "url": "https://ftp.drupal.org/files/projects/dynamic_entity_reference-8.x-1.0-rc6.zip",
+                "reference": null,
+                "shasum": "2d9f6224ccf9ab9845efa75dc1a03bd2eae2ba1c"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -2354,8 +2265,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-rc5",
-                    "datestamp": "1469319839"
+                    "version": "8.x-1.0-rc6",
+                    "datestamp": "1478429940"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2388,20 +2299,20 @@
         },
         {
             "name": "drupal/eck",
-            "version": "1.0.0-alpha1",
+            "version": "1.0.0-alpha2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/eck",
-                "reference": "8.x-1.0-alpha1"
+                "reference": "8.x-1.0-alpha2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/eck-8.x-1.0-alpha1.zip",
-                "reference": "8.x-1.0-alpha1",
-                "shasum": "8db988a2aa6407b86311ace65379c9a208a3b0ac"
+                "url": "https://ftp.drupal.org/files/projects/eck-8.x-1.0-alpha2.zip",
+                "reference": null,
+                "shasum": "0cba307461373248273cfa490091218733d684c4"
             },
             "require": {
-                "drupal/core": "~8.0"
+                "drupal/core": "^8"
             },
             "type": "drupal-module",
             "extra": {
@@ -2409,8 +2320,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha1",
-                    "datestamp": "1453547639"
+                    "version": "8.x-1.0-alpha2",
+                    "datestamp": "1478443139"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2419,8 +2330,8 @@
             ],
             "authors": [
                 {
-                    "name": "acrazyanimal",
-                    "homepage": "https://www.drupal.org/user/696648"
+                    "name": "See contributors",
+                    "homepage": "https://www.drupal.org/node/1155832/committers"
                 },
                 {
                     "name": "dpopdan",
@@ -2451,10 +2362,11 @@
                     "homepage": "https://www.drupal.org/user/813890"
                 }
             ],
-            "description": "ECK (Entity Contruction Kit) allows users to create and administer entity types, bundles and entities from UI",
+            "description": "ECK (Entity Contruction Kit) allows users to create and administer entity types, bundles and entities from the UI.",
             "homepage": "https://www.drupal.org/project/eck",
             "support": {
-                "source": "http://cgit.drupalcode.org/eck"
+                "source": "http://git.drupal.org/project/eck.git",
+                "issues": "https://www.drupal.org/project/issues/eck"
             }
         },
         {
@@ -2573,17 +2485,17 @@
         },
         {
             "name": "drupal/entity_browser",
-            "version": "1.0.0-alpha10",
+            "version": "1.0.0-alpha11",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/entity_browser",
-                "reference": "8.x-1.0-alpha10"
+                "reference": "8.x-1.0-alpha11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-1.0-alpha10.zip",
-                "reference": "8.x-1.0-alpha10",
-                "shasum": "10cd670eff7a6c8817083addc2758ac6073e7e5d"
+                "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-1.0-alpha11.zip",
+                "reference": null,
+                "shasum": "1746718eb8e6660699b647effd8164e3ccba74a6"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -2602,8 +2514,8 @@
                     "dev-8.x-1.x": "8.1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha10",
-                    "datestamp": "1477571940"
+                    "version": "8.x-1.0-alpha11",
+                    "datestamp": "1478642039"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -9891,6 +9803,95 @@
             "time": "2016-04-19 16:54:33"
         },
         {
+            "name": "drupal/devel",
+            "version": "1.0.0-alpha1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/devel",
+                "reference": "8.x-1.0-alpha1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/devel-8.x-1.0-alpha1.zip",
+                "reference": "8.x-1.0-alpha1",
+                "shasum": "f05e874d4ae2515e0a86df3017a081d4cce31fef"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "suggest": {
+                "drupal/core": "Required by drupal/devel_node_access"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha1",
+                    "datestamp": "1466970239"
+                },
+                "patches_applied": {
+                    "Fix vars in function in entity manager wrapper": "https://www.drupal.org/files/issues/fix_entity_manager_wrapper_2749249_5.patch"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Moshe Weitzman",
+                    "homepage": "https://github.com/weitzman",
+                    "email": "weitzman@tejasa.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "catch",
+                    "homepage": "https://www.drupal.org/user/35733"
+                },
+                {
+                    "name": "effulgentsia",
+                    "homepage": "https://www.drupal.org/user/78040"
+                },
+                {
+                    "name": "juampynr",
+                    "homepage": "https://www.drupal.org/user/682736"
+                },
+                {
+                    "name": "lussoluca",
+                    "homepage": "https://www.drupal.org/user/138068"
+                },
+                {
+                    "name": "moshe weitzman",
+                    "homepage": "https://www.drupal.org/user/23"
+                },
+                {
+                    "name": "pcambra",
+                    "homepage": "https://www.drupal.org/user/122101"
+                },
+                {
+                    "name": "salvis",
+                    "homepage": "https://www.drupal.org/user/82964"
+                },
+                {
+                    "name": "willzyx",
+                    "homepage": "https://www.drupal.org/user/1043862"
+                },
+                {
+                    "name": "yched",
+                    "homepage": "https://www.drupal.org/user/39567"
+                }
+            ],
+            "description": "Various blocks, pages, and functions for developers.",
+            "homepage": "http://drupal.org/project/devel",
+            "support": {
+                "source": "http://cgit.drupalcode.org/devel",
+                "issues": "http://drupal.org/project/devel",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
             "name": "drupal/drupal-driver",
             "version": "v1.2.1",
             "source": {
@@ -10059,16 +10060,16 @@
         },
         {
             "name": "geerlingguy/drupal-vm",
-            "version": "3.5.0",
+            "version": "3.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/geerlingguy/drupal-vm.git",
-                "reference": "e3dcbf4d0ab594c5e9a0b1eca136639260412d7d"
+                "reference": "835ffe54f262663fd896fcc4880a5b217a309bda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/geerlingguy/drupal-vm/zipball/e3dcbf4d0ab594c5e9a0b1eca136639260412d7d",
-                "reference": "e3dcbf4d0ab594c5e9a0b1eca136639260412d7d",
+                "url": "https://api.github.com/repos/geerlingguy/drupal-vm/zipball/835ffe54f262663fd896fcc4880a5b217a309bda",
+                "reference": "835ffe54f262663fd896fcc4880a5b217a309bda",
                 "shasum": ""
             },
             "type": "project",
@@ -10094,7 +10095,7 @@
                 "virtual machine",
                 "vm"
             ],
-            "time": "2016-11-02 21:06:23"
+            "time": "2016-11-07 18:46:35"
         },
         {
             "name": "guzzle/guzzle",
