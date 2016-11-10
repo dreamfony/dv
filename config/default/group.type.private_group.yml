@@ -1,9 +1,0 @@
-uuid: 839f4f75-41be-4a14-988d-69a462ed2c29
-langcode: hr
-status: true
-dependencies: {  }
-_core:
-  default_config_hash: i-zkjx1r4SVMJGkVC7lxFC7iRdT0QxcwAvc_0BD66QE
-id: private_group
-label: 'Private Group'
-description: 'Private user Issues. Used to group up users private Issues so other users can not access them.'

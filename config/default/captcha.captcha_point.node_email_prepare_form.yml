@@ -1,9 +1,0 @@
-uuid: d9e4f823-1029-42d4-8644-337ddcea7679
-langcode: hr
-status: false
-dependencies: {  }
-_core:
-  default_config_hash: aw5CrexY_ZEzSKgtl-cT4SvoCUj3RexyteOC8xiFgaM
-formId: node_email_prepare_form
-captchaType: default
-label: null

@@ -1,9 +1,0 @@
-uuid: 2e241a0c-a9ca-4198-9475-b2af015acf81
-langcode: hr
-status: true
-dependencies: {  }
-_core:
-  default_config_hash: HI8H68Kkyq0MH3EdJ1x68O52sVAvZJ0aaLvzL6hkPAU
-id: work_group
-label: 'Work Group'
-description: 'Work groups are special groups where users can join to discuss certain Issues.'

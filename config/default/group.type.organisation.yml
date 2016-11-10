@@ -1,9 +1,0 @@
-uuid: 15e5f0c0-0c05-43df-9eb6-830c849cf318
-langcode: hr
-status: true
-dependencies: {  }
-_core:
-  default_config_hash: xq9GNTuuAoxDJ-zbuwIRmen2H4cq0F-gzMMJKRsCQD0
-id: organisation
-label: Organisation
-description: ''
