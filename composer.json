@@ -56,7 +56,7 @@
         "drupal/like_and_dislike": "~1.0",
         "drupal/email_registration": "~1.0",
         "drupal/user_registrationpassword": "~1.0",
-        "acquia/blt": "^8.5",
+        "acquia/blt": "8.5.2",
         "drupal/acquia_connector": "^1.5",
         "drupal/cog": "^1.0",
         "drupal/libraries": "3.x-dev#fa93a5aec2cfcfd5717e42c7112e381487fed9fd",
