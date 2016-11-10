@@ -17,4 +17,5 @@ deployed_tag="$4"
 repo_url="$5"
 repo_type="$6"
 
-echo "Hello, Cloud!"
+echo "TODO BackupDB before Code Deploy to Production. Not coded yet"
+# TODO see update.sh
