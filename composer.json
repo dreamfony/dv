@@ -65,7 +65,8 @@
         "drupal/memcache": "^2.0-alpha2",
         "drupal/seckit": "^1.0-alpha2",
         "drupal/security_review": "^1.0",
-        "drupal/search_api_solr": "^1.0@beta"
+        "drupal/search_api_solr": "^1.0@beta",
+        "drupal/search_api": "^1.0@beta"
     },
     "require-dev": {
         "behat/behat": "^3.1",
@@ -159,14 +160,7 @@
                 "https://www.drupal.org/node/2736233": "https://www.drupal.org/files/issues/groups-add_subgroups_module-2736233-3-D8.patch",
                 "https://www.drupal.org/node/2746839 - develgenerate": "https://www.drupal.org/files/issues/develGenerate.patch"
             },
-            "drupal/core": {
-                "Make sure exposed filters work": "https://www.drupal.org/files/issues/2369119-120.patch",
-                "Clean up user input for exposed checkboxes": "https://www.drupal.org/files/issues/2687773-18-Cleanup-user-input-for-checkboxes-8.2.patch",
-                "Field Storage Does not validate if the class exists": "https://www.drupal.org/files/issues/2723707-field-storage-does-not-validate-5.patch",
-                "views_query_views_alter does not handle IN queries": "https://www.drupal.org/files/issues/2744069-5-views-in-queries.patch",
-                "Ignore front end vendor folders to improve directory search performance": "https://www.drupal.org/files/issues/ignore_front_end_vendor-2329453-116.patch",
-                "https://www.drupal.org/node/2788087": "https://www.drupal.org/files/issues/2788087-7.patch"
-            },
+
             "drupal/geocoder": {
                 "https://www.drupal.org/node/2734369": "https://www.drupal.org/files/issues/geocoder-GeocodeFormatterBase_instance_creator_parameter_fix-2734369-3.patch"
             },

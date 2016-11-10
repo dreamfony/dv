@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1229730063572d1aa9f16ef419dcdccc",
-    "content-hash": "7b612ca3cf159a4f7653a9649b2c29ba",
+    "hash": "15f48d0815a94a09cda49e2306e46c93",
+    "content-hash": "49bb819d63b2c09216c3ba2f48767563",
     "packages": [
         {
             "name": "acquia/blt",
@@ -2221,12 +2221,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal-composer/drupal-core.git",
-                "reference": "3963529f2d0ac1df52bd3c5e2990fb97a1a3ad8f"
+                "reference": "a683a00d68537fe691c6eb60779d310ac5577e48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/3963529f2d0ac1df52bd3c5e2990fb97a1a3ad8f",
-                "reference": "3963529f2d0ac1df52bd3c5e2990fb97a1a3ad8f",
+                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/a683a00d68537fe691c6eb60779d310ac5577e48",
+                "reference": "a683a00d68537fe691c6eb60779d310ac5577e48",
                 "shasum": ""
             },
             "require": {
@@ -2370,16 +2370,6 @@
                 "symfony/css-selector": "~2.8"
             },
             "type": "drupal-core",
-            "extra": {
-                "patches_applied": {
-                    "Make sure exposed filters work": "https://www.drupal.org/files/issues/2369119-120.patch",
-                    "Clean up user input for exposed checkboxes": "https://www.drupal.org/files/issues/2687773-18-Cleanup-user-input-for-checkboxes-8.2.patch",
-                    "Field Storage Does not validate if the class exists": "https://www.drupal.org/files/issues/2723707-field-storage-does-not-validate-5.patch",
-                    "views_query_views_alter does not handle IN queries": "https://www.drupal.org/files/issues/2744069-5-views-in-queries.patch",
-                    "Ignore front end vendor folders to improve directory search performance": "https://www.drupal.org/files/issues/ignore_front_end_vendor-2329453-116.patch",
-                    "https://www.drupal.org/node/2788087": "https://www.drupal.org/files/issues/2788087-7.patch"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Drupal\\Core\\": "lib/Drupal/Core",
@@ -2401,7 +2391,7 @@
                 "GPL-2.0+"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2016-11-09 22:49:47"
+            "time": "2016-11-10 18:17:04"
         },
         {
             "name": "drupal/ctools",
@@ -4223,7 +4213,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/rabbit_hole",
-                "reference": "4cfcddeb14bb7175e14a8676ace8adc021f8947e"
+                "reference": "224db292b78a45525cd8d490d944521d234b269e"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -4239,7 +4229,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.x-dev",
-                    "datestamp": "1470598739"
+                    "datestamp": "1478791564"
                 },
                 "patches_applied": {
                     "https://www.drupal.org/node/2758205": "https://www.drupal.org/files/issues/conflicts_with_web-2758205-3.patch"
@@ -4276,7 +4266,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/rabbit_hole"
             },
-            "time": "2016-08-07 19:37:41"
+            "time": "2016-11-09 23:56:27"
         },
         {
             "name": "drupal/recaptcha",
@@ -4455,7 +4445,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/search_api_solr-8.x-1.0-beta1.zip",
-                "reference": null,
+                "reference": "8.x-1.0-beta1",
                 "shasum": "2b8c127d5da0124f61aab80979b3313ae22d9b82"
             },
             "require": {
@@ -11101,7 +11091,8 @@
         "drupal/address": 10,
         "drupal/config_inspector": 10,
         "drupal/libraries": 20,
-        "drupal/search_api_solr": 10
+        "drupal/search_api_solr": 10,
+        "drupal/search_api": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,
