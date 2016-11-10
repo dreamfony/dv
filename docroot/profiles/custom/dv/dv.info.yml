@@ -26,7 +26,6 @@ dependencies:
   - eck
   - editor
   - entity_browser
-  - features
   - field
   - field_ui
   - file
@@ -58,9 +57,8 @@ dependencies:
   - rdf
   - rest
   - search_api
-  - search_api_db
+  - search_api_solr
   - shortcut
-  - social_profile
   - system
   - taxonomy
   - telephone
@@ -74,13 +72,26 @@ dependencies:
   - views_ui
   - votingapi
   - activity_creator
+  - activity_basics
   - activity_logger
+  - activity_send
+  - activity_viewer
   - like_and_dislike
   - coffee
   - email_registration
   - ggroup
   - gnode
   - devel
+  - eu_cookie_compliance
+  - r4032login
+  - recaptcha
+  - admin_toolbar
+  - admin_toolbar_tools
+  - user_registrationpassword
+  - big_pipe
+  - responsive_image
+  - ctools_views
+  - ctools_block
 themes:
   - bartik
   - seven

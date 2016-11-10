@@ -8,14 +8,14 @@ id: node.geo_area.field_geo_area_geonames_id
 field_name: field_geo_area_geonames_id
 entity_type: node
 bundle: geo_area
-label: 'GeoNames ID'
+label: GeoNames Id
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  min: 0
+  min: null
   max: null
   prefix: ''
   suffix: ''
