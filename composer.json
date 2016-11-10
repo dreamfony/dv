@@ -60,12 +60,7 @@
         "drupal/acquia_connector": "^1.5",
         "drupal/cog": "^1.0",
         "drupal/libraries": "3.x-dev#fa93a5aec2cfcfd5717e42c7112e381487fed9fd",
-        "drupal/token": "1.0-beta2",
-        "drupal/acsf": "^1.32",
-        "drupal/memcache": "^2.0-alpha2",
-        "drupal/seckit": "^1.0-alpha2",
-        "drupal/security_review": "^1.0",
-        "drupal/search_api_solr": "^1.0@beta"
+        "drupal/token": "1.0-beta2"
     },
     "require-dev": {
         "behat/behat": "^3.1",
