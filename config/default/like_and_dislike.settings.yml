@@ -1,7 +1,0 @@
-allow_cancel_vote: true
-enabled_types:
-  node:
-    - issue
-_core:
-  default_config_hash: dN96BTgFxUrQcQC5jowem17sD-xk461kzWPva7pkuBc
-langcode: hr

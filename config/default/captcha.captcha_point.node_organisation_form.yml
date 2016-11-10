@@ -1,9 +1,0 @@
-uuid: da2acce4-5faf-4254-9b1d-a92566135c36
-langcode: hr
-status: false
-dependencies: {  }
-_core:
-  default_config_hash: 8z3cIMp_Vu5y5ciapE2lLweAj9nWHtCEXHoYS_YUfWE
-formId: node_organisation_form
-captchaType: default
-label: null

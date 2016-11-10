@@ -1,9 +1,0 @@
-uuid: dcf93371-532c-4017-a96d-19cebad3d254
-langcode: hr
-status: false
-dependencies: {  }
-_core:
-  default_config_hash: 1AJp98eS-6Nr2C6ad6tASuyobfxs9Z69dzDb0cFDTR0
-formId: node_article_form
-captchaType: default
-label: null
