@@ -31,13 +31,21 @@ target-hooks:
         dir: '${docroot}'
         command: 'echo ''No post-setup build configured.'''
 import: null
-# Drupal Account Credentials. These are used for installing Drupal.
+modules:
+    ci:
+        enable: {  }
+        uninstall: [acquia_connector, shield]
+    deploy:
+        enable: [acquia_connector, shield]
+        uninstall: [devel, field_ui, views_ui]
+    local:
+        enable: [dblog, devel, field_ui, seckit, views_ui]
+        uninstall: [acsf, acquia_connector, dblog, shield]
 drupal:
-  account.name: admin
-  account.password: admin
-  account.mail: no-reply@acquia.com
-# Skip this until we fix DV profile
+    account.name: admin
+    account.password: admin
+    account.mail: no-reply@acquia.com
 disable-targets:
     setup:
-      config-import: true
+        config-import: true
 
