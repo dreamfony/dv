@@ -81,7 +81,6 @@ dependencies:
   - email_registration
   - ggroup
   - gnode
-  - devel
   - eu_cookie_compliance
   - r4032login
   - recaptcha
