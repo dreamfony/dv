@@ -1,5 +1,5 @@
-uuid: 27ba63d9-6881-4431-9fd3-5aadffff8fd8
-langcode: en
+uuid: 8285e8a5-0c72-42e0-9c57-11634c0433f1
+langcode: hr
 status: true
 dependencies:
   config:
@@ -7,6 +7,8 @@ dependencies:
     - message.template.issue
   module:
     - dynamic_entity_reference
+_core:
+  default_config_hash: NBTT4dwnyZGsMES1KF84-EodAKastqch53gCF631dNs
 id: message.issue.field_message_related_object
 field_name: field_message_related_object
 entity_type: message
@@ -18,43 +20,11 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  contact_message:
-    handler: 'default:contact_message'
-    handler_settings:
-      target_bundles:
-        personal: personal
-      sort:
-        field: _none
-      auto_create: false
-      auto_create_bundle: ''
   node:
     handler: 'default:node'
     handler_settings:
       target_bundles:
         issue: issue
-      sort:
-        field: _none
-      auto_create: false
-      auto_create_bundle: ''
-  content_moderation_state:
-    handler: 'default:content_moderation_state'
-    handler_settings:
-      target_bundles: null
-      sort:
-        field: _none
-      auto_create: false
-  search_api_task:
-    handler: 'default:search_api_task'
-    handler_settings:
-      target_bundles: null
-      sort:
-        field: _none
-      auto_create: false
-  shortcut:
-    handler: 'default:shortcut'
-    handler_settings:
-      target_bundles:
-        default: default
       sort:
         field: _none
       auto_create: false
@@ -91,5 +61,29 @@ settings:
     handler_settings: {  }
   user:
     handler: 'default:user'
+    handler_settings: {  }
+  flagging:
+    handler: 'default:flagging'
+    handler_settings: {  }
+  vote:
+    handler: 'default:vote'
+    handler_settings: {  }
+  vote_result:
+    handler: 'default:vote_result'
+    handler_settings: {  }
+  contact_message:
+    handler: 'default:contact_message'
+    handler_settings: {  }
+  content_moderation_state:
+    handler: 'default:content_moderation_state'
+    handler_settings: {  }
+  role:
+    handler: 'default:role'
+    handler_settings: {  }
+  search_api_task:
+    handler: 'default:search_api_task'
+    handler_settings: {  }
+  shortcut:
+    handler: 'default:shortcut'
     handler_settings: {  }
 field_type: dynamic_entity_reference

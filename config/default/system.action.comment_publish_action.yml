@@ -1,5 +1,5 @@
-uuid: a9351ba7-d341-4fa4-a31a-f778b1733061
-langcode: en
+uuid: 802b0837-9a22-46a9-8342-8cf177c6cbe2
+langcode: hr
 status: true
 dependencies:
   module:
@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: f6w_Pd30AyyDIoMkD4QpPMM2-I8FTEHICchFVOpjiCI
 id: comment_publish_action
-label: 'Publish comment'
+label: 'Objavi komentar'
 type: comment
 plugin: comment_publish_action
 configuration: {  }

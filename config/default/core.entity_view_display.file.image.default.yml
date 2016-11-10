@@ -1,5 +1,5 @@
-uuid: 0ad7b8d4-a41d-4871-9796-55df8b5b9dcc
-langcode: en
+uuid: 207fdf48-4974-4df0-b2da-1e9a418cc2d6
+langcode: hr
 status: true
 dependencies:
   config:
@@ -9,7 +9,7 @@ dependencies:
   module:
     - file_entity
 _core:
-  default_config_hash: _Bf428kqU4oErwcNNTL2Wj4HQfES94Bs4usKnK3iL2Q
+  default_config_hash: bfVPUCZPqGf9h9XJmHQXPjw4lzGXjiMdcLc-495SMeQ
 id: file.image.default
 targetEntityType: file
 bundle: image
@@ -21,12 +21,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     label: above
+    region: content
   field_image_title_text:
     type: string
     weight: 0
     settings: {  }
     third_party_settings: {  }
     label: above
+    region: content
   filemime:
     type: string
     weight: 2
@@ -34,6 +36,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    region: content
   filename:
     type: string
     label: hidden
@@ -41,18 +44,21 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    region: content
   filesize:
     type: file_size
     weight: 3
     label: above
     settings: {  }
     third_party_settings: {  }
+    region: content
   uid:
     type: uri_link
     weight: 1
     label: above
     settings: {  }
     third_party_settings: {  }
+    region: content
   uri:
     type: file_image
     label: hidden
@@ -63,5 +69,6 @@ content:
       image_style: ''
       image_link: ''
     third_party_settings: {  }
+    region: content
 hidden:
   langcode: true

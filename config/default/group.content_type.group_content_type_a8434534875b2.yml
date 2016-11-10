@@ -1,9 +1,11 @@
-uuid: 96704c37-8b0f-4fd9-a845-e695bb650cb3
-langcode: en
+uuid: 92aa0308-2a95-486d-b7a3-0ab75efd05da
+langcode: hr
 status: true
 dependencies:
   config:
     - group.type.organisation
+_core:
+  default_config_hash: svaOEonAEGjpxQBWXj6Vtov0T3qWCzi9VZn2L2T0fe0
 id: group_content_type_a8434534875b2
 label: 'Organisation: Subgroup (Organisation)'
 description: 'Adds <em class="placeholder">Organisation</em> groups to groups both publicly and privately.'

@@ -1,0 +1,34 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.issue_comment
+    - field.field.comment.issue_comment.comment_body
+    - field.field.comment.issue_comment.field_c_emails
+  module:
+    - text
+id: comment.issue_comment.default
+targetEntityType: comment
+bundle: issue_comment
+mode: default
+content:
+  comment_body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_c_emails:
+    weight: 101
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  langcode: true

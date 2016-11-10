@@ -1,12 +1,14 @@
-uuid: 387f30c0-0d00-4df2-acd0-a8abe4839aa0
-langcode: en
+uuid: 7778b1db-2b41-43d1-85ce-5a2b39c8208e
+langcode: hr
 status: true
 dependencies:
+  config:
+    - field.storage.group_content.group_roles
   module:
     - group
     - user
 _core:
-  default_config_hash: VbvlMutXPE0EiR18Bv3ko8ils0ieg3fnz072bTkskAY
+  default_config_hash: v7AdUF8GHHQ0xy35zrTSljUkMBCNW5OqDJ-Gn8gLumU
 id: group_members
 label: 'Group members'
 module: group
@@ -703,7 +705,8 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-      tags: {  }
+      tags:
+        - 'config:field.storage.group_content.group_roles'
   page_1:
     display_plugin: page
     id: page_1
@@ -730,4 +733,5 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-      tags: {  }
+      tags:
+        - 'config:field.storage.group_content.group_roles'

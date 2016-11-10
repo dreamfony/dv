@@ -1,5 +1,5 @@
-uuid: 70a3ba86-e1ee-47c5-951f-9db75d9240a8
-langcode: en
+uuid: 3b6e9f70-0892-47f1-bf50-35d0498d5614
+langcode: hr
 status: true
 dependencies:
   config:
@@ -10,6 +10,8 @@ dependencies:
   module:
     - text
     - user
+_core:
+  default_config_hash: thcfm0uxIzGfvJN3AfQWfqAI7ed2lFmkm3kRXCaBuvM
 id: node.person.default
 targetEntityType: node
 bundle: person
@@ -38,6 +40,7 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     type: number_integer
+    region: content
   links:
     type: visible
     region: content

@@ -1,11 +1,13 @@
-uuid: b09943fb-7b30-4c01-89b5-1c468685d240
-langcode: en
+uuid: 04955d58-1010-4235-90a2-4eb51e6a3aa4
+langcode: hr
 status: true
 dependencies:
   config:
     - group.type.geo_area_group
   module:
     - user
+_core:
+  default_config_hash: e7_pNL9eb7_b6Z-M42hXI3k1Kk-Bewtf53vuAeG7r84
 id: geo_area_group-group_membership
 label: 'Geo Area Group: Group membership'
 description: 'Adds users to groups as members.'

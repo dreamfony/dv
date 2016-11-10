@@ -1,9 +1,11 @@
-uuid: 8a9cd0d9-6d22-4c16-b1b8-cc53ee076180
-langcode: en
+uuid: 3206a6b6-d8fb-403a-993a-4ff8f8e73fa7
+langcode: hr
 status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: xyM8NiP4WHEahEtkAu038mKhqjoE0crSn9f2pUHDG4M
 id: node.field_geo_area_population
 field_name: field_geo_area_population
 entity_type: node

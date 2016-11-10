@@ -1,10 +1,12 @@
-uuid: 5c7e79d9-fbc8-4706-a40a-ee3cc2c4714d
-langcode: en
+uuid: 2a1a8816-274c-40e3-8824-0ede1c9fea95
+langcode: hr
 status: true
 dependencies:
   module:
     - file
     - node
+_core:
+  default_config_hash: IxXB1nZkwC7Vfh5emBqHp_TYkQA0gXe-sVrQKBkmCeg
 id: node.field_m_attachments
 field_name: field_m_attachments
 entity_type: node

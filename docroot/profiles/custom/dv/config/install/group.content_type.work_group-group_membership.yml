@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.work_group
+  module:
+    - user
+id: work_group-group_membership
+label: 'Work Group: Group membership'
+description: 'Adds users to groups as members.'
+group_type: work_group
+content_plugin: group_membership
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  info_text:
+    value: '<p>By submitting this form you will become a member of the group.<br />Please fill out any available fields to complete your membership information.</p>'

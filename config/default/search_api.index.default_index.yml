@@ -1,5 +1,5 @@
-uuid: 32554e4d-a202-461f-a595-375947d26a07
-langcode: en
+uuid: 94316e66-ed05-4abf-aaad-537443663126
+langcode: hr
 status: true
 dependencies:
   config:
@@ -11,7 +11,7 @@ dependencies:
     - search_api
     - node
 _core:
-  default_config_hash: o9sHyAwcJKEfAW5G_DJIVy41T-nLhwQ487Go3kqrHrA
+  default_config_hash: uvqBXcNv9KsKq4Qq7KkKcs_l0DQxuZLynkPjV9eQEw8
 id: default_index
 name: 'Default content index'
 description: 'Default content index created by the Database Search Defaults module'

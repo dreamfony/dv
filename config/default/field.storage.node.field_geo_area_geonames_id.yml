@@ -1,9 +1,11 @@
-uuid: 5b2e6d3d-dba8-4bf2-9e69-bdc8995ff2bc
-langcode: en
+uuid: 0586667c-2222-4740-92a7-f5b509dcf673
+langcode: hr
 status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: MNGFh8yOuRbeuXV779EEE2uyYe4BG0s8EF6jPFK7YBM
 id: node.field_geo_area_geonames_id
 field_name: field_geo_area_geonames_id
 entity_type: node

@@ -1,10 +1,12 @@
-uuid: 9d58628d-754c-4965-ab6b-6d6a22a03934
-langcode: en
+uuid: 7ab75291-dda7-4b3b-8ef3-948a81a6fdb3
+langcode: hr
 status: true
 dependencies:
   config:
     - field.storage.node.field_person_id
     - node.type.person
+_core:
+  default_config_hash: gY2nZnNW5cx75TPhK4Qutn86QRH4jH2p5PYbFIezA58
 id: node.person.field_person_id
 field_name: field_person_id
 entity_type: node

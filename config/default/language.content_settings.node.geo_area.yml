@@ -1,9 +1,11 @@
-uuid: a1a4b273-2ee3-4ecd-966c-3ad120e47d75
-langcode: en
+uuid: f4f0df08-83d4-427d-8677-ebaca57faab6
+langcode: hr
 status: true
 dependencies:
   config:
     - node.type.geo_area
+_core:
+  default_config_hash: 1BVU5DvR3Q064jY_u6z-UbGa18I9JIVWsagR_SQ-YwM
 id: node.geo_area
 target_entity_type_id: node
 target_bundle: geo_area

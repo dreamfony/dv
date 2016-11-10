@@ -1,11 +1,11 @@
-uuid: 7040026d-6062-4f1c-b853-4940dcbfc585
-langcode: en
+uuid: 655eaeeb-d0a7-4da6-9f14-bbf901f239a4
+langcode: hr
 status: true
 dependencies:
   module:
     - group
 _core:
-  default_config_hash: Sgrm2nHDx7xKvByuR5oGB77nLvI0LikTM8ff3e_YlWY
+  default_config_hash: 6SE-yE1uyNTD8F3WCnqh71YgIRDOR_cc0UWcgKfAj0I
 id: group_content.group_roles
 field_name: group_roles
 entity_type: group_content

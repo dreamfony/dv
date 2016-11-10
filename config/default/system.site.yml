@@ -1,5 +1,5 @@
-uuid: a748779b-b96a-4f3f-a3ff-4cf3d2bbc1f5
-name: dv8
+uuid: 03bb4dfa-f3fe-4532-912e-2079eefbc757
+name: Drupal
 mail: damir.miric@gmail.com
 slogan: ''
 page:
@@ -8,7 +8,7 @@ page:
   front: /node
 admin_compact_mode: false
 weight_select_max: 100
-langcode: en
-default_langcode: en
+langcode: hr
+default_langcode: hr
 _core:
-  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
+  default_config_hash: AyT9s8OUcclfALRE_imByOMgtZ19eOlqdF6zI3p7yqo

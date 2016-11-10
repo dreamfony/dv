@@ -1,6 +1,6 @@
-uuid: 038ecdc2-1a21-4d34-9b2a-66bcd41791fe
-langcode: en
-status: true
+uuid: 4e61d288-a9da-4910-bf0d-ab35fb44e461
+langcode: hr
+status: false
 dependencies:
   module:
     - system
@@ -10,7 +10,7 @@ _core:
   default_config_hash: oVVlNA4ROgPb_vpKdqsurVNmXkUZn2FMxwuHuRDtua0
 id: sitebranding
 theme: socialbase
-region: header
+region: ''
 weight: 3
 provider: null
 plugin: system_branding_block

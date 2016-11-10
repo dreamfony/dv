@@ -1,9 +1,11 @@
-uuid: 5a3cdba7-f2ae-49f5-b7cd-c9fa1aa14d17
-langcode: en
+uuid: 6b60044e-19a4-40f8-be84-2513ec5a9e1f
+langcode: hr
 status: true
 dependencies:
   config:
     - taxonomy.vocabulary.area_of_activity
+_core:
+  default_config_hash: M6Aw0RBZKdrdAesBGkUkWmRv15aTlbaDvGByfYeiH5o
 id: taxonomy_term.area_of_activity
 target_entity_type_id: taxonomy_term
 target_bundle: area_of_activity

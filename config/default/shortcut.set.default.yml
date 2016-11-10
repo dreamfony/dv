@@ -1,8 +1,8 @@
-uuid: a88cb071-607a-4781-9ce9-78f087bc3fb1
-langcode: en
+uuid: fd4e3ea6-24e2-4f0f-b7da-d17a6eab4f68
+langcode: hr
 status: true
 dependencies: {  }
 _core:
   default_config_hash: U5VlGjd_SfV0Qm_EfnaynOfc549cNscFAx48JfYoMRI
 id: default
-label: Default
+label: Zadano

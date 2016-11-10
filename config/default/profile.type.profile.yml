@@ -1,11 +1,11 @@
-uuid: a73e9936-7b93-437e-8df2-db2ff44bca66
-langcode: en
+uuid: 7503db5d-cedf-4ad3-b19c-29c64cdcb73e
+langcode: hr
 status: true
 dependencies: {  }
 _core:
   default_config_hash: BKqpkcpQ6vRhAciVQT_3sOA3bKs1vtrCini-GiyGcKs
 id: profile
-label: Profile
+label: Profil
 registration: false
 multiple: false
 roles:

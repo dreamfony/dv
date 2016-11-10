@@ -1,9 +1,11 @@
-uuid: 86f74125-175d-4add-bbc3-76bb729eaa45
-langcode: en
+uuid: b21b9dfe-931e-4db9-8184-4634dad5f979
+langcode: hr
 status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: flx76iWHNy5n6UWRAKR9vPaLXV-w511obni_LgaYBlc
 id: follow_issue
 label: 'Follow Issue'
 bundles:

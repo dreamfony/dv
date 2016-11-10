@@ -1,10 +1,12 @@
-uuid: 1a99a3a2-fae1-44a4-8704-b0e841b6523c
-langcode: en
+uuid: 8b3a7471-af81-4c14-8434-6d38d56b06af
+langcode: hr
 status: true
 dependencies:
   module:
     - eck
     - taxonomy
+_core:
+  default_config_hash: SpqramoNXabx0iqp5f-AaiFCTRunliVUlSY3SV0d91g
 id: role.field_r_function
 field_name: field_r_function
 entity_type: role

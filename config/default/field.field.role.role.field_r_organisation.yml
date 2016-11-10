@@ -1,11 +1,13 @@
-uuid: 407de8ea-9ca1-4338-ad12-a5a0c33ff72a
-langcode: en
+uuid: 3c55ea3e-df20-4c9d-afd1-2aacb66c536a
+langcode: hr
 status: true
 dependencies:
   config:
     - eck.eck_type.role.role
     - field.storage.role.field_r_organisation
     - node.type.organisation
+_core:
+  default_config_hash: d38nYWfJyHx8GtxZKSWuIv-jxdGryDlbTwmjBQEKi5U
 id: role.role.field_r_organisation
 field_name: field_r_organisation
 entity_type: role

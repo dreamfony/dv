@@ -1,14 +1,20 @@
-uuid: 16971b7e-aba5-44a4-ac65-789846d27028
-langcode: en
+uuid: d6ff3beb-1f97-4329-8eb9-b0de6a478ac5
+langcode: hr
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.geo_area.body
+    - field.field.node.geo_area.field_geo_area_admin_area_level
+    - field.field.node.geo_area.field_geo_area_geonames_id
+    - field.field.node.geo_area.field_geo_area_parent
+    - field.field.node.geo_area.field_geo_area_population
     - node.type.geo_area
   module:
     - text
     - user
+_core:
+  default_config_hash: 9iHWcEk1EZe5Wyp3Ds56bvzlGukzoGG8nny8NaF5gkY
 id: node.geo_area.teaser
 targetEntityType: node
 bundle: geo_area
@@ -21,7 +27,13 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
+    region: content
   links:
     weight: 100
+    region: content
 hidden:
+  field_geo_area_admin_area_level: true
+  field_geo_area_geonames_id: true
+  field_geo_area_parent: true
+  field_geo_area_population: true
   langcode: true

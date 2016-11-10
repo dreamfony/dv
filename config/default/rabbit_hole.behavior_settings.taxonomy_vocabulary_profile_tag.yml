@@ -1,7 +1,9 @@
-uuid: 8cfcfbd9-c0d8-4237-9a37-e0028b5c4a2e
-langcode: en
+uuid: d679b880-0923-44b3-be24-bb5abb53772a
+langcode: hr
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: 3FQFfdDlfYyWnywPFjHvsa4MTzhhPBMQh6GHov-Wec0
 id: taxonomy_vocabulary_profile_tag
 action: page_not_found
 allow_override: 1

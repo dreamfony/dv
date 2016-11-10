@@ -1,5 +1,5 @@
-uuid: f0ca4b48-6734-49db-8eb2-d1c0b95f756a
-langcode: en
+uuid: 416dde2f-4b87-4441-acc8-e7b78c4c3eed
+langcode: hr
 status: true
 dependencies:
   config:
@@ -7,11 +7,13 @@ dependencies:
     - field.storage.comment.comment_body
   module:
     - text
+_core:
+  default_config_hash: A8V3zsiH2GszDGS_NZRU_Cmxo_zeklcUWimeBVnIo3I
 id: comment.issue_comment.comment_body
 field_name: comment_body
 entity_type: comment
 bundle: issue_comment
-label: Comment
+label: Komentar
 description: ''
 required: true
 translatable: true

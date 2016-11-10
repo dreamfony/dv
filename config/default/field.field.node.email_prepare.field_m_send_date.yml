@@ -1,5 +1,5 @@
-uuid: d9668783-47e3-44a5-974d-110ca23fa508
-langcode: en
+uuid: 7a96c939-ce78-42e1-9b5e-51a932b02b23
+langcode: hr
 status: true
 dependencies:
   config:
@@ -7,6 +7,8 @@ dependencies:
     - node.type.email_prepare
   module:
     - datetime
+_core:
+  default_config_hash: Tr9gi2ulaOLMgcp_ooyb6uPPwbRLUMrY8tU6SMqtpOw
 id: node.email_prepare.field_m_send_date
 field_name: field_m_send_date
 entity_type: node

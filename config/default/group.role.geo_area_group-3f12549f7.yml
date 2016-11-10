@@ -1,5 +1,5 @@
-uuid: eeb26da1-cecd-412e-97a8-ef539c512466
-langcode: en
+uuid: a4cab185-77b0-4689-8774-438b14932215
+langcode: hr
 status: true
 dependencies:
   config:
@@ -9,6 +9,8 @@ dependencies:
       - grolesync
     config:
       - user.role.moderator
+_core:
+  default_config_hash: zhuepgjNFVAZWnontbxd0c1RrWyrWpw70gazJbmt9NI
 id: geo_area_group-3f12549f7
 label: Moderator
 weight: 3

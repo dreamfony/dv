@@ -1,9 +1,11 @@
-uuid: 64a4e686-ae65-4e2e-b94e-cfcd5692bdbb
-langcode: en
+uuid: 479dd0db-f5ce-40b8-95c1-4d6e7ccc0329
+langcode: hr
 status: true
 dependencies:
   config:
     - group.type.work_group
+_core:
+  default_config_hash: rqzpHgadnX-2N_9i-N42-lRpCn0B3rCC1Bt5CcmwXbU
 id: work_group-outsider
 label: Outsider
 weight: -101

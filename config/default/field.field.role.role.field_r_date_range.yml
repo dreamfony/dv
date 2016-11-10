@@ -1,5 +1,5 @@
-uuid: 850f0d27-623c-4ff8-a4c3-2f818cb3ca41
-langcode: en
+uuid: ce5846ab-a388-4349-98d9-83cb9da9f21f
+langcode: hr
 status: true
 dependencies:
   config:
@@ -7,6 +7,8 @@ dependencies:
     - field.storage.role.field_r_date_range
   module:
     - datetime_range
+_core:
+  default_config_hash: qTs3S7dXFg5KXNGodaEC1F5y7K0LSfyaR_uF3lcV9Zs
 id: role.role.field_r_date_range
 field_name: field_r_date_range
 entity_type: role

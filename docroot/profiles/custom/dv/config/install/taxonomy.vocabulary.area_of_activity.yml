@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Area of Activity'
+vid: area_of_activity
+description: ''
+hierarchy: 0
+weight: 0

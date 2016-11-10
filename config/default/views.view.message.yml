@@ -1,5 +1,5 @@
-uuid: 746ddbc4-4082-4754-bf00-dd6fe24048d5
-langcode: en
+uuid: 76703684-914e-422c-a2a7-9762c81d9f31
+langcode: hr
 status: true
 dependencies:
   module:
@@ -7,7 +7,7 @@ dependencies:
     - system
     - user
 _core:
-  default_config_hash: 2Up5NUvwF4aBVoO6eFTPeBXtnpUw_yiexv9I5u6ZD-g
+  default_config_hash: '-kMtXye7UkaRK5rIcvkNg8Bb7I_2c21ACV3rNbJRNgM'
 id: message
 label: Message
 module: views

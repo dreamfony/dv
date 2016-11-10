@@ -1,5 +1,5 @@
-uuid: 6fb810f5-3725-4cf9-a074-71f7a3df2fb6
-langcode: en
+uuid: 5fb990c6-ee7c-47c4-87e8-42adf1170a99
+langcode: hr
 status: true
 dependencies:
   config:
@@ -7,6 +7,8 @@ dependencies:
     - node.type.email_prepare
   module:
     - file
+_core:
+  default_config_hash: aWULNs2PGax3OXEv9CCrrX53IlEH-e_WmYSeiiOwkKE
 id: node.email_prepare.field_m_attachments
 field_name: field_m_attachments
 entity_type: node

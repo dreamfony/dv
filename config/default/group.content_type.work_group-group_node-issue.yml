@@ -1,10 +1,12 @@
-uuid: 4616c8de-3554-43f8-8743-46103e117588
-langcode: en
+uuid: 950d592d-c0e4-43a4-8b78-2769d36c2786
+langcode: hr
 status: true
 dependencies:
   config:
     - group.type.work_group
     - node.type.issue
+_core:
+  default_config_hash: DxMTUJyN56Tp2yZVhsMjk1PzRznb_lSe4fpO62z3ZY8
 id: work_group-group_node-issue
 label: 'Work Group: Group node (Issue)'
 description: 'Adds <em class="placeholder">Issue</em> content to groups both publicly and privately.'

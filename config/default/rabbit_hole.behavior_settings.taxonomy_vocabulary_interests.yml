@@ -1,7 +1,9 @@
-uuid: 971712b9-8772-44a4-89e5-b632eb8e6cc2
-langcode: en
+uuid: 5bace848-ddb0-44da-b529-bc598aeaed14
+langcode: hr
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: E2-NQJ2lqO9aUJ81HNm0stkmktoiZXrqSH7yvwrTdTs
 id: taxonomy_vocabulary_interests
 action: page_not_found
 allow_override: 1

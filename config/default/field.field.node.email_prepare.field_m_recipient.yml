@@ -1,16 +1,18 @@
-uuid: ece289b9-4cd1-4d4d-bb70-ba928c50c1f9
-langcode: en
+uuid: f0525860-a523-4fca-b38f-aeffa0541e55
+langcode: hr
 status: true
 dependencies:
   config:
     - field.storage.node.field_m_recipient
     - node.type.email_prepare
     - node.type.organisation
+_core:
+  default_config_hash: ijuDnVnb__awUyWbac_r-h738djyPXaOUJfUzZbf5JY
 id: node.email_prepare.field_m_recipient
 field_name: field_m_recipient
 entity_type: node
 bundle: email_prepare
-label: Recipient
+label: Primatelj
 description: ''
 required: false
 translatable: false

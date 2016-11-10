@@ -5,7 +5,7 @@ eu_only: false
 exclude_paths: "/admin\n/admin/*\n/batch\n/node/add*\n/node/*/*\n/user/*/*"
 export:
   folder: custom
-langcode: en
+langcode: hr
 popup_agreed:
   value: '<h2>Thank you for accepting cookies</h2><p>You can now hide this message or find out more about cookies.</p>'
   format: restricted_html

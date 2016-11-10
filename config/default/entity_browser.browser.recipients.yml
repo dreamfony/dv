@@ -1,9 +1,11 @@
-uuid: 6d050578-4ff7-4e50-b029-98a4a7b85857
-langcode: en
+uuid: 625840cf-4826-4eb0-9011-08f0fe12b68d
+langcode: hr
 status: true
 dependencies:
   module:
     - views
+_core:
+  default_config_hash: 1eWiMmSi3rWWok-NMRKXzcLwJ1fZiFrMbzer4JJSDhI
 name: recipients
 label: Recipients
 display: iframe
@@ -27,5 +29,5 @@ widgets:
       submit_text: 'Select entities'
     uuid: 690f94a8-9884-4bd0-bd60-a07f9f53171c
     weight: 1
-    label: view
+    label: prikaz
     id: view

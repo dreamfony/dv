@@ -1,5 +1,5 @@
-uuid: 9af2906a-15e7-43b1-ac2c-69733d5c2e3f
-langcode: en
+uuid: e135cbbe-0899-40d0-bc0a-2874dfe0880d
+langcode: hr
 status: true
 dependencies:
   config:
@@ -13,7 +13,7 @@ id: profile.profile.field_profile_address
 field_name: field_profile_address
 entity_type: profile
 bundle: profile
-label: Address
+label: Adresa
 description: ''
 required: false
 translatable: false
@@ -30,8 +30,6 @@ settings:
     sortingCode: '0'
     addressLine2: '0'
     organization: '0'
-    givenName: ''
-    additionalName: ''
-    familyName: ''
+    recipient: '0'
   langcode_override: ''
 field_type: address

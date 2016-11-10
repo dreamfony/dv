@@ -1,9 +1,11 @@
-uuid: 40504fad-a8a1-40f7-830b-f648d117d9e6
-langcode: en
+uuid: b5fe46ba-2f13-4949-9854-58f58c5fb5bb
+langcode: hr
 status: true
 dependencies:
   config:
     - group.type.work_group
+_core:
+  default_config_hash: MwI5qCD_TWyBzVOPP8IlIIvSp3xBs2AgjlssJVda1Fo
 id: work_group-member
 label: Member
 weight: -100

@@ -1,9 +1,9 @@
-uuid: 1a97b615-3606-4543-a53c-9e579b3f10e8
-langcode: en
+uuid: 3e1ed98d-1a3f-41ff-bce2-4e63ff115a45
+langcode: hr
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: aXZ2sOR-jVF6_oScPSJTjXCo333arzczomYQMnsJ8wU
+  default_config_hash: _zZE7e3Zp_mnogwwUQYWggQ-CwimP7b3dYcdxnpzWPk
 id: vote
 label: 'Normal vote'
 value_type: points

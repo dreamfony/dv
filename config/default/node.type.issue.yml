@@ -1,5 +1,5 @@
-uuid: c07a8dee-7d83-42b3-9d8e-4316137d160e
-langcode: en
+uuid: 405ecb8e-4017-4af5-8923-84683de66728
+langcode: hr
 status: true
 dependencies:
   module:
@@ -16,6 +16,8 @@ third_party_settings:
       - archived
       - draft
     default_moderation_state: draft
+_core:
+  default_config_hash: qyRusZkDXr0DFQTNJhgL_pLWdcFqO2c42EnfDb_f6hA
 name: Issue
 type: issue
 description: 'Issue TODO: add description'

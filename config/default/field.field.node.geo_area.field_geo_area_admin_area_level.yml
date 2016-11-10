@@ -1,10 +1,12 @@
-uuid: 49359e72-cdbb-48c8-8062-595d7b2fa662
-langcode: en
+uuid: c9d82821-17a3-4b17-82a0-010536b6ca59
+langcode: hr
 status: true
 dependencies:
   config:
     - field.storage.node.field_geo_area_admin_area_level
     - node.type.geo_area
+_core:
+  default_config_hash: LIFnMwnjB-AopcQlsIYZ5hv3O5_hZonGe99COp_P_lU
 id: node.geo_area.field_geo_area_admin_area_level
 field_name: field_geo_area_admin_area_level
 entity_type: node

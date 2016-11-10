@@ -1,5 +1,5 @@
-uuid: edbd32bb-8bea-4cd3-bdec-c8b728e51efa
-langcode: en
+uuid: 0469f229-d234-45ea-aca5-74a3dcc8c19f
+langcode: hr
 status: true
 dependencies:
   config:
@@ -19,11 +19,13 @@ third_party_settings:
       handling: preserve
       status_message: true
       log: true
+_core:
+  default_config_hash: V1NxXUztTLcoKDMXbnZCXkbFt--SDRRsnE20CnG7bZE
 id: node.issue.field_i_description
 field_name: field_i_description
 entity_type: node
 bundle: issue
-label: Description
+label: Opis
 description: ''
 required: false
 translatable: false

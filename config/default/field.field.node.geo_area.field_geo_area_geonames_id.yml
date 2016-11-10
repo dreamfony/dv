@@ -1,10 +1,12 @@
-uuid: 97b73a04-a155-4469-b1b3-58e96784b712
-langcode: en
+uuid: e4015c67-1911-4423-8074-044001defbd9
+langcode: hr
 status: true
 dependencies:
   config:
     - field.storage.node.field_geo_area_geonames_id
     - node.type.geo_area
+_core:
+  default_config_hash: TjMSn8o4tgqqc_mNhhoQOv5XH9wJoGXBQVSe1LHkseM
 id: node.geo_area.field_geo_area_geonames_id
 field_name: field_geo_area_geonames_id
 entity_type: node

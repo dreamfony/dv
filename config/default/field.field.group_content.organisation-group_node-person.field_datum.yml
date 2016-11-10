@@ -1,5 +1,5 @@
-uuid: 89e5812b-0a03-4c6b-9ce8-b372cff2ef0f
-langcode: en
+uuid: 8a330644-5fed-4de5-b194-f20d3e1b7329
+langcode: hr
 status: true
 dependencies:
   config:
@@ -7,6 +7,8 @@ dependencies:
     - group.content_type.organisation-group_node-person
   module:
     - datetime
+_core:
+  default_config_hash: sXkbMUTR3jlQ6J0l691hiuLf74yCYtkgaB0QwbQ6mPI
 id: group_content.organisation-group_node-person.field_datum
 field_name: field_datum
 entity_type: group_content

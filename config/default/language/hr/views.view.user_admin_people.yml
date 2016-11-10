@@ -1,5 +1,4 @@
 label: Korisnici
-description: 'Pronađite i upravljajte korisnicima vaše mrežne lokacije.'
 display:
   default:
     display_title: Master
@@ -41,7 +40,6 @@ display:
             group_items:
               1:
                 title: Aktivno
-                value: '1'
               2:
                 title: Blokiran
       title: Korisnici
@@ -54,7 +52,6 @@ display:
     display_options:
       menu:
         title: Popis
-        description: 'Pronađite i upravljajte korisnicima vaše mrežne lokacije.'
       tab_options:
         title: Korisnici
         description: 'Upravlja korisničkim računima, ulogama i dopuštenjima.'

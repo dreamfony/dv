@@ -1,5 +1,5 @@
-uuid: 1fa20521-8a48-42d1-96bb-b3e20d6c1526
-langcode: en
+uuid: 33579be5-81f9-459f-ad39-cf4e844a8e25
+langcode: hr
 status: true
 dependencies:
   config:
@@ -13,7 +13,7 @@ id: node.page.body
 field_name: body
 entity_type: node
 bundle: page
-label: Body
+label: Sadržaj
 description: ''
 required: false
 translatable: true

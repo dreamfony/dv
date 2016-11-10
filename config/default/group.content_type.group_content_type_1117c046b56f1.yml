@@ -1,10 +1,12 @@
-uuid: 2a1199c7-5ec3-4178-a651-a387f47fc1e9
-langcode: en
+uuid: db4ba865-d5be-48da-b39b-fca514ddc774
+langcode: hr
 status: true
 dependencies:
   config:
     - group.type.geo_area_group
     - node.type.organisation
+_core:
+  default_config_hash: SIW4iiLXgvOQDPPcB_qeIkEnTjwTqrVhXh-kwpPT-5A
 id: group_content_type_1117c046b56f1
 label: 'Geo Area Group: Group node (Organisation)'
 description: 'Adds <em class="placeholder">Organisation</em> content to groups both publicly and privately.'

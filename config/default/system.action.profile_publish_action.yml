@@ -1,11 +1,11 @@
-uuid: 93724c1e-5c67-4e66-9d9d-d7f8b0f79a18
-langcode: en
+uuid: d4b489d6-e56e-4dbd-9706-377b30d5567b
+langcode: hr
 status: true
 dependencies:
   module:
     - profile
 _core:
-  default_config_hash: dz5_l09fj1m6b4MZVYlHjYHsXSlG9aQHGGoupPb8phg
+  default_config_hash: SCMMBUeNM8JGM18NuLzS1L8ebKMorgo13uvCmmlEslk
 id: profile_publish_action
 label: 'Publish selected profile'
 type: profile

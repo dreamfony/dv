@@ -1,10 +1,12 @@
-uuid: 1e00c72a-edb5-42ce-a5e1-6bb1ae380515
-langcode: en
+uuid: 8753b704-b473-4f58-a641-05672a521290
+langcode: hr
 status: true
 dependencies:
   module:
     - datetime
     - group
+_core:
+  default_config_hash: Ii2EgY8Iav6YylQ2xbrPWxprZER_XN9p-qszfWoqto4
 id: group_content.field_datum
 field_name: field_datum
 entity_type: group_content

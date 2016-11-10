@@ -1,11 +1,11 @@
-uuid: 216c654a-42d6-48ff-a8e7-94dbd8d5b903
-langcode: en
+uuid: 2cb627cc-2b06-405e-9ad6-ad4f70f1fca8
+langcode: hr
 status: true
 dependencies:
   module:
     - file_entity
 _core:
-  default_config_hash: VRFBIks_Esq9botXshdDFVGQxVNpIAh5BXiNU_mgGPY
+  default_config_hash: 5FkfJ7Bdxqa_s-qkKQ2PwLkVAltQhs4-hF9TVct349U
 id: file_temporary_action
 label: 'Set file status to temporary'
 type: file

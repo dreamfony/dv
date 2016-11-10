@@ -1,5 +1,5 @@
-uuid: 41382efd-f2a7-4073-b7d6-e8d152b130f2
-langcode: en
+uuid: 1db102be-5820-4032-8c2d-a83643d3de5c
+langcode: hr
 status: true
 dependencies:
   config:
@@ -8,6 +8,8 @@ dependencies:
   module:
     - group
     - user
+_core:
+  default_config_hash: HYpRq7wGgpIaK-990zmrSZDfrioO64djgs3oYugKXHE
 id: manage_groups
 label: 'Manage Groups'
 module: views

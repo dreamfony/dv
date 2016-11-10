@@ -1,14 +1,16 @@
-uuid: 9715e9f0-cd34-466a-9316-9a3a80ae06b7
-langcode: en
+uuid: a472a4a5-c4ab-4e65-bfdf-51c8b449cefd
+langcode: hr
 status: true
 dependencies:
   config:
     - node.type.email_prepare
+_core:
+  default_config_hash: 7qnyoocGBgOFdrC8n-RzKdjnHQ8Hq0WarT5nYu4305U
 id: node.email_prepare.title
 field_name: title
 entity_type: node
 bundle: email_prepare
-label: Subject
+label: Naziv
 description: ''
 required: true
 translatable: true

@@ -1,9 +1,11 @@
-uuid: f6452c25-68ce-4442-bf3c-ea67392c9446
-langcode: en
+uuid: 1c97bfc9-0115-4bc6-b6c9-858ed2c230f4
+langcode: hr
 status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: Fl3al8gjdpAP_lMW3RYxR2dukwIejnAZOf5ZfppjR-4
 id: node.field_o_parent_organisation
 field_name: field_o_parent_organisation
 entity_type: node

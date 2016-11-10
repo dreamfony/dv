@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.geo_area.body
+    - node.type.geo_area
+  module:
+    - text
+    - user
+id: node.geo_area.teaser
+targetEntityType: node
+bundle: geo_area
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_geo_area_admin_area_level: true
+  field_geo_area_geonames_id: true
+  field_geo_area_parent: true
+  field_geo_area_population: true
+  langcode: true

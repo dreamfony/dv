@@ -13,9 +13,3 @@ display:
         access:
           expose:
             label: 'Zadnji pristup'
-            description: 'Vrijeme u kojem se korisnik smatra prijavljenim i nakon što je napustio lokaciju.'
-      title: 'Tko je umrežen'
-  who_s_online_block:
-    display_title: 'Tko je umrežen'
-    display_options:
-      block_description: 'Tko je umrežen'

@@ -1,12 +1,12 @@
-uuid: 15b8a8b3-25f5-41f2-a6b6-3b42aa6dc0af
-langcode: en
+uuid: 642d110e-1bb0-4882-807e-6d67e93bb406
+langcode: hr
 status: true
 dependencies:
   enforced:
     module:
       - like_and_dislike
 _core:
-  default_config_hash: 3zl7g2OKC0tYyyq9f-4HDK-7rK6I7qACYhprZHKeEnc
+  default_config_hash: r2FkrVybkqPE3_buv-YJ-ip4t47iRILOGtAOaNUvI_4
 id: dislike
 label: 'Dislike vote'
 value_type: points

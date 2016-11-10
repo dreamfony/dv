@@ -1,5 +1,5 @@
-uuid: d8a1cd62-faf2-45fe-afd4-0e92f0d23033
-langcode: en
+uuid: 17cc904b-2ef8-47f3-8cd2-744bfccac4e5
+langcode: hr
 status: true
 dependencies:
   config:
@@ -12,11 +12,14 @@ dependencies:
     - field.field.node.organisation.field_o_organisation_group
     - field.field.node.organisation.field_o_organisation_id
     - field.field.node.organisation.field_o_parent_organisation
+    - field.field.node.organisation.field_o_private_issue
     - field.field.node.organisation.field_o_telephone
     - field.field.node.organisation.field_o_web_site
     - node.type.organisation
   module:
     - user
+_core:
+  default_config_hash: jXfhoKhHgvcafPc5Z4CDgYL3_TYDJaC0JwW1ObnUdEw
 id: node.organisation.teaser
 targetEntityType: node
 bundle: organisation
@@ -35,6 +38,7 @@ hidden:
   field_o_organisation_group: true
   field_o_organisation_id: true
   field_o_parent_organisation: true
+  field_o_private_issue: true
   field_o_telephone: true
   field_o_web_site: true
   langcode: true

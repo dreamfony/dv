@@ -1,5 +1,5 @@
-uuid: f04fbfb0-bfe7-487a-af84-099e31560009
-langcode: en
+uuid: 64bc244a-4c80-4dd1-bb6b-53655fc243ff
+langcode: hr
 status: true
 dependencies:
   config:
@@ -19,6 +19,8 @@ dependencies:
     - file
     - text
     - user
+_core:
+  default_config_hash: i1w7R1LNoB3EuXAIvwnujPasyTwcRi5ybDv5fHhoYbQ
 id: node.issue.default
 targetEntityType: node
 bundle: issue
@@ -92,6 +94,9 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  flag_follow_issue:
+    weight: 10
     region: content
   like_and_dislike:
     weight: 0

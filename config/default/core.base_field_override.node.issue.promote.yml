@@ -1,14 +1,16 @@
-uuid: e237b772-6b8b-44fc-a812-df1fa1b2cfd3
-langcode: en
+uuid: 64ea08e8-205a-4991-ae50-2f33db48c099
+langcode: hr
 status: true
 dependencies:
   config:
     - node.type.issue
+_core:
+  default_config_hash: Y0XIZeiIxV3H3ZFe3gWLRqNIOClQZjbWuOv317MV52k
 id: node.issue.promote
 field_name: promote
 entity_type: node
 bundle: issue
-label: 'Promoted to front page'
+label: 'Promovirano na naslovnici'
 description: ''
 required: false
 translatable: true
@@ -17,6 +19,6 @@ default_value:
     value: 0
 default_value_callback: ''
 settings:
-  on_label: 'On'
+  on_label: Uključi
   off_label: 'Off'
 field_type: boolean

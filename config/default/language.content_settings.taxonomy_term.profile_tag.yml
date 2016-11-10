@@ -1,9 +1,11 @@
-uuid: 20579ee4-168c-4209-a5e0-0f14c746089d
-langcode: en
+uuid: aac65313-67f8-49ee-9f96-d0a9d40ce495
+langcode: hr
 status: true
 dependencies:
   config:
     - taxonomy.vocabulary.profile_tag
+_core:
+  default_config_hash: 9WHdjPvnqtCab3pP4tpRF-HZ9Q7tblSnNAT-V9o1H6g
 id: taxonomy_term.profile_tag
 target_entity_type_id: taxonomy_term
 target_bundle: profile_tag

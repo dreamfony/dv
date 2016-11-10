@@ -1,5 +1,5 @@
-uuid: cff6472c-c321-4987-b1d5-cdc654fed3e5
-langcode: en
+uuid: 8e55ff7b-ebea-4c65-bfbf-25d76ab1dd09
+langcode: hr
 status: true
 dependencies:
   config:
@@ -9,6 +9,8 @@ dependencies:
     - field.field.role.role.field_r_organisation
   module:
     - datetime_range
+_core:
+  default_config_hash: s2aLmWMOjdt-G0ErbwDB44qePtWz1zJEXuUh1RKPB3k
 id: role.role.default
 targetEntityType: role
 bundle: role

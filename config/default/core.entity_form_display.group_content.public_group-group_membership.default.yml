@@ -1,10 +1,12 @@
-uuid: c93d82f0-2f70-4f0a-89a2-5f9dd354903d
-langcode: en
+uuid: a537284c-ce51-4512-92f6-cbfe07ad43ed
+langcode: hr
 status: true
 dependencies:
   config:
     - field.field.group_content.public_group-group_membership.group_roles
     - group.content_type.public_group-group_membership
+_core:
+  default_config_hash: W7fUhdX-oEtQoSIwXOu0mUA4Yg0OVhTmpnQL4aoGl4A
 id: group_content.public_group-group_membership.default
 targetEntityType: group_content
 bundle: public_group-group_membership

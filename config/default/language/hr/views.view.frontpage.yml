@@ -1,9 +1,6 @@
 display:
   default:
     display_options:
-      empty:
-        area_text_custom:
-          content: 'Nema promoviranog sadržaja.'
       exposed_form:
         options:
           submit_button: Primjeni

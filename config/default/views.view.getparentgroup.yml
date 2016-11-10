@@ -1,5 +1,5 @@
-uuid: 4a71eec2-ffd2-4678-bee3-ca02f59c9972
-langcode: en
+uuid: cf28de6f-4f3d-4719-b25e-51de59717aab
+langcode: hr
 status: true
 dependencies:
   module:
@@ -7,6 +7,8 @@ dependencies:
     - node
     - rest
     - serialization
+_core:
+  default_config_hash: fZp9MEOU3pz9wb1jCGAxcR9_Gqg9dzXv3hG4KO8aA-Y
 id: getparentgroup
 label: getParentGroup
 module: views

@@ -1,0 +1,14 @@
+{
+  "name": "drupal/comment_plus",
+  "type": "drupal-module",
+  "description": "Comment Plus adds new features on top of comment module.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/comment_plus",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/comment_plus",
+    "source": "http://cgit.drupalcode.org/comment_plus"
+  },
+  "require": { }
+}

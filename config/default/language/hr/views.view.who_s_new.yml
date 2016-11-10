@@ -1,4 +1,3 @@
-label: 'Tko je novi'
 display:
   default:
     display_title: Master
@@ -10,9 +9,6 @@ display:
           exposed_sorts_label: 'Rasporedi po'
           sort_asc_label: Uzlazno
           sort_desc_label: Silazno
-      title: 'Tko je novi'
   block_1:
-    display_title: 'Tko je novi'
     display_options:
-      block_description: 'Tko je novi'
       block_category: Korisnik

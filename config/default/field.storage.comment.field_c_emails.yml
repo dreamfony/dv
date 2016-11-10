@@ -1,10 +1,12 @@
-uuid: 8fdc3110-2cd8-417d-a1e8-a3d66487bffb
-langcode: en
+uuid: 3aa0b18a-0a97-49e1-ae42-de7a6df25b81
+langcode: hr
 status: true
 dependencies:
   module:
     - comment
     - node
+_core:
+  default_config_hash: '-X3aLybBtQoel_7cA9h4CbYL2QZazQXTT9b8NiHxzZ0'
 id: comment.field_c_emails
 field_name: field_c_emails
 entity_type: comment

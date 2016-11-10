@@ -1,5 +1,5 @@
-uuid: dceadb65-6d4b-47ca-8194-caaec76b5bff
-langcode: en
+uuid: 2e56aec0-c84c-46c9-aef5-90ebb1a81793
+langcode: hr
 status: true
 dependencies:
   config:
@@ -7,11 +7,13 @@ dependencies:
     - node.type.issue
   module:
     - comment
+_core:
+  default_config_hash: jYWv27s-wU4mybrWTXD1XGm7CP7-9ZMsDmwzLbrb0sY
 id: node.issue.field_i_comments
 field_name: field_i_comments
 entity_type: node
 bundle: issue
-label: Comments
+label: Komentari
 description: ''
 required: false
 translatable: false

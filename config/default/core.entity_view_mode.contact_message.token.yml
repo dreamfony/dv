@@ -1,9 +1,11 @@
-uuid: bf5d05ca-c7ee-46e8-8004-f24b224c63ad
-langcode: en
+uuid: b066abba-adcc-43ef-8ce4-978e9107aead
+langcode: hr
 status: true
 dependencies:
   module:
     - contact
+_core:
+  default_config_hash: X-u-oHfskJg3f8koTCKJndfJyBWavJ5aWeHGYn2arnE
 id: contact_message.token
 label: Token
 targetEntityType: contact_message

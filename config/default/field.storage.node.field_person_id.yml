@@ -1,9 +1,11 @@
-uuid: 3d121028-dd9c-466f-ac11-1310f057bdaf
-langcode: en
+uuid: 62a544ae-a801-4126-bf7d-f4bc4faeccf9
+langcode: hr
 status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: PfRSJ3MN2DVfMJ2j1ERvYH_bxSDy1ZjV83oKpRoxvjc
 id: node.field_person_id
 field_name: field_person_id
 entity_type: node

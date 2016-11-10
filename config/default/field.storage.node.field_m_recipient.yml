@@ -1,9 +1,11 @@
-uuid: 4c54dabe-4277-4a7b-8104-d69e6befa625
-langcode: en
+uuid: 32c6d181-0ed4-4e38-9352-0031e819857f
+langcode: hr
 status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: 7o4Pn5YQfTHQx0GQ5QYcExOLwKGIzIanyyRWUfelZlA
 id: node.field_m_recipient
 field_name: field_m_recipient
 entity_type: node

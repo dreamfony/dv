@@ -1,10 +1,12 @@
-uuid: 647748b5-622c-46c0-92b1-5e1dacd5ecbb
-langcode: en
+uuid: 66bd7574-8a88-49ed-b79d-f49cad7312be
+langcode: hr
 status: true
 dependencies:
   config:
     - field.storage.node.field_o_parent_organisation
     - node.type.organisation
+_core:
+  default_config_hash: zE4xW1H9gr7M8DsBtu7_BVoM2V81OgS8A-dcsks5vxE
 id: node.organisation.field_o_parent_organisation
 field_name: field_o_parent_organisation
 entity_type: node

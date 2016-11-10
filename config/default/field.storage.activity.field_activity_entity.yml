@@ -1,13 +1,11 @@
-uuid: 67605ae1-ec28-4452-8308-f912e4ceb172
-langcode: en
+uuid: dbf3235f-46d6-4d1c-ae95-74017f05331c
+langcode: hr
 status: true
 dependencies:
   module:
     - activity_creator
     - block_content
     - comment
-    - contact
-    - content_moderation
     - dynamic_entity_reference
     - file
     - group
@@ -15,12 +13,10 @@ dependencies:
     - message
     - node
     - profile
-    - search_api
-    - shortcut
     - taxonomy
     - user
 _core:
-  default_config_hash: '-WUuqx-m7OF_oD5WaVM3HvkY9ysyR3x9cWYly_au0_I'
+  default_config_hash: tIx-KJNGmvE_yrikhF5EjgWh1QgelM9ecVVjF-qNEQQ
 id: activity.field_activity_entity
 field_name: field_activity_entity
 entity_type: activity

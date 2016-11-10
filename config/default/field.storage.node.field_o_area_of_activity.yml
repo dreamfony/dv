@@ -1,10 +1,12 @@
-uuid: 39255e93-9ee2-4544-852b-866a740d5e50
-langcode: en
+uuid: e0caf191-c2f1-46b7-931a-368c0b6bc516
+langcode: hr
 status: true
 dependencies:
   module:
     - node
     - taxonomy
+_core:
+  default_config_hash: wS7CHXJiefc24X_v1CjMSu6qIHT7_Sjdecoq3ymqEOw
 id: node.field_o_area_of_activity
 field_name: field_o_area_of_activity
 entity_type: node

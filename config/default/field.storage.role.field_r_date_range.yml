@@ -1,10 +1,12 @@
-uuid: bdc1bd35-2525-4c62-88d7-a26f9b86a916
-langcode: en
+uuid: fbf0c9d5-72f1-4f6a-9b66-f095556a83d5
+langcode: hr
 status: true
 dependencies:
   module:
     - datetime_range
     - eck
+_core:
+  default_config_hash: yiYQTDgKOPq4MZPuhlBD5zAIELwzcjtHUo99O7CqnKU
 id: role.field_r_date_range
 field_name: field_r_date_range
 entity_type: role

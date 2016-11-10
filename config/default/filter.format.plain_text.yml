@@ -1,10 +1,10 @@
-uuid: d8467c26-19ed-4b52-af63-6712ee542a36
-langcode: en
+uuid: 1da84558-c569-477c-86d7-524eaa5e0d47
+langcode: hr
 status: true
 dependencies: {  }
 _core:
   default_config_hash: NIKBt6kw_uPhNI0qtR2DnRf7mSOgAQdx7Q94SKMjXbQ
-name: 'Plain text'
+name: 'Obični tekst'
 format: plain_text
 weight: 10
 filters:

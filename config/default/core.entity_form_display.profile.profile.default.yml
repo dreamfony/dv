@@ -1,5 +1,5 @@
-uuid: 3ada2614-2025-438a-a27e-936bd2a9c0fd
-langcode: en
+uuid: 8a2908b9-fddb-4d7b-8e50-7f67495e0b51
+langcode: hr
 status: true
 dependencies:
   config:
@@ -176,7 +176,7 @@ content:
   langcode:
     type: language_select
     weight: 2
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden: {  }

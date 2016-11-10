@@ -1,0 +1,6 @@
+langcode: en
+status: true
+dependencies: {  }
+id: geo_area_group
+label: 'Geo Area Group'
+description: ''

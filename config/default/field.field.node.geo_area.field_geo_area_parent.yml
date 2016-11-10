@@ -1,10 +1,12 @@
-uuid: dbcb60ca-14b6-4033-beb8-37be27314a95
-langcode: en
+uuid: cd24a091-7005-4f76-8aa9-272eb59e670a
+langcode: hr
 status: true
 dependencies:
   config:
     - field.storage.node.field_geo_area_parent
     - node.type.geo_area
+_core:
+  default_config_hash: 7slbURt2XjFI8BAyRNXApvAp_VlmJ4hLqf4DDcfpqoc
 id: node.geo_area.field_geo_area_parent
 field_name: field_geo_area_parent
 entity_type: node

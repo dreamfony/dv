@@ -1,5 +1,5 @@
-uuid: c2653c15-9bd0-4614-ae4f-50ed2a63ddf0
-langcode: en
+uuid: 58ec3d99-9c83-4c5f-ade9-8d476a0ab2e5
+langcode: hr
 status: true
 dependencies:
   module:
@@ -760,7 +760,7 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: false
+          value: ''
           group: 1
           exposed: true
           expose:

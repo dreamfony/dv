@@ -1,13 +1,11 @@
-uuid: 71b24fb6-0dac-4c53-bcf9-d553f51d754f
-langcode: en
+uuid: 4f7982fe-2f1e-4b95-9f1e-9e5a204bc3dc
+langcode: hr
 status: true
 dependencies:
   module:
     - activity_creator
     - block_content
     - comment
-    - contact
-    - content_moderation
     - dynamic_entity_reference
     - file
     - group
@@ -15,12 +13,10 @@ dependencies:
     - message
     - node
     - profile
-    - search_api
-    - shortcut
     - taxonomy
     - user
 _core:
-  default_config_hash: 8gmDGt2Nh9t6O-U4uPX6F9_lOe9AmTYxnyKxuZJ_DPE
+  default_config_hash: 7RqGynvwbDvk8F2RyQ6XmRN2xYrABvgpg1lhh9zJ5So
 id: message.field_message_related_object
 field_name: field_message_related_object
 entity_type: message

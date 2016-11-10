@@ -1,3 +1,6 @@
 username: mailinator
 token: ''
 server: 'http://api.geonames.org'
+_core:
+  default_config_hash: VRcz3UD2qv5eznfB_bsocc_jRGaoRGGambx1zibvzcQ
+langcode: hr

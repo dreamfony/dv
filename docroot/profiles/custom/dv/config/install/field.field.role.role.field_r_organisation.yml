@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.role.role
+    - field.storage.role.field_r_organisation
+    - node.type.organisation
+id: role.role.field_r_organisation
+field_name: field_r_organisation
+entity_type: role
+bundle: role
+label: Organisation
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      organisation: organisation
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

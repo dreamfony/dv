@@ -1,5 +1,5 @@
-uuid: 83b523f0-0d62-430b-9061-b9dc7d9a2ea8
-langcode: en
+uuid: 35bcd34e-6513-490b-bbdb-b183b2e0c660
+langcode: hr
 status: true
 dependencies:
   config:
@@ -7,7 +7,7 @@ dependencies:
   module:
     - search_api
 _core:
-  default_config_hash: 2gt655xS9N1vWJCR-YhEWI4TWWkvG8PuYIr1YvSSYkA
+  default_config_hash: mpnlCNxHmN2NGJY2SLSmEft_udwaPLGz_kEMZ55zUuc
 id: search_content
 label: 'Search content'
 module: views

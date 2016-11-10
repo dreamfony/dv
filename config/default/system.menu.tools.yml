@@ -1,10 +1,10 @@
-uuid: ac71a412-0087-4003-9116-6a6b45defb4c
-langcode: en
+uuid: 1a1bd185-7b22-4d39-925b-57c1b0d3ef70
+langcode: hr
 status: true
 dependencies: {  }
 _core:
   default_config_hash: BCM-vV1zzRaLHN18dqAR_CuGOj8AFJvTx7BKl_8Gcxc
 id: tools
-label: Tools
+label: Alati
 description: 'User tool links, often added by modules'
 locked: true

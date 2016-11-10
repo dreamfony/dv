@@ -1,10 +1,12 @@
-uuid: 5ab9deb4-c704-4435-80a6-373865bd3b1d
-langcode: en
+uuid: f4fde3be-30d7-4611-a97e-7480625df133
+langcode: hr
 status: true
 dependencies:
   module:
     - eck
     - node
+_core:
+  default_config_hash: A-PVU9-mKUzzjzNtQ93dFN42qQnMdL0cu79rL4qsuGA
 id: node.field_p_role
 field_name: field_p_role
 entity_type: node

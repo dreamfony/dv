@@ -1,11 +1,11 @@
-uuid: 8660430e-a8e4-4121-8605-f376a595d348
-langcode: en
+uuid: fd6759bd-87ae-493c-989d-8309ae8da3af
+langcode: hr
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: Cnm8jai7mUWRJe41uZo5lyvpDJcbdkbGutMFhqPDUys
+  default_config_hash: 2_i8kK4PM6l6kYMFVbLcIh9fNZdjVMsb3zvbVGB4DLw
 id: image
-label: Image
+label: Slika
 description: 'An <em>Image</em> file is a still visual.'
 mimetypes:
   - 'image/*'

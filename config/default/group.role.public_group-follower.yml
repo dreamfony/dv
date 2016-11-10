@@ -1,9 +1,11 @@
-uuid: e8f6fb90-cfa0-444e-b303-0f7db5c0e265
-langcode: en
+uuid: dca84b25-99a7-4aa0-92c1-436fde14f328
+langcode: hr
 status: true
 dependencies:
   config:
     - group.type.public_group
+_core:
+  default_config_hash: CiVqqn_fqwEXofkGZ5MMlyA_hrdxflbme6U3w_t81Ts
 id: public_group-follower
 label: Follower
 weight: 4

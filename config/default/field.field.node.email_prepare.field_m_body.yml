@@ -1,5 +1,5 @@
-uuid: 92ad29e4-d1ea-4fb9-9351-4d12a2dd3e57
-langcode: en
+uuid: c0084af5-579c-4d34-b28d-0ae7c913e9e9
+langcode: hr
 status: true
 dependencies:
   config:
@@ -19,11 +19,13 @@ third_party_settings:
       handling: preserve
       status_message: true
       log: true
+_core:
+  default_config_hash: sGgrxA10VL7KP33GDZuDVq2B9DiNSsNfzgXpkbBJqQQ
 id: node.email_prepare.field_m_body
 field_name: field_m_body
 entity_type: node
 bundle: email_prepare
-label: Body
+label: Sadržaj
 description: ''
 required: false
 translatable: false

@@ -1,5 +1,5 @@
-uuid: bedfda4a-e18a-4908-8d0d-90c601157278
-langcode: en
+uuid: 61ba52e9-fe75-4415-b7e6-b0ca7577c49b
+langcode: hr
 status: true
 dependencies:
   config:
@@ -8,7 +8,7 @@ dependencies:
     - activity_creator
     - dynamic_entity_reference
 _core:
-  default_config_hash: 6qd0BAp_6j8O7rlCaJmCJYUPLL-Ap4oO56bVG1oO2Y4
+  default_config_hash: _zQQLmMvLl4RhLIMXgvwKRIzP_3hlrkGc1kVv1ZHdsM
 id: activity.activity.field_activity_entity
 field_name: field_activity_entity
 entity_type: activity
@@ -59,6 +59,9 @@ settings:
         field: _none
       auto_create: false
       auto_create_bundle: create_post_profile
+  user:
+    handler: 'default:user'
+    handler_settings: {  }
   activity:
     handler: 'default:activity'
     handler_settings: {  }
@@ -79,20 +82,5 @@ settings:
     handler_settings: {  }
   taxonomy_term:
     handler: 'default:taxonomy_term'
-    handler_settings: {  }
-  user:
-    handler: 'default:user'
-    handler_settings: {  }
-  contact_message:
-    handler: 'default:contact_message'
-    handler_settings: {  }
-  content_moderation_state:
-    handler: 'default:content_moderation_state'
-    handler_settings: {  }
-  search_api_task:
-    handler: 'default:search_api_task'
-    handler_settings: {  }
-  shortcut:
-    handler: 'default:shortcut'
     handler_settings: {  }
 field_type: dynamic_entity_reference

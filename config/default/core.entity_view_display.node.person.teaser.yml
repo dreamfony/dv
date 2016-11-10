@@ -1,14 +1,18 @@
-uuid: c4abe961-2850-4949-b594-10f1279d6e4d
-langcode: en
+uuid: a4841925-4bb9-4a15-907e-253fb4e5d8e2
+langcode: hr
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.person.body
+    - field.field.node.person.field_p_role
+    - field.field.node.person.field_person_id
     - node.type.person
   module:
     - text
     - user
+_core:
+  default_config_hash: 7XIqgszCqMar1wL8GCC2fnB3US_GVNjO1K082iRR8Q0
 id: node.person.teaser
 targetEntityType: node
 bundle: person
@@ -27,4 +31,6 @@ content:
     region: content
     weight: 100
 hidden:
+  field_p_role: true
+  field_person_id: true
   langcode: true

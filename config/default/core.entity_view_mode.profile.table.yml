@@ -1,5 +1,5 @@
-uuid: 3214d1c3-4efd-4269-ad70-c2d0ad8dd7ba
-langcode: en
+uuid: cfe63937-0d0f-4d54-9539-39f0006bb3bf
+langcode: hr
 status: true
 dependencies:
   module:
@@ -7,6 +7,6 @@ dependencies:
 _core:
   default_config_hash: YcYEl_VJgKpEnxk1iIM85ybbcVWyZHCzgsxjh_DAtuk
 id: profile.table
-label: Table
+label: Tablica
 targetEntityType: profile
 cache: true

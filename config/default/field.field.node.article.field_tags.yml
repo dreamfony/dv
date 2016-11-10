@@ -1,5 +1,5 @@
-uuid: 094ac2d1-be85-47bc-8c89-aa8fdd248738
-langcode: en
+uuid: f4518908-caab-405d-a108-db67aca26423
+langcode: hr
 status: true
 dependencies:
   config:
@@ -12,7 +12,7 @@ id: node.article.field_tags
 field_name: field_tags
 entity_type: node
 bundle: article
-label: Tags
+label: Oznake
 description: 'Enter a comma-separated list. For example: Amsterdam, Mexico City, "Cleveland, Ohio"'
 required: false
 translatable: true

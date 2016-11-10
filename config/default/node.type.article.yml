@@ -1,10 +1,10 @@
-uuid: b117b078-97ee-48e4-b320-66626ca1b034
-langcode: en
+uuid: 6d6d8c42-2956-4e64-b3e9-0abfd607a63e
+langcode: hr
 status: true
 dependencies: {  }
 _core:
   default_config_hash: i4OVV5qrD7abstl4SKS8v5Ee7PuxrL548iZVSty1HRg
-name: Article
+name: Članak
 type: article
 description: 'Use <em>articles</em> for time-sensitive content like news, press releases or blog posts.'
 help: ''

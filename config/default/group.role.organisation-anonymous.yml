@@ -1,11 +1,13 @@
-uuid: 3345484b-89dd-4868-9dc0-6c5277121907
-langcode: en
+uuid: a6eee1fe-4080-47a8-9feb-68d933d46bef
+langcode: hr
 status: true
 dependencies:
   config:
     - group.type.organisation
+_core:
+  default_config_hash: WQLptEoHxc53dn3KW6WVA9CzJJqEoururbbnnB5PGuY
 id: organisation-anonymous
-label: Anonymous
+label: Anoniman
 weight: -102
 internal: true
 audience: anonymous

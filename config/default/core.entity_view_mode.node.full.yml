@@ -1,5 +1,5 @@
-uuid: ac9e8556-8d98-4ab8-978d-108fa83b4268
-langcode: en
+uuid: a401cd9b-46e2-4fee-86ee-49438f9aa585
+langcode: hr
 status: false
 dependencies:
   module:
@@ -7,6 +7,6 @@ dependencies:
 _core:
   default_config_hash: ElrtInxGjZd7GaapJ5O9n-ugi2hG2IxFivtgn0tHOsk
 id: node.full
-label: 'Full content'
+label: 'Puni sadržaj'
 targetEntityType: node
 cache: true

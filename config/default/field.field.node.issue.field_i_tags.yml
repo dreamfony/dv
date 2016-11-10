@@ -1,16 +1,18 @@
-uuid: 14c357f1-802d-4a9d-81fc-cae0a177fcad
-langcode: en
+uuid: 88e970c7-4257-4aee-9095-8a61938cec18
+langcode: hr
 status: true
 dependencies:
   config:
     - field.storage.node.field_i_tags
     - node.type.issue
     - taxonomy.vocabulary.tags
+_core:
+  default_config_hash: h3uK6afH7wXKxB6elq4vUMtoWEithPCWZt6jA6YA1FU
 id: node.issue.field_i_tags
 field_name: field_i_tags
 entity_type: node
 bundle: issue
-label: Tags
+label: Oznake
 description: ''
 required: false
 translatable: false

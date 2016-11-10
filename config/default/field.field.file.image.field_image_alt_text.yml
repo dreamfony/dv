@@ -1,5 +1,5 @@
-uuid: 8ccf0c6b-8569-4a12-872e-7bb227fd797d
-langcode: en
+uuid: 6f59169c-c16d-4323-bc86-3ee2a82a2460
+langcode: hr
 status: true
 dependencies:
   config:
@@ -9,7 +9,7 @@ dependencies:
     module:
       - file_entity
 _core:
-  default_config_hash: cbwoQlk-o56gAbZNjSZmS_duk7ISVYFDS2Cdt_0ZNk0
+  default_config_hash: Bpk-WdFcF0oJex2Idl3WARWdfMVXPcYZjnK7ywvuA5Q
 id: file.image.field_image_alt_text
 field_name: field_image_alt_text
 entity_type: file

@@ -1,10 +1,12 @@
-uuid: 817256bc-8afa-4183-b59a-ac521695354c
-langcode: en
+uuid: 61c7b030-d74e-4ffa-a25c-9f033a1682b5
+langcode: hr
 status: true
 dependencies:
   config:
     - group.type.geo_area_group
     - node.type.issue
+_core:
+  default_config_hash: ztcKuWZv6z8pjcX7TY147mMqxSbYTPSUip8Dg_UwqQc
 id: geo_area_group-group_node-issue
 label: 'Geo Area Group: Group node (Issue)'
 description: 'Adds <em class="placeholder">Issue</em> content to groups both publicly and privately.'

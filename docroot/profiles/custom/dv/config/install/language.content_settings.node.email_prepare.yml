@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.email_prepare
+id: node.email_prepare
+target_entity_type_id: node
+target_bundle: email_prepare
+default_langcode: site_default
+language_alterable: false

@@ -1,5 +1,5 @@
-uuid: 6b7411f0-5f00-4344-89ec-d821e11e50d3
-langcode: en
+uuid: 2a27b2e7-8d5e-420f-b0fa-74a5d320874f
+langcode: hr
 status: true
 dependencies:
   module:
@@ -9,6 +9,8 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
+_core:
+  default_config_hash: 8oKL8xIETVQvqL7oZejQkNYClMMCqOPFF81-m_pmAiY
 name: 'Email Sent'
 type: email_sent
 description: ''

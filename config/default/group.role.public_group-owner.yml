@@ -1,11 +1,13 @@
-uuid: 7718df85-dd3e-4854-b867-7c1b3c26c10d
-langcode: en
+uuid: eda2f019-f885-4251-8cae-a5863544d31b
+langcode: hr
 status: true
 dependencies:
   config:
     - group.type.public_group
+_core:
+  default_config_hash: Tkl7mEkOojeLNrKMkOdVUSc15ngaP7-1Mox7pe8xI_o
 id: public_group-owner
-label: Owner
+label: Vlasnik
 weight: 5
 internal: false
 audience: member

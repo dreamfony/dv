@@ -1,5 +1,5 @@
-uuid: 8eb652a2-e14a-4bf3-969e-fbd3cfb15292
-langcode: en
+uuid: f8a2b114-6fa4-46c7-9a2f-98c749ebc3d1
+langcode: hr
 status: true
 dependencies:
   config:
@@ -7,11 +7,13 @@ dependencies:
     - node.type.organisation
   module:
     - address
+_core:
+  default_config_hash: _k1OvO6RmGBmL8DAsVvo7UZ8XA9BT6MSCWuLIIhGA8E
 id: node.organisation.field_o_address
 field_name: field_o_address
 entity_type: node
 bundle: organisation
-label: Address
+label: Adresa
 description: ''
 required: false
 translatable: false

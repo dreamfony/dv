@@ -1,5 +1,5 @@
-uuid: a7c7eeb5-875c-469a-a363-17a5467bc798
-langcode: en
+uuid: 30e51fd3-90b9-482c-a2f7-3a3e815eb80a
+langcode: hr
 status: true
 dependencies:
   config:
@@ -7,6 +7,8 @@ dependencies:
     - node.type.email_recieved
   module:
     - user
+_core:
+  default_config_hash: enuSNP4gtcONb6rTYNaEWvk-18o2dNss43zcgMILqOQ
 id: node.email_recieved.teaser
 targetEntityType: node
 bundle: email_recieved

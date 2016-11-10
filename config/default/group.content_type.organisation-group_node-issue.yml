@@ -1,10 +1,12 @@
-uuid: 460208c6-9ed6-4763-85ab-4f3e809bc937
-langcode: en
+uuid: a0ec1f34-3f35-45a1-9bd5-8ded8c956408
+langcode: hr
 status: true
 dependencies:
   config:
     - group.type.organisation
     - node.type.issue
+_core:
+  default_config_hash: HCBvnZ42RZETsPRH22F-i0xJDB7zVGpUX3Tc7tBKJco
 id: organisation-group_node-issue
 label: 'Organisation: Group node (Issue)'
 description: 'Adds <em class="placeholder">Issue</em> content to groups both publicly and privately.'

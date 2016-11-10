@@ -1,12 +1,12 @@
-uuid: 10bbfafd-ca76-4bfc-aebd-0aed1f936800
-langcode: en
+uuid: e1290950-9933-489a-a6dd-c8a6d69ef742
+langcode: hr
 status: true
 dependencies:
   module:
     - message
     - options
 _core:
-  default_config_hash: p2bBOxyAbd_owEFxYKDpB_A36JCb3CXP53SGGW7jQvU
+  default_config_hash: IKVyEY9IDXNFB-6NQ8ARa-ZPiMpomLS4mOry53AU0yE
 id: message.field_message_destination
 field_name: field_message_destination
 entity_type: message

@@ -8,3 +8,4 @@ wizard_skip_fields: false
 allow_insecure_download: false
 _core:
   default_config_hash: R1uAQZHmrTH-a-Vo6W0x1Bw3ym6rzlDNYDaG5ZJ6OfA
+langcode: hr

@@ -1,5 +1,5 @@
-uuid: 0545a0b8-abdb-4c05-b826-2b5a55a60a8c
-langcode: en
+uuid: e5c620dc-39e3-4131-ab8c-4346993bd7fb
+langcode: hr
 status: true
 dependencies:
   module:
@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: U9HspszLxcw6pZmRacFa6yDbbheyMN-We4fPbrWWHGg
 id: node_save_action
-label: 'Save content'
+label: 'Spremi sadržaj'
 type: node
 plugin: node_save_action
 configuration: {  }

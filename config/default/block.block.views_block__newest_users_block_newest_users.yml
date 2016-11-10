@@ -1,6 +1,6 @@
-uuid: 6d62cd7d-19dc-4182-823b-289d2269a202
-langcode: en
-status: true
+uuid: d4f27c85-7eb9-474e-8c3e-3946f55c6ff0
+langcode: hr
+status: false
 dependencies:
   config:
     - views.view.newest_users
@@ -13,7 +13,7 @@ _core:
   default_config_hash: G1-RyiPMTdjrhlljBAQBt2f72EPStRzFDBz4S52QmQM
 id: views_block__newest_users_block_newest_users
 theme: socialbase
-region: complementary_bottom
+region: ''
 weight: 5
 provider: null
 plugin: 'views_block:newest_users-block_newest_users'

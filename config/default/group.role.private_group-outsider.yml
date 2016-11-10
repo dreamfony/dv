@@ -1,9 +1,11 @@
-uuid: 366bfa3f-c498-4e04-b46e-418378186e9f
-langcode: en
+uuid: 96e6f9f8-e458-40b1-bdce-a2fa4cb4e88c
+langcode: hr
 status: true
 dependencies:
   config:
     - group.type.private_group
+_core:
+  default_config_hash: h-Roousi3IqQKlkwRoH2FXBKK9zh6t10O6Ncfua7Wrk
 id: private_group-outsider
 label: Outsider
 weight: -101

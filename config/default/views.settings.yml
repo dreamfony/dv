@@ -45,4 +45,5 @@ field_rewrite_elements:
   q: Q
   s: S
 _core:
-  default_config_hash: RaRd9EIcwA4u3qCSRLL8EnCicbda1kV__ASmVbyehvQ
+  default_config_hash: QU8VRIg-TJVXDOCDy_1FWf2tl5pS2VNKDR3d-tYZL4E
+langcode: hr

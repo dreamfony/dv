@@ -1,11 +1,13 @@
-uuid: a68966e1-a672-452a-9ebb-0492a2baffbb
-langcode: en
+uuid: 418c33d2-cd66-4317-baed-f53daee11c00
+langcode: hr
 status: true
 dependencies:
   config:
     - field.storage.node.field_o_organisation_group
     - node.type.organisation
     - taxonomy.vocabulary.organisation_group
+_core:
+  default_config_hash: uE5zjsoHSyAAFHd9DM-ee2E-GCs3Zu-25GkVZ8iWrDg
 id: node.organisation.field_o_organisation_group
 field_name: field_o_organisation_group
 entity_type: node

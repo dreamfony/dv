@@ -1,5 +1,5 @@
-uuid: e4e38d8a-cc29-4dcc-9f03-a5f4ea24e82f
-langcode: en
+uuid: cdbb73e2-82ef-4260-8222-8b59264c8caa
+langcode: hr
 status: true
 dependencies:
   config:
@@ -10,7 +10,7 @@ id: node.page.promote
 field_name: promote
 entity_type: node
 bundle: page
-label: 'Promoted to front page'
+label: 'Promovirano na naslovnici'
 description: ''
 required: false
 translatable: false
@@ -19,6 +19,6 @@ default_value:
     value: 0
 default_value_callback: ''
 settings:
-  on_label: 'On'
+  on_label: Uključi
   off_label: 'Off'
 field_type: boolean

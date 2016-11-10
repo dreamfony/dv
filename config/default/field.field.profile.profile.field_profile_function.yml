@@ -1,5 +1,5 @@
-uuid: 7e99afc2-470c-4ae9-a746-5031a8d3b7fe
-langcode: en
+uuid: c4950ac6-569f-4d9f-8bce-161e1e909c73
+langcode: hr
 status: true
 dependencies:
   config:
@@ -11,7 +11,7 @@ id: profile.profile.field_profile_function
 field_name: field_profile_function
 entity_type: profile
 bundle: profile
-label: Function
+label: Funkcija
 description: ''
 required: false
 translatable: false

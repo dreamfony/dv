@@ -1,10 +1,12 @@
-uuid: a8d21472-06f4-47e9-9861-21ec5965cd14
-langcode: en
+uuid: a9d10827-5f2f-4764-adc4-7d9b4d550582
+langcode: hr
 status: true
 dependencies:
   config:
     - group.type.private_group
     - node.type.issue
+_core:
+  default_config_hash: iMQPxgmu1IO8nw4mSqrIpRytHn9ndNL-SoNH9z2bnTY
 id: private_group-group_node-issue
 label: 'Private Group: Group node (Issue)'
 description: 'Adds <em class="placeholder">Issue</em> content to groups both publicly and privately.'

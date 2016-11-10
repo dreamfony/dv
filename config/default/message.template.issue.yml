@@ -1,5 +1,5 @@
-uuid: db8224d1-6b81-480a-a708-fbafcd21e366
-langcode: en
+uuid: 8f046c3b-a345-4e4f-832d-47f33dbc2311
+langcode: hr
 status: true
 dependencies:
   module:
@@ -15,13 +15,12 @@ third_party_settings:
     activity_create_direct: 0
     activity_aggregate: 0
     activity_entity_condition: ''
+_core:
+  default_config_hash: HUEqTwJZE_roeh6at0neAFs-2ZhuNLCWW_a0S753PvY
 template: issue
 label: Issue
 description: 'Issue test'
-text:
-  - "<p>tes</p>\r\n"
-  - "<p>vcvdvdf</p>\r\n"
-  - "<p>bcvbvcbvc</p>\r\n"
+text: {  }
 settings:
   'token options':
     clear: false

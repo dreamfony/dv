@@ -1,5 +1,5 @@
-uuid: 911bf3db-1a40-4e38-88e0-8a0eaee70791
-langcode: en
+uuid: a6f0abe2-4688-474a-9a76-98ef2de82d82
+langcode: hr
 status: true
 dependencies:
   config:
@@ -8,6 +8,8 @@ dependencies:
   module:
     - path
     - text
+_core:
+  default_config_hash: kAZ1pwN_bjcYL__WbGxqaQPQ6CkdY27vrsmcNNbD_kU
 id: taxonomy_term.area_of_activity.default
 targetEntityType: taxonomy_term
 bundle: area_of_activity

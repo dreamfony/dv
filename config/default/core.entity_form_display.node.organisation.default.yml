@@ -1,5 +1,5 @@
-uuid: 6d99542e-08d3-4ecb-bd20-5d863e62d8db
-langcode: en
+uuid: d85e0f64-1e82-4ec4-92f7-d3d0672822fc
+langcode: hr
 status: true
 dependencies:
   config:
@@ -21,6 +21,8 @@ dependencies:
     - link
     - path
     - telephone
+_core:
+  default_config_hash: 3NR1lHRpF8M9yRtatV4OrSYKS-UhZ6AjMwgkW9i-Nr0
 id: node.organisation.default
 targetEntityType: node
 bundle: organisation

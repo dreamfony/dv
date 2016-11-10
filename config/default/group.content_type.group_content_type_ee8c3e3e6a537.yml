@@ -1,9 +1,11 @@
-uuid: 6868d161-e1f5-47f6-9d30-ec1c4a71cb4c
-langcode: en
+uuid: 85baf901-9c98-4bb1-a12a-528263b9e322
+langcode: hr
 status: true
 dependencies:
   config:
     - group.type.geo_area_group
+_core:
+  default_config_hash: 0TGstJQuHMtWN7nEyMqX3DE5RUuUP3hmDjK7PY0_YtQ
 id: group_content_type_ee8c3e3e6a537
 label: 'Geo Area Group: Subgroup (Geo Area Group)'
 description: 'Adds <em class="placeholder">Geo Area Group</em> groups to groups both publicly and privately.'

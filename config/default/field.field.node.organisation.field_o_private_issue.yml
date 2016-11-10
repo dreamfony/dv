@@ -1,10 +1,12 @@
-uuid: 814b1c34-0b39-4cea-9082-b41f94ec72de
-langcode: en
+uuid: 9b1017a1-f3ca-46b3-a921-d5fb6de980af
+langcode: hr
 status: true
 dependencies:
   config:
     - field.storage.node.field_o_private_issue
     - node.type.organisation
+_core:
+  default_config_hash: 9KpIbtIQcBgPRJ7iP3mqPPHU2V2ibs-tgu8Ss28SGnk
 id: node.organisation.field_o_private_issue
 field_name: field_o_private_issue
 entity_type: node

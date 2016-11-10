@@ -1,5 +1,5 @@
-uuid: f691ebee-8a58-4149-9078-b2face0827ba
-langcode: en
+uuid: 2ca8e1c2-d1ae-4d40-b001-fb3b8ef0d0ed
+langcode: hr
 status: true
 dependencies:
   config:
@@ -20,6 +20,8 @@ dependencies:
     - inline_entity_form
     - path
     - text
+_core:
+  default_config_hash: GnFPuzLHFlOfYYSuA8GxmjViD1O_Nr3GMYSrndkfT48
 id: node.issue.default
 targetEntityType: node
 bundle: issue

@@ -1,5 +1,5 @@
-uuid: fdedfce1-2c08-4430-ab77-a6c3e97c395f
-langcode: en
+uuid: 648ced00-9a61-4a80-8169-464ca13c8399
+langcode: hr
 status: true
 dependencies:
   module:
@@ -9,6 +9,8 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
+_core:
+  default_config_hash: DKvnoLItPlYOhnDIP4L-aZ7ylFMmS0lR0zhhn2-wLMk
 name: 'Geo Area'
 type: geo_area
 description: ''

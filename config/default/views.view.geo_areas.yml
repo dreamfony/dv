@@ -1,5 +1,5 @@
-uuid: ba4bfe14-c895-4bef-b7ee-505291538a07
-langcode: en
+uuid: d797b9e9-5a1d-4d3c-a8a6-ff547092a597
+langcode: hr
 status: true
 dependencies:
   config:
@@ -8,6 +8,8 @@ dependencies:
   module:
     - node
     - user
+_core:
+  default_config_hash: ua185TN2Zax9UFz_EpkHJx7zSVOWPcJHPtBSDQlzb-Y
 id: geo_areas
 label: 'Geo Areas'
 module: views
@@ -163,6 +165,7 @@ display:
       empty: {  }
       relationships: {  }
       arguments: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:

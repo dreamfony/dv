@@ -35,7 +35,6 @@ display:
             group_items:
               1:
                 title: Objavljeno
-                value: '1'
         type:
           expose:
             label: Vrsta

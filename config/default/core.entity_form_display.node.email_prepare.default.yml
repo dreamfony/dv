@@ -1,5 +1,5 @@
-uuid: 77ae64dd-8d7f-4459-92a1-b5181afb7f77
-langcode: en
+uuid: 341e140b-0e22-4012-bad7-7d1dba546cf2
+langcode: hr
 status: true
 dependencies:
   config:
@@ -16,6 +16,8 @@ dependencies:
     - file
     - path
     - text
+_core:
+  default_config_hash: wvqog1iPr-kzuaxeaqxEYI_BBjngn_4wgsdtCmAd-XI
 id: node.email_prepare.default
 targetEntityType: node
 bundle: email_prepare

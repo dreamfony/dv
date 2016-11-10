@@ -1,7 +1,9 @@
-uuid: 3cc1b8b1-fcf2-43e3-824e-8e70f4232c6e
-langcode: en
+uuid: e99406be-7358-4fa9-8cab-688905a3e672
+langcode: hr
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: jOJxkMO69cCayqzbi55ZueGo2Jqnp1f3_ykRS7VK4nc
 name: Functions
 vid: functions
 description: ''

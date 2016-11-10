@@ -1,10 +1,12 @@
-uuid: 79db0226-be50-42ea-8eaf-5fe6c575e399
-langcode: en
+uuid: e06cc440-89c6-4cc9-88a1-3a409f19b7c2
+langcode: hr
 status: true
 dependencies:
   config:
     - field.field.group_content.geo_area_group-group_membership.group_roles
     - group.content_type.geo_area_group-group_membership
+_core:
+  default_config_hash: XeWFGV_7le130QgI8bWkiNJJZIIy7QsoE4XMpFFu-gA
 id: group_content.geo_area_group-group_membership.default
 targetEntityType: group_content
 bundle: geo_area_group-group_membership
@@ -17,6 +19,7 @@ content:
       link: false
     weight: -4
     third_party_settings: {  }
+    region: content
 hidden:
   entity_id: true
   langcode: true

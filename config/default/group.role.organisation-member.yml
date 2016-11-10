@@ -1,9 +1,11 @@
-uuid: 0b3ade55-0358-45dd-983b-f04493202b08
-langcode: en
+uuid: 04a9ca1f-911e-417c-be47-1dcbc0dadd8b
+langcode: hr
 status: true
 dependencies:
   config:
     - group.type.organisation
+_core:
+  default_config_hash: 1bKQ1GGZYWAkF0UJyrxY6vCIsYo-Kd4CJmKHbIwLOxk
 id: organisation-member
 label: Member
 weight: -100

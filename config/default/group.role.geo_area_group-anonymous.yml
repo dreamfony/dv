@@ -1,11 +1,13 @@
-uuid: 98b48caa-3831-4f79-840f-fb1256a3f4b6
-langcode: en
+uuid: 48785524-1526-446b-99b3-5a16c1621cdd
+langcode: hr
 status: true
 dependencies:
   config:
     - group.type.geo_area_group
+_core:
+  default_config_hash: MjVhUpnpC5AqsMNsg5058k7ppPe5IiWmqtPAMTgD3O4
 id: geo_area_group-anonymous
-label: Anonymous
+label: Anoniman
 weight: -102
 internal: true
 audience: anonymous

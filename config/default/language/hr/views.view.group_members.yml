@@ -25,6 +25,7 @@ display:
           label: Osvježeno
           separator: ', '
         created:
+          label: 'Pridružio se'
           separator: ', '
         dropbutton:
           label: Operacije

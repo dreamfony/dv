@@ -1,11 +1,13 @@
-uuid: a3ed5af8-50a5-4b5f-886b-99b255431a23
-langcode: en
+uuid: f6bf619b-e414-43f4-8f30-cdde0007164c
+langcode: hr
 status: true
 dependencies:
   config:
     - group.type.private_group
+_core:
+  default_config_hash: IEI5FLK9iVeOcyRN0950AlMv3kgFMKTLV4LgwuKTktU
 id: private_group-anonymous
-label: Anonymous
+label: Anoniman
 weight: -102
 internal: true
 audience: anonymous

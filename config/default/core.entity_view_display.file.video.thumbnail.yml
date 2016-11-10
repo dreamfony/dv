@@ -1,12 +1,12 @@
-uuid: f46474da-2a76-4fc5-bd91-f58f5ce37ef6
-langcode: en
+uuid: 6108e76d-5cf8-4ca9-bb2f-991c5025a0ad
+langcode: hr
 status: true
 dependencies:
   config:
     - core.entity_view_mode.file.thumbnail
     - file_entity.type.video
 _core:
-  default_config_hash: _Q1l94kLWLkX17ofAFFAQL9emt-VMNP8Sk3_KdgkvdU
+  default_config_hash: eKlA_SCBafG9H_qF4Ws8sCrWdafvVaJa0rIh5MYWohY
 id: file.video.thumbnail
 targetEntityType: file
 bundle: video
@@ -19,6 +19,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    region: content
 hidden:
   filemime: true
   filesize: true

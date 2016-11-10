@@ -1,11 +1,11 @@
-uuid: 69c6fb92-2044-414d-bafe-b34dea172d27
-langcode: en
+uuid: 9579cb36-5c35-4bd3-a214-9b4bf725df48
+langcode: hr
 status: true
 dependencies:
   module:
     - message
 _core:
-  default_config_hash: jkka_O-z8_wLFEAEhghApPr_sq1o__PEZX0vh99TS3U
+  default_config_hash: 9IcEYSCFSrYqNKUg6kQl_r2qMqyocA6kNDzwsPFFNUY
 id: message_delete_action
 label: 'Delete selected messages'
 type: message

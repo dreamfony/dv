@@ -1,5 +1,5 @@
-uuid: 336fbda5-0fad-4a5e-b775-79f91306ec7b
-langcode: en
+uuid: ea0746ae-79db-48bc-8a7e-12ae2d72c183
+langcode: hr
 status: true
 dependencies:
   module:
@@ -9,6 +9,8 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
+_core:
+  default_config_hash: snTfBlrfwbd27QqPngmmrAnpVttC5YELd-t1TfS8khA
 name: 'Email Recieved'
 type: email_recieved
 description: ''

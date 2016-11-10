@@ -1,7 +1,9 @@
-uuid: efc5e320-44b9-4f85-8bd3-9df003c7271e
-langcode: en
+uuid: e7370e5c-ee5c-4448-abfc-7820dc62572b
+langcode: hr
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: R4Ky_ChmJmg8-0XQqXVVmEfeHoq22ztmC30eRjcfIx4
 id: node_type_issue
 action: display_page
 allow_override: 1

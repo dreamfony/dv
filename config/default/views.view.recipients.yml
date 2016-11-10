@@ -1,5 +1,5 @@
-uuid: ec2b07e1-97e7-47a0-8d09-7368b0ce4547
-langcode: en
+uuid: 73a22808-e50e-421d-b128-a41c68072cec
+langcode: hr
 status: true
 dependencies:
   config:
@@ -8,6 +8,8 @@ dependencies:
     - entity_browser
     - node
     - user
+_core:
+  default_config_hash: zSKKih0Gx-GGvmRdRwbzTg_-mUlAUtZgadl5EntxpgU
 id: recipients
 label: Recipients
 module: views

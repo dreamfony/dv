@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.email_prepare
+  module:
+    - user
+id: node.email_prepare.teaser
+targetEntityType: node
+bundle: email_prepare
+mode: teaser
+content:
+  links:
+    type: visible
+    region: content
+    weight: 100
+hidden:
+  langcode: true

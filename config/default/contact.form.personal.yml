@@ -1,13 +1,13 @@
-uuid: ed93546d-1a48-467b-b35e-76793ebba358
-langcode: en
+uuid: 618a6e8f-27da-4501-82f3-d8ba74c3af2b
+langcode: hr
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: 4w1vDIuPlVqNIiynysHZHU-9sBCpx5uiEIPlo4SW1tw
+  default_config_hash: jonvgt3CkUM2eMLTFwWfHileWWDC4YtXCuIlCahTk_I
 id: personal
-label: 'Personal contact form'
+label: 'Osobni kontakt obrazac'
 recipients: {  }
 reply: ''
 weight: 0
-message: 'Your message has been sent.'
+message: 'Vaša poruka je poslana.'
 redirect: ''

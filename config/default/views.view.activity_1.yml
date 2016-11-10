@@ -1,11 +1,13 @@
-uuid: 715fa9ea-0738-4578-a67a-fba70524a9ed
-langcode: en
+uuid: 40ec435d-bed7-48a0-aea6-a4a78f1fcef0
+langcode: hr
 status: true
 dependencies:
   config:
     - system.menu.main
   module:
     - activity_creator
+_core:
+  default_config_hash: vxV30GYhYXNKz-igX9TlPwWevX-_ZE2kCq5SAlXsRH8
 id: activity_1
 label: 'Activity 1'
 module: views

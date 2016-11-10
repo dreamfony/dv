@@ -1,5 +1,5 @@
-uuid: 283c88ca-c2ef-4167-b45d-948a74e8ce6e
-langcode: en
+uuid: fbd2930d-a61c-4651-ac7c-0435b7e6b3b2
+langcode: hr
 status: true
 dependencies: {  }
 _core:
@@ -98,4 +98,4 @@ assignments:
     enabled: true
     weight: 7
 profile_name: ''
-is_profile: false
+is_profile: true

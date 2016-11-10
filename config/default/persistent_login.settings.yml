@@ -4,3 +4,4 @@ login_form:
   field_label: 'Remember me'
 _core:
   default_config_hash: TjP3tkf6q5lOLoAfdRaIm9XZQXONdLqxkBIG9WXmPAA
+langcode: hr

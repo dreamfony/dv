@@ -1,14 +1,13 @@
-uuid: fb4f0ecf-212f-4623-ac2f-4131d3927042
-langcode: en
+uuid: febaa4db-03e8-4514-87e8-305841200482
+langcode: hr
 status: true
 dependencies:
   config:
     - field.storage.activity.field_activity_recipient_group
-    - group.type.work_group
   module:
     - activity_creator
 _core:
-  default_config_hash: 5FcfshG8WvpgovU3Kt6PZX1P4hb3B2v9DVffdQsXhng
+  default_config_hash: rgr8xN71z5_kvU_2Tj-h6JfpsY2XRuViBzcuUfjccPY
 id: activity.activity.field_activity_recipient_group
 field_name: field_activity_recipient_group
 entity_type: activity
@@ -22,8 +21,6 @@ default_value_callback: ''
 settings:
   handler: 'default:group'
   handler_settings:
-    target_bundles:
-      open_group: work_group
     sort:
       field: _none
     auto_create: false

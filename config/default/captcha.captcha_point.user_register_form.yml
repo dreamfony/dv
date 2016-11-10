@@ -1,5 +1,5 @@
 uuid: null
-langcode: en
+langcode: hr
 status: false
 dependencies: {  }
 formId: user_register_form

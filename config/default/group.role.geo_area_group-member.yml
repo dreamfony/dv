@@ -1,9 +1,11 @@
-uuid: 119ea7b3-371a-4d2f-8fac-12620f5760f1
-langcode: en
+uuid: 579842f9-7c2a-425e-9206-dc936b6ce678
+langcode: hr
 status: true
 dependencies:
   config:
     - group.type.geo_area_group
+_core:
+  default_config_hash: WEiShXBh9DKJ7IdQh9QaUkQaFmonpUIk0wdFwc6YKNY
 id: geo_area_group-member
 label: Member
 weight: -100

@@ -1,5 +1,5 @@
-uuid: 6ce7a7ba-b0aa-4022-a219-3da22ca26f7c
-langcode: en
+uuid: 85c29da9-01ca-443a-a20f-d3a8e052a2dd
+langcode: hr
 status: true
 dependencies:
   config:
@@ -9,6 +9,8 @@ dependencies:
       - grolesync
     config:
       - user.role.administrator
+_core:
+  default_config_hash: P1e-g7O_hos8O2FegQYIZvdOt4a_FhTF8JtvqSUjha4
 id: geo_area_group-a416e6833
 label: Administrator
 weight: 2

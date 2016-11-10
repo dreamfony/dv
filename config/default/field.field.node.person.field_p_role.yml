@@ -1,10 +1,12 @@
-uuid: 0d06a492-1f6e-4849-91c9-2965065700b7
-langcode: en
+uuid: f86b7c0f-0e5a-45ef-bcf2-229cb281b38f
+langcode: hr
 status: true
 dependencies:
   config:
     - field.storage.node.field_p_role
     - node.type.person
+_core:
+  default_config_hash: c7i9qqwdq7s4M5YBxlA_QUarcYOvHHjDaBCVU_JEnF4
 id: node.person.field_p_role
 field_name: field_p_role
 entity_type: node

@@ -1,5 +1,5 @@
-uuid: 8b884c79-0d0b-4c29-9dfb-02c7dc010cfb
-langcode: en
+uuid: fd1131ec-61c7-4de2-8c1c-e8404b10474d
+langcode: hr
 status: true
 dependencies:
   config:
@@ -7,11 +7,13 @@ dependencies:
     - node.type.issue
   module:
     - address
+_core:
+  default_config_hash: vK96r-bTby4pTrSzIWgZ-LalP_uOZjKlwGEUPi-QFb8
 id: node.issue.field_i_address
 field_name: field_i_address
 entity_type: node
 bundle: issue
-label: Address
+label: Adresa
 description: ''
 required: false
 translatable: false

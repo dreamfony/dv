@@ -1,16 +1,18 @@
-uuid: cbe83a07-da0c-4fde-9d27-989031a0525c
-langcode: en
+uuid: 6e9ad995-8d73-4240-9c5f-8491bc499ad7
+langcode: hr
 status: true
 dependencies:
   config:
     - eck.eck_type.role.role
     - field.storage.role.field_r_function
     - taxonomy.vocabulary.functions
+_core:
+  default_config_hash: KRVhOTQy6zSBv7nfuoDfPbQyfppa4OkmUdLeQIPd-nE
 id: role.role.field_r_function
 field_name: field_r_function
 entity_type: role
 bundle: role
-label: Function
+label: Funkcija
 description: ''
 required: false
 translatable: false

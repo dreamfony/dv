@@ -1,5 +1,5 @@
-uuid: 1171850c-9959-40a4-83ab-a6a99552b49f
-langcode: en
+uuid: 59e669d8-9174-4af2-9b21-8694c9311e30
+langcode: hr
 status: true
 dependencies:
   module:
@@ -9,6 +9,8 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
+_core:
+  default_config_hash: JTTqZwJG43BtEtYO1QwCaTYfvtNghN-fTmGWsxp7H5g
 name: Person
 type: person
 description: ''

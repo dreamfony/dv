@@ -1,0 +1,5 @@
+services:
+  geonames.geonames:
+    class: '\Drupal\geonames\GeoNames'
+    factory: 'Drupal\geonames\GeoNamesFactory::create'
+    arguments: ['@config.factory']

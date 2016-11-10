@@ -1,5 +1,5 @@
-uuid: 2f1a196f-df92-4105-b58d-d68360b26cb0
-langcode: en
+uuid: 6b37d9ec-2524-48a3-9d4e-9f00eed714c5
+langcode: hr
 status: true
 dependencies:
   config:
@@ -7,6 +7,8 @@ dependencies:
     - node.type.organisation
   module:
     - telephone
+_core:
+  default_config_hash: _3gyr3Q2nfsgkMWlAll7m0mu7YhWeBJeCT53lnFQIdk
 id: node.organisation.field_o_fax
 field_name: field_o_fax
 entity_type: node

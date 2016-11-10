@@ -1,11 +1,13 @@
-uuid: 14134b18-9126-48a4-b083-ac88fda5a9f3
-langcode: en
+uuid: b405f586-57b4-40e8-9b32-7d512fd9173f
+langcode: hr
 status: true
 dependencies:
   config:
     - node.type.email_sent
   module:
     - user
+_core:
+  default_config_hash: _hDRN86ZR5YM0NheLWSFtiNxhTht3mvbDSZFwixhkaw
 id: node.email_sent.default
 targetEntityType: node
 bundle: email_sent

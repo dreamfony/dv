@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b3c2a4052b7435d8d3eb15a4e5346427",
-    "content-hash": "4dfd1d011af1f2fc924501e97f8f7f32",
+    "hash": "1229730063572d1aa9f16ef419dcdccc",
+    "content-hash": "7b612ca3cf159a4f7653a9649b2c29ba",
     "packages": [
         {
             "name": "acquia/blt",
-            "version": "8.5.1",
+            "version": "8.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/acquia/blt.git",
-                "reference": "d9caf298fd6288db811f8a149696e114396884e5"
+                "reference": "adfe2c5f2bb9caa7f84b1de702ed41b492e88d89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/acquia/blt/zipball/d9caf298fd6288db811f8a149696e114396884e5",
-                "reference": "d9caf298fd6288db811f8a149696e114396884e5",
+                "url": "https://api.github.com/repos/acquia/blt/zipball/adfe2c5f2bb9caa7f84b1de702ed41b492e88d89",
+                "reference": "adfe2c5f2bb9caa7f84b1de702ed41b492e88d89",
                 "shasum": ""
             },
             "require": {
@@ -72,7 +72,7 @@
                 "template",
                 "testing"
             ],
-            "time": "2016-11-01 18:21:20"
+            "time": "2016-11-09 21:51:08"
         },
         {
             "name": "alchemy/zippy",
@@ -570,16 +570,16 @@
         },
         {
             "name": "cweagans/composer-patches",
-            "version": "1.5.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cweagans/composer-patches.git",
-                "reference": "8de7c73b2eae217f4e7028d7262ff2330aa4b4e8"
+                "reference": "5456199acdcc16b243814aa45259f4c56272a634"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cweagans/composer-patches/zipball/8de7c73b2eae217f4e7028d7262ff2330aa4b4e8",
-                "reference": "8de7c73b2eae217f4e7028d7262ff2330aa4b4e8",
+                "url": "https://api.github.com/repos/cweagans/composer-patches/zipball/5456199acdcc16b243814aa45259f4c56272a634",
+                "reference": "5456199acdcc16b243814aa45259f4c56272a634",
                 "shasum": ""
             },
             "require": {
@@ -610,7 +610,7 @@
                 }
             ],
             "description": "Provides a way to patch Composer packages.",
-            "time": "2016-03-28 18:54:21"
+            "time": "2016-10-04 16:21:31"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -1332,6 +1332,310 @@
             }
         },
         {
+            "name": "drupal/acsf",
+            "version": "1.33.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/acsf",
+                "reference": "8.x-1.33"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/acsf-8.x-1.33.zip",
+                "reference": "8.x-1.33",
+                "shasum": "0ae7124bb3e1c1bb112abad7f8e1f0d0a877ec40"
+            },
+            "require": {
+                "drupal/acsf_duplication": "*",
+                "drupal/acsf_theme": "*",
+                "drupal/acsf_variables": "*",
+                "drupal/core": "~8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "~5.3"
+            },
+            "suggest": {
+                "drupal/acsf_variables": "Required by drupal/acsf_theme",
+                "drupal/samlauth": "Required by drupal/acsf_sso"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.33",
+                    "datestamp": "1478605740"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Drupal\\acsf\\": "src/"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Acquia",
+                    "homepage": "https://www.drupal.org/user/14023",
+                    "email": "support@acquia.com"
+                },
+                {
+                    "name": "Kevin Hankens",
+                    "homepage": "https://www.drupal.org/user/78090"
+                },
+                {
+                    "name": "Rok Žlender",
+                    "homepage": "https://www.drupal.org/user/61873"
+                },
+                {
+                    "name": "acquia.sf.ci",
+                    "homepage": "https://www.drupal.org/user/3285763"
+                },
+                {
+                    "name": "attila.fekete",
+                    "homepage": "https://www.drupal.org/user/762986"
+                },
+                {
+                    "name": "nagba",
+                    "homepage": "https://www.drupal.org/user/21231"
+                },
+                {
+                    "name": "nikgregory",
+                    "homepage": "https://www.drupal.org/user/419643"
+                },
+                {
+                    "name": "paul.lovvik",
+                    "homepage": "https://www.drupal.org/user/289213"
+                },
+                {
+                    "name": "psynaptic",
+                    "homepage": "https://www.drupal.org/user/93429"
+                },
+                {
+                    "name": "scor",
+                    "homepage": "https://www.drupal.org/user/52142"
+                }
+            ],
+            "description": "Connects a site with Acquia Cloud Site Factory.",
+            "homepage": "https://www.drupal.org/project/acsf",
+            "support": {
+                "source": "http://cgit.drupalcode.org/acsf"
+            }
+        },
+        {
+            "name": "drupal/acsf_duplication",
+            "version": "1.33.0",
+            "require": {
+                "drupal/acsf": "self.version",
+                "drupal/core": "~8.0"
+            },
+            "type": "metapackage",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.33",
+                    "datestamp": "1478605740"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Alan Evans",
+                    "homepage": "https://www.drupal.org/user/14023"
+                },
+                {
+                    "name": "Kevin Hankens",
+                    "homepage": "https://www.drupal.org/user/78090"
+                },
+                {
+                    "name": "Rok Žlender",
+                    "homepage": "https://www.drupal.org/user/61873"
+                },
+                {
+                    "name": "acquia.sf.ci",
+                    "homepage": "https://www.drupal.org/user/3285763"
+                },
+                {
+                    "name": "attila.fekete",
+                    "homepage": "https://www.drupal.org/user/762986"
+                },
+                {
+                    "name": "nagba",
+                    "homepage": "https://www.drupal.org/user/21231"
+                },
+                {
+                    "name": "nikgregory",
+                    "homepage": "https://www.drupal.org/user/419643"
+                },
+                {
+                    "name": "paul.lovvik",
+                    "homepage": "https://www.drupal.org/user/289213"
+                },
+                {
+                    "name": "psynaptic",
+                    "homepage": "https://www.drupal.org/user/93429"
+                },
+                {
+                    "name": "scor",
+                    "homepage": "https://www.drupal.org/user/52142"
+                }
+            ],
+            "description": "Helper module for duplicating Acquia Cloud Site Factory sites.",
+            "homepage": "https://www.drupal.org/project/acsf",
+            "support": {
+                "source": "http://cgit.drupalcode.org/acsf"
+            }
+        },
+        {
+            "name": "drupal/acsf_theme",
+            "version": "1.33.0",
+            "require": {
+                "drupal/acsf": "self.version",
+                "drupal/acsf_variables": "*",
+                "drupal/core": "~8.0"
+            },
+            "type": "metapackage",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.33",
+                    "datestamp": "1478605740"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Alan Evans",
+                    "homepage": "https://www.drupal.org/user/14023"
+                },
+                {
+                    "name": "Kevin Hankens",
+                    "homepage": "https://www.drupal.org/user/78090"
+                },
+                {
+                    "name": "Rok Žlender",
+                    "homepage": "https://www.drupal.org/user/61873"
+                },
+                {
+                    "name": "acquia.sf.ci",
+                    "homepage": "https://www.drupal.org/user/3285763"
+                },
+                {
+                    "name": "attila.fekete",
+                    "homepage": "https://www.drupal.org/user/762986"
+                },
+                {
+                    "name": "nagba",
+                    "homepage": "https://www.drupal.org/user/21231"
+                },
+                {
+                    "name": "nikgregory",
+                    "homepage": "https://www.drupal.org/user/419643"
+                },
+                {
+                    "name": "paul.lovvik",
+                    "homepage": "https://www.drupal.org/user/289213"
+                },
+                {
+                    "name": "psynaptic",
+                    "homepage": "https://www.drupal.org/user/93429"
+                },
+                {
+                    "name": "scor",
+                    "homepage": "https://www.drupal.org/user/52142"
+                }
+            ],
+            "description": "Handles VCS-based themes on Acquia Cloud Site Factory.",
+            "homepage": "https://www.drupal.org/project/acsf",
+            "support": {
+                "source": "http://cgit.drupalcode.org/acsf"
+            }
+        },
+        {
+            "name": "drupal/acsf_variables",
+            "version": "1.33.0",
+            "require": {
+                "drupal/acsf": "self.version",
+                "drupal/core": "~8.0"
+            },
+            "type": "metapackage",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.33",
+                    "datestamp": "1478605740"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Alan Evans",
+                    "homepage": "https://www.drupal.org/user/14023"
+                },
+                {
+                    "name": "Kevin Hankens",
+                    "homepage": "https://www.drupal.org/user/78090"
+                },
+                {
+                    "name": "Rok Žlender",
+                    "homepage": "https://www.drupal.org/user/61873"
+                },
+                {
+                    "name": "acquia.sf.ci",
+                    "homepage": "https://www.drupal.org/user/3285763"
+                },
+                {
+                    "name": "attila.fekete",
+                    "homepage": "https://www.drupal.org/user/762986"
+                },
+                {
+                    "name": "nagba",
+                    "homepage": "https://www.drupal.org/user/21231"
+                },
+                {
+                    "name": "nikgregory",
+                    "homepage": "https://www.drupal.org/user/419643"
+                },
+                {
+                    "name": "paul.lovvik",
+                    "homepage": "https://www.drupal.org/user/289213"
+                },
+                {
+                    "name": "psynaptic",
+                    "homepage": "https://www.drupal.org/user/93429"
+                },
+                {
+                    "name": "scor",
+                    "homepage": "https://www.drupal.org/user/52142"
+                }
+            ],
+            "description": "Stores sensitive variables in a single place for easy scrubbing.",
+            "homepage": "https://www.drupal.org/project/acsf",
+            "support": {
+                "source": "http://cgit.drupalcode.org/acsf"
+            }
+        },
+        {
             "name": "drupal/address",
             "version": "1.0.0-rc3",
             "source": {
@@ -1566,7 +1870,7 @@
             "version": "8.2.9",
             "source": {
                 "type": "git",
-                "url": "https://git.drupal.org/project/coder",
+                "url": "https://github.com/klausi/coder.git",
                 "reference": "b08682bd939cf7d3ac7034bee792aa17f80e19d7"
             },
             "dist": {
@@ -1717,69 +2021,6 @@
             "homepage": "https://www.drupal.org/project/cog",
             "support": {
                 "source": "http://cgit.drupalcode.org/cog"
-            }
-        },
-        {
-            "name": "drupal/config_devel",
-            "version": "1.0.0-rc1",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/config_devel",
-                "reference": "8.x-1.0-rc1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/config_devel-8.x-1.0-rc1.zip",
-                "reference": "8.x-1.0-rc1",
-                "shasum": "65706aea634f86ac5bc9bd6ab9597d3f26962f74"
-            },
-            "require": {
-                "drupal/core": "~8.0"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.0-rc1",
-                    "datestamp": "1454476444"
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "alexpott",
-                    "homepage": "https://www.drupal.org/user/157725"
-                },
-                {
-                    "name": "benjy",
-                    "homepage": "https://www.drupal.org/user/1852732"
-                },
-                {
-                    "name": "chx",
-                    "homepage": "https://www.drupal.org/user/9446"
-                },
-                {
-                    "name": "nedjo",
-                    "homepage": "https://www.drupal.org/user/4481"
-                },
-                {
-                    "name": "tim.plunkett",
-                    "homepage": "https://www.drupal.org/user/241634"
-                },
-                {
-                    "name": "vijaycs85",
-                    "homepage": "https://www.drupal.org/user/93488"
-                }
-            ],
-            "description": "Helps developers work with configuration.",
-            "homepage": "https://www.drupal.org/project/config_devel",
-            "support": {
-                "source": "http://cgit.drupalcode.org/config_devel"
             }
         },
         {
@@ -1976,16 +2217,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "8.2.2",
+            "version": "8.3.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal-composer/drupal-core.git",
-                "reference": "399b52eee9e80492ce6928d6784a8399e0da961c"
+                "reference": "3963529f2d0ac1df52bd3c5e2990fb97a1a3ad8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/399b52eee9e80492ce6928d6784a8399e0da961c",
-                "reference": "399b52eee9e80492ce6928d6784a8399e0da961c",
+                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/3963529f2d0ac1df52bd3c5e2990fb97a1a3ad8f",
+                "reference": "3963529f2d0ac1df52bd3c5e2990fb97a1a3ad8f",
                 "shasum": ""
             },
             "require": {
@@ -1997,13 +2238,14 @@
                 "egulias/email-validator": "1.2.*",
                 "guzzlehttp/guzzle": "^6.2.1",
                 "masterminds/html5": "~2.1",
-                "paragonie/random_compat": "~1.0",
+                "paragonie/random_compat": "^1.0|^2.0",
                 "php": ">=5.5.9",
                 "stack/builder": "1.0.*",
                 "symfony-cmf/routing": "~1.4",
                 "symfony/class-loader": "~2.8",
                 "symfony/console": "~2.8",
                 "symfony/dependency-injection": "~2.8",
+                "symfony/dom-crawler": ">=2.8.13 <3.0",
                 "symfony/event-dispatcher": "~2.8",
                 "symfony/http-foundation": "~2.8",
                 "symfony/http-kernel": "~2.8",
@@ -2119,7 +2361,7 @@
                 "drupal/views_ui": "self.version"
             },
             "require-dev": {
-                "behat/mink": "~1.7",
+                "behat/mink": "1.7.x-dev",
                 "behat/mink-goutte-driver": "~1.2",
                 "jcalderonzumba/gastonjs": "~1.0.2",
                 "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
@@ -2134,7 +2376,8 @@
                     "Clean up user input for exposed checkboxes": "https://www.drupal.org/files/issues/2687773-18-Cleanup-user-input-for-checkboxes-8.2.patch",
                     "Field Storage Does not validate if the class exists": "https://www.drupal.org/files/issues/2723707-field-storage-does-not-validate-5.patch",
                     "views_query_views_alter does not handle IN queries": "https://www.drupal.org/files/issues/2744069-5-views-in-queries.patch",
-                    "Ignore front end vendor folders to improve directory search performance": "https://www.drupal.org/files/issues/ignore_front_end_vendor-2329453-116.patch"
+                    "Ignore front end vendor folders to improve directory search performance": "https://www.drupal.org/files/issues/ignore_front_end_vendor-2329453-116.patch",
+                    "https://www.drupal.org/node/2788087": "https://www.drupal.org/files/issues/2788087-7.patch"
                 }
             },
             "autoload": {
@@ -2158,7 +2401,7 @@
                 "GPL-2.0+"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2016-11-02 17:43:45"
+            "time": "2016-11-09 22:49:47"
         },
         {
             "name": "drupal/ctools",
@@ -2253,7 +2496,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/dynamic_entity_reference-8.x-1.0-rc6.zip",
-                "reference": null,
+                "reference": "8.x-1.0-rc6",
                 "shasum": "2d9f6224ccf9ab9845efa75dc1a03bd2eae2ba1c"
             },
             "require": {
@@ -2308,7 +2551,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/eck-8.x-1.0-alpha2.zip",
-                "reference": null,
+                "reference": "8.x-1.0-alpha2",
                 "shasum": "0cba307461373248273cfa490091218733d684c4"
             },
             "require": {
@@ -2494,7 +2737,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-1.0-alpha11.zip",
-                "reference": null,
+                "reference": "8.x-1.0-alpha11",
                 "shasum": "1746718eb8e6660699b647effd8164e3ccba74a6"
             },
             "require": {
@@ -3421,6 +3664,65 @@
             "time": "2016-07-25 01:47:19"
         },
         {
+            "name": "drupal/memcache",
+            "version": "2.0.0-alpha2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/memcache",
+                "reference": "8.x-2.0-alpha2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/memcache-8.x-2.0-alpha2.zip",
+                "reference": "8.x-2.0-alpha2",
+                "shasum": "dedad417e274e06a064e282135ce2f05b2c2c6ba"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.0-alpha2",
+                    "datestamp": "1473758939"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Jeremy",
+                    "homepage": "https://www.drupal.org/user/409"
+                },
+                {
+                    "name": "catch",
+                    "homepage": "https://www.drupal.org/user/35733"
+                },
+                {
+                    "name": "damiankloip",
+                    "homepage": "https://www.drupal.org/user/1037976"
+                },
+                {
+                    "name": "jvandyk",
+                    "homepage": "https://www.drupal.org/user/2375"
+                },
+                {
+                    "name": "robertDouglass",
+                    "homepage": "https://www.drupal.org/user/5449"
+                }
+            ],
+            "description": "High performance integration with memcache.",
+            "homepage": "https://www.drupal.org/project/memcache",
+            "support": {
+                "source": "http://cgit.drupalcode.org/memcache"
+            }
+        },
+        {
             "name": "drupal/message",
             "version": "1.0.0-alpha4",
             "source": {
@@ -4143,20 +4445,35 @@
             }
         },
         {
-            "name": "drupal/search_api_db",
-            "version": "1.0.0-beta3",
+            "name": "drupal/search_api_solr",
+            "version": "1.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/search_api_solr",
+                "reference": "8.x-1.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/search_api_solr-8.x-1.0-beta1.zip",
+                "reference": null,
+                "shasum": "2b8c127d5da0124f61aab80979b3313ae22d9b82"
+            },
             "require": {
                 "drupal/core": "~8.0",
-                "drupal/search_api": "self.version"
+                "drupal/search_api": "*",
+                "solarium/solarium": "3.6.*"
             },
-            "type": "metapackage",
+            "suggest": {
+                "drupal/core": "Required by drupal/search_api_solr_defaults"
+            },
+            "type": "drupal-module",
             "extra": {
                 "branch-alias": {
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta3",
-                    "datestamp": "1477302541"
+                    "version": "8.x-1.0-beta1",
+                    "datestamp": "1477470239"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4165,19 +4482,138 @@
             ],
             "authors": [
                 {
+                    "name": "Berdir",
+                    "homepage": "https://www.drupal.org/user/214652"
+                },
+                {
                     "name": "Nick_vh",
                     "homepage": "https://www.drupal.org/user/122682"
                 },
                 {
+                    "name": "amateescu",
+                    "homepage": "https://www.drupal.org/user/729614"
+                },
+                {
+                    "name": "cspitzlay",
+                    "homepage": "https://www.drupal.org/user/419305"
+                },
+                {
                     "name": "drunken monkey",
                     "homepage": "https://www.drupal.org/user/205582"
+                },
+                {
+                    "name": "mkalkbrenner",
+                    "homepage": "https://www.drupal.org/user/124705"
                 }
             ],
-            "description": "Offers an implementation of the Search API that uses database tables for indexing content.",
-            "homepage": "https://www.drupal.org/project/search_api",
+            "description": "Offers an implementation of the Search API that uses an Apache Solr server for indexing content.",
+            "homepage": "https://www.drupal.org/project/search_api_solr",
             "support": {
-                "source": "http://cgit.drupalcode.org/search_api"
+                "source": "http://cgit.drupalcode.org/search_api_solr",
+                "issues": "https://www.drupal.org/project/issues/search_api_solr",
+                "irc": "irc://irc.freenode.org/drupal-search-api"
             }
+        },
+        {
+            "name": "drupal/seckit",
+            "version": "1.0.0-alpha2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/seckit",
+                "reference": "8.x-1.0-alpha2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/seckit-8.x-1.0-alpha2.zip",
+                "reference": "8.x-1.0-alpha2",
+                "shasum": "c873327ac8135e8939c09c8a45046f2dc5d79fbe"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha2",
+                    "datestamp": "1470853439"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "badjava",
+                    "homepage": "https://www.drupal.org/user/83372"
+                },
+                {
+                    "name": "jweowu",
+                    "homepage": "https://www.drupal.org/user/152788"
+                },
+                {
+                    "name": "p0deje",
+                    "homepage": "https://www.drupal.org/user/529960"
+                }
+            ],
+            "description": "Enhance security of your Drupal website.",
+            "homepage": "https://www.drupal.org/project/seckit",
+            "support": {
+                "source": "http://cgit.drupalcode.org/seckit"
+            }
+        },
+        {
+            "name": "drupal/security_review",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/security_review",
+                "reference": "35ebae445bb260e961e47c4c58efe7c50c228999"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1476978839"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "banviktor",
+                    "homepage": "https://www.drupal.org/user/3176333"
+                },
+                {
+                    "name": "coltrane",
+                    "homepage": "https://www.drupal.org/user/91990"
+                },
+                {
+                    "name": "dsnopek",
+                    "homepage": "https://www.drupal.org/user/266527"
+                },
+                {
+                    "name": "greggles",
+                    "homepage": "https://www.drupal.org/user/36762"
+                }
+            ],
+            "description": "Site security and configuration review module.",
+            "homepage": "https://www.drupal.org/project/security_review",
+            "support": {
+                "source": "http://cgit.drupalcode.org/security_review"
+            },
+            "time": "2016-10-20 15:43:48"
         },
         {
             "name": "drupal/token",
@@ -5527,16 +5963,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v1.4.1",
+            "version": "v2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "c7e26a21ba357863de030f0b9e701c7d04593774"
+                "reference": "a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/c7e26a21ba357863de030f0b9e701c7d04593774",
-                "reference": "c7e26a21ba357863de030f0b9e701c7d04593774",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e",
+                "reference": "a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e",
                 "shasum": ""
             },
             "require": {
@@ -5571,7 +6007,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-03-18 20:34:03"
+            "time": "2016-11-07 23:38:38"
         },
         {
             "name": "pear/console_table",
@@ -7123,6 +7559,60 @@
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
             "time": "2016-02-04 12:56:52"
+        },
+        {
+            "name": "solarium/solarium",
+            "version": "3.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/solariumphp/solarium.git",
+                "reference": "b945cbe4e8f96b639d82c4d1e2cae4ef3ab6fce5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/solariumphp/solarium/zipball/b945cbe4e8f96b639d82c4d1e2cae4ef3ab6fce5",
+                "reference": "b945cbe4e8f96b639d82c4d1e2cae4ef3ab6fce5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/event-dispatcher": "~2.3|~3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7",
+                "satooshi/php-coveralls": "~1.0",
+                "squizlabs/php_codesniffer": "~1.4",
+                "zendframework/zendframework1": "~1.12"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "3.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Solarium\\": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "See GitHub contributors",
+                    "homepage": "https://github.com/basdenooijer/solarium/contributors"
+                }
+            ],
+            "description": "PHP Solr client",
+            "homepage": "http://www.solarium-project.org",
+            "keywords": [
+                "php",
+                "search",
+                "solr"
+            ],
+            "time": "2016-05-03 07:08:49"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -10597,12 +11087,21 @@
             "time": "2016-06-29 05:41:56"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "1.5.0",
+            "alias_normalized": "1.5.0.0",
+            "version": "9999999-dev",
+            "package": "cweagans/composer-patches"
+        }
+    ],
     "minimum-stability": "dev",
     "stability-flags": {
+        "cweagans/composer-patches": 20,
         "drupal/address": 10,
         "drupal/config_inspector": 10,
-        "drupal/libraries": 20
+        "drupal/libraries": 20,
+        "drupal/search_api_solr": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,

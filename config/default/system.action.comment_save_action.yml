@@ -1,5 +1,5 @@
-uuid: 862793d4-3751-49e5-b371-a53f2aedebe8
-langcode: en
+uuid: 3271f721-3be9-4fb8-ac7d-5b95aa04a203
+langcode: hr
 status: true
 dependencies:
   module:
@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: TSkg_gUZvk-39yXFrIFnKjsxuEzO0qBH82TdDxOMMr4
 id: comment_save_action
-label: 'Save comment'
+label: 'Spremi komentar'
 type: comment
 plugin: comment_save_action
 configuration: {  }

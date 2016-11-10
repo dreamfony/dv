@@ -1,9 +1,11 @@
-uuid: af461b8c-be79-4fe1-8d44-dbde5c665809
-langcode: en
+uuid: 60d9d62b-7bef-4705-9e09-2b40942f7d49
+langcode: hr
 status: true
 dependencies:
   config:
     - taxonomy.vocabulary.role
+_core:
+  default_config_hash: 3rGpIHpNgkGibmua5w5C2J3rjn-vNEQrcMo6R4B7Kz8
 id: taxonomy_term.role
 target_entity_type_id: taxonomy_term
 target_bundle: role

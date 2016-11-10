@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.organisation_group.field_organisation_group_id
+    - taxonomy.vocabulary.organisation_group
+  module:
+    - text
+id: taxonomy_term.organisation_group.default
+targetEntityType: taxonomy_term
+bundle: organisation_group
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_organisation_group_id:
+    weight: 1
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+hidden:
+  langcode: true

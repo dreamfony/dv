@@ -1,6 +1,6 @@
-uuid: 9e12a000-b4cc-4865-9302-65020131c116
-langcode: en
-status: true
+uuid: 08aa3cac-ce7b-4d28-bfb3-18038ab2f715
+langcode: hr
+status: false
 dependencies:
   config:
     - system.menu.main
@@ -12,7 +12,7 @@ _core:
   default_config_hash: QEZqe0BMNaDhsbghSITjww9qBgjtbfophAMSJNzw8cc
 id: mainnavigation
 theme: socialbase
-region: header
+region: ''
 weight: 4
 provider: null
 plugin: 'system_menu_block:main'

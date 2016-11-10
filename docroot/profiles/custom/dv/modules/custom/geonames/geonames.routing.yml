@@ -1,0 +1,10 @@
+geonames.geonames_config_form:
+  path: '/admin/config/geonames'
+  defaults:
+    _form: '\Drupal\geonames\Form\GeonamesConfigForm'
+    _title: 'GeoNames Configuration'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+

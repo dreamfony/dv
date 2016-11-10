@@ -1,6 +1,6 @@
-uuid: bec5e10b-df6f-4258-b0c5-3fe140af37c4
-langcode: en
-status: true
+uuid: ea5b379c-445a-463c-8857-834031c44738
+langcode: hr
+status: false
 dependencies:
   module:
     - social_profile
@@ -11,8 +11,8 @@ _core:
   default_config_hash: EMyZbKZ3vSh0PPJ4BeDLLJT4BgOGnVInui4p2tqsBac
 id: profile_hero_block
 theme: socialbase
-region: hero
-weight: -12
+region: ''
+weight: -15
 provider: null
 plugin: profile_hero_block
 settings:

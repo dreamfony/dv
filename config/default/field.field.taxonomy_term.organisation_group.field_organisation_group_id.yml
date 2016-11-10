@@ -1,10 +1,12 @@
-uuid: 51708595-bced-4984-9f06-46a5752ceb37
-langcode: en
+uuid: 4f7a1773-73f1-435e-972e-0aeaee7a44ab
+langcode: hr
 status: true
 dependencies:
   config:
     - field.storage.taxonomy_term.field_organisation_group_id
     - taxonomy.vocabulary.organisation_group
+_core:
+  default_config_hash: 6mGRr0jW10lJKWklHLmMZAeBoVDkJuNUriIAnKtD07E
 id: taxonomy_term.organisation_group.field_organisation_group_id
 field_name: field_organisation_group_id
 entity_type: taxonomy_term

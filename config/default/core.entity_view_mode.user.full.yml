@@ -1,5 +1,5 @@
-uuid: 045bc990-7834-4b41-a8ab-10e8f60fcc27
-langcode: en
+uuid: 1cad559f-49ec-4d14-8a3a-83d60b63037c
+langcode: hr
 status: false
 dependencies:
   module:
@@ -7,6 +7,6 @@ dependencies:
 _core:
   default_config_hash: mQIF_foYjmnVSr9MpcD4CTaJE_FpO1AyDd_DskztGhM
 id: user.full
-label: 'User account'
+label: 'Korisnički račun'
 targetEntityType: user
 cache: true

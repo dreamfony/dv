@@ -1,11 +1,13 @@
-uuid: c7d43f4c-16d5-4aa3-9a80-370d8ade9fbc
-langcode: en
+uuid: 6e1dbdef-a732-48a5-9816-45019e260e72
+langcode: hr
 status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: H6oFUlYmiftdmGgh_pLO7F3DKQfQJCqoyLWJuYof7Uo
 id: content
-label: Content
+label: Sadržaj
 type: 'canonical_entities:node'
 pattern: '[node:content-type]/[node:title]'
 selection_criteria:

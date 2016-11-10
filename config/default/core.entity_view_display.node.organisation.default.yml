@@ -1,5 +1,5 @@
-uuid: 18523c5c-9e20-4d8b-b793-ecfe6554e001
-langcode: en
+uuid: fa1ddaea-67d6-44a0-a052-a389109180c2
+langcode: hr
 status: true
 dependencies:
   config:
@@ -19,6 +19,8 @@ dependencies:
     - address
     - link
     - user
+_core:
+  default_config_hash: W8yEzc9Vg-oxVS57Sy5Z95L90J7u3Fnm6ecOGc_2T1g
 id: node.organisation.default
 targetEntityType: node
 bundle: organisation

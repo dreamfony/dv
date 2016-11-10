@@ -1,5 +1,5 @@
-uuid: ef6dcdfd-9f23-4cc8-915c-3b4bb331f645
-langcode: en
+uuid: f26420d6-cb96-488a-9cd4-2313f76f711f
+langcode: hr
 status: false
 dependencies:
   module:
@@ -7,7 +7,7 @@ dependencies:
     - file_entity
     - user
 _core:
-  default_config_hash: rRWxAX-IQkJ5viACQRovRkC784EyCl9493GU_G23n2Q
+  default_config_hash: o4Xb_STSi5s6qKDvmIgBuYMRZw84Fgz79_75693W3Ao
 id: files
 label: Files
 module: file

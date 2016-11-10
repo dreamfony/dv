@@ -1,5 +1,5 @@
-uuid: 952cad03-c437-467a-8dbc-a4c2c1b8bd92
-langcode: en
+uuid: 3db5c5c7-b545-4365-9af4-2026dfe4fd82
+langcode: hr
 status: true
 dependencies:
   config:
@@ -13,7 +13,7 @@ id: node.article.field_image
 field_name: field_image
 entity_type: node
 bundle: article
-label: Image
+label: Slika
 description: ''
 required: false
 translatable: true

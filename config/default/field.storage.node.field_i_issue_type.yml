@@ -1,10 +1,12 @@
-uuid: 89dac4ea-cd72-4624-aac6-41bf4cb4e83a
-langcode: en
+uuid: d05be91d-cecc-43c8-8ca0-0c6262220f1f
+langcode: hr
 status: true
 dependencies:
   module:
     - node
     - taxonomy
+_core:
+  default_config_hash: Zg_RhLC7t-uo0SIE251dH5FKAXZ_30guzbZR_rObanE
 id: node.field_i_issue_type
 field_name: field_i_issue_type
 entity_type: node

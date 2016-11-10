@@ -1,9 +1,11 @@
-uuid: 94639b67-85b9-4379-a2a1-5df9fc379adf
-langcode: en
+uuid: ac1d2d1f-ce1b-4742-9e30-beadb6be4255
+langcode: hr
 status: true
 dependencies:
   config:
     - group.type.public_group
+_core:
+  default_config_hash: P8yabd2Hl4JP2wsqMOa4OUrj8BVTQ8-HNPI_fRwWNqY
 id: public_group-member
 label: Member
 weight: -100

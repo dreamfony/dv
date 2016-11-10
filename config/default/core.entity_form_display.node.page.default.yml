@@ -1,5 +1,5 @@
-uuid: 744b6a07-ccfb-4985-ba59-8c1b535964d9
-langcode: en
+uuid: e498c3b4-038f-46ba-b76b-735c8a3b0b6e
+langcode: hr
 status: true
 dependencies:
   config:
@@ -10,7 +10,7 @@ dependencies:
     - path
     - text
 _core:
-  default_config_hash: KSvzyFhdLuxniTsunUnUfpfMmod2l57GibtVjL8ymHM
+  default_config_hash: _PY_qof9MFJ5NLSiWhSabxEsH-at_DnrlSNWoMJhp7A
 id: node.page.default
 targetEntityType: node
 bundle: page

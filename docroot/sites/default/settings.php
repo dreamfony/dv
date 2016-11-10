@@ -285,7 +285,7 @@ $config_directories = array();
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = 'f9VXXTLL4z3gYJV8rd6AST88-E2F8jq9r4NNpNxKIiAkR5Ujd8I_mL51b7ET0lELudnT03wwpw';
+$settings['hash_salt'] = '';
 
 /**
  * Deployment identifier.
@@ -717,4 +717,5 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
 # if (file_exists(__DIR__ . '/settings.local.php')) {
 #   include __DIR__ . '/settings.local.php';
 # }
-require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";$settings['install_profile'] = 'standard';
+require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
+$settings['install_profile'] = 'dv';

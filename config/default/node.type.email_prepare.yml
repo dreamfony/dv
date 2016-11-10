@@ -1,5 +1,5 @@
-uuid: 15c2dc42-8456-4645-9d3e-232f2e4f40b5
-langcode: en
+uuid: 927b9ab9-1e73-42f9-b0ec-d6a5bcb55b85
+langcode: hr
 status: true
 dependencies:
   module:
@@ -9,6 +9,8 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
+_core:
+  default_config_hash: xz8XvCBhfj4oxNKB94UmQQ3-C-5yaRgn-qMDbe6MxVA
 name: 'Email Prepare'
 type: email_prepare
 description: ''

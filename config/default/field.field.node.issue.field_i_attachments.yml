@@ -1,5 +1,5 @@
-uuid: 6f057c7e-8f8c-4eeb-98dc-b4b683d3631a
-langcode: en
+uuid: 9b3eb482-efa4-4d71-9b40-e00b91f7705e
+langcode: hr
 status: true
 dependencies:
   config:
@@ -7,6 +7,8 @@ dependencies:
     - node.type.issue
   module:
     - file
+_core:
+  default_config_hash: eW3aBAaxBg60QPgiTO3ym9NKkbUhAqwZZgDXRlBxjcM
 id: node.issue.field_i_attachments
 field_name: field_i_attachments
 entity_type: node

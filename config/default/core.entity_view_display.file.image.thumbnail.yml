@@ -1,5 +1,5 @@
-uuid: 554c718e-6059-4e08-ac4d-2b8ab8e74ef8
-langcode: en
+uuid: 140e362b-a64e-473a-83a1-7f9ec932aef7
+langcode: hr
 status: true
 dependencies:
   config:
@@ -11,7 +11,7 @@ dependencies:
   module:
     - file_entity
 _core:
-  default_config_hash: 8trPid18Dj2TjH8c4n0Eb1KrYcJR0xYIyNlgYlGk2XI
+  default_config_hash: OVqwhJemigMh6M5p0-hnp9fK4ZpoGCRtS31y1vR0Hvs
 id: file.image.thumbnail
 targetEntityType: file
 bundle: image
@@ -24,6 +24,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    region: content
   uri:
     type: file_image
     label: hidden
@@ -32,6 +33,7 @@ content:
       image_style: thumbnail
       image_link: ''
     third_party_settings: {  }
+    region: content
 hidden:
   field_image_alt_text: true
   field_image_title_text: true

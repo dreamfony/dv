@@ -1,5 +1,5 @@
-uuid: 30947410-2ba9-4bbc-845d-0b4b98155f7f
-langcode: en
+uuid: 5d6a01e8-6465-4de2-9099-3292a45bc84b
+langcode: hr
 status: false
 dependencies:
   module:
@@ -7,6 +7,6 @@ dependencies:
 _core:
   default_config_hash: Pl6xok1fBCKaPlLC4iDJVaucp2W72csXt7M3Jwa95nU
 id: message.full
-label: 'Full content'
+label: 'Puni sadržaj'
 targetEntityType: message
 cache: true

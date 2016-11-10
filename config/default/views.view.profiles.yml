@@ -1,13 +1,13 @@
-uuid: a6f34628-1101-4e83-8611-1144a4a3db25
-langcode: en
+uuid: 01f24d21-bb6a-4f3c-b711-8a2e1b42d6e7
+langcode: hr
 status: true
 dependencies:
   module:
     - profile
 _core:
-  default_config_hash: YD0hw-cg1_R36IQ1hO2vQlrhYAQqM7kF6mw3hFGrwI8
+  default_config_hash: q70tcTRdADaMbG3MImSrWUG69Kq3ECNNdbnC8kxAGWE
 id: profiles
-label: Profiles
+label: Profili
 module: views
 description: ''
 tag: ''
@@ -293,7 +293,7 @@ display:
           entity_field: status
           plugin_id: numeric
       display_extenders: {  }
-      title: Profiles
+      title: Profili
     cache_metadata:
       max-age: -1
       contexts:

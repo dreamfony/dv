@@ -1,5 +1,5 @@
-uuid: 934d4291-dbc7-4938-a555-8b9ae98cf405
-langcode: en
+uuid: 688123de-48ce-4e1e-b33f-3a2a45eab7ca
+langcode: hr
 status: true
 dependencies:
   config:
@@ -7,6 +7,8 @@ dependencies:
   module:
     - content_moderation
     - path
+_core:
+  default_config_hash: sMXpK_d5MxQILzAl62rm9RheKMK0CvXC8BWjL1IyFpg
 id: node.email_sent.default
 targetEntityType: node
 bundle: email_sent

@@ -1,5 +1,5 @@
-uuid: ccf49ede-8eca-4fb0-afb7-a63210a6dc61
-langcode: en
+uuid: 6cde5566-68a1-4f05-9df1-264985c5fe3a
+langcode: hr
 status: true
 dependencies:
   config:
@@ -15,12 +15,12 @@ third_party_settings:
       title: title
       file: '0'
 _core:
-  default_config_hash: cL7i1kgJvlJa6H00f0E_fZ2KdD1ag0ASpLts0K-KNII
+  default_config_hash: ZByGTWobeofiYMUyLdGQUYGGBdX8ezMRD-sw3WBBX7I
 id: user.user.user_picture
 field_name: user_picture
 entity_type: user
 bundle: user
-label: Picture
+label: Slika
 description: 'Your virtual face or picture.'
 required: false
 translatable: true

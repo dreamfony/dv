@@ -1,5 +1,5 @@
-uuid: 5637810a-d7db-4aca-a156-5aa695d62fbe
-langcode: en
+uuid: 8df66459-6eef-44d3-8a8e-e1cae6ba1fe9
+langcode: hr
 status: true
 dependencies:
   module:
@@ -8,9 +8,9 @@ dependencies:
 _core:
   default_config_hash: z8XxeJ_VN7B0PugrC1Xgj-FubvoLSKgnFJJ3DbXlAmA
 id: content
-label: Content
+label: Sadržaj
 module: node
-description: 'Find and manage content.'
+description: 'Pretraga i upravljanje sadržajem'
 tag: default
 base_table: node_field_data
 base_field: nid
@@ -534,7 +534,7 @@ display:
           entity_type: node
           entity_field: langcode
       sorts: {  }
-      title: Content
+      title: Sadržaj
       empty:
         area_text_custom:
           id: area_text_custom
@@ -558,17 +558,6 @@ display:
         groups:
           1: AND
       display_extenders: {  }
-      header:
-        result:
-          id: result
-          table: views
-          field: result
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          content: 'Displaying @start - @end of @total'
-          plugin_id: result
     display_plugin: default
     display_title: Master
     id: default
@@ -589,14 +578,14 @@ display:
       path: admin/content/node
       menu:
         type: 'default tab'
-        title: Content
+        title: Sadržaj
         description: ''
         menu_name: admin
         weight: -10
         context: ''
       tab_options:
         type: normal
-        title: Content
+        title: Sadržaj
         description: 'Find and manage content'
         menu_name: admin
         weight: -10

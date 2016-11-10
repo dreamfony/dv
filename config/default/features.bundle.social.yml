@@ -1,5 +1,5 @@
-uuid: be654b8f-4443-4174-8ec0-6a9269c3d9c8
-langcode: en
+uuid: 2dd3fd34-9e15-43d6-acf3-f1ea71e55990
+langcode: hr
 status: true
 dependencies: {  }
 _core:
@@ -37,12 +37,12 @@ assignments:
     types:
       config:
         features_bundle: features_bundle
-    curated: 1
+    curated: true
     module:
-      installed: 1
-      profile: 1
-      namespace: 1
-      namespace_any: 0
+      installed: true
+      profile: true
+      namespace: true
+      namespace_any: false
     enabled: true
     weight: -5
   existing:
@@ -70,10 +70,10 @@ assignments:
     enabled: true
     weight: -20
   profile:
-    curated: 1
+    curated: true
     standard:
-      files: 1
-      dependencies: 1
+      files: true
+      dependencies: true
     types:
       config:
         block: block

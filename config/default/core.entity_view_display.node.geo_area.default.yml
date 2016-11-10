@@ -1,5 +1,5 @@
-uuid: 8aac31ea-8005-4aa5-990a-4b0337d728ea
-langcode: en
+uuid: 7587e81a-ca77-433f-b7e3-455603ef4c23
+langcode: hr
 status: true
 dependencies:
   config:
@@ -12,6 +12,8 @@ dependencies:
   module:
     - text
     - user
+_core:
+  default_config_hash: FWULLNIWvDPRrusqeU5Cr_13dnBvaJQGK8qAdQcsuRY
 id: node.geo_area.default
 targetEntityType: node
 bundle: geo_area
@@ -23,6 +25,7 @@ content:
     weight: 101
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_geo_area_admin_area_level:
     weight: 104
     label: above
@@ -31,6 +34,7 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     type: number_integer
+    region: content
   field_geo_area_geonames_id:
     weight: 103
     label: above
@@ -39,6 +43,7 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     type: number_integer
+    region: content
   field_geo_area_parent:
     weight: 102
     label: above
@@ -46,6 +51,7 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   field_geo_area_population:
     weight: 105
     label: above
@@ -54,7 +60,9 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     type: number_integer
+    region: content
   links:
     weight: 100
+    region: content
 hidden:
   langcode: true

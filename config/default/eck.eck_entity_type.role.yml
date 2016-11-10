@@ -1,7 +1,9 @@
-uuid: 456512f8-338e-4707-a594-a89732477966
-langcode: en
+uuid: 81e2b44a-332c-424d-ab3b-67e9fa3819bd
+langcode: hr
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: NPTMN1S2MxR4XdXIHdVeZhcBr_WN6uTjxzhkWXdcOaw
 id: role
 label: Role
 created: true

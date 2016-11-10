@@ -1,9 +1,11 @@
-uuid: a88f9b43-4b41-434b-965b-70e19dda1790
-langcode: en
+uuid: 5d5a24d9-34b7-44e7-a0dd-663577fda557
+langcode: hr
 status: true
 dependencies:
   config:
     - group.type.private_group
+_core:
+  default_config_hash: u8qmshdjUgWJKlWS-xk82h3periashcdqG1AZgnWH9g
 id: private_group-member
 label: Member
 weight: -100

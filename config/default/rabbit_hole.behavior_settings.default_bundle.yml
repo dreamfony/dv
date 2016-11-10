@@ -1,9 +1,9 @@
-uuid: 9205bcda-8751-416f-9d75-f8c044b39f9e
-langcode: en
+uuid: be95207b-6e1a-4c27-97f1-c9867514179a
+langcode: hr
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: 9tPXnSvxaFBxdiQkvZZpU3OIFpU-AyFgeQSIPj2frXg
+  default_config_hash: wujc6CKHjn6isjerzwPx-j6dueX73oFH8HMitaTjhIw
 id: default_bundle
 action: display_page
 allow_override: 1

@@ -1,11 +1,13 @@
-uuid: f25cf835-c985-4afb-92ae-7f12ce4586aa
-langcode: en
+uuid: 94aa8d72-a104-46aa-9bf5-dcf099f4f04f
+langcode: hr
 status: true
 dependencies:
   config:
     - field.storage.node.field_o_issue_types
     - node.type.organisation
     - taxonomy.vocabulary.issue_type
+_core:
+  default_config_hash: gYB989oZI9WJHrz1K0y78PlR0Lj0nRzY7SobNkMJZ-c
 id: node.organisation.field_o_issue_types
 field_name: field_o_issue_types
 entity_type: node

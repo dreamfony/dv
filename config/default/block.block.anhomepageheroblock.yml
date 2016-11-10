@@ -1,11 +1,8 @@
-uuid: c1765ea3-c029-434c-bbd3-c56fea441edc
-langcode: en
-status: true
+uuid: 5b46cb50-aef6-452a-9e62-40d41c30b8fb
+langcode: hr
+status: false
 dependencies:
-  content:
-    - 'block_content:hero_call_to_action_block:8bb9d4bb-f182-4afc-b138-8a4b802824e4'
   module:
-    - block_content
     - system
     - user
   theme:
@@ -14,8 +11,8 @@ _core:
   default_config_hash: vQLSPy3ndi-zEP8HoSRMFbTT01hmX94Q94Dq5dIOTZw
 id: anhomepageheroblock
 theme: socialbase
-region: hero
-weight: -12
+region: ''
+weight: -15
 provider: null
 plugin: 'block_content:8bb9d4bb-f182-4afc-b138-8a4b802824e4'
 settings:

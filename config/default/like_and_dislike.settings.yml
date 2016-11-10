@@ -3,4 +3,5 @@ enabled_types:
   node:
     - issue
 _core:
-  default_config_hash: k7WfBSzzmG-nGCieW-Rh3Z5LQ0fVq8pre9uLqRIpxVI
+  default_config_hash: dN96BTgFxUrQcQC5jowem17sD-xk461kzWPva7pkuBc
+langcode: hr

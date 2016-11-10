@@ -1,9 +1,11 @@
-uuid: abf97485-794e-4388-8da7-54983381a04d
-langcode: en
+uuid: ca922736-5a72-4630-9307-c538609f2a0d
+langcode: hr
 status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: vVoDmrjPOSSxBWtz3m7Ogyp-UjkN-ruD1DzscCt52WU
 id: node.field_o_private_issue
 field_name: field_o_private_issue
 entity_type: node

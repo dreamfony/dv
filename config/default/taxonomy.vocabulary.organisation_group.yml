@@ -1,7 +1,9 @@
-uuid: 61b9c9d2-59b0-422f-9f81-a67a0556d69c
-langcode: en
+uuid: dce70d43-6630-4c90-ae0d-6e7a5642b8ba
+langcode: hr
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: skvyVrUb_Esy_EYtQhEOTeMTb7edBKBJXGAwdwrC2Kw
 name: 'Organisation Group'
 vid: organisation_group
 description: ''

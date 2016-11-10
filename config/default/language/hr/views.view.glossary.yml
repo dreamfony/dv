@@ -1,4 +1,3 @@
-label: Rječnik
 display:
   default:
     display_title: Master
@@ -26,6 +25,3 @@ display:
     display_title: Prilog
   page_1:
     display_title: Stranica
-    display_options:
-      menu:
-        title: Rječnik

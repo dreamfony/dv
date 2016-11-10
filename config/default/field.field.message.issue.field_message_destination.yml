@@ -1,5 +1,5 @@
-uuid: 43e387c3-a989-4c1e-8f88-01795c962262
-langcode: en
+uuid: 25ca3c75-201f-4aa9-8b85-a4c5ffa31127
+langcode: hr
 status: true
 dependencies:
   config:
@@ -7,6 +7,8 @@ dependencies:
     - message.template.issue
   module:
     - options
+_core:
+  default_config_hash: MrE_440rRN5lwC5o9Th25oz-BfRoXZrJbqQ2FxP-k5Y
 id: message.issue.field_message_destination
 field_name: field_message_destination
 entity_type: message

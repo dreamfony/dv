@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.email_sent
+id: node.email_sent
+target_entity_type_id: node
+target_bundle: email_sent
+default_langcode: site_default
+language_alterable: false

@@ -1,5 +1,5 @@
-uuid: af3e7093-24af-4f02-b278-b6438a0c070c
-langcode: en
+uuid: 76be675a-a559-4550-a2f3-8c1d263c7229
+langcode: hr
 status: true
 dependencies:
   config:
@@ -7,6 +7,8 @@ dependencies:
     - node.type.email_sent
   module:
     - user
+_core:
+  default_config_hash: 1sOaYnJJWVRx1A5sjdi9p83gt1NpxdyHYsWPtrz9yaM
 id: node.email_sent.teaser
 targetEntityType: node
 bundle: email_sent

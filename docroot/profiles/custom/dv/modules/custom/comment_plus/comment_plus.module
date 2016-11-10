@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * Contains comment_plus.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function comment_plus_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the comment_plus module.
+    case 'help.page.comment_plus':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Comment Plus adds new features on top of comment module.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function comment_plus_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $test = 1;
+}

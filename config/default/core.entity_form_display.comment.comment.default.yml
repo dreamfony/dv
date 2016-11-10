@@ -1,5 +1,5 @@
-uuid: c556b55d-2daa-4065-80fe-1718d9124fc4
-langcode: en
+uuid: 0580f74d-ce9c-45f2-92d2-33eb4a7e3a1c
+langcode: hr
 status: true
 dependencies:
   config:
@@ -8,7 +8,7 @@ dependencies:
   module:
     - text
 _core:
-  default_config_hash: ooVjelXSXbiQtp-hYb7LS44vR5UO-Kqu4vf484ggR8w
+  default_config_hash: YCnp-PwMLSthKpw8RHUJW6H5GpCA8M6lLZFVek7KRPo
 id: comment.comment.default
 targetEntityType: comment
 bundle: comment

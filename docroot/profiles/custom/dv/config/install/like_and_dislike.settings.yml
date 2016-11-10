@@ -1,0 +1,4 @@
+allow_cancel_vote: true
+enabled_types:
+  node:
+    - issue

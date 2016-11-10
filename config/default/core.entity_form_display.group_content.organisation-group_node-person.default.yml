@@ -1,5 +1,5 @@
-uuid: 19bd3843-1b7b-4d10-877b-7179789f1894
-langcode: en
+uuid: b946f83e-502f-4de3-a7c2-e573ceaccc95
+langcode: hr
 status: true
 dependencies:
   config:
@@ -7,6 +7,8 @@ dependencies:
     - group.content_type.organisation-group_node-person
   module:
     - datetime
+_core:
+  default_config_hash: uaW3Q4jOykCgSEQDntYZAOdrnNUTHsdKS2pSO8Ypa1E
 id: group_content.organisation-group_node-person.default
 targetEntityType: group_content
 bundle: organisation-group_node-person

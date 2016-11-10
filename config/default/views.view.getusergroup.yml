@@ -1,5 +1,5 @@
-uuid: 29d99a4f-83cc-4845-bb65-3173f88fcd3c
-langcode: en
+uuid: 4fc6289c-f3f4-46f9-84d1-2111907095d0
+langcode: hr
 status: true
 dependencies:
   config:
@@ -10,6 +10,8 @@ dependencies:
     - rest
     - serialization
     - user
+_core:
+  default_config_hash: dAE9wErQibEryvB2RLnXlrBU6r_fJzoIE6xUQGfUJ5U
 id: getusergroup
 label: getUserGroup
 module: views

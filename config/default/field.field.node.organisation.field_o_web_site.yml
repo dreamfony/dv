@@ -1,5 +1,5 @@
-uuid: ff4eb48f-3d27-4d84-a3be-64b25b1c9590
-langcode: en
+uuid: 47e1a537-0bfd-4e36-9cdc-da19438c8899
+langcode: hr
 status: true
 dependencies:
   config:
@@ -7,6 +7,8 @@ dependencies:
     - node.type.organisation
   module:
     - link
+_core:
+  default_config_hash: 4na8GqZTtgzAdYDW3HjUlQcoLb4k6hqePwExTZkqT9M
 id: node.organisation.field_o_web_site
 field_name: field_o_web_site
 entity_type: node

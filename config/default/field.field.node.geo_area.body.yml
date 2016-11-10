@@ -1,5 +1,5 @@
-uuid: 143d8d02-b840-4170-b53d-fecf9406a7de
-langcode: en
+uuid: 50c73267-ab7a-409d-be2f-0dad8ed00b3a
+langcode: hr
 status: true
 dependencies:
   config:
@@ -7,11 +7,13 @@ dependencies:
     - node.type.geo_area
   module:
     - text
+_core:
+  default_config_hash: MInnJHnyFRjTVg44QKDvCeKNeQNW97E6avqgzfVmOSY
 id: node.geo_area.body
 field_name: body
 entity_type: node
 bundle: geo_area
-label: Body
+label: Sadržaj
 description: ''
 required: false
 translatable: true

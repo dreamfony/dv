@@ -1,5 +1,5 @@
-uuid: bfeea130-c86c-41ce-ad13-9c38bac72770
-langcode: en
+uuid: 0e6ddc84-eb6c-4bac-873f-0a6ec4dc2cdf
+langcode: hr
 status: true
 dependencies:
   module:
@@ -8,7 +8,7 @@ dependencies:
     - system
     - user
 _core:
-  default_config_hash: H7kbXDAkOwaJHC-czbN3OdPc8jbYC3s60VW-Igr_WqQ
+  default_config_hash: Pir8rkn4ZFB7B0brBTTDFNONeIl7al-YpTb75GVn5ZU
 id: file_entity_files
 label: 'File Entity Files'
 module: file_entity
@@ -360,7 +360,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Mime type'
+          label: 'Mime vrsta'
           exclude: false
           alter:
             alter_text: false
@@ -575,7 +575,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Created
+          label: Stvoreno
           exclude: false
           alter:
             alter_text: false
@@ -795,7 +795,7 @@ display:
           exposed: true
           expose:
             operator_id: filemime_op
-            label: 'Mime type'
+            label: 'Mime vrsta'
             description: ''
             use_operator: false
             operator: filemime_op

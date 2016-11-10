@@ -1,5 +1,5 @@
-uuid: e6df3aea-4b2d-48d2-b75f-3b4745ea5309
-langcode: en
+uuid: 4b9cf493-34b0-4171-af33-d82da1ab2518
+langcode: hr
 status: true
 dependencies:
   config:
@@ -7,11 +7,13 @@ dependencies:
     - node.type.person
   module:
     - text
+_core:
+  default_config_hash: 1qSXMLa-f1qyTI0p1RD1TfeM6gT2MuLH8Q_2eieNQIU
 id: node.person.body
 field_name: body
 entity_type: node
 bundle: person
-label: Body
+label: Sadržaj
 description: ''
 required: false
 translatable: true

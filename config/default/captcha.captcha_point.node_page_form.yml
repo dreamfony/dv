@@ -1,7 +1,9 @@
-uuid: null
-langcode: en
+uuid: ef0283f2-f736-4d6d-ae32-92fe91ea6000
+langcode: hr
 status: false
 dependencies: {  }
+_core:
+  default_config_hash: JDCcatWotViVKHz0wPzKw0J1FQc8yDXiBfMcOmMMSdc
 formId: node_page_form
 captchaType: default
 label: null

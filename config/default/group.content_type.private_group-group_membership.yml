@@ -1,11 +1,13 @@
-uuid: e1066d5d-207f-43b1-89f3-ea5193224658
-langcode: en
+uuid: cc857934-8883-488e-a856-d93a465da696
+langcode: hr
 status: true
 dependencies:
   config:
     - group.type.private_group
   module:
     - user
+_core:
+  default_config_hash: rJFeEJ2bCt-ZfweLXPTsqsndkQG0XEzK25FTo-wYY2o
 id: private_group-group_membership
 label: 'Private Group: Group membership'
 description: 'Adds users to groups as members.'

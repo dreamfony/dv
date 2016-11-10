@@ -1,11 +1,13 @@
-uuid: 75f4553d-42de-4851-8e41-24dece0f2962
-langcode: en
+uuid: cded17f5-35d6-4f24-84e4-c1cf67d85849
+langcode: hr
 status: true
 dependencies:
   config:
     - field.storage.node.field_o_area_of_activity
     - node.type.organisation
     - taxonomy.vocabulary.area_of_activity
+_core:
+  default_config_hash: XnffYzWdzl_LfX83XmBi6j6XTRAtZwLZvoYKH5NoEf8
 id: node.organisation.field_o_area_of_activity
 field_name: field_o_area_of_activity
 entity_type: node

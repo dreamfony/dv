@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.email_recieved
+  module:
+    - user
+id: node.email_recieved.default
+targetEntityType: node
+bundle: email_recieved
+mode: default
+content:
+  links:
+    type: visible
+    region: content
+    weight: 100
+hidden:
+  langcode: true

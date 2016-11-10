@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_m_recipient
+    - node.type.email_prepare
+    - node.type.organisation
+id: node.email_prepare.field_m_recipient
+field_name: field_m_recipient
+entity_type: node
+bundle: email_prepare
+label: Recipient
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      organisation: organisation
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,10 +1,10 @@
-uuid: 06721301-7f93-448e-a0d9-8c97de47ded0
-langcode: en
+uuid: 829e4e75-0d03-492e-9891-d1f96a81ec98
+langcode: hr
 status: true
 dependencies: {  }
 _core:
   default_config_hash: lO5ziR5dVI1PpEeHZsSOfQ-Y7NWihSDKW8-MMf6uoms
-name: Tags
+name: Oznake
 vid: tags
 description: 'Use tags to group articles on similar topics into categories.'
 hierarchy: 0
