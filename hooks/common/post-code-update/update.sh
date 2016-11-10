@@ -17,17 +17,20 @@ deployed_tag="$4"
 repo_url="$5"
 repo_type="$6"
 
-echo "Cache-Rebuild"
-drush @$site.$target_env -y cache-rebuild
+#
+# TODO confirm tihs is obsolited by deploy_updates
+#
+#echo "Cache-Rebuild"
+#drush @$site.$target_env -y cache-rebuild
 
-echo "UpdateDB"
-drush @$site.$target_env -y updatedb
+#echo "UpdateDB"
+#drush @$site.$target_env -y updatedb
 
-echo "Config-import"
-drush @$site.$target_env -y config-import
+#echo "Config-import"
+#drush @$site.$target_env -y config-import
 
-echo "entup"
-drush @$site.$target_env -y entup
+#echo "entup"
+#drush @$site.$target_env -y entup
 
 
 # TODO clear varnish
