@@ -27,7 +27,6 @@
         "drupal/eu_cookie_compliance": "~1.0",
         "drupal/pathauto": "~1.0",
         "drupal/recaptcha": "~2.0",
-        "drupal/ultimate_cron": "~2.0",
         "drupal/persistent_login": "~1.0",
         "drupal/rabbit_hole": "~1.0",
         "drupal/bootstrap": "~3.0",
