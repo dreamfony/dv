@@ -4,5 +4,4 @@ description: Organisation Group.
 core: 8.x
 package: Custom
 dependencies:
-  - group
-  - hook_event_dispatcher
+  - dmt_group

@@ -22,3 +22,20 @@ function organisation_group_help($route_name, RouteMatchInterface $route_match) 
     default:
   }
 }
+
+/**
+ * Implements hook_entity_insert().
+ */
+function organisation_group_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->getEntityTypeId() == 'node') {
+
+    // get current node bundle
+    $bundle = $entity->bundle();
+
+    // check if current node is organisation node
+    if ('organisation' === $bundle) {
+      \Drupal::service('dmt_group.add_group_to_subgroup')->addOrganisation->add($entity, 'organisation', 'field_o_parent_organisation');
+    }
+
+  }
+}
