@@ -36,11 +36,11 @@ modules:
         enable: {  }
         uninstall: [acquia_connector, shield]
     deploy:
-        enable: [acquia_connector, shield]
+        enable: [acquia_connector, shield, migrate_tools]
         uninstall: [devel, field_ui, views_ui]
     local:
-        enable: [dblog, devel, field_ui, seckit, views_ui]
-        uninstall: [acsf, acquia_connector, dblog, shield]
+        enable: [dblog, devel, field_ui, seckit, views_ui, migrate_tools]
+        uninstall: [acsf, acquia_connector, shield]
 drupal:
   account.name: admin
   account.password: admin
