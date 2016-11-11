@@ -1,7 +1,3 @@
 services:
-  user_group.issue:
-    class: Drupal\user_groups\EventSubscriber\UserGroupIssue
-    tags:
-      - { name: event_subscriber }
   user_group.user_group:
     class: Drupal\user_groups\UserGroupService

@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Contains organisation_group.module..
+ */
+
+/**
+ * Implements hook_entity_insert().
+ */
+function user_groups_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->getEntityTypeId() == 'node') {
+    // check bundle
+    if ('issue' === $entity->bundle()) {
+      \Drupal::service('user_group.user_group')->groupUserIssue($entity, 'insert');
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function user_groups_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->getEntityTypeId() == 'node') {
+    // check bundle
+    if ('issue' === $entity->bundle()) {
+      \Drupal::service('user_group.user_group')->groupUserIssue($entity, 'update');
+    }
+  }
+}
