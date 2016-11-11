@@ -50,4 +50,6 @@ disable-targets:
     setup:
         config-import: true
         git-hooks: true
+    tests:
+        phpunit: true
 
