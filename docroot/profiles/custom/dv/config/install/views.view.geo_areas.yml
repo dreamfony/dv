@@ -2,16 +2,18 @@ langcode: en
 status: true
 dependencies:
   config:
-    - system.menu.main
+    - core.entity_view_mode.node.teaser
+    - node.type.geo_area
   module:
-    - activity_creator
-id: activity_1
-label: 'Activity 1'
+    - node
+    - user
+id: geo_areas
+label: 'Geo Areas'
 module: views
 description: ''
 tag: ''
-base_table: activity_field_data
-base_field: id
+base_table: node_field_data
+base_field: nid
 core: 8.x
 display:
   default:
@@ -21,8 +23,9 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: perm
+        options:
+          perm: 'access content'
       cache:
         type: tag
         options: {  }
@@ -65,47 +68,35 @@ display:
       style:
         type: default
       row:
-        type: 'entity:activity'
+        type: 'entity:node'
+        options:
+          view_mode: teaser
       fields:
-        id:
-          table: activity_field_data
-          field: id
-          id: id
-          entity_type: null
-          entity_field: id
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          entity_type: node
+          entity_field: title
+          label: ''
+          alter:
+            alter_text: false
+            make_link: false
+            absolute: false
+            trim: false
+            word_boundary: false
+            ellipsis: false
+            strip_tags: false
+            html: false
+          hide_empty: false
+          empty_zero: false
+          settings:
+            link_to_entity: true
           plugin_id: field
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
           exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
           element_type: ''
           element_class: ''
           element_label_type: ''
@@ -115,12 +106,9 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
-          hide_empty: false
-          empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: number_integer
-          settings: {  }
+          type: string
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -131,9 +119,44 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-      filters: {  }
-      sorts: {  }
-      title: 'Activity 1'
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            geo_area: geo_area
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+      sorts:
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          order: DESC
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+      title: 'Geo Areas'
       header: {  }
       footer: {  }
       empty: {  }
@@ -146,6 +169,8 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
       tags: {  }
   page_1:
     display_plugin: page
@@ -154,20 +179,13 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: activity-1
-      menu:
-        type: normal
-        title: 'Activity 1'
-        description: ''
-        expanded: false
-        parent: ''
-        weight: 0
-        context: '0'
-        menu_name: main
+      path: geo-areas
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
       tags: {  }

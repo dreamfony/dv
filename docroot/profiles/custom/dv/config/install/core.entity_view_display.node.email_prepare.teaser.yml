@@ -3,6 +3,10 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.email_prepare.field_m_attachments
+    - field.field.node.email_prepare.field_m_body
+    - field.field.node.email_prepare.field_m_recipient
+    - field.field.node.email_prepare.field_m_send_date
     - node.type.email_prepare
   module:
     - user
@@ -16,4 +20,8 @@ content:
     region: content
     weight: 100
 hidden:
+  field_m_attachments: true
+  field_m_body: true
+  field_m_recipient: true
+  field_m_send_date: true
   langcode: true

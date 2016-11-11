@@ -75,8 +75,6 @@ function dv_install_tasks_alter(&$tasks, $install_state) {
  */
 function dv_install_profile_modules(&$install_state) {
 
-  drupal_flush_all_caches();
-
   $files = system_rebuild_module_data();
 
   $modules = array(

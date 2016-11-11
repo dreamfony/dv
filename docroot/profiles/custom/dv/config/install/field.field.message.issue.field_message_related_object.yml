@@ -68,4 +68,19 @@ settings:
   vote_result:
     handler: 'default:vote_result'
     handler_settings: {  }
+  contact_message:
+    handler: 'default:contact_message'
+    handler_settings: {  }
+  content_moderation_state:
+    handler: 'default:content_moderation_state'
+    handler_settings: {  }
+  role:
+    handler: 'default:role'
+    handler_settings: {  }
+  search_api_task:
+    handler: 'default:search_api_task'
+    handler_settings: {  }
+  shortcut:
+    handler: 'default:shortcut'
+    handler_settings: {  }
 field_type: dynamic_entity_reference

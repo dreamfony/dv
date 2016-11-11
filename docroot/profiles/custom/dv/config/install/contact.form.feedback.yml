@@ -4,7 +4,7 @@ dependencies: {  }
 id: feedback
 label: 'Website feedback'
 recipients:
-  - damir.miric@gmail.com
+  - no-reply@acquia.com
 reply: ''
 weight: 0
 message: 'Your message has been sent.'

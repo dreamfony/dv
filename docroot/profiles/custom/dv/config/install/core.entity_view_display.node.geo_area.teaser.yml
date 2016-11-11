@@ -4,6 +4,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.geo_area.body
+    - field.field.node.geo_area.field_geo_area_admin_area_level
+    - field.field.node.geo_area.field_geo_area_geonames_id
+    - field.field.node.geo_area.field_geo_area_parent
+    - field.field.node.geo_area.field_geo_area_population
     - node.type.geo_area
   module:
     - text

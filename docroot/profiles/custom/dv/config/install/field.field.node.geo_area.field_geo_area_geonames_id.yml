@@ -8,7 +8,7 @@ id: node.geo_area.field_geo_area_geonames_id
 field_name: field_geo_area_geonames_id
 entity_type: node
 bundle: geo_area
-label: GeoNames Id
+label: 'GeoNames Id'
 description: ''
 required: false
 translatable: false

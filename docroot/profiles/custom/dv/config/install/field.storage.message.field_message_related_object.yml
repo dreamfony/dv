@@ -12,6 +12,7 @@ dependencies:
     - message
     - node
     - profile
+    - search_api
     - taxonomy
     - user
 id: message.field_message_related_object
