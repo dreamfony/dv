@@ -92,12 +92,6 @@ dependencies:
   - views
   - views_ui
   - votingapi
-  - migrate
-  - migrate_plus
-  - geo_area_group
-  - import_organisations
-  - organisation_group
-  - user_groups
 themes:
   - bartik
   - seven
