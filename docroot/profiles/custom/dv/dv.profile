@@ -7,7 +7,6 @@
 
 use Drupal\contact\Entity\ContactForm;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\user\Entity\User;
 
 /**
  * Implements hook_form_FORM_ID_alter() for install_configure_form().

@@ -61,7 +61,6 @@ dependencies:
   - menu_link_content
   - menu_ui
   - message
-  - migrate
   - node
   - options
   - page_cache
@@ -93,6 +92,8 @@ dependencies:
   - views
   - views_ui
   - votingapi
+  - migrate
+  - migrate_plus
   - geo_area_group
   - import_organisations
   - organisation_group
@@ -100,6 +101,7 @@ dependencies:
 themes:
   - bartik
   - seven
+  - bootstrap
 package: DV
 distribution:
   name: DV
