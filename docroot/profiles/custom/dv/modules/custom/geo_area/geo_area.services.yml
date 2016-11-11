@@ -1,4 +1,9 @@
 services:
+  geo_area.pre_import:
+    class: Drupal\geo_area\EventSubscriber\GeoAreaPreImport
+    arguments: []
+    tags:
+      - { name: event_subscriber }
   geo_area.prepare_row:
     class: Drupal\geo_area\EventSubscriber\GeoAreaPrepareRow
     arguments: []

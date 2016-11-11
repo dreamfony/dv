@@ -4,8 +4,8 @@ migration_group: geoarea
 source:
   plugin: geo_names
   data_parser_plugin: xml_crawler
-  geonameid:
-    - 3202326
+  start_name: Hrvatska # country name or area starting form
+  geonameid: 3202326 # geoname id of starting area
   item_selector: /geonames/geoname
   fields:
     -

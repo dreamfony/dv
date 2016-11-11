@@ -38,7 +38,7 @@ class Geonames extends SourcePluginExtension implements MigrateSourceInterface {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $migration);
 
     $urls = [
-      'http://api.geonames.org/children?geonameId=' . $configuration['geonameid'][0] . '&username=mailinator&style=FULL'
+      'http://api.geonames.org/children?geonameId=' . $configuration['geonameid'] . '&username=mailinator&style=FULL'
     ];
 
     $this->sourceUrls = $urls;
