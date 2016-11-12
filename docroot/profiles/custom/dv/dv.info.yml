@@ -92,7 +92,6 @@ dependencies:
   - views_ui
   - votingapi
 themes:
-  - bartik
   - bootstrap
   - seven
 package: DV
