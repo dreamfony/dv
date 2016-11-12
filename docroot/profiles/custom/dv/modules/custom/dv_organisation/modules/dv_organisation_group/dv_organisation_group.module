@@ -10,7 +10,7 @@ use Drupal\Core\Routing\RouteMatchInterface;
 /**
  * Implements hook_help().
  */
-function organisation_group_help($route_name, RouteMatchInterface $route_match) {
+function dv_organisation_group_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
     // Main module help for the organisation_group module.
     case 'help.page.organisation_group':
@@ -26,7 +26,7 @@ function organisation_group_help($route_name, RouteMatchInterface $route_match) 
 /**
  * Implements hook_entity_insert().
  */
-function organisation_group_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+function dv_organisation_group_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
   if ($entity->getEntityTypeId() == 'node') {
 
     // get current node bundle
