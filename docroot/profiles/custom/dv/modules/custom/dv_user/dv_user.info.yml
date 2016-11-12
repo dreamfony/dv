@@ -1,0 +1,14 @@
+name: User
+description: 'Provide User related configuration.'
+type: module
+core: 8.x
+dependencies:
+  - captcha
+  - content_translation
+  - field
+  - file
+  - image
+  - rdf
+  - system
+  - user
+package: DV

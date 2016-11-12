@@ -1,0 +1,12 @@
+name: 'User Groups'
+description: 'User Groups.'
+type: module
+core: 8.x
+dependencies:
+  - field
+  - group
+  - rest
+  - serialization
+  - user
+  - views
+package: DV

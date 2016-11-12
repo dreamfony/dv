@@ -1,13 +1,13 @@
 <?php
 
-namespace Drupal\user_groups;
+namespace Drupal\dv_user_groups;
 
 use Drupal\group\Entity\Group;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\group\Entity\GroupContent;
 
 /**
- * Class PrivateGroup
+ * Class UserGroupService
  *
  * @package Drupal\private_group
  */
