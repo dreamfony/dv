@@ -1,6 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: public_group
-label: 'Public group'
-description: 'Public user Issues. Used to group up Issues that are publicly available, so other users can follow.'

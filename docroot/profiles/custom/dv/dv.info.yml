@@ -38,6 +38,7 @@ dependencies:
   - email_registration
   - entity_browser
   - eu_cookie_compliance
+  - features
   - field
   - field_ui
   - file
@@ -92,8 +93,8 @@ dependencies:
   - votingapi
 themes:
   - bartik
-  - seven
   - bootstrap
+  - seven
 package: DV
 distribution:
   name: DV

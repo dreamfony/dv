@@ -9,4 +9,5 @@ dependencies:
   - serialization
   - user
   - views
+  - dv_user
 package: DV

@@ -1,0 +1,6 @@
+bundle: dv
+excluded:
+  - block.block.bartik_branding
+  - block.block.bartik_footer
+  - block.block.bartik_powered
+required: true
