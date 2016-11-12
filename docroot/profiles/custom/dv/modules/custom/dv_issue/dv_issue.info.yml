@@ -1,0 +1,20 @@
+name: Issue
+description: 'Provides Issue content type and related configuration. '
+type: module
+core: 8.x
+dependencies:
+  - address
+  - content_moderation
+  - datetime_range
+  - field
+  - language
+  - link
+  - menu_ui
+  - node
+  - path
+  - taxonomy
+  - telephone
+  - text
+  - user
+  - views
+package: DV
