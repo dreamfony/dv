@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c05348a53c1991779d369b92725b3ca6",
-    "content-hash": "c0823cf712a92e29f3eaaf7a1541f490",
+    "hash": "a4a082499d2b5e0b2089ed2add800a1a",
+    "content-hash": "481df4f36c7882235f4f4342e4296963",
     "packages": [
         {
             "name": "acquia/blt",
@@ -2221,12 +2221,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal-composer/drupal-core.git",
-                "reference": "2989a43d68cda25402212dd599ba1947e559c4ef"
+                "reference": "c44ee909519b981854f80aded62d5cddc17dfd7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/2989a43d68cda25402212dd599ba1947e559c4ef",
-                "reference": "2989a43d68cda25402212dd599ba1947e559c4ef",
+                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/c44ee909519b981854f80aded62d5cddc17dfd7b",
+                "reference": "c44ee909519b981854f80aded62d5cddc17dfd7b",
                 "shasum": ""
             },
             "require": {
@@ -2391,7 +2391,7 @@
                 "GPL-2.0+"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2016-11-10 22:23:52"
+            "time": "2016-11-12 08:01:11"
         },
         {
             "name": "drupal/ctools",
@@ -2477,20 +2477,23 @@
         },
         {
             "name": "drupal/dynamic_entity_reference",
-            "version": "1.0.0-rc6",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/dynamic_entity_reference",
-                "reference": "8.x-1.0-rc6"
+                "reference": "8.x-1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/dynamic_entity_reference-8.x-1.0-rc6.zip",
-                "reference": "8.x-1.0-rc6",
-                "shasum": "2d9f6224ccf9ab9845efa75dc1a03bd2eae2ba1c"
+                "url": "https://ftp.drupal.org/files/projects/dynamic_entity_reference-8.x-1.0.zip",
+                "reference": null,
+                "shasum": "ce28d8afa0417a21bfd7b81ccd8ad1d1d3286d23"
             },
             "require": {
-                "drupal/core": "~8.0"
+                "drupal/core": "*"
+            },
+            "suggest": {
+                "drupal/core": "Required by drupal/dynamic_entity_reference"
             },
             "type": "drupal-module",
             "extra": {
@@ -2498,8 +2501,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-rc6",
-                    "datestamp": "1478429940"
+                    "version": "8.x-1.0",
+                    "datestamp": "1478963339"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -3013,7 +3016,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/file_entity-8.x-2.0-beta3.zip",
-                "reference": "8.x-2.0-beta3",
+                "reference": null,
                 "shasum": "999624a08aeb23e759b2b4a682c5086eb6d87707"
             },
             "require": {
@@ -3031,6 +3034,9 @@
                 "drupal": {
                     "version": "8.x-2.0-beta3",
                     "datestamp": "1477564141"
+                },
+                "patches_applied": {
+                    "https://www.drupal.org/node/2758043": "https://www.drupal.org/files/issues/field_storage_not_installed-2758043-36.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
