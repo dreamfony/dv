@@ -1,0 +1,41 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.organisation.field_o_address
+    - field.field.node.organisation.field_o_area_of_activity
+    - field.field.node.organisation.field_o_email
+    - field.field.node.organisation.field_o_fax
+    - field.field.node.organisation.field_o_issue_types
+    - field.field.node.organisation.field_o_organisation_group
+    - field.field.node.organisation.field_o_organisation_id
+    - field.field.node.organisation.field_o_parent_organisation
+    - field.field.node.organisation.field_o_private_issue
+    - field.field.node.organisation.field_o_telephone
+    - field.field.node.organisation.field_o_web_site
+    - node.type.organisation
+  module:
+    - user
+id: node.organisation.teaser
+targetEntityType: node
+bundle: organisation
+mode: teaser
+content:
+  links:
+    type: visible
+    region: content
+    weight: 100
+hidden:
+  field_o_address: true
+  field_o_area_of_activity: true
+  field_o_email: true
+  field_o_fax: true
+  field_o_issue_types: true
+  field_o_organisation_group: true
+  field_o_organisation_id: true
+  field_o_parent_organisation: true
+  field_o_private_issue: true
+  field_o_telephone: true
+  field_o_web_site: true
+  langcode: true
