@@ -159,12 +159,14 @@
                 "https://www.drupal.org/node/2736233": "https://www.drupal.org/files/issues/groups-add_subgroups_module-2736233-3-D8.patch",
                 "https://www.drupal.org/node/2746839 - develgenerate": "https://www.drupal.org/files/issues/develGenerate.patch"
             },
-
             "drupal/geocoder": {
                 "https://www.drupal.org/node/2734369": "https://www.drupal.org/files/issues/geocoder-GeocodeFormatterBase_instance_creator_parameter_fix-2734369-3.patch"
             },
             "drupal/user_registrationpassword": {
                 "https://www.drupal.org/node/2805963": "https://www.drupal.org/files/issues/user_registrationpassword-register-config-save-2805963-5.patch"
+            },
+            "drupal/file_entity": {
+                "https://www.drupal.org/node/2758043" : "https://www.drupal.org/files/issues/field_storage_not_installed-2758043-36.patch"
             }
         },
         "drupal-scaffold": {
