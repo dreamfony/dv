@@ -1,0 +1,3 @@
+services:
+  geo_area_group.add_group_to_subgroup:
+    class: Drupal\geo_area_group\AddGroupToSubgroup

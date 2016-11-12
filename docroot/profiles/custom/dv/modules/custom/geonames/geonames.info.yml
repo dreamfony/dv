@@ -1,4 +1,4 @@
-name: GeoNames
+name: GeoNames API
 type: module
 description: GeoNames API
 core: 8.x
