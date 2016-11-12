@@ -2,7 +2,7 @@ name: Organisation Group
 type: module
 description: Organisation Group.
 core: 8.x
-package: dv
+package: DV
 dependencies:
   - dmt_group
   - dv_organisation
