@@ -1,10 +1,15 @@
-name: Geo Area Node
+name: 'Geo Area Node'
 type: module
-description: Geo Area Content type and Migration import
+description: 'Geo Area Content type and Migration import'
 core: 8.x
-package: Geo Area
+package: 'Geo Area'
 dependencies:
-  - migrate
-  - migrate_plus
-  - migrate_tools
-  - geonames
+  - content_moderation
+  - field
+  - language
+  - menu_ui
+  - node
+  - path
+  - text
+  - user
+  - views

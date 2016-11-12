@@ -1,7 +1,10 @@
-name: Geo Area Group
+name: 'Geo Area Group'
 type: module
-description: Geo Area Group
+description: 'Geo Area Group'
 core: 8.x
-package: Geo Area
+package: 'Geo Area'
 dependencies:
+  - field
   - geo_area
+  - group
+  - user
