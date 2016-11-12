@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\geo_area\EventSubscriber;
+namespace Drupal\geo_area_migrate\EventSubscriber;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Drupal\migrate\Event\MigrateEvents;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\geo_area\Plugin\migrate_plus\data_parser;
+namespace Drupal\geo_area_migrate\Plugin\migrate_plus\data_parser;
 
 use Drupal\migrate_plus\Plugin\migrate_plus\data_parser\Xml;
 

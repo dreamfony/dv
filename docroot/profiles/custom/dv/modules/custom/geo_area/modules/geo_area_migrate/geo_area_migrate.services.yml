@@ -1,0 +1,11 @@
+services:
+  geo_area_migrate.pre_import:
+    class: Drupal\geo_area_migrate\EventSubscriber\GeoAreaPreImport
+    arguments: []
+    tags:
+      - { name: event_subscriber }
+  geo_area_migrate.prepare_row:
+    class: Drupal\geo_area_migrate\EventSubscriber\GeoAreaPrepareRow
+    arguments: []
+    tags:
+      - { name: event_subscriber }

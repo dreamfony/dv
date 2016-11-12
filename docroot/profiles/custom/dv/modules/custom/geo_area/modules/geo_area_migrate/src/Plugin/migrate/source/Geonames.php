@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\geo_area\Plugin\migrate\source;
+namespace Drupal\geo_area_migrate\Plugin\migrate\source;
 
 use Drupal\migrate\Plugin\MigrateSourceInterface;
 use Drupal\migrate_plus\Plugin\migrate\source\SourcePluginExtension;

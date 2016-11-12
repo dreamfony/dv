@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\geo_area\EventSubscriber;
+namespace Drupal\geo_area_migrate\EventSubscriber;
 
 use Drupal\geo_area\Plugin\migrate\source\Geonames;
 use Drupal\migrate\Plugin\MigrationInterface;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\geo_area\Plugin\migrate\process;
+namespace Drupal\geo_area_migrate\Plugin\migrate\process;
 
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\ProcessPluginBase;

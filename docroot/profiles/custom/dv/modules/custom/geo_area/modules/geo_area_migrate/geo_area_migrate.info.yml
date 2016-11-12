@@ -1,0 +1,11 @@
+name: Geo Area Migrate
+type: module
+description: Geo Area Migrate integration
+core: 8.x
+package: Geo Area
+dependencies:
+  - migrate
+  - migrate_plus
+  - migrate_tools
+  - geonames
+  - geo_area

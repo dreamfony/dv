@@ -9,3 +9,4 @@ dependencies:
   enforced:
     module:
       - geo_area
+      - geo_area_migrate
