@@ -5,3 +5,4 @@ core: 8.x
 package: dv
 dependencies:
   - dmt_group
+  - dv_organisation
