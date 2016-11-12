@@ -1,6 +1,6 @@
 type: module
-name: Import Organisations
-description: 'Import Organisations.'
+name: Organisation Import
+description: 'Import Organisations from Digured.'
 package: DV
 core: 8.x
 dependencies:

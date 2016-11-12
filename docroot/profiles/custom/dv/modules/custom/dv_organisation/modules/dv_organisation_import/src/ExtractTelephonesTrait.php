@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\import_organisations;
+namespace Drupal\dv_organisations_import;
 
 /**
  * Extract Telephones from string.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\import_organisations\EventSubscriber;
+namespace Drupal\dv_organisations_import\EventSubscriber;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\migrate\Event\MigrateEvents;

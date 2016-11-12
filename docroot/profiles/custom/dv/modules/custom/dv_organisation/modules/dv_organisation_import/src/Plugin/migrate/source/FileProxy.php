@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\import_organisations\Plugin\migrate\source;
+namespace Drupal\dv_organisations_import\Plugin\migrate\source;
 
 use Drupal\migrate_plus\Plugin\migrate\source\Url;
 use Drupal\migrate\Plugin\MigrationInterface;
@@ -53,7 +53,6 @@ class FileProxy extends Url {
       $uri = $file->getFileUri();
 
       $new_url = file_create_url($uri);
-      $new_url = str_replace('http://default', 'http://dv.dev', $new_url);
 
       $urls[] = $new_url;
 
