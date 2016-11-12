@@ -1,0 +1,35 @@
+id: organisation_groups
+label: XML feed of organisations
+migration_group: organisations
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: xml
+  urls:
+    - https://drive.google.com/uc?export=download&id=0B0o4prxPrMJsU2xxa3ZOUUxGSEE
+  item_selector: /DATABASE_BIB/RECORD
+  fields:
+    -
+      name: organisation_id
+      label: ID
+      selector: IDZapisa
+    -
+      name: skupna_razina
+      label: Skupna razina
+      selector: SkupnaRazina
+  ids:
+    organisation_id:
+      type: integer
+process:
+  name: skupna_razina
+  vid:
+    plugin: default_value
+    default_value: organisation_group
+  field_organisation_group_id: organisation_id
+destination:
+  plugin: entity:taxonomy_term
+dependencies:
+  enforced:
+    module:
+      - dv_organisation_migrate
+migration_dependencies: {}

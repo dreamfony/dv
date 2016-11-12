@@ -1,6 +1,0 @@
-services:
-  dv_organisations_import.post_row_save:
-    class: Drupal\dv_organisations_import\EventSubscriber\OrganisationsPostRowSave
-    arguments: ['@entity_type.manager']
-    tags:
-      - { name: event_subscriber }

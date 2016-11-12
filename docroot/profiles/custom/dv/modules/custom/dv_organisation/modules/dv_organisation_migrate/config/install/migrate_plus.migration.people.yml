@@ -1,0 +1,39 @@
+id: people
+label: XML feed of organisations
+migration_group: organisations
+source:
+  plugin: file_proxy
+  preprocess: TRUE
+  data_fetcher_plugin: http
+  data_parser_plugin: xml2
+  urls:
+    - https://drive.google.com/uc?export=download&id=0B0o4prxPrMJsU2xxa3ZOUUxGSEE
+  item_selector: /DATABASE_BIB/RECORD/PERSON
+  fields:
+    -
+      name: function_upholder
+      label: Function Upholder
+      selector: NositeljFunkcije
+    -
+      name: function_upholder_id
+      label: Function Upholder ID
+      selector: NositeljFunkcije_ID
+  ids:
+    function_upholder_id:
+      type: integer
+process:
+  title: function_upholder
+  field_person_id: function_upholder_id
+  uid:
+    plugin: default_value
+    default_value: 1
+  type:
+    plugin: default_value
+    default_value: person
+destination:
+  plugin: entity:node
+dependencies:
+  enforced:
+    module:
+      - dv_organisation_migrate
+migration_dependencies: {}

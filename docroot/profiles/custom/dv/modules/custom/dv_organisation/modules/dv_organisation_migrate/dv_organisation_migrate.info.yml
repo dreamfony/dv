@@ -1,0 +1,10 @@
+type: module
+name: Organisation Migrate
+description: 'Import Organisations from Digured.'
+package: DV
+core: 8.x
+dependencies:
+  - migrate
+  - migrate_plus
+  - migrate_tools
+  - dv_organisation

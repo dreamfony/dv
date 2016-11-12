@@ -1,0 +1,44 @@
+<?php
+
+use Drupal\migrate\Row;
+use Drupal\migrate\Plugin\MigrateSourceInterface;
+use Drupal\migrate\Plugin\MigrationInterface;
+
+/**
+ * Implements hook_migrate_prepare_row()
+ *
+ * We are implementing this hook only for rows that are not
+ * organisations but organisation groups, because we can not
+ * return FALSE from event subscriber.
+ *
+ * @param \Drupal\migrate\Row $row
+ * @param \Drupal\migrate\Plugin\MigrateSourceInterface $source
+ * @param \Drupal\migrate\Plugin\MigrationInterface $migration
+ *
+ * @return array
+ */
+function dv_organisation_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $source, MigrationInterface $migration) {
+
+  // for organisations skip rows that have 'skupna_razina'
+  if($migration->id() === 'organisations') {
+
+    if ($row->getSourceProperty('skupna_razina')) {
+      return [FALSE];
+    }
+  }
+
+  // for organisation_groups skip rows that DON'T have 'skupna_razina'
+  if($migration->id() === 'organisation_groups') {
+
+    if (empty($row->getSourceProperty('skupna_razina'))) {
+      return [FALSE];
+    }
+  }
+
+  if($migration->id() === 'area_of_activity') {
+
+    if (empty($row->getSourceProperty('area_of_activity'))) {
+      return [FALSE];
+    }
+  }
+}
