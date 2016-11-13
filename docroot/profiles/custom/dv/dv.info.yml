@@ -30,7 +30,6 @@ dependencies:
   - ctools_views
   - datetime
   - datetime_range
-  - syslog
   - dynamic_entity_reference
   - dynamic_page_cache
   - eck
@@ -78,6 +77,7 @@ dependencies:
   - search_api_solr
   - serialization
   - shortcut
+  - syslog
   - system
   - taxonomy
   - telephone

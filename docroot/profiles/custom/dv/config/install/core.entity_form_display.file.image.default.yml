@@ -5,6 +5,8 @@ dependencies:
     - field.field.file.image.field_image_alt_text
     - field.field.file.image.field_image_title_text
     - file_entity.type.image
+  module:
+    - path
 id: file.image.default
 targetEntityType: file
 bundle: image
@@ -37,6 +39,12 @@ content:
   langcode:
     type: language_select
     weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
     region: content
     settings: {  }
     third_party_settings: {  }

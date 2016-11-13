@@ -5,16 +5,22 @@ dependencies:
     - activity_creator
     - block_content
     - comment
+    - contact
+    - content_moderation
     - dynamic_entity_reference
+    - eck
     - file
+    - flag
     - group
     - menu_link_content
     - message
     - node
     - profile
     - search_api
+    - shortcut
     - taxonomy
     - user
+    - votingapi
 id: message.field_message_related_object
 field_name: field_message_related_object
 entity_type: message

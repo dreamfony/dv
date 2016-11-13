@@ -74,9 +74,6 @@ settings:
   content_moderation_state:
     handler: 'default:content_moderation_state'
     handler_settings: {  }
-  role:
-    handler: 'default:role'
-    handler_settings: {  }
   search_api_task:
     handler: 'default:search_api_task'
     handler_settings: {  }
