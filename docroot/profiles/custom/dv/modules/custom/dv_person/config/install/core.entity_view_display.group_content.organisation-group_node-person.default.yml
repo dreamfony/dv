@@ -3,12 +3,11 @@ status: true
 dependencies:
   config:
     - group.content_type.organisation-group_node-person
-  module: {}
 id: group_content.organisation-group_node-person.default
 targetEntityType: group_content
 bundle: organisation-group_node-person
 mode: default
-content: {}
+content: {  }
 hidden:
   entity_id: true
   langcode: true

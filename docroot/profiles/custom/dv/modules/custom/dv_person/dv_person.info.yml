@@ -4,9 +4,15 @@ type: module
 core: 8.x
 dependencies:
   - address
+  - captcha
   - content_moderation
   - datetime_range
+  - dv_organisation
+  - dv_organisation_group
+  - eck
   - field
+  - group
+  - inline_entity_form
   - language
   - link
   - menu_ui

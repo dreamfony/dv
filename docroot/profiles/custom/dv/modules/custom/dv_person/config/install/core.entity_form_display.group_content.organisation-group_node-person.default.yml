@@ -2,11 +2,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.group_content.work_group-group_membership.group_roles
-    - group.content_type.work_group-group_membership
-id: group_content.work_group-group_membership.default
+    - group.content_type.organisation-group_node-person
+id: group_content.organisation-group_node-person.default
 targetEntityType: group_content
-bundle: work_group-group_membership
+bundle: organisation-group_node-person
 mode: default
 content:
   entity_id:
@@ -18,12 +17,6 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-  group_roles:
-    type: options_buttons
-    weight: 6
-    settings: {  }
-    third_party_settings: {  }
-    region: content
   langcode:
     type: language_select
     weight: 2
