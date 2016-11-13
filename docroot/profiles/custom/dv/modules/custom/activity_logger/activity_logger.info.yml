@@ -2,7 +2,7 @@ name: Activity Logger
 type: module
 description: Used to log activities based on the message module
 core: 8.x
-package: Social
+package: Activity
 dependencies:
   - block_content
   - comment

@@ -54,3 +54,4 @@ dependencies:
   - views
   - views_ui
   - votingapi
+  - like_and_dislike
