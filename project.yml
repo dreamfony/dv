@@ -44,7 +44,7 @@ modules:
 drupal:
   account.name: admin
   account.password: admin
-  account.mail: dv@dv.comdrush
+  account.mail: dv@dv.com
 # Skip this until we fix DV profile
 disable-targets:
     setup:
