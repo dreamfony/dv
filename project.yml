@@ -30,7 +30,7 @@ target-hooks:
     post-setup-build:
         dir: '${docroot}'
         command: 'echo ''No post-setup build configured.'''
-import: null
+import: '${repo.root}/custom/custom.xml'
 modules:
     ci:
         enable: {  }
@@ -52,4 +52,9 @@ disable-targets:
         git-hooks: true
     tests:
         phpunit: true
+    local:
+        sync: true
+pimpmylog:
+    enable: [syslog]
+    uninstall: [dblog]
 

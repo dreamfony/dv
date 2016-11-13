@@ -1,0 +1,15 @@
+<project name="custom" default="pimpmylog">
+  <target name="pimpmylog">
+    <!-- enable disable modules -->
+    <phingcall target="setup:toggle-modules">
+      <property name="enable_property" value="pimpmylog.enable"/>
+      <property name="uninstall_property" value="pimpmylog.uninstall"/>
+    </phingcall>
+    <!-- create directory config.user.d -->
+    <mkdir dir="/usr/share/php/pimpmylog/config.user.d" mode="777"/>
+    <!-- copy files drupal.json -->
+    <copy file="${repo.root}/custom/drupal.json" tofile="/usr/share/php/pimpmylog/config.user.d/drupal.json" verbose="true" />
+    <!--  copy file config.user.php -->
+    <copy file="${repo.root}/custom/config.user.php" tofile="/usr/share/php/pimpmylog/config.user.php" verbose="true" />
+  </target>
+</project>
