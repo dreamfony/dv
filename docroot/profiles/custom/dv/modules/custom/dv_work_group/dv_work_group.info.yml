@@ -1,0 +1,10 @@
+name: 'Work Group'
+type: module
+description: 'Work Group'
+core: 8.x
+package: DV
+dependencies:
+  - field
+  - geo_area
+  - group
+  - user
