@@ -1,0 +1,25 @@
+name: Core
+description: 'DV Core.'
+type: module
+core: 8.x
+package: DV
+dependencies:
+  - address
+  - captcha
+  - comment
+  - content_moderation
+  - datetime_range
+  - field
+  - flag
+  - group
+  - language
+  - link
+  - menu_ui
+  - node
+  - path
+  - rabbit_hole
+  - taxonomy
+  - telephone
+  - text
+  - user
+  - views
