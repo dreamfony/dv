@@ -152,8 +152,7 @@ function dv_final_site_setup(&$install_state) {
     'router_rebuild' => t('Rebuild router.'),
     'cron_run' => t('Run cron.'),
     'fra' => t('Revert all features'),
-    'node_access_rebuild' => t('Rebuild node access.'),
-    'cr' => t('Cache rebuild.')
+    'node_access_rebuild' => t('Rebuild node access.')
   ];
   foreach ($final_batched as $process => $description) {
     $batch['operations'][] = ['_dv_finalise_batch', array($process, $description)];
@@ -246,10 +245,6 @@ function _dv_finalise_batch($process, $description, &$context) {
 
     case 'node_access_rebuild':
       node_access_rebuild();
-      break;
-
-    case 'cr':
-      drush_cache_rebuild();
       break;
 
   }
