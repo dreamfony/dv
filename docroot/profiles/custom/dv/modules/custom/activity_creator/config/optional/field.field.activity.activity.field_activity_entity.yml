@@ -37,13 +37,6 @@ settings:
         field: _none
       auto_create: false
       auto_create_bundle: event
-  event_enrollment:
-    handler: 'default:event_enrollment'
-    handler_settings:
-      target_bundles: null
-      sort:
-        field: _none
-      auto_create: false
   group:
     handler: 'default:group'
     handler_settings:
@@ -63,13 +56,6 @@ settings:
         field: _none
       auto_create: false
       auto_create_bundle: create_post_profile
-  post:
-    handler: 'default:post'
-    handler_settings:
-      target_bundles: null
-      sort:
-        field: _none
-      auto_create: false
   activity:
     handler: 'default:activity'
     handler_settings: {  }
@@ -93,5 +79,29 @@ settings:
     handler_settings: {  }
   user:
     handler: 'default:user'
+    handler_settings: {  }
+  contact_message:
+    handler: 'default:contact_message'
+    handler_settings: {  }
+  content_moderation_state:
+    handler: 'default:content_moderation_state'
+    handler_settings: {  }
+  flagging:
+    handler: 'default:flagging'
+    handler_settings: {  }
+  role:
+    handler: 'default:role'
+    handler_settings: {  }
+  search_api_task:
+    handler: 'default:search_api_task'
+    handler_settings: {  }
+  shortcut:
+    handler: 'default:shortcut'
+    handler_settings: {  }
+  vote:
+    handler: 'default:vote'
+    handler_settings: {  }
+  vote_result:
+    handler: 'default:vote_result'
     handler_settings: {  }
 field_type: dynamic_entity_reference

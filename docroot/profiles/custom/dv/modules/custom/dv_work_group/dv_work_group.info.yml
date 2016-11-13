@@ -4,6 +4,7 @@ description: 'Work Group'
 core: 8.x
 package: DV
 dependencies:
+  - dv_core
   - field
   - geo_area
   - group

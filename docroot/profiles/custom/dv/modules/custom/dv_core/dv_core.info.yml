@@ -4,22 +4,53 @@ type: module
 core: 8.x
 package: DV
 dependencies:
+  - activity_creator
+  - activity_logger
+  - activity_viewer
   - address
+  - basic_auth
+  - block
+  - block_content
   - captcha
+  - ckeditor
   - comment
+  - contact
   - content_moderation
   - datetime_range
+  - dv_work_group
+  - editor
+  - entity_browser
+  - features
   - field
+  - file
+  - file_entity
+  - filter
   - flag
   - group
+  - hal
+  - image
   - language
   - link
+  - locale
+  - menu_link_content
   - menu_ui
+  - message
   - node
   - path
+  - pathauto
+  - profile
   - rabbit_hole
+  - rdf
+  - rest
+  - search_api
+  - serialization
+  - shortcut
+  - system
   - taxonomy
   - telephone
   - text
+  - tour
   - user
   - views
+  - views_ui
+  - votingapi

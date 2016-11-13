@@ -3,7 +3,24 @@ status: true
 dependencies:
   module:
     - activity_creator
+    - block_content
+    - comment
+    - contact
+    - content_moderation
     - dynamic_entity_reference
+    - eck
+    - file
+    - flag
+    - group
+    - menu_link_content
+    - message
+    - node
+    - profile
+    - search_api
+    - shortcut
+    - taxonomy
+    - user
+    - votingapi
 id: activity.field_activity_entity
 field_name: field_activity_entity
 entity_type: activity

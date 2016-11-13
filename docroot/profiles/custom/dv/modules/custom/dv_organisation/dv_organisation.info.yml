@@ -6,11 +6,13 @@ dependencies:
   - address
   - content_moderation
   - datetime_range
+  - dv_core
   - dv_issue
   - eck
   - entity_browser
   - field
   - geo_area_group
+  - geocoder_field
   - group
   - language
   - link

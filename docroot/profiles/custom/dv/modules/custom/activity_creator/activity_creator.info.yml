@@ -1,12 +1,13 @@
-name: Activity Creator
+name: 'Activity Creator'
 type: module
-description: Creates Activity Entities.
+description: 'Creates Activity Entities.'
 core: 8.x
-package: Custom
+package: Activity
 dependencies:
   - activity_creator
   - block_content
   - comment
+  - dv_work_group
   - dynamic_entity_reference
   - field
   - file
@@ -19,4 +20,4 @@ dependencies:
   - taxonomy
   - text
   - user
-version: 1.0
+version: !!float 1

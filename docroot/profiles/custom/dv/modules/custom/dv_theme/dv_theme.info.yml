@@ -1,5 +1,12 @@
-name: DV Theme
+name: 'DV Theme'
 description: 'DV theme setup.'
 type: module
 core: 8.x
 package: DV
+dependencies:
+  - block
+  - dv_core
+  - group
+  - help
+  - system
+  - user

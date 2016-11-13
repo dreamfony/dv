@@ -2,62 +2,35 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.activity.field_activity_entity
+    - field.storage.message.field_message_related_object
+    - message.template.issue
   module:
-    - activity_creator
     - dynamic_entity_reference
-id: activity.activity.field_activity_entity
-field_name: field_activity_entity
-entity_type: activity
-bundle: activity
-label: Entity
+id: message.issue.field_message_related_object
+field_name: field_message_related_object
+entity_type: message
+bundle: issue
+label: field_message_related_object
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  comment:
-    handler: 'default:comment'
-    handler_settings:
-      target_bundles:
-        comment: comment
-        post_comment: post_comment
-      sort:
-        field: _none
-      auto_create: false
-      auto_create_bundle: comment
   node:
     handler: 'default:node'
     handler_settings:
       target_bundles:
-        event: event
-        topic: topic
-      sort:
-        field: _none
-      auto_create: false
-      auto_create_bundle: event
-  group:
-    handler: 'default:group'
-    handler_settings:
-      target_bundles:
-        open_group: open_group
+        issue: issue
       sort:
         field: _none
       auto_create: false
       auto_create_bundle: ''
-  message:
-    handler: 'default:message'
-    handler_settings:
-      target_bundles:
-        create_post_profile: create_post_profile
-        create_topic_community: create_topic_community
-      sort:
-        field: _none
-      auto_create: false
-      auto_create_bundle: create_post_profile
   activity:
     handler: 'default:activity'
+    handler_settings: {  }
+  comment:
+    handler: 'default:comment'
     handler_settings: {  }
   block_content:
     handler: 'default:block_content'
@@ -68,8 +41,14 @@ settings:
   file:
     handler: 'default:file'
     handler_settings: {  }
+  group:
+    handler: 'default:group'
+    handler_settings: {  }
   group_content:
     handler: 'default:group_content'
+    handler_settings: {  }
+  message:
+    handler: 'default:message'
     handler_settings: {  }
   profile:
     handler: 'default:profile'
@@ -80,17 +59,20 @@ settings:
   user:
     handler: 'default:user'
     handler_settings: {  }
+  flagging:
+    handler: 'default:flagging'
+    handler_settings: {  }
+  vote:
+    handler: 'default:vote'
+    handler_settings: {  }
+  vote_result:
+    handler: 'default:vote_result'
+    handler_settings: {  }
   contact_message:
     handler: 'default:contact_message'
     handler_settings: {  }
   content_moderation_state:
     handler: 'default:content_moderation_state'
-    handler_settings: {  }
-  flagging:
-    handler: 'default:flagging'
-    handler_settings: {  }
-  role:
-    handler: 'default:role'
     handler_settings: {  }
   search_api_task:
     handler: 'default:search_api_task'
@@ -98,10 +80,7 @@ settings:
   shortcut:
     handler: 'default:shortcut'
     handler_settings: {  }
-  vote:
-    handler: 'default:vote'
-    handler_settings: {  }
-  vote_result:
-    handler: 'default:vote_result'
+  role:
+    handler: 'default:role'
     handler_settings: {  }
 field_type: dynamic_entity_reference
