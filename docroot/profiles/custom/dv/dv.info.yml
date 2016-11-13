@@ -37,7 +37,6 @@ dependencies:
   - editor
   - email_registration
   - entity_browser
-  - eu_cookie_compliance
   - features
   - field
   - field_ui
@@ -91,14 +90,6 @@ dependencies:
   - views
   - views_ui
   - votingapi
-  - geo_area
-  - geo_area_group
-  - dv_user
-  - dv_user_groups
-  - dv_organisation
-  - dv_organisation_group
-  - dv_issue
-  - dv_person
 themes:
   - bootstrap
   - seven
