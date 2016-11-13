@@ -36,10 +36,10 @@ modules:
         enable: {  }
         uninstall: [acquia_connector, shield]
     deploy:
-        enable: [acquia_connector, shield, geo_area_group, geo_area_migrate, import_organisations, organisation_group, dv_user_groups]
+        enable: [acquia_connector, shield, geo_area_migrate, dv_organisation_migrate]
         uninstall: [devel, field_ui, views_ui]
     local:
-        enable: [devel, field_ui, seckit, features_ui, views_ui, geo_area_group, geo_area_migrate, dv_issue, dv_organisation_migrate, dv_organisation_group]
+        enable: [devel, field_ui, seckit, features_ui, views_ui, geo_area_migrate, dv_organisation_migrate]
         uninstall: [acsf, acquia_connector]
 drupal:
   account.name: admin

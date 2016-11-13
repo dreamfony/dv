@@ -23,7 +23,6 @@
         "drupal/eck": "~1.0",
         "drupal/inline_entity_form": "~1.0",
         "drupal/masquerade": "~2.0",
-        "drupal/eu_cookie_compliance": "~1.0",
         "drupal/pathauto": "~1.0",
         "drupal/recaptcha": "~2.0",
         "drupal/persistent_login": "~1.0",
@@ -141,9 +140,6 @@
         "patches": {
             "drupal/profile": {
                 "Fixes access control on entities": "https://www.drupal.org/files/issues/profile-accesscontrol-2703825-6.patch"
-            },
-            "drupal/rabbit_hole": {
-                "https://www.drupal.org/node/2758205": "https://www.drupal.org/files/issues/conflicts_with_web-2758205-3.patch"
             },
             "drupal/address": {
                 "Fix form errorElement": "https://www.drupal.org/files/issues/address-2619878-29.patch"

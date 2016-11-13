@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f23e9986169a75bcbfac52896d12f056",
-    "content-hash": "889d38bf55b46bcb67b9bc29c6908281",
+    "hash": "d52e01aa66e34e607fba0f54db07395e",
+    "content-hash": "2ad91a35458c51fd8a9cde95ec88d23a",
     "packages": [
         {
             "name": "acquia/blt",
@@ -1857,12 +1857,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal-composer/drupal-core.git",
-                "reference": "c44ee909519b981854f80aded62d5cddc17dfd7b"
+                "reference": "73932f08449c0e1ba6fa1cc5b95217cecdb85562"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/c44ee909519b981854f80aded62d5cddc17dfd7b",
-                "reference": "c44ee909519b981854f80aded62d5cddc17dfd7b",
+                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/73932f08449c0e1ba6fa1cc5b95217cecdb85562",
+                "reference": "73932f08449c0e1ba6fa1cc5b95217cecdb85562",
                 "shasum": ""
             },
             "require": {
@@ -2027,7 +2027,7 @@
                 "GPL-2.0+"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2016-11-12 08:01:11"
+            "time": "2016-11-13 05:10:49"
         },
         {
             "name": "drupal/ctools",
@@ -2180,7 +2180,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/eck-8.x-1.0-alpha2.zip",
-                "reference": null,
+                "reference": "8.x-1.0-alpha2",
                 "shasum": "0cba307461373248273cfa490091218733d684c4"
             },
             "require": {
@@ -2366,7 +2366,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-1.0-alpha11.zip",
-                "reference": null,
+                "reference": "8.x-1.0-alpha11",
                 "shasum": "1746718eb8e6660699b647effd8164e3ccba74a6"
             },
             "require": {
@@ -2433,85 +2433,6 @@
                 "source": "http://cgit.drupalcode.org/entity_browser",
                 "issues": "http://drupal.org/project/issues/entity_browser",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
-            }
-        },
-        {
-            "name": "drupal/eu_cookie_compliance",
-            "version": "1.0.0-beta7",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/eu-cookie-compliance",
-                "reference": "8.x-1.0-beta7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/eu_cookie_compliance-8.x-1.0-beta7.zip",
-                "reference": "8.x-1.0-beta7",
-                "shasum": "c8859fbeb5f6b1122c0eb6c5df1c4cd4b2961421"
-            },
-            "require": {
-                "drupal/core": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.0-beta7",
-                    "datestamp": "1471262939"
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Marcin Pajdzik",
-                    "homepage": "https://www.drupal.org/user/160555"
-                },
-                {
-                    "name": "achton",
-                    "homepage": "https://www.drupal.org/user/712454"
-                },
-                {
-                    "name": "blairski",
-                    "homepage": "https://www.drupal.org/user/120835"
-                },
-                {
-                    "name": "dakku",
-                    "homepage": "https://www.drupal.org/user/97634"
-                },
-                {
-                    "name": "grzegorz.bartman",
-                    "homepage": "https://www.drupal.org/user/363120"
-                },
-                {
-                    "name": "id.tornado",
-                    "homepage": "https://www.drupal.org/user/2754049"
-                },
-                {
-                    "name": "killua99",
-                    "homepage": "https://www.drupal.org/user/699418"
-                },
-                {
-                    "name": "mibfire",
-                    "homepage": "https://www.drupal.org/user/155136"
-                },
-                {
-                    "name": "naveenvalecha",
-                    "homepage": "https://www.drupal.org/user/2665733"
-                },
-                {
-                    "name": "svenryen",
-                    "homepage": "https://www.drupal.org/user/667244"
-                }
-            ],
-            "description": "This module aims at making the website compliant with the new EU cookie regulation",
-            "homepage": "https://www.drupal.org/project/eu_cookie_compliance",
-            "support": {
-                "source": "http://cgit.drupalcode.org/eu_cookie_compliance"
             }
         },
         {
