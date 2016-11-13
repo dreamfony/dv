@@ -1,22 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - dv_organisation_migrate
 id: people
-label: XML feed of organisations
+migration_tags: null
 migration_group: organisations
+label: 'XML feed of organisations'
 source:
   plugin: file_proxy
-  preprocess: TRUE
+  preprocess: true
   data_fetcher_plugin: http
   data_parser_plugin: xml2
   urls:
-    - https://drive.google.com/uc?export=download&id=0B0o4prxPrMJsU2xxa3ZOUUxGSEE
+    - 'https://drive.google.com/uc?export=download&id=0B0o4prxPrMJsU2xxa3ZOUUxGSEE'
   item_selector: /DATABASE_BIB/RECORD/PERSON
   fields:
     -
       name: function_upholder
-      label: Function Upholder
+      label: 'Function Upholder'
       selector: NositeljFunkcije
     -
       name: function_upholder_id
-      label: Function Upholder ID
+      label: 'Function Upholder ID'
       selector: NositeljFunkcije_ID
   ids:
     function_upholder_id:
@@ -31,9 +38,5 @@ process:
     plugin: default_value
     default_value: person
 destination:
-  plugin: entity:node
-dependencies:
-  enforced:
-    module:
-      - dv_organisation_migrate
-migration_dependencies: {}
+  plugin: 'entity:node'
+migration_dependencies: {  }

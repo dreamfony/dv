@@ -1,2 +1,27 @@
 bundle: dv
-required: true
+required:
+  - core.entity_form_display.group_content.private_group-group_membership.default
+  - core.entity_form_display.group_content.public_group-group_membership.default
+  - core.entity_view_display.group_content.private_group-group_membership.default
+  - core.entity_view_display.group_content.public_group-group_membership.default
+  - field.field.group_content.private_group-group_membership.group_roles
+  - field.field.group_content.public_group-group_membership.group_roles
+  - group.content_type.private_group-group_membership
+  - group.content_type.public_group-group_membership
+  - group.content_type.private_group-group_node-issue
+  - group.content_type.public_group-group_node-issue
+  - group.role.private_group-anonymous
+  - group.role.private_group-member
+  - group.role.private_group-outsider
+  - group.role.public_group-anonymous
+  - group.role.public_group-follower
+  - group.role.public_group-member
+  - group.role.public_group-outsider
+  - group.role.public_group-owner
+  - group.role.private_group-3f12549f7
+  - group.role.private_group-a416e6833
+  - group.role.public_group-3f12549f7
+  - group.role.public_group-a416e6833
+  - group.type.private_group
+  - group.type.public_group
+  - views.view.getusergroup

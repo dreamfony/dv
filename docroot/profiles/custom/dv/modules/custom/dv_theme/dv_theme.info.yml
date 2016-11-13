@@ -1,0 +1,5 @@
+name: DV Theme
+description: 'DV theme setup.'
+type: module
+core: 8.x
+package: DV

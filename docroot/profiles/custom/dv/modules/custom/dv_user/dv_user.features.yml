@@ -1,2 +1,15 @@
 bundle: dv
-required: true
+required:
+  - captcha.captcha_point.user_login_form
+  - captcha.captcha_point.user_pass
+  - captcha.captcha_point.user_register_form
+  - core.entity_view_display.user.user.compact
+  - core.entity_view_mode.user.compact
+  - core.entity_view_mode.user.token
+  - field.field.user.user.user_picture
+  - field.storage.user.user_picture
+  - rdf.mapping.user.user
+  - system.action.user_block_user_action
+  - system.action.user_cancel_user_action
+  - system.action.user_unblock_user_action
+  - user_registrationpassword.settings

@@ -6,15 +6,18 @@ dependencies:
   - address
   - content_moderation
   - datetime_range
+  - dv_issue
   - eck
   - entity_browser
   - field
+  - geo_area_group
   - group
   - language
   - link
   - menu_ui
   - node
   - path
+  - rabbit_hole
   - taxonomy
   - telephone
   - text

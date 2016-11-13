@@ -4,14 +4,21 @@ type: module
 core: 8.x
 dependencies:
   - address
+  - captcha
+  - comment
   - content_moderation
   - datetime_range
+  - dv_organisation_group
   - field
+  - flag
+  - geo_area_group
+  - group
   - language
   - link
   - menu_ui
   - node
   - path
+  - rabbit_hole
   - taxonomy
   - telephone
   - text

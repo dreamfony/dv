@@ -1,12 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - dv_organisation_migrate
 id: organisations
-label: XML feed of organisations
+migration_tags: null
 migration_group: organisations
+label: 'XML feed of organisations'
 source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: xml
   urls:
-    - https://drive.google.com/uc?export=download&id=0B0o4prxPrMJsU2xxa3ZOUUxGSEE
+    - 'https://drive.google.com/uc?export=download&id=0B0o4prxPrMJsU2xxa3ZOUUxGSEE'
   item_selector: /DATABASE_BIB/RECORD
   fields:
     -
@@ -23,7 +30,7 @@ source:
       selector: Adresa
     -
       name: organisation_group_id
-      label: Skupna razina ID
+      label: 'Skupna razina ID'
       selector: SkupnaRazina_ID
     -
       name: web_site_url
@@ -35,21 +42,19 @@ source:
       selector: Komunikacije
     -
       name: area_of_activity_id
-      label: Area of activity
+      label: 'Area of activity'
       selector: PodrucjeDjelatnosti_ID
     -
       name: function_upholder_id
-      label: Function Upholder ID
+      label: 'Function Upholder ID'
       selector: NositeljFunkcije_ID
     -
       name: function
       label: Function
       selector: Funkcija
-      # this field is not beeing imported it is here
-      # just so we know if we need to skip this row
     -
       name: skupna_razina
-      label: Skupna razina
+      label: 'Skupna razina'
       selector: SkupnaRazina
   ids:
     organisation_id:
@@ -86,11 +91,7 @@ process:
     plugin: field_o_address
     source: address
 destination:
-  plugin: entity:node
-dependencies:
-  enforced:
-    module:
-      - dv_organisation_migrate
+  plugin: 'entity:node'
 migration_dependencies:
   required:
     - area_of_activity

@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_m_send_date
+    - node.type.email_prepare
+  module:
+    - datetime
+id: node.email_prepare.field_m_send_date
+field_name: field_m_send_date
+entity_type: node
+bundle: email_prepare
+label: 'Send date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

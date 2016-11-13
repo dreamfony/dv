@@ -20,7 +20,7 @@ settings:
   handler: 'default:group'
   handler_settings:
     target_bundles:
-      open_group: work_group
+      work_group: work_group
     sort:
       field: _none
     auto_create: false

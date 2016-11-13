@@ -1,8 +1,11 @@
-name: Organisation Group
+name: 'Organisation Group'
 type: module
-description: Organisation Group.
+description: 'Organisation Group.'
 core: 8.x
 package: DV
 dependencies:
   - dmt_group
   - dv_organisation
+  - field
+  - group
+  - user
