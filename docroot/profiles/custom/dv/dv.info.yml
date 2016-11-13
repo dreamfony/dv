@@ -30,7 +30,7 @@ dependencies:
   - ctools_views
   - datetime
   - datetime_range
-  - dblog
+  - syslog
   - dynamic_entity_reference
   - dynamic_page_cache
   - eck

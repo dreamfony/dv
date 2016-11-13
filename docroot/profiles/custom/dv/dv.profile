@@ -24,3 +24,25 @@ function dv_form_install_configure_submit($form, FormStateInterface $form_state)
   $site_mail = $form_state->getValue('site_mail');
   ContactForm::load('feedback')->setRecipients([$site_mail])->trustData()->save();
 }
+
+/**
+ * Implements hook_install_tasks().
+ */
+function dv_install_tasks(&$install_state) {
+  $tasks = array(
+    'dv_install_final_setup' => array(
+      'display_name' => t('Do install finalization tasks'),
+      'type' => 'batch',
+    ),
+  );
+  return $tasks;
+}
+
+function dv_install_final_setup(&$install_state) {
+  node_access_rebuild();
+  // Generate demo content.
+
+  // run cron
+  \Drupal::service('cron')->run();
+
+}
