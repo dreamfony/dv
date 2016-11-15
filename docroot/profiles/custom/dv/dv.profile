@@ -134,8 +134,8 @@ function dv_final_site_setup(&$install_state) {
   $final_batched = [
     'profile_weight' => t('Set weight of profile.'),
     'router_rebuild' => t('Rebuild router.'),
+    'config_import' => t('Import optional configuration.'),
     'cron_run' => t('Run cron.'),
-    'fra' => t('Revert all features'),
     'node_access_rebuild' => t('Rebuild node access.')
   ];
   foreach ($final_batched as $process => $description) {
@@ -223,8 +223,8 @@ function _dv_finalise_batch($process, $description, &$context) {
       \Drupal::service('cron')->run();
       break;
 
-    case 'fra':
-      //drush_features_import_all();
+    case 'config_import':
+      // Import all optional configuration
       \Drupal::service('config.installer')->installOptionalConfig();
       break;
 
