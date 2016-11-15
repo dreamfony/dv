@@ -1,5 +1,4 @@
 langcode: en
-status: true
 dependencies:
   enforced:
     module:
@@ -7,15 +6,20 @@ dependencies:
 id: area_of_activity
 migration_tags: null
 migration_group: organisations
-label: 'XML feed of organisations'
+label: 'Area of Activity'
 source:
-  plugin: url
+  plugin: file_proxy
+  preprocess: true
   data_fetcher_plugin: http
   data_parser_plugin: xml2
   urls:
-    - 'https://drive.google.com/uc?export=download&id=0B0o4prxPrMJsU2xxa3ZOUUxGSEE'
+    - 'http://local.dv.com/sites/default/files/adresar.xml'
   item_selector: /DATABASE_BIB/RECORD
   fields:
+    -
+      name: organisation_id
+      label: ID
+      selector: IDZapisa
     -
       name: area_of_activity_id
       label: 'Area of activity ID'
@@ -25,7 +29,7 @@ source:
       label: 'Area of activity'
       selector: PodrucjeDjelatnosti
   ids:
-    area_of_activity_id:
+    organisation_id:
       type: integer
 process:
   name: area_of_activity

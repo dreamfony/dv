@@ -15,7 +15,7 @@ use Drupal\migrate\Plugin\MigrationInterface;
  * @param \Drupal\migrate\Plugin\MigrateSourceInterface $source
  * @param \Drupal\migrate\Plugin\MigrationInterface $migration
  *
- * @return array
+ * @return BOOL
  */
 function dv_organisation_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $source, MigrationInterface $migration) {
 
@@ -23,7 +23,7 @@ function dv_organisation_migrate_migrate_prepare_row(Row $row, MigrateSourceInte
   if($migration->id() === 'organisations') {
 
     if ($row->getSourceProperty('skupna_razina')) {
-      return [FALSE];
+      return FALSE;
     }
   }
 
@@ -31,14 +31,14 @@ function dv_organisation_migrate_migrate_prepare_row(Row $row, MigrateSourceInte
   if($migration->id() === 'organisation_groups') {
 
     if (empty($row->getSourceProperty('skupna_razina'))) {
-      return [FALSE];
+      return FALSE;
     }
   }
 
   if($migration->id() === 'area_of_activity') {
-
+    drush_print_r($row->getSourceProperty('area_of_activity'));
     if (empty($row->getSourceProperty('area_of_activity'))) {
-      return [FALSE];
+      return FALSE;
     }
   }
 }

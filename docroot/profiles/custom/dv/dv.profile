@@ -6,6 +6,7 @@
  */
 
 use Drupal\user\Entity\User;
+use Drupal\features\FeaturesManagerInterface;
 
 /**
  * Implements hook_install_tasks().
@@ -223,7 +224,8 @@ function _dv_finalise_batch($process, $description, &$context) {
       break;
 
     case 'fra':
-      drush_features_import_all();
+      //drush_features_import_all();
+      \Drupal::service('config.installer')->installOptionalConfig();
       break;
 
     case 'node_access_rebuild':
