@@ -42,6 +42,7 @@ class OrganisationsPostRowSave implements EventSubscriberInterface {
       $destination_values = $event->getDestinationIdValues();
 
       $functionUpholderId = $row->getSourceProperty('function_upholder_id');
+
       $functions = $row->getSourceProperty('function');
 
       // if $functionUpholderId and $functions are array continue
@@ -67,18 +68,20 @@ class OrganisationsPostRowSave implements EventSubscriberInterface {
             // get current role ids from person node
             $roles_ids2 = $person->field_p_role->getValue();
 
-            foreach ($roles_ids2 as $key => $val) {
-              $roles_ids[] = $val['target_id'];
-            }
+            if($roles_ids2) {
+              foreach ($roles_ids2 as $key => $val) {
+                $roles_ids[] = $val['target_id'];
+              }
 
-            // check if there is a role with already attached role id to person node,
-            // that has the same organisation as the one we are importing
-            $query = \Drupal::entityQuery('role');
-            $query->condition('id', $roles_ids, 'IN');
-            $query->condition('type', 'role');
-            /// @todo: write from to date condition
-            $query->condition('field_r_organisation', $destination_values[0]);
-            $result = $query->execute();
+              // check if there is a role with already attached role id to person node,
+              // that has the same organisation as the one we are importing
+              $query = \Drupal::entityQuery('role');
+              $query->condition('id', $roles_ids, 'IN');
+              $query->condition('type', 'role');
+              /// @todo: write from to date condition
+              $query->condition('field_r_organisation', $destination_values[0]);
+              $result = $query->execute();
+
 
             // if there are none of already exiting roles create a new role
             // relationship
@@ -114,8 +117,21 @@ class OrganisationsPostRowSave implements EventSubscriberInterface {
               // save person
               $person->save();
             }
+
+            }
           }
 
+        }
+
+        // since migrate can't import simple list of term ids we do it here
+        $activity_ids = $row->getDestinationProperty('field_o_area_of_activity')[0];
+
+        if(is_array($activity_ids)) {
+          $organisation_node = Node::load($destination_values[0]);
+          foreach ($activity_ids as $activity_id) {
+            $organisation_node->field_o_area_of_activity->appendItem($activity_id);
+          }
+          $organisation_node->save();
         }
 
       } else {
