@@ -1,0 +1,7 @@
+bundle: dv
+required:
+  - field.field.positions.positions.field_positions_function
+  - field.field.positions.positions.field_positions_time_period
+  - field.storage.positions.field_positions_function
+  - field.storage.positions.field_positions_organisation
+  - field.storage.positions.field_positions_time_period

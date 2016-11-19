@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.positions.field_positions_time_period
+  module:
+    - datetime_range
+    - dv_positions
+id: positions.positions.field_positions_time_period
+field_name: field_positions_time_period
+entity_type: positions
+bundle: positions
+label: 'Time Period'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

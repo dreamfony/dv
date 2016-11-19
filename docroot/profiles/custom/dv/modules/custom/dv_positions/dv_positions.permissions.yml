@@ -1,0 +1,22 @@
+add positions entities:
+  title: 'Create new Positions entities'
+
+administer positions entities:
+  title: 'Administer Positions entities'
+  description: 'Allow to access the administration form to configure Positions entities.'
+  restrict access: true
+
+delete positions entities:
+  title: 'Delete Positions entities'
+
+edit positions entities:
+  title: 'Edit Positions entities'
+
+access positions overview:
+  title: 'Access the Positions overview page'
+
+view published positions entities:
+  title: 'View published Positions entities'
+
+view unpublished positions entities:
+  title: 'View unpublished Positions entities'

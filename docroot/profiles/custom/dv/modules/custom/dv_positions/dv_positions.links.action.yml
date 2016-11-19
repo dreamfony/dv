@@ -1,0 +1,5 @@
+entity.positions.add_form:
+  route_name: entity.positions.add_form
+  title: 'Add Positions'
+  appears_on:
+    - entity.positions.collection
