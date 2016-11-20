@@ -45,8 +45,8 @@ dependencies:
   - flag
   - geocoder_field
   - gnode
-  - group
   - grolesync
+  - group
   - hal
   - help
   - history

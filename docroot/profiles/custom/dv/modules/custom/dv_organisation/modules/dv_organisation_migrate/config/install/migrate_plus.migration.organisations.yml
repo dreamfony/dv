@@ -1,4 +1,5 @@
 langcode: en
+status: true
 dependencies:
   enforced:
     module:
@@ -6,7 +7,7 @@ dependencies:
 id: organisations
 migration_tags: null
 migration_group: organisations
-label: 'Organisations'
+label: Organisations
 source:
   plugin: url
   data_fetcher_plugin: http

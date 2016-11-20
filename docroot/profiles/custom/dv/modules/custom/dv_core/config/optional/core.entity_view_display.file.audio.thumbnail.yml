@@ -16,7 +16,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     label: hidden
-    region: content
 hidden:
   filemime: true
   filesize: true

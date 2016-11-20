@@ -14,6 +14,7 @@ dependencies:
   - captcha
   - ckeditor
   - comment
+  - coffee
   - contact
   - content_moderation
   - datetime_range
@@ -27,9 +28,14 @@ dependencies:
   - filter
   - flag
   - group
+  - geocoder_field
+  - persistent_login
+  - r4032login
+  - recaptcha
   - hal
   - image
   - language
+  - like_and_dislike
   - link
   - locale
   - menu_link_content
@@ -54,4 +60,3 @@ dependencies:
   - views
   - views_ui
   - votingapi
-  - like_and_dislike
