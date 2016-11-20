@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7909b4c5b589e00589f5704905b388c7",
-    "content-hash": "0f9600d3b12d2f85d1376bcdcf863458",
+    "hash": "cce554335e81827ca2fcee5df5eb1966",
+    "content-hash": "a6adc884f24d54daf49c72b3647e1468",
     "packages": [
         {
             "name": "acquia/blt",
@@ -2240,78 +2240,6 @@
             }
         },
         {
-            "name": "drupal/eck",
-            "version": "1.0.0-alpha2",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/eck",
-                "reference": "8.x-1.0-alpha2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/eck-8.x-1.0-alpha2.zip",
-                "reference": "8.x-1.0-alpha2",
-                "shasum": "0cba307461373248273cfa490091218733d684c4"
-            },
-            "require": {
-                "drupal/core": "^8"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.0-alpha2",
-                    "datestamp": "1478443139"
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "See contributors",
-                    "homepage": "https://www.drupal.org/node/1155832/committers"
-                },
-                {
-                    "name": "dpopdan",
-                    "homepage": "https://www.drupal.org/user/2759811"
-                },
-                {
-                    "name": "eric.napier",
-                    "homepage": "https://www.drupal.org/user/501688"
-                },
-                {
-                    "name": "fmizzell",
-                    "homepage": "https://www.drupal.org/user/1312210"
-                },
-                {
-                    "name": "legolasbo",
-                    "homepage": "https://www.drupal.org/user/2480548"
-                },
-                {
-                    "name": "mducharme",
-                    "homepage": "https://www.drupal.org/user/616996"
-                },
-                {
-                    "name": "mihai_brb",
-                    "homepage": "https://www.drupal.org/user/2065978"
-                },
-                {
-                    "name": "wjaspers",
-                    "homepage": "https://www.drupal.org/user/813890"
-                }
-            ],
-            "description": "ECK (Entity Contruction Kit) allows users to create and administer entity types, bundles and entities from the UI.",
-            "homepage": "https://www.drupal.org/project/eck",
-            "support": {
-                "source": "http://git.drupal.org/project/eck.git",
-                "issues": "https://www.drupal.org/project/issues/eck"
-            }
-        },
-        {
             "name": "drupal/email_registration",
             "version": "1.0.0-rc3",
             "source": {
@@ -3847,7 +3775,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/rabbit_hole",
-                "reference": "fce5430bbdbb93c7f6d42552bb2b79735a19b66b"
+                "reference": "50a24fe734671eb0925bba545797a5d6776a2dda"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -3863,7 +3791,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.x-dev",
-                    "datestamp": "1479260041"
+                    "datestamp": "1479604442"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -3898,7 +3826,7 @@
                 "source": "https://cgit.drupalcode.org/rabbit_hole",
                 "issues": "https://www.drupal.org/project/issues/rabbit_hole"
             },
-            "time": "2016-11-16 01:31:31"
+            "time": "2016-11-20 01:09:29"
         },
         {
             "name": "drupal/recaptcha",

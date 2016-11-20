@@ -9,7 +9,6 @@ dependencies:
   - dv_core
   - dv_issue
   - dv_positions
-  - eck
   - entity_browser
   - field
   - geo_area_group
