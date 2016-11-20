@@ -46,6 +46,7 @@ dependencies:
   - geocoder_field
   - gnode
   - group
+  - grolesync
   - hal
   - help
   - history

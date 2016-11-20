@@ -6,7 +6,6 @@
  */
 
 use Drupal\user\Entity\User;
-use Drupal\features\FeaturesManagerInterface;
 
 /**
  * Implements hook_install_tasks().
