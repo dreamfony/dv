@@ -14,9 +14,12 @@ bundle: positions
 mode: default
 content:
   field_positions_function:
-    type: options_buttons
+    type: entity_reference_autocomplete
     weight: 3
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_positions_organisation:
     weight: 5
