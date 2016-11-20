@@ -1,6 +1,8 @@
 langcode: en
 status: true
 dependencies:
+  config:
+    - field.storage.group_content.group_roles
   module:
     - group
     - user
@@ -700,7 +702,8 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-      tags: {  }
+      tags:
+        - 'config:field.storage.group_content.group_roles'
   page_1:
     display_plugin: page
     id: page_1
@@ -727,4 +730,5 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-      tags: {  }
+      tags:
+        - 'config:field.storage.group_content.group_roles'

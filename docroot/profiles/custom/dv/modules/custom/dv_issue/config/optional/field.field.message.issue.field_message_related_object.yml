@@ -83,4 +83,7 @@ settings:
   role:
     handler: 'default:role'
     handler_settings: {  }
+  positions:
+    handler: 'default:positions'
+    handler_settings: {  }
 field_type: dynamic_entity_reference
