@@ -33,13 +33,13 @@ class PositionsForm extends ContentEntityForm {
     switch ($status) {
       case SAVED_NEW:
         drupal_set_message($this->t('Created the %label Positions.', [
-          '%label' => $entity->label(),
+          '%label' => $entity->id(),
         ]));
         break;
 
       default:
         drupal_set_message($this->t('Saved the %label Positions.', [
-          '%label' => $entity->label(),
+          '%label' => $entity->id(),
         ]));
     }
     $form_state->setRedirect('entity.positions.canonical', ['positions' => $entity->id()]);

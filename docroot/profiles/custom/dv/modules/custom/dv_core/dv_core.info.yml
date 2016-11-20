@@ -13,8 +13,8 @@ dependencies:
   - block_content
   - captcha
   - ckeditor
-  - comment
   - coffee
+  - comment
   - contact
   - content_moderation
   - datetime_range
@@ -27,11 +27,8 @@ dependencies:
   - file_entity
   - filter
   - flag
-  - group
   - geocoder_field
-  - persistent_login
-  - r4032login
-  - recaptcha
+  - group
   - hal
   - image
   - language
@@ -44,9 +41,12 @@ dependencies:
   - node
   - path
   - pathauto
+  - persistent_login
   - profile
+  - r4032login
   - rabbit_hole
   - rdf
+  - recaptcha
   - rest
   - search_api
   - serialization

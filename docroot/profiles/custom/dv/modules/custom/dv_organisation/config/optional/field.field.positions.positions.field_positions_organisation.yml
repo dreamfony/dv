@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.positions.field_positions_organisation
+    - node.type.organisation
+  module:
+    - dv_positions
+id: positions.positions.field_positions_organisation
+field_name: field_positions_organisation
+entity_type: positions
+bundle: positions
+label: Organisation
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      organisation: organisation
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

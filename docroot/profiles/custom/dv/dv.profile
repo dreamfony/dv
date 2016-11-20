@@ -68,6 +68,7 @@ function dv_install_profile_modules(&$install_state) {
     'dv_issue' => 'dv_issue',
     'dv_person' => 'dv_person',
     'dv_work_group' => 'dv_work_group',
+    'dv_positions' => 'dv_positions',
     'ggroup' => 'ggroup'
   );
 

@@ -84,7 +84,7 @@ function dv_organisation_migrate_migrate_prepare_row(Row $row, MigrateSourceInte
           $data = array(
             $row->getSourceProperty('function_upholder_id') => array(
               'function_upholder' => $row->getSourceProperty('function_upholder'),
-              'function' => $row->getSourceProperty('function_upholder')
+              'function' => $row->getSourceProperty('function')
             )
           );
         }
@@ -98,7 +98,7 @@ function dv_organisation_migrate_migrate_prepare_row(Row $row, MigrateSourceInte
           $query->condition('field_person_id', $upholderId);
           $person_id = $query->execute();
 
-          // if person does
+          // if person does not exist
           if (!$person_id) {
 
             // create a new person

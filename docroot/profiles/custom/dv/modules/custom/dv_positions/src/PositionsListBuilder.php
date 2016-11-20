@@ -21,7 +21,6 @@ class PositionsListBuilder extends EntityListBuilder {
    */
   public function buildHeader() {
     $header['id'] = $this->t('Positions ID');
-    $header['name'] = $this->t('Name');
     return $header + parent::buildHeader();
   }
 
@@ -32,7 +31,7 @@ class PositionsListBuilder extends EntityListBuilder {
     /* @var $entity \Drupal\dv_positions\Entity\Positions */
     $row['id'] = $entity->id();
     $row['name'] = $this->l(
-      $entity->label(),
+      $entity->id(),
       new Url(
         'entity.positions.edit_form', array(
           'positions' => $entity->id(),

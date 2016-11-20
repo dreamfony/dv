@@ -16,25 +16,6 @@ interface PositionsInterface extends ContentEntityInterface, EntityChangedInterf
   // Add get/set methods for your configuration properties here.
 
   /**
-   * Gets the Positions name.
-   *
-   * @return string
-   *   Name of the Positions.
-   */
-  public function getName();
-
-  /**
-   * Sets the Positions name.
-   *
-   * @param string $name
-   *   The Positions name.
-   *
-   * @return \Drupal\dv_positions\Entity\PositionsInterface
-   *   The called Positions entity.
-   */
-  public function setName($name);
-
-  /**
    * Gets the Positions creation timestamp.
    *
    * @return int
