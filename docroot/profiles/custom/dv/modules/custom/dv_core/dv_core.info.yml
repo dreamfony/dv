@@ -17,10 +17,12 @@ dependencies:
   - comment
   - contact
   - content_moderation
+  - datetime
   - datetime_range
   - dv_work_group
   - editor
   - entity_browser
+  - environment_indicator
   - features
   - field
   - file

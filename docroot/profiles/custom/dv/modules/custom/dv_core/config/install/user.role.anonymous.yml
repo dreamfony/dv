@@ -5,3 +5,8 @@ id: anonymous
 label: 'Anonymous user'
 weight: 0
 is_admin: false
+permissions:
+  - 'access content'
+  - 'view files'
+  - 'access comments'
+  - 'access site-wide contact form'
