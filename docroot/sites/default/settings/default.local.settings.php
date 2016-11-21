@@ -28,6 +28,8 @@ $databases = array(
 // Configuration directories.
 $dir = dirname(DRUPAL_ROOT);
 $config_directories['sync'] = $dir . "/config/$site_dir";
+// Here will put various configuration that is used for develop
+$config_directories['devel'] = $dir . "/config/devel";
 
 // Use development service parameters.
 $settings['container_yamls'][] = $dir . '/docroot/sites/development.services.yml';
@@ -133,3 +135,4 @@ $settings['file_private_path'] = $dir . '/files-private';
 # $settings['trusted_host_patterns'] = array(
 #   '^example\.local$',
 # );
+$settings['config_readonly'] = FALSE;
