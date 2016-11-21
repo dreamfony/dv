@@ -8,8 +8,8 @@
     <!-- create directory config.user.d -->
     <mkdir dir="/usr/share/php/pimpmylog/config.user.d" mode="777"/>
     <!-- copy files drupal.json -->
-    <copy file="${repo.root}/custom/drupal.json" tofile="/usr/share/php/pimpmylog/config.user.d/drupal.json" verbose="true" />
+    <copy file="${repo.root}/custom/pimpmylog/drupal.json" tofile="/usr/share/php/pimpmylog/config.user.d/drupal.json" verbose="true" />
     <!--  copy file config.user.php -->
-    <copy file="${repo.root}/custom/config.user.php" tofile="/usr/share/php/pimpmylog/config.user.php" verbose="true" />
+    <copy file="${repo.root}/custom/pimpmylog/config.user.php" tofile="/usr/share/php/pimpmylog/config.user.php" verbose="true" />
   </target>
 </project>

@@ -136,3 +136,7 @@ $settings['file_private_path'] = $dir . '/files-private';
 #   '^example\.local$',
 # );
 $settings['config_readonly'] = FALSE;
+# Environment Indicator
+$config['environment_indicator.indicator']['bg_color'] = '#123456';
+$config['environment_indicator.indicator']['fg_color'] = '#FFFFBB';
+$config['environment_indicator.indicator']['name'] = 'Local';

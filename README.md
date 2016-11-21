@@ -273,6 +273,8 @@ Saznat zašto krepava debugger. Timeout
 
 http://blt.readthedocs.io/en/latest/readme/features-workflow/
 
+The main use case for Features 3.x is to assist with building and maintaining well designed and interoperable Drupal distributions.
+
 > As great as CMI is in Drupal 8, it is likely that you will still want
 > to use Features to organize your configuration as you develop your
 > site.  Whether you use Features or CMI (or both) to deploy your
@@ -284,6 +286,8 @@ Sites will often need to contain a single "sitewide" feature that defines global
 
 Our core feature module is **dv_core**
 
+Sharing configuration of development modules and different configuration for differnet environments
+
 Instead of using conf_split module, we store partial various configuration that is used only in devel environment in config/devel folder.
 This should be in your local.settings.php
 
@@ -292,6 +296,10 @@ This should be in your local.settings.php
 Import with
 
     drush cim devel --partial
+
+Also use configuration override system in local.settings.php
+
+Exclude this settings from beeing exported, in configuration of features bundle
 
 Production configuration is made read only using
 https://www.drupal.org/project/config_readonly
@@ -346,7 +354,18 @@ Other options include installing site from existing configuration either with dr
 Features is patched so that it exports permissions with roles
 
 ##### Managing Secrets (TODO)
-- API keys
+
+- exlude this settings from beeing exported in features bundle settings
+
+  `// Store API Keys and things outside of version control.`
+  
+  `// @see settings/sample-secrets.settings.php for sample code.`
+  
+  `$secrets_file = sprintf('/mnt/gfs/%s.%s/secrets.settings.php', $_ENV['AH_SITE_GROUP'], $_ENV['AH_SITE_ENVIRONMENT']);
+  if (file_exists($secrets_file)) {
+    require $secrets_file;
+  }`
+
 
 #### Using Features Bundles
 
