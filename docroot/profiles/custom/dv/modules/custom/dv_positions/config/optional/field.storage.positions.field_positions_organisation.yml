@@ -2,17 +2,17 @@ langcode: en
 status: true
 dependencies:
   module:
-    - eck
+    - dv_positions
     - node
-id: node.field_p_role
-field_name: field_p_role
-entity_type: node
+id: positions.field_positions_organisation
+field_name: field_positions_organisation
+entity_type: positions
 type: entity_reference
 settings:
-  target_type: role
+  target_type: node
 module: core
 locked: false
-cardinality: 50
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

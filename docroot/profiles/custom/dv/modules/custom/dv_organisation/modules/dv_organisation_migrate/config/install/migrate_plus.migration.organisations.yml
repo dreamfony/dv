@@ -1,4 +1,5 @@
 langcode: en
+status: true
 dependencies:
   enforced:
     module:
@@ -6,7 +7,7 @@ dependencies:
 id: organisations
 migration_tags: null
 migration_group: organisations
-label: 'Organisations'
+label: Organisations
 source:
   plugin: url
   data_fetcher_plugin: http
@@ -44,9 +45,17 @@ source:
       label: 'Area of activity'
       selector: PodrucjeDjelatnosti_ID
     -
+      name: area_of_activity
+      label: 'Area of activity'
+      selector: PodrucjeDjelatnosti
+    -
       name: function_upholder_id
       label: 'Function Upholder ID'
       selector: NositeljFunkcije_ID
+    -
+      name: function_upholder
+      label: 'Function Upholder'
+      selector: NositeljFunkcije
     -
       name: function
       label: Function
@@ -93,7 +102,4 @@ destination:
   plugin: 'entity:node'
 migration_dependencies:
   required:
-    - area_of_activity
-    - functions
-    - people
     - organisation_groups

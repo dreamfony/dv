@@ -70,4 +70,8 @@ function dv_install() {
 
   // Enable the admin theme.
   \Drupal::configFactory()->getEditable('node.settings')->set('use_admin_theme', TRUE)->save(TRUE);
+
+  // add moderator role
+  // $role = \Drupal\user\Entity\Role::create(array('id' => 'moderator', 'label' => 'Moderator'));
+  // $role->save();
 }

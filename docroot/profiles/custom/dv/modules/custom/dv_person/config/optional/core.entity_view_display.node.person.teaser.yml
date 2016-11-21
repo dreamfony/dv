@@ -4,8 +4,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.person.body
-    - field.field.node.person.field_p_role
     - field.field.node.person.field_person_id
+    - field.field.node.person.field_person_positions
     - node.type.person
   module:
     - text
@@ -28,6 +28,6 @@ content:
     region: content
     weight: 100
 hidden:
-  field_p_role: true
   field_person_id: true
+  field_person_positions: true
   langcode: true

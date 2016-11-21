@@ -8,7 +8,7 @@ dependencies:
   - datetime_range
   - dv_core
   - dv_issue
-  - eck
+  - dv_positions
   - entity_browser
   - field
   - geo_area_group

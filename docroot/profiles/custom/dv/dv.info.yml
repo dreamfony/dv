@@ -32,7 +32,6 @@ dependencies:
   - datetime_range
   - dynamic_entity_reference
   - dynamic_page_cache
-  - eck
   - editor
   - email_registration
   - entity_browser
@@ -45,6 +44,7 @@ dependencies:
   - flag
   - geocoder_field
   - gnode
+  - grolesync
   - group
   - hal
   - help

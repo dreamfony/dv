@@ -5,6 +5,7 @@ namespace Drupal\dv_organisation_migrate\Plugin\migrate\process;
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
+use Drupal\taxonomy\Entity\Term;
 
 /**
  *
@@ -19,15 +20,32 @@ class FieldOAreaOfActivity extends ProcessPluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
 
-    if ($value) {
-      $query = \Drupal::entityQuery('taxonomy_term');
+    if ($row->getSourceProperty('area_of_activity_id')) {
 
-      $query->condition('vid', 'area_of_activity');
-      $query->condition('field_area_of_activity_id', $value);
-      $result = $query->execute();
+      foreach ($row->getSourceProperty('area_of_activity_id') as $id => $name) {
+        $query = \Drupal::entityQuery('taxonomy_term');
 
-      if ($result) {
-        return reset($result);
+        $query->condition('vid', 'area_of_activity');
+        $query->condition('field_area_of_activity_id', $id);
+        $result = $query->execute();
+
+        if($result) {
+          $activites[] = reset($result);
+        } else {
+          $new_activity = Term::create([
+            'vid' => 'area_of_activity',
+            'name' => $name,
+            'field_area_of_activity_id' => $id
+          ]);
+
+          $new_activity->save();
+
+          $activites[] = $new_activity->id();
+        }
+      }
+
+      if ($activites) {
+        return $activites;
       }
     }
 

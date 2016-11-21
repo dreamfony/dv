@@ -10,7 +10,7 @@ dependencies:
   - dv_core
   - dv_organisation
   - dv_organisation_group
-  - eck
+  - dv_positions
   - field
   - group
   - inline_entity_form

@@ -16,18 +16,15 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
-    region: content
     third_party_settings: {  }
   group_roles:
     type: options_buttons
     weight: 6
     settings: {  }
     third_party_settings: {  }
-    region: content
   langcode:
     type: language_select
     weight: 2
-    region: content
     settings: {  }
     third_party_settings: {  }
 hidden:

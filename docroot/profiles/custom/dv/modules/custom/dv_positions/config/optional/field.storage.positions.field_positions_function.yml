@@ -2,14 +2,14 @@ langcode: en
 status: true
 dependencies:
   module:
-    - eck
-    - node
-id: role.field_r_organisation
-field_name: field_r_organisation
-entity_type: role
+    - dv_positions
+    - taxonomy
+id: positions.field_positions_function
+field_name: field_positions_function
+entity_type: positions
 type: entity_reference
 settings:
-  target_type: node
+  target_type: taxonomy_term
 module: core
 locked: false
 cardinality: 1

@@ -42,6 +42,7 @@ class OrganisationsPostRowSave implements EventSubscriberInterface {
       $destination_values = $event->getDestinationIdValues();
 
       $functionUpholderId = $row->getSourceProperty('function_upholder_id');
+
       $functions = $row->getSourceProperty('function');
 
       // if $functionUpholderId and $functions are array continue
@@ -64,35 +65,38 @@ class OrganisationsPostRowSave implements EventSubscriberInterface {
 
           if ($person) {
 
-            // get current role ids from person node
-            $roles_ids2 = $person->field_p_role->getValue();
+            // get current positions ids from person node
 
-            foreach ($roles_ids2 as $key => $val) {
-              $roles_ids[] = $val['target_id'];
+            if ($person->field_person_positions->getValue()) {
+
+              foreach ($person->field_person_positions->getValue() as $position_id) {
+                $position_ids[] = $position_id['target_id'];
+              }
+
+              // check if there is a position with already attached position id to person node,
+              // that has the same organisation as the one we are importing
+              $query = \Drupal::entityQuery('positions');
+              $query->condition('id', $position_ids, 'IN');
+              /// @todo: write from to date condition
+              $query->condition('field_positions_organisation', $destination_values[0]);
+              $result = $query->execute();
+
             }
 
-            // check if there is a role with already attached role id to person node,
-            // that has the same organisation as the one we are importing
-            $query = \Drupal::entityQuery('role');
-            $query->condition('id', $roles_ids, 'IN');
-            $query->condition('type', 'role');
-            /// @todo: write from to date condition
-            $query->condition('field_r_organisation', $destination_values[0]);
-            $result = $query->execute();
-
-            // if there are none of already exiting roles create a new role
+            // if there are none of already exiting positions create a new position
             // relationship
-            if(!$result) {
-              // create role entity
-              $role = $this->entityTypeManager->getStorage('role')->create(
-                array(
-                  'type' => 'role',
-                  'uid' => 1
-                )
-              );
+            if (!$result) {
+              // create position entity
+              $position = $this->entityTypeManager->getStorage('positions')
+                ->create(
+                  array(
+                    /// @todo type may be missing here
+                    'user_id' => 1
+                  )
+                );
 
-              // assign organisation to role
-              $role->set('field_r_organisation', $destination_values[0]);
+              // assign organisation to position
+              $position->set('field_positions_organisation', $destination_values[0]);
 
               // get function from taxonomy term
               $query = \Drupal::entityQuery('taxonomy_term');
@@ -101,24 +105,36 @@ class OrganisationsPostRowSave implements EventSubscriberInterface {
               $function_id = $query->execute();
 
               // set function
-              $role->set('field_r_function', reset($function_id));
+              $position->set('field_positions_function', reset($function_id));
 
-              // save role
-              $role->save();
+              // save position
+              $position->save();
 
-              $role_id = $role->id();
-
-              // append new role to person
-              $person->field_p_role->appendItem($role_id);
+              // append new position to person
+              $person->field_person_positions->appendItem($position->id());
 
               // save person
               $person->save();
             }
+
           }
+
 
         }
 
-      } else {
+        // since migrate can't import simple list of term ids we do it here
+        $activity_ids = $row->getDestinationProperty('field_o_area_of_activity')[0];
+
+        if (is_array($activity_ids)) {
+          $organisation_node = Node::load($destination_values[0]);
+          foreach ($activity_ids as $activity_id) {
+            $organisation_node->field_o_area_of_activity->appendItem($activity_id);
+          }
+          $organisation_node->save();
+        }
+
+      }
+      else {
         /// @todo: check if org. had people - phase 2 - org. update
       }
     }

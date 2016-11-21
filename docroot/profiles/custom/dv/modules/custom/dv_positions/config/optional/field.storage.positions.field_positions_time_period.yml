@@ -3,13 +3,13 @@ status: true
 dependencies:
   module:
     - datetime_range
-    - eck
-id: role.field_r_date_range
-field_name: field_r_date_range
-entity_type: role
+    - dv_positions
+id: positions.field_positions_time_period
+field_name: field_positions_time_period
+entity_type: positions
 type: daterange
 settings:
-  datetime_type: date
+  datetime_type: datetime
 module: datetime_range
 locked: false
 cardinality: 1

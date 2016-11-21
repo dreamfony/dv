@@ -1,0 +1,21 @@
+# Positions routing definition
+positions.settings_tab:
+  route_name: positions.settings
+  title: 'Settings'
+  base_route: positions.settings
+entity.positions.canonical:
+  route_name: entity.positions.canonical
+  base_route: entity.positions.canonical
+  title: 'View'
+
+entity.positions.edit_form:
+  route_name: entity.positions.edit_form
+  base_route: entity.positions.canonical
+  title: Edit
+
+entity.positions.delete_form:
+  route_name:  entity.positions.delete_form
+  base_route:  entity.positions.canonical
+  title: Delete
+  weight: 10
+

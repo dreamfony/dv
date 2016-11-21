@@ -60,6 +60,8 @@ assignments:
         field_storage_config: field_storage_config
         group_content_type: group_content_type
         group_role: group_role
+        view: view
+        entity_view_mode: entity_view_mode
     enabled: true
     weight: 0
   packages:

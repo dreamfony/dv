@@ -8,7 +8,6 @@ dependencies:
     - contact
     - content_moderation
     - dynamic_entity_reference
-    - eck
     - file
     - flag
     - group

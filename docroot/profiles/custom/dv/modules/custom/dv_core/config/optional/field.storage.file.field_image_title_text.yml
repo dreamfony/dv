@@ -6,7 +6,6 @@ dependencies:
       - file_entity
   module:
     - file
-    - text
 id: file.field_image_title_text
 field_name: field_image_title_text
 entity_type: file
@@ -15,7 +14,7 @@ settings:
   max_length: 255
   is_ascii: false
   case_sensitive: false
-module: text
+module: core
 locked: false
 cardinality: 1
 translatable: true

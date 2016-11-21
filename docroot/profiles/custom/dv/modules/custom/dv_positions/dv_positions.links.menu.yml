@@ -1,0 +1,13 @@
+# Positions menu items definition
+entity.positions.collection:
+  title: 'Positions list'
+  route_name: entity.positions.collection
+  description: 'List Positions entities'
+  parent: system.admin_structure
+  weight: 100
+
+positions.admin.structure.settings:
+  title: Positions settings
+  description: 'Configure Positions entities'
+  route_name: positions.settings
+  parent: system.admin_structure

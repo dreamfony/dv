@@ -3,6 +3,7 @@ description: 'Provides Issue content type and related configuration. '
 type: module
 core: 8.x
 dependencies:
+  - activity_logger
   - address
   - captcha
   - comment
@@ -21,6 +22,7 @@ dependencies:
   - language
   - link
   - menu_ui
+  - message
   - node
   - path
   - rabbit_hole
