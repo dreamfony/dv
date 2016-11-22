@@ -5,3 +5,11 @@ id: authenticated
 label: 'Authenticated user'
 weight: 1
 is_admin: false
+permissions:
+  - 'access content'
+  - 'view files'
+  - 'access comments'
+  - 'post comments'
+  - 'skip comment approval'
+  - 'access site-wide contact form'
+  - 'access shortcuts'

@@ -11,6 +11,9 @@ git:
     default_branch: master
     remotes:
         - 'dv1@svn-6182.devcloud.hosting.acquia.com:dv1.git'
+cm:
+ features:
+   bundle: dv, activity, GeoNames
 drush:
     aliases:
         remote: '${project.machine_name}.test'
@@ -30,7 +33,7 @@ target-hooks:
     post-setup-build:
         dir: '${docroot}'
         command: 'echo ''No post-setup build configured.'''
-import: '${repo.root}/custom/custom.xml'
+import: '${repo.root}/custom/blt_custom_phing_commands.xml'
 modules:
     ci:
         enable: {  }
@@ -48,7 +51,6 @@ drupal:
 # Skip this until we fix DV profile
 disable-targets:
     setup:
-        config-import: true
         git-hooks: true
     tests:
         phpunit: true

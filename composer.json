@@ -63,6 +63,8 @@
         "drupal/search_api_solr": "^1.0@beta",
         "drupal/search_api": "^1.0@beta",
         "drupal/default_content": "~1.0",
+        "drupal/config_readonly": "^1.0@beta",
+        "drupal/environment_indicator": "^3.0@beta"
         "drupal/jsonapi": "^1.0@alpha",
         "drupal/cors": "^1.0"
     },
@@ -87,9 +89,6 @@
         "codeclimate/php-test-reporter": "^0.3.2"
     },
     "scripts": {
-        "post-install-cmd": [
-            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
-        ],
         "post-create-project-cmd": [
             "rm -f .travis.yml",
             "rm -f README.md",
@@ -162,6 +161,9 @@
             },
             "drupal/file_entity": {
                 "https://www.drupal.org/node/2758043" : "https://www.drupal.org/files/issues/field_storage_not_installed-2758043-36.patch"
+            },
+            "drupal/features": {
+                "https://www.drupal.org/node/2383439" : "https://www.drupal.org/files/issues/features_revert_permissions_drop-2383439-8.patch"
             }
         },
         "drupal-scaffold": {

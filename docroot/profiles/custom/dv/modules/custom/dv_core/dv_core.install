@@ -1,0 +1,9 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: X
+ * Date: 17.11.2016.
+ * Time: 16:31
+ */
+function dv_core_update_8001() {
+}
