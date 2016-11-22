@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: email_reply
+label: 'Email Reply'
+target_entity_type_id: node
+description: ''

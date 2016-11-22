@@ -89,6 +89,8 @@ dependencies:
   - views
   - views_ui
   - votingapi
+  - jsonapi
+  - cors
 themes:
   - bootstrap
   - seven

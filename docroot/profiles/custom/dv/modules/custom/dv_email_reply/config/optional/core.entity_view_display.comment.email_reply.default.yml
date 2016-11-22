@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.email_reply
+    - field.field.comment.email_reply.comment_body
+  module:
+    - text
+id: comment.email_reply.default
+targetEntityType: comment
+bundle: email_reply
+mode: default
+content:
+  comment_body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 100
+hidden:
+  langcode: true
