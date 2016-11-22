@@ -59,6 +59,7 @@ installed_extras:
   - varnish
   - xdebug
   - drupalconsole
+  - solr
 
 
 php_xdebug_default_enable: 1
@@ -67,3 +68,5 @@ php_xdebug_idekey: PHPSTORM
 
 post_provision_scripts:
   - "../../../acquia/blt/scripts/drupal-vm/post-provision.sh"
+  - "../../../../box/postprovision-solr.sh"
+  - "../../../../box/postprovision-zsh.sh"
