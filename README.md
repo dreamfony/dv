@@ -11,7 +11,7 @@ master:
 
 ### Onboarding
 
-For building, testing and launching drupal sites we use acquias bundle of scripts called [BLT](https://github.com/acquia/blt)
+For building, testing and launching drupal sites we use bundle of scripts called [BLT](https://github.com/acquia/blt)
 BLT works as a composer plugin.
 
 http://blt.readthedocs.io/en/latest/INSTALL/
@@ -59,6 +59,21 @@ After the feature is deployed, deployment hooks automatically import the new or 
 
 In the beginning of the project life cycle we use `blt local:setup` to reinstall drupal, instead of `blt local:refresh` so we dont have to write hook_updates when we do big structural configuration changes.
 When the site goes to production then `local:refresh` is enough.
+
+    <target name="local:refresh" description="Refreshes local environment from upstream testing database." depends="setup:build, local:sync, local:update"/>
+
+
+#### Updating Module
+
+When updating module, it can happen that modules configuration has changed.
+Thats why the process of updating module is:
+- composer update drupal/{module_name}
+- on features page check if configuration has changed
+- export feature if neccessary
+- only now you can push or pull and refresh local
+
+If someone pushes lock file with new updated module and doesnt export configuration,
+then when other persons pull and do local:refresh they will override new configuration of the module with the old!
 
 #### Various
 
@@ -191,7 +206,8 @@ You can SSH to Vagrant machine using phpstorm by ShiftShift, type: Start SSH
 
 **TODO** - repo with shared liveTemplates
 https://www.drupal.org/project/phpstorm_templates
-and sharing of code snippets via gists or code2snip
+and sharing of code snippets via gists or snip2code
+https://youtrack.jetbrains.com/issue/IDEA-155623
 **TODO END**
 
 ### Composer
@@ -286,20 +302,27 @@ Sites will often need to contain a single "sitewide" feature that defines global
 
 Our core feature module is **dv_core**
 
-Sharing configuration of development modules and different configuration for differnet environments
+#### Sharing configuration of development modules and different configuration for differnet environments
 
 Instead of using conf_split module, we store partial various configuration that is used only in devel environment in config/devel folder.
 This should be in your local.settings.php
 
-    $config_directories['devel'] = $dir . "/config/devel";
+    $config_directories['devel'] = $dir . "$config_directories['devel'] = $dir . "/docroot/profiles/custom/dv/modules/environment/dmt_devel/optional";
 
 Import with
 
     drush cim devel --partial
+    
+Configuration files that should be exported to that module are listed in dmt_devel.info.yml
+And should be exported with the help of config_devel module using
 
-Also use configuration override system in local.settings.php
+    drush config-devel-export dmt_devel
 
-Exclude this settings from beeing exported, in configuration of features bundle
+Also you can use configuration override system in local.settings.php
+
+Exclude settings from beeing exported in features by configuring features bundle
+
+Modules that should be enabled uninstalled for each environment are listed in project.yml
 
 Production configuration is made read only using
 https://www.drupal.org/project/config_readonly
@@ -312,6 +335,8 @@ There are many reasons that features can fail to install or import properly. The
 A safer alternative is to create a separate wrapper module to contain any custom functionality and have this module depend on your feature in order to segregate Feature-managed and manually-managed code.
 
 #### Hook_updates
+
+https://www.drupal.org/docs/8/api/update-api/updating-configuration-in-drupal-8
 
 All site specific configuration updates should be written in **dv_core.install**
 
@@ -410,8 +435,3 @@ master-build has been merged to master on stage. Db from live has been copied to
 
 
 ## TODO
-
-
-### New site creation process and starter kit for drupal 8
-
-If you have generated an install profile, before being able to continue developing your features, reinstall a fresh site, using the install profile you generated, and enable Features. If you have customized the bundle's assignment plugin settings, manually create a feature on the original site and export the features bundle to it, so that when you enable the feature on your newly installed site you will have the correct bundle settings.
