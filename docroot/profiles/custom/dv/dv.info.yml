@@ -26,6 +26,7 @@ dependencies:
   - content_moderation
   - content_translation
   - contextual
+  - cors
   - ctools_block
   - ctools_views
   - datetime
@@ -51,6 +52,7 @@ dependencies:
   - history
   - image
   - inline_entity_form
+  - jsonapi
   - language
   - like_and_dislike
   - link
@@ -89,8 +91,6 @@ dependencies:
   - views
   - views_ui
   - votingapi
-  - jsonapi
-  - cors
 themes:
   - bootstrap
   - seven

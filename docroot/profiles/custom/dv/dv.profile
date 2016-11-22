@@ -69,7 +69,8 @@ function dv_install_profile_modules(&$install_state) {
     'dv_person' => 'dv_person',
     'dv_work_group' => 'dv_work_group',
     'dv_positions' => 'dv_positions',
-    'ggroup' => 'ggroup'
+    'dv_email_reply' => 'dv_email_reply',
+    'ggroup' => 'ggroup' // we add ggroup here since it cant be enabled without any groups
   );
 
   $dv_modules = $modules;
