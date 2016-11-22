@@ -67,8 +67,7 @@
         "drupal/environment_indicator": "^3.0@beta",
         "drupal/jsonapi": "^1.0@alpha",
         "drupal/cors": "^1.0",
-        "drupal/sitemap": "^1.2",
-        "drupal/refreshless": "^1.0@alpha"
+        "drupal/sitemap": "^1.2"
     },
     "require-dev": {
         "behat/behat": "^3.1",
@@ -166,9 +165,6 @@
             },
             "drupal/features": {
                 "https://www.drupal.org/node/2383439" : "https://www.drupal.org/files/issues/features_revert_permissions_drop-2383439-8.patch"
-            },
-            "drupal/core": {
-              "refreshless" : "https://www.drupal.org/files/issues/refreshless-alpha3-core-patch-2695717-7.patch"
             }
         },
         "drupal-scaffold": {
