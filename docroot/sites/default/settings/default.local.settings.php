@@ -29,7 +29,7 @@ $databases = array(
 $dir = dirname(DRUPAL_ROOT);
 $config_directories['sync'] = $dir . "/config/$site_dir";
 // Here will put various configuration that is used for develop
-$config_directories['devel'] = $dir . "/config/devel";
+$config_directories['devel'] = $dir . "/docroot/profiles/custom/dv/modules/environment/dmt_devel/optional";
 
 // Use development service parameters.
 $settings['container_yamls'][] = $dir . '/docroot/sites/development.services.yml';
