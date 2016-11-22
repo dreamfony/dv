@@ -91,6 +91,7 @@ dependencies:
   - views
   - views_ui
   - votingapi
+  - refreshless
 themes:
   - bootstrap
   - seven
