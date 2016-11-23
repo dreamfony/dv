@@ -18,12 +18,12 @@ backend_config:
     timeout: 5
     index_timeout: 5
     optimize_timeout: 10
-    solr_version: '4'
+    solr_version: '6'
     http_method: AUTO
-  retrieve_data: false
+  retrieve_data: true
   highlight_data: false
   excerpt: false
   skip_schema_check: false
-  site_hash: true
+  site_hash: false
   autocorrect_spell: true
   autocorrect_suggest_words: true
