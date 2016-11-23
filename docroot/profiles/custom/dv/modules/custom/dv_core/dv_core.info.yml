@@ -51,6 +51,7 @@ dependencies:
   - recaptcha
   - rest
   - search_api
+  - search_api_solr
   - serialization
   - shortcut
   - system
