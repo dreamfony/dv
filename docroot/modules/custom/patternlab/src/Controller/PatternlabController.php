@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Contains \Drupal\patternlab\Controller\PatternlabController.
- */
 
 namespace Drupal\patternlab\Controller;
 
@@ -21,4 +17,5 @@ class PatternlabController extends ControllerBase {
     // @TODO: This should be configurable. Obviously.
     return new RedirectResponse("/themes/{$theme}/pattern-lab/public/index.html");
   }
+
 }
