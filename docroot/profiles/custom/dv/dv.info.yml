@@ -21,6 +21,7 @@ dependencies:
   - coffee
   - color
   - comment
+  - components
   - config
   - contact
   - content_moderation
@@ -90,9 +91,8 @@ dependencies:
   - user_registrationpassword
   - views
   - views_ui
-  - components
 themes:
-  - bootstrap
+  - sub_dashing
   - seven
 package: DV
 distribution:
