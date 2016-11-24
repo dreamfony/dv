@@ -90,7 +90,7 @@ dependencies:
   - user_registrationpassword
   - views
   - views_ui
-  - votingapi
+  - components
 themes:
   - bootstrap
   - seven
