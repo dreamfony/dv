@@ -20,6 +20,10 @@ drush/contrib
 # Ignore custom theme node_modules folders
 docroot/themes/custom/*/node_modules
 
+# Ignore bower components
+docroot/themes/custom/*/bower_components
+
+
 # Ignore build artifacts
 /deploy
 bin/*

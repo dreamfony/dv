@@ -67,7 +67,8 @@
         "drupal/environment_indicator": "^3.0@beta",
         "drupal/jsonapi": "^1.0@alpha",
         "drupal/cors": "^1.0",
-        "drupal/sitemap": "^1.2"
+        "drupal/sitemap": "^1.2",
+        "drupal/search_api_autocomplete": "^1.0@alpha"
     },
     "require-dev": {
         "behat/behat": "^3.1",

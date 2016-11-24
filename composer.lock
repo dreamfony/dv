@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bc4aa7a727c677a4b9245f573290b76a",
-    "content-hash": "c44c0fe91b6b0956dd320c4092458be6",
+    "hash": "d1d44cac64e95e4bfe70af6f18029a12",
+    "content-hash": "f712ea67b8c62a844645f6fcc35632f2",
     "packages": [
         {
             "name": "acquia/blt",
@@ -4207,6 +4207,50 @@
                 "source": "http://git.drupal.org/project/search_api.git",
                 "issues": "https://www.drupal.org/project/issues/search_api",
                 "irc": "irc://irc.freenode.org/drupal-search-api"
+            }
+        },
+        {
+            "name": "drupal/search_api_autocomplete",
+            "version": "1.0.0-alpha1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/search_api_autocomplete",
+                "reference": "8.x-1.0-alpha1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/search_api_autocomplete-8.x-1.0-alpha1.zip",
+                "reference": "8.x-1.0-alpha1",
+                "shasum": "bd7c15570809e346f60e9f30a6612fd00d36f38e"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "drupal/search_api": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha1",
+                    "datestamp": "1478684640"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "drunken monkey",
+                    "homepage": "https://www.drupal.org/user/205582"
+                }
+            ],
+            "description": "Adds autocomplete functionality to searches.",
+            "homepage": "https://www.drupal.org/project/search_api_autocomplete",
+            "support": {
+                "source": "http://cgit.drupalcode.org/search_api_autocomplete"
             }
         },
         {
@@ -10933,7 +10977,8 @@
         "drupal/search_api": 10,
         "drupal/config_readonly": 10,
         "drupal/environment_indicator": 10,
-        "drupal/jsonapi": 15
+        "drupal/jsonapi": 15,
+        "drupal/search_api_autocomplete": 15
     },
     "prefer-stable": true,
     "prefer-lowest": false,

@@ -1,0 +1,17 @@
+{
+  "attributes": {
+    "Attribute()": {
+      "class": [
+        "region",
+        "region-header",
+        "row"
+      ]
+    }
+  },
+  "content": {
+    "join()": [
+      "molecules-branding",
+      "molecules-search"
+    ]
+  }
+}

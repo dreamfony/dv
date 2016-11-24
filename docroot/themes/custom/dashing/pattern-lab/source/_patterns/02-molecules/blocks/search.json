@@ -1,0 +1,11 @@
+{
+  "attributes": {
+    "Attribute()": {
+      "class": []
+    }
+  },
+  "label": "Search",
+  "content": "atoms-form-search",
+  "pl_prefix": "<div class=\"col-md-3 container-inline\">",
+  "pl_suffix": "</div>"
+}

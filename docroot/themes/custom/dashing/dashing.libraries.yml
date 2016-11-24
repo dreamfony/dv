@@ -1,0 +1,15 @@
+core:
+  css:
+    theme:
+      dist/dashing.css: {}
+
+bootstrap:
+  version: 4.x
+  license:
+    name: MIT
+    url: https://github.com/twbs/bootstrap/blob/master/LICENSE
+    gpl-compatible: false
+  js:
+    node_modules/bootstrap/dist/js/bootstrap.js: {}
+  dependencies:
+    - core/jquery

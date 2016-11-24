@@ -1,0 +1,32 @@
+# THEMENAME.info.yml
+name: Dashing
+type: theme
+description: 'A base theme with sensible default CSS classes added and semantic HTML.'
+base theme: classy
+core: 8.x
+
+# Libraries
+libraries:
+  - dashing/core
+  - dashing/bootstrap
+
+# For compatibility with Pattern Lab templates; this list must
+# always be the folders immediately under the `$sourceDir` patterns folder
+# `$sourceDir` = defined in `pattern-lab/config/config.yml` under `sourceDir
+# patterns folder = `$sourceDir` + `_patterns/`
+component-libraries:
+  atoms:
+    paths:
+      - pattern-lab/source/_patterns/01-atoms
+  molecules:
+    paths:
+      - pattern-lab/source/_patterns/02-molecules
+  organisms:
+    paths:
+      - pattern-lab/source/_patterns/03-organisms
+  templates:
+    paths:
+      - pattern-lab/source/_patterns/04-templates
+  pages:
+    paths:
+      - pattern-lab/source/_patterns/05-pages
