@@ -44,7 +44,7 @@ install_site: false
 configure_drush_aliases: false
 
 # This is required for front-end building tools.
-nodejs_version: "0.12"
+nodejs_version: "7.x"
 nodejs_npm_global_packages:
   - name: bower
   - name: gulp-cli
