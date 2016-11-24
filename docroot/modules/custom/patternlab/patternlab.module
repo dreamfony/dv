@@ -40,4 +40,3 @@ function patternlab_system_themes_page_alter(&$theme_groups) {
     );
   }
 }
-
