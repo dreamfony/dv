@@ -53,7 +53,6 @@ dependencies:
   - history
   - image
   - inline_entity_form
-  - jsonapi
   - language
   - like_and_dislike
   - link
