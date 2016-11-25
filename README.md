@@ -38,9 +38,6 @@ http://blt.readthedocs.io/en/latest/readme/onboarding/
 - vagrant ssh
 - cd /var/www/dv
 - composer blt-alias
-- exit
-- vagrant ssh
-- cd /var/www/dv 
 - blt local:setup
 - cd /var/www/dv/docroot
 - drupal init
