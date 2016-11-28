@@ -9,13 +9,9 @@ ZSH_SETUP_COMPLETE_FILE=/etc/zsh_install_complete
 if [ ! -e "$ZSH_SETUP_COMPLETE_FILE" ]; then
 
   sudo apt-get -y install zsh
-  sudo apt-get -y install zsh
-
-  sudo wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-
-  sudo chsh -s `which zsh` vagrant
-
-  sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+  wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sudo sh
+  sudo chsh -s /bin/zsh vagrant
+  zsh
 
   # Create a file to indicate this script has already run.
   sudo touch $ZSH_SETUP_COMPLETE_FILE
