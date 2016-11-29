@@ -41,10 +41,6 @@ http://blt.readthedocs.io/en/latest/readme/onboarding/
 - blt local:setup
 - cd /var/www/dv/docroot
 - drupal init
-- cd /var/www/dv/docroot/themes/custom/dashing/pattern-lab
-- composer install
-- cd ..
-- npm install
 
 
 #### Pushing Local changes and Ongoing development
