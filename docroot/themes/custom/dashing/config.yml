@@ -75,7 +75,7 @@ drupal:
     - pattern-lab/source/_patterns/**/*.twig
     - templates/**
   # run this command
-  command: ../../../vendor/bin/drupal cr all
+  command: ../../../../vendor/bin/drupal cr all
   # in this directory
   dir: ./
   inject:
