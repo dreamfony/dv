@@ -139,6 +139,34 @@ which will manage the host’s /etc/hosts file by adding and removing hostname e
  On windows u can try
 
     vagrant plugin install vagrant-winnfsd
+    
+ On linux and mac if your /var/www/dv mounted folder is not owned by vagrant and has group www-data install:
+    
+    vagrant plugin install vagrant-bindfs
+ 
+ create `/box/Vagrantfile.local` and insert this code
+ 
+    vconfig['vagrant_synced_folders'].each do |synced_folder|
+      case synced_folder['type']
+      when "nfs"
+        guest_path = synced_folder['destination']
+        host_path = File.expand_path(synced_folder['local_path'])
+        config.vm.synced_folders[guest_path][:guestpath] = "/var/nfs#{host_path}"
+        config.bindfs.bind_folder "/var/nfs#{host_path}", guest_path,
+          u: 'vagrant',
+          g: 'www-data',
+          perms: 'u=rwX:g=rwD',
+          o: 'nonempty'
+        config.nfs.map_uid = Process.uid
+        config.nfs.map_gid = Process.gid
+      end
+    end
+    
+  after that you will have to destroy machine and provision it again
+  
+    vagrant destroy
+    vagrant up
+    
 
 BLT uses [DrupalVM](https://www.drupalvm.com/)
 Configuration file can be found at `/box/config.yml`
