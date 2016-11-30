@@ -13,6 +13,6 @@
     "tests"
   ],
   "devDependencies": {
-    "drupal": "http://cgit.drupalcode.org/drupal/plain/core/misc/drupal.js?h=8.1.x"
+    "drupal": "http://cgit.drupalcode.org/drupal/plain/core/misc/drupal.js?h=8.2.x"
   }
 }
