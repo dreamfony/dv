@@ -119,5 +119,4 @@ php_xdebug_idekey: PHPSTORM
 
 post_provision_scripts:
   - "../../../acquia/blt/scripts/drupal-vm/post-provision.sh"
-  - "../../../../box/postprovision-patternlab.sh"
   - "../../../../box/postprovision-solr.sh"
