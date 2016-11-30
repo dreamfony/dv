@@ -17,13 +17,6 @@ docroot/profiles/contrib
 docroot/libraries
 drush/contrib
 
-# Ignore custom theme node_modules folders
-docroot/themes/custom/*/node_modules
-
-# Ignore bower components
-docroot/themes/custom/*/bower_components
-
-
 # Ignore build artifacts
 /deploy
 bin/*
@@ -117,3 +110,26 @@ nbproject/*
 *.gz
 *.sql
 *.zip
+
+# Compiled files
+dest/
+source/_patterns/01-atoms/images/_icons-settings.scss
+
+# OS generated files
+.DS_Store?
+
+# Dependencies
+bower_components
+node_modules
+
+# Generated files
+*.sass-cache/
+
+#IDE plugins
+.idea
+
+source/styleguide/css
+
+# Errors
+npm-debug.log
+php_errors.log
