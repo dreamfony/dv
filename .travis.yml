@@ -17,10 +17,11 @@ cache:
   - "$HOME/.drush/cache"
   - "$HOME/.npm"
   - "$HOME/.nvm"
+  - "$HOME/.yarn-cache"
   - "vendor"
   # Cache front end dependecies to dramatically improve build time.
-  # - "docroot/themes/custom/mytheme/node_modules"
-  # - "docroot/themes/custom/mytheme/bower_components"
+  - "docroot/themes/custom/patternlab/node_modules"
+  - "docroot/themes/custom/patternlab/bower_components"
 
 addons:
   ssh_known_hosts:
