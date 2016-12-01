@@ -90,9 +90,8 @@ dependencies:
   - user_registrationpassword
   - views
   - views_ui
-  - patternlab
 themes:
-  - sub_dashing
+  - patternlab
   - seven
 package: DV
 distribution:

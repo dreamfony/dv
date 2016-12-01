@@ -22,10 +22,10 @@ drush:
     default_alias: '${drush.aliases.local}'
 target-hooks:
     frontend-setup:
-        dir: '${docroot}/profiles/custom/dv/themes/dv'
+        dir: '${docroot}/themes/custom/patternlab'
         command: 'yarn install'
     frontend-build:
-        dir: '${docroot}/profiles/custom/dv/themes/dv'
+        dir: '${docroot}/themes/custom/patternlab'
         command: 'npm run compile'
     post-deploy-build:
         dir: '${docroot}'

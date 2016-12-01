@@ -1,0 +1,10 @@
+core:
+  css:
+    theme:
+      dest/style.css: {}
+  js:
+    dest/script.js: {}
+
+  dependencies:
+    - core/jquery
+    - core/drupal
