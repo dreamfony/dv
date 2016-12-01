@@ -37,6 +37,7 @@ http://blt.readthedocs.io/en/latest/readme/onboarding/
 - vagrant up
 - vagrant ssh
 - cd /var/www/dv
+- git checkout develop
 - composer blt-alias
 - blt local:setup
 - cd /var/www/dv/docroot
