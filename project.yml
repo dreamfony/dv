@@ -22,11 +22,11 @@ drush:
     default_alias: '${drush.aliases.local}'
 target-hooks:
     frontend-setup:
-        dir: '${docroot}'
-        command: 'echo ''No frontend-setup configured.'''
+        dir: '${docroot}/profiles/custom/dv/themes/dv'
+        command: 'yarn install'
     frontend-build:
-        dir: '${docroot}'
-        command: 'echo ''No frontend-build configured.'''
+        dir: '${docroot}/profiles/custom/dv/themes/dv'
+        command: 'npm run compile'
     post-deploy-build:
         dir: '${docroot}'
         command: 'echo ''No post-deploy build configured.'''

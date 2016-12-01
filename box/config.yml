@@ -5,7 +5,7 @@ vagrant_ip: 192.168.88.88
 
 drupalvm_vagrant_version_min: '1.8.5'
 
-# Sometimes, on windows, VM http is only accessible with this 
+# Sometimes, on windows, VM http is only accessible with this
 # vagrant_public_ip: "192.168.1.55"
 
 # Set drupal_site_name to the project's human-readable name.
@@ -121,4 +121,4 @@ php_xdebug_idekey: PHPSTORM
 post_provision_scripts:
   - "../../../acquia/blt/scripts/drupal-vm/post-provision.sh"
   - "../../../../box/postprovision-solr.sh"
-  - "./../../../box/postprovision-tweaks.sh"
+  - "../../../../box/postprovision-tweaks.sh"
