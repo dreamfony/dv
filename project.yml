@@ -23,10 +23,10 @@ drush:
 target-hooks:
     frontend-setup:
         dir: '${docroot}/themes/custom/patternlab'
-        command: 'echo ''kurac'''
+        command: 'yarn install --force'
     frontend-build:
         dir: '${docroot}/themes/custom/patternlab'
-        command: 'echo ''kurac'''
+        command: 'npm run compile'
     post-deploy-build:
         dir: '${docroot}'
         command: 'echo ''No post-deploy build configured.'''
