@@ -23,7 +23,7 @@ drush:
 target-hooks:
     frontend-setup:
         dir: '${docroot}/themes/custom/patternlab'
-        command: 'yarn install'
+        command: 'yarn install --force'
     frontend-build:
         dir: '${docroot}/themes/custom/patternlab'
         command: 'npm run compile'
