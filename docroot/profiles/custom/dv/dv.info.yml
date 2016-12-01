@@ -32,7 +32,6 @@ dependencies:
   - ctools_views
   - datetime
   - datetime_range
-  - dv_core
   - dynamic_entity_reference
   - dynamic_page_cache
   - editor
