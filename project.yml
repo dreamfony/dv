@@ -20,6 +20,7 @@ drush:
         local: self
         ci: self
     default_alias: '${drush.aliases.local}'
+    verbose: true
 target-hooks:
     frontend-setup:
         dir: '${docroot}/themes/custom/patternlab'
