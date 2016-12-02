@@ -179,10 +179,10 @@ module.exports = {
     port: 3050,
     watchFiles: [],
     // enable when full CMS is set up
-    // domain: 'mysite.dev',
+    // domain: 'local.dv.com',
     baseDir: './',
     startPath: 'pattern-lab/public/',
-    openBrowserAtStart: false,
+    openBrowserAtStart: true,
     // requires above to be true; allows non-default browser to open
     browser: [
       'Google Chrome',
