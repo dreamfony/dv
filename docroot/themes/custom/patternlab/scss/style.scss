@@ -18,6 +18,10 @@
 @import "breakpoint-sass/stylesheets/breakpoint";
 // Helpful mixins, http://bourbon.io/docs/
 @import "bourbon/app/assets/stylesheets/bourbon";
+// UI KIT
+@import "uikit/scss/uikit-mixins.scss";
+@import "uikit/scss/uikit.scss";
+@import "uikit/scss/components/autocomplete.scss";
 
 //
 // End libs
