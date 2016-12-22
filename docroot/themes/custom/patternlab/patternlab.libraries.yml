@@ -4,8 +4,9 @@ core:
       dest/style.css: {}
   js:
     dest/script.js: {}
-#    dest/bower-deps.min.js: {}
+    dest/bower--deps.min.js: {}
 
   dependencies:
     - core/jquery
     - core/drupal
+    - core/jquery.once

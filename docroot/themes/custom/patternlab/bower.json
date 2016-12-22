@@ -25,7 +25,8 @@
     "bourbon": "^4.2.7",
     "normalize-scss": "normalize.scss#^5.0.3",
     "singularity": "singularitygs#^1.7.0",
-    "breakpoint-sass": "^2.7.0"
+    "breakpoint-sass": "^2.7.0",
+    "bootstrap-sass": "^3.3.7"
   },
   "devDependencies Note": "All dev dependencies below are here to 'fake' Drupal js behavior in PL",
   "devDependencies": {
@@ -33,7 +34,27 @@
     "jquery": "^2.1.4",
     "underscore": "^1.8.3",
     "drupal": "http://cgit.drupalcode.org/drupal/plain/core/misc/drupal.js?h=8.1.7",
-    "holderjs": "^2.9.4",
-    "bootstrap-sass": "^3.3.7"
+    "holderjs": "^2.9.4"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "assets/javascripts/bootstrap.js",
+        "assets/javascripts/bootstrap/affix.js",
+        "assets/javascripts/bootstrap/alert.js",
+        "assets/javascripts/bootstrap/button.js",
+        "assets/javascripts/bootstrap/carousel.js",
+        "assets/javascripts/bootstrap/collapse.js",
+        "assets/javascripts/bootstrap/dropdown.js",
+        "assets/javascripts/bootstrap/tab.js",
+        "assets/javascripts/bootstrap/transition.js",
+        "assets/javascripts/bootstrap/scrollspy.js",
+        "assets/javascripts/bootstrap/modal.js",
+        "assets/javascripts/bootstrap/tooltip.js",
+        "assets/javascripts/bootstrap/popover.js"
+      ],
+      "dependencies": []
+    }
+
   }
 }

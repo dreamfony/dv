@@ -13,7 +13,7 @@ module.exports = {
       enabled: true,
       failOnError: true,
       // in addition to linting `css.src`, this is added.
-      extraSrc: [],
+      extraSrc: []
     },
     // additional debugging info in comment of the output CSS - only use when necessary
     sourceComments: false,
@@ -23,12 +23,12 @@ module.exports = {
     // https://github.com/ai/browserslist#queries
     autoPrefixerBrowsers: [
       'last 2 versions',
-      'IE >= 10',
+      'IE >= 10'
     ],
     includePaths: [
       './node_modules',
       './bower_components',
-      './bootstrap-sass'
+      './drupal-bootstrap-sass'
     ],
     // http://sassdoc.com
     sassdoc: {
@@ -66,7 +66,7 @@ module.exports = {
         'js/**/*.js',
         'source/_patterns/**/*.js',
         '.*.js',
-        '*.js',
+        '*.js'
       ],
     },
   },
