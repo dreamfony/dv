@@ -2,7 +2,7 @@
   "items": [
     {
       "name": "$c-red",
-      "value": "hsl(352, 92%, 38%)",
+      "value": "hsl(352, 100%, 50%)",
       "comment": "Primary Color. Used for links"
     },
     {

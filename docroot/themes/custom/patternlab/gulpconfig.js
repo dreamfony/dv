@@ -5,6 +5,7 @@ module.exports = {
       'scss/**/*.scss',
       'source/_patterns/**/*.scss',
       'source/styleguide/*.scss',
+      'bootstrap-sass/**/.scss'
     ],
     dest: 'dest/',
     flattenDestOutput: true,
@@ -27,6 +28,7 @@ module.exports = {
     includePaths: [
       './node_modules',
       './bower_components',
+      './bootstrap-sass'
     ],
     // http://sassdoc.com
     sassdoc: {
@@ -48,7 +50,7 @@ module.exports = {
     enabled: true,
     src: [
       'js/**/*.js',
-      'source/_patterns/**/*.js',
+      'source/_patterns/**/*.js'
     ],
     dest: 'dest/',
     destName: 'script.js',

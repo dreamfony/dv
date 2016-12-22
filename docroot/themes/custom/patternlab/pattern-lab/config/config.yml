@@ -63,6 +63,7 @@ plugins:
           - ../source/_patterns/01-atoms/01-typography/headings
           - ../source/_patterns/01-atoms/01-typography/lists
           - ../source/_patterns/01-atoms/01-typography/text
+          - ../source/_patterns/01-atoms/ajax-throbber
           - ../source/_patterns/01-atoms/buttons
           - ../source/_patterns/01-atoms/images
       molecules:

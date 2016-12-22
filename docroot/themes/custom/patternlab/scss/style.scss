@@ -11,17 +11,31 @@
 //
 
 // Better style reset, https://github.com/JohnAlbin/normalize-scss
-@import "normalize-scss/sass/normalize";
+//@import "normalize-scss/sass/normalize";
+
 // Grid system, https://github.com/at-import/Singularity
 @import "singularity/stylesheets/singularitygs";
+
 // A cleaner way to do breakpoints/media queries, http://breakpoint-sass.com/,
 @import "breakpoint-sass/stylesheets/breakpoint";
+
 // Helpful mixins, http://bourbon.io/docs/
 @import "bourbon/app/assets/stylesheets/bourbon";
-// UI KIT
-@import "uikit/scss/uikit-mixins.scss";
-@import "uikit/scss/uikit.scss";
-@import "uikit/scss/components/autocomplete.scss";
+
+// UI KIT http://www.uikit.com
+//@import "uikit/scss/uikit-mixins.scss";
+//@import "uikit/scss/uikit.scss";
+//@import "uikit/scss/components/autocomplete.scss";
+
+// Default variables.
+@import "bootstrap/default-variables";
+
+// Bootstrap Framework.
+@import 'bootstrap-sass/assets/stylesheets/bootstrap';
+
+// Base-theme overrides.
+@import 'bootstrap/overrides';
+
 
 //
 // End libs
