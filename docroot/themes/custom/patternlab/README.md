@@ -58,6 +58,7 @@ npm run update
 
 ## Orientation
 
+- drupal-bootstrap-saas/ Files form Bootstrap saas starter kit
 - source/
   - _annotations/ ([annotations](http://patternlab.io/docs/pattern-adding-annotations.html) for Patterns)
   - _data/ (Global JSON data files available to all Patterns, can add multiple)
@@ -79,7 +80,7 @@ npm run update
 - images/icons/src/ - all SVGs here are combined into font icons and have classes and Sass mixins made for each based on file name. See `atoms/images/icons` in Pattern Lab.
 - dest/ - Many compiled assets end up in here like CSS, JS, Font Icons, and any doc systems like [SassDoc](http://sassdoc.com).
 - templates/ - Drupal twig templates. These often will `include`, `embed`, or `extend` the Twig templates found in Pattern Lab like this: `{% include "@molecules/branding/branding.twig" with { url: path('<front>') } %}`. We keep the components in Pattern Lab "pure" and ignorant of Drupal's data model and use these templates to map the data between the two. Think of these as the Presenter templates in the [Model View Presenter](https://en.wikipedia.org/wiki/Model–view–presenter) approach. Also, Drupal Twig templates that have nothing to do with Pattern Lab go here.
-- gulpconfig.yml - Configuration for all the gulp tasks, a ton can be controlled here.
+- gulpconfig.js - Configuration for all the gulp tasks, a ton can be controlled here.
 
 ### IDE/Text Editor Setup
 
@@ -142,7 +143,7 @@ The formatters (things like `.paragraph`, `.words`, etc) can accept options, whe
 
 ## Configuration
 
-It's almost all done in `gulpconfig.yml`. End all paths with a `/` please (i.e. `path/to/dir/`). The local `gulpfile.js` passes the `config` object to [`p2-theme-core`](https://github.com/phase2/p2-theme-core) - which can be viewed at `node_modules/p2-theme-core/` (most stuff in `lib/`).
+It's almost all done in `gulpconfig.js`. End all paths with a `/` please (i.e. `path/to/dir/`). The local `gulpfile.js` passes the `config` object to [`p2-theme-core`](https://github.com/phase2/p2-theme-core) - which can be viewed at `node_modules/p2-theme-core/` (most stuff in `lib/`).
 
 Many of the features can be turned off, for example if we didn't want all the JS features like linting and concatenation, just toggle `enabled` under `js` in `gulpconfig.yml`. So you'd just open `gulpconfig.yml` and change this:
 
@@ -191,10 +192,8 @@ Using `--save` shows it's intention to be used in Pattern Lab and Drupal; using 
 
 Sass libraries are installed using bower as well; you can see how we import them in the main scss file. These are the ones available:
 
-- [Normalize](https://github.com/JohnAlbin/normalize-scss) - Better style reset
 - [Singularity Grid System](https://github.com/at-import/Singularity) - Grid system
 - [Breakpoint](http://breakpoint-sass.com) - A cleaner way to do breakpoints/media queries
-- [Bourbon](http://bourbon.io/docs) - Helpful mixins
 
 ## Gulp
 
