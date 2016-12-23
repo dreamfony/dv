@@ -4,7 +4,8 @@ core:
       dest/style.css: {}
   js:
     dest/script.js: {}
-    dest/bower--deps.min.js: {}
+# uncomment line below if some of js dependecies are added with bower
+#    dest/bower--deps.min.js: {}
 
   dependencies:
     - core/jquery

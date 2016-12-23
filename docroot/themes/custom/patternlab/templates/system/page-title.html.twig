@@ -1,8 +1,7 @@
-{% extends "@classy/content/page-title.html.twig" %}
 {#
 /**
  * @file
- * Bartik's theme implementation for a page title.
+ * Default theme implementation for page titles.
  *
  * Available variables:
  * - title_attributes: HTML attributes for the page title element.
@@ -11,6 +10,12 @@
  * - title: The page title, for use in the actual content.
  * - title_suffix: Additional output populated by modules, intended to be
  *   displayed after the main title tag that appears in the template.
+ *
+ * @ingroup templates
+ *
+ * @see template_preprocess_page_title()
  */
 #}
-{% set title_attributes = title_attributes.addClass('title') %}
+{% if title %}
+  <h1{{ title_attributes.addClass('page-header') }}>{{ title }}</h1>
+{% endif %}
