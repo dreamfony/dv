@@ -10,17 +10,11 @@
 // Add more libs with `bower install --save {NAME-OF-LIB}`
 //
 
-// Better style reset, https://github.com/JohnAlbin/normalize-scss
-//@import "normalize-scss/sass/normalize";
-
 // Grid system, https://github.com/at-import/Singularity
 @import "singularity/stylesheets/singularitygs";
 
 // A cleaner way to do breakpoints/media queries, http://breakpoint-sass.com/,
 @import "breakpoint-sass/stylesheets/breakpoint";
-
-// Helpful mixins, http://bourbon.io/docs/
-@import "bourbon/app/assets/stylesheets/bourbon";
 
 // Bootstrap Framework.
 @import 'bootstrap-sass/assets/stylesheets/bootstrap';
