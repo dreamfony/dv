@@ -67,7 +67,8 @@
         "drupal/cors": "^1.0",
         "drupal/sitemap": "^1.2",
         "drupal/search_api_autocomplete": "^1.0@alpha",
-        "drupal/components": "^1.0"
+        "drupal/components": "^1.0",
+        "drupal/bootstrap": "^3.1"
     },
     "require-dev": {
         "behat/behat": "^3.1",
