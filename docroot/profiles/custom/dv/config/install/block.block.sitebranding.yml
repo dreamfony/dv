@@ -4,11 +4,11 @@ dependencies:
   module:
     - system
   theme:
-    - socialbase
+    - patternlab
 id: sitebranding
-theme: socialbase
-region: header
-weight: 3
+theme: patternlab
+region: navigation
+weight: 0
 provider: null
 plugin: system_branding_block
 settings:
