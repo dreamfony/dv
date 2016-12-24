@@ -15,5 +15,9 @@ logo:
   path: ''
   url: ''
   use_default: 1
-cdn_provider: ''
+cdn_provider: custom
+cdn_custom_css: ''
+cdn_custom_css_min: ''
+cdn_custom_js: 'https://cdn.jsdelivr.net/bootstrap/3.3.7/js/bootstrap.js'
+cdn_custom_js_min: 'https://cdn.jsdelivr.net/bootstrap/3.3.7/js/bootstrap.min.js'
 table: ''
