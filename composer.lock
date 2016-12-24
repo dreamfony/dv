@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "044e388e13294714ffed1a3628eab45f",
-    "content-hash": "d03df659ab4de19d2b91d4e41a99e330",
+    "hash": "b03b334c9a80dedd0caf7e22a42ca131",
+    "content-hash": "ab6c3a4d03a7ff44e39e35008ddcb8ef",
     "packages": [
         {
             "name": "acquia/blt",
@@ -1399,7 +1399,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/bootstrap-8.x-3.1.zip",
-                "reference": null,
+                "reference": "8.x-3.1",
                 "shasum": "12efa571153c47c8634066d51f76e19dc9f7db5c"
             },
             "require": {
@@ -1603,60 +1603,6 @@
                 "source": "https://cgit.drupalcode.org/coffee",
                 "issues": "https://drupal.org/project/issues/coffee",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
-            }
-        },
-        {
-            "name": "drupal/cog",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/cog",
-                "reference": "8.x-1.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/cog-8.x-1.1.zip",
-                "reference": "8.x-1.1",
-                "shasum": "6e2fbedc551b7d0747a8613192bb15161e92f173"
-            },
-            "require": {
-                "drupal/core": "~8.0"
-            },
-            "type": "drupal-theme",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.1",
-                    "datestamp": "1479499739"
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "aellison",
-                    "homepage": "https://www.drupal.org/user/277818"
-                },
-                {
-                    "name": "grasmash",
-                    "homepage": "https://www.drupal.org/user/455714"
-                },
-                {
-                    "name": "jenter",
-                    "homepage": "https://www.drupal.org/user/186584"
-                },
-                {
-                    "name": "sarahjean",
-                    "homepage": "https://www.drupal.org/user/553728"
-                }
-            ],
-            "homepage": "https://www.drupal.org/project/cog",
-            "support": {
-                "source": "http://cgit.drupalcode.org/cog"
             }
         },
         {
@@ -1959,16 +1905,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "8.2.3",
+            "version": "8.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal-composer/drupal-core.git",
-                "reference": "63b3346647a7e43bcde3947a3aea02eabdf8fa56"
+                "reference": "0741cbf486fc55721b5dab050b37c721c80df097"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/63b3346647a7e43bcde3947a3aea02eabdf8fa56",
-                "reference": "63b3346647a7e43bcde3947a3aea02eabdf8fa56",
+                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/0741cbf486fc55721b5dab050b37c721c80df097",
+                "reference": "0741cbf486fc55721b5dab050b37c721c80df097",
                 "shasum": ""
             },
             "require": {
@@ -1980,7 +1926,7 @@
                 "egulias/email-validator": "1.2.*",
                 "guzzlehttp/guzzle": "^6.2.1",
                 "masterminds/html5": "~2.1",
-                "paragonie/random_compat": "~1.0",
+                "paragonie/random_compat": "^1|^2",
                 "php": ">=5.5.9",
                 "stack/builder": "1.0.*",
                 "symfony-cmf/routing": "~1.4",
@@ -2132,7 +2078,7 @@
                 "GPL-2.0+"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2016-11-16 18:45:36"
+            "time": "2016-12-07 18:31:42"
         },
         {
             "name": "drupal/cors",
@@ -2640,17 +2586,17 @@
         },
         {
             "name": "drupal/features",
-            "version": "3.1.0",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/features",
-                "reference": "8.x-3.1"
+                "reference": "8.x-3.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/features-8.x-3.1.zip",
-                "reference": "8.x-3.1",
-                "shasum": "b09970f2cd32c4826f66a9b98accd38038df6fec"
+                "url": "https://ftp.drupal.org/files/projects/features-8.x-3.2.zip",
+                "reference": null,
+                "shasum": "1fce32d01b812d2a613ffadb1b9395293364980e"
             },
             "require": {
                 "drupal/config_update": "*",
@@ -2662,11 +2608,12 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.1",
-                    "datestamp": "1479430142"
+                    "version": "8.x-3.2",
+                    "datestamp": "1481513884"
                 },
                 "patches_applied": {
-                    "https://www.drupal.org/node/2383439": "https://www.drupal.org/files/issues/features_revert_permissions_drop-2383439-8.patch"
+                    "https://www.drupal.org/node/2383439": "https://www.drupal.org/files/issues/features_revert_permissions_drop-2383439-8.patch",
+                    "https://www.drupal.org/node/2668562 #2": "https://www.drupal.org/files/issues/features-not_detecting_profile_files-2668562-2.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -9660,6 +9607,60 @@
             ],
             "description": "implementation of xdg base directory specification for php",
             "time": "2014-10-24 07:27:01"
+        },
+        {
+            "name": "drupal/cog",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/cog",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/cog-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "6e2fbedc551b7d0747a8613192bb15161e92f173"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-theme",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1479499739"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "aellison",
+                    "homepage": "https://www.drupal.org/user/277818"
+                },
+                {
+                    "name": "grasmash",
+                    "homepage": "https://www.drupal.org/user/455714"
+                },
+                {
+                    "name": "jenter",
+                    "homepage": "https://www.drupal.org/user/186584"
+                },
+                {
+                    "name": "sarahjean",
+                    "homepage": "https://www.drupal.org/user/553728"
+                }
+            ],
+            "homepage": "https://www.drupal.org/project/cog",
+            "support": {
+                "source": "http://cgit.drupalcode.org/cog"
+            }
         },
         {
             "name": "drupal/devel",
