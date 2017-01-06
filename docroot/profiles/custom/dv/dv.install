@@ -71,7 +71,13 @@ function dv_install() {
   // Enable the admin theme.
   \Drupal::configFactory()->getEditable('node.settings')->set('use_admin_theme', TRUE)->save(TRUE);
 
-  // add moderator role
-  // $role = \Drupal\user\Entity\Role::create(array('id' => 'moderator', 'label' => 'Moderator'));
-  // $role->save();
+  // create bot_1 user
+  // this user is used to import data
+  $user = User::create(array(
+    'name' => 'bot1',
+    'mail' => 'bot1@dmtit.com',
+    'status' => 1,
+  ));
+  $user -> save();
+
 }

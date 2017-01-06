@@ -13,7 +13,7 @@ source:
   data_fetcher_plugin: http
   data_parser_plugin: xml
   urls:
-    - 'http://local.dv.com/sites/default/files/adresar.xml'
+    - 'https://drive.google.com/uc?export=download&id=0B0o4prxPrMJsRzBCTHpENGQ3ekU'
   item_selector: /DATABASE_BIB/RECORD
   fields:
     -
@@ -74,7 +74,7 @@ process:
     default_value: organisation
   uid:
     plugin: default_value
-    default_value: 1
+    default_value: 2 #bot1
   field_o_web_site: web_site_url
   field_o_organisation_id: organisation_id
   field_o_organisation_group:

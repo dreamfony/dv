@@ -106,7 +106,7 @@ function dv_organisation_migrate_migrate_prepare_row(Row $row, MigrateSourceInte
               'type' => 'person',
               'title' => $values['function_upholder'],
               'field_person_id' => $upholderId,
-              'uid' => 1
+              'uid' => 2
             ]);
 
             $new_person->save();
@@ -125,7 +125,7 @@ function dv_organisation_migrate_migrate_prepare_row(Row $row, MigrateSourceInte
             $new_function = Term::create([
               'vid' => 'functions',
               'name' => $values['function'],
-              'uid' => 1
+              'uid' => 2
             ]);
 
             $new_function->save();
