@@ -43,6 +43,10 @@ http://blt.readthedocs.io/en/latest/readme/onboarding/
 - cd /var/www/dv/docroot
 - drupal init
 
+#### Front end
+
+- check docroot/themes/custom/patternlab/README.md
+
 
 #### Pushing Local changes and Ongoing development
 
@@ -299,7 +303,7 @@ if u need to debug drush or any site code that is initiated within drush (PHP CL
 #### Twig Debugging
 
 services.local.php
-twig.config degbug:true
+twig.config debug:true
 
 
 **TODO**
