@@ -4,8 +4,7 @@ module.exports = {
     src: [
       'scss/**/*.scss',
       'source/_patterns/**/*.scss',
-      'source/styleguide/*.scss',
-      'bootstrap-sass/**/.scss'
+      'source/styleguide/*.scss'
     ],
     dest: 'dest/',
     flattenDestOutput: true,
