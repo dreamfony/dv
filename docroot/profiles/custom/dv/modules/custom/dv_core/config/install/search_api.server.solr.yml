@@ -18,7 +18,7 @@ backend_config:
     timeout: 5
     index_timeout: 5
     optimize_timeout: 10
-    solr_version: '6'
+    solr_version: '4'
     http_method: AUTO
   retrieve_data: true
   highlight_data: false
