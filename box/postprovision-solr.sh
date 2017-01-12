@@ -14,7 +14,7 @@ SOLR_DOWNLOAD="http://ftp.drupal.org/files/projects/search_api_solr-8.x-1.x-dev.
 SOLR_DOWNLOAD_DIR="/tmp"
 SOLR_MODULE_NAME="search_api_solr"
 SOLR_VERSION="4.x"
-SOLR_CORE_PATH="/var/solr/data/collection1"
+SOLR_CORE_PATH="/var/solr/collection1"
 
 # Check to see if we've already performed this setup.
 if [ ! -e "$SOLR_SETUP_COMPLETE_FILE" ]; then
