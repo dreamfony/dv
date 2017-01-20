@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6e4ced00241662c176044226e0562efb",
-    "content-hash": "91660058471507a442815d6c7af031fa",
+    "hash": "758ad1b8540693cc7a0c0cd427fac3ab",
+    "content-hash": "544b5526270c6c015e4d0a101943efd0",
     "packages": [
         {
             "name": "acquia/blt",
@@ -1195,7 +1195,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/acquia_connector-8.x-1.7.zip",
-                "reference": null,
+                "reference": "8.x-1.7",
                 "shasum": "42d059bdc7efe11691113040cd80be3ebcf19b35"
             },
             "require": {
@@ -1338,7 +1338,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/admin_toolbar-8.x-1.18.zip",
-                "reference": null,
+                "reference": "8.x-1.18",
                 "shasum": "ea5b6b5eb20757fda12e7220819a750e2575359b"
             },
             "require": {
@@ -1820,12 +1820,12 @@
             "version": "1.0.0-beta5",
             "source": {
                 "type": "git",
-                "url": "https://github.com/hechoendrupal/DrupalConsole.git",
+                "url": "https://github.com/hechoendrupal/drupal-console.git",
                 "reference": "8905ee36a8339b8e237d370fea790a994350a6d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hechoendrupal/DrupalConsole/zipball/8905ee36a8339b8e237d370fea790a994350a6d9",
+                "url": "https://api.github.com/repos/hechoendrupal/drupal-console/zipball/8905ee36a8339b8e237d370fea790a994350a6d9",
                 "reference": "8905ee36a8339b8e237d370fea790a994350a6d9",
                 "shasum": ""
             },
@@ -2407,7 +2407,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/entity-8.x-1.0-alpha4.zip",
-                "reference": null,
+                "reference": "8.x-1.0-alpha4",
                 "shasum": "c081d3757c159dfee74c9e5acb63bdee81c42e18"
             },
             "require": {
@@ -2466,7 +2466,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-1.0-beta2.zip",
-                "reference": null,
+                "reference": "8.x-1.0-beta2",
                 "shasum": "f6eb6e52d93908bc24eebe0ca37fbc781c31ea2e"
             },
             "require": {
@@ -2593,7 +2593,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/features-8.x-3.2.zip",
-                "reference": null,
+                "reference": "8.x-3.2",
                 "shasum": "1fce32d01b812d2a613ffadb1b9395293364980e"
             },
             "require": {
@@ -2665,7 +2665,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/field_group-8.x-1.0-rc6.zip",
-                "reference": null,
+                "reference": "8.x-1.0-rc6",
                 "shasum": "1ce3c6387e745a04a1099956a5bf39bb50096d44"
             },
             "require": {
@@ -2884,7 +2884,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/geocoder-8.x-2.0-alpha5.zip",
-                "reference": null,
+                "reference": "8.x-2.0-alpha5",
                 "shasum": "1cbac01cc6217e17fd53dd8be68d4ad8f018c004"
             },
             "require": {
@@ -3202,6 +3202,67 @@
             }
         },
         {
+            "name": "drupal/leaflet",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/leaflet",
+                "reference": "dce98f4b630252375090db05c1789fc060d7f93c"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "leaflet/leaflet": "^0.7.7"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta1+1-dev",
+                    "datestamp": "1476171839"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Peter Vanhee (pvhee)",
+                    "homepage": "https://www.drupal.org/u/pvhee",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Rik de Boer (RdeBoer)",
+                    "homepage": "https://www.drupal.org/u/rdeboer",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Gabriel Carleton-Barnes (gcb)",
+                    "homepage": "https://www.drupal.org/u/gcb",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Lev Tsypin (levelos)",
+                    "homepage": "https://www.drupal.org/u/levelos",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Sean Larkin (seanberto)",
+                    "homepage": "https://www.drupal.org/u/seanberto",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Integration with the Leaflet map scripting library.",
+            "homepage": "https://www.drupal.org/project/leaflet",
+            "support": {
+                "source": "http://cgit.drupalcode.org/leaflet",
+                "issues": "https://www.drupal.org/project/issues/leaflet"
+            },
+            "time": "2016-10-11 07:58:10"
+        },
+        {
             "name": "drupal/libraries",
             "version": "dev-3.x",
             "source": {
@@ -3316,7 +3377,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/masquerade-8.x-2.0-beta1.zip",
-                "reference": null,
+                "reference": "8.x-2.0-beta1",
                 "shasum": "d8071c2b01db9a3cc5d5bc8ecd570276e12840d4"
             },
             "require": {
@@ -3933,7 +3994,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/rabbit_hole-8.x-1.0-beta1.zip",
-                "reference": null,
+                "reference": "8.x-1.0-beta1",
                 "shasum": "e1e4ec9ea0f1200543697a59fd542c3fcc79456b"
             },
             "require": {
@@ -5146,6 +5207,17 @@
                 "password"
             ],
             "time": "2014-11-20 16:49:30"
+        },
+        {
+            "name": "leaflet/leaflet",
+            "version": "v0.7.7",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/Leaflet/Leaflet/archive/v0.7.7.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "drupal-library"
         },
         {
             "name": "masterminds/html5",
@@ -9615,6 +9687,42 @@
             "time": "2014-10-24 07:27:01"
         },
         {
+            "name": "drmonty/leaflet",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mrohnstock/leaflet.git",
+                "reference": "674eaed19657cf02beb0a3f291ca29c5103c6270"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mrohnstock/leaflet/zipball/674eaed19657cf02beb0a3f291ca29c5103c6270",
+                "reference": "674eaed19657cf02beb0a3f291ca29c5103c6270",
+                "shasum": ""
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "js/leaflet.js"
+                    ],
+                    "files": [
+                        "js/*.js",
+                        "css/*.css",
+                        "images/*.png"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "JavaScript library for mobile-friendly interactive maps http://leafletjs.com",
+            "homepage": "http://leafletjs.com/",
+            "keywords": [
+                "gis",
+                "map"
+            ],
+            "time": "2016-11-21 11:54:24"
+        },
+        {
             "name": "drupal/devel",
             "version": "1.0.0-beta1",
             "source": {
@@ -9625,7 +9733,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/devel-8.x-1.0-beta1.zip",
-                "reference": null,
+                "reference": "8.x-1.0-beta1",
                 "shasum": "439d9cab6af0ddb5efbd31e16fbb5da1f510fe6f"
             },
             "require": {
@@ -10920,7 +11028,8 @@
         "drupal/search_api": 10,
         "drupal/config_readonly": 10,
         "drupal/environment_indicator": 10,
-        "drupal/search_api_autocomplete": 15
+        "drupal/search_api_autocomplete": 15,
+        "drupal/leaflet": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

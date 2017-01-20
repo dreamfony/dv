@@ -13,8 +13,10 @@ dependencies:
   - field
   - geo_area_group
   - geocoder_field
+  - geofield
   - group
   - language
+  - leaflet
   - link
   - menu_ui
   - node

@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.organisation.field_o_area_of_activity
     - field.field.node.organisation.field_o_email
     - field.field.node.organisation.field_o_fax
+    - field.field.node.organisation.field_o_geo_location
     - field.field.node.organisation.field_o_issue_types
     - field.field.node.organisation.field_o_organisation_group
     - field.field.node.organisation.field_o_organisation_id
@@ -16,7 +17,9 @@ dependencies:
     - node.type.organisation
   module:
     - address
+    - leaflet
     - link
+    - telephone
     - user
 id: node.organisation.default
 targetEntityType: node
@@ -48,10 +51,40 @@ content:
   field_o_fax:
     weight: 111
     label: above
-    settings: {  }
+    settings:
+      title: ''
     third_party_settings: {  }
-    type: basic_string
+    type: telephone_link
     region: content
+  field_o_geo_location:
+    weight: 115
+    label: above
+    settings:
+      leaflet_map: 'OSM Mapnik'
+      height: 400
+      zoom: 10
+      minPossibleZoom: 0
+      maxPossibleZoom: 18
+      minZoom: 0
+      maxZoom: 18
+      popup: false
+      icon:
+        icon_url: ''
+        shadow_url: ''
+        icon_size:
+          x: 0
+          'y': 0
+        icon_anchor:
+          x: 0
+          'y': 0
+        shadow_anchor:
+          x: 0
+          'y': 0
+        popup_anchor:
+          x: 0
+          'y': 0
+    third_party_settings: {  }
+    type: leaflet_formatter_default
   field_o_issue_types:
     weight: 113
     label: above
@@ -98,9 +131,10 @@ content:
   field_o_telephone:
     weight: 110
     label: above
-    settings: {  }
+    settings:
+      title: ''
     third_party_settings: {  }
-    type: basic_string
+    type: telephone_link
     region: content
   field_o_web_site:
     weight: 103
@@ -115,8 +149,8 @@ content:
     type: link
     region: content
   links:
-    type: visible
-    region: content
     weight: 100
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   langcode: true

@@ -12,6 +12,7 @@ dependencies:
   - dv_core
   - dv_organisation_group
   - dv_work_group
+  - dynamic_entity_reference
   - field
   - file
   - flag
@@ -24,8 +25,10 @@ dependencies:
   - menu_ui
   - message
   - node
+  - options
   - path
   - rabbit_hole
+  - system
   - taxonomy
   - telephone
   - text

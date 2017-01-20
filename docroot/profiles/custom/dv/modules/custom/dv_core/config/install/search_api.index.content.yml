@@ -62,26 +62,6 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: title
     type: string
-datasource_settings:
-  'entity:node':
-    plugin_id: 'entity:node'
-    settings:
-      bundles:
-        default: false
-        selected:
-          - geo_area
-          - issue
-          - organisation
-          - person
-      languages:
-        default: true
-        selected: {  }
-    bundles:
-      default: true
-      selected: {  }
-    languages:
-      default: true
-      selected: {  }
 processor_settings:
   ignore_character:
     plugin_id: ignore_character
@@ -115,16 +95,6 @@ processor_settings:
       weights:
         preprocess_index: -8
         preprocess_query: -7
-    ignorable: '[''¿¡!?,.:;]'
-    strip:
-      character_sets:
-        Pc: Pc
-        Pd: Pd
-        Pe: Pe
-        Pf: Pf
-        Pi: Pi
-        Po: Po
-        Ps: Ps
   tokenizer:
     plugin_id: tokenizer
     settings:
@@ -137,9 +107,6 @@ processor_settings:
       weights:
         preprocess_index: -7
         preprocess_query: -6
-    spaces: ''
-    overlap_cjk: 1
-    minimum_word_size: '3'
   ignorecase:
     plugin_id: ignorecase
     settings:
@@ -987,42 +954,6 @@ processor_settings:
       weights:
         preprocess_index: -5
         preprocess_query: -4
-    stopwords:
-      - a
-      - an
-      - and
-      - are
-      - as
-      - at
-      - be
-      - but
-      - by
-      - for
-      - if
-      - in
-      - into
-      - is
-      - it
-      - 'no'
-      - not
-      - of
-      - 'on'
-      - or
-      - s
-      - such
-      - t
-      - that
-      - the
-      - their
-      - then
-      - there
-      - these
-      - they
-      - this
-      - to
-      - was
-      - will
-      - with
   aggregated_field:
     plugin_id: aggregated_field
     settings: {  }
@@ -1041,11 +972,25 @@ processor_settings:
       weights:
         preprocess_index: -6
         preprocess_query: -5
+options:
+  index_directly: true
+  cron_limit: 50
+datasource_settings:
+  'entity:node':
+    plugin_id: 'entity:node'
+    settings:
+      bundles:
+        default: false
+        selected:
+          - geo_area
+          - issue
+          - organisation
+          - person
+      languages:
+        default: true
+        selected: {  }
 tracker_settings:
   default:
     plugin_id: default
     settings: {  }
-options:
-  index_directly: true
-  cron_limit: 50
 server: solr

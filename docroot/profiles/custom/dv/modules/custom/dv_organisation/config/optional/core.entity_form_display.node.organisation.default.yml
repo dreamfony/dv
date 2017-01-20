@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.organisation.field_o_area_of_activity
     - field.field.node.organisation.field_o_email
     - field.field.node.organisation.field_o_fax
+    - field.field.node.organisation.field_o_geo_location
     - field.field.node.organisation.field_o_issue_types
     - field.field.node.organisation.field_o_organisation_group
     - field.field.node.organisation.field_o_organisation_id
@@ -17,6 +18,7 @@ dependencies:
   module:
     - address
     - content_moderation
+    - geofield
     - link
     - path
     - telephone
@@ -62,6 +64,12 @@ content:
     third_party_settings: {  }
     type: telephone_default
     region: content
+  field_o_geo_location:
+    weight: 45
+    settings:
+      html5_geolocation: false
+    third_party_settings: {  }
+    type: geofield_latlon
   field_o_issue_types:
     weight: 43
     settings: {  }
