@@ -187,6 +187,9 @@
             "drupal/features": {
                 "https://www.drupal.org/node/2383439" : "https://www.drupal.org/files/issues/features_revert_permissions_drop-2383439-8.patch",
                 "https://www.drupal.org/node/2668562 #4" : "https://www.drupal.org/files/issues/features-not_detecting_profile_files-2668562-4.patch"
+            },
+            "drupal/entity_browser": {
+                "https://www.drupal.org/node/2845037" : "https://www.drupal.org/files/issues/2845037-4.patch"
             }
         },
         "drupal-scaffold": {
