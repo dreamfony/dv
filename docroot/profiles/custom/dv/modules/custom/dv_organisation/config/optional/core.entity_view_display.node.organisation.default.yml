@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.organisation.field_o_fax
     - field.field.node.organisation.field_o_geo_location
     - field.field.node.organisation.field_o_issue_types
+    - field.field.node.organisation.field_o_logo
     - field.field.node.organisation.field_o_organisation_group
     - field.field.node.organisation.field_o_organisation_id
     - field.field.node.organisation.field_o_parent_organisation
@@ -17,6 +18,7 @@ dependencies:
     - node.type.organisation
   module:
     - address
+    - image
     - leaflet
     - link
     - telephone
@@ -27,14 +29,14 @@ bundle: organisation
 mode: default
 content:
   field_o_address:
-    weight: 112
+    weight: 8
     label: above
     settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
   field_o_area_of_activity:
-    weight: 109
+    weight: 5
     label: above
     settings:
       link: true
@@ -42,14 +44,14 @@ content:
     type: entity_reference_label
     region: content
   field_o_email:
-    weight: 104
+    weight: 3
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_o_fax:
-    weight: 111
+    weight: 7
     label: above
     settings:
       title: ''
@@ -57,8 +59,8 @@ content:
     type: telephone_link
     region: content
   field_o_geo_location:
-    weight: 115
-    label: above
+    weight: 9
+    label: hidden
     settings:
       leaflet_map: 'OSM Mapnik'
       height: 400
@@ -85,51 +87,32 @@ content:
           'y': 0
     third_party_settings: {  }
     type: leaflet_formatter_default
-  field_o_issue_types:
-    weight: 113
+  field_o_logo:
+    weight: 10
     label: above
     settings:
-      link: true
+      image_style: ''
+      image_link: ''
     third_party_settings: {  }
-    type: entity_reference_label
-    region: content
+    type: image
   field_o_organisation_group:
-    weight: 108
+    weight: 4
     label: above
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
-    region: content
-  field_o_organisation_id:
-    weight: 107
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
     region: content
   field_o_parent_organisation:
-    weight: 102
+    weight: 1
     label: above
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_o_private_issue:
-    weight: 114
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
   field_o_telephone:
-    weight: 110
+    weight: 6
     label: above
     settings:
       title: ''
@@ -137,7 +120,7 @@ content:
     type: telephone_link
     region: content
   field_o_web_site:
-    weight: 103
+    weight: 2
     label: above
     settings:
       trim_length: 80
@@ -149,8 +132,11 @@ content:
     type: link
     region: content
   links:
-    weight: 100
+    weight: 0
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_o_issue_types: true
+  field_o_organisation_id: true
+  field_o_private_issue: true
   langcode: true

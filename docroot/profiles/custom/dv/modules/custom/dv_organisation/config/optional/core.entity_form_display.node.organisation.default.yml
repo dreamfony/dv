@@ -8,17 +8,20 @@ dependencies:
     - field.field.node.organisation.field_o_fax
     - field.field.node.organisation.field_o_geo_location
     - field.field.node.organisation.field_o_issue_types
+    - field.field.node.organisation.field_o_logo
     - field.field.node.organisation.field_o_organisation_group
     - field.field.node.organisation.field_o_organisation_id
     - field.field.node.organisation.field_o_parent_organisation
     - field.field.node.organisation.field_o_private_issue
     - field.field.node.organisation.field_o_telephone
     - field.field.node.organisation.field_o_web_site
+    - image.style.thumbnail
     - node.type.organisation
   module:
     - address
     - content_moderation
     - geofield
+    - image
     - link
     - path
     - telephone
@@ -76,6 +79,13 @@ content:
     third_party_settings: {  }
     type: options_buttons
     region: content
+  field_o_logo:
+    weight: 46
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
   field_o_organisation_group:
     weight: 38
     settings:

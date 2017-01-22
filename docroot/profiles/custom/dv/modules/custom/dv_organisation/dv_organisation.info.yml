@@ -15,6 +15,7 @@ dependencies:
   - geocoder_field
   - geofield
   - group
+  - image
   - language
   - leaflet
   - link
