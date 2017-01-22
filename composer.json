@@ -190,6 +190,9 @@
             },
             "drupal/entity_browser": {
                 "https://www.drupal.org/node/2845037" : "https://www.drupal.org/files/issues/2845037-4.patch"
+            },
+            "drupal/leaflet": {
+                "https://www.drupal.org/node/2825567" : "https://www.drupal.org/files/issues/leaflet-viewstyle-id-typo-2825567-2.patch"
             }
         },
         "drupal-scaffold": {

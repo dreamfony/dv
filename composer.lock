@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "049f8bc03a95a138903eb717e4813a51",
-    "content-hash": "126186b71e2c6de1cc7c65e4cbc65379",
+    "hash": "d5471a7e2aad3555b783242a26373ce8",
+    "content-hash": "70520d2267b86344f669cddea8a6c0cf",
     "packages": [
         {
             "name": "acquia/blt",
@@ -2466,7 +2466,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-1.0-beta4.zip",
-                "reference": null,
+                "reference": "8.x-1.0-beta4",
                 "shasum": "7e79b579e0d8d7c42f408cd54da328318cb4f398"
             },
             "require": {
@@ -3262,8 +3262,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/leaflet",
                 "issues": "https://www.drupal.org/project/issues/leaflet"
-            },
-            "time": "2016-10-11 07:58:10"
+            }
         },
         {
             "name": "drupal/leaflet_markercluster",

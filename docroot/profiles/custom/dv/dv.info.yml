@@ -58,6 +58,9 @@ dependencies:
   - like_and_dislike
   - link
   - locale
+  - leaflet
+  - leaflet_markercluster
+  - leaflet_views
   - menu_link_content
   - menu_ui
   - message
