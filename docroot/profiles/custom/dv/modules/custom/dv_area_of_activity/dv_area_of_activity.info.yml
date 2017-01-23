@@ -1,0 +1,9 @@
+name: 'Area Of Activity'
+description: 'Provides Area Of Activity group type and related configuration. '
+type: module
+core: 8.x
+dependencies:
+  - field
+  - group
+  - path
+package: DV

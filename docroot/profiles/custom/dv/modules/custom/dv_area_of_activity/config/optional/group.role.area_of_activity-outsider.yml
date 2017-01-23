@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.area_of_activity
+id: area_of_activity-outsider
+label: Outsider
+weight: -101
+internal: true
+audience: outsider
+group_type: area_of_activity
+permissions_ui: true
+permissions: {  }

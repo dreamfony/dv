@@ -1,0 +1,6 @@
+langcode: en
+status: true
+dependencies: {  }
+id: org_legal_status
+label: 'Organisation Legal Status'
+description: ''

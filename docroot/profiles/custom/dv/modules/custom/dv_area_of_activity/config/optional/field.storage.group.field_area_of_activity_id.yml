@@ -2,15 +2,14 @@ langcode: en
 status: true
 dependencies:
   module:
-    - taxonomy
-id: taxonomy_term.field_area_of_activity_id
+    - group
+id: group.field_area_of_activity_id
 field_name: field_area_of_activity_id
-entity_type: taxonomy_term
-type: string
+entity_type: group
+type: integer
 settings:
-  max_length: 50
-  is_ascii: false
-  case_sensitive: false
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1

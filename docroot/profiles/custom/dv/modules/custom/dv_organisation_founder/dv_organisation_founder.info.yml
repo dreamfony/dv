@@ -1,0 +1,7 @@
+name: 'Organisation Founder'
+description: 'Provides Organisation Founder group type and related configuration. '
+type: module
+core: 8.x
+dependencies:
+  - group
+package: DV

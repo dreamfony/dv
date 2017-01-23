@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group.area_of_activity.field_area_of_activity_id
+    - group.type.area_of_activity
+id: group.area_of_activity.default
+targetEntityType: group
+bundle: area_of_activity
+mode: default
+content:
+  field_area_of_activity_id:
+    weight: -4
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+  label:
+    label: hidden
+    type: string
+    weight: -5
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  changed: true
+  created: true
+  langcode: true
+  uid: true

@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.custom_org_lists
+  enforced:
+    module:
+      - grolesync
+    config:
+      - user.role.administrator
+id: custom_org_lists-a416e6833
+label: Administrator
+weight: 2
+internal: true
+audience: outsider
+group_type: custom_org_lists
+permissions_ui: false
+permissions: {  }

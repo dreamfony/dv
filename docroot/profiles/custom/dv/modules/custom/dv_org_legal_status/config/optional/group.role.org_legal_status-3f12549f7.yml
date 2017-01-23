@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.org_legal_status
+  enforced:
+    module:
+      - grolesync
+    config:
+      - user.role.moderator
+id: org_legal_status-3f12549f7
+label: Moderator
+weight: 3
+internal: true
+audience: outsider
+group_type: org_legal_status
+permissions_ui: false
+permissions: {  }

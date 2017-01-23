@@ -2,14 +2,14 @@ langcode: en
 status: true
 dependencies:
   module:
+    - group
     - node
-    - taxonomy
-id: node.field_o_area_of_activity
-field_name: field_o_area_of_activity
+id: node.field_m_mail_to
+field_name: field_m_mail_to
 entity_type: node
 type: entity_reference
 settings:
-  target_type: taxonomy_term
+  target_type: group
 module: core
 locked: false
 cardinality: -1

@@ -6,6 +6,7 @@ dependencies:
   - address
   - content_moderation
   - datetime_range
+  - dv_area_of_activity
   - dv_core
   - dv_issue
   - dv_positions

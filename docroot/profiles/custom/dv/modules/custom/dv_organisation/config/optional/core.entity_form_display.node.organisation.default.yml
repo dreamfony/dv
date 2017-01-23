@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - field.field.node.organisation.field_o_address
-    - field.field.node.organisation.field_o_area_of_activity
     - field.field.node.organisation.field_o_email
     - field.field.node.organisation.field_o_fax
     - field.field.node.organisation.field_o_geo_location
@@ -42,15 +41,6 @@ content:
       default_country: null
     third_party_settings: {  }
     type: address_default
-    region: content
-  field_o_area_of_activity:
-    weight: 39
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
     region: content
   field_o_email:
     weight: 34

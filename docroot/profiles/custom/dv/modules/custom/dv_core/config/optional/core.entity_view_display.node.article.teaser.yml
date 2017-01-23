@@ -11,7 +11,7 @@ dependencies:
     - node.type.article
   module:
     - image
-    - text
+    - smart_trim
     - user
 id: node.article.teaser
 targetEntityType: node
@@ -19,10 +19,18 @@ bundle: article
 mode: teaser
 content:
   body:
-    type: text_summary_or_trimmed
+    type: smart_trim
     weight: 0
     settings:
-      trim_length: 600
+      trim_length: '600'
+      trim_type: chars
+      trim_suffix: ''
+      more_link: '0'
+      more_text: More
+      summary_handler: full
+      trim_options:
+        text: text
+      more_class: more-link
     third_party_settings: {  }
     label: hidden
     region: content
@@ -45,9 +53,8 @@ content:
     region: content
   links:
     weight: 100
-    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   comment: true
-  field_image: true
-  field_tags: true
   langcode: true

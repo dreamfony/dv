@@ -55,10 +55,10 @@ function dv_organisation_migrate_migrate_prepare_row(Row $row, MigrateSourceInte
         }
       }
 
-      // Check any people exist
+      // Check any of people exist for organisation
       if (!empty($row->getSourceProperty('function_upholder_id'))) {
 
-        // Check if there are multiple areas of activity for organisation
+        // Check if there are multiple people for organisation
         if (is_array($row->getSourceProperty('function_upholder_id'))) {
           // multiple items
 

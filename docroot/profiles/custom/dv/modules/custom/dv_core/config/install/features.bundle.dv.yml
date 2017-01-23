@@ -9,7 +9,7 @@ assignments:
     types:
       config:
         comment_type: comment_type
-        node_type: node_type
+        group_type: group_type
       content:
         user: user
     enabled: true

@@ -9,6 +9,7 @@ use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate\Row;
 use Drupal\node\Entity\Node;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Drupal\group\Entity\Group;
 
 
 /**
@@ -116,19 +117,22 @@ class OrganisationsPostRowSave implements EventSubscriberInterface {
               // save person
               $person->save();
             }
-
           }
-
-
         }
 
         // since migrate can't import simple list of term ids we do it here
         $activity_ids = $row->getDestinationProperty('field_o_area_of_activity')[0];
 
         if (is_array($activity_ids)) {
+
           $organisation_node = Node::load($destination_values[0]);
           foreach ($activity_ids as $activity_id) {
-            $organisation_node->field_o_area_of_activity->appendItem($activity_id);
+
+            $activity_group = Group::load($activity_id);
+
+            // add location node to created group
+            $activity_group->addContent($organisation_node, 'group_node:' . $organisation_node->bundle());
+
           }
           $organisation_node->save();
         }
