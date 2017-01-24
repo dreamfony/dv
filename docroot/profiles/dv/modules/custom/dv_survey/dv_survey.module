@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\EntityInterface;
 
 /**
  * Implements hook_help().
@@ -20,5 +21,27 @@ function dv_survey_help($route_name, RouteMatchInterface $route_match) {
       return $output;
 
     default:
+  }
+}
+
+
+/**
+ * Implements hook_entity_insert().
+ */
+function dv_survey_entity_presave(EntityInterface $entity) {
+  if ($entity->getEntityTypeId() == 'node') {
+
+    // get current node bundle
+    $bundle = $entity->bundle();
+
+    // check if current node is organisation node
+    if ('survey' === $bundle) {
+      $survey_id = \Drupal::service('dv_survey.generate')->generate($entity);
+
+      // attach survey to node
+      $entity->field_s_survey[] = ['target_id' => $survey_id, 'default_data' => '', 'status' => 1];
+    }
+
+
   }
 }
