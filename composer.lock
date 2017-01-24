@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d5471a7e2aad3555b783242a26373ce8",
-    "content-hash": "70520d2267b86344f669cddea8a6c0cf",
+    "hash": "dcfdbf897cc288c21631d9aaa96ac5e1",
+    "content-hash": "57be83c9ffe2ac47687278f3c8f6c048",
     "packages": [
         {
             "name": "acquia/blt",
@@ -2342,6 +2342,57 @@
             }
         },
         {
+            "name": "drupal/easy_breadcrumb",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/easy_breadcrumb",
+                "reference": "8.x-1.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/easy_breadcrumb-8.x-1.5.zip",
+                "reference": "8.x-1.5",
+                "shasum": "b7f12392ea4d8325f6da080a79308cc424f614a1"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.5",
+                    "datestamp": "1475705039"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Boggs",
+                    "homepage": "https://www.drupal.org/user/153069"
+                },
+                {
+                    "name": "rakesh.gectcr",
+                    "homepage": "https://www.drupal.org/user/1177822"
+                },
+                {
+                    "name": "sonemonu",
+                    "homepage": "https://www.drupal.org/user/1667988"
+                }
+            ],
+            "description": "Adds configuration to the system breadcrumbs.",
+            "homepage": "https://www.drupal.org/project/easy_breadcrumb",
+            "support": {
+                "source": "http://cgit.drupalcode.org/easy_breadcrumb"
+            }
+        },
+        {
             "name": "drupal/email_registration",
             "version": "1.0.0-rc3",
             "source": {
@@ -3224,6 +3275,9 @@
                 "drupal": {
                     "version": "8.x-1.0-beta1+1-dev",
                     "datestamp": "1476171839"
+                },
+                "patches_applied": {
+                    "https://www.drupal.org/node/2825567": "https://www.drupal.org/files/issues/leaflet-viewstyle-id-typo-2825567-2.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -3262,7 +3316,8 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/leaflet",
                 "issues": "https://www.drupal.org/project/issues/leaflet"
-            }
+            },
+            "time": "2016-10-11 07:58:10"
         },
         {
             "name": "drupal/leaflet_markercluster",
@@ -4539,6 +4594,69 @@
             }
         },
         {
+            "name": "drupal/smart_trim",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/smart_trim",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/smart_trim-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "14d8ec333c0c89367ac267eceef691417d537daf"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1463158739"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "amarcus",
+                    "homepage": "https://www.drupal.org/user/1064036"
+                },
+                {
+                    "name": "chrisjlee",
+                    "homepage": "https://www.drupal.org/user/760600"
+                },
+                {
+                    "name": "drywall",
+                    "homepage": "https://www.drupal.org/user/192591"
+                },
+                {
+                    "name": "jsenich",
+                    "homepage": "https://www.drupal.org/user/58871"
+                },
+                {
+                    "name": "markie",
+                    "homepage": "https://www.drupal.org/user/206687"
+                },
+                {
+                    "name": "newsignature",
+                    "homepage": "https://www.drupal.org/user/765518"
+                }
+            ],
+            "description": "Provides a more robust alternative to \"summary or trimmed\" textfield format",
+            "homepage": "https://www.drupal.org/project/smart_trim",
+            "support": {
+                "source": "http://cgit.drupalcode.org/smart_trim"
+            }
+        },
+        {
             "name": "drupal/token",
             "version": "1.0.0-beta2",
             "source": {
@@ -4600,6 +4718,49 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/token",
                 "issues": "https://www.drupal.org/project/issues/token"
+            }
+        },
+        {
+            "name": "drupal/twig_tweak",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/twig_tweak",
+                "reference": "8.x-1.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/twig_tweak-8.x-1.5.zip",
+                "reference": "8.x-1.5",
+                "shasum": "8e2820ba3b706909c76cb4fa0a85becd39c5b9b1"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.5",
+                    "datestamp": "1484994183"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Chi",
+                    "homepage": "https://www.drupal.org/user/556138"
+                }
+            ],
+            "description": "Provides some extra twig functions.",
+            "homepage": "https://www.drupal.org/project/twig_tweak",
+            "support": {
+                "source": "http://cgit.drupalcode.org/twig_tweak"
             }
         },
         {
@@ -4764,6 +4925,86 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/votingapi",
                 "issues": "http://drupal.org/project/issues/votingapi"
+            }
+        },
+        {
+            "name": "drupal/webform",
+            "version": "5.0.0-beta4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/webform",
+                "reference": "8.x-5.0-beta4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.0-beta4.zip",
+                "reference": null,
+                "shasum": "cd448b95df1f5b8b8f1d5ae1ee2a901ebadc995d"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "require-dev": {
+                "drupal/devel": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-5.x": "5.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-5.0-beta4",
+                    "datestamp": "1482752282"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Jacob Rockowitz (jrockowitz)",
+                    "homepage": "https://www.drupal.org/u/jrockowitz",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Liam Morland",
+                    "homepage": "https://www.drupal.org/user/493050"
+                },
+                {
+                    "name": "fenstrat",
+                    "homepage": "https://www.drupal.org/user/362649"
+                },
+                {
+                    "name": "jrockowitz",
+                    "homepage": "https://www.drupal.org/user/371407"
+                },
+                {
+                    "name": "podarok",
+                    "homepage": "https://www.drupal.org/user/116002"
+                },
+                {
+                    "name": "quicksketch",
+                    "homepage": "https://www.drupal.org/user/35821"
+                },
+                {
+                    "name": "sanchiz",
+                    "homepage": "https://www.drupal.org/user/1671246"
+                },
+                {
+                    "name": "tedbow",
+                    "homepage": "https://www.drupal.org/user/240860"
+                },
+                {
+                    "name": "torotil",
+                    "homepage": "https://www.drupal.org/user/865256"
+                }
+            ],
+            "description": "Enables the creation of webforms and questionnaires.",
+            "homepage": "https://drupal.org/project/webform",
+            "support": {
+                "source": "http://cgit.drupalcode.org/webform",
+                "issues": "https://drupal.org/project/issues/webform"
             }
         },
         {
@@ -11091,7 +11332,8 @@
         "drupal/environment_indicator": 10,
         "drupal/search_api_autocomplete": 15,
         "drupal/leaflet": 20,
-        "drupal/leaflet_markercluster": 15
+        "drupal/leaflet_markercluster": 15,
+        "drupal/webform": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,
