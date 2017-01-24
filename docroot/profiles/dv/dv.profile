@@ -68,6 +68,10 @@ function dv_install_profile_modules(&$install_state) {
     'dv_work_group' => 'dv_work_group',
     'dv_positions' => 'dv_positions',
     'dv_email_reply' => 'dv_email_reply',
+    'dv_area_of_activity' => 'dv_area_of_activity',
+    'dv_custom_org_lists' => 'dv_custom_org_lists',
+    'dv_organisation_founder' => 'dv_organisation_founder',
+    'dv_org_legal_status' => 'dv_org_legal_status',
     'ggroup' => 'ggroup' // we add ggroup here since it cant be enabled without any groups
   );
 

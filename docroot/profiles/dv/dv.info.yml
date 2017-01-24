@@ -35,6 +35,7 @@ dependencies:
   - dv_core
   - dynamic_entity_reference
   - dynamic_page_cache
+  - easy_breadcrumb
   - editor
   - email_registration
   - entity_browser
@@ -45,7 +46,9 @@ dependencies:
   - file_entity
   - filter
   - flag
+  - geocoder_address
   - geocoder_field
+  - geocoder_geofield
   - gnode
   - grolesync
   - group
@@ -55,12 +58,12 @@ dependencies:
   - image
   - inline_entity_form
   - language
-  - like_and_dislike
-  - link
-  - locale
   - leaflet
   - leaflet_markercluster
   - leaflet_views
+  - like_and_dislike
+  - link
+  - locale
   - menu_link_content
   - menu_ui
   - message
@@ -82,6 +85,7 @@ dependencies:
   - search_api_solr
   - serialization
   - shortcut
+  - smart_trim
   - syslog
   - system
   - taxonomy
@@ -89,6 +93,7 @@ dependencies:
   - text
   - toolbar
   - tour
+  - twig_tweak
   - update
   - user
   - user_registrationpassword
