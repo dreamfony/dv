@@ -16,15 +16,15 @@ use Drupal\user\Entity\User;
 function dv_dev_create_test_accounts() {
   $system_roles = user_role_names(TRUE);
   foreach ($system_roles as $rolename => $key) {
-    print $rolename;
     $mail = $rolename . "@dv.com";
     $user_exists = user_load_by_mail($mail);
     if (empty($user_exists)) {
       $user = User::create(array(
-        'name' => $rolename,
+        'name' => 'TEST_'.$rolename,
         'mail' => $mail,
         'status' => 1,
         'pass' => $rolename,
+        'roles' => array($rolename)
       ));
       $user->save();
     }

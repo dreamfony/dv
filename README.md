@@ -496,6 +496,41 @@ master-build has been merged to master on stage. Db from live has been copied to
 - Take the site out of maintenance mode `drush vset maintenance_mode 0`
 - Clear Drupal caches `drush cc all`
 
+### Coding standards
+
+All of the code should comply to the coding standards defined on drupal.org/coding-standards.
+
+
+### GIT flow
+
+The master branch should always be in a stable state. When working on specific bugs, 
+features or improvements you should always work in a separate branch (preferably prefixed with feature/) 
+which can eventually be merged into master.
+
+
+### Definition of done
+
+We consider the work of the developer done when:
+
+- Functionality passes the acceptance criteria
+- Manual test is provided, modified if needed and passing
+- Automated test is provided if needed and passing
+- Code complies to Drupal coding standards
+- A pull request is created, assigned to a reviewer and How-To-Test are provided
+- CI build is passing
+- If issue type is bug, a short description of the solution is provided
+- The issue has been set to a reviewer with the correct status
+
+We consider the work of the reviewer done when:
+
+- The code looks good
+- The How-To-Test steps can be executed
+- The manual test is executed successfully
+- The pull request is merged into the correct branch
+- The issue has been completed
+
+Commit messages guidelines
+
 ### Tips & Tricks
 
 
