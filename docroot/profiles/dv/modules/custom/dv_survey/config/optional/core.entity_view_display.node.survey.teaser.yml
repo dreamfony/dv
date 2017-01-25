@@ -3,6 +3,8 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.survey.field_s_questions
+    - field.field.node.survey.field_s_survey
     - node.type.survey
   module:
     - user
@@ -14,4 +16,6 @@ content:
   links:
     weight: 100
 hidden:
+  field_s_questions: true
+  field_s_survey: true
   langcode: true

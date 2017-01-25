@@ -1,8 +1,6 @@
 langcode: en
 status: true
-dependencies:
-  module:
-    - node
+dependencies: {  }
 id: follow_issue
 label: 'Follow Issue'
 bundles:

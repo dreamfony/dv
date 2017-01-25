@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies: {  }
-name: 'Survey'
+name: Survey
 type: survey
 description: ''
 help: ''
