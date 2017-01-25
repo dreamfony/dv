@@ -38,7 +38,6 @@ Make sure you have the latest versions of packages
 {{BUG}}
 Until we solve issue with accessing patternlab from vagrant it is neccessary to copy
 EXAMPLE_project.local.yml to blt/project.local.yml
-node_modules directory should be deleted if it is created from inside VM
 {{/BUG}}
 
 - git clone
@@ -57,10 +56,15 @@ import test data
 - drush mi organisation_groups
 - drush mi organisations --limit="50 items"
 
-#### Front end
+#### PatternLab Front end
 
+On you local machine run
+
+- npm install # or `yarn install` if you want 3x the speed
+- npm start
 - check docroot/themes/custom/patternlab/README.md
 
+node_modules directory should be deleted if it is created from inside VM
 
 #### Pushing Local changes and Ongoing development
 
@@ -97,6 +101,14 @@ Thats why the process of updating module is:
 
 If someone pushes lock file with new updated module and doesnt export configuration,
 then when other persons pull and do local:refresh they will override new configuration of the module with the old!
+
+#### BLT update
+
+http://blt.readthedocs.io/en/8.x/readme/updating-blt/
+
+during update BLT will change some files so its necesserry to examine
+composer.json, .gitignore, .project.yml etc.
+
 
 #### Various
 
