@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.area_of_activity
+  enforced:
+    module:
+      - grolesync
+    config:
+      - user.role.administrator
+id: area_of_activity-a416e6833
+label: Administrator
+weight: 2
+internal: true
+audience: outsider
+group_type: area_of_activity
+permissions_ui: false
+permissions: {  }

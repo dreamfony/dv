@@ -1,0 +1,32 @@
+name: Organisation
+description: 'Provides Organisation content type and related configuration. '
+type: module
+core: 8.x
+dependencies:
+  - address
+  - content_moderation
+  - datetime_range
+  - dv_area_of_activity
+  - dv_core
+  - dv_issue
+  - dv_positions
+  - entity_browser
+  - field
+  - geo_area_group
+  - geocoder_field
+  - geofield
+  - group
+  - image
+  - language
+  - leaflet
+  - link
+  - menu_ui
+  - node
+  - path
+  - rabbit_hole
+  - taxonomy
+  - telephone
+  - text
+  - user
+  - views
+package: DV

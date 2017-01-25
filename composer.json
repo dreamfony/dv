@@ -66,7 +66,14 @@
         "drupal/sitemap": "^1.2",
         "drupal/search_api_autocomplete": "^1.0@alpha",
         "drupal/components": "^1.0",
-        "drupal/bootstrap": "^3.1"
+        "drupal/bootstrap": "^3.1",
+        "drupal/leaflet": "1.x-dev",
+        "drupal/leaflet_markercluster": "^1.0@alpha",
+        "leaflet/leaflet_markercluster": "^0.7.0",
+        "drupal/twig_tweak": "^1.5",
+        "drupal/smart_trim": "^1.0",
+        "drupal/easy_breadcrumb": "^1.5",
+        "drupal/webform": "^5.0@beta"
     },
     "require-dev": {
         "behat/behat": "^3.1",
@@ -103,6 +110,30 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "leaflet/leaflet",
+                "version": "v0.7.7",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/Leaflet/Leaflet/archive/v0.7.7.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "leaflet/leaflet_markercluster",
+                "version": "v0.7",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/Leaflet/Leaflet.markercluster/archive/leaflet-0.7.zip",
+                    "type": "zip"
+                }
+            }
         }
     ],
     "autoload-dev": {
@@ -155,6 +186,12 @@
             "drupal/features": {
                 "https://www.drupal.org/node/2383439": "https://www.drupal.org/files/issues/features_revert_permissions_drop-2383439-8.patch",
                 "https://www.drupal.org/node/2668562 #4": "https://www.drupal.org/files/issues/features-not_detecting_profile_files-2668562-4.patch"
+            },
+            "drupal/entity_browser": {
+                "https://www.drupal.org/node/2845037" : "https://www.drupal.org/files/issues/2845037-4.patch"
+            },
+            "drupal/leaflet": {
+                "https://www.drupal.org/node/2825567" : "https://www.drupal.org/files/issues/leaflet-viewstyle-id-typo-2825567-2.patch"
             }
         },
         "drupal-scaffold": {

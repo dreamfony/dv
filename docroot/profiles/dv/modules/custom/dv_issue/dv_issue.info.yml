@@ -1,0 +1,37 @@
+name: Issue
+description: 'Provides Issue content type and related configuration. '
+type: module
+core: 8.x
+dependencies:
+  - activity_logger
+  - address
+  - captcha
+  - comment
+  - content_moderation
+  - datetime_range
+  - dv_core
+  - dv_organisation_group
+  - dv_work_group
+  - dynamic_entity_reference
+  - field
+  - file
+  - flag
+  - geo_area_group
+  - geocoder_field
+  - group
+  - inline_entity_form
+  - language
+  - link
+  - menu_ui
+  - message
+  - node
+  - options
+  - path
+  - rabbit_hole
+  - system
+  - taxonomy
+  - telephone
+  - text
+  - user
+  - views
+package: DV

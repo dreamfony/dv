@@ -1,0 +1,6 @@
+langcode: en
+status: true
+dependencies: {  }
+id: area_of_activity
+label: 'Area Of Activity'
+description: ''

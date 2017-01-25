@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Contains dmt_group.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_help().
+ */
+function dv_survey_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the dmt_group module.
+    case 'help.page.dv_survey':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('DV Survey.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+/**
+ * Implements hook_entity_insert().
+ */
+function dv_survey_entity_presave(EntityInterface $entity) {
+  if ($entity->getEntityTypeId() == 'node') {
+
+    // get current node bundle
+    $bundle = $entity->bundle();
+
+    // check if current node is organisation node
+    if ('survey' === $bundle) {
+      $survey_id = \Drupal::service('dv_survey.generate')->generate($entity);
+
+      // attach survey to node
+      $entity->field_s_survey[] = ['target_id' => $survey_id, 'default_data' => '', 'status' => 1];
+    }
+
+
+  }
+}

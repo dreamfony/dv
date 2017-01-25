@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.area_of_activity
+id: area_of_activity-anonymous
+label: Anonymous
+weight: -102
+internal: true
+audience: anonymous
+group_type: area_of_activity
+permissions_ui: true
+permissions: {  }

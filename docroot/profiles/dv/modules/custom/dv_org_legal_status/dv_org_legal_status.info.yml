@@ -1,0 +1,7 @@
+name: 'Organisation Legal Status'
+description: 'Provides Organisation Legal Status group type and related configuration. '
+type: module
+core: 8.x
+dependencies:
+  - group
+package: DV

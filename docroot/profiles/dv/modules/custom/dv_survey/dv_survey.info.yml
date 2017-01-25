@@ -1,0 +1,8 @@
+name: DV Survey
+type: module
+description: DV Survey.
+core: 8.x
+package: DV
+dependencies:
+  - webform
+  - webform_node

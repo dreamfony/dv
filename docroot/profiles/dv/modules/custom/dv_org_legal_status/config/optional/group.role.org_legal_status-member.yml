@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.org_legal_status
+id: org_legal_status-member
+label: Member
+weight: -100
+internal: true
+audience: member
+group_type: org_legal_status
+permissions_ui: true
+permissions: {  }
