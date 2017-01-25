@@ -19,6 +19,8 @@ http://blt.readthedocs.io/en/latest/readme/onboarding/
 
 #### System requirements
 
+Make sure you have the latest versions of packages
+
 - Git
 	- git flow
 - Composer
@@ -27,10 +29,17 @@ http://blt.readthedocs.io/en/latest/readme/onboarding/
  	  - sudo apt-get install php-xml
  	  - sudo apt-get install php7.0-mbstring
  	  - sudo apt-get install php-curl
-- Vagrant (comes with virtualbox)
+- Vagrant (comes with virtualbox / ansible)
+- nodejs (for patternLab; it should install gulp / bower etc)
 
 
 #### Initial setup (update this with instructions when forking repos and making pull requests)
+
+{{BUG}}
+Until we solve issue with accessing patternlab from vagrant it is neccessary to copy
+EXAMPLE_project.local.yml to blt/project.local.yml
+node_modules directory should be deleted if it is created from inside VM
+{{/BUG}}
 
 - git clone
 - composer install
@@ -38,10 +47,15 @@ http://blt.readthedocs.io/en/latest/readme/onboarding/
 - vagrant ssh
 - cd /var/www/dv
 - git checkout develop
-- composer blt-alias
+- composer blt-alias (restart terminal)
 - blt local:setup
 - cd /var/www/dv/docroot
 - drupal init
+
+import test data
+
+- drush mi organisation_groups
+- drush mi organisations --limit="50 items"
 
 #### Front end
 
@@ -168,6 +182,8 @@ which will manage the host’s /etc/hosts file by adding and removing hostname e
     vagrant destroy
     vagrant up
     
+{{BUG}}
+On MAC we had to change VirtualBox Machine network setting: Adapter1 / NAT / Cable connect
 
 BLT uses [DrupalVM](https://www.drupalvm.com/)
 Configuration file can be found at `/box/config.yml`

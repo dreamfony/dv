@@ -118,6 +118,10 @@ php_xdebug_default_enable: 1
 php_xdebug_coverage_enable: 1
 php_xdebug_idekey: PHPSTORM
 
+extra_packages:
+  # This is required for PhantomJS Installer.
+  - php-bz2
+
 post_provision_scripts:
   - "../../../acquia/blt/scripts/drupal-vm/post-provision.sh"
   - "../../../../box/postprovision-solr.sh"
