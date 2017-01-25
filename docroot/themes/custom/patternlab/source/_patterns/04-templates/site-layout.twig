@@ -1,7 +1,11 @@
 {% include "@organisms/site-header.twig" %}
-<main class="site-content">
-  {% block content %}
-    <h2>Site Content Here</h2>
-  {% endblock %}
-</main>
+<div class="container">
+  <div class="row">
+    <main class="site-content">
+      {% block content %}
+        <h2>Site Content Here</h2>
+      {% endblock %}
+    </main>
+  </div>
+</div>
 {% include "@organisms/site-footer.twig" %}
