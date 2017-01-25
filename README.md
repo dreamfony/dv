@@ -55,6 +55,7 @@ import test data
 
 - drush mi organisation_groups
 - drush mi organisations --limit="50 items"
+- drush mrs to kill busy operation
 
 #### PatternLab Front end
 
@@ -112,7 +113,7 @@ composer.json, .gitignore, .project.yml etc.
 
 #### Various
 
-**CI**
+**Continuous Delivery**
 
 http://blt.readthedocs.io/en/latest/readme/ci/
 
@@ -496,12 +497,19 @@ master-build has been merged to master on stage. Db from live has been copied to
 - Take the site out of maintenance mode `drush vset maintenance_mode 0`
 - Clear Drupal caches `drush cc all`
 
+
+Deployment to a staging server is fully automated.	
+No gradual roll out and roll-back if required.
+
+
 ### Coding standards
 
 All of the code should comply to the coding standards defined on drupal.org/coding-standards.
 
 
-### GIT flow
+### Source control and branching 
+
+Gitflow with a mandatory Code Review
 
 The master branch should always be in a stable state. When working on specific bugs, 
 features or improvements you should always work in a separate branch (preferably prefixed with feature/) 
@@ -529,7 +537,27 @@ We consider the work of the reviewer done when:
 - The pull request is merged into the correct branch
 - The issue has been completed
 
-Commit messages guidelines
+Code review guidlines
+- Ask questions rather than state facts when critiquing.
+- Scratch each other’s back w/constructive criticism.
+- Practice egoless programming, separate the work from the person.
+- Direct comments to the work product, not to the author.
+
+
+### Commit messages guidelines
+
+### Various
+
+Comments should not reiterate code but explain the why behind its design. Readable code will explain the what and how, therefore prefer good names and documentation over comments.
+
+Good bug reports must, at a minimum:
+
+- Should not be a duplicate; search the existing before creating new ones.
+- Have a concise summary
+- Have a specific factual details:
+- What was expected, and what happened.
+- Precise steps to reproduce
+- Severity
 
 ### Tips & Tricks
 

@@ -41,5 +41,14 @@
     "ampm": "Faker.amPm"
   },
   "minute": "Faker.numberBetween(1, 59)",
-  "seconds": "Faker.numberBetween(1, 59)"
+  "seconds": "Faker.numberBetween(1, 59)",
+  "address": {
+    "street":"Faker.streetAddress",
+    "city":"Faker.city",
+    "country":"Faker.country"
+  },
+  "telephone":"Faker.phoneNumber",
+  "fax":"Faker.phoneNumber",
+  "logo":"",
+  "map":""
 }

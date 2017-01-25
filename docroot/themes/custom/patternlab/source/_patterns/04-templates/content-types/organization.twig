@@ -1,6 +1,21 @@
+{#
+/**
+ * Available variables:
+ * - title
+ * - email
+ * - address.street
+ * - address.city
+ * - address.country
+ * - url
+ * - telephone
+ * - fax
+ * - logo
+ * - map
+ */
+#}
 {% extends "@templates/site-layout.twig" %}
 {% block content %}
-  <h2>Organization name</h2>
+  <h2>{{ telephone }}</h2>
   <h3>Subtitle</h3>
   <form action="#">
     <fieldset class="fieldset__inline">
