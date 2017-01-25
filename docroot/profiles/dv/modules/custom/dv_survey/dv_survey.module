@@ -37,7 +37,7 @@ function dv_survey_entity_presave(EntityInterface $entity) {
     $moderation_state = $entity->get('moderation_state')->getString();
 
     // check if current node is organisation node
-    if ('survey' === $bundle && $moderation_state === 'published') {
+    if ('survey' === $bundle && $moderation_state === 'send_email') {
       $survey_id = \Drupal::service('dv_survey.generate')->generate($entity);
 
       // attach survey to node
@@ -53,5 +53,5 @@ function dv_survey_entity_presave(EntityInterface $entity) {
  */
 function dv_survey_form_node_survey_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   /// @todo: #moderation check if this needs to be shown to moderators
-  $form['revision_information']['#access'] = FALSE;
+  //$form['revision_information']['#access'] = FALSE;
 }
