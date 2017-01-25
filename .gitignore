@@ -1,5 +1,10 @@
 # Ignore configuration files that may contain sensitive information.
-local.*
+local.settings.php
+local.drushrc.php
+local.aliases.drushrc.php
+local.services.yml
+tests/behat/local.yml
+box/local.config.yml
 *.local
 project.local.yml
 
@@ -8,6 +13,7 @@ docroot/core
 
 # Ignore paths that contain user-generated content.
 docroot/sites/*/files
+/files-private
 docroot/sites/*/private
 
 # Ignore contrib modules. These should be created during build process.
@@ -16,6 +22,9 @@ docroot/themes/contrib
 docroot/profiles/contrib
 docroot/libraries
 drush/contrib
+
+# Ignore custom theme node_modules folders
+docroot/themes/custom/*/node_modules
 
 # Ignore build artifacts
 /deploy
@@ -129,7 +138,11 @@ node_modules
 .idea
 
 source/styleguide/css
+# PHPStorm
+atlassian-ide-plugin.xml
 
 # Errors
 npm-debug.log
 php_errors.log
+# Drupal console
+console
