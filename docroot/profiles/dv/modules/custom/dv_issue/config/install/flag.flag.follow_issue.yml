@@ -23,4 +23,5 @@ flagTypeConfig:
   show_on_form: false
   show_contextual_link: false
   access_author: ''
+  extra_permissions: {  }
 linkTypeConfig: {  }

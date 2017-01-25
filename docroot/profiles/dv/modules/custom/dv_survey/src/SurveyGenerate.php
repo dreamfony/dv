@@ -27,7 +27,8 @@ class SurveyGenerate {
       $questions['q'.$delta] = [
         '#title' => $question['value'],
         '#type' => 'textarea',
-        '#required' => FALSE
+        '#required' => FALSE,
+        '#uid' => $entity->getOwner()
       ];
     }
 

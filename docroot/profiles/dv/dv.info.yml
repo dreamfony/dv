@@ -64,6 +64,7 @@ dependencies:
   - like_and_dislike
   - link
   - locale
+  - masquerade
   - menu_link_content
   - menu_ui
   - message
@@ -100,7 +101,6 @@ dependencies:
   - views
   - views_ui
   - webform
-  - webform_node
   - webform_ui
 themes:
   - patternlab

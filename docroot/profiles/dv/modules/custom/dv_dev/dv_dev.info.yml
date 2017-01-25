@@ -1,0 +1,6 @@
+name: dev
+type: module
+core: 8.x
+dependencies:
+  - block
+package: DV

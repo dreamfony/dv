@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+id: advanced_user
+label: 'Advanced User'
+weight: 4
+is_admin: null
+permissions:
+  - 'create survey content'
+  - 'edit own survey content'

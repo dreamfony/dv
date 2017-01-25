@@ -1,11 +1,2 @@
 bundle: dv
-required:
-  - core.entity_form_display.group_content.work_group-group_membership.default
-  - core.entity_view_display.group_content.work_group-group_membership.default
-  - field.field.group_content.work_group-group_membership.group_roles
-  - group.content_type.work_group-group_membership
-  - group.role.work_group-anonymous
-  - group.role.work_group-member
-  - group.role.work_group-outsider
-  - group.role.work_group-3f12549f7
-  - group.role.work_group-a416e6833
+required: true

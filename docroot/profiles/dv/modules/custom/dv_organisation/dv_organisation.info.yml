@@ -9,6 +9,7 @@ dependencies:
   - dv_area_of_activity
   - dv_core
   - dv_issue
+  - dv_organisation_group
   - dv_positions
   - entity_browser
   - field
