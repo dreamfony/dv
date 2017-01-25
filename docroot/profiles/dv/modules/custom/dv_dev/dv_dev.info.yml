@@ -1,4 +1,4 @@
-name: dev
+name: DV Development Module
 type: module
 core: 8.x
 dependencies:
