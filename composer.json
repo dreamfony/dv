@@ -73,7 +73,8 @@
         "drupal/twig_tweak": "^1.5",
         "drupal/smart_trim": "^1.0",
         "drupal/easy_breadcrumb": "^1.5",
-        "drupal/webform": "^5.0@beta"
+        "drupal/webform": "^5.0@beta",
+        "leaflet/leaflet": "^0.7.7"
     },
     "require-dev": {
         "behat/behat": "^3.1",
