@@ -1,0 +1,5 @@
+<?php
+
+function dv_dev_install() {
+  dv_dev_create_test_accounts();
+}

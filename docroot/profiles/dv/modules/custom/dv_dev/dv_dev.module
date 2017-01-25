@@ -1,0 +1,32 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: X
+ * Date: 25.1.2017.
+ * Time: 17:01
+ */
+
+
+use Drupal\user\Entity\User;
+
+/**
+ *  Create Test User Accounts for every Role
+ */
+
+function dv_dev_create_test_accounts() {
+  $system_roles = user_role_names(TRUE);
+  foreach ($system_roles as $rolename => $key) {
+    print $rolename;
+    $mail = $rolename . "@dv.com";
+    $user_exists = user_load_by_mail($mail);
+    if (empty($user_exists)) {
+      $user = User::create(array(
+        'name' => $rolename,
+        'mail' => $mail,
+        'status' => 1,
+        'pass' => $rolename,
+      ));
+      $user->save();
+    }
+  }
+}
