@@ -34,8 +34,10 @@ function dv_survey_entity_presave(EntityInterface $entity) {
     // get current node bundle
     $bundle = $entity->bundle();
 
+    $moderation_state = $entity->get('moderation_state')->getString();
+
     // check if current node is organisation node
-    if ('survey' === $bundle) {
+    if ('survey' === $bundle && $moderation_state === 'published') {
       $survey_id = \Drupal::service('dv_survey.generate')->generate($entity);
 
       // attach survey to node

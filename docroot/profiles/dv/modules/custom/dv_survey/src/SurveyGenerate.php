@@ -28,7 +28,7 @@ class SurveyGenerate {
         '#title' => $question['value'],
         '#type' => 'textarea',
         '#required' => FALSE,
-        '#uid' => $entity->getOwner()
+        '#uid' => $entity->getOwnerId()
       ];
     }
 

@@ -13,3 +13,4 @@ permissions:
   - 'skip comment approval'
   - 'access site-wide contact form'
   - 'access shortcuts'
+  - 'use draft_draft transition'
