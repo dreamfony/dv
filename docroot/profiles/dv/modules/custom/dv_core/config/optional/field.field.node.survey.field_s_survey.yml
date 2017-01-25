@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_s_survey
+    - node.type.survey
+  module:
+    - webform
+id: node.survey.field_s_survey
+field_name: field_s_survey
+entity_type: node
+bundle: survey
+label: Survey
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:webform'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+  default_data: ''
+  status: true
+field_type: webform

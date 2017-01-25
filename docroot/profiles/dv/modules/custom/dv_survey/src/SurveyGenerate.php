@@ -26,7 +26,7 @@ class SurveyGenerate {
     foreach ($node_questions as $delta => $question) {
       $questions['q'.$delta] = [
         '#title' => $question['value'],
-        '#type' => 'textfield',
+        '#type' => 'textarea',
         '#required' => FALSE
       ];
     }

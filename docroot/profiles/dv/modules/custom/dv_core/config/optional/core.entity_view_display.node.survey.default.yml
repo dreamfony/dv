@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.survey.field_s_questions
+    - field.field.node.survey.field_s_survey
+    - node.type.survey
+  module:
+    - user
+    - webform
+id: node.survey.default
+targetEntityType: node
+bundle: survey
+mode: default
+content:
+  field_s_survey:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: webform_entity_reference_entity_view
+  links:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_s_questions: true
+  langcode: true
