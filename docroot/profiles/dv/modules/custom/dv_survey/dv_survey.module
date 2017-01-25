@@ -47,3 +47,11 @@ function dv_survey_entity_presave(EntityInterface $entity) {
 
   }
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function dv_survey_form_node_survey_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  /// @todo: #moderation check if this needs to be shown to moderators
+  $form['revision_information']['#access'] = FALSE;
+}
