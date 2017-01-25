@@ -196,7 +196,8 @@
             },
             "drupal/core": {
                 "https://www.drupal.org/node/2838452" : "https://www.drupal.org/files/issues/2838452-9.patch",
-                "https://www.drupal.org/files/issues/2817305.patch" : "https://www.drupal.org/files/issues/2817305.patch"
+                "https://www.drupal.org/files/issues/2817305.patch" : "https://www.drupal.org/files/issues/2817305.patch",
+                "slash latest" : "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/slash_latest.patch"
             }
         },
         "drupal-scaffold": {

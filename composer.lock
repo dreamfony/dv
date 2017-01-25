@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f64ef15d19ffa94529759e8cc376c1c8",
-    "content-hash": "feb867f9e9c99e00c29ea3c032594951",
+    "hash": "d784df1f29546dad261080ffb80c90e7",
+    "content-hash": "11ddf26b1ca957bcef2b0bfbfbb47c3a",
     "packages": [
         {
             "name": "acquia/blt",
@@ -2190,12 +2190,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal-composer/drupal-core.git",
-                "reference": "a9cce245450bf17d613da2e236e37a2d14d56e02"
+                "reference": "5677eabc1f64f26b9798cbe61cf05200706df4d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/a9cce245450bf17d613da2e236e37a2d14d56e02",
-                "reference": "a9cce245450bf17d613da2e236e37a2d14d56e02",
+                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/5677eabc1f64f26b9798cbe61cf05200706df4d7",
+                "reference": "5677eabc1f64f26b9798cbe61cf05200706df4d7",
                 "shasum": ""
             },
             "require": {
@@ -2344,7 +2344,8 @@
             "extra": {
                 "patches_applied": {
                     "https://www.drupal.org/node/2838452": "https://www.drupal.org/files/issues/2838452-9.patch",
-                    "https://www.drupal.org/files/issues/2817305.patch": "https://www.drupal.org/files/issues/2817305.patch"
+                    "https://www.drupal.org/files/issues/2817305.patch": "https://www.drupal.org/files/issues/2817305.patch",
+                    "slash latest": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/slash_latest.patch"
                 }
             },
             "autoload": {
@@ -2368,7 +2369,7 @@
                 "GPL-2.0+"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2017-01-25 18:40:27"
+            "time": "2017-01-25 20:58:39"
         },
         {
             "name": "drupal/cors",
