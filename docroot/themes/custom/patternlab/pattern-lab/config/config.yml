@@ -50,7 +50,6 @@ plugins:
       base:
         paths:
           - ..\source\_patterns\00-base
-          - ..\source\_patterns\00-base\spacing
       atoms:
         paths:
           - ..\source\_patterns\01-atoms
