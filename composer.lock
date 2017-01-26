@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d784df1f29546dad261080ffb80c90e7",
-    "content-hash": "11ddf26b1ca957bcef2b0bfbfbb47c3a",
+    "hash": "27a69d3ebe3b31e757ef572f7a5b54b5",
+    "content-hash": "418a826cbdcc48e33d619fe0406865d0",
     "packages": [
         {
             "name": "acquia/blt",
@@ -1762,6 +1762,124 @@
                 "source": "https://cgit.drupalcode.org/coffee",
                 "issues": "https://drupal.org/project/issues/coffee",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/collect",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/collect",
+                "reference": "7a4999db1159e3ab4733a0751bc5c40ccb481fc1"
+            },
+            "require": {
+                "drupal/collect_common": "*",
+                "drupal/core": "*"
+            },
+            "require-dev": {
+                "drupal/collect_client": "*",
+                "drupal/collect_common": "*",
+                "drupal/collect_crm": "*",
+                "drupal/crm_core_activity": "~1",
+                "drupal/crm_core_contact": "~1",
+                "drupal/crm_core_match": "~1",
+                "drupal/inmail": "*",
+                "drupal/inmail_collect": "*",
+                "drupal/inmail_demo": "*",
+                "drupal/name": "*",
+                "drupal/search_api": "*",
+                "drupal/search_api_db": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1483882442"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Arla",
+                    "homepage": "https://www.drupal.org/user/226712"
+                },
+                {
+                    "name": "Berdir",
+                    "homepage": "https://www.drupal.org/user/214652"
+                },
+                {
+                    "name": "corvus_ch",
+                    "homepage": "https://www.drupal.org/user/1865206"
+                },
+                {
+                    "name": "miro_dietiker",
+                    "homepage": "https://www.drupal.org/user/227761"
+                },
+                {
+                    "name": "slashrsm",
+                    "homepage": "https://www.drupal.org/user/744628"
+                }
+            ],
+            "description": "Collect allows to collect and store any kind of data. With the aid of a meta data management layer this data can then be exposed to components like Views, Search API and others.",
+            "homepage": "https://www.drupal.org/project/collect",
+            "support": {
+                "source": "http://cgit.drupalcode.org/collect"
+            },
+            "time": "2017-01-08 13:30:09"
+        },
+        {
+            "name": "drupal/collect_common",
+            "version": "dev-1.x",
+            "require": {
+                "drupal/collect": "self.version",
+                "drupal/core": "*"
+            },
+            "type": "metapackage",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1483882442"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Arla",
+                    "homepage": "https://www.drupal.org/user/226712"
+                },
+                {
+                    "name": "Berdir",
+                    "homepage": "https://www.drupal.org/user/214652"
+                },
+                {
+                    "name": "corvus_ch",
+                    "homepage": "https://www.drupal.org/user/1865206"
+                },
+                {
+                    "name": "miro_dietiker",
+                    "homepage": "https://www.drupal.org/user/227761"
+                },
+                {
+                    "name": "slashrsm",
+                    "homepage": "https://www.drupal.org/user/744628"
+                }
+            ],
+            "description": "A set of shared functionality for both collect client and server.",
+            "homepage": "https://www.drupal.org/project/collect",
+            "support": {
+                "source": "http://cgit.drupalcode.org/collect"
             }
         },
         {
@@ -3548,6 +3666,63 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/inline_entity_form"
             }
+        },
+        {
+            "name": "drupal/inmail",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/inmail",
+                "reference": "15c799e7e514076748b31e61417e8c824bdddeab"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "require-dev": {
+                "drupal/collect": "*",
+                "drupal/composer_manager": "*",
+                "drupal/mailmute": "*",
+                "drupal/monitoring": "*",
+                "drupal/past": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1481893383"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Arla",
+                    "homepage": "https://www.drupal.org/user/226712"
+                },
+                {
+                    "name": "Berdir",
+                    "homepage": "https://www.drupal.org/user/214652"
+                },
+                {
+                    "name": "mbovan",
+                    "homepage": "https://www.drupal.org/user/3149657"
+                },
+                {
+                    "name": "miro_dietiker",
+                    "homepage": "https://www.drupal.org/user/227761"
+                }
+            ],
+            "description": "The Inmail module for Drupal 8 enables processing of incoming email.",
+            "homepage": "https://www.drupal.org/project/inmail",
+            "support": {
+                "source": "http://cgit.drupalcode.org/inmail"
+            },
+            "time": "2016-12-16 13:01:59"
         },
         {
             "name": "drupal/leaflet",
@@ -11663,7 +11838,9 @@
         "drupal/search_api_autocomplete": 15,
         "drupal/leaflet": 20,
         "drupal/leaflet_markercluster": 15,
-        "drupal/webform": 10
+        "drupal/webform": 10,
+        "drupal/inmail": 20,
+        "drupal/collect": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
