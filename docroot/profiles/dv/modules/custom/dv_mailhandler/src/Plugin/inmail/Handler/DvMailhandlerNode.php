@@ -36,10 +36,15 @@ class DvMailhandlerNode extends MailhandlerNode {
     try {
       $result = $processor_result->getAnalyzerResult();
 
-      if (!$result->hasContext('entity_type') || $result->getContext('entity_type')->getContextValue()['entity_type'] != 'node') {
-        // Do not run this handler in case
-        // the identified entity type is not node.
+      $email_sent_uuid = explode('@', explode("+", $result->getContext('to')->getContextValue())[1])[0];
+      $email_sent_node = \Drupal::entityManager()->loadEntityByUuid('node', $email_sent_uuid);
+
+      if(!is_object($email_sent_node)) {
+        // ignore mail if there is no mail mail sent to accompany it
         return;
+      } else {
+        // Add node nid to context
+        $result->email_sent_node = $email_sent_node->id();
       }
 
       // Create a node.
@@ -77,6 +82,7 @@ class DvMailhandlerNode extends MailhandlerNode {
       ],
       'uid' => 1,
       'title' => $result->getSubject(),
+      'field_er_email_sent' => $result->email_sent_node
     ]);
     $node->save();
 

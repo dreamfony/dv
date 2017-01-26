@@ -43,7 +43,7 @@ class ToAnalyzer extends AnalyzerBase {
    *   The analyzer result.
    */
   protected function findTo(MimeMessageInterface $message, DefaultAnalyzerResult $result) {
-    $to = $message->getTo()->getAddress();
+    $to = $message->getTo()[0]->getAddress();
 
     // Add to context.
     $context_definition = new ContextDefinition('any', $this->t('To context'));
