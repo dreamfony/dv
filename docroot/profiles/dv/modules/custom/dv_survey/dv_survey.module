@@ -53,5 +53,5 @@ function dv_survey_entity_presave(EntityInterface $entity) {
  */
 function dv_survey_form_node_survey_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   /// @todo: #moderation check if this needs to be shown to moderators
-  //$form['revision_information']['#access'] = FALSE;
+  $form['revision_information']['#access'] = FALSE;
 }

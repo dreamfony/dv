@@ -74,7 +74,9 @@
         "drupal/smart_trim": "^1.0",
         "drupal/easy_breadcrumb": "^1.5",
         "drupal/webform": "^5.0@beta",
-        "leaflet/leaflet": "^0.7.7"
+        "leaflet/leaflet": "^0.7.7",
+        "drupal/inmail": "1.x-dev",
+        "drupal/collect": "1.x-dev"
     },
     "require-dev": {
         "behat/behat": "^3.1",
@@ -196,7 +198,8 @@
             },
             "drupal/core": {
                 "https://www.drupal.org/node/2838452" : "https://www.drupal.org/files/issues/2838452-9.patch",
-                "https://www.drupal.org/files/issues/2817305.patch" : "https://www.drupal.org/files/issues/2817305.patch"
+                "https://www.drupal.org/files/issues/2817305.patch" : "https://www.drupal.org/files/issues/2817305.patch",
+                "slash latest" : "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/slash_latest.patch"
             }
         },
         "drupal-scaffold": {
