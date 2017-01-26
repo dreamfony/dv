@@ -41,6 +41,7 @@ EXAMPLE_project.local.yml to blt/project.local.yml
 {{/BUG}}
 
 - git clone
+- cd dv
 - composer install
 - vagrant up
 - vagrant ssh
