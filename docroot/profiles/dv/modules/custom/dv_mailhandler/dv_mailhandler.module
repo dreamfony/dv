@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains dv_mailhandler.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function dv_mailhandler_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the dv_mailhandler module.
+    case 'help.page.dv_mailhandler':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Dv Mailhandler.') . '</p>';
+      return $output;
+
+    default:
+  }
+}

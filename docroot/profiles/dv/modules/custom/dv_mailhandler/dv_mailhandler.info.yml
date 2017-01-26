@@ -1,0 +1,7 @@
+name: DV Mailhandler
+type: module
+description: Dv Mailhandler.
+core: 8.x
+package: Custom
+dependencies:
+  - mailhandler
