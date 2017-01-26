@@ -23,7 +23,7 @@ use Drupal\mailhandler\Plugin\inmail\Handler\MailhandlerNode;
  *
  * @Handler(
  *   id = "dv_mailhandler_node",
- *   label = @Translation("Email Content"),
+ *   label = @Translation("DV Email Content"),
  *   description = @Translation("Creates a node from a mail message.")
  * )
  */
