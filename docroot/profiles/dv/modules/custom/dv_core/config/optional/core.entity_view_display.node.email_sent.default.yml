@@ -2,14 +2,40 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.email_sent.field_es_body
+    - field.field.node.email_sent.field_es_parent_node
+    - field.field.node.email_sent.field_es_to
     - node.type.email_sent
   module:
+    - text
     - user
 id: node.email_sent.default
 targetEntityType: node
 bundle: email_sent
 mode: default
 content:
+  field_es_body:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_es_parent_node:
+    weight: 104
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_es_to:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
   links:
     type: visible
     region: content

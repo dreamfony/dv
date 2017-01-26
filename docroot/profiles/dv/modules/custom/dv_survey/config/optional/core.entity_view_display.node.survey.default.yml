@@ -13,16 +13,29 @@ targetEntityType: node
 bundle: survey
 mode: default
 content:
+  content_moderation_control:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_s_questions:
+    type: basic_string
+    weight: 3
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   field_s_survey:
-    weight: 1
+    weight: 2
     label: above
     settings: {  }
     third_party_settings: {  }
     type: webform_entity_reference_entity_view
+    region: content
   links:
-    weight: 0
+    weight: 1
+    region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_s_questions: true
   langcode: true

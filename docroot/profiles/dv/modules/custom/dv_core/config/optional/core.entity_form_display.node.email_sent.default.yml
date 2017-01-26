@@ -2,10 +2,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.email_sent.field_es_body
+    - field.field.node.email_sent.field_es_parent_node
+    - field.field.node.email_sent.field_es_to
     - node.type.email_sent
   module:
     - content_moderation
     - path
+    - text
 id: node.email_sent.default
 targetEntityType: node
 bundle: email_sent
@@ -17,6 +21,31 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_es_body:
+    weight: 31
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_es_parent_node:
+    weight: 34
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_es_to:
+    weight: 32
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
   langcode:
     type: language_select
     weight: 2

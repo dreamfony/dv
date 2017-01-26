@@ -55,6 +55,7 @@ content:
     weight: 100
     settings: {  }
     third_party_settings: {  }
+    region: content
 hidden:
   comment: true
   langcode: true

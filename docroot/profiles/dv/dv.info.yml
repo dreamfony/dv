@@ -57,6 +57,7 @@ dependencies:
   - history
   - image
   - inline_entity_form
+  - inmail
   - language
   - leaflet
   - leaflet_markercluster
@@ -68,6 +69,7 @@ dependencies:
   - menu_link_content
   - menu_ui
   - message
+  - mailhandler
   - node
   - options
   - page_cache

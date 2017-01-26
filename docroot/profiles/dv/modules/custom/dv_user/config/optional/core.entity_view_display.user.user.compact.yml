@@ -15,6 +15,7 @@ mode: compact
 content:
   masquerade:
     weight: 50
+    region: content
   profile_profile:
     type: visible
     region: content

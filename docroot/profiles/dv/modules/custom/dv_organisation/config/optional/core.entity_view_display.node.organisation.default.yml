@@ -78,6 +78,7 @@ content:
           'y': 0
     third_party_settings: {  }
     type: leaflet_formatter_default
+    region: content
   field_o_logo:
     weight: 10
     label: above
@@ -86,6 +87,7 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
+    region: content
   field_o_organisation_group:
     weight: 4
     label: above
@@ -126,6 +128,7 @@ content:
     weight: 0
     settings: {  }
     third_party_settings: {  }
+    region: content
 hidden:
   field_o_issue_types: true
   field_o_organisation_id: true

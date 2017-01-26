@@ -12,3 +12,4 @@ dependencies:
   - path
   - user
   - webform
+  - workflows

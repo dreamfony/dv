@@ -14,3 +14,4 @@ permissions:
   - 'access site-wide contact form'
   - 'access shortcuts'
   - 'use draft_draft transition'
+  - 'view own unpublished content'

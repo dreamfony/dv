@@ -17,6 +17,7 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     type: number_integer
+    region: content
   label:
     label: hidden
     type: string
@@ -24,6 +25,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    region: content
 hidden:
   changed: true
   created: true

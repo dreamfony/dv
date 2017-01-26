@@ -20,6 +20,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_positions_organisation:
     weight: 4
     label: above
@@ -27,6 +28,7 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   field_positions_time_period:
     type: daterange_plain
     weight: 3
@@ -35,11 +37,13 @@ content:
       separator: '-'
       timezone_override: ''
     third_party_settings: {  }
+    region: content
   user_id:
     label: hidden
     type: author
     weight: 0
     settings: {  }
     third_party_settings: {  }
+    region: content
 hidden:
   langcode: true

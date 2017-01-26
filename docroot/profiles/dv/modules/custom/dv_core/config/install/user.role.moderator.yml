@@ -5,4 +5,6 @@ id: moderator
 label: Moderator
 weight: 3
 is_admin: null
-permissions: {  }
+permissions:
+  - 'view any unpublished content'
+  - 'view latest version'

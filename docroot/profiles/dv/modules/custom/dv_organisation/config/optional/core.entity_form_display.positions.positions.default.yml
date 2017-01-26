@@ -21,6 +21,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
   field_positions_organisation:
     weight: 5
     settings:
@@ -29,16 +30,19 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   field_positions_time_period:
     type: daterange_default
     weight: 4
     settings: {  }
     third_party_settings: {  }
+    region: content
   langcode:
     type: language_select
     weight: 0
     settings: {  }
     third_party_settings: {  }
+    region: content
   user_id:
     type: entity_reference_autocomplete
     weight: 1
@@ -47,4 +51,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
 hidden: {  }

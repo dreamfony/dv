@@ -2,18 +2,16 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.person.body
-    - field.field.node.person.field_person_id
-    - field.field.node.person.field_person_positions
-    - node.type.person
+    - field.field.node.received_email.body
+    - field.field.node.received_email.field_er_email_sent
+    - node.type.received_email
   module:
     - content_moderation
-    - inline_entity_form
     - path
     - text
-id: node.person.default
+id: node.received_email.default
 targetEntityType: node
-bundle: person
+bundle: received_email
 mode: default
 content:
   body:
@@ -31,25 +29,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_person_id:
-    weight: 33
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
-  field_person_positions:
-    weight: 34
+  field_er_email_sent:
+    weight: 32
     settings:
       match_operator: CONTAINS
-      form_mode: default
-      override_labels: false
-      label_singular: ''
-      label_plural: ''
-      allow_new: true
-      allow_existing: false
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: inline_entity_form_complex
+    type: entity_reference_autocomplete
     region: content
   langcode:
     type: language_select

@@ -21,8 +21,10 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   links:
     weight: 100
+    region: content
 hidden:
   field_m_attachments: true
   field_m_body: true

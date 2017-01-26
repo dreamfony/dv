@@ -37,6 +37,7 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   links:
     type: visible
     region: content

@@ -8,3 +8,7 @@ is_admin: null
 permissions:
   - 'create survey content'
   - 'edit own survey content'
+  - 'use survey_workflow transition make_a_draft'
+  - 'use survey_workflow transition send_email'
+  - 'view own unpublished content'
+  - 'view latest version'

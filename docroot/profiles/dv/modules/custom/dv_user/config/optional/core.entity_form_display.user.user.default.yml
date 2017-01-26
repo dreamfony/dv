@@ -1,0 +1,44 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.mailhandler_gpg_key
+    - field.field.user.user.user_picture
+  module:
+    - mailhandler
+    - path
+    - user
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  account:
+    weight: -10
+    region: content
+  contact:
+    weight: 5
+    region: content
+  language:
+    weight: 0
+    region: content
+  mailhandler_gpg_key:
+    type: mailhandler_gpg
+    weight: 5
+    settings:
+      rows: 20
+      placeholder: 'Begins with "-----BEGIN PGP PUBLIC KEY BLOCK-----"'
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  timezone:
+    weight: 6
+    region: content
+hidden:
+  langcode: true
+  user_picture: true
