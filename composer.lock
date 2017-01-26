@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "27a69d3ebe3b31e757ef572f7a5b54b5",
-    "content-hash": "418a826cbdcc48e33d619fe0406865d0",
+    "hash": "e2d14d92123f8df5dfcfa6d225c5ab88",
+    "content-hash": "d6302d1d3bcd72e0441d18d7893128ba",
     "packages": [
         {
             "name": "acquia/blt",
@@ -3938,6 +3938,63 @@
                 "source": "http://cgit.drupalcode.org/like_and_dislike",
                 "issues": "http://drupal.org/project/issues/like_and_dislike"
             }
+        },
+        {
+            "name": "drupal/mailhandler",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/mailhandler",
+                "reference": "8d7eec00c7e6c0fe261ef2c8df48c5eea58476bd"
+            },
+            "require": {
+                "drupal/core": "*",
+                "drupal/inmail": "*"
+            },
+            "require-dev": {
+                "drupal/inmail_demo": "*",
+                "drupal/mailhandler_comment": "*"
+            },
+            "suggest": {
+                "ext-gnupg": "GnuPG extension is required in order to process signed messages."
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1479388440"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Milos Bovan (mbovan)",
+                    "homepage": "https://www.drupal.org/u/mbovan",
+                    "email": "milos@bovan.me",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "kscheirer",
+                    "homepage": "https://www.drupal.org/user/128191"
+                },
+                {
+                    "name": "mbovan",
+                    "homepage": "https://www.drupal.org/user/3149657"
+                }
+            ],
+            "description": "Mailhandler allows you to create nodes and comments by sending an email.",
+            "homepage": "https://www.drupal.org/project/mailhandler",
+            "support": {
+                "source": "http://cgit.drupalcode.org/mailhandler/tree/?h=8.x-1.x",
+                "issues": "https://www.drupal.org/project/issues/mailhandler?version=8.x"
+            },
+            "time": "2016-11-17 14:47:45"
         },
         {
             "name": "drupal/masquerade",
@@ -11840,7 +11897,8 @@
         "drupal/leaflet_markercluster": 15,
         "drupal/webform": 10,
         "drupal/inmail": 20,
-        "drupal/collect": 20
+        "drupal/collect": 20,
+        "drupal/mailhandler": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
