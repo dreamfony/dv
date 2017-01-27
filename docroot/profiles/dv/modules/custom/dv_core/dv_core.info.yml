@@ -40,6 +40,7 @@ dependencies:
   - group
   - hal
   - image
+  - inmail
   - language
   - like_and_dislike
   - link
@@ -61,6 +62,7 @@ dependencies:
   - search_api_solr
   - serialization
   - shortcut
+  - smart_trim
   - system
   - taxonomy
   - telephone

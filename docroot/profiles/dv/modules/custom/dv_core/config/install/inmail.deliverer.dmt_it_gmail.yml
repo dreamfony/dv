@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies: {  }
+id: dmt_it_gmail
+label: 'DMT IT gmail'
+plugin: imap
+configuration:
+  host: imap.gmail.com
+  imap_port: 993
+  pop3_port: 110
+  ssl: true
+  novalidate_ssl: '0'
+  protocol: imap
+  username: dmtit6
+  delete_processed: false
+  password: ''
+  config_id: dmt_it_gmail
+message_report: false

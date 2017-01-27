@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.received_email.body
+    - field.field.node.received_email.field_er_email_sent
     - node.type.received_email
   module:
     - text
@@ -25,4 +26,5 @@ content:
     weight: 100
     region: content
 hidden:
+  field_er_email_sent: true
   langcode: true
