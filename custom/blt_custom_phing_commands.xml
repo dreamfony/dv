@@ -19,7 +19,7 @@
   </target>
   <!-- override local:setup to add db_dump because sometimes config is not exported-->
   <target name="local:setup" description="Install dependencies, builds docroot, installs Drupal; uses local drush alias.">
-    <phingcall target="custom:dump_db"/>
+    <phingcall target="dump_db"/>
     <phingcall target="setup">
       <property name="drush.alias" value="${drush.aliases.local}" />
       <param name="environment" value="local"/>
