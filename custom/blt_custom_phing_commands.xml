@@ -37,5 +37,7 @@
       <param name="environment" value="local"/>
     </phingcall>
     <phingcall target="import_demo_content"/>
+    <drush command="uli" alias="">
+    </drush>
   </target>
 </project>

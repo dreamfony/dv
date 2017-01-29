@@ -38,18 +38,22 @@ Make sure you have the latest versions of packages
 {{BUG}}
 Until we solve issue with accessing patternlab from vagrant it is neccessary to copy
 EXAMPLE_project.local.yml to blt/project.local.yml
+
+sudo apt-get install php7.0-bz2
 {{/BUG}}
 
 - git clone
+- git checkout develop
 - cd dv
 - composer install
 - vagrant up
 - vagrant ssh
 - cd /var/www/dv
-- git checkout develop
-- composer blt-alias (restart terminal)
+- composer blt-alias 
+- (restart ssh terminal: exit / vagrant ssh)
+- cd /var/www/dv
 - blt local:setup
-- cd /var/www/dv/docroot
+- cd docroot
 - drupal init
 
 import test data
