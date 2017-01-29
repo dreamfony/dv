@@ -8,6 +8,7 @@ dependencies:
   - activity_logger
   - activity_send
   - activity_viewer
+  - activity_send_email
   - address
   - admin_toolbar
   - admin_toolbar_tools
