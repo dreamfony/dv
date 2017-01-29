@@ -21,7 +21,7 @@
     <drush command="mi organisation_groups" alias="">
     </drush>
     <drush command="mi organisations" alias="">
-      <option name="limit">50 items</option>
+      <option name="limit">"50 items"</option>
     </drush>
   </target>
   <!-- override local:setup to add db_dump because sometimes config is not exported-->
