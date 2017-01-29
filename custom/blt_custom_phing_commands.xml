@@ -12,4 +12,17 @@
     <!--  copy file config.user.php -->
     <copy file="${repo.root}/custom/pimpmylog/config.user.php" tofile="/usr/share/php/pimpmylog/config.user.php" verbose="true" />
   </target>
+  <target name="dump_db">
+    <drush command="sql-dump" alias="">
+      <option name="result-file">backup.sql</option>
+    </drush>
+  </target>
+  <!-- override local:setup to add db_dump because sometimes config is not exported-->
+  <target name="local:setup" description="Install dependencies, builds docroot, installs Drupal; uses local drush alias.">
+    <phingcall target="dump_db"/>
+    <phingcall target="setup">
+      <property name="drush.alias" value="${drush.aliases.local}" />
+      <param name="environment" value="local"/>
+    </phingcall>
+  </target>
 </project>
