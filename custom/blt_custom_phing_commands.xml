@@ -17,6 +17,13 @@
       <option name="result-file">backup.sql</option>
     </drush>
   </target>
+  <target name="import_demo_content">
+    <drush command="mi organisation_groups" alias="">
+    </drush>
+    <drush command="mi organisations" alias="">
+      <option name="limit">50 items</option>
+    </drush>
+  </target>
   <!-- override local:setup to add db_dump because sometimes config is not exported-->
   <target name="local:setup" description="Install dependencies, builds docroot, installs Drupal; uses local drush alias.">
     <phingcall target="dump_db"/>
@@ -24,5 +31,6 @@
       <property name="drush.alias" value="${drush.aliases.local}" />
       <param name="environment" value="local"/>
     </phingcall>
+    <phingcall target="import_demo_content"/>
   </target>
 </project>
