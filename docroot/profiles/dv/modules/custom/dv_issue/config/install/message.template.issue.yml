@@ -7,7 +7,7 @@ third_party_settings:
   activity_logger:
     activity_bundle_entities:
       node-issue: node-issue
-    activity_action: create_entity_action
+    activity_action: create_activity_action
     activity_context: owner_activity_context
     activity_destinations:
       stream_home: stream_home

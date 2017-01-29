@@ -14,7 +14,7 @@ use Drupal\node\Entity\Node;
  * Provides a 'CreateActivityAction' activity action.
  *
  * @ActivityAction(
- *  id = "create_entity_action",
+ *  id = "create_activity_action",
  *  label = @Translation("Action that is triggered when a entity is created"),
  * )
  */

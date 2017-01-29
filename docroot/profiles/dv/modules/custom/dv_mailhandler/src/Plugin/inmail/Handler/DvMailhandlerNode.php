@@ -29,6 +29,8 @@ use Drupal\mailhandler\Plugin\inmail\Handler\MailhandlerNode;
  */
 class DvMailhandlerNode extends MailhandlerNode {
 
+  protected $emailSentNodeId;
+
   /**
    * {@inheritdoc}
    */
@@ -39,12 +41,12 @@ class DvMailhandlerNode extends MailhandlerNode {
       $email_sent_uuid = explode('@', explode("+", $result->getContext('to')->getContextValue())[1])[0];
       $email_sent_node = \Drupal::entityManager()->loadEntityByUuid('node', $email_sent_uuid);
 
-      if(!is_object($email_sent_node)) {
+      if(is_object($email_sent_node)) {
+        // Add node nid to context
+        $this->emailSentNodeId = $email_sent_node->id();
+      } else {
         // ignore mail if there is no mail mail sent to accompany it
         return;
-      } else {
-        // Add node nid to context
-        $result->email_sent_node = $email_sent_node->id();
       }
 
       // Create a node.
@@ -82,7 +84,7 @@ class DvMailhandlerNode extends MailhandlerNode {
       ],
       'uid' => 1,
       'title' => $result->getSubject(),
-      'field_er_email_sent' => $result->email_sent_node
+      'field_er_email_sent' => $this->emailSentNodeId
     ]);
     $node->save();
 

@@ -7,6 +7,7 @@
 
 namespace Drupal\activity_logger\Plugin\QueueWorker;
 
+use Drupal\activity_basics\Plugin\ActivityAction\CreateActivityAction;
 use Drupal\node\Entity\Node;
 
 
@@ -30,7 +31,6 @@ class MessageQueueCreator extends MessageQueueBase {
 
     // First make sure it's an actual entity.
     if ($entity = Node::load($data['entity_id'])) {
-      // Check if it's created more than 20 seconds ago.
       $timestamp = $entity->getCreatedTime();
       // Current time.
       $now = time();
@@ -46,8 +46,9 @@ class MessageQueueCreator extends MessageQueueBase {
       }
       else {
         $activity_logger_factory = \Drupal::service('plugin.manager.activity_action.processor');
-        // Trigger the create action for enttites.
-        $create_action = $activity_logger_factory->createInstance('create_entity_action');
+        // Trigger the create action for entities.
+        /** @var  CreateActivityAction $create_action */
+        $create_action = $activity_logger_factory->createInstance('create_activity_action');
         $create_action->createMessage($entity);
       }
     }
