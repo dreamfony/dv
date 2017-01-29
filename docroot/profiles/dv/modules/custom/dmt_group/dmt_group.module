@@ -6,7 +6,6 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
-use Drupal\Core\Entity\EntityInterface;
 use Drupal\node\Entity\Node;
 use Drupal\group\Entity\Group;
 
@@ -27,35 +26,24 @@ function dmt_group_help($route_name, RouteMatchInterface $route_match) {
 }
 
 /**
+ * Implements hook_ENTITY_TYPE_update().
+ *
+ * @param Node $entity
+ */
+function dmt_group_node_update(Node $entity) {
+
+  \Drupal::service('dmt_group.node_queue_helper')->queueNode($entity);
+}
+
+/**
  * Implements hook_ENTITY_TYPE_insert().
  *
- * @param \Drupal\Core\Entity\EntityInterface $entity
+ * @param Node $entity
  */
-function dmt_group_entity_update(EntityInterface $entity) {
+function dmt_group_node_insert(Node $entity) {
 
-  if ($entity instanceof Node) {
+  \Drupal::service('dmt_group.node_queue_helper')->queueNode($entity);
 
-    // get current node bundle
-    $bundle = $entity->bundle();
-    $moderation_state = $entity->get('moderation_state')->getString();
-
-    // check if current node is organisation node
-    if ($moderation_state === 'send_email') {
-
-      // check if current node is organisation node
-      if ('issue' === $bundle || 'survey' === $bundle) {
-        $data['entity_id'] = $entity->id();
-        $queue = \Drupal::queue('dv_organisation_extract_one');
-
-        foreach ($entity->get('field_recipient')
-                   ->getValue() as $recipient_group) {
-          $data['gid'] = $recipient_group['target_id'];
-          $queue->createItem($data);
-        }
-
-      }
-    }
-  }
 }
 
 function test_group() {
