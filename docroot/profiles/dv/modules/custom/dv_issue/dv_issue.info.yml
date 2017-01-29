@@ -9,7 +9,11 @@ dependencies:
   - comment
   - content_moderation
   - datetime_range
+  - dv_area_of_activity
   - dv_core
+  - dv_custom_org_lists
+  - dv_org_legal_status
+  - dv_organisation_founder
   - dv_organisation_group
   - dv_work_group
   - dynamic_entity_reference

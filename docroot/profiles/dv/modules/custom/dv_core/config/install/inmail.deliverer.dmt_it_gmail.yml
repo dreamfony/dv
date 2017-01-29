@@ -11,8 +11,8 @@ configuration:
   ssl: true
   novalidate_ssl: '0'
   protocol: imap
-  username: dmtit6
+  username: dmtit6@gmail.com
   delete_processed: false
-  password: ''
+  password: C12H16N2
   config_id: dmt_it_gmail
 message_report: false

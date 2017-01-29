@@ -27,6 +27,7 @@ dependencies:
   - dv_organisation_group
   - dv_survey
   - dv_work_group
+  - dynamic_entity_reference
   - editor
   - entity_browser
   - environment_indicator
@@ -49,6 +50,7 @@ dependencies:
   - menu_ui
   - message
   - node
+  - options
   - path
   - pathauto
   - persistent_login

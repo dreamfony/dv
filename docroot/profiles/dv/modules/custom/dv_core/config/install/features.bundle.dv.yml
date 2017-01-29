@@ -54,12 +54,14 @@ assignments:
   optional:
     types:
       config:
+        block: block
         entity_form_display: entity_form_display
         entity_view_display: entity_view_display
         field_config: field_config
         field_storage_config: field_storage_config
         group_content_type: group_content_type
         group_role: group_role
+        configurable_language: configurable_language
         view: view
         entity_view_mode: entity_view_mode
     enabled: true

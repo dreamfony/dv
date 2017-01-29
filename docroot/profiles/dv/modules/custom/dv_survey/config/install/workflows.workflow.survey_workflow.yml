@@ -25,6 +25,12 @@ transitions:
       - draft
     to: send_email
     weight: 1
+  update_email:
+    label: 'Temp Update Email'
+    from:
+      - send_email
+    to: draft
+    weight: 2
 type: content_moderation
 type_settings:
   states:
@@ -36,4 +42,5 @@ type_settings:
       default_revision: false
   entity_types:
     node:
-      - survey
+      1: issue
+      0: survey

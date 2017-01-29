@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.survey.field_recipient
     - field.field.node.survey.field_s_questions
     - field.field.node.survey.field_s_survey
     - node.type.survey
@@ -18,6 +19,15 @@ content:
     weight: 3
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_recipient:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_s_questions:
     weight: 7
