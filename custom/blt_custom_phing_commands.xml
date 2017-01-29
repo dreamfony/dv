@@ -22,10 +22,11 @@
     </drush>
     <drush command="mi organisations" alias="">
       <option name="limit">"50 items"</option>
+      <option name="feedback">"10 items"</option>
     </drush>
   </target>
   <!-- override local:setup to add db_dump because sometimes config is not exported-->
-  <target name="local:setup" description="Install dependencies, builds docroot, installs Drupal; uses local drush alias.">
+  <target name="restart">
     <phingcall target="dump_db"/>
     <phingcall target="setup">
       <property name="drush.alias" value="${drush.aliases.local}" />
