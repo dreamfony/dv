@@ -48,6 +48,13 @@ function activity_creator_field_activity_destinations_allowed_values() {
 }
 
 /**
+ * Implements hook_entity_presave().
+ */
+function activity_creator_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  /// @todo if field_message_related_object is groupcontent find related node and reference it instead
+}
+
+/**
  * Implements hook_ENTITY_TYPE_insert().
  */
 function activity_creator_message_insert(\Drupal\message\Entity\Message $entity) {
@@ -82,6 +89,7 @@ function activity_creator_message_insert(\Drupal\message\Entity\Message $entity)
       /* @var $plugin \Drupal\activity_creator\Plugin\ActivityContextBase */
       $plugin = $context_plugin_manager->createInstance($data['context']);
       $recipients = $plugin->getRecipients($data, $data['last_uid'], 0);
+      /** @var \Drupal\activity_creator\ActivityFactory $activity_factory */
       $activity_factory = \Drupal::service('activity_creator.activity_factory');
       if (!empty($recipients)) {
 
