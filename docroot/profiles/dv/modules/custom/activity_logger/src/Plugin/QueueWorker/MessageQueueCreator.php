@@ -8,6 +8,7 @@
 namespace Drupal\activity_logger\Plugin\QueueWorker;
 
 use Drupal\activity_basics\Plugin\ActivityAction\CreateActivityAction;
+use Drupal\group\Entity\GroupContent;
 use Drupal\node\Entity\Node;
 
 

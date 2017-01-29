@@ -7,7 +7,6 @@
 
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\node\Entity\Node;
-use Drupal\group\Entity\Group;
 
 /**
  * Implements hook_help().
@@ -33,6 +32,7 @@ function dmt_group_help($route_name, RouteMatchInterface $route_match) {
 function dmt_group_node_update(Node $entity) {
 
   \Drupal::service('dmt_group.node_queue_helper')->queueNode($entity);
+
 }
 
 /**
@@ -43,16 +43,5 @@ function dmt_group_node_update(Node $entity) {
 function dmt_group_node_insert(Node $entity) {
 
   \Drupal::service('dmt_group.node_queue_helper')->queueNode($entity);
-
-}
-
-function test_group() {
-  $gid = 3;
-
-  $group = Group::load($gid);
-
-  $test = $group->getContent('group_node:organisation');
-
-  dpm($test);
 
 }

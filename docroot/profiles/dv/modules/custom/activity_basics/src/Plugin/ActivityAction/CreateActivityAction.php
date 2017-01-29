@@ -8,7 +8,7 @@
 namespace Drupal\activity_basics\Plugin\ActivityAction;
 
 use Drupal\activity_creator\Plugin\ActivityActionBase;
-use Drupal\node\Entity\Node;
+use Drupal\Core\Entity\Entity;
 
 /**
  * Provides a 'CreateActivityAction' activity action.
@@ -26,18 +26,13 @@ class CreateActivityAction extends ActivityActionBase {
   public function create($entity) {
 
     if ($this->isValidEntity($entity)) {
-
-      // For nodes we make an exception, since they are potentially placed in
-      // groups, which we cannot know here yet.
-      if ($entity instanceof Node) {
+        /** @var Entity $entity */
         $data['entity_id'] = $entity->id();
+        $data['entity_type_id'] = $entity->getEntityTypeId();
         $queue = \Drupal::queue('activity_logger_message');
         $queue->createItem($data);
-      }
-      else {
-        $this->createMessage($entity);
-      }
     }
+
   }
 
 

@@ -29,7 +29,7 @@ class DvOrganisationExtractTwo extends QueueWorkerBase {
   public function processItem($data) {
     $group = Group::load($data['gid']);
     $entity = Node::load($data['entity_id']);
-    $group->addContent($entity,'group_node'. $entity->bundle());
+    $group->addContent($entity,'group_node:'. $entity->bundle());
   }
 
 }
