@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dmt_group;
+namespace Drupal\geo_area_group;
 
 use Drupal\group\Entity\Group;
 use Drupal\Core\Entity\ContentEntityInterface;
@@ -10,7 +10,7 @@ use Drupal\group\Entity\GroupContent;
 /**
  * Class AddGroupToSubgroup
  *
- * @package Drupal\dmt_group
+ * @package Drupal\geo_area_group
  */
 class AddGroupToSubgroup {
 
