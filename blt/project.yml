@@ -33,7 +33,7 @@ target-hooks:
 import: '${repo.root}/custom/blt_custom_phing_commands.xml'
 modules:
   local:
-    enable: [devel, field_ui, seckit, features_ui, views_ui, geo_area_migrate, dv_organisation_migrate, masquerade, dv_dev]
+    enable: [devel, field_ui, seckit, features_ui, views_ui, geo_area_migrate, dv_organisation_migrate, masquerade, dv_dev, queue_ui, dblog]
     uninstall: [acsf, acquia_connector, shield]
   ci:
     enable: {  }
