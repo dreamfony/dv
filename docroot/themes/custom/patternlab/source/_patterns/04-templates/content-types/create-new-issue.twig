@@ -1,0 +1,69 @@
+{% extends "@templates/site-layout.twig" %}
+{% block content %}
+
+  <br><br>
+
+  <div class="media">
+    <div class="media-left">
+      <a href="#">
+        <img class="media-object image-rounded" src="..." alt="...">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">Username</h4>
+      <p>Nova tema</p>
+    </div>
+  </div>
+
+  <br><br>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-8">
+    <form>
+      <fieldset>
+        <div class="form-group">
+          <input type="text" class="form-control input-lg" placeholder="Naziv teme" required>
+        </div>
+        <div class="form-group input-group">
+          <input type="text" class="form-control input-lg" placeholder="Naziv institucije kojoj želim poslati anketu" required>
+          <span class="input-group-btn">
+            <button class="btn btn-default input-lg" type="button">
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+          </span>
+        </div>
+        <button type="button" class="btn btn-default btn-xs">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          Dodaj opis
+        </button>
+      </fieldset>
+
+      <br><br>
+      <hr>
+
+      <fieldset>
+        <h3>Unesi anketna pitanja</h3>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Unesi pitanje">
+        </div>
+        <button type="button" class="btn btn-default btn-xs">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          Dodaj novo pitanje
+        </button>
+      </fieldset>
+      <hr>
+      <fieldset>
+        <div class="form-group float-left">
+          <input type="file" id="attachment">
+        </div>
+        <div class="checkbox float-left">
+          <label>
+            <input type="checkbox"> Privatna anketa
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg float-right">Pošalji anketu</button>
+      </fieldset>
+    </form>
+    </div>
+  </div><!-- /.row -->
+{% endblock %}
