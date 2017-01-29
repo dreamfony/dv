@@ -24,6 +24,10 @@
       <option name="limit">"50 items"</option>
       <option name="feedback">"10 items"</option>
     </drush>
+    <drush command="mi geoarea" alias="">
+      <option name="limit">"50 items"</option>
+      <option name="feedback">"10 items"</option>
+    </drush>
   </target>
   <!-- override local:setup to add db_dump because sometimes config is not exported-->
   <target name="restart">
