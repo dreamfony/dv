@@ -4,6 +4,8 @@ namespace Drupal\dmt_group;
 
 use Drupal\group\Entity\Group;
 use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\node\Entity\Node;
+use Drupal\group\Entity\GroupContent;
 
 /**
  * Class AddGroupToSubgroup
@@ -81,8 +83,22 @@ class AddGroupToSubgroup {
    * @return mixed
    */
   protected function getParentGroupId($parentEntityId) {
-    $result = views_get_view_result('getparentgroup', 'rest_export_1', $parentEntityId);
-    return $result[0]->groups_field_data_group_content_field_data_id;
+    if ( $node = Node::load($parentEntityId) ) {
+      if ($groupContents = GroupContent::loadByEntity($node)) {
+        // Potentially there are more than one.
+        foreach ($groupContents as $groupContent) {
+          /** @var GroupContent $groupContent */
+          // Set the group id.
+          /** @var Group $group */
+          $group = $groupContent->getGroup();
+          $group_type = $group->bundle();
+          if($group_type === 'organisation') {
+            return $group->id();
+          }
+        }
+
+      }
+    }
   }
 
 }
