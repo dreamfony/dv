@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a6e49f27710b4b1b275fdeecfb14dc75",
-    "content-hash": "fc4693b5e6bc075bce53ffd01efc7174",
+    "hash": "23245485fbed68d777513f79dfc6741d",
+    "content-hash": "aa73a97012a4dda53af329b59a38e87e",
     "packages": [
         {
             "name": "acquia/blt",
@@ -2255,12 +2255,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal-composer/drupal-core.git",
-                "reference": "5677eabc1f64f26b9798cbe61cf05200706df4d7"
+                "reference": "88e94eb898299987d4e490994caf889025e9df57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/5677eabc1f64f26b9798cbe61cf05200706df4d7",
-                "reference": "5677eabc1f64f26b9798cbe61cf05200706df4d7",
+                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/88e94eb898299987d4e490994caf889025e9df57",
+                "reference": "88e94eb898299987d4e490994caf889025e9df57",
                 "shasum": ""
             },
             "require": {
@@ -2346,6 +2346,7 @@
                 "drupal/editor": "self.version",
                 "drupal/entity_reference": "self.version",
                 "drupal/field": "self.version",
+                "drupal/field_layout": "self.version",
                 "drupal/field_ui": "self.version",
                 "drupal/file": "self.version",
                 "drupal/filter": "self.version",
@@ -2410,7 +2411,8 @@
                 "patches_applied": {
                     "https://www.drupal.org/node/2838452": "https://www.drupal.org/files/issues/2838452-9.patch",
                     "https://www.drupal.org/files/issues/2817305.patch": "https://www.drupal.org/files/issues/2817305.patch",
-                    "slash latest": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/slash_latest.patch"
+                    "slash latest": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/slash_latest.patch",
+                    "https://www.drupal.org/node/2744069": "https://www.drupal.org/files/issues/2744069-5-views-in-queries.patch"
                 }
             },
             "autoload": {
@@ -2434,7 +2436,7 @@
                 "GPL-2.0+"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2017-01-25 20:58:39"
+            "time": "2017-01-28 14:03:03"
         },
         {
             "name": "drupal/cors",

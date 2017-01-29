@@ -200,7 +200,8 @@
             "drupal/core": {
                 "https://www.drupal.org/node/2838452" : "https://www.drupal.org/files/issues/2838452-9.patch",
                 "https://www.drupal.org/files/issues/2817305.patch" : "https://www.drupal.org/files/issues/2817305.patch",
-                "slash latest" : "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/slash_latest.patch"
+                "slash latest" : "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/slash_latest.patch",
+                "https://www.drupal.org/node/2744069" : "https://www.drupal.org/files/issues/2744069-5-views-in-queries.patch"
             },
             "drupal/mailgun": {
                 "https://www.drupal.org/node/2847665" : "https://www.drupal.org/files/issues/remove-composer-manager-2847665-2.patch"
