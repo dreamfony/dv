@@ -77,7 +77,8 @@
         "leaflet/leaflet": "^0.7.7",
         "drupal/inmail": "1.x-dev",
         "drupal/mailhandler": "1.x-dev",
-        "drupal/mailgun": "1.x-dev"
+        "drupal/mailgun": "1.x-dev",
+        "drupal/facets": "1.x-dev"
     },
     "require-dev": {
         "behat/behat": "^3.1",

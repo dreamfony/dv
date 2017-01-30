@@ -10,6 +10,8 @@
     <copy file="${repo.root}/custom/pimpmylog/drupal.json" tofile="/usr/share/php/pimpmylog/config.user.d/drupal.json" verbose="true" />
     <!--  copy file config.user.php -->
     <copy file="${repo.root}/custom/pimpmylog/config.user.php" tofile="/usr/share/php/pimpmylog/config.user.php" verbose="true" />
+    <chmod file="/var/log/syslog" mode="0777" />
+    <echo>Go to pimpmylog.local.dv.com if there is require error you need to chmod</echo>
   </target>
   <target name="dump_db">
     <drush command="sql-dump" alias="">
