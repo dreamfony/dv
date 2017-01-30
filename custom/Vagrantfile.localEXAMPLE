@@ -1,0 +1,2 @@
+config.winnfsd.uid=900
+config.winnfsd.gid=900

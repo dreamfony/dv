@@ -2,8 +2,7 @@
   <target name="pimpmylog">
     <!-- enable disable modules -->
     <phingcall target="setup:toggle-modules">
-      <property name="enable_property" value="pimpmylog.enable"/>
-      <property name="uninstall_property" value="pimpmylog.uninstall"/>
+      <param name="environment" value="pimpmylog"/>
     </phingcall>
     <!-- create directory config.user.d -->
     <mkdir dir="/usr/share/php/pimpmylog/config.user.d" mode="777"/>
@@ -37,5 +36,7 @@
       <param name="environment" value="local"/>
     </phingcall>
     <phingcall target="import_demo_content"/>
+    <drush command="uli" alias="">
+    </drush>
   </target>
 </project>

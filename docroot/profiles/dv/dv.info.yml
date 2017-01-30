@@ -98,7 +98,6 @@ dependencies:
   - toolbar
   - tour
   - twig_tweak
-  - update
   - user
   - user_registrationpassword
   - views
