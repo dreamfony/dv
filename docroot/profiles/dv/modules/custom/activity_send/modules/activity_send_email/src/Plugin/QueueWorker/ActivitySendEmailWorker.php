@@ -63,7 +63,7 @@ class ActivitySendEmailWorker extends ActivitySendWorkerBase {
             $target_account->getEmail(),
             $langcode,
             $params,
-            $reply = \Drupal::service('activity_send_email.replyto')->getAddress( $hash ? $hash : NULL ),
+            $reply = \Drupal::service('activity_send_email.replyto')->getAddress( strlen($hash) > 1 ? $hash : NULL ),
             $send = TRUE
           );
         }
