@@ -13,6 +13,7 @@ dependencies:
   - dv_organisation_group
   - field
   - geo_area_group
+  - group
   - language
   - node
   - path

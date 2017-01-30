@@ -12,6 +12,7 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\message\Entity\Message;
 use Drupal\message\MessageTemplateInterface;
+use Drupal\activity_logger\ActivityLoggerRandom as Random;
 
 /**
  * Class ActivityLoggerFactory.
@@ -57,9 +58,15 @@ class ActivityLoggerFactory {
           'name' => 'field_message_related_object',
           'type' => 'dynamic_entity_reference'
         ],
+        [ 'name' => 'field_message_hash', 'type' => 'text']
       ];
       $this->createFieldInstances($message_type, $additional_fields);
 
+      if(in_array_r('email', $destinations)) {
+        $random = new Random();
+
+        $new_message['field_message_hash'] = ['value' => $random->hash(20, TRUE, 'activity_factory_hash_validate')];
+      }
 
       $new_message['field_message_context'] = $mt_context;
       $new_message['field_message_destination'] = $destinations;

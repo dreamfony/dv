@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.message.field_message_hash
+    - message.template.issue
+  module:
+    - text
+id: message.issue.field_message_hash
+field_name: field_message_hash
+entity_type: message
+bundle: issue
+label: field_message_hash
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

@@ -22,7 +22,7 @@ use Drupal\group\Entity\GroupContent;
  * )
  *
  */
-class DvOrganisationExtractOne extends QueueWorkerBase  {
+class DvOrganisationExtractOne extends QueueWorkerBase {
 
   /**
    * {@inheritdoc}
@@ -46,7 +46,7 @@ class DvOrganisationExtractOne extends QueueWorkerBase  {
         $gids = $this->findOrganisationGroupsFromOtherGroupTypes($gid);
         foreach ($gids as $ogid) {
           $data2['gid'] = $ogid;
-          $queue->createItem($data);
+          $queue->createItem($data2);
         }
     }
 
@@ -63,13 +63,13 @@ class DvOrganisationExtractOne extends QueueWorkerBase  {
         // Potentially there are more than one.
         foreach ($groupContents as $groupContent) {
           /** @var GroupContent $groupContent */
-        // Set the group id.
-        /** @var Group $group */
-        $group = $groupContent->getGroup();
-        $group_type = $group->bundle();
-        if($group_type === 'organisation') {
-          $gids[] = $group->id();
-        }
+          // Set the group id.
+          /** @var Group $group */
+          $group = $groupContent->getGroup();
+          $group_type = $group->bundle();
+          if ($group_type === 'organisation') {
+            $gids[] = $group->id();
+          }
         }
 
       }
@@ -78,7 +78,6 @@ class DvOrganisationExtractOne extends QueueWorkerBase  {
 
     return $gids;
   }
-
 
 
 }

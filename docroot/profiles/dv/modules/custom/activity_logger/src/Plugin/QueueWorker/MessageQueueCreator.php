@@ -7,9 +7,8 @@
 
 namespace Drupal\activity_logger\Plugin\QueueWorker;
 
-use Drupal\activity_basics\Plugin\ActivityAction\CreateActivityAction;
-use Drupal\group\Entity\GroupContent;
 use Drupal\node\Entity\Node;
+use Drupal\activity_creator\Plugin\ActivityActionBase;
 
 
 /**
@@ -48,8 +47,8 @@ class MessageQueueCreator extends MessageQueueBase {
       else {
         $activity_logger_factory = \Drupal::service('plugin.manager.activity_action.processor');
         // Trigger the create action for entities.
-        /** @var  CreateActivityAction $create_action */
-        $create_action = $activity_logger_factory->createInstance('create_activity_action');
+        /** @var  ActivityActionBase $create_action */
+        $create_action = $activity_logger_factory->createInstance($data['action']);
         $create_action->createMessage($entity);
       }
     }

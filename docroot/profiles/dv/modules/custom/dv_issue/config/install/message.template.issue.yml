@@ -7,18 +7,26 @@ third_party_settings:
   activity_logger:
     activity_bundle_entities:
       node-issue: node-issue
-    activity_action: create_entity_action
-    activity_context: owner_activity_context
+    activity_action: email_organisation_action
+    activity_context: organisation_activity_context
     activity_destinations:
-      stream_home: stream_home
       email: email
-    activity_create_direct: 1
+    activity_create_direct: 0
     activity_aggregate: 0
     activity_entity_condition: ''
 template: issue
 label: Issue
 description: 'Issue test'
-text: {  }
+text:
+  -
+    value: "<p>test aggr. items in activity stream&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>[message:node-title]</p>\r\n"
+    format: basic_html
+  -
+    value: "<p>normal activities&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>[message:node-title]</p>\r\n"
+    format: basic_html
+  -
+    value: "<p>test email [message:node-title]</p>\r\n"
+    format: basic_html
 settings:
   'token options':
     clear: false

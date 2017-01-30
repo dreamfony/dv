@@ -54,6 +54,8 @@ class ActivitySendEmailWorker extends ActivitySendWorkerBase {
           $langcode = \Drupal::currentUser()->getPreferredLangcode();
           $params['body'] = EmailActivityDestination::getSendEmailOutputText($message);
 
+          $hash = $message->get('field_message_hash')->getString();
+
           $mail_manager = \Drupal::service('plugin.manager.mail');
           $mail = $mail_manager->mail(
             'activity_send_email',
@@ -61,7 +63,7 @@ class ActivitySendEmailWorker extends ActivitySendWorkerBase {
             $target_account->getEmail(),
             $langcode,
             $params,
-            $reply = NULL,
+            $reply = \Drupal::service('activity_send_email.replyto')->getAddress( $hash ? $hash : NULL ),
             $send = TRUE
           );
         }

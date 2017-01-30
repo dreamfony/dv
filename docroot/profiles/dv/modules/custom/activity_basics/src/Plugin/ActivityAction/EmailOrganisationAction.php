@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\activity_basics\Plugin\ActivityAction\CreateActivityAction.
+ * Contains \Drupal\activity_basics\Plugin\ActivityAction\EmailOrganisationAction.
  */
 
 namespace Drupal\activity_basics\Plugin\ActivityAction;
@@ -11,14 +11,14 @@ use Drupal\activity_creator\Plugin\ActivityActionBase;
 use Drupal\Core\Entity\Entity;
 
 /**
- * Provides a 'CreateActivityAction' activity action.
+ * Provides a 'EmailOrganisationAction' activity action.
  *
  * @ActivityAction(
- *  id = "create_activity_action",
- *  label = @Translation("Action that is triggered when a entity is created"),
+ *  id = "email_organisation_action",
+ *  label = @Translation("Action that is triggered Email should be sent to Organisation"),
  * )
  */
-class CreateActivityAction extends ActivityActionBase {
+class EmailOrganisationAction extends ActivityActionBase {
 
   /**
    * @inheritdoc
@@ -29,7 +29,7 @@ class CreateActivityAction extends ActivityActionBase {
         /** @var Entity $entity */
         $data['entity_id'] = $entity->id();
         $data['entity_type_id'] = $entity->getEntityTypeId();
-        $data['action'] = 'create_activity_action';
+        $data['action'] = 'email_organisation_action';
         $queue = \Drupal::queue('activity_logger_message');
         $queue->createItem($data);
     }

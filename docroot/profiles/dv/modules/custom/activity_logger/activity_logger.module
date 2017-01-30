@@ -188,3 +188,19 @@ function _activity_logger_form_message_template_entity_ajax_callback(&$form, For
   return $form['activity_entity_condition_wrapper'];
 }
 
+/**
+ * Email Hash Unique Validator.
+ *
+ * @param $hash
+ * @return bool
+ */
+function activity_factory_hash_validate($hash) {
+  $ids = \Drupal::entityQuery('message')
+    ->condition('field_message_hash', $hash)
+    ->execute();
+
+  if (!$ids) {
+    return TRUE;
+  }
+}
+

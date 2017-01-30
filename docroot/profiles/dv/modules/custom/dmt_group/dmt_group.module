@@ -30,9 +30,7 @@ function dmt_group_help($route_name, RouteMatchInterface $route_match) {
  * @param Node $entity
  */
 function dmt_group_node_update(Node $entity) {
-
   \Drupal::service('dmt_group.node_queue_helper')->queueNode($entity);
-
 }
 
 /**
@@ -41,7 +39,24 @@ function dmt_group_node_update(Node $entity) {
  * @param Node $entity
  */
 function dmt_group_node_insert(Node $entity) {
-
   \Drupal::service('dmt_group.node_queue_helper')->queueNode($entity);
+}
 
+/**
+ * Helper function find better place.
+ *
+ * @param $needle
+ * @param $haystack
+ * @param bool $strict
+ * @return bool
+ */
+function in_array_r($needle, $haystack, $strict = false) {
+  /// @todo find better place for this
+  foreach ($haystack as $item) {
+    if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && in_array_r($needle, $item, $strict))) {
+      return true;
+    }
+  }
+
+  return false;
 }

@@ -29,7 +29,10 @@ class DvOrganisationExtractTwo extends QueueWorkerBase {
   public function processItem($data) {
     $group = Group::load($data['gid']);
     $entity = Node::load($data['entity_id']);
-    $group->addContent($entity,'group_node:'. $entity->bundle());
+    /// check if node already exists before adding
+    if( count( $group->getContentByEntityId('group_node:'. $entity->bundle(), $data['entity_id']) ) === 0 ) {
+      $group->addContent($entity, 'group_node:' . $entity->bundle());
+    }
   }
 
 }
