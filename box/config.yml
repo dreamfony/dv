@@ -120,7 +120,7 @@ php_xdebug_idekey: PHPSTORM
 
 extra_packages:
   # This is required for PhantomJS Installer.
-  - php-bz2
+  - php7.0-bz2
   - php7.0-imap
 
 post_provision_scripts:

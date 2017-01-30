@@ -169,9 +169,25 @@ which will manage the host’s /etc/hosts file by adding and removing hostname e
     vagrant plugin install vagrant-cachier
     vagrant plugin install vagrant-vbguest
  
- On windows u can try
+ On windows you have to do multiple things to make NFS sharing work
 
-    vagrant plugin install vagrant-winnfsd
+    1. vagrant plugin install vagrant-winnfsd
+    
+    2. COPY EXAMPLE FILES from custom folder
+    local.config.yml
+    Vagrantfile.local
+    
+    3. Download and run WinNFSd.exe C:\DV
+    4. Delete node_modules folder to make it speedier
+    5. Sometimes also settings.php needs to be chmod ed
+    
+    It works with thoose 4 steps, no single article online is correct
+    But some info and code parts can be found at:
+    https://hollyit.net/blog/windowsvagrantwinnfsd-without-file-update-problems
+    http://docs.drupalvm.com/en/latest/other/performance/#improving-performance-on-windows
+    
+    
+   
     
  On linux and mac if your /var/www/dv mounted folder is not owned by vagrant and has group www-data install:
     
@@ -378,7 +394,7 @@ Our core feature module is **dv_core**
 Instead of using conf_split module, we store partial various configuration that is used only in devel environment in config/devel folder.
 This should be in your local.settings.php
 
-    $config_directories['devel'] = $dir . "$config_directories['devel'] = $dir . "/docroot/profiles/custom/dv/modules/environment/dmt_devel/optional";
+    $config_directories['devel'] = $dir . "$config_directories['devel'] = $dir . "/docroot/profiles/dv/modules/environment/dmt_devel/optional";
 
 Import with
 
