@@ -50,7 +50,7 @@
         "drupal/like_and_dislike": "~1.0",
         "drupal/email_registration": "~1.0",
         "drupal/user_registrationpassword": "~1.0",
-        "acquia/blt": "^8.6.8",
+        "acquia/blt": "^8.6.10",
         "drupal/acquia_connector": "^1.5.0",
         "drupal/libraries": "3.x-dev#fa93a5aec2cfcfd5717e42c7112e381487fed9fd",
         "drupal/token": "1.0-beta2",
