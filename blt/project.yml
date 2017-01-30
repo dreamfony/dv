@@ -50,6 +50,9 @@ modules:
   deploy:
     enable: [acquia_connector, shield, geo_area_migrate, dv_organisation_migrate]
     uninstall: [devel, field_ui, views_ui]
+  pimpmylog:
+      enable: [syslog]
+      uninstall: [dblog]
 cm:
   features:
     bundle: 'dv, activity, GeoNames'
@@ -66,9 +69,4 @@ disable-targets:
     phpcs: true
   local:
     sync: true
-pimpmylog:
-  enable:
-    - syslog
-  uninstall:
-    - dblog
 
