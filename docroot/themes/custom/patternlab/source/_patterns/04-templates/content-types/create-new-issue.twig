@@ -10,60 +10,62 @@
       </a>
     </div>
     <div class="media-body">
-      <h4 class="media-heading">Username</h4>
+      <h4 class="title-3 media-heading">Username</h4>
       <p>Nova tema</p>
     </div>
   </div>
 
   <br><br>
 
-  <div class="row">
+  <div class="row have-padding">
     <div class="col-sm-12 col-lg-8">
-    <form>
-      <fieldset>
-        <div class="form-group">
-          <input type="text" class="form-control input-lg" placeholder="Naziv teme" required>
-        </div>
-        <div class="form-group input-group">
-          <input type="text" class="form-control input-lg" placeholder="Naziv institucije kojoj želim poslati anketu" required>
-          <span class="input-group-btn">
-            <button class="btn btn-default input-lg" type="button">
-              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            </button>
-          </span>
-        </div>
-        <button type="button" class="btn btn-default btn-xs">
-          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-          Dodaj opis
-        </button>
-      </fieldset>
 
-      <br><br>
-      <hr>
+      <form>
+        <fieldset>
+          <div class="form-group">
+            <input type="text" class="form-control input-lg" placeholder="Naziv teme" required>
+          </div>
+          <div class="form-group input-group">
+            <input type="text" class="form-control input-lg" placeholder="Naziv institucije kojoj želim poslati anketu" required>
+            <span class="input-group-btn">
+              <button class="btn btn-default input-lg" type="button">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+              </button>
+            </span>
+          </div>
+          <button type="button" class="btn btn-default btn-xs">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            Dodaj opis
+          </button>
+        </fieldset>
 
-      <fieldset>
-        <h3>Unesi anketna pitanja</h3>
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Unesi pitanje">
-        </div>
-        <button type="button" class="btn btn-default btn-xs">
-          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-          Dodaj novo pitanje
-        </button>
-      </fieldset>
-      <hr>
-      <fieldset>
-        <div class="form-group float-left">
-          <input type="file" id="attachment">
-        </div>
-        <div class="checkbox float-left">
-          <label>
-            <input type="checkbox"> Privatna anketa
-          </label>
-        </div>
-        <button type="submit" class="btn btn-primary btn-lg float-right">Pošalji anketu</button>
-      </fieldset>
-    </form>
-    </div>
+        <hr class="margin--medium">
+
+        <fieldset>
+          <h3 class="title-3 margin--medium-bottom"><span class="underline">Anketna pitanja</span></h3>
+          <div class="form-group">
+            <input type="text" class="form-control input-lg" placeholder="Unesi pitanje">
+          </div>
+          <button type="button" class="btn btn-default btn-xs">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            Dodaj novo pitanje
+          </button>
+        </fieldset>
+        <hr>
+        <fieldset>
+          <div class="form-group float-left">
+            <input type="file" id="attachment">
+          </div>
+          <div class="checkbox float-left">
+            <label>
+              <input type="checkbox"> Privatna anketa
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg float-right">Pošalji anketu</button>
+        </fieldset>
+      </form>
+
+    </div><!-- /.col -->
   </div><!-- /.row -->
+
 {% endblock %}

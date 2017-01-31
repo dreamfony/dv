@@ -1,0 +1,14 @@
+.site-header {
+  background-color: $color-primary-0;
+  .logo {
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: .01rem;
+    line-height: 6;
+    color: #fff;
+  }
+  .navbar {
+    background-color: $color-primary-1;
+  }
+}
