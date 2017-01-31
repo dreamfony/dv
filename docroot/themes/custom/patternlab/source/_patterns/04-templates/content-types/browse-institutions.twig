@@ -1,0 +1,124 @@
+{% extends "@templates/site-layout.twig" %}
+{% block content %}
+
+  <br><br>
+
+  <div class="row have-padding">
+    <div class="col-sm-12 col-lg-8">
+      <form>
+        <fieldset>
+          <div class="form-group input-group">
+            <input type="text" class="form-control input-lg" placeholder="Pretraži institucije po nazivu, djelatnosti ili pravnom statusu (agencija, državno tijelo, sud ...)" required>
+            <span class="input-group-btn">
+              <button class="btn btn-default input-lg" type="button">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+              </button>
+            </span>
+          </div>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+          <div class="form-group">
+            <div class="dropdown float-left">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Odaberi grad
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="#">Zagreb</a></li>
+                <li><a href="#">Rijeka</a></li>
+                <li><a href="#">Split</a></li>
+                <li><a href="#">Osijek</a></li>
+                <li><a href="#">Dubrovnik</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Antošević</a></li>
+                <li><a href="#">Ali babin kuk</a></li>
+                <li><a href="#">Brbir</a></li>
+              </ul>
+            </div>
+            <div class="dropdown float-left">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Pravni status
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><a href="#">Državna tijela</a></li>
+                <li><a href="#">Tijela državne uprave</a></li>
+                <li><a href="#">Jedinice lokalne ili područne samouprave</a></li>
+                <li><a href="#">Sudovi i pravosudna tijela</a></li>
+                <li><a href="#">Agencije, zavodi, fondovi, centri</a></li>
+                <li><a href="#">Javne ustanove</a></li>
+                <li><a href="#">Trgovačka društva</a></li>
+                <li><a href="#">Udruge</a></li>
+                <li><a href="#">Ostale pravne i fizičke osobe</a></li>
+              </ul>
+            </div>
+            <div class="dropdown float-left">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Djelatnost
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                <li><a href="#">Javna uprava i politički sustav</a></li>
+                <li><a href="#">Obrana i nacionalna sigurnost</a></li>
+                <li><a href="#">Javni red i sigurnost</a></li>
+                <li><a href="#">Pravosuđe</a></li>
+                <li><a href="#">Javne financije</a></li>
+                <li><a href="#">Vanjski poslovi</a></li>
+                <li><a href="#">...</a></li>
+              </ul>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+
+      <hr class="margin--medium">
+
+      <section class="list">
+        <h1 class="title-4 margin--medium-bottom"><span class="underline">Grad Zagreb</span></h1>
+        <article class="list-item">
+          <h2 class="title-3"><a href="#" class="link--discoverable">Gradski ured za spomenike i kulturnu baštinu</a></h2>
+          <div class="metadata">
+            <small class="text--light">Jedinica lokalne samouprave</small>
+            <button type="button" class="btn btn-default btn-xs float-right"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span></button>
+          </div>
+        </article>
+        <hr>
+        <article class="list-item">
+          <h2 class="title-3"><a href="#" class="link--discoverable">Gradski ured za spomenike i kulturnu baštinu</a></h2>
+          <div class="metadata">
+            <small class="text--light">Jedinica lokalne samouprave</small>
+            <button type="button" class="btn btn-default btn-xs float-right"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Postavi upit</button>
+          </div>
+        </article>
+      </section>
+
+      <hr class="margin-medium">
+
+      <section class="list">
+        <h1 class="title-4 margin--medium-bottom"><span class="underline">Rijeka</span></h1>
+        <article class="list-item">
+          <h2 class="title-3"><a href="#" class="link--discoverable">Gradski ured za spomenike i kulturnu baštinu</a></h2>
+          <div class="metadata">
+            <small class="text--light">Jedinica lokalne samouprave</small>
+            <button type="button" class="btn btn-default btn-xs float-right"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Postavi upit</button>
+          </div>
+        </article>
+        <hr>
+        <article class="list-item">
+          <h2 class="title-3"><a href="#" class="link--discoverable">Gradski ured za spomenike i kulturnu baštinu</a></h2>
+          <div class="metadata">
+            <small class="text--light">Jedinica lokalne samouprave</small>
+            <button type="button" class="btn btn-default btn-xs float-right"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Postavi upit</button>
+          </div>
+        </article>
+      </section>
+
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+
+  <br><br><br><br><br><br>
+
+{% endblock %}
