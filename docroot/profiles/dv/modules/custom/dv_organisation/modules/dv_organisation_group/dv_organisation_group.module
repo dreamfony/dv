@@ -26,16 +26,13 @@ function dv_organisation_group_help($route_name, RouteMatchInterface $route_matc
 /**
  * Implements hook_entity_insert().
  */
-function dv_organisation_group_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
-  if ($entity->getEntityTypeId() == 'node') {
+function dv_organisation_group_node_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  // get current node bundle
+  $bundle = $entity->bundle();
 
-    // get current node bundle
-    $bundle = $entity->bundle();
-
-    // check if current node is organisation node
-    if ('organisation' === $bundle) {
-      \Drupal::service('dmt_group.add_group_to_subgroup')->add($entity, 'organisation', 'field_o_parent_organisation');
-    }
-
+  // check if current node is organisation node
+  if ('organisation' === $bundle) {
+    \Drupal::service('dv_organisation_group.add_group_to_subgroup')
+      ->add($entity, 'organisation', 'field_o_parent_organisation');
   }
 }

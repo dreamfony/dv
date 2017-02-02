@@ -64,7 +64,6 @@ class ActivityLoggerFactory {
 
       if(in_array_r('email', $destinations)) {
         $random = new Random();
-
         $new_message['field_message_hash'] = ['value' => $random->hash(20, TRUE, 'activity_factory_hash_validate')];
       }
 

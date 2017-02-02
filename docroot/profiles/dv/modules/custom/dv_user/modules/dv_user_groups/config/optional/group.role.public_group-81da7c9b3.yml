@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.public_group
+  enforced:
+    module:
+      - grolesync
+    config:
+      - user.role.organisation
+id: public_group-81da7c9b3
+label: Organisation
+weight: 5
+internal: true
+audience: outsider
+group_type: public_group
+permissions_ui: false
+permissions: {  }

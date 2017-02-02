@@ -20,46 +20,45 @@ class OUser extends ProcessPluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
 
-    /// what if more organisations have same email?
-    /////// link nodes to same email
-    /// what if email does not exist?
-    /////// generate random email address set as some flag
-    /// how to handle mail confirmation?
-    /////// second flag?
-
     if ($row->getSourceProperty('komunikacije')) {
+      $email = $this->parseEmailFromKomunikacije($row->getSourceProperty('komunikacije'));
+    }
 
+    if (!isset($email)) {
+      $email = $this->generateEmail($row->getSourceProperty('organisation_id'));
     }
-    $user_exists = user_load_by_mail($mail);
-    if (empty($user_exists)) {
-      $user = User::create(array(
-        'name' => $value,
-        'mail' => $mail,
+
+    $org_user = user_load_by_mail($email);
+
+    if (empty($org_user)) {
+      $org_user = User::create(array(
+        'name' => $email,
+        'mail' => $email,
         'status' => 1,
-        'roles' => array('Organisation')
+        'roles' => array('organisation')
       ));
-      $user->save();
+      $org_user->save();
     }
+
+    return $org_user->id();
 
   }
 
-  protected function parseEmailFromKomunikacije() {
-    if ($value) {
+  protected function parseEmailFromKomunikacije($komunikacije) {
+    $matches = [];
+    $pattern = '/[a-z\d._%+-]+@[a-z\d.-]+\.[a-z]{2,4}\b/i';
+    preg_match_all($pattern, $komunikacije, $matches);
 
-      $matches = [];
-      $pattern = '/[a-z\d._%+-]+@[a-z\d.-]+\.[a-z]{2,4}\b/i';
-      preg_match_all($pattern, $value, $matches);
-
-      if ($matches) {
-        return reset($matches)[0];
-      }
+    if ($matches) {
+      return reset($matches)[0];
     }
+
 
     return NULL;
   }
 
-  protected function generateEmail() {
-
+  protected function generateEmail($organisationId) {
+    return $organisationId . '@' . 'no-email.com';
   }
 
 }

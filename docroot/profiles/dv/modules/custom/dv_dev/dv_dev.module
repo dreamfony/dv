@@ -10,7 +10,7 @@
 use Drupal\user\Entity\User;
 
 /**
- *  Create Test User Accounts for every Role
+ * Create Test User Accounts for every Role
  */
 
 function dv_dev_create_test_accounts() {

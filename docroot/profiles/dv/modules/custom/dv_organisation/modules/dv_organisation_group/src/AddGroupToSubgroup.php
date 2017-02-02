@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dmt_group;
+namespace Drupal\dv_organisation_group;
 
 use Drupal\group\Entity\Group;
 use Drupal\Core\Entity\ContentEntityInterface;
@@ -10,14 +10,14 @@ use Drupal\group\Entity\GroupContent;
 /**
  * Class AddGroupToSubgroup
  *
- * @package Drupal\dmt_group
+ * @package Drupal\dv_organisation_group
  */
 class AddGroupToSubgroup {
 
   /** @var  string */
   protected $groupType;
 
-  /** @var \Drupal\Core\Entity\ContentEntityInterface */
+  /** @var Node */
   protected $entity;
 
   /** @var \Drupal\group\Entity\GroupInterface */
@@ -52,8 +52,14 @@ class AddGroupToSubgroup {
     // save new created group
     $this->group->save();
 
-    // add location node to created group
+    // add node to created group
     $this->group->addContent($entity, 'group_node:' . $entity->bundle());
+
+    // set user role
+    /** @var GroupContent $owner_group_content */
+    $owner_group_content = $this->group->getMember($this->entity->getOwner())->getGroupContent();
+    $owner_group_content->set('group_roles', ['organisation-organisation'] );
+    $owner_group_content->save();
 
     // get parent entity id
     $parentEntityId = $this->entity->get($fieldMachineName)->target_id;

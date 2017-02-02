@@ -1,0 +1,3 @@
+services:
+  dv_organisation_group.add_group_to_subgroup:
+    class: Drupal\dv_organisation_group\AddGroupToSubgroup

@@ -1,11 +1,12 @@
 <?php
 
-namespace Drupal\dv_core\Plugin\search_api\processor;
+namespace Drupal\dmt_group\Plugin\search_api\processor;
 
 use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\Item\ItemInterface;
 use Drupal\search_api\Processor\ProcessorPluginBase;
 use Drupal\search_api\Processor\ProcessorProperty;
+use Drupal\group\Entity\GroupType;
 
 /**
  * Adds the item's URL to the indexed data.
@@ -30,14 +31,22 @@ class AddGroupName extends ProcessorPluginBase {
     $properties = array();
 
     if (!$datasource) {
+
+      //$group_types = GroupType::loadMultiple();
+
+
+      //      TODO foreach group_type
+
+      $group_type_id = 'test';
+
       $definition = array(
-        'label' => $this->t('Group Name'),
-        'description' => $this->t('A URI where the item can be accessed'),
+        'label' => $this->t('Group '. $group_type_id),
+        'description' => $this->t('Group '. $group_type_id),
         'type' => 'string',
         'processor_id' => $this->getPluginId(),
       );
-//      TODO foreach group_type
-      $properties['search_api_group_type'] = new ProcessorProperty($definition);
+
+      $properties['search_api_'. $group_type_id] = new ProcessorProperty($definition);
     }
 
     return $properties;

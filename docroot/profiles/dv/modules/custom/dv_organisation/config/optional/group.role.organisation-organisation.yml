@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.organisation
+id: organisation-organisation
+label: Organisation
+weight: 6
+internal: false
+audience: member
+group_type: organisation
+permissions_ui: true
+permissions: {  }
