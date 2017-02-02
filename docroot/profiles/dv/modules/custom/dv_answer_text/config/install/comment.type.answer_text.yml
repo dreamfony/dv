@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: answer_text
+label: 'Answer Text'
+target_entity_type_id: node
+description: ''
