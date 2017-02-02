@@ -102,8 +102,6 @@ dependencies:
   - user_registrationpassword
   - views
   - views_ui
-  - webform
-  - webform_ui
 themes:
   - patternlab
   - seven

@@ -72,7 +72,6 @@ function dv_install_profile_modules(&$install_state) {
     'dv_custom_org_lists' => 'dv_custom_org_lists',
     'dv_organisation_founder' => 'dv_organisation_founder',
     'dv_org_legal_status' => 'dv_org_legal_status',
-    'dv_survey' => 'dv_survey',
     'dv_mailhandler' => 'dv_mailhandler',
     'ggroup' => 'ggroup' // we add ggroup here since it cant be enabled without any groups
   );

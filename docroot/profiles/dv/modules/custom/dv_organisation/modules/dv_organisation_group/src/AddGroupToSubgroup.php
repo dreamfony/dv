@@ -55,11 +55,8 @@ class AddGroupToSubgroup {
     // add node to created group
     $this->group->addContent($entity, 'group_node:' . $entity->bundle());
 
-    // set user role
-    /** @var GroupContent $owner_group_content */
-    $owner_group_content = $this->group->getMember($this->entity->getOwner())->getGroupContent();
-    $owner_group_content->set('group_roles', ['organisation-organisation'] );
-    $owner_group_content->save();
+    // add node owner to group
+    $this->group->addMember($this->entity->getOwner(), ['group_roles' => ['organisation-organisation']]);
 
     // get parent entity id
     $parentEntityId = $this->entity->get($fieldMachineName)->target_id;
