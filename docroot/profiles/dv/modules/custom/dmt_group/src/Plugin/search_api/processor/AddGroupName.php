@@ -2,11 +2,13 @@
 
 namespace Drupal\dmt_group\Plugin\search_api\processor;
 
+use Drupal\group\Entity\Group;
 use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\Item\ItemInterface;
 use Drupal\search_api\Processor\ProcessorPluginBase;
 use Drupal\search_api\Processor\ProcessorProperty;
 use Drupal\group\Entity\GroupType;
+use Drupal\group\Entity\GroupContent;
 
 /**
  * Adds the item's URL to the indexed data.
@@ -32,21 +34,19 @@ class AddGroupName extends ProcessorPluginBase {
 
     if (!$datasource) {
 
-      //$group_types = GroupType::loadMultiple();
+      $group_types = GroupType::loadMultiple();
 
+      foreach ($group_types as $group_type_id => $group_type) {
+        $definition = array(
+          'label' => $this->t('Group ' . $group_type->label()),
+          'description' => $this->t('Group ' . $group_type_id),
+          'type' => 'string',
+          'processor_id' => $this->getPluginId(),
+          'group_type' =>$group_type_id
+        );
 
-      //      TODO foreach group_type
-
-      $group_type_id = 'test';
-
-      $definition = array(
-        'label' => $this->t('Group '. $group_type_id),
-        'description' => $this->t('Group '. $group_type_id),
-        'type' => 'string',
-        'processor_id' => $this->getPluginId(),
-      );
-
-      $properties['search_api_'. $group_type_id] = new ProcessorProperty($definition);
+        $properties['search_api_' . $group_type_id] = new ProcessorProperty($definition);
+      }
     }
 
     return $properties;
@@ -56,8 +56,23 @@ class AddGroupName extends ProcessorPluginBase {
    * {@inheritdoc}
    */
   public function addFieldValues(ItemInterface $item) {
-//    TODO
-    $url = $item->getDatasource()->getItemUrl($item->getOriginalObject());
+    $entity = $item->getOriginalObject()->getValue();
+
+    if ($groupContent = GroupContent::loadByEntity($entity)) {
+      foreach ($groupContent as $gc) {
+        /** @var GroupContent $gc */
+        $group = $gc->getGroup();
+        // Potentially there are more than one.
+        // Set the group id.
+
+        $gids[] = $group->label();
+      }
+
+    }
+
+    $fields = $this->getFieldsHelper();
+
+
     if ($url) {
       $fields = $this->getFieldsHelper()
         ->filterForPropertyPath($item->getFields(), NULL, 'search_api_group_type');
