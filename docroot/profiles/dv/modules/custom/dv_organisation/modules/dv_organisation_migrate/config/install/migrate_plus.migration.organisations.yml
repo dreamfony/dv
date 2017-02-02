@@ -73,8 +73,8 @@ process:
     plugin: default_value
     default_value: organisation
   uid:
-    plugin: default_value
-    default_value: 2
+    plugin: o_user
+    source: organisation
   field_o_web_site: web_site_url
   field_o_organisation_id: organisation_id
   field_o_organisation_group:
