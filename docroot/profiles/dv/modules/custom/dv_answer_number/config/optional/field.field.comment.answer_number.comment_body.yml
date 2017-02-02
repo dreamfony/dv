@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.answer_number
+    - field.storage.comment.comment_body
+  module:
+    - text
+id: comment.answer_number.comment_body
+field_name: comment_body
+entity_type: comment
+bundle: answer_number
+label: Comment
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
