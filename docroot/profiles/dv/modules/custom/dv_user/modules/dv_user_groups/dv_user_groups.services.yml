@@ -1,3 +1,0 @@
-services:
-  dv_user_groups.user_group:
-    class: Drupal\dv_user_groups\UserGroupService

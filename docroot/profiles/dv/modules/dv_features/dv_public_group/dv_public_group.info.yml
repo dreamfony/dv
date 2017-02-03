@@ -1,0 +1,11 @@
+name: 'Public group'
+description: 'Provides Public group group type and related configuration. Public user Issues. Used to group up Issues that are publicly available, so other users can follow.'
+type: module
+core: 8.x
+dependencies:
+  - dv_core
+  - dv_issue
+  - field
+  - group
+  - user
+package: DV

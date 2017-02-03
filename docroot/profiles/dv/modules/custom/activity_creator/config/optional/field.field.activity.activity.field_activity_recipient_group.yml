@@ -3,7 +3,7 @@ status: true
 dependencies:
   config:
     - field.storage.activity.field_activity_recipient_group
-    - group.type.work_group
+    - group.type.organisation_group
   module:
     - activity_creator
 id: activity.activity.field_activity_recipient_group
@@ -20,7 +20,7 @@ settings:
   handler: 'default:group'
   handler_settings:
     target_bundles:
-      work_group: work_group
+      organisation_group: organisation_group
     sort:
       field: _none
     auto_create: false

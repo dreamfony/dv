@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Contains organisation_group.module..
+ */
+
+/**
+ * Implements hook_entity_insert().
+ */
+function dvm_organisation_group_node_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  // get current node bundle
+  $bundle = $entity->bundle();
+
+  // check if current node is organisation node
+  if ('organisation' === $bundle) {
+    \Drupal::service('dvm_organisation_group.add_group_to_subgroup')
+      ->add($entity, 'organisation', 'field_o_parent_organisation');
+  }
+}

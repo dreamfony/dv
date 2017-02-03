@@ -231,7 +231,8 @@ function activity_creator_entity_delete(Drupal\Core\Entity\EntityInterface $enti
     $entity_type = $entity->getEntityTypeId();
     $entity_id = $entity->id();
     if ($entity_type !== 'activity') {
-
+      /// @todo fix this breaks installation
+/*
       $entity_query = \Drupal::entityQuery('activity');
       $entity_query->condition('field_activity_entity.target_id', $entity_id, '=');
       $entity_query->condition('field_activity_entity.target_type', $entity_type, '=');
@@ -239,6 +240,7 @@ function activity_creator_entity_delete(Drupal\Core\Entity\EntityInterface $enti
       if (!empty($ids)) {
         entity_delete_multiple('activity', $ids);
       }
+*/
     }
 
     if ($entity_type == 'user' || $entity_type == 'group') {

@@ -1,0 +1,22 @@
+<?php
+
+/**
+* @file
+* Install, update and uninstall functions for the dv_organisation_migrate module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function dv_organisation_migrate_import_uninstall() {
+  $config_names = [
+    'migrate_plus.migration.organisations',
+    'migrate_plus.migration_group.organisations',
+    'migrate_plus.migration.organisation_groups',
+  ];
+
+  // Delete each config using configFactory.
+  foreach ($config_names as $config_name) {
+    \Drupal::configFactory()->getEditable($config_name->name)->delete();
+  }
+}

@@ -60,20 +60,18 @@ function dv_install_profile_modules(&$install_state) {
     'geo_area' => 'geo_area',
     'geo_area_group' => 'geo_area_group',
     'dv_user' => 'dv_user',
-    'dv_user_groups' => 'dv_user_groups',
+    'dvm_user_groups' => 'dvm_user_groups',
     'dv_organisation' => 'dv_organisation',
-    'dv_organisation_group' => 'dv_organisation_group',
+    'dvm_organisation_group' => 'dvm_organisation_group',
     'dv_issue' => 'dv_issue',
     'dv_person' => 'dv_person',
-    'dv_work_group' => 'dv_work_group',
     'dv_positions' => 'dv_positions',
     'dv_email_reply' => 'dv_email_reply',
     'dv_area_of_activity' => 'dv_area_of_activity',
-    'dv_custom_org_lists' => 'dv_custom_org_lists',
     'dv_organisation_founder' => 'dv_organisation_founder',
     'dv_org_legal_status' => 'dv_org_legal_status',
     'dv_mailhandler' => 'dv_mailhandler',
-    'ggroup' => 'ggroup' // we add ggroup here since it cant be enabled without any groups
+    'ggroup' => 'ggroup' // we add ggroup here since it can't be enabled without any groups
   );
 
   $dv_modules = $modules;

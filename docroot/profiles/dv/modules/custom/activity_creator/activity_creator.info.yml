@@ -7,7 +7,6 @@ dependencies:
   - activity_creator
   - block_content
   - comment
-  - dv_work_group
   - dynamic_entity_reference
   - field
   - file
@@ -20,4 +19,3 @@ dependencies:
   - taxonomy
   - text
   - user
-version: !!float 1
