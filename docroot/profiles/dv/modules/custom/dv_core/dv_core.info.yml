@@ -25,7 +25,6 @@ dependencies:
   - dv_org_legal_status
   - dv_organisation_founder
   - dv_organisation_group
-  - dv_survey
   - dv_work_group
   - dynamic_entity_reference
   - editor
