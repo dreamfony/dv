@@ -64,24 +64,19 @@ class AddGroupName extends ProcessorPluginBase {
         $group = $gc->getGroup();
         // Potentially there are more than one.
         // Set the group id.
+        $group_bundle = $group->bundle();
+        $group_label = $group->label();
 
-        $gids[] = $group->label();
-      }
-
-    }
-
-    $fields = $this->getFieldsHelper();
-
-
-    if ($url) {
-      $fields = $this->getFieldsHelper()
-        ->filterForPropertyPath($item->getFields(), NULL, 'search_api_group_type');
-      foreach ($fields as $field) {
-        if (!$field->getDatasourceId()) {
-          $field->addValue($url->toString());
+        if ($group_bundle) {
+          $fields = $this->getFieldsHelper()
+            ->filterForPropertyPath($item->getFields(), NULL, 'search_api_' . $group_bundle);
+          foreach ($fields as $field) {
+            if (!$field->getDatasourceId()) {
+              $field->addValue($group_label);
+            }
+          }
         }
       }
     }
   }
-
 }
