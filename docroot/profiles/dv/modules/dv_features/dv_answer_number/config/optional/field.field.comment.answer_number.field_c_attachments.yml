@@ -3,14 +3,14 @@ status: true
 dependencies:
   config:
     - comment.type.answer_number
-    - field.storage.comment.field_c_attachement
+    - field.storage.comment.field_c_attachments
   module:
     - file
-id: comment.answer_number.field_c_attachement
-field_name: field_c_attachement
+id: comment.answer_number.field_c_attachments
+field_name: field_c_attachments
 entity_type: comment
 bundle: answer_number
-label: Attachement
+label: Attachments
 description: ''
 required: false
 translatable: false
@@ -18,8 +18,8 @@ default_value: {  }
 default_value_callback: ''
 settings:
   file_directory: '[date:custom:Y]-[date:custom:m]'
-  file_extensions: 'txt pdf'
-  max_filesize: '16'
+  file_extensions: txt
+  max_filesize: ''
   description_field: false
   handler: 'default:file'
   handler_settings: {  }

@@ -4,7 +4,6 @@ dependencies:
   config:
     - field.storage.node.field_recipient
     - group.type.area_of_activity
-    - group.type.custom_org_lists
     - group.type.geo_area_group
     - group.type.org_legal_status
     - group.type.organisation

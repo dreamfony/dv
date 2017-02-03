@@ -6,7 +6,6 @@ dependencies:
     - field.storage.activity.field_activity_entity
     - field.storage.activity.field_activity_message
     - field.storage.activity.field_activity_output_text
-    - field.storage.activity.field_activity_recipient_group
     - field.storage.activity.field_activity_recipient_user
     - field.storage.activity.field_activity_status
     - system.menu.main
@@ -1268,7 +1267,6 @@ display:
         - 'config:field.storage.activity.field_activity_entity'
         - 'config:field.storage.activity.field_activity_message'
         - 'config:field.storage.activity.field_activity_output_text'
-        - 'config:field.storage.activity.field_activity_recipient_group'
         - 'config:field.storage.activity.field_activity_recipient_user'
         - 'config:field.storage.activity.field_activity_status'
   page_1:
@@ -1298,6 +1296,5 @@ display:
         - 'config:field.storage.activity.field_activity_entity'
         - 'config:field.storage.activity.field_activity_message'
         - 'config:field.storage.activity.field_activity_output_text'
-        - 'config:field.storage.activity.field_activity_recipient_group'
         - 'config:field.storage.activity.field_activity_recipient_user'
         - 'config:field.storage.activity.field_activity_status'

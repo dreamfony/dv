@@ -6,6 +6,7 @@ dependencies:
     - search_api.server.solr
   module:
     - search_api
+    - dmt_group
     - node
 id: content
 name: Content
@@ -83,6 +84,7 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
+  add_group_name: {  }
   ignore_character:
     plugin_id: ignore_character
     settings:

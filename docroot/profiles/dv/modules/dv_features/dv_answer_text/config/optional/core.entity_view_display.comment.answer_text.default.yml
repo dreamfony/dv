@@ -4,23 +4,15 @@ dependencies:
   config:
     - comment.type.answer_text
     - field.field.comment.answer_text.comment_body
-    - field.field.comment.answer_text.field_c_attachement
+    - field.field.comment.answer_text.field_c_attachments
   module:
     - file
-    - text
 id: comment.answer_text.default
 targetEntityType: comment
 bundle: answer_text
 mode: default
 content:
-  comment_body:
-    label: hidden
-    type: text_default
-    weight: 0
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  field_c_attachement:
+  field_c_attachments:
     weight: 101
     label: above
     settings: {  }
@@ -31,4 +23,5 @@ content:
     weight: 100
     region: content
 hidden:
+  comment_body: true
   langcode: true

@@ -6,7 +6,6 @@ dependencies:
     - field.field.node.issue.field_i_attachments
     - field.field.node.issue.field_i_comments
     - field.field.node.issue.field_i_description
-    - field.field.node.issue.field_i_emails
     - field.field.node.issue.field_i_issue_type
     - field.field.node.issue.field_i_private
     - field.field.node.issue.field_i_tags
@@ -17,7 +16,6 @@ dependencies:
     - comment
     - content_moderation
     - file
-    - inline_entity_form
     - path
     - text
 id: node.issue.default
@@ -58,19 +56,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
-    region: content
-  field_i_emails:
-    weight: 40
-    settings:
-      match_operator: CONTAINS
-      form_mode: default
-      override_labels: false
-      label_singular: ''
-      label_plural: ''
-      allow_new: true
-      allow_existing: false
-    third_party_settings: {  }
-    type: inline_entity_form_complex
     region: content
   field_i_issue_type:
     weight: 37

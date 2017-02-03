@@ -83,7 +83,4 @@ settings:
   positions:
     handler: 'default:positions'
     handler_settings: {  }
-  webform_submission:
-    handler: 'default:webform_submission'
-    handler_settings: {  }
 field_type: dynamic_entity_reference

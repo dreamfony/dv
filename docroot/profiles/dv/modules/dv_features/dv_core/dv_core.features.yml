@@ -131,9 +131,6 @@ required:
   - votingapi.vote_type.vote
   - core.entity_form_display.comment.comment.default
   - core.entity_form_display.file.image.default
-  - core.entity_form_display.group_content.group_content_type_2d36600d04881.default
-  - core.entity_form_display.group_content.group_content_type_70b5bfca55af6.default
-  - core.entity_form_display.group_content.group_content_type_ffa77aaf92606.default
   - core.entity_form_display.node.article.default
   - core.entity_form_display.node.page.default
   - core.entity_view_display.comment.comment.default
@@ -142,9 +139,6 @@ required:
   - core.entity_view_display.file.image.default
   - core.entity_view_display.file.image.thumbnail
   - core.entity_view_display.file.video.thumbnail
-  - core.entity_view_display.group_content.group_content_type_2d36600d04881.default
-  - core.entity_view_display.group_content.group_content_type_70b5bfca55af6.default
-  - core.entity_view_display.group_content.group_content_type_ffa77aaf92606.default
   - core.entity_view_display.node.article.default
   - core.entity_view_display.node.article.rss
   - core.entity_view_display.node.article.teaser
@@ -181,9 +175,6 @@ required:
   - field.field.comment.comment.comment_body
   - field.field.file.image.field_image_alt_text
   - field.field.file.image.field_image_title_text
-  - field.field.group_content.group_content_type_2d36600d04881.group_roles
-  - field.field.group_content.group_content_type_70b5bfca55af6.group_roles
-  - field.field.group_content.group_content_type_ffa77aaf92606.group_roles
   - field.field.node.article.body
   - field.field.node.article.comment
   - field.field.node.article.field_image

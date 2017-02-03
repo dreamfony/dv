@@ -19,6 +19,7 @@ dependencies:
   - content_moderation
   - datetime
   - datetime_range
+  - dmt_group
   - dv_area_of_activity
   - dv_issue
   - dv_org_legal_status
