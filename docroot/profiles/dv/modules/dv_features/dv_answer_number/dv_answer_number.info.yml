@@ -4,6 +4,7 @@ type: module
 core: 8.x
 dependencies:
   - comment
+  - dv_answer_text
   - dv_core
   - field
   - file

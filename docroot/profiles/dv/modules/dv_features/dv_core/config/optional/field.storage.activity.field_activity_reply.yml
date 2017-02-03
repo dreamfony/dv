@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - activity_creator
+    - comment
+id: activity.field_activity_reply
+field_name: field_activity_reply
+entity_type: activity
+type: entity_reference
+settings:
+  target_type: comment
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
