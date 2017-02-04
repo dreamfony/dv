@@ -3,5 +3,7 @@ description: 'Provides Organisation Legal Status group type and related configur
 type: module
 core: 8.x
 dependencies:
+  - dv_core
+  - field
   - group
 package: DV

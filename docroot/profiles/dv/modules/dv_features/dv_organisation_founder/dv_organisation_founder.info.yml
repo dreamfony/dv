@@ -3,5 +3,7 @@ description: 'Provides Organisation Founder group type and related configuration
 type: module
 core: 8.x
 dependencies:
+  - dv_core
+  - field
   - group
 package: DV

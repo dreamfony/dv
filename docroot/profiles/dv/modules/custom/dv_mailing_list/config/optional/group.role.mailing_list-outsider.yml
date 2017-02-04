@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.mailing_list
+id: mailing_list-outsider
+label: Outsider
+weight: -101
+internal: true
+audience: outsider
+group_type: mailing_list
+permissions_ui: true
+permissions: {  }

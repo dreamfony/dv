@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.mailing_list
+  enforced:
+    module:
+      - grolesync
+    config:
+      - user.role.advanced_user
+id: mailing_list-9bf2c87f7
+label: 'Advanced User'
+weight: 4
+internal: true
+audience: outsider
+group_type: mailing_list
+permissions_ui: false
+permissions: {  }

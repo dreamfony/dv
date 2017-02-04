@@ -3,6 +3,7 @@ description: 'Provides Area Of Activity group type and related configuration. '
 type: module
 core: 8.x
 dependencies:
+  - dv_core
   - field
   - group
   - path

@@ -1,0 +1,6 @@
+langcode: en
+status: true
+dependencies: {  }
+id: mailing_list
+label: 'Mailing list'
+description: ''
