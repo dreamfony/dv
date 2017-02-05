@@ -2,6 +2,7 @@ name: 'Answer Text'
 description: 'Provides Answer Text comment type and related configuration. '
 type: module
 core: 8.x
+package: DV
 dependencies:
   - comment
   - dv_core
@@ -9,4 +10,3 @@ dependencies:
   - file
   - language
   - text
-package: DV

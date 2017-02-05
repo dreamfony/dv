@@ -2,6 +2,7 @@ name: 'Answer Number'
 description: 'Provides Answer Number comment type and related configuration. '
 type: module
 core: 8.x
+package: DV
 dependencies:
   - comment
   - dv_answer_text
@@ -10,4 +11,3 @@ dependencies:
   - file
   - language
   - text
-package: DV

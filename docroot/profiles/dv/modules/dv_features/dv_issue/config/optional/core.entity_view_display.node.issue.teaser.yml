@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.issue.field_i_issue_type
     - field.field.node.issue.field_i_private
     - field.field.node.issue.field_i_tags
-    - field.field.node.issue.field_recipient
     - node.type.issue
   module:
     - user
@@ -37,6 +36,5 @@ hidden:
   field_i_issue_type: true
   field_i_private: true
   field_i_tags: true
-  field_recipient: true
   langcode: true
   like_and_dislike: true

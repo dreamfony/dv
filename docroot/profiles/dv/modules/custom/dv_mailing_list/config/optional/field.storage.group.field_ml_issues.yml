@@ -4,12 +4,12 @@ dependencies:
   module:
     - group
     - node
-id: node.field_recipient
-field_name: field_recipient
-entity_type: node
+id: group.field_ml_issues
+field_name: field_ml_issues
+entity_type: group
 type: entity_reference
 settings:
-  target_type: group
+  target_type: node
 module: core
 locked: false
 cardinality: -1

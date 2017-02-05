@@ -2,6 +2,7 @@ name: 'Private Group'
 description: 'Provides Private Group group type and related configuration. Private user Issues. Used to group up users private Issues so other users can not access them.'
 type: module
 core: 8.x
+package: DV
 dependencies:
   - dv_core
   - dv_issue
@@ -10,4 +11,3 @@ dependencies:
   - group
   - user
   - views
-package: DV

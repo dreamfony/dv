@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.issue.field_i_issue_type
     - field.field.node.issue.field_i_private
     - field.field.node.issue.field_i_tags
-    - field.field.node.issue.field_recipient
     - node.type.issue
   module:
     - address
@@ -75,15 +74,6 @@ content:
     region: content
   field_i_tags:
     weight: 35
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  field_recipient:
-    weight: 42
     settings:
       match_operator: CONTAINS
       size: 60

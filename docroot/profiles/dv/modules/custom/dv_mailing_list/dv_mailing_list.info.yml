@@ -3,9 +3,16 @@ description: 'Provides Mailing list group type and related configuration. '
 type: module
 core: 8.x
 dependencies:
+  - dv_area_of_activity
   - dv_core
   - dv_issue
+  - dv_org_legal_status
+  - dv_organisation_founder
+  - dv_organisation_group
   - field
+  - geo_area_group
   - group
+  - inline_entity_form
+  - path
   - user
 package: DV
