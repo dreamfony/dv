@@ -19,7 +19,7 @@
         "drupal/geofield": "~1.0",
         "drupal/config_inspector": "~1@beta",
         "drupal/group": "~1",
-        "drupal/inline_entity_form": "~1.0",
+        "drupal/inline_entity_form": "^1.0@beta",
         "drupal/masquerade": "~2.0",
         "drupal/pathauto": "~1.0",
         "drupal/recaptcha": "~2.0",
