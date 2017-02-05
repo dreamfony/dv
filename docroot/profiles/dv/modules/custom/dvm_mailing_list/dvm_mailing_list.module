@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Contains dvm_mailing_list.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function dvm_mailing_list_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the dvm_mailing_list module.
+    case 'help.page.dvm_mailing_list':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('DV Mailing list') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function dvm_mailing_list_group_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  if($entity->bundle() === 'mailing_list') {
+
+  }
+}
