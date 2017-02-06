@@ -36,4 +36,8 @@ class NodeQueueHelper {
       }
     }
   }
+
+  public function batchExtractOrganisation(Entity $entity){
+
+  }
 }
