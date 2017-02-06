@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.area_of_activity
+id: area_of_activity-organisation
+label: Organisation
+weight: 7
+internal: false
+audience: member
+group_type: area_of_activity
+permissions_ui: true
+permissions: {  }

@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.organisation_founder
+id: organisation_founder-organisatio
+label: Organisation
+weight: 10
+internal: false
+audience: member
+group_type: organisation_founder
+permissions_ui: true
+permissions: {  }

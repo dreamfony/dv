@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.mailing_list
+id: mailing_list-organisation
+label: Organisation
+weight: 9
+internal: false
+audience: member
+group_type: mailing_list
+permissions_ui: true
+permissions: {  }

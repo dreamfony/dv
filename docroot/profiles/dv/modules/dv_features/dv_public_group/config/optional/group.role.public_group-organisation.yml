@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.public_group
+id: public_group-organisation
+label: Organisation
+weight: 13
+internal: false
+audience: member
+group_type: public_group
+permissions_ui: true
+permissions: {  }
