@@ -18,3 +18,21 @@ function dvm_organisation_group_node_insert(Drupal\Core\Entity\EntityInterface $
       ->add($entity, 'organisation', 'field_o_parent_organisation');
   }
 }
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function dvm_organisation_group_group_content_insert(\Drupal\group\Entity\GroupContent $entity) {
+  /** @var \Drupal\group\Entity\GroupContentType $group_content_type */
+  $group_content_type = $entity->getGroupContentType();
+
+  $plugin_id = $group_content_type->getContentPluginId();
+
+  if ($plugin_id === 'group_node:organisation') {
+    $group = $entity->getGroup();
+    /** @var \Drupal\node\Entity\Node $node */
+    $node = $entity->getEntity();
+    $group->addMember($node->getOwner(), ['group_roles' => ['organisation-organisation']]);
+  }
+}
+

@@ -2,8 +2,10 @@
 
 namespace Drupal\dvm_mailing_list;
 
+use Drupal\group\Entity\GroupContent;
 use Drupal\node\Entity\Node;
 use Drupal\group\Entity\Group;
+
 
 
 class BatchMailingList {
@@ -19,21 +21,20 @@ class BatchMailingList {
       $context['sandbox']['current_node'] = 0;
 
       foreach ($gids as $gid) {
-
         $gid = $gid['target_id'];
         /** @var Group $group */
-        $group = Group::load($gid['target_id']);
+        $group = Group::load($gid);
 
-        switch ($group->bundle()) {
-          case 'organisation':
-            $data['gid'][] = $gid;
-            break;
-          default:
-            $gids = BatchMailingList::findOrganisationGroupsFromOtherGroupTypes($gid);
-            foreach ($gids as $gid) {
-              $data['gid'][] = $gid;
-            }
+        $membership = $group->getMembers([$group->bundle().'-organisation']);
+
+        foreach ($membership as $membershipgc) {
+          /** @var GroupContent $membershipgc */
+          $org_uid[] = $membershipgc->getEntity()->id();
+
         }
+
+
+
       }
       $context['sandbox']['max'] = count($data['gid']);
     }
@@ -70,31 +71,5 @@ class BatchMailingList {
     drupal_set_message($message);
   }
 
-  public static function findOrganisationGroupsFromOtherGroupTypes($gid) {
-    $group = Group::load($gid);
-    $organisation_group_contents = $group->getContent('group_node:organisation');
-
-    foreach ($organisation_group_contents as $organisation_group_content) {
-      /** @var GroupContent $organisation_group_content */
-      $organisation_node = $organisation_group_content->getEntity();
-      if ($groupContents = GroupContent::loadByEntity($organisation_node)) {
-        // Potentially there are more than one.
-        foreach ($groupContents as $groupContent) {
-          /** @var GroupContent $groupContent */
-          // Set the group id.
-          /** @var Group $group */
-          $group = $groupContent->getGroup();
-          $group_type = $group->bundle();
-          if ($group_type === 'organisation') {
-            $gids[] = $group->id();
-          }
-        }
-
-      }
-    }
-
-
-    return $gids;
-  }
 
 }
