@@ -8,6 +8,7 @@
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\dmt_group\GroupHelper;
 use Drupal\node\Entity\Node;
+use Drupal\group\Entity\Group;
 
 
 /**
@@ -52,32 +53,37 @@ function _dvm_mailing_list_group_form_submit($form, \Drupal\Core\Form\FormStateI
   $redirect = $form_state->getRedirect();
   $group_id = $redirect->getRouteParameters()['group'];
 
-
   // getMembership gids
-  $gids = $form_state->get('field_ml_to')->getValues();
+//  $gids = $form_state->get('field_ml_to')->getValues();
+  $gids = $form_state->getValue('field_ml_to');
+
+
+//  getIssue nids
+//  $nids = $form_state->get('field_ml_issues')->getValues();
+  $nids = $form_state->getValue('field_ml_issues');
 
   // cleanupIssues nids
-  $group = Group::load($group_id);
+//  $group = Group::load($group_id);
 
 
   $batch = array(
     'title' => t('Set up Survey...'),
     'operations' => array(
-      array(
+     /* array(
         '\Drupal\dvm_mailing_list\BatchMailingList::cleanupMembers',
-        array($uids)
+        array()
       ),
       array(
         '\Drupal\dvm_mailing_list\BatchMailingList::cleanupIssues',
-        array($uids)
-      ),
+        array()
+      ),*/
       array(
         '\Drupal\dvm_mailing_list\BatchMailingList::getMembership',
         array($gids)
       ),
       array(
         '\Drupal\dvm_mailing_list\BatchMailingList::addMembers',
-        array($uids)
+        array()
       ),
       array(
         '\Drupal\dvm_mailing_list\BatchMailingList::addIssues',
@@ -87,7 +93,7 @@ function _dvm_mailing_list_group_form_submit($form, \Drupal\Core\Form\FormStateI
     'init_message' => t('Example Batch is starting.'),
     'progress_message' => t('Processed @current out of @total.'),
     'error_message' => t('Example Batch has encountered an error.'),
-    'finished' => '\Drupal\dvm_mailing_list\BatchAddToGroup::deleteNodeExampleFinishedCallback',
+    'finished' => '\Drupal\dvm_mailing_list\BatchMailingList::deleteNodeExampleFinishedCallback',
   );
   batch_set($batch);
 
