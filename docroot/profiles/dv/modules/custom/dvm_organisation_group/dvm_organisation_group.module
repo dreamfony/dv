@@ -32,7 +32,7 @@ function dvm_organisation_group_group_content_insert(\Drupal\group\Entity\GroupC
     $group = $entity->getGroup();
     /** @var \Drupal\node\Entity\Node $node */
     $node = $entity->getEntity();
-    $group->addMember($node->getOwner(), ['group_roles' => ['organisation-organisation']]);
+    $group->addMember($node->getOwner(), ['group_roles' => [$group->bundle().'-organisation']]);
   }
 }
 
