@@ -4,18 +4,14 @@ namespace Drupal\dvm_mailing_list;
 
 use Drupal\group\Entity\GroupContent;
 use Drupal\group\Plugin\GroupContentEnabler\GroupMembership;
-use Drupal\node\Entity\Node;
 use Drupal\group\Entity\Group;
+use Drupal\user\Entity\User;
 
 
 class BatchMailingList {
 
-  public static function addMembers($uids, &$context) {
 
-
-  }
-
-  public static function getMembership($gids, $group_id, &$context) {
+  public static function addMembers($gids, $group_id, &$context) {
     if (!isset($context['sandbox']['progress'])) {
       $context['sandbox']['progress'] = 0;
       $context['sandbox']['process'] = 0;
@@ -36,9 +32,14 @@ class BatchMailingList {
     }
 //    process 5 items in one run
     $context['sandbox']['process']+= 3;
+
+    $group = Group::load($group_id);
+
     do {
-      $org_user = array_pop($context['sandbox']['orgs']);
-//      TODO add $org_user to $group_id
+      $org_user_uid = array_pop($context['sandbox']['orgs']);
+      $org_user = User::load($org_user_uid);
+      $group->addMember($org_user, ['group_roles' => [$group->bundle().'-organisation']]);
+
       $context['sandbox']['progress']++;
     } while (!empty($context['sandbox']['orgs']) AND ($context['sandbox']['progress'] != $context['sandbox']['process']));
 

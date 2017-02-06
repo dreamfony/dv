@@ -78,12 +78,8 @@ function _dvm_mailing_list_group_form_submit($form, \Drupal\Core\Form\FormStateI
         array()
       ),*/
       array(
-        '\Drupal\dvm_mailing_list\BatchMailingList::getMembership',
-        array($gids, $group_id)
-      ),
-      array(
         '\Drupal\dvm_mailing_list\BatchMailingList::addMembers',
-        array()
+        array($gids, $group_id)
       ),
       array(
         '\Drupal\dvm_mailing_list\BatchMailingList::addIssues',
@@ -97,10 +93,4 @@ function _dvm_mailing_list_group_form_submit($form, \Drupal\Core\Form\FormStateI
   );
   batch_set($batch);
 
-}
-function test1() {
-  $group = Group::load(2);
-
-  $members = $group->getMembers(['organisation-organisation']);
-  $t = 1;
 }
