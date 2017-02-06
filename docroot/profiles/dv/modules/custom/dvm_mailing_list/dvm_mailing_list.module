@@ -51,22 +51,37 @@ function _dvm_mailing_list_group_form_submit($form, \Drupal\Core\Form\FormStateI
   /** @var \Drupal\Core\Url $redirect */
   $redirect = $form_state->getRedirect();
   $group_id = $redirect->getRouteParameters()['group'];
-  $organizations = array(3,4);
+
+  // get
+  foreach ($form_state->get('field_ml_to') as $item) {
+
+  }
+
   $batch = array(
     'title' => t('Set up Survey...'),
     'operations' => array(
       array(
-        '\Drupal\dvm_mailing_list\dvmBatchAddToGroup::deleteNodeExample',
-        array($group_id, $organizations)
+        '\Drupal\dvm_mailing_list\BatchMailingList::cleanupMembers',
+        array($uids)
+      ),
+      array(
+        '\Drupal\dvm_mailing_list\BatchMailingList::cleanupIssues',
+        array($uids)
+      ),
+      array(
+        '\Drupal\dvm_mailing_list\BatchMailingList::addMembers',
+        array($uids)
+      ),
+      array(
+        '\Drupal\dvm_mailing_list\BatchMailingList::addIssues',
+        array($nids)
       ),
     ),
     'init_message' => t('Example Batch is starting.'),
     'progress_message' => t('Processed @current out of @total.'),
     'error_message' => t('Example Batch has encountered an error.'),
-    'finished' => '\Drupal\dvm_mailing_list\dvmBatchAddToGroup::deleteNodeExampleFinishedCallback',
+    'finished' => '\Drupal\dvm_mailing_list\BatchAddToGroup::deleteNodeExampleFinishedCallback',
   );
   batch_set($batch);
-
-//  \Drupal::service('dmt_group.node_queue_helper')->queueNode($entity);
 
 }
