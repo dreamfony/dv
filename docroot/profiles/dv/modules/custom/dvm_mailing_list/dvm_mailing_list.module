@@ -79,7 +79,7 @@ function _dvm_mailing_list_group_form_submit($form, \Drupal\Core\Form\FormStateI
       ),*/
       array(
         '\Drupal\dvm_mailing_list\BatchMailingList::getMembership',
-        array($gids)
+        array($gids, $group_id)
       ),
       array(
         '\Drupal\dvm_mailing_list\BatchMailingList::addMembers',
