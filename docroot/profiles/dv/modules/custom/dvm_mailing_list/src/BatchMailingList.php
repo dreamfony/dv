@@ -18,6 +18,10 @@ class BatchAddToGroup {
     $context['results'] = $results;
   }
 
+  public static function getMembership($gids, &$context) {
+
+  }
+
   public static function addIssues($nids, &$context) {
 
   }

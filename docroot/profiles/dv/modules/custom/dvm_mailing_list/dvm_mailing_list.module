@@ -52,10 +52,13 @@ function _dvm_mailing_list_group_form_submit($form, \Drupal\Core\Form\FormStateI
   $redirect = $form_state->getRedirect();
   $group_id = $redirect->getRouteParameters()['group'];
 
-  // get
-  foreach ($form_state->get('field_ml_to') as $item) {
 
-  }
+  // getMembership gids
+  $gids = $form_state->get('field_ml_to')->getValues();
+
+  // cleanupIssues nids
+  $group = Group::load($group_id);
+
 
   $batch = array(
     'title' => t('Set up Survey...'),
@@ -67,6 +70,10 @@ function _dvm_mailing_list_group_form_submit($form, \Drupal\Core\Form\FormStateI
       array(
         '\Drupal\dvm_mailing_list\BatchMailingList::cleanupIssues',
         array($uids)
+      ),
+      array(
+        '\Drupal\dvm_mailing_list\BatchMailingList::getMembership',
+        array($gids)
       ),
       array(
         '\Drupal\dvm_mailing_list\BatchMailingList::addMembers',
