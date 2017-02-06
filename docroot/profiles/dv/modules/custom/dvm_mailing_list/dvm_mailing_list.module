@@ -62,10 +62,6 @@ function _dvm_mailing_list_group_form_submit($form, \Drupal\Core\Form\FormStateI
   $nids = $group->get('field_ml_issues')->getValue();
 
 
-  // cleanupIssues nids
-//  $group = Group::load($group_id);
-
-
   $batch = array(
     'title' => t('Set up Survey...'),
     'operations' => array(

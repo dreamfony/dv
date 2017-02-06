@@ -18,13 +18,13 @@ class BatchMailingList {
    * @param $context
    */
   public static function cleanGroup($group_id, &$context) {
+    /** @var Group $group */
     $group = Group::load($group_id);
-    $group_content = $group->getContentEntities();
+    $group_content = $group->getContent();
     foreach ($group_content as $gc) {
       /** @var GroupContent $gc */
       $gc->delete();
     }
-
   }
 
   /**
@@ -40,7 +40,7 @@ class BatchMailingList {
       foreach ($gids as $gid) {
         $gid = $gid['target_id'];
 
-        if ($gid !== NULL) {
+        if ($gid) {
           /** @var Group $group */
           $group = Group::load($gid);
           $membership = $group->getMembers([$group->bundle() . '-organisation']);
