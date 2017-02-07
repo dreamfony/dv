@@ -12,7 +12,7 @@ use Drupal\node\Entity\Node;
 class BatchMailingList {
 
   /**
-   * Clean all content in the group.
+   * Clean all content in the group. Except group owner.
    *
    * @param $group_id
    * @param $context
@@ -20,10 +20,14 @@ class BatchMailingList {
   public static function cleanGroup($group_id, &$context) {
     /** @var Group $group */
     $group = Group::load($group_id);
+    $group_owner = $group->getOwner();
     $group_content = $group->getContent();
     foreach ($group_content as $gc) {
       /** @var GroupContent $gc */
-      $gc->delete();
+      // check if user is admin in the group if not delete
+      if($gc->getEntity() !== $group_owner) {
+        $gc->delete();
+      }
     }
   }
 
