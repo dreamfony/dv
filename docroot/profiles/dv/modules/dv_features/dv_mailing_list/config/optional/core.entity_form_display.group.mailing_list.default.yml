@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.group.mailing_list.field_ml_issues
+    - field.field.group.mailing_list.field_ml_send_emails
     - field.field.group.mailing_list.field_ml_to
     - group.type.mailing_list
   module:
@@ -25,6 +26,13 @@ content:
       allow_existing: false
     third_party_settings: {  }
     type: inline_entity_form_complex
+    region: content
+  field_ml_send_emails:
+    weight: 5
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_ml_to:
     weight: 4

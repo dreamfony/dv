@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.group.mailing_list.field_ml_issues
+    - field.field.group.mailing_list.field_ml_send_emails
     - field.field.group.mailing_list.field_ml_to
     - group.type.mailing_list
 id: group.mailing_list.default
@@ -17,6 +18,16 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_ml_send_emails:
+    weight: -2
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_ml_to:
     weight: -3
