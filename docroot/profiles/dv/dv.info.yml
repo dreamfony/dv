@@ -34,6 +34,7 @@ dependencies:
   - datetime
   - datetime_range
   - dv_core
+  - dv_mailing_list
   - dynamic_entity_reference
   - dynamic_page_cache
   - easy_breadcrumb

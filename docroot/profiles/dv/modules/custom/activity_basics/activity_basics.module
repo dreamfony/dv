@@ -16,6 +16,8 @@ use Drupal\group\Entity\GroupContent;
  */
 function activity_basics_entity_insert(EntityInterface $entity) {
 
+  $data = [];
+
   switch($entity->getEntityTypeId()) {
     case 'node':
       $activity_entity = $entity;
@@ -24,9 +26,10 @@ function activity_basics_entity_insert(EntityInterface $entity) {
     case 'group_content':
       /** @var GroupContent $entity */
       $group_content_plugin = $entity->getContentPlugin();
-      if($group_content_plugin->getGroupTypeId() === 'organisation') {
+      if($group_content_plugin->getGroupTypeId() === 'mailing_list' && $group_content_plugin->getPluginId() == 'group_node:question') {
         $activity_entity = Node::load($entity->get('entity_id')
           ->getValue()[0]['target_id']);
+        $data['group_id'] = $entity->getGroup()->id();
         $activity_action = 'email_organisation_action';
       }
       break;
@@ -38,7 +41,7 @@ function activity_basics_entity_insert(EntityInterface $entity) {
     // Trigger the create action for entities.
     /* @var \Drupal\activity_creator\Plugin\ActivityActionInterface $create_action */
     $create_action = $activity_logger_factory->createInstance($activity_action);
-    $create_action->create($activity_entity);
+    $create_action->create($activity_entity, $data);
   }
 
 

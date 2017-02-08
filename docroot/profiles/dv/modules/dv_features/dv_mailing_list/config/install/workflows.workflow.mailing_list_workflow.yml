@@ -1,0 +1,71 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - content_moderation
+id: mailing_list_workflow
+label: 'Mailing list workflow'
+states:
+  approved:
+    label: Approved
+    weight: -8
+  archived:
+    label: Archived
+    weight: 0
+  draft:
+    label: Draft
+    weight: -10
+  email:
+    label: Email
+    weight: -9
+transitions:
+  approve_sending:
+    label: 'Approve Sending'
+    from:
+      - approved
+      - email
+    to: approved
+    weight: -8
+  archive:
+    label: Archive
+    from:
+      - approved
+      - email
+    to: archived
+    weight: -7
+  create_new_draft:
+    label: 'Create new Draft'
+    from:
+      - draft
+    to: draft
+    weight: -10
+  restore_to_draft:
+    label: 'Restore to Draft'
+    from:
+      - archived
+    to: draft
+    weight: 0
+  send_email:
+    label: 'Send Email'
+    from:
+      - draft
+    to: email
+    weight: -9
+type: content_moderation
+type_settings:
+  states:
+    draft:
+      published: false
+      default_revision: false
+    approved:
+      published: false
+      default_revision: false
+    email:
+      published: false
+      default_revision: false
+    archived:
+      published: false
+      default_revision: false
+  entity_types:
+    group:
+      - mailing_list

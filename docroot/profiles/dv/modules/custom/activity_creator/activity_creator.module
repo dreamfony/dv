@@ -71,6 +71,8 @@ function activity_creator_message_insert(\Drupal\message\Entity\Message $entity)
       'status' => NULL,
     ];
 
+    $data['group_id'] = $entity->get('field_message_related_group')->first()->getValue()['target_id'];
+
     $message_template = $entity->getTemplate();
 
     $activity_create_direct = $message_template->getThirdPartySetting('activity_logger', 'activity_create_direct', NULL);

@@ -23,7 +23,7 @@ class CreateActivityAction extends ActivityActionBase {
   /**
    * @inheritdoc
    */
-  public function create($entity) {
+  public function create($entity, $data = NULL) {
 
     if ($this->isValidEntity($entity)) {
         /** @var Entity $entity */

@@ -2,18 +2,20 @@ langcode: en
 status: true
 dependencies:
   module:
+    - activity_logger
+    - message
     - group
-    - node
-id: group.field_ml_issues
-field_name: field_ml_issues
-entity_type: group
+id: message.field_message_related_group
+field_name: field_message_related_group
+entity_type: message
 type: entity_reference
 settings:
-  target_type: node
+  target_type: group
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
 custom_storage: false
+

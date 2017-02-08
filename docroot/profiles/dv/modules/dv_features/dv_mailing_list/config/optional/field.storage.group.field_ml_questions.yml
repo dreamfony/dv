@@ -3,14 +3,16 @@ status: true
 dependencies:
   module:
     - group
-id: group.field_ml_send_emails
-field_name: field_ml_send_emails
+    - node
+id: group.field_ml_questions
+field_name: field_ml_questions
 entity_type: group
-type: boolean
-settings: {  }
+type: entity_reference
+settings:
+  target_type: node
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

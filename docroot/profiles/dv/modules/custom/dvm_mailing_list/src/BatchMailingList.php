@@ -78,7 +78,7 @@ class BatchMailingList {
    * @param $group_id
    * @param $context
    */
-  public static function addIssues($nids, $group_id, &$context) {
+  public static function addQuestions($nids, $group_id, &$context) {
 
     /// TODO make batch work
     $group = Group::load($group_id);
@@ -87,7 +87,7 @@ class BatchMailingList {
       $nid = $nid['target_id'];
       /** @var Group $group */
       $node = Node::load($nid);
-      $group->addContent($node, 'group_node:issue');
+      $group->addContent($node, 'group_node:question');
     }
 
     $context['finished'] = 1;

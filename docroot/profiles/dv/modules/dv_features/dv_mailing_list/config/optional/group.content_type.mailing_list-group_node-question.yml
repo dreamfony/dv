@@ -3,12 +3,12 @@ status: true
 dependencies:
   config:
     - group.type.mailing_list
-    - node.type.issue
-id: mailing_list-group_node-issue
-label: 'Mailing list: Group node (Issue)'
-description: 'Adds <em class="placeholder">Issue</em> content to groups both publicly and privately.'
+    - node.type.question
+id: mailing_list-group_node-question
+label: 'Mailing list: Group node (Question)'
+description: 'Adds <em class="placeholder">Question</em> content to groups both publicly and privately.'
 group_type: mailing_list
-content_plugin: 'group_node:issue'
+content_plugin: 'group_node:question'
 plugin_config:
   group_cardinality: 0
   entity_cardinality: 1

@@ -30,7 +30,7 @@ class ActivityLoggerFactory {
    * @param string $action
    *    Action string. Defaults to 'create'.
    */
-  public function createMessages(EntityInterface $entity, $action) {
+  public function createMessages(EntityInterface $entity, $action, $data) {
     // Get all messages that are responsible for creating items.
     $message_types = $this->getMessageTypes($action, $entity);
     // Loop through those message types and create messages.
@@ -58,9 +58,14 @@ class ActivityLoggerFactory {
           'name' => 'field_message_related_object',
           'type' => 'dynamic_entity_reference'
         ],
-        [ 'name' => 'field_message_hash', 'type' => 'text']
+        [ 'name' => 'field_message_hash', 'type' => 'text'],
+        [ 'name' => 'field_message_related_group', 'type' => 'entity_reference']
       ];
       $this->createFieldInstances($message_type, $additional_fields);
+
+      if(isset($data['group_id'])) {
+        $new_message['field_message_related_group']['target_id'] = $data['group_id'];
+      }
 
       if(in_array_r('email', $destinations)) {
         $random = new Random();

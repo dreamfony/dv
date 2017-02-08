@@ -8,7 +8,8 @@
 namespace Drupal\activity_basics\Plugin\ActivityContext;
 
 use Drupal\activity_creator\Plugin\ActivityContextBase;
-use Drupal\activity_creator\ActivityFactory;
+use Drupal\group\Entity\Group;
+use Drupal\group\GroupMembership;
 
 
 /**
@@ -29,44 +30,21 @@ class OrganisationActivityContext extends ActivityContextBase {
 
     // We only know the context if there is a related object.
     if (isset($data['related_object']) && !empty($data['related_object'])) {
-      $related_entity = ActivityFactory::getActivityRelatedEntity($data);
-      $allowed_entity_types = ['node', 'post', 'comment'];
-      if (in_array($related_entity['target_type'], $allowed_entity_types)) {
-        $recipients += $this->getRecipientOrganisationFromEntity($related_entity, $data);
+
+      $gid = $data['group_id'];
+      $group = Group::load($gid);
+
+      $memberships = $group->getMembers([$group->bundle() . '-organisation']);
+
+      foreach ($memberships as $membership) {
+        /** @var GroupMembership $membership */
+        $recipients[] = [
+          'target_type' => 'user',
+          'target_id' => $membership->getUser()->id(),
+        ];
       }
     }
 
-    return $recipients;
-  }
-
-  /**
-   * Returns owner recipient from entity.
-   */
-  public function getRecipientOrganisationFromEntity(array $related_entity, array $data) {
-
-    // @todo get recipients form organisation
-    $recipients = [];
-
-    $entity_storage = \Drupal::entityTypeManager()
-      ->getStorage($related_entity['target_type']);
-    $entity = $entity_storage->load($related_entity['target_id']);
-
-    // Don't return recipients if user comments on own content.
-    $original_related_object = $data['related_object'][0];
-    if (isset($original_related_object['target_type']) && $original_related_object['target_type'] == 'comment') {
-      $storage = \Drupal::entityTypeManager()
-        ->getStorage($original_related_object['target_type']);
-      $original_related_entity = $storage->load($original_related_object['target_id']);
-
-      if (!empty($original_related_entity) && $original_related_entity->getOwnerId() == $entity->getOwnerId()) {
-        return $recipients;
-      }
-    }
-
-    $recipients[] = [
-      'target_type' => 'user',
-      'target_id' => $entity->getOwnerId(),
-    ];
 
     return $recipients;
   }

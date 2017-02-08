@@ -65,6 +65,7 @@ class ActivityWorkerLogger extends ActivityWorkerBase {
           'destination' => $data['destination'],
           'related_object' => $data['related_object'],
           'recipient' => $recipient,
+          'group_id' => $data['group_id']
         ];
         $this->createQueueItem('activity_creator_activities', $activity_creator_data);
 
