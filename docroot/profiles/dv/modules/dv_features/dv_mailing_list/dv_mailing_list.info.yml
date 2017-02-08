@@ -15,6 +15,7 @@ dependencies:
   - group
   - inline_entity_form
   - menu_ui
+  - message
   - node
   - path
   - text

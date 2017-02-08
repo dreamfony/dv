@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - activity_logger
+third_party_settings:
+  activity_logger:
+    activity_bundle_entities:
+      node-question: node-question
+    activity_action: email_organisation_action
+    activity_context: organisation_activity_context
+    activity_destinations:
+      email: email
+    activity_create_direct: 0
+    activity_aggregate: 0
+    activity_entity_condition: ''
+template: question
+label: Question
+description: Question
+text:
+  -
+    value: "<p>2</p>\r\n"
+    format: basic_html
+  -
+    value: "<p>1</p>\r\n"
+    format: basic_html
+  -
+    value: "<p>3</p>\r\n"
+    format: basic_html
+settings:
+  'token options':
+    clear: false
+    'token replace': true
+  purge_override: false
+  purge_methods: {  }
