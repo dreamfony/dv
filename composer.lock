@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d991904b9d4a2d2e73126fbc72c185ae",
-    "content-hash": "1189fdd70aa84caf1df25e7e524e1fc4",
+    "hash": "9a6f4537802eab29f9d4d07393b8a7fd",
+    "content-hash": "3c9c4232b9a9b769ca9381cd5e10ebf4",
     "packages": [
         {
             "name": "acquia/blt",
@@ -3537,14 +3537,11 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/group-8.x-1.0-beta4.zip",
-                "reference": "8.x-1.0-beta4",
+                "reference": null,
                 "shasum": "744a5b72d06ca3b70055aede39294470232c123e"
             },
             "require": {
                 "drupal/core": "*"
-            },
-            "suggest": {
-                "drupal/core": "Required by drupal/gnode"
             },
             "type": "drupal-module",
             "extra": {
@@ -3558,7 +3555,8 @@
                 "patches_applied": {
                     "Fix fatal error when uploading files for group": "https://www.drupal.org/files/issues/error-when-uploading-files-2793621-5.patch",
                     "https://www.drupal.org/node/2736233": "https://www.drupal.org/files/issues/groups-add_subgroups_module-2736233-3-D8.patch",
-                    "https://www.drupal.org/node/2746839 - develgenerate": "https://www.drupal.org/files/issues/develGenerate.patch"
+                    "https://www.drupal.org/node/2746839 - develgenerate": "https://www.drupal.org/files/issues/develGenerate.patch",
+                    "https://www.drupal.org/node/2829966 - Make groups revisionable": "https://www.drupal.org/files/issues/group-revisions-2829966-3.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
