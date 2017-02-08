@@ -89,9 +89,6 @@ settings:
   flagging:
     handler: 'default:flagging'
     handler_settings: {  }
-  role:
-    handler: 'default:role'
-    handler_settings: {  }
   search_api_task:
     handler: 'default:search_api_task'
     handler_settings: {  }
@@ -103,5 +100,8 @@ settings:
     handler_settings: {  }
   vote_result:
     handler: 'default:vote_result'
+    handler_settings: {  }
+  positions:
+    handler: 'default:positions'
     handler_settings: {  }
 field_type: dynamic_entity_reference

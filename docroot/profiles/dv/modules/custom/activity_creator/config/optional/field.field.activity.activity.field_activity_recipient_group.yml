@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - field.storage.activity.field_activity_recipient_group
-    - group.type.organisation_group
   module:
     - activity_creator
 id: activity.activity.field_activity_recipient_group

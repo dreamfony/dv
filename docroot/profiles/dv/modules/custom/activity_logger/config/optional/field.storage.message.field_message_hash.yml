@@ -8,7 +8,8 @@ id: message.field_message_hash
 field_name: field_message_hash
 entity_type: message
 type: text
-settings: {  }
+settings:
+  max_length: 255
 module: text
 locked: false
 cardinality: 1

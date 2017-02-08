@@ -7,15 +7,24 @@ dependencies:
   - activity_creator
   - block_content
   - comment
+  - content_moderation
+  - dv_answer_number
+  - dv_answer_text
+  - dv_core
+  - dv_positions
   - dynamic_entity_reference
   - field
   - file
+  - flag
   - group
   - menu_link_content
   - message
   - node
   - options
   - profile
+  - search_api
+  - shortcut
   - taxonomy
   - text
   - user
+  - votingapi
