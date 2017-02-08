@@ -62,6 +62,7 @@ assignments:
         group_content_type: group_content_type
         group_role: group_role
         configurable_language: configurable_language
+        message_template: message_template
         view: view
         entity_view_mode: entity_view_mode
     enabled: true
