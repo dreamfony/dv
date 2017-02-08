@@ -39,6 +39,11 @@ function activity_logger_token_info() {
     'description' => t("The recipient user url."),
   ];
 
+  $message['node-body'] = [
+    'name' => t("Node body"),
+    'description' => t("The related node body."),
+  ];
+
   return [
     'types' => ['message' => $type],
     'tokens' => [
@@ -63,6 +68,7 @@ function activity_logger_tokens($type, $tokens, array $data, array $options, Bub
         case 'gtitle':
         case 'gurl':
         case 'recipient-user-url':
+        case 'node-body':
 
           if (isset($message->field_message_related_object)) {
             $target_type = $message->field_message_related_object->target_type;
@@ -123,6 +129,9 @@ function activity_logger_tokens($type, $tokens, array $data, array $options, Bub
                 }
               }
 
+              if ($name === 'node-body') {
+                $replacements[$original] = $entity->body->value;
+              }
             }
           }
           break;
