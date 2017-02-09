@@ -44,6 +44,11 @@ function activity_logger_token_info() {
     'description' => t("The related node body."),
   ];
 
+  $message['replyto-email'] = [
+    'name' => t("ReplyTo Email"),
+    'description' => t("ReplyTo Email"),
+  ];
+
   return [
     'types' => ['message' => $type],
     'tokens' => [
@@ -135,6 +140,10 @@ function activity_logger_tokens($type, $tokens, array $data, array $options, Bub
             }
           }
           break;
+
+        case 'replyto-email':
+          $hash = $message->field_message_hash->value;
+          $replacements[$original] = \Drupal::service('activity_send_email.replyto')->getAddress( strlen($hash) > 1 ? $hash : NULL );
       }
     }
   }

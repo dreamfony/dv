@@ -55,6 +55,14 @@ class ActivitySendEmailWorker extends ActivitySendWorkerBase {
           $params['body'] = EmailActivityDestination::getSendEmailOutputText($message);
 
           $hash = $message->get('field_message_hash')->getString();
+          $params['h:Reply-To'] = \Drupal::service('activity_send_email.replyto')->getAddress( strlen($hash) > 1 ? $hash : NULL );
+          $params['v:entity_id'] = $data['entity_id'];
+          $params['v:hash'] = $hash;
+//          $params['v:short_code'] = $data['entity_id'];
+          $params['o:tag'] = 'survey';
+          $params['o:tracking-opens'] = 'yes';
+          $params['o:tracking-clicks'] = 'yes';
+          $params['o:tracking'] = 'yes';
 
           $mail_manager = \Drupal::service('plugin.manager.mail');
           $mail = $mail_manager->mail(
@@ -63,7 +71,6 @@ class ActivitySendEmailWorker extends ActivitySendWorkerBase {
             $target_account->getEmail(),
             $langcode,
             $params,
-            $reply = \Drupal::service('activity_send_email.replyto')->getAddress( strlen($hash) > 1 ? $hash : NULL ),
             $send = TRUE
           );
         }

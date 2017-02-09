@@ -206,7 +206,8 @@
                 "https://www.drupal.org/node/2744069" : "https://www.drupal.org/files/issues/2744069-5-views-in-queries.patch"
             },
             "drupal/mailgun": {
-                "https://www.drupal.org/node/2847665" : "https://www.drupal.org/files/issues/remove-composer-manager-2847665-2.patch"
+                "https://www.drupal.org/node/2847665" : "https://www.drupal.org/files/issues/remove-composer-manager-2847665-2.patch",
+                "https://www.drupal.org/node/2851007" : "https://www.drupal.org/files/issues/extract-params-2851007-2.patch"
             }
         },
         "drupal-scaffold": {
