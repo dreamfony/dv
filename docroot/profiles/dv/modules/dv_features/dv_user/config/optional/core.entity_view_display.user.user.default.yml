@@ -2,24 +2,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.user.user.mailhandler_gpg_key
     - field.field.user.user.user_picture
   module:
-    - mailhandler
     - user
 id: user.user.default
 targetEntityType: user
 bundle: user
 mode: default
 content:
-  mailhandler_gpg_key:
-    type: mailhandler_gpg
-    weight: 2
-    label: above
-    settings:
-      display: fingerprint
-    third_party_settings: {  }
-    region: content
   masquerade:
     weight: 50
     region: content

@@ -2,10 +2,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.user.user.mailhandler_gpg_key
     - field.field.user.user.user_picture
   module:
-    - mailhandler
     - path
     - user
 id: user.user.default
@@ -21,14 +19,6 @@ content:
     region: content
   language:
     weight: 0
-    region: content
-  mailhandler_gpg_key:
-    type: mailhandler_gpg
-    weight: 5
-    settings:
-      rows: 20
-      placeholder: 'Begins with "-----BEGIN PGP PUBLIC KEY BLOCK-----"'
-    third_party_settings: {  }
     region: content
   path:
     type: path

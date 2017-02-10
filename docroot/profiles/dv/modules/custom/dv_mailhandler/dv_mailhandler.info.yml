@@ -4,4 +4,4 @@ description: Dv Mailhandler.
 core: 8.x
 package: Custom
 dependencies:
-  - mailhandler
+  - inmail

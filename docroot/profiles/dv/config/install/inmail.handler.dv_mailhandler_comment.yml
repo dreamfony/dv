@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: dv_mailhandler_comment
+label: 'Post comments via email'
+plugin: dv_mailhandler_comment
+configuration:
+  entity_type: node

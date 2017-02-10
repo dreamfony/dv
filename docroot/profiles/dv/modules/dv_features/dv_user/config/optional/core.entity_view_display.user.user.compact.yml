@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
-    - field.field.user.user.mailhandler_gpg_key
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
@@ -32,5 +31,4 @@ content:
     region: content
 hidden:
   langcode: true
-  mailhandler_gpg_key: true
   member_for: true

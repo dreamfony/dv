@@ -9,7 +9,6 @@ dependencies:
   - field
   - file
   - image
-  - mailhandler
   - path
   - rdf
   - system
