@@ -55,11 +55,13 @@ class ActivitySendEmailWorker extends ActivitySendWorkerBase {
           $params['body'] = EmailActivityDestination::getSendEmailOutputText($message);
 
           $hash = $message->get('field_message_hash')->getString();
-          $params['h:Reply-To'] = \Drupal::service('activity_send_email.replyto')->getAddress( strlen($hash) > 1 ? $hash : NULL );
+          $reply_to = \Drupal::service('activity_send_email.replyto')->getAddress( strlen($hash) > 1 ? $hash : NULL );
+          $params['h:Reply-To'] = $reply_to;
+          $params['h:Message-Id'] = $reply_to;
           $params['v:entity_id'] = $data['entity_id'];
           $params['v:hash'] = $hash;
 //          $params['v:short_code'] = $data['entity_id'];
-          $params['o:tag'] = 'survey';
+          $params['o:tag'] = ['survey', 'shortcode'];
           $params['o:tracking-opens'] = 'yes';
           $params['o:tracking-clicks'] = 'yes';
           $params['o:tracking'] = 'yes';

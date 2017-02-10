@@ -2,3 +2,5 @@ name: 'Mailsystem settings'
 type: module
 core: 8.x
 package: DV
+dependencies:
+  - webhooks
