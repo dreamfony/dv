@@ -78,7 +78,9 @@
         "drupal/inmail": "1.x-dev",
         "drupal/mailhandler": "1.x-dev",
         "drupal/mailgun": "1.x-dev",
-        "drupal/facets": "1.x-dev"
+        "drupal/facets": "1.x-dev",
+        "drupal/webhooks": "1.x-dev",
+        "drupal/personas": "^1.0@beta"
     },
     "require-dev": {
         "behat/behat": "^3.1",

@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+id: mailgun
+label: mailgun
+payload_url: 'http://example.com/webhook'
+type: incoming
+last_usage: null
+events: 'a:0:{}'
+response_ok: null
+ref_entity_type: null
+ref_entity_id: null
+secret: null
+content_type: ''
