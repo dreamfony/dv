@@ -7,21 +7,30 @@ dependencies:
     - field.field.comment.answer_text.field_c_attachments
   module:
     - file
+    - text
 id: comment.answer_text.default
 targetEntityType: comment
 bundle: answer_text
 mode: default
 content:
+  comment_body:
+    type: text_default
+    weight: 2
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   field_c_attachments:
-    weight: 101
+    weight: 1
     label: above
     settings: {  }
     third_party_settings: {  }
     type: file_default
     region: content
   links:
-    weight: 100
+    weight: 0
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
-  comment_body: true
   langcode: true

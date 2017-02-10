@@ -25,6 +25,8 @@ use Drupal\inmail\ProcessorResultInterface;
  */
 class ToAnalyzer extends AnalyzerBase {
 
+  protected $to;
+
   /**
    * {@inheritdoc}
    */
@@ -32,6 +34,7 @@ class ToAnalyzer extends AnalyzerBase {
     $result = $processor_result->getAnalyzerResult();
 
     $this->findTo($message, $result);
+    $this->findHash($message, $result);
   }
 
   /**
@@ -43,12 +46,27 @@ class ToAnalyzer extends AnalyzerBase {
    *   The analyzer result.
    */
   protected function findTo(MimeMessageInterface $message, DefaultAnalyzerResult $result) {
-    $to = $message->getTo()[0]->getAddress();
+    $this->to = $message->getTo()[0]->getAddress();
 
     // Add to context.
     $context_definition = new ContextDefinition('any', $this->t('To context'));
-    $context = new Context($context_definition, $to);
+    $context = new Context($context_definition, $this->to);
     $result->setContext('to', $context);
+  }
+
+  /**
+   * Get Hash.
+   *
+   */
+  protected function findHash(MimeMessageInterface $message, DefaultAnalyzerResult $result) {
+    $hash = explode('@', explode("+", $this->to)[1])[0];
+
+    if($hash) {
+      // Add to context.
+      $context_definition = new ContextDefinition('any', $this->t('Hash'));
+      $context = new Context($context_definition, $hash);
+      $result->setContext('hash', $context);
+    }
   }
 
 }

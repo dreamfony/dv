@@ -7,9 +7,18 @@
 /**
  * Activity statuses.
  */
-const ACTIVITY_STATUS_RECEIVED = 1;
-const ACTIVITY_STATUS_SEEN = 2;
-const ACTIVITY_STATUS_READ = 3;
+
+
+const ACTIVITY_STATUS_PENDING = "pending";
+const ACTIVITY_STATUS_SENT = 'sent';
+const ACTIVITY_STATUS_SEEN = 'seen';
+const ACTIVITY_STATUS_ANSWERED = 'answered';
+const ACTIVITY_STATUS_CANCELED = 'canceled';
+const ACTIVITY_STATUS_DELIVERY_ERROR = 'delivery_error';
+const ACTIVITY_STATUS_REJECTED = 'rejected';
+const ACTIVITY_STATUS_NOT_HELD = 'not_held';
+
+
 
 /**
  * Returns the allowed values for the activity status field.
@@ -20,9 +29,14 @@ const ACTIVITY_STATUS_READ = 3;
 function activity_creator_field_activity_status_allowed_values() {
 
   $allowed_values = [
-    ACTIVITY_STATUS_RECEIVED => 'Received',
-    ACTIVITY_STATUS_SEEN => 'Seen',
-    ACTIVITY_STATUS_READ => 'Read',
+    ACTIVITY_STATUS_PENDING => "Pending",
+    ACTIVITY_STATUS_SENT => "Sent",
+    ACTIVITY_STATUS_SEEN => "Seen",
+    ACTIVITY_STATUS_ANSWERED => "Answered",
+    ACTIVITY_STATUS_CANCELED => "Canceled",
+    ACTIVITY_STATUS_DELIVERY_ERROR => "Delivery Error",
+    ACTIVITY_STATUS_REJECTED => "Rejected",
+    ACTIVITY_STATUS_NOT_HELD => "Not Held",
   ];
 
   return $allowed_values;
@@ -59,6 +73,7 @@ function activity_creator_message_insert(\Drupal\message\Entity\Message $entity)
     $context = $entity->get('field_message_context')->getValue();
     $destinations = $entity->get('field_message_destination')->getValue();
     $related_object = $entity->get('field_message_related_object')->getValue();
+    $hash = $entity->get('field_message_hash')->getString();
 
     $data = [
       'mid' => $mid,
@@ -67,6 +82,7 @@ function activity_creator_message_insert(\Drupal\message\Entity\Message $entity)
       'context' => $context[0]['value'],
       'destination' => $destinations,
       'related_object' => $related_object,
+      'hash' => $hash,
       'last_uid' => 0,
       'status' => NULL,
     ];
@@ -76,6 +92,9 @@ function activity_creator_message_insert(\Drupal\message\Entity\Message $entity)
     $message_template = $entity->getTemplate();
 
     $activity_create_direct = $message_template->getThirdPartySetting('activity_logger', 'activity_create_direct', NULL);
+
+    // disable activity create direct feature everything goes to queue
+    $activity_create_direct = FALSE;
 
     if ($activity_create_direct) {
 

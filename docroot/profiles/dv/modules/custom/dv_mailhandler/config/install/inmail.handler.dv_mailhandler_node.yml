@@ -1,6 +1,0 @@
-langcode: en
-id: dv_mailhandler_node
-label: Create content via email
-plugin: dv_mailhandler_node
-configuration:
-  content_type: page

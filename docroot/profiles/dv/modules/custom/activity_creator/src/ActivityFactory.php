@@ -53,8 +53,9 @@ class ActivityFactory extends ControllerBase {
       'field_activity_output_text' => $this->getFieldOutputText($message),
       'field_activity_recipient_group' => $this->getFieldRecipientGroup($data),
       'field_activity_recipient_user' => $this->getFieldRecipientUser($data),
+      'field_activity_hash' => $this->getFieldHash($data),
       // Default activity status.
-      'field_activity_status' => ACTIVITY_STATUS_RECEIVED,
+      'field_activity_status' => ACTIVITY_STATUS_PENDING,
       'user_id' => $this->getActor($data),
     ];
 
@@ -86,6 +87,20 @@ class ActivityFactory extends ControllerBase {
           }
         }
       }
+    }
+    return $value;
+  }
+
+  /**
+   * Get Hash.
+   *
+   * @param $data
+   * @return string
+   */
+  private function getFieldHash($data) {
+    $value = NULL;
+    if(isset($data['hash'])) {
+      $value = $data['hash'];
     }
     return $value;
   }

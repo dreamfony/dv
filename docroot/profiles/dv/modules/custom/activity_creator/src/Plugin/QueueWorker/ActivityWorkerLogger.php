@@ -62,6 +62,7 @@ class ActivityWorkerLogger extends ActivityWorkerBase {
           'message_template' => $data['message_template'],
           'actor' => $data['actor'],
           'context' => $data['context'],
+          'hash' => $data['hash'],
           'destination' => $data['destination'],
           'related_object' => $data['related_object'],
           'recipient' => $recipient,

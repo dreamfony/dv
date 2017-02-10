@@ -30,7 +30,7 @@ class ActivityNotifications extends ControllerBase {
    * @return array
    *   Return array of notification ids.
    */
-  public function getNotifications(AccountInterface $account, $status = array(ACTIVITY_STATUS_RECEIVED)) {
+  public function getNotifications(AccountInterface $account, $status = array(ACTIVITY_STATUS_SENT, ACTIVITY_STATUS_PENDING)) {
     $ids = $this->getNotificationIds($account, $status);
 
     return $ids;
@@ -47,7 +47,7 @@ class ActivityNotifications extends ControllerBase {
    * @return array
    *   Return array of notifications as activity objects.
    */
-  public function getNotificationsActivities(AccountInterface $account, $status = array(ACTIVITY_STATUS_RECEIVED)) {
+  public function getNotificationsActivities(AccountInterface $account, $status = array(ACTIVITY_STATUS_SENT, ACTIVITY_STATUS_PENDING)) {
     $ids = $this->getNotificationIds($account, $status);
 
     return entity_load_multiple('activity', $ids);
@@ -65,7 +65,7 @@ class ActivityNotifications extends ControllerBase {
   public function markAllNotificationsAsSeen(AccountInterface $account) {
 
     // Retrieve all the activities referring this entity for this account.
-    $ids = $this->getNotificationIds($account, $status = array(ACTIVITY_STATUS_RECEIVED));
+    $ids = $this->getNotificationIds($account, $status = array(ACTIVITY_STATUS_SENT, ACTIVITY_STATUS_PENDING));
 
     foreach ($ids as $activity_id) {
       $activity = Activity::load($activity_id);
@@ -87,7 +87,7 @@ class ActivityNotifications extends ControllerBase {
   public function markEntityNotificationsAsRead(AccountInterface $account, Entity $entity) {
 
     // Retrieve all the activities referring this entity for this account.
-    $ids = $this->getNotificationIds($account, array(ACTIVITY_STATUS_RECEIVED, ACTIVITY_STATUS_SEEN), $entity);
+    $ids = $this->getNotificationIds($account, array(ACTIVITY_STATUS_PENDING, ACTIVITY_STATUS_SENT, ACTIVITY_STATUS_SEEN), $entity);
 
     foreach ($ids as $activity_id) {
       $activity = Activity::load($activity_id);
@@ -107,7 +107,7 @@ class ActivityNotifications extends ControllerBase {
   public function markEntityAsRead(AccountInterface $account, Entity $entity) {
 
     // Retrieve all the activities referring this entity for this account.
-    $ids = $this->getNotificationIds($account, $status = array(ACTIVITY_STATUS_RECEIVED, ACTIVITY_STATUS_SEEN), $entity);
+    $ids = $this->getNotificationIds($account, $status = array(ACTIVITY_STATUS_PENDING, ACTIVITY_STATUS_SENT, ACTIVITY_STATUS_SEEN), $entity);
 
     foreach ($ids as $activity_id) {
       $activity = Activity::load($activity_id);
@@ -127,7 +127,7 @@ class ActivityNotifications extends ControllerBase {
    * @return Activity
    *    Returns activity object.
    */
-  public function changeStatusOfActivity(Activity $activity, $status = ACTIVITY_STATUS_RECEIVED) {
+  public function changeStatusOfActivity(Activity $activity, $status = ACTIVITY_STATUS_PENDING) {
     $activity->set('field_activity_status', $status);
 
     return $activity->save();

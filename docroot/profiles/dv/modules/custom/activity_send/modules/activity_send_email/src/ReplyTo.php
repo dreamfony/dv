@@ -34,7 +34,7 @@ class ReplyTo {
 
   protected function getReplyTo($hash) {
     $address = explode('@', $this->replyto);
-    return $address[0] . '+dmtit222+' .  $hash . '@' . $address[1];
+    return $address[0] . $hash . '+dmtit222' . '@' . $address[1];
   }
 
 }

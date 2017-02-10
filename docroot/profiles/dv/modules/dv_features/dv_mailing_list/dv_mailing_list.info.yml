@@ -3,6 +3,8 @@ description: 'Provides Mailing list group type and related configuration. '
 type: module
 core: 8.x
 dependencies:
+  - activity_logger
+  - comment
   - content_moderation
   - dv_area_of_activity
   - dv_core
@@ -10,6 +12,7 @@ dependencies:
   - dv_org_legal_status
   - dv_organisation_founder
   - dv_organisation_group
+  - dynamic_entity_reference
   - field
   - geo_area_group
   - group
@@ -17,6 +20,7 @@ dependencies:
   - menu_ui
   - message
   - node
+  - options
   - path
   - text
   - user
