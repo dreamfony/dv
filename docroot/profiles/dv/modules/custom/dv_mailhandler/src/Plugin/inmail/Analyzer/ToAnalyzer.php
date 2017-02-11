@@ -59,9 +59,10 @@ class ToAnalyzer extends AnalyzerBase {
    *
    */
   protected function findHash(MimeMessageInterface $message, DefaultAnalyzerResult $result) {
-    $hash = explode('@', explode("+", $this->to)[1])[0];
-
-    if($hash) {
+    $recipient = explode('@', $this->to)[0];
+    $hash = explode('+', $recipient);
+    if (isset($hash[1])) {
+      $hash = $hash[1];
       // Add to context.
       $context_definition = new ContextDefinition('any', $this->t('Hash'));
       $context = new Context($context_definition, $hash);
