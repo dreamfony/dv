@@ -1,0 +1,5 @@
+langcode: en
+id: footer
+label: Message footer
+plugin: footer
+weight: 30

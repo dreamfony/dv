@@ -146,7 +146,7 @@ class DvMailhandlerComment extends HandlerBase implements ContainerFactoryPlugin
       'entity_type' => $this->configuration['entity_type'],
       'entity_id' => $this->entity->id(),
       'uid' => $user->id(),
-      'subject' => $result->getSubject(),
+      'subject' => $message->getSubject(),
       'comment_body' => [
         'value' => $result->getBody(),
         'format' => 'basic_html',
