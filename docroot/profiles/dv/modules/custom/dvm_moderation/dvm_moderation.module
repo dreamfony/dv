@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Contains dvm_moderation.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function dvm_moderation_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the dvm_moderation module.
+    case 'help.page.dvm_moderation':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('My Awesome Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Returns the allowed values for the Manager group field_mg_event_type
+ *
+ * @return array
+ *    Return an array of allowed values for field_mg_event_type.
+ */
+function dvm_moderation_field_mg_event_type_allowed_values() {
+
+  $allowed_values = activity_creator_field_activity_status_allowed_values();
+
+  return $allowed_values;
+}

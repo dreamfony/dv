@@ -30,3 +30,12 @@ function dv_dev_create_test_accounts() {
     }
   }
 }
+
+/**
+ * Mail Reroute
+ * Implements hook_mail_alter().
+ */
+
+function dv_dev_mail_alter(&$message) {
+  $message['to'] = 'dmtit6@gmail.com';
+}

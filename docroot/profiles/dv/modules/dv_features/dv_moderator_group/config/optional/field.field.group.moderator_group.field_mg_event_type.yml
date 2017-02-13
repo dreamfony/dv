@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_mg_event_type
+    - group.type.moderator_group
+  module:
+    - options
+id: group.moderator_group.field_mg_event_type
+field_name: field_mg_event_type
+entity_type: group
+bundle: moderator_group
+label: 'Event type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
