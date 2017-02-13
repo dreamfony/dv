@@ -22,6 +22,7 @@ use Drupal\user\UserInterface;
  * @ContentEntityType(
  *   id = "activity",
  *   revision_table = "activity_revision",
+ *   revision_data_table = "activity_data_revision",
  *   label = @Translation("Activity"),
  *   handlers = {
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
@@ -179,6 +180,19 @@ class Activity extends ContentEntityBase implements ActivityInterface {
       ->setLabel(t('Changed'))
       ->setRevisionable(TRUE)
       ->setDescription(t('The time that the entity was last edited.'));
+
+    $fields['revision_log'] = BaseFieldDefinition::create('string_long')
+      ->setLabel(t('Revision log message'))
+      ->setDescription(t('Briefly describe the changes you have made.'))
+      ->setRevisionable(TRUE)
+      ->setDefaultValue('')
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textarea',
+        'weight' => 25,
+        'settings' => array(
+          'rows' => 4,
+        ),
+      ));
 
     return $fields;
   }
