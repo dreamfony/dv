@@ -10,19 +10,13 @@ use Drupal\user\Entity\User;
 /**
  * Implements hook_entity_presave().
  */
-function dv_organisation_migrate_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
+function dv_organisation_migrate_node_insert(Drupal\Core\Entity\EntityInterface $entity) {
   $bundle = $entity->bundle();
 
   if ($bundle == 'organisation') {
     /** @var Node $entity */
 
-    // get current owner email
-    $current_owner = $entity->getOwner();
-
-    // if user has role organisation
-    if($current_owner->hasRole('organisation')) {
-      $owner_email = $current_owner->getEmail();
-    }
+    $dummy_email = $entity->get('field_o_organisation_id')->getString() . '@dv.com';
 
     // get current email set on organisation node
     $email = $entity->get('field_o_email')->getValue();
@@ -31,29 +25,22 @@ function dv_organisation_migrate_node_presave(Drupal\Core\Entity\EntityInterface
     if (isset($email[0]['value'])) {
       $email = $email[0]['value'];
 
-      // if owner email is set and it is different than current email
-      if (isset($owner_email) && $owner_email != $email) {
+      // else create a new user and assign it to organisation node
+      $org_user = User::create(array(
+        'name' => $dummy_email,
+        'mail' => $dummy_email,
+        'status' => 1,
+        'roles' => array('organisation')
+      ));
 
-        // update current owner email and user name
-        $current_owner->setEmail($email);
-        $current_owner->setUsername($email);
-        $current_owner->save();
-        $entity->setOwner($current_owner);
+      $org_user->set('field_user_contact_email', $email);
+      $org_user->set('field_organisation_node', $entity);
 
-      } elseif(!isset($owner_email)) {
+      $org_user->save();
+      $entity->setOwner($org_user);
 
-        // else create a new user and assign it to organisation node
-        $org_user = User::create(array(
-          'name' => $email,
-          'mail' => $email,
-          'status' => 1,
-          'roles' => array('organisation')
-        ));
-        $org_user->save();
-        $entity->setOwner($org_user);
-
-      }
     }
+
   }
 }
 
