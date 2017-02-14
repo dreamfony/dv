@@ -51,11 +51,12 @@ class DvMailgunWebhook extends QueueWorkerBase {
         $status = ACTIVITY_STATUS_SEEN;
         break;
 
-      case 'open':
+      case 'opened':
         $status = ACTIVITY_STATUS_SEEN;
         break;
 
       default:
+        $status = ACTIVITY_STATUS_DELIVERY_ERROR;
         break;
 
     }
@@ -65,7 +66,7 @@ class DvMailgunWebhook extends QueueWorkerBase {
         ->getStorage('activity')
         ->load($data['entity_id']);
       $activity->set('field_activity_status', $status);
-      $activity->set('revision_log', $data);
+      $activity->revision_log = $data;
       $activity->save();
 
     }

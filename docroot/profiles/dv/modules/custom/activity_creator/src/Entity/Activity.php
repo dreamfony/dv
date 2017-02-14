@@ -260,4 +260,16 @@ class Activity extends ContentEntityBase implements ActivityInterface {
     return $value;
   }
 
+  public static function getActivityIdByHash($hash) {
+    $query = \Drupal::entityQuery('activity')
+      ->condition('field_activity_hash', $hash);
+    $activity_ids = $query->execute();
+
+    return reset($activity_ids);
+  }
+
+  public static function getActivityEntityByHash($hash) {
+    $activity_id = static::getActivityIdByHash($hash);
+    return \Drupal::entityManager()->getStorage('activity')->load($activity_id);
+  }
 }
