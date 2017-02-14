@@ -13,6 +13,7 @@ use Drupal\inmail\MIME\MimeMessageInterface;
 use Drupal\inmail\Plugin\inmail\Handler\HandlerBase;
 use Drupal\inmail\ProcessorResultInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\activity_creator\Entity\Activity;
 
 /**
  * Message handler that supports posting comments via email.
@@ -91,13 +92,7 @@ class DvMailhandlerComment extends HandlerBase implements ContainerFactoryPlugin
 
       $hash = $result->getContext('hash')->getContextValue();
 
-      $query = \Drupal::entityQuery('activity')
-        ->condition('field_activity_hash', $hash);
-      $activity_ids = $query->execute();
-
-      $activity_id = reset($activity_ids);
-
-      $activity = \Drupal::entityManager()->getStorage('activity')->load($activity_id);
+      $activity = Activity::getActivityEntityByHash($hash);
 
       $related_object = $activity->get('field_activity_entity')->getValue();
 
