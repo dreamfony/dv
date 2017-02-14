@@ -2,7 +2,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.user.user.field_user_organisation_node
+    - field.field.user.user.field_ac_contact_email
+    - field.field.user.user.field_ac_organisation_node
     - field.field.user.user.user_picture
   module:
     - path
@@ -17,6 +18,23 @@ content:
     region: content
   contact:
     weight: 5
+    region: content
+  field_ac_contact_email:
+    weight: 32
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_ac_organisation_node:
+    weight: 33
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_user_organisation_node:
     weight: 31

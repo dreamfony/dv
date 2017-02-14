@@ -2,7 +2,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.user.user.field_user_organisation_node
+    - field.field.user.user.field_ac_contact_email
+    - field.field.user.user.field_ac_organisation_node
     - field.field.user.user.user_picture
   module:
     - user
@@ -11,6 +12,21 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
+  field_ac_contact_email:
+    weight: 52
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_ac_organisation_node:
+    weight: 53
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_user_organisation_node:
     weight: 51
     label: above
