@@ -1,6 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: moderator_group
-label: 'Moderator group'
-description: 'Group where we publish moderator activities and support tickets'
