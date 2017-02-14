@@ -77,7 +77,6 @@ function dv_install_profile_modules(&$install_state) {
     'dvm_mailing_list' => 'dvm_mailing_list',
     'ggroup' => 'ggroup', // we add ggroup here since it can't be enabled without any groups
     'dv_mailsystem_settings' => 'dv_mailsystem_settings',
-    'dv_moderator_group' => 'dv_moderator_group'
   );
 
   $dv_modules = $modules;

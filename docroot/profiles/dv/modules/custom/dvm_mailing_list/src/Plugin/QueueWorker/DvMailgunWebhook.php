@@ -32,14 +32,42 @@ class DvMailgunWebhook extends QueueWorkerBase {
      */
 
     switch ($data['event']) {
-      case 'bounce':
-      case 'drop':
-// TODO what to do here
+      case 'deliver':
+        $status = ACTIVITY_STATUS_SENT;
         break;
+      case 'drop':
+        $status = ACTIVITY_STATUS_DELIVERY_ERROR;
+        break;
+
+      case 'spam':
+        $status = ACTIVITY_STATUS_REJECTED;
+        break;
+
+      case 'unsubscribe':
+        $status = ACTIVITY_STATUS_REJECTED;
+        break;
+
+      case 'click':
+        $status = ACTIVITY_STATUS_SEEN;
+        break;
+
+      case 'open':
+        $status = ACTIVITY_STATUS_SEEN;
+        break;
+
       default:
-        $data['entity_id'];
-        $data['hash'];
-// TODO save this in activity
+        break;
+
+    }
+
+    if (isset($data['entity_id'])) {
+      $activity = \Drupal::entityManager()
+        ->getStorage('activity')
+        ->load($data['entity_id']);
+      $activity->set('field_activity_status', $status);
+      $activity->set('revision_log', $data);
+      $activity->save();
+
     }
 
   }
