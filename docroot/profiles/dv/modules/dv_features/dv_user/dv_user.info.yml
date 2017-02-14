@@ -6,9 +6,11 @@ dependencies:
   - captcha
   - content_translation
   - dv_core
+  - dv_organisation
   - field
   - file
   - image
+  - node
   - path
   - rdf
   - system

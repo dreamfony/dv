@@ -5,6 +5,57 @@ use Drupal\migrate\Plugin\MigrateSourceInterface;
 use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_entity_presave().
+ */
+function dv_organisation_migrate_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  $bundle = $entity->bundle();
+
+  if ($bundle == 'organisation') {
+    /** @var Node $entity */
+
+    // get current owner email
+    $current_owner = $entity->getOwner();
+
+    // if user has role organisation
+    if($current_owner->hasRole('organisation')) {
+      $owner_email = $current_owner->getEmail();
+    }
+
+    // get current email set on organisation node
+    $email = $entity->get('field_o_email')->getValue();
+
+    // if email delta 0 on organisation node is set
+    if (isset($email[0]['value'])) {
+      $email = $email[0]['value'];
+
+      // if owner email is set and it is different than current email
+      if (isset($owner_email) && $owner_email != $email) {
+
+        // update current owner email and user name
+        $current_owner->setEmail($email);
+        $current_owner->setUsername($email);
+        $current_owner->save();
+        $entity->setOwner($current_owner);
+
+      } elseif(!isset($owner_email)) {
+
+        // else create a new user and assign it to organisation node
+        $org_user = User::create(array(
+          'name' => $email,
+          'mail' => $email,
+          'status' => 1,
+          'roles' => array('organisation')
+        ));
+        $org_user->save();
+        $entity->setOwner($org_user);
+
+      }
+    }
+  }
+}
 
 /**
  * Implements hook_migrate_prepare_row()
@@ -20,7 +71,6 @@ use Drupal\taxonomy\Entity\Term;
  * @return BOOL
  */
 function dv_organisation_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $source, MigrationInterface $migration) {
-
 
   // for organisations skip rows that have 'skupna_razina'
   if ($migration->id() === 'organisation_groups') {

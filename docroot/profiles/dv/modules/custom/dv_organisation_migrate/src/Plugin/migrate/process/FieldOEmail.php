@@ -19,18 +19,32 @@ class FieldOEmail extends ProcessPluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
 
-    if ($value) {
+    if ($row->getSourceProperty('komunikacije')) {
+      $emails = $this->parseEmailFromKomunikacije($row->getSourceProperty('komunikacije'));
+    }
 
-      $matches = [];
-      $pattern = '/[a-z\d._%+-]+@[a-z\d.-]+\.[a-z]{2,4}\b/i';
-      preg_match_all($pattern, $value, $matches);
+    if (!isset($emails)) {
+      $emails[] = $this->generateEmail($row->getSourceProperty('organisation_id'));
+    }
 
-      if ($matches) {
-        return reset($matches);
-      }
+    return $emails;
+
+  }
+
+  protected function parseEmailFromKomunikacije($komunikacije) {
+    $matches = [];
+    $pattern = '/[a-z\d._%+-]+@[a-z\d.-]+\.[a-z]{2,4}\b/i';
+    preg_match_all($pattern, $komunikacije, $matches);
+
+    if ($matches) {
+      return reset($matches);
     }
 
     return NULL;
+  }
+
+  protected function generateEmail($organisationId) {
+    return $organisationId . '@' . 'no-email.com';
   }
 
 }

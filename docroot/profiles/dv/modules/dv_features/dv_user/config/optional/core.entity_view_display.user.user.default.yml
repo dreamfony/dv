@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_user_organisation_node
     - field.field.user.user.user_picture
   module:
     - user
@@ -10,6 +11,14 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
+  field_user_organisation_node:
+    weight: 51
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   masquerade:
     weight: 50
     region: content
