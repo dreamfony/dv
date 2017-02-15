@@ -15,3 +15,5 @@ permissions:
   - 'access shortcuts'
   - 'use draft_draft transition'
   - 'view own unpublished content'
+  - 'view field_ac_organisation_node'
+  - 'view field_ac_contact_email'

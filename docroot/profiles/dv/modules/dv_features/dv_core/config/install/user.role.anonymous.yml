@@ -10,3 +10,5 @@ permissions:
   - 'view files'
   - 'access comments'
   - 'access site-wide contact form'
+  - 'view field_ac_contact_email'
+  - 'view field_ac_organisation_node'
