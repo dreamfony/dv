@@ -5,18 +5,14 @@
  * Contains organisation_group.module..
  */
 
+use Drupal\group\Entity\Group;
+use Drupal\user\Entity\User;
+
 /**
  * Implements hook_entity_insert().
  */
 function dvm_organisation_group_node_insert(Drupal\Core\Entity\EntityInterface $entity) {
-  // get current node bundle
-  $bundle = $entity->bundle();
 
-  // check if current node is organisation node
-  if ('organisation' === $bundle) {
-    \Drupal::service('dvm_organisation_group.add_group_to_subgroup')
-      ->add($entity, 'organisation', 'field_o_parent_organisation');
-  }
 }
 
 /**
@@ -29,10 +25,22 @@ function dvm_organisation_group_group_content_insert(\Drupal\group\Entity\GroupC
   $plugin_id = $group_content_type->getContentPluginId();
 
   if ($plugin_id === 'group_node:organisation') {
+    /** @var Group $group */
     $group = $entity->getGroup();
     /** @var \Drupal\node\Entity\Node $node */
     $node = $entity->getEntity();
-    $group->addMember($node->getOwner(), ['group_roles' => [$group->bundle().'-organisation']]);
+
+    $query = Drupal::entityQuery('user')
+      ->condition('field_ac_organisation_node', $node->id());
+
+    $entity_ids = $query->execute();
+
+    $new_owner = User::load(reset($entity_ids));
+
+    $node->setOwner($new_owner);
+    $node->save();
+
+    $group->addMember($new_owner, ['group_roles' => [$group->bundle().'-organisation']]);
   }
 }
 

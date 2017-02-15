@@ -41,6 +41,8 @@ function dv_organisation_migrate_node_insert(Drupal\Core\Entity\EntityInterface 
 
     }
 
+    \Drupal::service('dvm_organisation_group.add_group_to_subgroup')
+      ->add($entity, 'organisation', 'field_o_parent_organisation');
   }
 }
 
