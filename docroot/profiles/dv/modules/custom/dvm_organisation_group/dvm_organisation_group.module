@@ -29,13 +29,16 @@ function dvm_organisation_group_group_content_insert(\Drupal\group\Entity\GroupC
   if ($plugin_id === 'group_node:organisation') {
     /** @var Group $group */
     $group = $entity->getGroup();
-    /** @var \Drupal\node\Entity\Node $node */
+    /** @var Organisation $node */
     $node = $entity->getEntity();
 
-    $new_owner = Organisation::getOrganisationUserEntity($node);
-    if (!is_null($new_owner)){
-      $node->setOwner($new_owner);
-      $node->save();
+    $new_owner = $node->getOrganisationUserEntity();
+
+    if (isset($new_owner)){
+      if($node->getOwner()->id() != $new_owner->id()) {
+        $node->setOwner($new_owner);
+        $node->save();
+      }
 
       $group->addMember($new_owner, ['group_roles' => [$group->bundle().'-organisation']]);
     }

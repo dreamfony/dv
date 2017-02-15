@@ -2,22 +2,22 @@
 
 namespace Drupal\dvm_organisation\Helper;
 
-use Drupal\Core\Entity\Entity;
 use Drupal\dvm_user\Helper\UserSettings;
+use Drupal\node\Entity\Node;
 use Drupal\user\Entity\User;
 
 /**
  * Class Organisation
  * @package Drupal\dvm_organisation\Helper
  */
-final class Organisation {
+class Organisation extends Node {
 
-  static function getOrganisationUserEntity(Entity $entity) {
+  public function getOrganisationUserEntity() {
 
     $query = \Drupal::entityQuery('user')
       ->condition('status', 1)
       ->condition('roles', UserSettings::ROLE_ORGANISATION)
-      ->condition('field_ac_organisation_node', $entity->id());
+      ->condition('field_ac_organisation_node', $this->id());
     $entity_id = $query->execute();
 
     if (!empty($entity_id)) {

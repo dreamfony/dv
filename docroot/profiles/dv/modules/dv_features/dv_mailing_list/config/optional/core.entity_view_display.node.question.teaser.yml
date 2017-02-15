@@ -4,6 +4,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.question.body
+    - field.field.node.question.field_question_answers
+    - field.field.node.question.field_question_comment_type
     - node.type.question
   module:
     - text
@@ -25,4 +27,6 @@ content:
     weight: 100
     region: content
 hidden:
+  field_question_answers: true
+  field_question_comment_type: true
   langcode: true

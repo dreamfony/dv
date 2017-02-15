@@ -6,6 +6,7 @@ dependencies:
   - activity_logger
   - comment
   - content_moderation
+  - dv_answer_text
   - dv_area_of_activity
   - dv_core
   - dv_issue
@@ -24,5 +25,6 @@ dependencies:
   - path
   - text
   - user
+  - views
   - workflows
 package: DV

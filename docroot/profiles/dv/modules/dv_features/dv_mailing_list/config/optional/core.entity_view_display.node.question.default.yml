@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.answer_text.default
     - field.field.node.question.body
     - field.field.node.question.field_question_answers
     - field.field.node.question.field_question_comment_type
