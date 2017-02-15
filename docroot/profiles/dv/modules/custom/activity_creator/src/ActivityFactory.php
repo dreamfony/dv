@@ -9,6 +9,7 @@ namespace Drupal\activity_creator;
 use Drupal\activity_creator\Entity\Activity;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\message\Entity\Message;
+use Drupal\activity_logger\ActivityLoggerRandom;
 
 /**
  * Class ActivityFactory to create Activity items based on ActivityLogs.
@@ -45,6 +46,7 @@ class ActivityFactory extends ControllerBase {
     $activities = [];
     $message = Message::load($data['mid']);
     // Initialize fields for new activity entity.
+
     $activity_fields = [
       'created' => $this->getCreated($message),
       'field_activity_destinations' => $this->getFieldDestinations($data),
@@ -99,8 +101,9 @@ class ActivityFactory extends ControllerBase {
    */
   private function getFieldHash($data) {
     $value = NULL;
-    if(isset($data['hash'])) {
-      $value = $data['hash'];
+    if(in_array_r('email', $this->getFieldDestinations($data))) {
+      $random = new ActivityLoggerRandom();
+      return $random->hash(20, TRUE, 'activity_factory_hash_validate');
     }
     return $value;
   }

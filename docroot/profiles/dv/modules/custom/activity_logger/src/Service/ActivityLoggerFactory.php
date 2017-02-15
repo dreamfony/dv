@@ -58,18 +58,12 @@ class ActivityLoggerFactory {
           'name' => 'field_message_related_object',
           'type' => 'dynamic_entity_reference'
         ],
-        [ 'name' => 'field_message_hash', 'type' => 'text'],
         [ 'name' => 'field_message_related_group', 'type' => 'entity_reference']
       ];
       $this->createFieldInstances($message_type, $additional_fields);
 
       if(isset($data['group_id'])) {
         $new_message['field_message_related_group']['target_id'] = $data['group_id'];
-      }
-
-      if(in_array_r('email', $destinations)) {
-        $random = new Random();
-        $new_message['field_message_hash'] = ['value' => $random->hash(20, TRUE, 'activity_factory_hash_validate')];
       }
 
       $new_message['field_message_context'] = $mt_context;
