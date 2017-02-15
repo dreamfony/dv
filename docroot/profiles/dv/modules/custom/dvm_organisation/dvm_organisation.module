@@ -7,6 +7,8 @@
 
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\dvm_organisation\Helper\Organisation;
+use Drupal\user\Entity\User;
+
 /**
  * Implements hook_help().
  */
@@ -23,6 +25,11 @@ function dvm_organisation_help($route_name, RouteMatchInterface $route_match) {
   }
 }
 
+/**
+ * Hook node update.
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ */
 function dvm_organisation_node_update(Drupal\Core\Entity\EntityInterface $entity) {
 
   /** @var Organisation $entity */
@@ -35,8 +42,9 @@ function dvm_organisation_node_update(Drupal\Core\Entity\EntityInterface $entity
     // if email delta 0 on organisation node is set
     if (isset($email[0]['value'])) {
       $email = $email[0]['value'];
+      /** @var User $user */
+      $user = Drupal::service('dvm_organisation.organisation')->getOrganisationUserEntity($entity);
 
-      $user = $entity->getOrganisationUserEntity();
       if (!is_null($user)){
         $user->set('field_ac_contact_email', $email);
         $user->save();

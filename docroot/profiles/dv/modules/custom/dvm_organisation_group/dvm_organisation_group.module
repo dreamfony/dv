@@ -7,7 +7,7 @@
 
 use Drupal\group\Entity\Group;
 use Drupal\user\Entity\User;
-use Drupal\dvm_organisation\Helper\Organisation;
+use Drupal\node\Entity\Node;
 
 
 /**
@@ -29,10 +29,11 @@ function dvm_organisation_group_group_content_insert(\Drupal\group\Entity\GroupC
   if ($plugin_id === 'group_node:organisation') {
     /** @var Group $group */
     $group = $entity->getGroup();
-    /** @var Organisation $node */
+    /** @var Node $node */
     $node = $entity->getEntity();
 
-    $new_owner = $node->getOrganisationUserEntity();
+    /** @var User $new_owner */
+    $new_owner = Drupal::service('dvm_organisation.organisation')->getOrganisationUserEntity($node);
 
     if (isset($new_owner)){
       if($node->getOwner()->id() != $new_owner->id()) {
