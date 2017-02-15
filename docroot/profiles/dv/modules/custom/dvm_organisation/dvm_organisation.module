@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file
+ * Contains dvm_organisation.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\dvm_organisation\Helper\Organisation;
+/**
+ * Implements hook_help().
+ */
+function dvm_organisation_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the dvm_organisation module.
+    case 'help.page.dvm_organisation':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('My Awesome Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+function dvm_organisation_node_update(Drupal\Core\Entity\EntityInterface $entity) {
+
+  /** @var Node $entity */
+  $bundle = $entity->bundle();
+
+  if ($bundle == 'organisation') {
+
+    $email = $entity->get('field_o_email')->getValue();
+
+    // if email delta 0 on organisation node is set
+    if (isset($email[0]['value'])) {
+      $email = $email[0]['value'];
+      $user = Organisation::getOrganisationUserEntity($entity);
+      if (!is_null($user)){
+        $user->set('field_ac_contact_email', $email);
+        $user->save();
+      }
+    }
+  }
+}

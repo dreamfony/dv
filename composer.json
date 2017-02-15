@@ -80,7 +80,8 @@
         "drupal/mailgun": "1.x-dev",
         "drupal/facets": "1.x-dev",
         "drupal/webhooks": "1.x-dev",
-        "drupal/personas": "^1.0@beta"
+        "drupal/personas": "^1.0@beta",
+        "drupal/field_permissions": "^1.0@beta"
     },
     "require-dev": {
         "behat/behat": "^3.1",
