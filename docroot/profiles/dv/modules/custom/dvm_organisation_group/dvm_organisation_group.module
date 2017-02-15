@@ -7,6 +7,8 @@
 
 use Drupal\group\Entity\Group;
 use Drupal\user\Entity\User;
+use Drupal\dvm_organisation\Helper\Organisation;
+
 
 /**
  * Implements hook_entity_insert().
@@ -30,17 +32,15 @@ function dvm_organisation_group_group_content_insert(\Drupal\group\Entity\GroupC
     /** @var \Drupal\node\Entity\Node $node */
     $node = $entity->getEntity();
 
-    $query = Drupal::entityQuery('user')
-      ->condition('field_ac_organisation_node', $node->id());
+    $new_owner = Organisation::getOrganisationUserEntity($node);
+    if (!is_null($new_owner)){
+      $node->setOwner($new_owner);
+      $node->save();
 
-    $entity_ids = $query->execute();
+      $group->addMember($new_owner, ['group_roles' => [$group->bundle().'-organisation']]);
+    }
 
-    $new_owner = User::load(reset($entity_ids));
 
-    $node->setOwner($new_owner);
-    $node->save();
-
-    $group->addMember($new_owner, ['group_roles' => [$group->bundle().'-organisation']]);
   }
 }
 
