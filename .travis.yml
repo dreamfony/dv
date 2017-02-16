@@ -1,5 +1,5 @@
 # Note that the example .travis.yml file for child projects lives in /install.
-sudo: required
+sudo: false
 language: php
 dist: trusty
 
@@ -19,8 +19,8 @@ cache:
   - "$HOME/.nvm"
   - "vendor"
   # Cache front end dependecies to dramatically improve build time.
-  # - "docroot/themes/custom/patternlab/node_modules"
-  # - "docroot/themes/custom/patternlab/bower_components"
+  - "docroot/themes/custom/patternlab/node_modules"
+  - "docroot/themes/custom/patternlab/bower_components"
 
 addons:
   ssh_known_hosts:
@@ -29,10 +29,9 @@ addons:
     - svn-6182.devcloud.hosting.acquia.com
 
   apt:
-    packages:
-    - mysql-server-5.6
-    - mysql-client-core-5.6
-    - mysql-client-5.6
+    sources:
+    - xvfb
+
   # code climate integration
   code_climate:
     secure: hhFEmNdJQU4ui8ph2cdATzjU3QVxLdrugJSTcgoKJ0QVi7sV1Bk0LHa47icb6iCGg7mbljYoyeeVRZlCjVzx35vC+s34049WJDo/WMlZuscB3a6Z4UwDXC0oJl4j2VzCgdXPo9S40aDrtiLyM6Gj4ETy/kf4idL5PYVvEQiERsN7H9bchjoLtmNIbTYYyNVFqRoRwSvc0g2RT+Fu43hFeTQiHpNJ9bUZyautQKJ/gga2wirCiIqBrZPbocRkdJSxwJEzfQwKTu4AYjMtoRMW7W+mZsiXmxdteM8CpEM5PbXREC2AzXS9F8/+IGDk5riqVGobvvFtnp26MJBBS8UuVRHvN05D7Hf3FH5URg7EwRw/EWSSiGp/gmknRN2WGBiO/AQzekJ2oXHLTWbYxOYxfzjWFFD9gPbLNb3IdZhwYQnHjqkKjeYv88umo0mE1AUI4VAQKmQKfMQW/t3TN2fP2JWu4sghG1G1AJP015jAJ0h0S+esG+2k9UJMGgtdvE/xyjVaXm8tj+w71PiICo+1NNIg/R6NsD5imhJ0KZRydg5zAm2hLZQl5etmuaXajl9otgBqbX5xs2ueNcudecXn2CIfxCOyky175aDHcFZCYa8TkQxD7i8BQrERma1BFVUGv7Z+NDhFagtVcjCssn7jk9/7C2CCjQ0y6zBjer5MZtE=
@@ -56,6 +55,7 @@ before_install:
 
   # Enable aliases for non-interactive shell.
   - shopt -s expand_aliases
+  - composer selfupdate
   # Disable xdebug.
   - phpenv config-rm xdebug.ini
   # Enable $_ENV variables in PHP.
@@ -64,14 +64,14 @@ before_install:
   - echo "always_populate_raw_post_data = -1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - git config --global user.name "Travis-CI"
   - git config --global user.email "noreply@travis-ci.org"
-  - mysql -u root -e 'CREATE DATABASE drupal;'
+  - mysql -u root -e "CREATE DATABASE drupal; CREATE USER 'drupal'@'localhost' IDENTIFIED BY 'drupal'; GRANT ALL ON drupal.* TO 'drupal'@'localhost';"
   # Repo for newer Node.js versions
-  - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+  #- curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
   # Repo for Yarn
-  - sudo apt-key adv --keyserver pgp.mit.edu --recv D101F7899D41F3C3
-  - echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  - sudo apt-get update -qq
-  - sudo apt-get install -y -qq yarn
+  #- sudo apt-key adv --keyserver pgp.mit.edu --recv D101F7899D41F3C3
+  #- echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+  #- sudo apt-get update -qq
+  #- sudo apt-get install -y -qq yarn
 
 
 install:
@@ -82,14 +82,13 @@ install:
   # Install proper version of node for front end tasks.
   - nvm install 4.4.1
   - nvm use 4.4.1
-  # Initialize drupal console default configuration.
-  - drupal init
   # Initialize xvfb (see https://docs.travis-ci.com/user/gui-and-headless-browsers)
-  - sudo apt-get install xvfb
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   # Installs chromedriver to vendor/bin.
   - ./vendor/acquia/blt/scripts/linux/install-chrome.sh $TRAVIS_BUILD_DIR/vendor/bin
+  # Use JDK 8.
+  - jdk_switcher use oraclejdk8
 
 before_script:
   # Clear drush release history cache, to pick up new releases.
@@ -97,11 +96,11 @@ before_script:
   # Verify that no git diffs (caused by line ending variation) exist.
   # - git diff --exit-code
   # The local.hostname must be set to 127.0.0.1:8888 because we are using drush runserver to run the site on Travis CI.
-  - drupal yaml:update:value project.yml project.local.hostname '127.0.0.1:8888'
+  - yaml-cli update:value blt/project.yml project.local.hostname '127.0.0.1:8888'
 
 
 script:
-  - blt -Dbehat.run-server=true -Dcreate_alias=false -Dbehat.launch-phantom=true ci:build:validate:test
+  - blt -Dbehat.run-server=true -Dcreate_alias=false -Dbehat.launch-phantom=true ci:build:validate:test -Dblt.verbose=true
 
 # Support for CodeClimate
 after_script:
