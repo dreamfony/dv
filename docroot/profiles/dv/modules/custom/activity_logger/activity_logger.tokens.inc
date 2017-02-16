@@ -15,7 +15,7 @@ use Drupal\group\Entity\GroupContent;
  */
 function activity_logger_token_info() {
   $type = [
-    'name' => t('Activity tokens'),
+    'name' => t('Message tokens from activity'),
     'description' => t('Tokens from the activity logger module.'),
     'needs-data' => 'message',
   ];
@@ -44,15 +44,25 @@ function activity_logger_token_info() {
     'description' => t("The related node body."),
   ];
 
-  $message['replyto-email'] = [
+  $activity_type = [
+    'name' => t('Activity tokens from Activity'),
+    'description' => t('Tokens from the activity logger module.'),
+    'needs-data' => 'activity',
+  ];
+
+  $activity['replyto-email'] = [
     'name' => t("ReplyTo Email"),
     'description' => t("ReplyTo Email"),
   ];
 
   return [
-    'types' => ['message' => $type],
+    'types' => [
+      'message' => $type,
+      'activity' => $activity_type
+    ],
     'tokens' => [
       'message' => $message,
+      'activity' => $activity
     ],
   ];
 }
@@ -94,21 +104,6 @@ function activity_logger_tokens($type, $tokens, array $data, array $options, Bub
                 $group_content = reset($group_content);
                 $group = $group_content->getGroup();
               }
-              // Or special handling for post entities.
-              /// @todo: check what is meant by this
-              /*
-              if ($entity->getEntityTypeId() === 'post') {
-                if (!empty($entity->get('field_recipient_group')->getValue())) {
-                  $group = Group::load($group_id = $entity->field_recipient_group->target_id);
-                }
-                if (isset($entity->field_recipient_user) && !empty($entity->field_recipient_user->target_id)) {
-                  $target_id = $entity->field_recipient_user->target_id;
-                  $recipient_user = \Drupal::entityTypeManager()
-                    ->getStorage('user')
-                    ->load($target_id);
-                }
-              }
-              */
 
               // If it's a group.. add it in the arguments.
               if (isset($group) && $group instanceof Group) {
@@ -144,6 +139,21 @@ function activity_logger_tokens($type, $tokens, array $data, array $options, Bub
         case 'replyto-email':
           $hash = $message->field_message_hash->value;
           $replacements[$original] = \Drupal::service('activity_send_email.replyto')->getAddress( strlen($hash) > 1 ? $hash : NULL );
+      }
+    }
+  }
+
+  if($type == 'activity' && !empty($data['activity'])) {
+    /** @var \Drupal\activity_creator\Entity\Activity $activity */
+    $activity = $data['activity'];
+
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+
+        case 'replyto-email':
+          $hash = $activity->get('field_activity_hash')->getString();
+          $replacements[$original] = \Drupal::service('activity_send_email.replyto')->getAddress( strlen($hash) > 1 ? $hash : NULL );
+          break;
       }
     }
   }

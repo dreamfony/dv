@@ -54,8 +54,19 @@ class ActivitySendEmailWorker extends ActivitySendWorkerBase {
           $langcode = \Drupal::currentUser()->getPreferredLangcode();
           $params['body'] = EmailActivityDestination::getSendEmailOutputText($message);
 
-          $hash = $message->get('field_message_hash')->getString();
+          $hash = $activity->get('field_activity_hash')->getString();
+
+          // replace tokens from activity before sending
+          $activity_token_options = [
+            'langcode' => $message->language(),
+            'clear' => false,
+          ];
+
+          $params['body'] = \Drupal::token()
+              ->replace($params['body'], ['activity' => $activity], $activity_token_options);
+
           $reply_to = \Drupal::service('activity_send_email.replyto')->getAddress( strlen($hash) > 1 ? $hash : NULL );
+
           $params['h:Reply-To'] = $reply_to;
           $params['h:Message-Id'] = $reply_to;
           $params['v:entity_id'] = $data['entity_id'];
@@ -70,6 +81,7 @@ class ActivitySendEmailWorker extends ActivitySendWorkerBase {
           $mail = $mail_manager->mail(
             'activity_send_email',
             'activity_send_email',
+            /// @todo: get organisation email in case user role is organisation
             $target_account->getEmail(),
             $langcode,
             $params,
