@@ -19,7 +19,7 @@ label: Question
 description: Question
 text:
   -
-    value: "<p>Molimo odgovoriti na sljedeće pitanje</p>\r\n\r\n<p>[message:node-body]</p>\r\n\r\n<p>Molimo da kada odgovarate na pitanje koristite sljedeći email:</p>\r\n\r\n<p>[message:replyto-email]</p>\r\n"
+    value: "<p>Molimo odgovoriti na sljedeće pitanje</p>\r\n\r\n<p>[message:node-body]</p>\r\n\r\n<p>Molimo da kada odgovarate na pitanje koristite sljedeći email:</p>\r\n\r\n<p>[activity:replyto-email]</p>\r\n"
     format: basic_html
 settings:
   'token options':

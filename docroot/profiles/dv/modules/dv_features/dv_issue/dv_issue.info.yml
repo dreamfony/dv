@@ -11,6 +11,7 @@ dependencies:
   - datetime_range
   - dv_area_of_activity
   - dv_core
+  - dv_mailing_list
   - dv_org_legal_status
   - dv_organisation_founder
   - dv_organisation_group

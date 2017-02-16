@@ -35,6 +35,7 @@ dependencies:
   - datetime_range
   - dv_core
   - dv_mailing_list
+  - dvm_moderation
   - dynamic_entity_reference
   - dynamic_page_cache
   - easy_breadcrumb
@@ -102,7 +103,6 @@ dependencies:
   - user_registrationpassword
   - views
   - views_ui
-  - dvm_moderation
 themes:
   - patternlab
   - seven

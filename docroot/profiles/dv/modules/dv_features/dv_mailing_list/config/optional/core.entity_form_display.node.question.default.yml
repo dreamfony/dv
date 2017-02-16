@@ -3,10 +3,12 @@ status: true
 dependencies:
   config:
     - field.field.node.question.body
+    - field.field.node.question.field_q_answers
     - field.field.node.question.field_question_answers
     - field.field.node.question.field_question_comment_type
     - node.type.question
   module:
+    - block_field
     - comment
     - content_moderation
     - path
@@ -31,6 +33,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_q_answers:
+    weight: 34
+    settings:
+      plugin_id: ''
+      settings: {  }
+    third_party_settings: {  }
+    type: block_field_default
+    region: content
   field_question_answers:
     weight: 33
     settings: {  }

@@ -4,10 +4,12 @@ dependencies:
   config:
     - core.entity_view_display.comment.answer_text.default
     - field.field.node.question.body
+    - field.field.node.question.field_q_answers
     - field.field.node.question.field_question_answers
     - field.field.node.question.field_question_comment_type
     - node.type.question
   module:
+    - block_field
     - comment
     - options
     - text
@@ -18,14 +20,21 @@ bundle: question
 mode: default
 content:
   body:
-    label: hidden
+    label: above
     type: text_default
-    weight: 101
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_q_answers:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: block_field
+    region: content
   field_question_answers:
-    weight: 103
+    weight: 4
     label: above
     settings:
       view_mode: default
@@ -34,14 +43,16 @@ content:
     type: comment_default
     region: content
   field_question_comment_type:
-    weight: 102
-    label: above
+    weight: 2
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   links:
-    weight: 100
+    weight: 0
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   langcode: true

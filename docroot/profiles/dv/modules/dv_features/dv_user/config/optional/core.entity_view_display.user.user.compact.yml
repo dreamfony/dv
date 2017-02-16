@@ -3,6 +3,8 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
+    - field.field.user.user.field_ac_contact_email
+    - field.field.user.user.field_ac_organisation_node
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
@@ -30,5 +32,7 @@ content:
     label: hidden
     region: content
 hidden:
+  field_ac_contact_email: true
+  field_ac_organisation_node: true
   langcode: true
   member_for: true
