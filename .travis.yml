@@ -100,7 +100,7 @@ before_script:
 
 
 script:
-  - travis_wait blt -Dbehat.run-server=true -Dcreate_alias=false -Dbehat.launch-phantom=true ci:build:validate:test -Dblt.verbose=true
+  - travis_wait 30 blt -Dbehat.run-server=true -Dcreate_alias=false -Dbehat.launch-phantom=true ci:build:validate:test -Dblt.verbose=true
 
 # Support for CodeClimate
 after_script:
