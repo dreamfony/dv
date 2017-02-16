@@ -11,6 +11,7 @@ use Drupal\activity_send_email\Plugin\ActivityDestination\EmailActivityDestinati
 use Drupal\activity_send\Plugin\QueueWorker\ActivitySendWorkerBase;
 use Drupal\activity_creator\Entity\Activity;
 use Drupal\message\Entity\Message;
+use Drupal\dvm_user\Helper\UserSettings;
 
 
 /**
@@ -77,12 +78,19 @@ class ActivitySendEmailWorker extends ActivitySendWorkerBase {
           $params['o:tracking-clicks'] = 'yes';
           $params['o:tracking'] = 'yes';
 
+          /// @todo: get organisation email in case user role is organisation
+          if ($target_account->hasRole(UserSettings::ROLE_ORGANISATION)){
+            $target_account_email = $target_account->get('field_ac_contact_email')->getValue();
+          }
+          else {
+            $target_account_email = $target_account->getEmail();
+          }
+
           $mail_manager = \Drupal::service('plugin.manager.mail');
           $mail = $mail_manager->mail(
             'activity_send_email',
             'activity_send_email',
-            /// @todo: get organisation email in case user role is organisation
-            $target_account->getEmail(),
+            $target_account_email,
             $langcode,
             $params,
             $send = TRUE
