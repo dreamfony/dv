@@ -103,6 +103,7 @@ dependencies:
   - user_registrationpassword
   - views
   - views_ui
+  - block_field
 themes:
   - patternlab
   - seven
