@@ -161,7 +161,8 @@ if (file_exists('/usr/local/drush8/commands')) {
 # $options['notify'] = 30;
 
 // Enable verbose mode.
-# $options['v'] = 1;
+// Testing if site-install can verbose for travis
+ $options['v'] = 1;
 
 // Show database passwords in 'status' and 'sql-conf' commands.
 # $options['show-passwords'] = 1;
