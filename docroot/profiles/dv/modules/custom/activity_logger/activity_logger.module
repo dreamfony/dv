@@ -195,8 +195,8 @@ function _activity_logger_form_message_template_entity_ajax_callback(&$form, For
  * @return bool
  */
 function activity_factory_hash_validate($hash) {
-  $ids = \Drupal::entityQuery('message')
-    ->condition('field_message_hash', $hash)
+  $ids = \Drupal::entityQuery('activity')
+    ->condition('field_activity_hash', $hash)
     ->execute();
 
   if (!$ids) {

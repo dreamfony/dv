@@ -73,7 +73,6 @@ function activity_creator_message_insert(\Drupal\message\Entity\Message $entity)
     $context = $entity->get('field_message_context')->getValue();
     $destinations = $entity->get('field_message_destination')->getValue();
     $related_object = $entity->get('field_message_related_object')->getValue();
-    $hash = $entity->get('field_message_hash')->getString();
 
     $data = [
       'mid' => $mid,
@@ -82,7 +81,6 @@ function activity_creator_message_insert(\Drupal\message\Entity\Message $entity)
       'context' => $context[0]['value'],
       'destination' => $destinations,
       'related_object' => $related_object,
-      'hash' => $hash,
       'last_uid' => 0,
       'status' => NULL,
     ];
