@@ -12,6 +12,7 @@ use Drupal\activity_send\Plugin\QueueWorker\ActivitySendWorkerBase;
 use Drupal\activity_creator\Entity\Activity;
 use Drupal\message\Entity\Message;
 use Drupal\dvm_user\Helper\UserSettings;
+use Drupal\user\Entity\User;
 
 
 /**
@@ -35,6 +36,7 @@ class ActivitySendEmailWorker extends ActivitySendWorkerBase {
     // First make sure it's an actual Activity entity.
     if (!empty($data['entity_id']) && $activity = Activity::load($data['entity_id'])) {
       // Get target account.
+      /** @var User $target_account */
       $target_account = EmailActivityDestination::getSendTargetUser($activity);
       // Check if user last activity was more than few minutes ago.
       if (is_object($target_account) && EmailActivityDestination::isUserOffline($target_account)) {
@@ -53,52 +55,84 @@ class ActivitySendEmailWorker extends ActivitySendWorkerBase {
         ) {
           // Send Email
           $langcode = \Drupal::currentUser()->getPreferredLangcode();
-          $params['body'] = EmailActivityDestination::getSendEmailOutputText($message);
-
-          $hash = $activity->get('field_activity_hash')->getString();
-
-          // replace tokens from activity before sending
-          $activity_token_options = [
-            'langcode' => $message->language(),
-            'clear' => false,
-          ];
-
-          $params['body'] = \Drupal::token()
-              ->replace($params['body'], ['activity' => $activity], $activity_token_options);
-
-          $reply_to = \Drupal::service('activity_send_email.replyto')->getAddress( strlen($hash) > 1 ? $hash : NULL );
-
-          $params['h:Reply-To'] = $reply_to;
-          $params['h:Message-Id'] = $reply_to;
-          $params['v:entity_id'] = $data['entity_id'];
-          $params['v:hash'] = $hash;
-//          $params['v:short_code'] = $data['entity_id'];
-          $params['o:tag'] = ['survey', 'shortcode'];
-          $params['o:tracking-opens'] = 'yes';
-          $params['o:tracking-clicks'] = 'yes';
-          $params['o:tracking'] = 'yes';
-
-          /// @todo: get organisation email in case user role is organisation
-          if ($target_account->hasRole(UserSettings::ROLE_ORGANISATION)){
-            $target_account_email = $target_account->get('field_ac_contact_email')->getValue();
-          }
-          else {
-            $target_account_email = $target_account->getEmail();
-          }
 
           $mail_manager = \Drupal::service('plugin.manager.mail');
           $mail = $mail_manager->mail(
             'activity_send_email',
             'activity_send_email',
-            $target_account_email,
+            $this->getEmailRecipient($target_account),
             $langcode,
-            $params,
+            $this->getEmailParams($message, $activity, $data),
             $send = TRUE
           );
         }
       }
     }
+  }
 
+  /**
+   * Get message params.
+   *
+   * @param \Drupal\message\Entity\Message $message
+   * @param \Drupal\activity_creator\Entity\Activity $activity
+   * @param $data
+   * @return mixed
+   */
+  protected function getEmailParams(Message $message, Activity $activity, $data) {
+    $params['body'] = $this->getEmailBody($message, $activity);
+
+    $hash = $activity->get('field_activity_hash')->getString();
+    $reply_to = \Drupal::service('activity_send_email.replyto')->getAddress( strlen($hash) > 1 ? $hash : NULL );
+
+    $params['h:Reply-To'] = $reply_to;
+    $params['h:Message-Id'] = $reply_to;
+    $params['v:entity_id'] = $data['entity_id'];
+    $params['v:hash'] = $hash;
+//          $params['v:short_code'] = $data['entity_id'];
+    $params['o:tag'] = ['survey', 'shortcode'];
+    $params['o:tracking-opens'] = 'yes';
+    $params['o:tracking-clicks'] = 'yes';
+    $params['o:tracking'] = 'yes';
+
+    return $params;
+  }
+
+  /**
+   * Get Email Body.
+   *
+   * @param \Drupal\message\Entity\Message $message
+   * @param \Drupal\activity_creator\Entity\Activity $activity
+   * @return string
+   */
+  protected function getEmailBody(Message $message, Activity $activity) {
+    $body = EmailActivityDestination::getSendEmailOutputText($message);
+
+    // replace tokens from activity before sending
+    $activity_token_options = [
+      'langcode' => $message->language(),
+      'clear' => false,
+    ];
+
+    $body = \Drupal::token()
+      ->replace($body, ['activity' => $activity], $activity_token_options);
+
+    return $body;
+  }
+
+  /**
+   * Get target account.
+   *
+   * @param \Drupal\user\Entity\User $target_account
+   * @return string
+   */
+  protected function getEmailRecipient(User $target_account) {
+    // get organisation email in case user role is organisation
+    if ($target_account->hasRole(UserSettings::ROLE_ORGANISATION)){
+      return $target_account->get('field_ac_contact_email')->getValue();
+    }
+    else {
+      return $target_account->getEmail();
+    }
   }
 
 }
