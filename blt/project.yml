@@ -67,6 +67,7 @@ disable-targets:
     phpunit: true
   validate:
     phpcs: true
+    twig: true
   local:
     sync: true
 
