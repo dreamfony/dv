@@ -100,11 +100,14 @@ before_script:
 
 
 script:
+  #TODO Find way for drush install to output verbose during site-install
+  # https://github.com/travis-ci/travis-ci/issues/5071
   #UPDATE_BLT ci:build:validate:test takes too long cause of drupal install so we took it apart
-  #TODO Find way do drush install to output verbose during install
-  - blt -Dbehat.run-server=true -Dcreate_alias=false -Dbehat.launch-phantom=true validate:all -Dblt.verbose=true
-  - travis_wait 30 blt -Dbehat.run-server=true -Dcreate_alias=false -Dbehat.launch-phantom=true ci:setup -Dblt.verbose=true
-  - blt -Dbehat.run-server=true -Dcreate_alias=false -Dbehat.launch-phantom=true tests:all -Dblt.verbose=true
+  #- blt -Dbehat.run-server=true -Dcreate_alias=false -Dbehat.launch-phantom=true validate:all -Dblt.verbose=true
+  #- travis_wait 30 blt -Dbehat.run-server=true -Dcreate_alias=false -Dbehat.launch-phantom=true ci:setup -Dblt.verbose=true
+  #- blt -Dbehat.run-server=true -Dcreate_alias=false -Dbehat.launch-phantom=true tests:all -Dblt.verbose=true
+  - travis_wait 30 blt -Dbehat.run-server=true -Dcreate_alias=false -Dbehat.launch-phantom=true ci:build:validate:test -Dblt.verbose=true
+
 
 # Support for CodeClimate
 after_script:
