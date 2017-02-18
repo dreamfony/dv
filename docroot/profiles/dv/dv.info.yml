@@ -103,6 +103,8 @@ dependencies:
   - user_registrationpassword
   - views
   - views_ui
+  - multiversion
+  - inmail_collect
 themes:
   - patternlab
   - seven
