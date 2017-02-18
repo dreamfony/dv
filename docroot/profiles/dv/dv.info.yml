@@ -103,6 +103,7 @@ dependencies:
   - user_registrationpassword
   - views
   - views_ui
+  - block_field
   - multiversion
   - inmail_collect
 themes:
