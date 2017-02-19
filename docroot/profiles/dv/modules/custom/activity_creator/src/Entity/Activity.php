@@ -46,7 +46,6 @@ use Drupal\user\UserInterface;
  *     "id" = "id",
  *     "revision" = "vid",
  *     "bundle" = "type",
- *     "label" = "name",
  *     "uuid" = "uuid",
  *     "uid" = "user_id",
  *     "langcode" = "langcode",

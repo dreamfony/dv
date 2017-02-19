@@ -6,7 +6,7 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\activity_creator\ActivityInterface;
+use Drupal\activity_creator\Entity\ActivityInterface;
 use Drupal\activity_send_email\Plugin\ActivityDestination\EmailActivityDestination;
 
 /**
