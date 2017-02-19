@@ -14,6 +14,9 @@ use Drupal\inmail\Plugin\inmail\Handler\HandlerBase;
 use Drupal\inmail\ProcessorResultInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\activity_creator\Entity\Activity;
+use Drupal\inmail\MIME\MimeMultipartMessage;
+use Drupal\inmail\Element\InmailMessage;
+use Drupal\inmail\MIME\MimeEncodings;
 
 /**
  * Message handler that supports posting comments via email.
@@ -87,7 +90,9 @@ class DvMailhandlerComment extends HandlerBase implements ContainerFactoryPlugin
    * {@inheritdoc}
    */
   public function invoke(MimeMessageInterface $message, ProcessorResultInterface $processor_result) {
+
     try {
+      /** @var DefaultAnalyzerResult $result */
       $result = $processor_result->getAnalyzerResult();
 
       $hash = $result->getContext('hash')->getContextValue();
@@ -114,7 +119,10 @@ class DvMailhandlerComment extends HandlerBase implements ContainerFactoryPlugin
       $activity->set('field_activity_status', ACTIVITY_STATUS_ANSWERED);
 
       // set comment reply
-      $activity->field_activity_reply[] = $comment->id();
+      $activity->set('field_activity_reply',$comment->id());
+
+      // save raw message
+      $activity->revision_log = $message->toString();
 
       // save activity
       $activity->save();
@@ -125,6 +133,27 @@ class DvMailhandlerComment extends HandlerBase implements ContainerFactoryPlugin
       // Log error in case verification, authentication or authorization fails.
       $processor_result->log('CommentHandler', $e->getMessage());
     }
+  }
+
+  /**
+   * @param \Drupal\inmail\DefaultAnalyzerResult $result
+   * @return array
+   */
+  protected function getAttachments(DefaultAnalyzerResult $result) {
+    $managed_files = [];
+
+    $attachments = $result->getContext('attachments')->getContextValue();
+
+    foreach ($attachments as $attachment) {
+      $path = 'public://attachments/' . date('Y-m', time()) . '/' . time() . '/';
+      if (file_prepare_directory($path, FILE_CREATE_DIRECTORY)) {
+        $decoded_content = MimeEncodings::decode($attachment['content'], $attachment['encoding']);
+        $file = file_save_data($decoded_content, $path . $attachment['filename']);
+        $managed_files[] = ['target_id' => $file->id()];
+      }
+    }
+
+    return $managed_files;
   }
 
   /**
@@ -145,6 +174,9 @@ class DvMailhandlerComment extends HandlerBase implements ContainerFactoryPlugin
     // Validate whether user is allowed to post comments.
     $user = $this->validateUser($result);
 
+    // attachments
+    $files = $this->getAttachments($result);
+
     // Create a comment entity.
     $comment = Comment::create([
       'entity_type' => $this->configuration['entity_type'],
@@ -155,6 +187,7 @@ class DvMailhandlerComment extends HandlerBase implements ContainerFactoryPlugin
         'value' => $result->getBody(),
         'format' => 'basic_html',
       ],
+      'field_c_attachments' => $files,
       'field_name' => 'field_question_answers',
       'comment_type' => $this->commentType,
       'status' => CommentInterface::PUBLISHED,

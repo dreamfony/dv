@@ -40,6 +40,7 @@ required:
   - text.settings
   - views.settings
   - votingapi.settings
+  - multiversion.settings
   - comment.type.comment
   - contact.form.feedback
   - contact.form.personal
@@ -60,10 +61,6 @@ required:
   - environment_indicator.switcher.local
   - environment_indicator.switcher.production
   - features.bundle.dv
-  - file_entity.type.audio
-  - file_entity.type.document
-  - file_entity.type.image
-  - file_entity.type.video
   - filter.format.basic_html
   - filter.format.full_html
   - filter.format.plain_text
@@ -94,9 +91,6 @@ required:
   - system.action.comment_publish_action
   - system.action.comment_save_action
   - system.action.comment_unpublish_action
-  - system.action.file_delete_action
-  - system.action.file_permanent_action
-  - system.action.file_temporary_action
   - system.action.message_delete_action
   - system.action.node_delete_action
   - system.action.node_make_sticky_action
@@ -130,20 +124,16 @@ required:
   - votingapi.vote_type.like
   - votingapi.vote_type.vote
   - core.entity_form_display.comment.comment.default
-  - core.entity_form_display.file.image.default
   - core.entity_form_display.node.article.default
   - core.entity_form_display.node.page.default
+  - core.entity_form_display.activity.activity.default
   - core.entity_view_display.comment.comment.default
-  - core.entity_view_display.file.audio.thumbnail
-  - core.entity_view_display.file.document.thumbnail
-  - core.entity_view_display.file.image.default
-  - core.entity_view_display.file.image.thumbnail
-  - core.entity_view_display.file.video.thumbnail
   - core.entity_view_display.node.article.default
   - core.entity_view_display.node.article.rss
   - core.entity_view_display.node.article.teaser
   - core.entity_view_display.node.page.default
   - core.entity_view_display.node.page.teaser
+  - core.entity_view_display.activity.activity.default
   - core.entity_view_mode.block.token
   - core.entity_view_mode.block_content.full
   - core.entity_view_mode.block_content.token
@@ -151,7 +141,6 @@ required:
   - core.entity_view_mode.comment.token
   - core.entity_view_mode.contact_message.token
   - core.entity_view_mode.content_moderation_state.token
-  - core.entity_view_mode.file.thumbnail
   - core.entity_view_mode.file.token
   - core.entity_view_mode.flagging.token
   - core.entity_view_mode.group.token
@@ -173,17 +162,14 @@ required:
   - core.entity_view_mode.taxonomy_term.token
   - core.entity_view_mode.tour.token
   - field.field.comment.comment.comment_body
-  - field.field.file.image.field_image_alt_text
-  - field.field.file.image.field_image_title_text
   - field.field.node.article.body
   - field.field.node.article.comment
   - field.field.node.article.field_image
   - field.field.node.article.field_tags
   - field.field.node.page.body
+  - field.field.activity.activity.field_activity_reply
   - field.storage.block_content.body
   - field.storage.comment.comment_body
-  - field.storage.file.field_image_alt_text
-  - field.storage.file.field_image_title_text
   - field.storage.group_content.field_datum
   - field.storage.group_content.group_roles
   - field.storage.node.body
@@ -195,7 +181,6 @@ required:
   - views.view.block_content
   - views.view.comments_recent
   - views.view.content_recent
-  - views.view.file_entity_files
   - views.view.files
   - views.view.frontpage
   - views.view.getparentgroup
@@ -212,3 +197,4 @@ required:
   - block.block.bootstrap_tools
   - inmail.deliverer.dmt_it_gmail
   - inmail.analyzer.to
+  - inmail.analyzer.attachments

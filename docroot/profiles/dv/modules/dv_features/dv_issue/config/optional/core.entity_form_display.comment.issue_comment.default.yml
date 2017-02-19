@@ -6,6 +6,7 @@ dependencies:
     - field.field.comment.issue_comment.comment_body
     - field.field.comment.issue_comment.field_c_emails
   module:
+    - content_moderation
     - text
 id: comment.issue_comment.default
 targetEntityType: comment

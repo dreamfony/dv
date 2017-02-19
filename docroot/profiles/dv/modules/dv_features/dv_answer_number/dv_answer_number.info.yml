@@ -5,6 +5,7 @@ core: 8.x
 package: DV
 dependencies:
   - comment
+  - content_moderation
   - dv_answer_text
   - dv_core
   - field

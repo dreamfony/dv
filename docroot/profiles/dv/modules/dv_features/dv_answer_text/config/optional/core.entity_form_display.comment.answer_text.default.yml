@@ -6,6 +6,7 @@ dependencies:
     - field.field.comment.answer_text.comment_body
     - field.field.comment.answer_text.field_c_attachments
   module:
+    - content_moderation
     - file
     - text
 id: comment.answer_text.default

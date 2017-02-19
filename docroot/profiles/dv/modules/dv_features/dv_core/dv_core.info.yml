@@ -20,6 +20,8 @@ dependencies:
   - datetime
   - datetime_range
   - dmt_group
+  - dv_answer_number
+  - dv_answer_text
   - dv_area_of_activity
   - dv_issue
   - dv_org_legal_status
@@ -32,7 +34,6 @@ dependencies:
   - features
   - field
   - file
-  - file_entity
   - filter
   - flag
   - geocoder_field

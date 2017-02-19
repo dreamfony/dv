@@ -7,6 +7,7 @@ dependencies:
     - field.field.comment.answer_number.field_c_attachments
     - field.field.comment.answer_number.field_c_number
   module:
+    - content_moderation
     - file
 id: comment.answer_number.default
 targetEntityType: comment

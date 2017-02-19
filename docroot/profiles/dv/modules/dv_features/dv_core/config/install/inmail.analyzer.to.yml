@@ -5,4 +5,4 @@ id: to
 label: To
 plugin: to
 configuration: {  }
-weight: 25
+weight: -10

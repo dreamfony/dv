@@ -1,0 +1,6 @@
+langcode: en
+id: attachments
+label: Attachements
+plugin: attachments
+weight: 25
+status: false

@@ -80,7 +80,7 @@ class BodyAnalyzer extends AnalyzerBase {
           $body = $mPart->getDecodedBody();
           // The first plaintext or HTML part wins.
           if ($multipart_content_type == 'text/plain') {
-            $bodyParts[] = $body;
+            $bodyParts_plain[] = $body;
           }
           else if ($multipart_content_type == 'text/html') {
             $bodyParts[] = strip_tags($body);
@@ -92,14 +92,14 @@ class BodyAnalyzer extends AnalyzerBase {
 
       // The first plaintext or HTML part wins.
       if ($content_type == 'text/plain') {
-        $bodyParts[] = $body;
+        $bodyParts_plain[] = $body;
       }
       else if ($content_type == 'text/html') {
         $bodyParts[] = strip_tags($body);
       }
     }
 
-    return implode('', $bodyParts);
+    return implode('', $bodyParts_plain);
   }
 
 }

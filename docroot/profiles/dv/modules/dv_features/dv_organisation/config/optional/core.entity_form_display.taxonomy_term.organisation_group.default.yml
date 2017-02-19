@@ -5,6 +5,7 @@ dependencies:
     - field.field.taxonomy_term.organisation_group.field_organisation_group_id
     - taxonomy.vocabulary.organisation_group
   module:
+    - content_moderation
     - path
     - text
 id: taxonomy_term.organisation_group.default

@@ -3,7 +3,6 @@ status: true
 dependencies:
   module:
     - file
-    - file_entity
     - user
 id: files
 label: Files

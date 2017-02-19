@@ -83,4 +83,7 @@ settings:
   positions:
     handler: 'default:positions'
     handler_settings: {  }
+  workspace:
+    handler: 'default:workspace'
+    handler_settings: {  }
 field_type: dynamic_entity_reference

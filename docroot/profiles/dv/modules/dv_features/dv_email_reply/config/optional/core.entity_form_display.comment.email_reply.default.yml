@@ -5,6 +5,7 @@ dependencies:
     - comment.type.email_reply
     - field.field.comment.email_reply.comment_body
   module:
+    - content_moderation
     - text
 id: comment.email_reply.default
 targetEntityType: comment

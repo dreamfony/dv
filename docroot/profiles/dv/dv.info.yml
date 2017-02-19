@@ -16,6 +16,7 @@ dependencies:
   - big_pipe
   - block
   - block_content
+  - block_field
   - breakpoint
   - captcha
   - ckeditor
@@ -46,7 +47,6 @@ dependencies:
   - field
   - field_ui
   - file
-  - file_entity
   - filter
   - flag
   - geocoder_address
@@ -72,6 +72,7 @@ dependencies:
   - menu_link_content
   - menu_ui
   - message
+  - multiversion
   - node
   - options
   - page_cache
@@ -103,9 +104,6 @@ dependencies:
   - user_registrationpassword
   - views
   - views_ui
-  - block_field
-  - multiversion
-  - inmail_collect
 themes:
   - patternlab
   - seven
