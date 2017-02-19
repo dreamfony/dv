@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: attachments
+label: Attachements
+plugin: attachments
+configuration: {  }
+weight: -10
