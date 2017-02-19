@@ -1,0 +1,18 @@
+
+# Activity menu items definition
+entity.activity_entity.collection:
+  title: 'Activity list'
+  route_name: entity.activity_entity.collection
+  description: 'List Activity entities'
+  parent: system.admin_structure
+  weight: 100
+
+
+# Activity type menu items definition
+entity.activity_entity_type.collection:
+  title: 'Activity type'
+  route_name: entity.activity_entity_type.collection
+  description: 'List Activity type (bundles)'
+  parent: system.admin_structure
+  weight: 99
+
