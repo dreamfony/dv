@@ -1,17 +1,12 @@
 <?php
-/**
- * @file
- * Contains \Drupal\activity_creator\Entity\Activity.
- */
 
 namespace Drupal\activity_creator\Entity;
 
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
-use Drupal\Core\Entity\ContentEntityBase;
+use Drupal\Core\Entity\RevisionableContentEntityBase;
 use Drupal\Core\Entity\EntityChangedTrait;
 use Drupal\Core\Entity\EntityTypeInterface;
-use Drupal\activity_creator\ActivityInterface;
 use Drupal\user\UserInterface;
 
 /**
@@ -21,13 +16,14 @@ use Drupal\user\UserInterface;
  *
  * @ContentEntityType(
  *   id = "activity",
- *   revision_table = "activity_revision",
- *   revision_data_table = "activity_data_revision",
  *   label = @Translation("Activity"),
+ *   bundle_label = @Translation("Activity type"),
  *   handlers = {
+ *     "storage" = "Drupal\activity_creator\ActivityStorage",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
  *     "list_builder" = "Drupal\activity_creator\ActivityListBuilder",
  *     "views_data" = "Drupal\activity_creator\Entity\ActivityViewsData",
+ *     "translation" = "Drupal\activity_creator\ActivityTranslationHandler",
  *
  *     "form" = {
  *       "default" = "Drupal\activity_creator\Form\ActivityForm",
@@ -42,11 +38,15 @@ use Drupal\user\UserInterface;
  *   },
  *   base_table = "activity",
  *   data_table = "activity_field_data",
+ *   revision_table = "activity_revision",
+ *   revision_data_table = "activity_field_revision",
  *   translatable = TRUE,
  *   admin_permission = "administer activity entities",
  *   entity_keys = {
  *     "id" = "id",
- *     "revision" = "revision_id",
+ *     "revision" = "vid",
+ *     "bundle" = "type",
+ *     "label" = "name",
  *     "uuid" = "uuid",
  *     "uid" = "user_id",
  *     "langcode" = "langcode",
@@ -54,16 +54,25 @@ use Drupal\user\UserInterface;
  *   },
  *   links = {
  *     "canonical" = "/admin/structure/activity/{activity}",
- *     "add-form" = "/admin/structure/activity/add",
+ *     "add-page" = "/admin/structure/activity/add",
+ *     "add-form" = "/admin/structure/activity/add/{activity_type}",
  *     "edit-form" = "/admin/structure/activity/{activity}/edit",
  *     "delete-form" = "/admin/structure/activity/{activity}/delete",
+ *     "version-history" = "/admin/structure/activity/{activity}/revisions",
+ *     "revision" = "/admin/structure/activity/{activity}/revisions/{activity_revision}/view",
+ *     "revision_revert" = "/admin/structure/activity/{activity}/revisions/{activity_revision}/revert",
+ *     "translation_revert" = "/admin/structure/activity/{activity}/revisions/{activity_revision}/revert/{langcode}",
+ *     "revision_delete" = "/admin/structure/activity/{activity}/revisions/{activity_revision}/delete",
  *     "collection" = "/admin/structure/activity",
  *   },
- *   field_ui_base_route = "activity.settings"
+ *   bundle_entity_type = "activity_type",
+ *   field_ui_base_route = "entity.activity_type.edit_form"
  * )
  */
-class Activity extends ContentEntityBase implements ActivityInterface {
+class Activity extends RevisionableContentEntityBase implements ActivityInterface {
+
   use EntityChangedTrait;
+
   /**
    * {@inheritdoc}
    */
@@ -72,6 +81,50 @@ class Activity extends ContentEntityBase implements ActivityInterface {
     $values += array(
       'user_id' => \Drupal::currentUser()->id(),
     );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function preSave(EntityStorageInterface $storage) {
+    parent::preSave($storage);
+
+    foreach (array_keys($this->getTranslationLanguages()) as $langcode) {
+      $translation = $this->getTranslation($langcode);
+
+      // If no owner has been set explicitly, make the anonymous user the owner.
+      if (!$translation->getOwner()) {
+        $translation->setOwnerId(0);
+      }
+    }
+
+    // If no revision author has been set explicitly, make the activity owner the
+    // revision author.
+    if (!$this->getRevisionUser()) {
+      $this->setRevisionUserId($this->getOwnerId());
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getType() {
+    return $this->bundle();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getName() {
+    return $this->get('name')->value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setName($name) {
+    $this->set('name', $name);
+    return $this;
   }
 
   /**
@@ -130,7 +183,37 @@ class Activity extends ContentEntityBase implements ActivityInterface {
    * {@inheritdoc}
    */
   public function setPublished($published) {
-    $this->set('status', $published ? NODE_PUBLISHED : NODE_NOT_PUBLISHED);
+    $this->set('status', $published ? TRUE : FALSE);
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getRevisionCreationTime() {
+    return $this->get('revision_timestamp')->value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setRevisionCreationTime($timestamp) {
+    $this->set('revision_timestamp', $timestamp);
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getRevisionUser() {
+    return $this->get('revision_uid')->entity;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setRevisionUserId($uid) {
+    $this->set('revision_uid', $uid);
     return $this;
   }
 
@@ -143,9 +226,9 @@ class Activity extends ContentEntityBase implements ActivityInterface {
     $fields['user_id'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Authored by'))
       ->setDescription(t('The user ID of author of the Activity entity.'))
+      ->setRevisionable(TRUE)
       ->setSetting('target_type', 'user')
       ->setSetting('handler', 'default')
-      ->setDefaultValueCallback('Drupal\node\Entity\Node::getCurrentUserId')
       ->setTranslatable(TRUE)
       ->setDisplayOptions('view', array(
         'label' => 'hidden',
@@ -173,26 +256,31 @@ class Activity extends ContentEntityBase implements ActivityInterface {
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))
-      ->setRevisionable(TRUE)
       ->setDescription(t('The time that the entity was created.'));
 
     $fields['changed'] = BaseFieldDefinition::create('changed')
       ->setLabel(t('Changed'))
-      ->setRevisionable(TRUE)
       ->setDescription(t('The time that the entity was last edited.'));
 
-    $fields['revision_log'] = BaseFieldDefinition::create('string_long')
-      ->setLabel(t('Revision log message'))
-      ->setDescription(t('Briefly describe the changes you have made.'))
+    $fields['revision_timestamp'] = BaseFieldDefinition::create('created')
+      ->setLabel(t('Revision timestamp'))
+      ->setDescription(t('The time that the current revision was created.'))
+      ->setQueryable(FALSE)
+      ->setRevisionable(TRUE);
+
+    $fields['revision_uid'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Revision user ID'))
+      ->setDescription(t('The user ID of the author of the current revision.'))
+      ->setSetting('target_type', 'user')
+      ->setQueryable(FALSE)
+      ->setRevisionable(TRUE);
+
+    $fields['revision_translation_affected'] = BaseFieldDefinition::create('boolean')
+      ->setLabel(t('Revision translation affected'))
+      ->setDescription(t('Indicates if the last edit of a translation belongs to current revision.'))
+      ->setReadOnly(TRUE)
       ->setRevisionable(TRUE)
-      ->setDefaultValue('')
-      ->setDisplayOptions('form', array(
-        'type' => 'string_textarea',
-        'weight' => 25,
-        'settings' => array(
-          'rows' => 4,
-        ),
-      ));
+      ->setTranslatable(TRUE);
 
     return $fields;
   }
@@ -272,4 +360,5 @@ class Activity extends ContentEntityBase implements ActivityInterface {
     $activity_id = static::getActivityIdByHash($hash);
     return \Drupal::entityManager()->getStorage('activity')->load($activity_id);
   }
+
 }

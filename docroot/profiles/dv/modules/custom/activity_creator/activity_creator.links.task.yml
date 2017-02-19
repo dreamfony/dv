@@ -1,8 +1,5 @@
 # Activity routing definition
-activity.settings_tab:
-  route_name: activity.settings
-  title: 'Settings'
-  base_route: activity.settings
+
 entity.activity.canonical:
   route_name: entity.activity.canonical
   base_route: entity.activity.canonical
@@ -11,7 +8,12 @@ entity.activity.canonical:
 entity.activity.edit_form:
   route_name: entity.activity.edit_form
   base_route: entity.activity.canonical
-  title: Edit
+  title: 'Edit'
+
+entity.activity.version_history:
+  route_name: entity.activity.version_history
+  base_route: entity.activity.canonical
+  title: 'Revisions'
 
 entity.activity.delete_form:
   route_name:  entity.activity.delete_form

@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\activity_creator\ActivityHtmlRouteProvider.
- */
-
 namespace Drupal\activity_creator;
 
 use Drupal\Core\Entity\EntityTypeInterface;
@@ -18,6 +13,7 @@ use Symfony\Component\Routing\Route;
  * @see Drupal\Core\Entity\Routing\DefaultHtmlRouteProvider
  */
 class ActivityHtmlRouteProvider extends AdminHtmlRouteProvider {
+
   /**
    * {@inheritdoc}
    */
@@ -26,8 +22,28 @@ class ActivityHtmlRouteProvider extends AdminHtmlRouteProvider {
 
     $entity_type_id = $entity_type->id();
 
-    if ($add_form_route = $this->getAddFormRoute($entity_type)) {
-      $collection->add("entity.{$entity_type_id}.add_form", $add_form_route);
+    if ($collection_route = $this->getCollectionRoute($entity_type)) {
+      $collection->add("entity.{$entity_type_id}.collection", $collection_route);
+    }
+
+    if ($history_route = $this->getHistoryRoute($entity_type)) {
+      $collection->add("entity.{$entity_type_id}.version_history", $history_route);
+    }
+
+    if ($revision_route = $this->getRevisionRoute($entity_type)) {
+      $collection->add("entity.{$entity_type_id}.revision", $revision_route);
+    }
+
+    if ($revert_route = $this->getRevisionRevertRoute($entity_type)) {
+      $collection->add("{$entity_type_id}.revision_revert_confirm", $revert_route);
+    }
+
+    if ($delete_route = $this->getRevisionDeleteRoute($entity_type)) {
+      $collection->add("{$entity_type_id}.revision_delete_confirm", $delete_route);
+    }
+
+    if ($translation_route = $this->getRevisionTranslationRevertRoute($entity_type)) {
+      $collection->add("{$entity_type_id}.revision_revert_translation_confirm", $translation_route);
     }
 
     if ($settings_form_route = $this->getSettingsFormRoute($entity_type)) {
@@ -38,7 +54,7 @@ class ActivityHtmlRouteProvider extends AdminHtmlRouteProvider {
   }
 
   /**
-   * Gets the add-form route.
+   * Gets the collection route.
    *
    * @param \Drupal\Core\Entity\EntityTypeInterface $entity_type
    *   The entity type.
@@ -46,28 +62,136 @@ class ActivityHtmlRouteProvider extends AdminHtmlRouteProvider {
    * @return \Symfony\Component\Routing\Route|null
    *   The generated route, if available.
    */
-  protected function getAddFormRoute(EntityTypeInterface $entity_type) {
-    if ($entity_type->hasLinkTemplate('add-form')) {
+  protected function getCollectionRoute(EntityTypeInterface $entity_type) {
+    if ($entity_type->hasLinkTemplate('collection') && $entity_type->hasListBuilderClass()) {
       $entity_type_id = $entity_type->id();
-      $parameters = [
-        $entity_type_id => ['type' => 'entity:' . $entity_type_id],
-      ];
-
-      $route = new Route($entity_type->getLinkTemplate('add-form'));
-      // Use the add form handler, if available, otherwise default.
-      $operation = 'default';
-      if ($entity_type->getFormClass('add')) {
-        $operation = 'add';
-      }
+      $route = new Route($entity_type->getLinkTemplate('collection'));
       $route
         ->setDefaults([
-          '_entity_form' => "{$entity_type_id}.{$operation}",
-          '_title' => "Add {$entity_type->getLabel()}",
+          '_entity_list' => $entity_type_id,
+          '_title' => "{$entity_type->getLabel()} list",
         ])
-        ->setRequirement('_entity_create_access', $entity_type_id);
+        ->setRequirement('_permission', 'access activity overview')
+        ->setOption('_admin_route', TRUE);
 
+      return $route;
+    }
+  }
+
+  /**
+   * Gets the version history route.
+   *
+   * @param \Drupal\Core\Entity\EntityTypeInterface $entity_type
+   *   The entity type.
+   *
+   * @return \Symfony\Component\Routing\Route|null
+   *   The generated route, if available.
+   */
+  protected function getHistoryRoute(EntityTypeInterface $entity_type) {
+    if ($entity_type->hasLinkTemplate('version-history')) {
+      $route = new Route($entity_type->getLinkTemplate('version-history'));
       $route
-        ->setOption('parameters', $parameters)
+        ->setDefaults([
+          '_title' => "{$entity_type->getLabel()} revisions",
+          '_controller' => '\Drupal\activity_creator\Controller\ActivityController::revisionOverview',
+        ])
+        ->setRequirement('_permission', 'access activity revisions')
+        ->setOption('_admin_route', TRUE);
+
+      return $route;
+    }
+  }
+
+  /**
+   * Gets the revision route.
+   *
+   * @param \Drupal\Core\Entity\EntityTypeInterface $entity_type
+   *   The entity type.
+   *
+   * @return \Symfony\Component\Routing\Route|null
+   *   The generated route, if available.
+   */
+  protected function getRevisionRoute(EntityTypeInterface $entity_type) {
+    if ($entity_type->hasLinkTemplate('revision')) {
+      $route = new Route($entity_type->getLinkTemplate('revision'));
+      $route
+        ->setDefaults([
+          '_controller' => '\Drupal\activity_creator\Controller\ActivityController::revisionShow',
+          '_title_callback' => '\Drupal\activity_creator\Controller\ActivityController::revisionPageTitle',
+        ])
+        ->setRequirement('_permission', 'access activity revisions')
+        ->setOption('_admin_route', TRUE);
+
+      return $route;
+    }
+  }
+
+  /**
+   * Gets the revision revert route.
+   *
+   * @param \Drupal\Core\Entity\EntityTypeInterface $entity_type
+   *   The entity type.
+   *
+   * @return \Symfony\Component\Routing\Route|null
+   *   The generated route, if available.
+   */
+  protected function getRevisionRevertRoute(EntityTypeInterface $entity_type) {
+    if ($entity_type->hasLinkTemplate('revision_revert')) {
+      $route = new Route($entity_type->getLinkTemplate('revision_revert'));
+      $route
+        ->setDefaults([
+          '_form' => '\Drupal\activity_creator\Form\ActivityRevisionRevertForm',
+          '_title' => 'Revert to earlier revision',
+        ])
+        ->setRequirement('_permission', 'revert all activity revisions')
+        ->setOption('_admin_route', TRUE);
+
+      return $route;
+    }
+  }
+
+  /**
+   * Gets the revision delete route.
+   *
+   * @param \Drupal\Core\Entity\EntityTypeInterface $entity_type
+   *   The entity type.
+   *
+   * @return \Symfony\Component\Routing\Route|null
+   *   The generated route, if available.
+   */
+  protected function getRevisionDeleteRoute(EntityTypeInterface $entity_type) {
+    if ($entity_type->hasLinkTemplate('revision_delete')) {
+      $route = new Route($entity_type->getLinkTemplate('revision_delete'));
+      $route
+        ->setDefaults([
+          '_form' => '\Drupal\activity_creator\Form\ActivityRevisionDeleteForm',
+          '_title' => 'Delete earlier revision',
+        ])
+        ->setRequirement('_permission', 'delete all activity revisions')
+        ->setOption('_admin_route', TRUE);
+
+      return $route;
+    }
+  }
+
+  /**
+   * Gets the revision translation revert route.
+   *
+   * @param \Drupal\Core\Entity\EntityTypeInterface $entity_type
+   *   The entity type.
+   *
+   * @return \Symfony\Component\Routing\Route|null
+   *   The generated route, if available.
+   */
+  protected function getRevisionTranslationRevertRoute(EntityTypeInterface $entity_type) {
+    if ($entity_type->hasLinkTemplate('translation_revert')) {
+      $route = new Route($entity_type->getLinkTemplate('translation_revert'));
+      $route
+        ->setDefaults([
+          '_form' => '\Drupal\activity_creator\Form\ActivityRevisionRevertTranslationForm',
+          '_title' => 'Revert to earlier revision of a translation',
+        ])
+        ->setRequirement('_permission', 'revert all activity revisions')
         ->setOption('_admin_route', TRUE);
 
       return $route;

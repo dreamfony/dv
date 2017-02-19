@@ -61,6 +61,8 @@ class ActivityFactory extends ControllerBase {
       'user_id' => $this->getActor($data),
     ];
 
+    $activity_fields['type'] = 'activity';
+
     // Check if aggregation is enabled for this message type.
     // @TODO: Consider if we should put aggregation to separate service.
     if ($this->getAggregationSettings($message)) {

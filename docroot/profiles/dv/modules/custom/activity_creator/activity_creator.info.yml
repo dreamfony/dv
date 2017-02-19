@@ -1,8 +1,8 @@
-name: 'Activity Creator'
+name: activity_creator
 type: module
-description: 'Creates Activity Entities.'
+description: My Awesome Module
 core: 8.x
-package: Activity
+package: DMT
 dependencies:
   - activity_creator
   - block_content

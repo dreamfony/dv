@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+id: activity
+label: Activity
+description: 'Activity'
+help: ''
+new_revision: true
+display_submitted: true
