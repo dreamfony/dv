@@ -49,9 +49,13 @@ function dmt_core_config_diff($original_data, $new_data) {
     if($new_data_value != $original_data_value) {
       $diff[$key] = $new_data[$key];
     }
+
+    if(isset($new_data[$key])) {
+      unset($new_data[$key]);
+    }
   }
 
-  return $diff;
+  return $diff + $new_data;
 }
 
 /**
