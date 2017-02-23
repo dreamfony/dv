@@ -1,0 +1,83 @@
+<?php
+
+/**
+ * @file
+ * Contains dmt_core.module.
+ */
+
+use Drupal\Core\Config\Entity\ConfigEntityType;
+
+
+/**
+ * Implements hook_config_presave_alter().
+ */
+function dmt_core_config_alter(&$context) {
+
+  $default_config_name = $context['name'];
+  $new_data = $context['data'];
+
+  // check if we are saving domain record if so return
+  // otherwise we get in to endless loop
+  $list = explode('.', $default_config_name);
+  if (isset($list[0]) && isset($list[1]) && $list[0] == 'domain' && $list[1] == 'record') {
+    return;
+  }
+
+  /** @var \Drupal\domain\Entity\Domain $active */
+  $active = \Drupal::service('domain.negotiator')->getActiveDomain();
+  if (!$active->isDefault()) {
+
+    /** @var \Drupal\Core\Config\Config $original */
+    $original = \Drupal::service('config.factory')
+      ->getEditable($default_config_name);
+    $original_data = $original->getOriginal();
+
+    $raw_data_diff = dmt_core_config_diff($original_data, $new_data);
+
+    $context['name'] = 'domain.config.' . $active->id() . '.' . $default_config_name;
+    $context['data'] = $raw_data_diff;
+  }
+}
+
+function dmt_core_config_diff($original_data, $new_data) {
+  $diff = [];
+
+  foreach ($original_data as $key => $value) {
+    $new_data_value = json_encode($new_data[$key]);
+    $original_data_value = json_encode($value);
+
+    if($new_data_value != $original_data_value) {
+      $diff[$key] = $new_data[$key];
+    }
+  }
+
+  return $diff;
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function dmt_core_entity_presave(\Drupal\Core\Entity\EntityInterface $entity) {
+  $test = 1;
+  if ($entity->getEntityType() instanceof ConfigEntityType) {
+    $b = $entity->getConfigTarget();
+
+    $loader = \Drupal::service('domain.loader');
+    $default_domain = $loader->loadDefaultDomain();
+
+    $default = \Drupal::service('domain.loader')->loadDefaultId();
+    /** @var \Drupal\domain\ContextProvider\CurrentDomainContext $current_domain */
+    $current_domain = \Drupal::service('domain.current_domain_context');
+    $test = $current_domain->getAvailableContexts();
+
+
+    /*
+    $domain_entity = Domain::create(
+
+    );
+    */
+  }
+
+
+}
+
