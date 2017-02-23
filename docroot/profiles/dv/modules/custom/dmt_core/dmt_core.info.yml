@@ -3,3 +3,7 @@ type: module
 description: DMT Core
 core: 8.x
 package: DMT
+dependencies:
+  - views_ui
+  - block
+  - domain_config
