@@ -357,7 +357,10 @@ class Activity extends RevisionableContentEntityBase implements ActivityInterfac
 
   public static function getActivityEntityByHash($hash) {
     $activity_id = static::getActivityIdByHash($hash);
-    return \Drupal::entityManager()->getStorage('activity')->load($activity_id);
+    if ($activity_id){
+      return \Drupal::entityManager()->getStorage('activity')->load($activity_id);
+    }
+    return false;
   }
 
 }

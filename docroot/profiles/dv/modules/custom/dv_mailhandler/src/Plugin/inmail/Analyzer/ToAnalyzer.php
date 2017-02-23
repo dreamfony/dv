@@ -68,6 +68,14 @@ class ToAnalyzer extends AnalyzerBase {
       $context = new Context($context_definition, $hash);
       $result->setContext('hash', $context);
     }
+    else {
+//      TODO Should we throw some Exception here?
+      \Drupal::logger('dv_mailhandler')
+        ->notice('Email with no hash entered the system: @message_id',
+          array(
+            '@message_id' => $message->getMessageId(),
+          ));
+    }
   }
 
 }

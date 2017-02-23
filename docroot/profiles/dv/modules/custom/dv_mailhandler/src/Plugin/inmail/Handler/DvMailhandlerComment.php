@@ -98,38 +98,52 @@ class DvMailhandlerComment extends HandlerBase implements ContainerFactoryPlugin
       $hash = $result->getContext('hash')->getContextValue();
 
       $activity = Activity::getActivityEntityByHash($hash);
+      if ($activity) {
+        $related_object = $activity->get('field_activity_entity')->getValue();
 
-      $related_object = $activity->get('field_activity_entity')->getValue();
+        if (!empty($related_object)) {
+          $ref_entity_type = $related_object['0']['target_type'];
+          $ref_entity_id = $related_object['0']['target_id'];
+          $this->entity = \Drupal::entityManager()
+            ->getStorage($ref_entity_type)
+            ->load($ref_entity_id);
+          $this->commentType = $this->entity->get('field_question_comment_type')
+            ->getString();
 
-      if (!empty($related_object)) {
-        $ref_entity_type = $related_object['0']['target_type'];
-        $ref_entity_id = $related_object['0']['target_id'];
-        $this->entity = \Drupal::entityManager()->getStorage($ref_entity_type)->load($ref_entity_id);
-        $this->commentType = $this->entity->get('field_question_comment_type')->getString();
+        }
+        else {
+          // ignore mail
+          return;
+        }
 
-      } else {
-        // ignore mail
-        return;
+        // Create a comment.
+        $comment = $this->createComment($message, $result);
+
+        // set activity status to answered
+        $activity->set('field_activity_status', ACTIVITY_STATUS_ANSWERED);
+
+        // set comment reply
+        $activity->set('field_activity_reply', $comment->id());
+
+        // save raw message
+        $activity->revision_log = $message->toString();
+
+        // save activity
+        $activity->save();
+
+        $processor_result->log('CommentHandler', '@comment has been created by @user.', [
+          '@comment' => $comment->label(),
+          '@user' => $comment->getAuthorName()
+        ]);
       }
-
-      // Create a comment.
-      $comment = $this->createComment($message, $result);
-
-      // set activity status to answered
-      $activity->set('field_activity_status', ACTIVITY_STATUS_ANSWERED);
-
-      // set comment reply
-      $activity->set('field_activity_reply',$comment->id());
-
-      // save raw message
-      $activity->revision_log = $message->toString();
-
-      // save activity
-      $activity->save();
-
-      $processor_result->log('CommentHandler', '@comment has been created by @user.', ['@comment' => $comment->label(), '@user' => $comment->getAuthorName()]);
-    }
-    catch (\Exception $e) {
+      else {
+        \Drupal::logger('dv_mailhandler')
+          ->notice('Email with invalid hash entered the system: @hash',
+            array(
+              '@hash' => $hash,
+            ));
+      }
+    } catch (\Exception $e) {
       // Log error in case verification, authentication or authorization fails.
       $processor_result->log('CommentHandler', $e->getMessage());
     }
@@ -211,7 +225,9 @@ class DvMailhandlerComment extends HandlerBase implements ContainerFactoryPlugin
    */
   protected function validateUser(DefaultAnalyzerResult $result) {
     // Do not allow unverified PGP-signed messages.
-    if ($result->hasContext('verified') && !$result->getContext('verified')->getContextValue()) {
+    if ($result->hasContext('verified') && !$result->getContext('verified')
+        ->getContextValue()
+    ) {
       throw new \Exception('Failed to process the message. PGP-signed message is not verified.');
     }
 
@@ -219,7 +235,8 @@ class DvMailhandlerComment extends HandlerBase implements ContainerFactoryPlugin
     $account = \Drupal::currentUser()->getAccount();
 
     // Authorize a user.
-    $access = $this->entityTypeManager->getAccessControlHandler('comment')->createAccess('comment', $account, [], TRUE);
+    $access = $this->entityTypeManager->getAccessControlHandler('comment')
+      ->createAccess('comment', $account, [], TRUE);
     if (!$access->isAllowed()) {
       throw new \Exception('Failed to process the message. User is not authorized to post comments.');
     }
@@ -235,11 +252,13 @@ class DvMailhandlerComment extends HandlerBase implements ContainerFactoryPlugin
    */
   protected function getEntityTypes() {
     // Get a mapping of entity types (bundles) with comment fields.
-    $comment_entity_types = \Drupal::entityManager()->getFieldMapByFieldType('comment');
+    $comment_entity_types = \Drupal::entityManager()
+      ->getFieldMapByFieldType('comment');
     $entity_types = [];
 
     foreach ($comment_entity_types as $entity_type => $bundles) {
-      $entity_types[$entity_type] = $this->entityTypeManager->getDefinition($entity_type)->getLabel();
+      $entity_types[$entity_type] = $this->entityTypeManager->getDefinition($entity_type)
+        ->getLabel();
     }
 
     return $entity_types;
