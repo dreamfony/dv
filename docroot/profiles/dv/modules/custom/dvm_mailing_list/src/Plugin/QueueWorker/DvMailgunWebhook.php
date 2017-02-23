@@ -75,7 +75,7 @@ class DvMailgunWebhook extends QueueWorkerBase {
         ->getStorage('activity')
         ->load($data['entity_id']);
       $activity->set('field_activity_status', $status);
-      $activity->revision_log = serialize($data);
+      $activity->revision_log_message = serialize($data);
       $activity->setNewRevision();
       $activity->save();
 

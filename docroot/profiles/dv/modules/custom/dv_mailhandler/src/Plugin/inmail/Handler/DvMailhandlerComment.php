@@ -122,11 +122,8 @@ class DvMailhandlerComment extends HandlerBase implements ContainerFactoryPlugin
         // set activity status to answered
         $activity->set('field_activity_status', ACTIVITY_STATUS_ANSWERED);
 
-        // set comment reply
-        $activity->set('field_activity_reply', $comment->id());
-
-        // save raw message
-        $activity->revision_log = $message->toString();
+      // set comment reply
+      $activity->field_activity_reply[] = $comment->id();
 
         // save activity
         $activity->save();
