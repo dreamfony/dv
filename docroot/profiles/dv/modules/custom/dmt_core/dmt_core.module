@@ -7,6 +7,14 @@
 
 use Drupal\Core\Config\Entity\ConfigEntityType;
 
+/**
+ * @param array $entity_types
+ */
+function dmt_core_entity_type_alter(array &$entity_types) {
+  /** @var $entity_types \Drupal\Core\Entity\EntityTypeInterface[] */
+  $entity_types['block']->setListBuilderClass('Drupal\dmt_core\BlockListBuilder');
+  $entity_types['view']->setListBuilderClass('Drupal\dmt_core\ViewListBuilder');
+}
 
 /**
  * Implements hook_config_presave_alter().
@@ -39,6 +47,13 @@ function dmt_core_config_alter(&$context) {
   }
 }
 
+/**
+ * Config diff.
+ *
+ * @param $original_data
+ * @param $new_data
+ * @return array
+ */
 function dmt_core_config_diff($original_data, $new_data) {
   $diff = [];
 
@@ -57,31 +72,3 @@ function dmt_core_config_diff($original_data, $new_data) {
 
   return $diff + $new_data;
 }
-
-/**
- * Implements hook_entity_presave().
- */
-function dmt_core_entity_presave(\Drupal\Core\Entity\EntityInterface $entity) {
-  $test = 1;
-  if ($entity->getEntityType() instanceof ConfigEntityType) {
-    $b = $entity->getConfigTarget();
-
-    $loader = \Drupal::service('domain.loader');
-    $default_domain = $loader->loadDefaultDomain();
-
-    $default = \Drupal::service('domain.loader')->loadDefaultId();
-    /** @var \Drupal\domain\ContextProvider\CurrentDomainContext $current_domain */
-    $current_domain = \Drupal::service('domain.current_domain_context');
-    $test = $current_domain->getAvailableContexts();
-
-
-    /*
-    $domain_entity = Domain::create(
-
-    );
-    */
-  }
-
-
-}
-
