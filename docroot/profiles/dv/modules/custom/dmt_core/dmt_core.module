@@ -42,6 +42,16 @@ function dmt_core_config_alter(&$context) {
 
     $raw_data_diff = dmt_core_config_diff($original_data, $new_data);
 
+    // we don't save config if there are no differences or original
+    // configuration was empty
+    /// @todo check if we need to write better logic here in some cases
+    /// probably when we are saving configuration for one site that was never present
+    /// on main site
+
+    if(empty($raw_data_diff) || empty($original_data)) {
+      return;
+    }
+
     $context['name'] = 'domain.config.' . $active->id() . '.' . $default_config_name;
     $context['data'] = $raw_data_diff;
   }

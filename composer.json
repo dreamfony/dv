@@ -186,8 +186,7 @@
                 "Fix form errorElement": "https://www.drupal.org/files/issues/address-2619878-29.patch"
             },
             "drupal/group": {
-                "Fix fatal error when uploading files for group": "https://www.drupal.org/files/issues/error-when-uploading-files-2793621-5.patch",
-                "https://www.drupal.org/node/2736233": "https://www.drupal.org/files/issues/groups-add_subgroups_module-2736233-3-D8.patch",
+                "https://www.drupal.org/node/2736233": "https://www.drupal.org/files/issues/group-add_subgroups_module-2736233-57-D8.patch",
                 "https://www.drupal.org/node/2746839 - develgenerate": "https://www.drupal.org/files/issues/develGenerate.patch",
                 "https://www.drupal.org/node/2829966 - Make groups revisionable": "https://www.drupal.org/files/issues/group-revisions-2829966-3.patch"
             },
