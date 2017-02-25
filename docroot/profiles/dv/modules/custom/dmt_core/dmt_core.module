@@ -6,6 +6,8 @@
  */
 
 use Drupal\Core\Config\Entity\ConfigEntityType;
+use Drupal\group\Entity\Group;
+use Drupal\domain\Entity\Domain;
 
 /**
  * @param array $entity_types
@@ -28,6 +30,11 @@ function dmt_core_config_alter(&$context) {
   // otherwise we get in to endless loop
   $list = explode('.', $default_config_name);
   if (isset($list[0]) && isset($list[1]) && $list[0] == 'domain' && $list[1] == 'record') {
+    return;
+  }
+
+  // check if domain config if so skip alter
+  if (isset($list[0]) && isset($list[1]) && $list[0] == 'domain' && $list[1] == 'config') {
     return;
   }
 
@@ -81,4 +88,54 @@ function dmt_core_config_diff($original_data, $new_data) {
   }
 
   return $diff + $new_data;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function dmt_core_form_domain_edit_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+  $domain = $form_state->getFormObject()->getEntity();
+
+  $form['group'] = [
+    '#type' => 'entity_autocomplete',
+    '#target_type' => 'group',
+    '#title' => t('Group'),
+    '#description' => t('Select a group you want to use as base for this domain.'),
+    '#tags' => FALSE,
+    '#default_value' => Group::load($domain->getThirdPartySetting('dmt_core', 'group')),
+    '#selection_settings' => array(
+      'target_bundles' => array('organisation', 'area_of_activity'),
+    ),
+    '#weight' => 50,
+  ];
+
+  $form['template'] = [
+    '#type' => 'entity_autocomplete',
+    '#target_type' => 'domain',
+    '#selection_handler' => 'dmt:domain',
+    '#title' => t('Domain Template'),
+    '#default_value' => Domain::load($domain->getThirdPartySetting('dmt_core', 'template')),
+    '#description' => t('Select a domain you want to copy the settings.'),
+    '#weight' => 51
+  ];
+
+  $form['#entity_builders'][] = 'dmt_core_form_domain_add_form_builder';
+}
+
+/**
+ * Entity builder for the domain configuration entity.
+ */
+function dmt_core_form_domain_add_form_builder($entity_type, \Drupal\domain\Entity\Domain $domain, &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  if ($form_state->getValue('group')) {
+    $domain->setThirdPartySetting('dmt_core', 'group', $form_state->getValue('group'));
+  } else {
+    $domain->unsetThirdPartySetting('dmt_core', 'group');
+  }
+
+  if ($form_state->getValue('template')) {
+    $domain->setThirdPartySetting('dmt_core', 'template', $form_state->getValue('template'));
+  } else {
+    $domain->unsetThirdPartySetting('dmt_core', 'template');
+  }
 }

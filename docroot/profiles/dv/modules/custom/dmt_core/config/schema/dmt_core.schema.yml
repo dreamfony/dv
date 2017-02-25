@@ -1,0 +1,10 @@
+domain.record.*.third_party.dmt_core:
+  type: mapping
+  label: 'DMT Core'
+  mapping:
+    group:
+      type: integer
+      label: 'Group'
+    template:
+      type: string
+      label: 'Template'
