@@ -1,12 +1,14 @@
 langcode: en
 status: true
 dependencies:
+  config:
+    - group.type.mailing_list
   module:
     - content_moderation
 id: mailing_list_workflow
 label: 'Mailing list workflow'
 states:
-  approved:
+  published:
     label: Approved
     weight: -8
   archived:
@@ -22,14 +24,14 @@ transitions:
   approve_sending:
     label: 'Approve Sending'
     from:
-      - approved
+      - published
       - email
-    to: approved
+    to: published
     weight: -8
   archive:
     label: Archive
     from:
-      - approved
+      - published
       - email
     to: archived
     weight: -7
@@ -54,17 +56,17 @@ transitions:
 type: content_moderation
 type_settings:
   states:
-    draft:
+    archived:
       published: false
       default_revision: false
-    approved:
+    draft:
       published: false
       default_revision: false
     email:
       published: false
       default_revision: false
-    archived:
-      published: false
+    published:
+      published: true
       default_revision: false
   entity_types:
     group:
