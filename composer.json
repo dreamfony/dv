@@ -197,7 +197,8 @@
                 "https://www.drupal.org/node/2758043": "https://www.drupal.org/files/issues/field_storage_not_installed-2758043-36.patch"
             },
             "drupal/features": {
-                "https://www.drupal.org/node/2668562 #4": "https://www.drupal.org/files/issues/features-not_detecting_profile_files-2668562-4.patch"
+                "https://www.drupal.org/node/2668562 #4": "https://www.drupal.org/files/issues/features-not_detecting_profile_files-2668562-4.patch",
+                "config is object patch" : "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/features/config_is_object.patch"
             },
             "drupal/entity_browser": {
                 "https://www.drupal.org/node/2845037" : "https://www.drupal.org/files/issues/2845037-4.patch"

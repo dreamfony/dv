@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e5ccdb538ddb55dfd6118e6ed9404187",
-    "content-hash": "ca4d4342ecf6b24779f989e348e266e4",
+    "hash": "61c473bcf83a4651afa04818ccde68d9",
+    "content-hash": "cd29cca34c2c557fdba4f5628ccb7e49",
     "packages": [
         {
             "name": "acquia/blt",
@@ -3381,17 +3381,17 @@
         },
         {
             "name": "drupal/features",
-            "version": "3.3.0",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/features",
-                "reference": "8.x-3.3"
+                "reference": "8.x-3.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/features-8.x-3.3.zip",
+                "url": "https://ftp.drupal.org/files/projects/features-8.x-3.4.zip",
                 "reference": null,
-                "shasum": "ae0248b3ad233edfc50970b9dfdd95fed71fecb9"
+                "shasum": "7d0a1be440564a37fda9dd5fb8e75398b2d0ee35"
             },
             "require": {
                 "drupal/config_update": "*",
@@ -3403,11 +3403,12 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.3",
-                    "datestamp": "1487861884"
+                    "version": "8.x-3.4",
+                    "datestamp": "1488296285"
                 },
                 "patches_applied": {
-                    "https://www.drupal.org/node/2668562 #4": "https://www.drupal.org/files/issues/features-not_detecting_profile_files-2668562-4.patch"
+                    "https://www.drupal.org/node/2668562 #4": "https://www.drupal.org/files/issues/features-not_detecting_profile_files-2668562-4.patch",
+                    "config is object patch": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/features/config_is_object.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
