@@ -20,6 +20,7 @@ dependencies:
   - field
   - field_permissions
   - geo_area_group
+  - gnode
   - group
   - inline_entity_form
   - menu_ui

@@ -4,3 +4,4 @@ dependencies: {  }
 id: private_group
 label: 'Private Group'
 description: 'Private user Issues. Used to group up users private Issues so other users can not access them.'
+creator_roles: {  }

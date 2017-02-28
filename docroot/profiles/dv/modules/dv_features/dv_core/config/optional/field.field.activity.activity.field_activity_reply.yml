@@ -2,11 +2,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - activity_creator.activity_type.activity
     - comment.type.answer_number
     - comment.type.answer_text
     - field.storage.activity.field_activity_reply
-  module:
-    - activity_creator
 id: activity.activity.field_activity_reply
 field_name: field_activity_reply
 entity_type: activity

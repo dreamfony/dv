@@ -4,6 +4,9 @@ dependencies:
   config:
     - group.type.area_of_activity
     - node.type.issue
+  module:
+    - gnode
+    - node
 id: group_content_type_cf9e363f14799
 label: 'Area Of Activity: Group node (Issue)'
 description: 'Adds <em class="placeholder">Issue</em> content to groups both publicly and privately.'

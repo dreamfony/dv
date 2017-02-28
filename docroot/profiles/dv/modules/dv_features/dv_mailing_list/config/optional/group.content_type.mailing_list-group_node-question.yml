@@ -4,6 +4,9 @@ dependencies:
   config:
     - group.type.mailing_list
     - node.type.question
+  module:
+    - gnode
+    - node
 id: mailing_list-group_node-question
 label: 'Mailing list: Group node (Question)'
 description: 'Adds <em class="placeholder">Question</em> content to groups both publicly and privately.'

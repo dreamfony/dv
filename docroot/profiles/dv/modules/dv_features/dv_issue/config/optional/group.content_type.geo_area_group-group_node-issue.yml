@@ -4,6 +4,9 @@ dependencies:
   config:
     - group.type.geo_area_group
     - node.type.issue
+  module:
+    - gnode
+    - node
 id: geo_area_group-group_node-issue
 label: 'Geo Area Group: Group node (Issue)'
 description: 'Adds <em class="placeholder">Issue</em> content to groups both publicly and privately.'

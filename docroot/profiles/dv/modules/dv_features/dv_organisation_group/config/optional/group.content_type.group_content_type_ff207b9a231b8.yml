@@ -4,6 +4,9 @@ dependencies:
   config:
     - group.type.organisation
     - node.type.organisation
+  module:
+    - gnode
+    - node
 id: group_content_type_ff207b9a231b8
 label: 'Organisation: Group node (Organisation)'
 description: 'Adds <em class="placeholder">Organisation</em> content to groups both publicly and privately.'

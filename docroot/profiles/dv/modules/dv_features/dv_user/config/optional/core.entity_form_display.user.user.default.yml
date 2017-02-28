@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.field.user.user.field_ac_contact_email
     - field.field.user.user.field_ac_organisation_node
+    - field.field.user.user.field_domain_admin
     - field.field.user.user.user_picture
   module:
     - path
@@ -35,6 +36,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_domain_admin:
+    type: options_buttons
+    weight: 50
+    settings: {  }
+    third_party_settings: {  }
     region: content
   field_user_organisation_node:
     weight: 31

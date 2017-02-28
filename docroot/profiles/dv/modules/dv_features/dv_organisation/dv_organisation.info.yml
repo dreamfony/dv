@@ -3,6 +3,7 @@ description: 'Provides Organisation content type and related configuration. '
 type: module
 core: 8.x
 dependencies:
+  - activity_creator
   - address
   - content_moderation
   - datetime_range
@@ -16,6 +17,7 @@ dependencies:
   - geo_area_group
   - geocoder_field
   - geofield
+  - gnode
   - group
   - image
   - language

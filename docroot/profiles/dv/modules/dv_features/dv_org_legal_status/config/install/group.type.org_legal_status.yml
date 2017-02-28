@@ -4,3 +4,4 @@ dependencies: {  }
 id: org_legal_status
 label: 'Organisation Legal Status'
 description: ''
+creator_roles: {  }

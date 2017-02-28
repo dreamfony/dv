@@ -21,6 +21,7 @@ dependencies:
   - flag
   - geo_area_group
   - geocoder_field
+  - gnode
   - group
   - inline_entity_form
   - language

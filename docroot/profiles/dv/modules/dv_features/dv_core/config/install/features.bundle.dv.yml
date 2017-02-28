@@ -54,17 +54,22 @@ assignments:
   optional:
     types:
       config:
+        action: action
         block: block
+        captcha_point: captcha_point
         entity_form_display: entity_form_display
         entity_view_display: entity_view_display
         field_config: field_config
         field_storage_config: field_storage_config
+        flag: flag
         group_content_type: group_content_type
         group_role: group_role
         configurable_language: configurable_language
         message_template: message_template
         view: view
         entity_view_mode: entity_view_mode
+        workflow: workflow
+        workspace_type: workspace_type
     enabled: true
     weight: 0
   packages:
@@ -98,5 +103,11 @@ assignments:
         filter_format: filter_format
     enabled: true
     weight: 7
-profile_name: ''
+  alter:
+    enabled: true
+    weight: 0
+    core: 1
+    uuid: 1
+    user_permissions: 0
+profile_name: dv
 is_profile: true

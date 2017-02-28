@@ -4,6 +4,9 @@ dependencies:
   config:
     - group.type.area_of_activity
     - node.type.organisation
+  module:
+    - gnode
+    - node
 id: group_content_type_4d9ad45bcf3e6
 label: 'Area Of Activity: Group node (Organisation)'
 description: 'Adds <em class="placeholder">Organisation</em> content to groups both publicly and privately.'

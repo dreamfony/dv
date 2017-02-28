@@ -4,6 +4,8 @@ dependencies:
   config:
     - field.field.group_content.group_content_type_ffa77aaf92606.group_roles
     - group.content_type.group_content_type_ffa77aaf92606
+  module:
+    - path
 id: group_content.group_content_type_ffa77aaf92606.default
 targetEntityType: group_content
 bundle: group_content_type_ffa77aaf92606
@@ -20,13 +22,19 @@ content:
     third_party_settings: {  }
   group_roles:
     type: options_buttons
-    weight: 6
+    weight: 31
     settings: {  }
     third_party_settings: {  }
     region: content
   langcode:
     type: language_select
     weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
     region: content
     settings: {  }
     third_party_settings: {  }

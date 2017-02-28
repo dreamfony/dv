@@ -2,9 +2,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - activity_creator.activity_type.activity
     - field.storage.activity.field_activity_hash
   module:
-    - activity_creator
     - geocoder_field
 third_party_settings:
   geocoder_field:

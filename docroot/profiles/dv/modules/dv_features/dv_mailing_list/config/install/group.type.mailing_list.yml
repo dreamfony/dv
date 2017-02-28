@@ -4,3 +4,4 @@ dependencies: {  }
 id: mailing_list
 label: 'Mailing list'
 description: ''
+creator_roles: {  }

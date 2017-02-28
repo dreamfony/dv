@@ -3,6 +3,8 @@ status: true
 dependencies:
   config:
     - group.content_type.organisation-group_node-person
+  module:
+    - path
 id: group_content.organisation-group_node-person.default
 targetEntityType: group_content
 bundle: organisation-group_node-person
@@ -20,6 +22,12 @@ content:
   langcode:
     type: language_select
     weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
     region: content
     settings: {  }
     third_party_settings: {  }

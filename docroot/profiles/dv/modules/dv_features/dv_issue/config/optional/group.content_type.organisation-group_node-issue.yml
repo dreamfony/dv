@@ -4,6 +4,9 @@ dependencies:
   config:
     - group.type.organisation
     - node.type.issue
+  module:
+    - gnode
+    - node
 id: organisation-group_node-issue
 label: 'Organisation: Group node (Issue)'
 description: 'Adds <em class="placeholder">Issue</em> content to groups both publicly and privately.'
