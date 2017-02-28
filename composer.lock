@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "61c473bcf83a4651afa04818ccde68d9",
-    "content-hash": "cd29cca34c2c557fdba4f5628ccb7e49",
+    "hash": "ecc08c14137ce02f25764f97f11ec978",
+    "content-hash": "4ec9b3df97ef0c4ccbddd8c3672546dd",
     "packages": [
         {
             "name": "acquia/blt",
@@ -3407,8 +3407,7 @@
                     "datestamp": "1488296285"
                 },
                 "patches_applied": {
-                    "https://www.drupal.org/node/2668562 #4": "https://www.drupal.org/files/issues/features-not_detecting_profile_files-2668562-4.patch",
-                    "config is object patch": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/features/config_is_object.patch"
+                    "https://www.drupal.org/node/2668562 #4": "https://www.drupal.org/files/issues/features-not_detecting_profile_files-2668562-4.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
