@@ -2516,16 +2516,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "8.3.x-dev",
+            "version": "8.3.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal-composer/drupal-core.git",
-                "reference": "88e94eb898299987d4e490994caf889025e9df57"
+                "reference": "7b628e88038c32482a5f9552ca400c8cbdef8c1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/88e94eb898299987d4e490994caf889025e9df57",
-                "reference": "88e94eb898299987d4e490994caf889025e9df57",
+                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/7b628e88038c32482a5f9552ca400c8cbdef8c1c",
+                "reference": "7b628e88038c32482a5f9552ca400c8cbdef8c1c",
                 "shasum": ""
             },
             "require": {
@@ -2665,6 +2665,7 @@
             "require-dev": {
                 "behat/mink": "1.7.x-dev",
                 "behat/mink-goutte-driver": "~1.2",
+                "drupal/coder": "8.2.10",
                 "jcalderonzumba/gastonjs": "~1.0.2",
                 "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
                 "mikey179/vfsstream": "~1.2",
@@ -2701,7 +2702,7 @@
                 "GPL-2.0+"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2017-01-28 14:03:03"
+            "time": "2017-02-15 16:16:18"
         },
         {
             "name": "drupal/cors",
@@ -3380,17 +3381,17 @@
         },
         {
             "name": "drupal/features",
-            "version": "3.2.0",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/features",
-                "reference": "8.x-3.2"
+                "reference": "8.x-3.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/features-8.x-3.2.zip",
-                "reference": "8.x-3.2",
-                "shasum": "1fce32d01b812d2a613ffadb1b9395293364980e"
+                "url": "https://ftp.drupal.org/files/projects/features-8.x-3.3.zip",
+                "reference": null,
+                "shasum": "ae0248b3ad233edfc50970b9dfdd95fed71fecb9"
             },
             "require": {
                 "drupal/config_update": "*",
@@ -3402,11 +3403,10 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.2",
-                    "datestamp": "1481513884"
+                    "version": "8.x-3.3",
+                    "datestamp": "1487861884"
                 },
                 "patches_applied": {
-                    "https://www.drupal.org/node/2383439": "https://www.drupal.org/files/issues/features_revert_permissions_drop-2383439-8.patch",
                     "https://www.drupal.org/node/2668562 #4": "https://www.drupal.org/files/issues/features-not_detecting_profile_files-2668562-4.patch"
                 }
             },
@@ -3909,7 +3909,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/group-8.x-1.0-beta5.zip",
-                "reference": null,
+                "reference": "8.x-1.0-beta5",
                 "shasum": "8584143f1e95d4eb29a89216906d68c11c6598c2"
             },
             "require": {
