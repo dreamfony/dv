@@ -3,8 +3,8 @@ IDEA additional info:
 Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 <+>UTF-8
 ===================================================================
---- a/docroot/modules/contrib/features/src/FeaturesManager.php	(revision )
-+++ b/docroot/modules/contrib/features/src/FeaturesManager.php	(revision )
+--- a/src/FeaturesManager.php	(revision )
++++ b/src/FeaturesManager.php	(revision )
 @@ -1334,6 +1334,9 @@
 
      // If config data is not specified, load it from the extension storage.
