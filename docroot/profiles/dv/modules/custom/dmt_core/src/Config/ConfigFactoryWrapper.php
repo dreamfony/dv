@@ -17,9 +17,7 @@ class ConfigFactoryWrapper extends ConfigFactory {
 
     /** @var \Drupal\domain\Entity\Domain $active */
     $active = \Drupal::service('domain.negotiator')->getActiveDomain();
-    if ($active->isDefault()) {
-      return $this->doGet($name, FALSE);
-    } else {
+    if ($active && !$active->isDefault()) {
       $mutable = $this->doGet($name, FALSE);
       $overrides = $this->loadOverrides([$name]);
 
@@ -29,8 +27,10 @@ class ConfigFactoryWrapper extends ConfigFactory {
           $mutable->set($key, $value);
         }
       }
+      return $mutable;
     }
 
-    return $mutable;
+    return $this->doGet($name, FALSE);
+
   }
 }
