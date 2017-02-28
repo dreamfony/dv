@@ -45,7 +45,6 @@ dependencies:
   - like_and_dislike
   - link
   - locale
-  - mailgun
   - menu_link_content
   - menu_ui
   - message
