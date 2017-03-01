@@ -1,7 +1,0 @@
-inmail.plugin.handler.dv_mailhandler_comment:
-  label: 'Comment handler configuration'
-  type: mapping
-  mapping:
-    entity_type:
-      label: 'Referenced entity type'
-      type: string

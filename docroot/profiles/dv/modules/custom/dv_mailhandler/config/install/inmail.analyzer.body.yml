@@ -1,5 +1,0 @@
-langcode: en
-id: body
-label: Analyzes the message body
-plugin: body
-weight: 35
