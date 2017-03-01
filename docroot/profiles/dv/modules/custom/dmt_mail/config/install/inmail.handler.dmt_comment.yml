@@ -1,0 +1,7 @@
+langcode: en
+status: true
+id: dmt_comment
+label: Post comments via email
+plugin: dmt_comment
+configuration:
+  entity_type: node

@@ -70,7 +70,7 @@ function dv_install_profile_modules(&$install_state) {
     'dv_area_of_activity' => 'dv_area_of_activity',
     'dv_organisation_founder' => 'dv_organisation_founder',
     'dv_org_legal_status' => 'dv_org_legal_status',
-    'dv_mailhandler' => 'dv_mailhandler',
+    'dmt_mail' => 'dmt_mail',
     'dv_mailing_list' => 'dv_mailing_list',
     'dv_answer_text' => 'dv_answer_text',
     'dv_answer_number' => 'dv_answer_number',

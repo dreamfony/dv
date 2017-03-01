@@ -30,8 +30,5 @@ function dvm_moderation_help($route_name, RouteMatchInterface $route_match) {
  *    Return an array of allowed values for field_mg_event_type.
  */
 function dvm_moderation_field_mg_event_type_allowed_values() {
-
-  $allowed_values = activity_creator_field_activity_status_allowed_values();
-
-  return $allowed_values;
+  return activity_creator_field_activity_status_allowed_values();
 }

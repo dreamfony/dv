@@ -196,5 +196,3 @@ required:
   - block.block.bootstrap_main_menu
   - block.block.bootstrap_tools
   - inmail.deliverer.dmt_it_gmail
-  - inmail.analyzer.to
-  - inmail.analyzer.attachments

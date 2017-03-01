@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dv_mailhandler\Plugin\inmail\Handler;
+namespace Drupal\dmt_mail\Plugin\inmail\Handler;
 
 use Drupal\comment\CommentInterface;
 use Drupal\comment\Entity\Comment;
@@ -28,12 +28,12 @@ use Drupal\inmail\MIME\MimeEncodings;
  * pattern.
  *
  * @Handler(
- *   id = "dv_mailhandler_comment",
- *   label = @Translation("Dv Mailhandler Comment"),
+ *   id = "dmt_comment",
+ *   label = @Translation("DMT Mail Comment"),
  *   description = @Translation("Post comments via email.")
  * )
  */
-class DvMailhandlerComment extends HandlerBase implements ContainerFactoryPluginInterface {
+class DmtMailComment extends HandlerBase implements ContainerFactoryPluginInterface {
 
   /**
    * The entity type manager.
@@ -134,7 +134,7 @@ class DvMailhandlerComment extends HandlerBase implements ContainerFactoryPlugin
         ]);
       }
       else {
-        \Drupal::logger('dv_mailhandler')
+        \Drupal::logger('dmt_mail')
           ->notice('Email with invalid hash entered the system: @hash',
             array(
               '@hash' => $hash,

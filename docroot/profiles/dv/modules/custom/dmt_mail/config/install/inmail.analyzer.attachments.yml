@@ -1,8 +1,6 @@
 langcode: en
-status: false
-dependencies: {  }
 id: attachments
 label: Attachements
 plugin: attachments
-configuration: {  }
 weight: 25
+status: true
