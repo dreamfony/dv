@@ -55,7 +55,7 @@ function _dvm_mailing_list_group_form_submit($form, \Drupal\Core\Form\FormStateI
   $group = $form_state->getFormObject()->getEntity();
   $mod_state = $group->get('moderation_state')->getValue()[0]['value'];
 
-  if($mod_state === 'approved') {
+  if($mod_state === 'published') {
 
     /** @var \Drupal\Core\Url $redirect */
     $redirect = $form_state->getRedirect();
