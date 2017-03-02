@@ -6,4 +6,3 @@ package: DMT
 dependencies:
   - views_ui
   - block
-  - domain_config
