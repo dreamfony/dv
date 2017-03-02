@@ -79,7 +79,7 @@ function dv_install_profile_modules(&$install_state) {
     'dv_mailsystem_settings' => 'dv_mailsystem_settings',
     'dvm_organisation' => 'dvm_organisation',
     'dvm_user' => 'dvm_user',
-    'dmt_core' => 'dmt_core'
+    'dmt_domain_config' => 'dmt_domain_config'
   );
 
   $dv_modules = $modules;

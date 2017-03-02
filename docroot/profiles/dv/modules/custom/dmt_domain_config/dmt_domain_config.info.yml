@@ -1,0 +1,7 @@
+name: DMT Domain Config
+type: module
+description: DMT Domain Config.
+core: 8.x
+package: DMT
+dependencies:
+  - domain_config
