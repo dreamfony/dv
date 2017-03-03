@@ -57,6 +57,7 @@ function dv_install_profile_modules(&$install_state) {
   $files = system_rebuild_module_data();
 
   $modules = array(
+    'dmt_core' => 'dmt_core',
     'geo_area' => 'geo_area',
     'geo_area_group' => 'geo_area_group',
     'dv_user' => 'dv_user',

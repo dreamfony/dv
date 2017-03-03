@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function dmt_core_install() {
+// Set default values for config which require dynamic values.
+  \Drupal::configFactory()->getEditable('features.settings')
+    ->set('export', array('folder' => 'dv_features'))
+    ->save();
+}
