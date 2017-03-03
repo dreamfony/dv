@@ -2,7 +2,7 @@
 namespace Drupal\dmt_domain_config\Config;
 
 use Drupal\Core\Config\ConfigFactory as CoreConfigFactory;
-use Drupal\dmt_domain_config\DomainNegotiator;
+use Drupal\domain\DomainNegotiatorInterface;
 /**
  * Overrides Drupal\Core\Config\ConfigFactory in order to use our own Config class.
  */
@@ -10,7 +10,7 @@ class ConfigFactory extends CoreConfigFactory {
   /**
    * The Domain negotiator.
    *
-   * @var \Drupal\dmt_domain_config\DomainNegotiator
+   * @var \Drupal\domain\DomainNegotiator
    */
   protected $domainNegotiator;
 
@@ -30,9 +30,9 @@ class ConfigFactory extends CoreConfigFactory {
 
   /**
    * Set the Domain negotiator.
-   * @param DomainNegotiator $domain_negotiator
+   * @param DomainNegotiatorInterface $domain_negotiator
    */
-  public function setDomainNegotiator(DomainNegotiator $domain_negotiator) {
+  public function setDomainNegotiator(DomainNegotiatorInterface $domain_negotiator) {
     $this->domainNegotiator = $domain_negotiator;
   }
 
@@ -41,7 +41,7 @@ class ConfigFactory extends CoreConfigFactory {
    */
   public function getEditable($name) {
 
-    if (!$this->domainNegotiator->isActiveDomainDefault()) {
+    if (!$this->isActiveDomainDefault()) {
       $mutable = $this->doGet($name, FALSE);
       $overrides = $this->loadOverrides([$name]);
 
@@ -57,6 +57,13 @@ class ConfigFactory extends CoreConfigFactory {
 
 
     return $this->doGet($name, FALSE);
+  }
+
+
+  public function isActiveDomainDefault() {
+    if($active = $this->domainNegotiator->getActiveDomain()) {
+      return $active->isDefault();
+    }
   }
 
 

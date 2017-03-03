@@ -3,7 +3,7 @@
 namespace Drupal\dmt_domain_config\Config;
 
 use Drupal\Core\Config\Config as CoreConfig;
-use Drupal\dmt_domain_config\DomainNegotiator;
+use Drupal\domain\DomainNegotiatorInterface;
 
 /**
  * Extend core Config class to save domain specific configuration.
@@ -19,15 +19,15 @@ class Config extends CoreConfig {
   /**
    * The Domain negotiator.
    *
-   * @var \Drupal\dmt_domain_config\DomainNegotiator
+   * @var \Drupal\domain\DomainNegotiatorInterface
    */
   protected $domainNegotiator;
 
   /**
    * Set the Domain negotiator.
-   * @param DomainNegotiator $domain_negotiator
+   * @param DomainNegotiatorInterface $domain_negotiator
    */
-  public function setDomainNegotiator(DomainNegotiator $domain_negotiator) {
+  public function setDomainNegotiator(DomainNegotiatorInterface $domain_negotiator) {
     $this->domainNegotiator = $domain_negotiator;
   }
 
@@ -117,7 +117,7 @@ class Config extends CoreConfig {
     }
 
     // Build prefix and add to front of existing key.
-    if(!$this->domainNegotiator->isActiveDomainDefault()) {
+    if(!$this->isActiveDomainDefault()) {
       if ($selected_domain = $this->domainNegotiator->getActiveDomain()) {
         $prefix = 'domain.config.' . $selected_domain->id() . '.';
         if ($language = \Drupal::languageManager()->getCurrentLanguage()) {
@@ -129,5 +129,11 @@ class Config extends CoreConfig {
 
     // Return current name by default.
     return $this->name;
+  }
+
+  public function isActiveDomainDefault() {
+    if($active = $this->domainNegotiator->getActiveDomain()) {
+      return $active->isDefault();
+    }
   }
 }
