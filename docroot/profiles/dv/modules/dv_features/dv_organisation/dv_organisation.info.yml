@@ -12,6 +12,7 @@ dependencies:
   - dv_issue
   - dv_organisation_group
   - dv_positions
+  - dv_user
   - entity_browser
   - field
   - geo_area_group

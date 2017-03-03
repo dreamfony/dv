@@ -13,6 +13,7 @@ dependencies:
   - image
   - node
   - path
+  - personas
   - rdf
   - system
   - user

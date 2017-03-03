@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+id: administrator
+label: Administrator
+roles:
+  administrator: administrator
+  moderator: '0'
+  organisation: '0'
+  masquerade_as_any_user_except_super_user: '0'
+  administer_blocks: '0'
+  post_comments: '0'
+  mailing_list_create_new_group: '0'

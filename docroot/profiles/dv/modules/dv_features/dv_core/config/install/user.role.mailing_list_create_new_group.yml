@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: mailing_list_create_new_group
+label: 'Mailing list: Create new group'
+weight: 9
+is_admin: null
+permissions: {  }
