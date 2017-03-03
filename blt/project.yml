@@ -33,7 +33,9 @@ target-hooks:
 import: '${repo.root}/custom/blt_custom_phing_commands.xml'
 modules:
   local:
-    enable: [devel, field_ui, seckit, features_ui, views_ui, geo_area_migrate, dv_organisation_migrate, masquerade, dv_dev, queue_ui, dblog, mailgun]
+    # dv_secure location location https://drive.google.com/drive/folders/0B0o4prxPrMJsX2N4OEp4bm0wRE0
+    # download it and put it in dv_features
+    enable: [devel, field_ui, seckit, features_ui, views_ui, geo_area_migrate, dv_organisation_migrate, masquerade, dv_dev, queue_ui, dblog, mailgun, dv_secure]
     uninstall: [acsf, acquia_connector, shield]
   ci:
     enable: {  }
