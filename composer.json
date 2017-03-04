@@ -14,7 +14,7 @@
         "composer/installers": "^1.0.20",
         "cweagans/composer-patches": "*",
         "drupal-composer/drupal-scaffold": "^2.0.1",
-        "drupal/core": "~8.3.0",
+        "drupal/core": "~8.3",
         "drupal/address": "^1@beta",
         "drupal/geofield": "~1.0",
         "drupal/config_inspector": "~1@beta",
@@ -34,8 +34,8 @@
         "drupal/r4032login": "~1.0",
         "drupal/config_update": "~1.0",
         "drupal/features": "^3.0.0",
-        "drupal/migrate_plus": "~2.0",
-        "drupal/migrate_tools": "~2.0",
+        "drupal/migrate_plus": "^2.0",
+        "drupal/migrate_tools": "^2.0",
         "drupal/rules": "~3.0",
         "drupal/coffee": "~1.0",
         "drupal/hook_event_dispatcher": "~1.0",
@@ -53,7 +53,7 @@
         "acquia/blt": "^8.6.10",
         "drupal/acquia_connector": "^1.5.0",
         "drupal/libraries": "3.x-dev#fa93a5aec2cfcfd5717e42c7112e381487fed9fd",
-        "drupal/token": "1.0-beta2",
+        "drupal/token": "^1.0",
         "drupal/memcache": "2.0.0-alpha2",
         "drupal/seckit": "^1.0.0-alpha2",
         "drupal/security_review": "*",
@@ -156,7 +156,20 @@
     },
     "extra": {
         "blt": {
-            "update": true
+            "update": true,
+            "composer-exclude-merge": {
+                "require": [
+                    "acquia/lightning",
+                    "drupal/acquia_connector",
+                    "drupal/acsf",
+                    "drupal/cog",
+                    "drupal/seckit",
+                    "drupal/security_review",
+                    "drupal/shield",
+                    "drush/drush"
+                ],
+                "require-dev": "*"
+            }
         },
         "installer-paths": {
             "docroot/core": [
@@ -181,9 +194,6 @@
         "patches": {
             "drupal/profile": {
                 "Fixes access control on entities": "https://www.drupal.org/files/issues/profile-accesscontrol-2703825-6.patch"
-            },
-            "drupal/address": {
-                "Fix form errorElement": "https://www.drupal.org/files/issues/address-2619878-29.patch"
             },
             "drupal/group": {
                 "https://www.drupal.org/node/2736233": "https://www.drupal.org/files/issues/group-add_subgroups_module-2736233-57-D8.patch",
