@@ -37,18 +37,17 @@ class ConfigFactory extends CoreConfigFactory {
    */
   public function setDomainNegotiator(DomainNegotiatorInterface $domain_negotiator) {
     $this->domainNegotiator = $domain_negotiator;
-    $this->activeDomainDefault = $this->isActiveDomainDefault();
+
+    // check if we are in cli (drush) if so skip this to avoid circular reference
+    if(PHP_SAPI !== 'cli') {
+      $this->activeDomainDefault = $this->isActiveDomainDefault();
+    }
   }
 
   public function isActiveDomainDefault() {
     // if we have active domain in cache
     if($active = $this->domainNegotiator->getActiveDomain()) {
       return $active->isDefault();
-    }
-
-    // check if we are in cli (drush) if so skip this to avoid circular reference
-    if(PHP_SAPI !== 'cli') {
-      return TRUE;
     }
 
     // if active domain is null try to reset domain negotiator cache

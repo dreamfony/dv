@@ -37,7 +37,7 @@ function dmt_domain_config_entity_type_alter(array &$entity_types) {
  * Implements hook_form_alter().
  */
 function dmt_domain_config_form_domain_edit_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-
+  /** @var Domain $domain */
   $domain = $form_state->getFormObject()->getEntity();
 
   $group = !empty( $domain->getThirdPartySetting('dmt_domain_config', 'group') ) ?
