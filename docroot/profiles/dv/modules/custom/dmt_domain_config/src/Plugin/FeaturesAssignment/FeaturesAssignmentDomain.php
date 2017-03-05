@@ -30,7 +30,7 @@ class FeaturesAssignmentDomain extends FeaturesAssignmentMethodBase {
         /** @var Domain $domain */
         $domain = \Drupal::service('domain.loader')->load($name_parts[2]);
         if(!$domain->isDefault()) {
-          if (is_null($this->featuresManager->findPackage('domain_' . $name_parts[2])) && !$item->getPackage()) {
+          if (is_null($this->featuresManager->findPackage($current_bundle->getMachineName().'_domain_' . $name_parts[2])) && !$item->getPackage()) {
             $description = $this->t('Provides domain @label related configuration.', array('@label' => $domain->get('name')));
             if (isset($item->getData()['description'])) {
               $description .= ' ' . $item->getData()['description'];
@@ -39,7 +39,7 @@ class FeaturesAssignmentDomain extends FeaturesAssignmentMethodBase {
           }
           // Update list with the package we just added.
           try {
-            $this->featuresManager->assignConfigPackage('domain_' . $name_parts[2], [$item_name]);
+            $this->featuresManager->assignConfigPackage($current_bundle->getMachineName().'_domain_' . $name_parts[2], [$item_name]);
           } catch (\Exception $exception) {
             \Drupal::logger('features')->error($exception->getMessage());
           }

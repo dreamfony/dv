@@ -24,6 +24,11 @@ class Config extends CoreConfig {
   protected $domainNegotiator;
 
   /**
+   *
+   */
+  protected $activeDomainDefault;
+
+  /**
    * Set the Domain negotiator.
    * @param DomainNegotiatorInterface $domain_negotiator
    */
@@ -117,7 +122,7 @@ class Config extends CoreConfig {
     }
 
     // Build prefix and add to front of existing key.
-    if(!$this->isActiveDomainDefault()) {
+    if(!$this->activeDomainDefault) {
       if ($selected_domain = $this->domainNegotiator->getActiveDomain()) {
         $prefix = 'domain.config.' . $selected_domain->id() . '.';
         if ($language = \Drupal::languageManager()->getCurrentLanguage()) {
@@ -131,9 +136,7 @@ class Config extends CoreConfig {
     return $this->name;
   }
 
-  public function isActiveDomainDefault() {
-    if($active = $this->domainNegotiator->getActiveDomain()) {
-      return $active->isDefault();
-    }
+  public function isActiveDomainDefault($active) {
+    $this->activeDomainDefault = $active;
   }
 }

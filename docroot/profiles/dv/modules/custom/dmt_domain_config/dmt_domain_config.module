@@ -12,9 +12,25 @@ use Drupal\group\Entity\Group;
  * @param array $entity_types
  */
 function dmt_domain_config_entity_type_alter(array &$entity_types) {
-  /** @var $entity_types \Drupal\Core\Entity\EntityTypeInterface[] */
-  $entity_types['block']->setListBuilderClass('Drupal\dmt_domain_config\BlockListBuilder');
-  $entity_types['view']->setListBuilderClass('Drupal\dmt_domain_config\ViewListBuilder');
+
+  // replace ConfigEntityStorage with ours
+  foreach ($entity_types as $entity_type) {
+    $storage_class = $entity_type->getHandlerClass('storage');
+
+    // Only override the storage for Config Entities
+    if (in_array($storage_class, [
+      NULL,
+      'Drupal\Core\Config\Entity\ConfigEntityStorage'
+    ])) {
+      $entity_type->setHandlerClass('storage', "Drupal\\dmt_domain_config\\Config\\ConfigEntityStorage");
+    }
+  }
+
+  // special handling for block storage since block storage is already extended by multiversion
+  if (isset($entity_types['block_content'])) {
+    $entity_types['block']->setHandlerClass('storage', 'Drupal\\dmt_domain_config\\Config\\BlockStorage');
+  }
+
 }
 
 /**
