@@ -40,36 +40,15 @@ class ConfigFactory extends CoreConfigFactory {
     $this->activeDomainDefault = $this->isActiveDomainDefault();
   }
 
-  /**
-   * {@inheritdoc}
-   */
-  /*
-  public function getEditable($name) {
-
-    if (!$this->isActiveDomainDefault()) {
-      $mutable = $this->doGet($name, FALSE);
-      $overrides = $this->loadOverrides([$name]);
-
-      if(isset($overrides[$name])) {
-        $overrides = $overrides[$name];
-        foreach ($overrides as $key => $value) {
-          $mutable->set($key, $value);
-        }
-      }
-
-      return $mutable;
-    }
-
-
-    return $this->doGet($name, FALSE);
-  }
-  */
-
-
   public function isActiveDomainDefault() {
     // if we have active domain in cache
     if($active = $this->domainNegotiator->getActiveDomain()) {
       return $active->isDefault();
+    }
+
+    // check if we are in cli (drush) if so skip this to avoid circular reference
+    if(PHP_SAPI !== 'cli') {
+      return TRUE;
     }
 
     // if active domain is null try to reset domain negotiator cache
