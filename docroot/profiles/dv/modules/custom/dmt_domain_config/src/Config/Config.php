@@ -75,13 +75,6 @@ class Config extends CoreConfig {
     return $this;
   }
 
-  protected function getOriginalData() {
-    /** @var \Drupal\Core\Config\Config $original */
-    $original = \Drupal::service('config.factory')
-      ->getEditable($this->name);
-    return $this->getOriginal();
-  }
-
   /**
    * Config diff.
    *
@@ -90,7 +83,7 @@ class Config extends CoreConfig {
   protected function setDomainConfigData() {
     $diff = [];
 
-    $original_data = $this->getOriginalData();
+    $original_data = $this->getOriginal();
 
     foreach ($original_data as $key => $value) {
       $new_data_value = json_encode($this->data[$key]);
