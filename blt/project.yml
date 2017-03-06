@@ -57,7 +57,7 @@ modules:
       uninstall: [dblog]
 cm:
   features:
-    bundle: 'dv, activity, GeoNames'
+    bundle: 'dv'
 drupal:
   account.name: admin
   account.password: admin

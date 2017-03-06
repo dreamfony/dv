@@ -4,6 +4,8 @@ dependencies:
   config:
     - field.field.group_content.geo_area_group-group_membership.group_roles
     - group.content_type.geo_area_group-group_membership
+  module:
+    - path
 id: group_content.geo_area_group-group_membership.default
 targetEntityType: group_content
 bundle: geo_area_group-group_membership
@@ -30,5 +32,11 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   uid: true
