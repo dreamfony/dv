@@ -50,7 +50,7 @@ function dvm_organisation_node_insert(Drupal\Core\Entity\EntityInterface $entity
         'name' => $dummy_email,
         'mail' => $dummy_email,
         'status' => 1,
-        'roles' => array('organisation')
+        'personas' => array('organisation')
       ));
 
       $org_user->set('field_ac_contact_email', $email);
