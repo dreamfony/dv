@@ -8,23 +8,25 @@
 
 
 use Drupal\user\Entity\User;
+use Drupal\personas\Entity\Persona;
 
 /**
  * Create Test User Accounts for every Role
  */
 
 function dv_dev_create_test_accounts() {
-  $system_roles = user_role_names(TRUE);
-  foreach ($system_roles as $rolename => $key) {
-    $mail = $rolename . "@dv.com";
+  $personas = Persona::loadMultiple();
+  foreach ($personas as $persona) {
+    /** @var Persona $persona */
+    $mail = $persona->id() . "@dv.com";
     $user_exists = user_load_by_mail($mail);
     if (empty($user_exists)) {
       $user = User::create(array(
-        'name' => 'TEST_'.$rolename,
+        'name' => 'TEST_'.$persona->id(),
         'mail' => $mail,
         'status' => 1,
-        'pass' => $rolename,
-        'roles' => array($rolename)
+        'pass' => $persona->id(),
+        'roles' => array($persona->id())
       ));
       $user->save();
     }
