@@ -1,12 +1,12 @@
 langcode: en
 status: true
 dependencies: {  }
-id: administrator
-label: Administrator
+id: organisation
+label: Organisation
 roles:
-  administrator: administrator
+  organisation: organisation
+  administrator: '0'
   moderator: '0'
-  organisation: '0'
   masquerade_as_any_user_except_super_user: '0'
   administer_blocks: '0'
   post_comments: '0'
