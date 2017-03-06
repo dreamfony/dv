@@ -6,6 +6,5 @@ package: DV
 dependencies:
   - dv_core
   - field
-  - geo_area
   - group
   - user
