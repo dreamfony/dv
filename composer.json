@@ -86,7 +86,10 @@
         "drupal/block_field": "^1.0@alpha",
         "drupal/multiversion": "1.x-dev",
         "drupal/domain": "^1.0@alpha",
-        "drupal/collect": "1.x-dev"
+        "drupal/collect": "1.x-dev",
+        "drupal/panels": "^4",
+        "drupal/ctools": "3.x-dev",
+        "drupal/panelizer": "^4"
     },
     "require-dev": {
         "behat/behat": "^3.1",
