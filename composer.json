@@ -87,9 +87,12 @@
         "drupal/multiversion": "1.x-dev",
         "drupal/domain": "^1.0@alpha",
         "drupal/collect": "1.x-dev",
-        "drupal/panels": "^4",
+        "drupal/panels": "^3",
         "drupal/ctools": "3.x-dev",
-        "drupal/panelizer": "^4"
+        "drupal/panelizer": "^3",
+        "drupal/bootstrap_layouts": "^4.1",
+        "drupal/radix_layouts": "^3.0",
+        "drupal/ds": "^2.6"
     },
     "require-dev": {
         "behat/behat": "^3.1",

@@ -50,6 +50,7 @@ dependencies:
   - message
   - node
   - options
+  - panelizer
   - path
   - pathauto
   - persistent_login

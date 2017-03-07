@@ -12,8 +12,140 @@ dependencies:
   module:
     - comment
     - image
+    - panelizer
     - text
     - user
+third_party_settings:
+  panelizer:
+    enable: true
+    custom: false
+    allow: false
+    default: default
+    displays:
+      default:
+        blocks:
+          a6bae01b-1ffb-4966-9af5-2b644248783f:
+            id: 'entity_field:node:uid'
+            label: 'Authored by'
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: author
+              settings: {  }
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            region: middle
+            weight: 0
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: a6bae01b-1ffb-4966-9af5-2b644248783f
+          6ea460b5-3ef7-4294-a4d1-ca615afa7112:
+            id: 'entity_field:node:created'
+            label: 'Authored on'
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: timestamp
+              settings:
+                date_format: medium
+                custom_date_format: ''
+                timezone: ''
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            region: middle
+            weight: 0
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: 6ea460b5-3ef7-4294-a4d1-ca615afa7112
+          f1e77d44-02f7-4af3-aef7-a228b03e6dc3:
+            id: 'entity_field:node:body'
+            label: Body
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: text_default
+              settings: {  }
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            region: middle
+            weight: 0
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: f1e77d44-02f7-4af3-aef7-a228b03e6dc3
+          0523c88c-3c5d-47b7-83af-e528716e7235:
+            id: 'entity_field:node:comment'
+            label: Comments
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: above
+              type: comment_default
+              settings:
+                pager_id: 0
+                view_mode: default
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            region: middle
+            weight: -10
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: 0523c88c-3c5d-47b7-83af-e528716e7235
+          744ab620-69b7-438e-9270-ea2caa2aaf11:
+            id: 'entity_field:node:field_image'
+            label: Image
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: image
+              settings:
+                image_style: large
+                image_link: ''
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            region: middle
+            weight: -1
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: 744ab620-69b7-438e-9270-ea2caa2aaf11
+          2025903b-7426-46a9-add4-87402a44eb16:
+            id: 'entity_field:node:field_tags'
+            label: Tags
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: above
+              type: entity_reference_label
+              settings:
+                link: true
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            region: middle
+            weight: 10
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: 2025903b-7426-46a9-add4-87402a44eb16
+        id: panels_variant
+        label: Default
+        uuid: a00cb33d-4de7-4714-be8f-37ae7fca33a8
+        weight: 0
+        layout: onecol
+        layout_settings: {  }
+        page_title: '[node:title]'
+        storage_type: panelizer_default
+        storage_id: 'node:article:default:default'
+        builder: ipe
+        pattern: panelizer
+        static_context: {  }
 id: node.article.default
 targetEntityType: node
 bundle: article
@@ -54,8 +186,8 @@ content:
     region: content
   links:
     weight: 100
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   langcode: true

@@ -79,6 +79,7 @@ dependencies:
   - path
   - pathauto
   - persistent_login
+  - personas
   - profile
   - quickedit
   - r4032login
@@ -104,7 +105,6 @@ dependencies:
   - user_registrationpassword
   - views
   - views_ui
-  - personas
 themes:
   - patternlab
   - seven

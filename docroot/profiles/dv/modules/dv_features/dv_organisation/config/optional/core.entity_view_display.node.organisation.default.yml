@@ -20,8 +20,199 @@ dependencies:
     - image
     - leaflet
     - link
+    - panelizer
     - telephone
     - user
+third_party_settings:
+  panelizer:
+    enable: true
+    custom: false
+    allow: false
+    default: default
+    displays:
+      default:
+        blocks:
+          68d2d166-dcce-42f6-8839-75f53c4193cf:
+            id: 'entity_field:node:field_o_address'
+            label: Address
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: above
+              type: address_default
+              settings: {  }
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            region: contentmain
+            weight: 6
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: 68d2d166-dcce-42f6-8839-75f53c4193cf
+          93c68239-c94b-4682-a3ec-8e819e658c04:
+            id: 'entity_field:node:field_o_email'
+            label: Email
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: above
+              type: basic_string
+              settings: {  }
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            region: contentmain
+            weight: 3
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: 93c68239-c94b-4682-a3ec-8e819e658c04
+          3f7c85cd-52ad-4a96-a0de-682a0a64aecf:
+            id: 'entity_field:node:field_o_fax'
+            label: Fax
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: above
+              type: telephone_link
+              settings:
+                title: ''
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            region: contentmain
+            weight: 5
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: 3f7c85cd-52ad-4a96-a0de-682a0a64aecf
+          c8b354ba-782b-4e20-94ab-c519ebc60a7b:
+            id: 'entity_field:node:field_o_geo_location'
+            label: 'Geo Location'
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: leaflet_formatter_default
+              settings:
+                leaflet_map: 'OSM Mapnik'
+                height: 400
+                zoom: 10
+                minPossibleZoom: 0
+                maxPossibleZoom: 18
+                minZoom: 0
+                maxZoom: 18
+                popup: false
+                icon:
+                  icon_url: ''
+                  shadow_url: ''
+                  icon_size:
+                    x: 0
+                    'y': 0
+                  icon_anchor:
+                    x: 0
+                    'y': 0
+                  shadow_anchor:
+                    x: 0
+                    'y': 0
+                  popup_anchor:
+                    x: 0
+                    'y': 0
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            region: contentmain
+            weight: 7
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: c8b354ba-782b-4e20-94ab-c519ebc60a7b
+          9509c5e8-d1f2-4d6b-81ee-439e66e79758:
+            id: 'entity_field:node:field_o_logo'
+            label: Logo
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: above
+              type: image
+              settings:
+                image_style: ''
+                image_link: ''
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            region: column1
+            weight: 1
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: 9509c5e8-d1f2-4d6b-81ee-439e66e79758
+          fe659360-e634-4c23-aa4a-9ad4012abcf8:
+            id: 'entity_field:node:field_o_parent_organisation'
+            label: 'Parent Organisation'
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: above
+              type: entity_reference_label
+              settings:
+                link: true
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            region: contentmain
+            weight: 1
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: fe659360-e634-4c23-aa4a-9ad4012abcf8
+          05ec1464-22b9-44fb-bb26-9af90db6c064:
+            id: 'entity_field:node:field_o_telephone'
+            label: Telephone
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: above
+              type: telephone_link
+              settings:
+                title: ''
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            region: contentmain
+            weight: 4
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: 05ec1464-22b9-44fb-bb26-9af90db6c064
+          b0a8597e-36fc-450a-b6c6-58db89d79f50:
+            id: 'entity_field:node:field_o_web_site'
+            label: 'Web Site'
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: above
+              type: link
+              settings:
+                trim_length: 80
+                url_only: false
+                url_plain: false
+                rel: ''
+                target: ''
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            region: contentmain
+            weight: 2
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: b0a8597e-36fc-450a-b6c6-58db89d79f50
+        id: panels_variant
+        label: Default
+        uuid: 77d3488c-a533-4915-8a28-a9224e02f038
+        weight: 0
+        layout: radix_whelan
+        layout_settings: {  }
+        page_title: '[node:title]'
+        storage_type: panelizer_default
+        storage_id: 'node:organisation:full:default'
+        builder: ipe
+        pattern: panelizer
+        static_context: {  }
 id: node.organisation.default
 targetEntityType: node
 bundle: organisation
@@ -126,9 +317,9 @@ content:
     region: content
   links:
     weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   field_o_issue_types: true
   field_o_organisation_id: true

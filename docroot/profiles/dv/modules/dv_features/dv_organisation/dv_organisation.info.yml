@@ -9,6 +9,7 @@ dependencies:
   - datetime_range
   - dv_area_of_activity
   - dv_core
+  - dv_geo_area_group
   - dv_issue
   - dv_organisation_group
   - dv_positions
@@ -26,6 +27,7 @@ dependencies:
   - link
   - menu_ui
   - node
+  - panelizer
   - path
   - rabbit_hole
   - taxonomy
