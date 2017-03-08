@@ -26,4 +26,34 @@ class Organisation {
     }
     return NULL;
   }
+
+  /*
+   * Generate Unique Organisation ID
+   */
+
+  public function getOrganisationId() {
+    $generated_id = $this->generateOrganisationId();
+    while ($this->checkOrganisatioIdIsUsed($generated_id)) {
+      $generated_id = $this->generateOrganisationId();
+    }
+    return $generated_id;
+  }
+
+  private function generateOrganisationId() {
+    return rand(10000000, 99999999);
+  }
+
+  private function checkOrganisatioIdIsUsed($id) {
+
+    $count_id = \Drupal::entityQuery('node')
+      ->condition('type', 'organisation')
+      ->condition('field_o_organisation_id', $id)
+      ->count()
+      ->execute();
+
+    if ($count_id > 0) {
+      return TRUE;
+    }
+    return FALSE;
+  }
 }
