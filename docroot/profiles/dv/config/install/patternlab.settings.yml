@@ -18,6 +18,6 @@ logo:
 cdn_provider: custom
 cdn_custom_css: ''
 cdn_custom_css_min: ''
-cdn_custom_js: 'https://cdn.jsdelivr.net/bootstrap/3.3.7/js/bootstrap.js'
-cdn_custom_js_min: 'https://cdn.jsdelivr.net/bootstrap/3.3.7/js/bootstrap.min.js'
 table: ''
+fluid_container: 1
+table_responsive: '-1'

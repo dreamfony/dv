@@ -84,6 +84,7 @@ dependencies:
   - quickedit
   - r4032login
   - rabbit_hole
+  - radix_layouts
   - rdf
   - recaptcha
   - responsive_image
@@ -105,7 +106,6 @@ dependencies:
   - user_registrationpassword
   - views
   - views_ui
-  - radix_layouts
 themes:
   - patternlab
   - seven
