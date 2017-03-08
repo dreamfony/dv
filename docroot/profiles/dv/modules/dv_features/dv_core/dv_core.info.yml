@@ -33,6 +33,7 @@ dependencies:
   - environment_indicator
   - features
   - field
+  - field_permissions
   - file
   - filter
   - flag

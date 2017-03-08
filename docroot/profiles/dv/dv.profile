@@ -60,6 +60,7 @@ function dv_install_profile_modules(&$install_state) {
     'dmt_core' => 'dmt_core',
     'dv_geo_area' => 'dv_geo_area',
     'dv_geo_area_group' => 'dv_geo_area_group',
+    'dv_blog' => 'dv_blog',
     'geo_area_group' => 'geo_area_group',
     'dv_user' => 'dv_user',
     'dvm_user_groups' => 'dvm_user_groups',

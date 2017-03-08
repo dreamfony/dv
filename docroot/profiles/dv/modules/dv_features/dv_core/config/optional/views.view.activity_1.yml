@@ -11,11 +11,13 @@ dependencies:
     - field.storage.activity.field_activity_recipient_user
     - field.storage.activity.field_activity_status
     - system.menu.main
+    - user.role.administrator
   module:
     - activity_creator
     - dynamic_entity_reference
     - options
     - text
+    - user
 id: activity_1
 label: 'Activity 1'
 module: views
@@ -32,8 +34,10 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            administrator: administrator
       cache:
         type: tag
         options: {  }
@@ -1327,6 +1331,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - user.roles
       tags:
         - 'config:field.storage.activity.field_activity_destinations'
         - 'config:field.storage.activity.field_activity_entity'
@@ -1358,6 +1363,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - user.roles
       tags:
         - 'config:field.storage.activity.field_activity_destinations'
         - 'config:field.storage.activity.field_activity_entity'

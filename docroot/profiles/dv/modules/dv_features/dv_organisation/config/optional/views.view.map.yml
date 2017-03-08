@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.storage.node.field_o_geo_location
     - node.type.organisation
+    - system.menu.main
   module:
     - geofield
     - leaflet_views
@@ -271,6 +272,15 @@ display:
     display_options:
       display_extenders: {  }
       path: map
+      menu:
+        type: normal
+        title: 'Organisation Map'
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '0'
+        menu_name: main
     cache_metadata:
       max-age: -1
       contexts:

@@ -11,6 +11,7 @@ dependencies:
   - dv_answer_text
   - dv_area_of_activity
   - dv_core
+  - dv_geo_area_group
   - dv_issue
   - dv_org_legal_status
   - dv_organisation_founder
@@ -20,6 +21,7 @@ dependencies:
   - field
   - field_permissions
   - geo_area_group
+  - geocoder_field
   - gnode
   - group
   - inline_entity_form
