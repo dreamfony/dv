@@ -4,7 +4,6 @@ description: 'Used to log activities based on the message module'
 core: 8.x
 package: Activity
 dependencies:
-  - block_content
   - comment
   - content_moderation
   - dv_positions

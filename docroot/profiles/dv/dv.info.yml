@@ -16,7 +16,6 @@ dependencies:
   - big_pipe
   - block
   - block_content
-  - block_field
   - breakpoint
   - captcha
   - ckeditor
@@ -34,6 +33,7 @@ dependencies:
   - ctools_views
   - datetime
   - datetime_range
+  - dv_blog
   - dv_core
   - dv_mailing_list
   - dvm_moderation
@@ -105,6 +105,7 @@ dependencies:
   - user_registrationpassword
   - views
   - views_ui
+  - radix_layouts
 themes:
   - patternlab
   - seven

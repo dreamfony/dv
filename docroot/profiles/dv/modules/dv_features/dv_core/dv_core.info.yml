@@ -23,6 +23,7 @@ dependencies:
   - dv_answer_number
   - dv_answer_text
   - dv_area_of_activity
+  - dv_blog
   - dv_issue
   - dv_org_legal_status
   - dv_organisation_founder

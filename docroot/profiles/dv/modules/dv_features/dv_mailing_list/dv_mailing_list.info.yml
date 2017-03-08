@@ -5,7 +5,6 @@ core: 8.x
 dependencies:
   - activity_creator
   - activity_logger
-  - block_field
   - comment
   - content_moderation
   - dv_answer_text
@@ -29,6 +28,7 @@ dependencies:
   - message
   - node
   - options
+  - panelizer
   - path
   - text
   - user

@@ -319,7 +319,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          default_action: default
+          default_action: ignore
           exception:
             value: all
             title_enable: false
