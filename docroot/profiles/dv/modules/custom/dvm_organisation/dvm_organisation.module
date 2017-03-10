@@ -36,7 +36,8 @@ function dvm_organisation_node_insert(Drupal\Core\Entity\EntityInterface $entity
   if ($bundle == 'organisation') {
     /** @var Node $entity */
 
-    $dummy_email = $entity->get('field_o_organisation_id')->getString() . '@dv.com';
+    $dummy_email = $entity->get('field_o_organisation_id')
+        ->getString() . '@dv.com';
 
     // get current email set on organisation node
     $email = $entity->get('field_o_email')->getValue();
@@ -84,11 +85,35 @@ function dvm_organisation_node_update(Drupal\Core\Entity\EntityInterface $entity
     if (isset($email[0]['value'])) {
       $email = $email[0]['value'];
       /** @var User $user */
-      $user = Drupal::service('dvm_organisation.organisation')->getOrganisationUserEntity($entity);
+      $user = Drupal::service('dvm_organisation.organisation')
+        ->getOrganisationUserEntity($entity);
 
-      if (!is_null($user)){
+      if (!is_null($user)) {
         $user->set('field_ac_contact_email', $email);
         $user->save();
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+
+function dvm_organisation_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+
+//  Both group and node entity have bundle called "organisation"
+  if ($entity instanceof \Drupal\node\NodeInterface) {
+    /** @var Organisation $entity */
+    $bundle = $entity->bundle();
+
+    if ($bundle == 'organisation') {
+      $organisation_id = $entity->get('field_o_organisation_id')->getValue();
+      if (empty($organisation_id)) {
+        $organisation_id = Drupal::service('dvm_organisation.organisation')
+          ->getOrganisationId();
+
+        $entity->set('field_o_organisation_id', $organisation_id);
       }
     }
   }
