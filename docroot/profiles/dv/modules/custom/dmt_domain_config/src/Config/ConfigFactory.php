@@ -3,6 +3,7 @@ namespace Drupal\dmt_domain_config\Config;
 
 use Drupal\Core\Config\ConfigFactory as CoreConfigFactory;
 use Drupal\domain\DomainNegotiatorInterface;
+
 /**
  * Overrides Drupal\Core\Config\ConfigFactory in order to use our own Config class.
  */

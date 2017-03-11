@@ -10,4 +10,6 @@ internal: true
 audience: anonymous
 group_type: organisation
 permissions_ui: true
-permissions: {  }
+permissions:
+  0: 'view group'
+  2: 'view subgroup:organisation content'

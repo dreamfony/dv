@@ -319,7 +319,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          default_action: default
+          default_action: ignore
           exception:
             value: all
             title_enable: false
@@ -365,6 +365,15 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
+      allow:
+        items_per_page: false
+        offset: '0'
+        pager: '0'
+        hide_fields: '0'
+        sort_fields: '0'
+        disable_filters: '0'
+        configure_sorts: '0'
+      block_description: Answers
     cache_metadata:
       max-age: -1
       contexts:

@@ -2,7 +2,7 @@ name: 'Geo Area Node'
 type: module
 description: 'Geo Area Content type and Migration import'
 core: 8.x
-package: 'Geo Area'
+package: DV
 dependencies:
   - content_moderation
   - field

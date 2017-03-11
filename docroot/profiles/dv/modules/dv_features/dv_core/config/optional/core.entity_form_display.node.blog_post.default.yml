@@ -2,18 +2,15 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.question.body
-    - field.field.node.question.field_question_answers
-    - field.field.node.question.field_question_comment_type
-    - node.type.question
+    - field.field.node.blog_post.body
+    - node.type.blog_post
   module:
-    - comment
     - content_moderation
     - path
     - text
-id: node.question.default
+id: node.blog_post.default
 targetEntityType: node
-bundle: question
+bundle: blog_post
 mode: default
 content:
   body:
@@ -31,18 +28,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_question_answers:
-    weight: 33
-    settings: {  }
-    third_party_settings: {  }
-    type: comment_default
-    region: content
-  field_question_comment_type:
-    weight: 32
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
   langcode:
     type: language_select
     weight: 2

@@ -3,16 +3,14 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.question.body
-    - field.field.node.question.field_question_answers
-    - field.field.node.question.field_question_comment_type
-    - node.type.question
+    - field.field.node.blog_post.body
+    - node.type.blog_post
   module:
     - text
     - user
-id: node.question.teaser
+id: node.blog_post.teaser
 targetEntityType: node
-bundle: question
+bundle: blog_post
 mode: teaser
 content:
   body:
@@ -27,6 +25,4 @@ content:
     weight: 100
     region: content
 hidden:
-  field_question_answers: true
-  field_question_comment_type: true
   langcode: true

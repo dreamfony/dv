@@ -4,16 +4,101 @@ dependencies:
   config:
     - core.entity_view_display.comment.answer_text.default
     - field.field.node.question.body
-    - field.field.node.question.field_q_answers
     - field.field.node.question.field_question_answers
     - field.field.node.question.field_question_comment_type
     - node.type.question
   module:
-    - block_field
     - comment
     - options
+    - panelizer
     - text
     - user
+third_party_settings:
+  panelizer:
+    enable: true
+    custom: false
+    allow: false
+    default: default
+    displays:
+      default:
+        blocks:
+          1b4589bb-e23e-4ad1-b2d2-cc6ce18b6a79:
+            id: 'entity_field:node:uid'
+            label: 'Authored by'
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: author
+              settings: {  }
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            region: contentmain
+            weight: 1
+            uuid: 1b4589bb-e23e-4ad1-b2d2-cc6ce18b6a79
+          270c81b8-fb6c-4ef2-a972-6dc4860c3df3:
+            id: 'entity_field:node:created'
+            label: 'Authored on'
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: timestamp
+              settings:
+                date_format: medium
+                custom_date_format: ''
+                timezone: ''
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            region: contentmain
+            weight: 2
+            uuid: 270c81b8-fb6c-4ef2-a972-6dc4860c3df3
+          a1914382-ef80-4352-ac89-df4fff9f5dac:
+            id: 'entity_field:node:body'
+            label: Body
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: above
+              type: text_default
+              settings: {  }
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            region: contentmain
+            weight: 3
+            uuid: a1914382-ef80-4352-ac89-df4fff9f5dac
+          0a7a2b28-3126-44fa-950a-9678f8debe95:
+            id: 'views_block:answers-block_1'
+            label: ''
+            provider: views
+            label_display: visible
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+            region: contentmain
+            uuid: 0a7a2b28-3126-44fa-950a-9678f8debe95
+            weight: 4
+        id: panels_variant
+        label: Default
+        uuid: f90d595a-3c86-42eb-b61a-185886206250
+        weight: 0
+        layout: radix_boxton
+        layout_settings: {  }
+        page_title: '[node:title]'
+        storage_type: panelizer_default
+        storage_id: 'node:question:full:default'
+        builder: ipe
+        pattern: panelizer
+        static_context: {  }
 id: node.question.default
 targetEntityType: node
 bundle: question
@@ -25,13 +110,6 @@ content:
     weight: 1
     settings: {  }
     third_party_settings: {  }
-    region: content
-  field_q_answers:
-    weight: 3
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: block_field
     region: content
   field_question_answers:
     weight: 4
