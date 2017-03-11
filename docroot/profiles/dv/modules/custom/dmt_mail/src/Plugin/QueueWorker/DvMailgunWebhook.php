@@ -5,7 +5,7 @@
  * Contains \Drupal\activity_logger\Plugin\QueueWorker\MessageQueueBase.
  */
 
-namespace Drupal\dvm_mailing_list\Plugin\QueueWorker;
+namespace Drupal\dmt_mail\Plugin\QueueWorker;
 
 use Drupal\Core\Queue\QueueWorkerBase;
 use Drupal\collect\Entity\Container;

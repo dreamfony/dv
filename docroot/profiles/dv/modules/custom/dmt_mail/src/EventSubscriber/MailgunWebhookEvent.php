@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dvm_mailing_list\EventSubscriber;
+namespace Drupal\dmt_mail\EventSubscriber;
 
 use Drupal\webhooks\Event\ReceiveEvent;
 use Drupal\webhooks\Webhook;
