@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7a4ac17cb935222d327cf02dbeedea8a",
-    "content-hash": "7927bb15f543969b0f4ce72e11af7ee7",
+    "hash": "b09ceb40c7db3aadad3ea778442ef4c9",
+    "content-hash": "44fa062d2d8c1e7a016f5674eec4a982",
     "packages": [
         {
             "name": "acquia/blt",
@@ -1380,6 +1380,44 @@
                 "source": "http://cgit.drupalcode.org/admin_toolbar",
                 "issues": "https://www.drupal.org/project/issues/admin_toolbar"
             }
+        },
+        {
+            "name": "drupal/allowed_formats",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/allowed_formats",
+                "reference": "eabd7e05267b0b12dafd1046bc50091da632d214"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0+2-dev",
+                    "datestamp": "1473686039"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "floretan",
+                    "homepage": "https://www.drupal.org/user/66163"
+                }
+            ],
+            "description": "Limit which text formats are available for each field instance.",
+            "homepage": "https://www.drupal.org/project/allowed_formats",
+            "support": {
+                "source": "http://cgit.drupalcode.org/allowed_formats"
+            },
+            "time": "2017-02-18 10:41:39"
         },
         {
             "name": "drupal/bootstrap",
@@ -3719,7 +3757,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/inline_entity_form-8.x-1.0-beta1.zip",
-                "reference": null,
+                "reference": "8.x-1.0-beta1",
                 "shasum": "185ffc28a7b68d19cce057855d1c111f1741a3ea"
             },
             "require": {
@@ -12466,7 +12504,8 @@
         "drupal/multiversion": 20,
         "drupal/domain": 15,
         "drupal/collect": 20,
-        "drupal/ctools": 20
+        "drupal/ctools": 20,
+        "drupal/allowed_formats": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

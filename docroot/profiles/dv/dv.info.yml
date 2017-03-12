@@ -12,6 +12,7 @@ dependencies:
   - address
   - admin_toolbar
   - admin_toolbar_tools
+  - allowed_formats
   - basic_auth
   - big_pipe
   - block

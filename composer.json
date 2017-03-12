@@ -91,7 +91,8 @@
         "drupal/panelizer": "^3",
         "drupal/bootstrap_layouts": "^4.1",
         "drupal/radix_layouts": "^3.0",
-        "drupal/ds": "^2.6"
+        "drupal/ds": "^2.6",
+        "drupal/allowed_formats": "1.x-dev"
     },
     "require-dev": {
         "behat/behat": "^3.1",
