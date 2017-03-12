@@ -7,6 +7,7 @@
 
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\group\Entity\Group;
+use Drupal\Core\Form\FormStateInterface;
 
 
 /**
@@ -42,6 +43,50 @@ function dvm_mailing_list_form_group_mailing_list_edit_form_alter(&$form, $form_
   // Add custom submit handler
   $form['actions']['submit']['#submit'][] = '_dvm_mailing_list_group_form_submit';
 
+}
+
+/**
+ * Implements hook_inline_entity_form_entity_form_alter().
+ */
+function dvm_mailing_list_form_node_question_form_alter(&$form, FormStateInterface &$form_state) {
+  $form['title']['#access'] = FALSE;
+
+  $ajax_id = 'ajax-form-entity-node-question-new';
+
+  $form['#attributes']['class'][] = $ajax_id;
+
+  // Ajaxification settings of the buttons.
+  $ajax_settings = array(
+    'callback' => 'Drupal\dvm_mailing_list\Form\QuestionFormAlter::ajaxFormEntityCallback',
+    'wrapper' => $ajax_id,
+    'effect' => 'fade',
+  );
+  $form['actions']['submit']['#ajax'] = $ajax_settings;
+  $form['actions']['publish']['#ajax'] = $ajax_settings;
+  $form['actions']['unpublish']['#ajax'] = $ajax_settings;
+  // @todo : does not work with dropbuttons (needs javascript magic presumably).
+  unset($form['actions']['publish']['#dropbutton']);
+  unset($form['actions']['unpublish']['#dropbutton']);
+  // Ajaxify the buttons.
+  foreach (array_keys($form['actions']) as $action) {
+    if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+      $form['actions'][$action]['#submit'][] = 'Drupal\dvm_mailing_list\Form\QuestionFormAlter::ajaxFormEntityNodeFormSubmit';
+    }
+  }
+
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function dvm_mailing_list_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  if($entity->bundle() == 'question') {
+    /** @var  \Drupal\node\Entity\Node $entity */
+    $body_value = strip_tags($entity->get('body')->getValue()[0]['value']);
+    $title = substr($body_value, 0 , 254);
+    $entity->set('title', $title);
+    $entity->isDefaultRevision(TRUE);
+  }
 }
 
 /**
