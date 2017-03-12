@@ -197,6 +197,9 @@
             ]
         },
         "patches": {
+            "drupal/inline_entity_form": {
+              "Save revisions Node - https://www.drupal.org/node/2367235" : "https://www.drupal.org/files/issues/support_entity_revision-2367235-92.patch"
+            },
             "drupal/profile": {
                 "Fixes access control on entities": "https://www.drupal.org/files/issues/profile-accesscontrol-2703825-6.patch"
             },
