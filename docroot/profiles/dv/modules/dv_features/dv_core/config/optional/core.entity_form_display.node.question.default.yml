@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.question.field_question_comment_type
     - node.type.question
   module:
+    - allowed_formats
     - comment
     - content_moderation
     - path
@@ -20,10 +21,13 @@ content:
     type: text_textarea_with_summary
     weight: 31
     settings:
-      rows: 9
+      rows: 3
+      placeholder: Question
       summary_rows: 3
-      placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
     region: content
   created:
     type: datetime_timestamp

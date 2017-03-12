@@ -5,9 +5,15 @@ dependencies:
     - field.storage.node.body
     - node.type.question
   module:
+    - allowed_formats
     - geocoder_field
     - text
 third_party_settings:
+  allowed_formats:
+    plain_text: plain_text
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
   geocoder_field:
     method: none
     field: title
@@ -24,7 +30,7 @@ entity_type: node
 bundle: question
 label: Body
 description: ''
-required: false
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''

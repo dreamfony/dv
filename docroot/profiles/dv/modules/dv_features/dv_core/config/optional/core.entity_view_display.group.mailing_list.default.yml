@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.group.mailing_list.field_ml_questions
     - field.field.group.mailing_list.field_ml_to
     - group.type.mailing_list
   module:
@@ -29,20 +28,20 @@ third_party_settings:
               third_party_settings: {  }
               weight: 0
               region: content
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
             region: contentmain
             weight: 1
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
             uuid: 15e0ce5f-0e84-48b8-9f9f-c30ae058cefd
           fa20f377-003a-49f5-8be9-d2c8bc73c0a5:
             id: question_form_block
             label: 'Question form block'
             provider: dvm_mailing_list
-            label_display: visible
-            context_mapping: {  }
+            label_display: '0'
             region: contentmain
-            uuid: fa20f377-003a-49f5-8be9-d2c8bc73c0a5
             weight: 2
+            context_mapping: {  }
+            uuid: fa20f377-003a-49f5-8be9-d2c8bc73c0a5
           ea239d01-54c5-4ff4-8811-1a0e37ba2631:
             id: 'views_block:mailing_list_items-block_1'
             label: Questions
@@ -50,10 +49,10 @@ third_party_settings:
             label_display: '0'
             views_label: Questions
             items_per_page: none
-            context_mapping: {  }
             region: contentmain
-            uuid: ea239d01-54c5-4ff4-8811-1a0e37ba2631
             weight: 3
+            context_mapping: {  }
+            uuid: ea239d01-54c5-4ff4-8811-1a0e37ba2631
         id: panels_variant
         label: Default
         uuid: ed79a14f-be60-4edf-bc95-6e6537c02224
@@ -62,7 +61,7 @@ third_party_settings:
         layout_settings: {  }
         page_title: '[group:title]'
         storage_type: panelizer_default
-        storage_id: 'group:mailing_list:full:default'
+        storage_id: 'group:mailing_list:default:default'
         builder: ipe
         pattern: panelizer
         static_context: {  }
@@ -76,14 +75,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_ml_questions:
-    weight: -2
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_ml_to:
     weight: -3
     label: above

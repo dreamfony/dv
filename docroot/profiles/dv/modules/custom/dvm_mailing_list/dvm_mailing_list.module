@@ -32,7 +32,7 @@ function dvm_mailing_list_help($route_name, RouteMatchInterface $route_match) {
  */
 function dvm_mailing_list_form_group_mailing_list_add_form_alter(&$form, $form_state, $form_id) {
   // Add custom submit handler
-  $form['actions']['submit']['#submit'][] = '_dvm_mailing_list_group_form_submit';
+  // $form['actions']['submit']['#submit'][] = '_dvm_mailing_list_group_form_submit';
 
 }
 
@@ -41,8 +41,7 @@ function dvm_mailing_list_form_group_mailing_list_add_form_alter(&$form, $form_s
  */
 function dvm_mailing_list_form_group_mailing_list_edit_form_alter(&$form, $form_state, $form_id) {
   // Add custom submit handler
-  $form['actions']['submit']['#submit'][] = '_dvm_mailing_list_group_form_submit';
-
+  // $form['actions']['submit']['#submit'][] = '_dvm_mailing_list_group_form_submit';
 }
 
 /**
@@ -50,6 +49,12 @@ function dvm_mailing_list_form_group_mailing_list_edit_form_alter(&$form, $form_
  */
 function dvm_mailing_list_form_node_question_form_alter(&$form, FormStateInterface &$form_state) {
   $form['title']['#access'] = FALSE;
+
+  $form['revision_information']['#access'] = FALSE;
+
+  $form['body']['widget']['#title'] = '';
+
+  $form['body']['widget'][0]['#title_display'] = 'hidden';
 
   $ajax_id = 'ajax-form-entity-node-question-new';
 
@@ -77,6 +82,8 @@ function dvm_mailing_list_form_node_question_form_alter(&$form, FormStateInterfa
 }
 
 /**
+ * Auto generate title for question node.
+ *
  * Implements hook_entity_presave().
  */
 function dvm_mailing_list_node_presave(Drupal\Core\Entity\EntityInterface $entity) {

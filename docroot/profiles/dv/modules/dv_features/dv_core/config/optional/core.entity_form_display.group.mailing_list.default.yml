@@ -2,31 +2,16 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.group.mailing_list.field_ml_questions
     - field.field.group.mailing_list.field_ml_to
     - group.type.mailing_list
   module:
     - content_moderation
-    - inline_entity_form
     - path
 id: group.mailing_list.default
 targetEntityType: group
 bundle: mailing_list
 mode: default
 content:
-  field_ml_questions:
-    weight: 3
-    settings:
-      match_operator: CONTAINS
-      form_mode: default
-      override_labels: false
-      label_singular: ''
-      label_plural: ''
-      allow_new: true
-      allow_existing: false
-    third_party_settings: {  }
-    type: inline_entity_form_complex
-    region: content
   field_ml_to:
     weight: 4
     settings:
