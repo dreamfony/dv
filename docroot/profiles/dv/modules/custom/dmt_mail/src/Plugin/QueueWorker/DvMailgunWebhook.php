@@ -5,10 +5,11 @@
  * Contains \Drupal\activity_logger\Plugin\QueueWorker\MessageQueueBase.
  */
 
-namespace Drupal\dvm_mailing_list\Plugin\QueueWorker;
+namespace Drupal\dmt_mail\Plugin\QueueWorker;
 
 use Drupal\Core\Queue\QueueWorkerBase;
-
+use Drupal\collect\Entity\Container;
+use Drupal\Core\Url;
 
 /**
  * A report worker.
@@ -71,15 +72,38 @@ class DvMailgunWebhook extends QueueWorkerBase {
     }
 
     if (isset($data['entity_id'])) {
+//    Save raw message
+//    TODO Enable this when collect is fixed
+//      https://www.drupal.org/node/2859839
+      /*
+         $message_id = str_replace(['<', '>'], '', $data['Message-Id']);
+         $origin_uri = Url::fromUri('base:webhook/mailgun/message-id/' . $message_id, ['absolute' => TRUE])->toString();
+         $origin_uri = str_replace(['%40', '%3D', '%2B'], ['@', '=', '+'], $origin_uri);
+         $container = Container::create([
+           'origin_uri' => $origin_uri,
+           'schema_uri' => 'http://schema.dmtcore.com/webhook/0.0.1/mailgun',
+           'type' => 'application/json',
+           'data' => json_encode([
+             'raw' => $data,
+           ]),
+         ]);
+         $uuid = $container->uuid();
+         $container->save();
+   */
+
+//    Update activity
+
+
       $activity = \Drupal::entityManager()
         ->getStorage('activity')
         ->load($data['entity_id']);
       $activity->set('field_activity_status', $status);
+//    TODO Change this when collect is fixed
+//      $activity->revision_log_message = $data['event'].':'. $status . '->' . $uuid;
       $activity->revision_log_message = serialize($data);
       $activity->setNewRevision();
       $activity->save();
 
     }
-
   }
 }
