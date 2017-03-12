@@ -16,6 +16,7 @@ dependencies:
   - dv_user
   - entity_browser
   - field
+  - field_permissions
   - geo_area_group
   - geocoder_field
   - geofield

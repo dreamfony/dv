@@ -16,42 +16,6 @@ third_party_settings:
     displays:
       default:
         blocks:
-          2779361a-4f29-4cb0-aa14-213c33d15f6b:
-            id: 'entity_field:group:label'
-            label: Title
-            provider: ctools_block
-            label_display: '0'
-            formatter:
-              label: hidden
-              type: string
-              settings:
-                link_to_entity: false
-              third_party_settings: {  }
-              weight: 0
-              region: content
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
-            region: middle
-            weight: -5
-            uuid: 2779361a-4f29-4cb0-aa14-213c33d15f6b
-          704f98db-01a5-4356-80be-facc009df005:
-            id: 'entity_field:group:field_ml_questions'
-            label: Questions
-            provider: ctools_block
-            label_display: '0'
-            formatter:
-              label: above
-              type: entity_reference_label
-              settings:
-                link: true
-              third_party_settings: {  }
-              weight: 0
-              region: content
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
-            region: middle
-            weight: -2
-            uuid: 704f98db-01a5-4356-80be-facc009df005
           15e0ce5f-0e84-48b8-9f9f-c30ae058cefd:
             id: 'entity_field:group:field_ml_to'
             label: To
@@ -67,9 +31,29 @@ third_party_settings:
               region: content
             context_mapping:
               entity: '@panelizer.entity_context:entity'
-            region: middle
-            weight: -3
+            region: contentmain
+            weight: 1
             uuid: 15e0ce5f-0e84-48b8-9f9f-c30ae058cefd
+          fa20f377-003a-49f5-8be9-d2c8bc73c0a5:
+            id: question_form_block
+            label: 'Question form block'
+            provider: dvm_mailing_list
+            label_display: visible
+            context_mapping: {  }
+            region: contentmain
+            uuid: fa20f377-003a-49f5-8be9-d2c8bc73c0a5
+            weight: 2
+          ea239d01-54c5-4ff4-8811-1a0e37ba2631:
+            id: 'views_block:mailing_list_items-block_1'
+            label: Questions
+            provider: views
+            label_display: '0'
+            views_label: Questions
+            items_per_page: none
+            context_mapping: {  }
+            region: contentmain
+            uuid: ea239d01-54c5-4ff4-8811-1a0e37ba2631
+            weight: 3
         id: panels_variant
         label: Default
         uuid: ed79a14f-be60-4edf-bc95-6e6537c02224
@@ -78,7 +62,7 @@ third_party_settings:
         layout_settings: {  }
         page_title: '[group:title]'
         storage_type: panelizer_default
-        storage_id: 'group:mailing_list:default:default'
+        storage_id: 'group:mailing_list:full:default'
         builder: ipe
         pattern: panelizer
         static_context: {  }

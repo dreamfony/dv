@@ -2,6 +2,8 @@ name: Blog
 type: module
 core: 8.x
 dependencies:
+  - dv_core
+  - field
   - menu_ui
   - node
 package: DV
