@@ -1,0 +1,8 @@
+
+dvm_mailing_list.create_mailing_list:
+  path: 'create-mailing-list'
+  defaults:
+    _controller: '\Drupal\dvm_mailing_list\Controller\CreateMailingList::createMailingList'
+    _title: 'Create a Mailing List'
+  requirements:
+    _permission: 'create mailing_list group'
