@@ -1,0 +1,6 @@
+langcode: en
+status: false
+dependencies: {  }
+formId: node_geo_area_form
+captchaType: default
+label: null
