@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.mailing_list
+id: mailing_list-administrator
+label: Administrator
+weight: 14
+internal: false
+audience: member
+group_type: mailing_list
+permissions_ui: true
+permissions:
+  - 'edit group'
+  - 'view group'
+  - 'view group_node:question entity'
+  - 'create group_node:question entity'
+  - 'delete any group_node:question entity'
+  - 'delete own group_node:question entity'
+  - 'update any group_node:question entity'
+  - 'update own group_node:question entity'
+  - 'view unpublished group_node:question entity'

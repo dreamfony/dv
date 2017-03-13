@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: mailing_list
+label: 'Mailing list'
+description: ''
+creator_roles:
+  - mailing_list-administrator
