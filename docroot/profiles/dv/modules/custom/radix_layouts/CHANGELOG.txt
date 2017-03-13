@@ -1,0 +1,3 @@
+Radix Layouts 8.x-3.0, 2017-01-31
+-------------------
+- Fix #2838675: YAML syntax errors in radix_layouts.layouts.yml.

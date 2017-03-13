@@ -1,0 +1,508 @@
+radix_bryant_flipped:
+  label: Bryant Flipped
+  category: Radix
+  path: plugins/layouts/radix_bryant_flipped
+  template: radix-bryant-flipped
+  icon: radix-bryant-flipped.png
+  library: radix_layouts/radix_layouts
+  regions:
+    sidebar:
+      label: Sidebar
+    contentmain:
+      label: Content
+radix_bartlett_flipped:
+  label: Bartlett Flipped
+  category: Radix
+  path: plugins/layouts/radix_bartlett_flipped
+  template: radix-bartlett-flipped
+  icon: radix-bartlett-flipped.png
+  library: radix_layouts/radix_layouts
+  regions:
+    sidebar:
+      label: Sidebar
+    contentheader:
+      label: Content Header
+    contentcolumn1:
+      label: Content Column 1
+    contentcolumn2:
+      label: Content Column 2
+radix_bartlett:
+  label: Bartlett
+  category: Radix
+  path: plugins/layouts/radix_bartlett
+  template: radix-bartlett
+  icon: radix-bartlett.png
+  library: radix_layouts/radix_layouts
+  regions:
+    sidebar:
+      label: Sidebar
+    contentheader:
+      label: Content Header
+    contentcolumn1:
+      label: Content Column 1
+    contentcolumn2:
+      label: Content Column 2
+radix_boxton:
+  label: Boxton
+  category: Radix
+  path: plugins/layouts/radix_boxton
+  template: radix-boxton
+  icon: radix-boxton.png
+  library: radix_layouts/radix_layouts
+  regions:
+    contentmain:
+      label: Content
+radix_brenham_flipped:
+  label: Brenham Flipped
+  category: Radix
+  path: plugins/layouts/radix_brenham_flipped
+  template: radix-brenham-flipped
+  icon: radix-brenham-flipped.png
+  library: radix_layouts/radix_layouts
+  regions:
+    header:
+      label: Header
+    sidebar:
+      label: Content Sidebar
+    contentmain:
+      label: Content
+radix_brenham:
+  label: Brenham
+  category: Radix
+  path: plugins/layouts/radix_brenham
+  template: radix-brenham
+  icon: radix-brenham.png
+  library: radix_layouts/radix_layouts
+  regions:
+    header:
+      label: Header
+    sidebar:
+      label: Content Sidebar
+    contentmain:
+      label: Content
+radix_brown:
+  label: Brown
+  category: Radix
+  path: plugins/layouts/radix_brown
+  template: radix-brown
+  icon: radix-brown.png
+  library: radix_layouts/radix_layouts
+  regions:
+    slider:
+      label: Slider
+    slidergutter:
+      label: Slider Gutter
+    column1:
+      label: First Column
+    column2:
+      label: Second Column
+    column3:
+      label: Third Column
+    footercolumn1:
+      label: Footer First Column
+    footercolumn2:
+      label: Footer Second Column
+    footercolumn3:
+      label: Footer Third Column
+radix_bryant:
+  label: Bryant
+  category: Radix
+  path: plugins/layouts/radix_bryant
+  template: radix-bryant
+  icon: radix-bryant.png
+  library: radix_layouts/radix_layouts
+  regions:
+    sidebar:
+      label: Sidebar
+    contentmain:
+      label: Content
+radix_burr_flipped:
+  label: Burr Flipped
+  category: Radix
+  path: plugins/layouts/radix_burr_flipped
+  template: radix-burr-flipped
+  icon: radix-burr-flipped.png
+  library: radix_layouts/radix_layouts
+  regions:
+    sidebar:
+      label: Sidebar
+    contentmain:
+      label: Content
+radix_burr:
+  label: Burr
+  category: Radix
+  path: plugins/layouts/radix_burr
+  template: radix-burr
+  icon: radix-burr.png
+  library: radix_layouts/radix_layouts
+  regions:
+    sidebar:
+      label: Sidebar
+    contentmain:
+      label: Content
+radix_geary:
+  label: Geary
+  category: Radix
+  path: plugins/layouts/radix_geary
+  template: radix-geary
+  icon: radix-geary.png
+  library: radix_layouts/radix_layouts
+  regions:
+    header:
+      label: Header
+    column1:
+      label: First Column
+    column2:
+      label: Second Column
+    column3:
+      label: Third Column
+radix_harris:
+  label: Harris
+  category: Radix
+  path: plugins/layouts/radix_harris
+  template: radix-harris
+  icon: radix-harris.png
+  library: radix_layouts/radix_layouts
+  regions:
+    header:
+      label: Header
+    column1:
+      label: First Column
+    column2:
+      label: Second Column
+    contentmain:
+      label: Content
+radix_hewston_flipped:
+  label: Hewston Flipped
+  category: Radix
+  path: plugins/layouts/radix_hewston_flipped
+  template: radix-hewston-flipped
+  icon: radix-hewston-flipped.png
+  library: radix_layouts/radix_layouts
+  regions:
+    slider:
+      label: Slider
+    slidergutter:
+      label: Slider Gutter
+    column1:
+      label: First Column
+    column2:
+      label: Second Column
+    column3:
+      label: Third Column
+radix_hewston:
+  label: Hewston
+  category: Radix
+  path: plugins/layouts/radix_hewston
+  template: radix-hewston
+  icon: radix-hewston.png
+  library: radix_layouts/radix_layouts
+  regions:
+    slider:
+      label: Slider
+    slidergutter:
+      label: Slider Gutter
+    column1:
+      label: First Column
+    column2:
+      label: Second Column
+    column3:
+      label: Third Column
+radix_mccoppin:
+  label: McCoppin
+  category: Radix
+  path: plugins/layouts/radix_mccoppin
+  template: radix-mccoppin
+  icon: radix-mccoppin.png
+  library: radix_layouts/radix_layouts
+  regions:
+    column1:
+      label: First Column
+    column2:
+      label: Second Column
+    column3:
+      label: Third Column
+radix_moscone_flipped:
+  label: Moscone Flipped
+  category: Radix
+  path: plugins/layouts/radix_moscone_flipped
+  template: radix-moscone-flipped
+  icon: radix-moscone-flipped.png
+  library: radix_layouts/radix_layouts
+  regions:
+    header:
+      label: Header
+    sidebar:
+      label: Content Sidebar
+    contentmain:
+      label: Content
+    footer:
+      label: Footer
+radix_moscone:
+  label: Moscone
+  category: Radix
+  path: plugins/layouts/radix_moscone
+  template: radix-moscone
+  icon: radix-moscone.png
+  library: radix_layouts/radix_layouts
+  regions:
+    header:
+      label: Header
+    sidebar:
+      label: Content Sidebar
+    contentmain:
+      label: Content
+    footer:
+      label: Footer
+radix_phelan:
+  label: Phelan
+  category: Radix
+  path: plugins/layouts/radix_phelan
+  template: radix-phelan
+  icon: radix-phelan.png
+  library: radix_layouts/radix_layouts
+  regions:
+    column1:
+      label: First Column
+    column2:
+      label: Second Column
+radix_pond:
+  label: Pond
+  category: Radix
+  path: plugins/layouts/radix_pond
+  template: radix-pond
+  icon: radix-pond.png
+  library: radix_layouts/radix_layouts
+  regions:
+    header:
+      label: Header
+    column1:
+      label: "Row 1: First Column"
+    column2:
+      label: "Row 1: Second Column"
+    column3:
+      label: "Row 1: Third Column"
+    secondarycolumn1:
+      label: "Row 2: First Column"
+    secondarycolumn2:
+      label: "Row 2: Second Column"
+    secondarycolumn3:
+      label: "Row 2: Third Column"
+    footer:
+      label: Footer
+radix_rolph:
+  label: Rolph
+  category: Radix
+  path: plugins/layouts/radix_rolph
+  template: radix-rolph
+  icon: radix-rolph.png
+  library: radix_layouts/radix_layouts
+  regions:
+    header:
+      label: Header
+    quarter1:
+      label: Quarter 1 Column
+    quarter2:
+      label: Quarter 2 Column
+    quarter3:
+      label: Quarter 1 Column
+    quarter4:
+      label: Quarter 2 Column
+    footer:
+      label: Footer
+radix_sanderson_flipped:
+  label: Sanderson Flipped
+  category: Radix
+  path: plugins/layouts/radix_sanderson_flipped
+  template: radix-sanderson-flipped
+  icon: radix-sanderson-flipped.png
+  library: radix_layouts/radix_layouts
+  regions:
+    column1:
+      label: "Row 1: First Column"
+    column2:
+      label: "Row 1: Second Column"
+    column3:
+      label: "Row 1: Third Column"
+    secondarycolumn1:
+      label: "Row 2: First Column"
+    secondarycolumn2:
+      label: "Row 2: Second Column"
+radix_sanderson:
+  label: Sanderson
+  category: Radix
+  path: plugins/layouts/radix_sanderson
+  template: radix-sanderson
+  icon: radix-sanderson.png
+  library: radix_layouts/radix_layouts
+  regions:
+    column1:
+      label: "Row 1: First Column"
+    column2:
+      label: "Row 1: Second Column"
+    secondarycolumn1:
+      label: "Row 2: First Column"
+    secondarycolumn2:
+      label: "Row 2: Second Column"
+    secondarycolumn3:
+      label: "Row 2: Third Column"
+radix_selby_flipped:
+  label: Selby Flipped
+  category: Radix
+  path: plugins/layouts/radix_selby_flipped
+  template: radix-selby-flipped
+  icon: radix-selby-flipped.png
+  library: radix_layouts/radix_layouts
+  regions:
+    sidebar:
+      label: Sidebar
+    contentheader:
+      label: Content Header
+    contentcolumn1:
+      label: Content Column 1
+    contentcolumn2:
+      label: Content Column 2
+    contentfooter:
+      label: Content Footer
+radix_selby:
+  label: Selby
+  category: Radix
+  path: plugins/layouts/radix_selby
+  template: radix-selby
+  icon: radix-selby.png
+  library: radix_layouts/radix_layouts
+  regions:
+    sidebar:
+      label: Sidebar
+    contentheader:
+      label: Content Header
+    contentcolumn1:
+      label: Content Column 1
+    contentcolumn2:
+      label: Content Column 2
+    contentfooter:
+      label: Content Footer
+radix_sutro_double:
+  label: Sutro Double
+  category: Radix
+  path: plugins/layouts/radix_sutro_double
+  template: radix-sutro-double
+  icon: radix-sutro-double.png
+  library: radix_layouts/radix_layouts
+  regions:
+    header:
+      label: Header
+    column1:
+      label: First Column
+    column2:
+      label: Second Column
+    middle:
+      label: Middle
+    secondcolumn1:
+      label: Bottom First Column
+    secondcolumn2:
+      label: Bottom Second Column
+    footer:
+      label: Footer
+radix_sutro:
+  label: Sutro
+  category: Radix
+  path: plugins/layouts/radix_sutro
+  template: radix-sutro
+  icon: radix-sutro.png
+  library: radix_layouts/radix_layouts
+  regions:
+    header:
+      label: Header
+    column1:
+      label: First Column
+    column2:
+      label: Second Column
+    footer:
+      label: Footer
+radix_taylor_flipped:
+  label: Taylor Flipped
+  category: Radix
+  path: plugins/layouts/radix_taylor_flipped
+  template: radix-taylor-flipped
+  icon: radix-taylor-flipped.png
+  library: radix_layouts/radix_layouts
+  regions:
+    header:
+      label: Header
+    quarter1:
+      label: Quarter 1 Column
+    quarter2:
+      label: Quarter 2 Column
+    half:
+      label: Half Column
+    footer:
+      label: Footer
+radix_taylor:
+  label: Taylor
+  category: Radix
+  path: plugins/layouts/radix_taylor
+  template: radix-taylor
+  icon: radix-taylor.png
+  library: radix_layouts/radix_layouts
+  regions:
+    header:
+      label: Header
+    half:
+      label: Half Column
+    quarter1:
+      label: Quarter 1 Column
+    quarter2:
+      label: Quarter 2 Column
+    footer:
+      label: Footer
+radix_webb_flipped:
+  label: Webb Flipped
+  category: Radix
+  path: plugins/layouts/radix_webb_flipped
+  template: radix-webb-flipped
+  icon: radix-webb-flipped.png
+  library: radix_layouts/radix_layouts
+  regions:
+    header:
+      label: Header
+    sidebar:
+      label: Sidebar
+    contentheader:
+      label: Content Header
+    contentcolumn1:
+      label: Content Column 1
+    contentcolumn2:
+      label: Content Column 2
+radix_webb:
+  label: Webb
+  category: Radix
+  path: plugins/layouts/radix_webb
+  template: radix-webb
+  icon: radix-webb.png
+  library: radix_layouts/radix_layouts
+  regions:
+    header:
+      label: Header
+    sidebar:
+      label: Sidebar
+    contentheader:
+      label: Content Header
+    contentcolumn1:
+      label: Content Column 1
+    contentcolumn2:
+      label: Content Column 2
+radix_whelan:
+  label: Whelan
+  category: Radix
+  path: plugins/layouts/radix_whelan
+  template: radix-whelan
+  icon: radix-whelan.png
+  library: radix_layouts/radix_layouts
+  regions:
+    column1:
+      label: First Column
+    column2:
+      label: Second Column
+    contentmain:
+      label: Content

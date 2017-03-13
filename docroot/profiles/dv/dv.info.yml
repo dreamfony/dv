@@ -77,6 +77,8 @@ dependencies:
   - node
   - options
   - page_cache
+  - panelizer
+  - panels
   - path
   - pathauto
   - persistent_login

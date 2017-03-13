@@ -1,0 +1,5 @@
+radix_layouts:
+  version: VERSION
+  css:
+    theme:
+      radix_layouts.css: {}

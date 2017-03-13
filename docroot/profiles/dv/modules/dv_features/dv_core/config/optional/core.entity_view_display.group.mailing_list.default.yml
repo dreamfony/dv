@@ -11,59 +11,41 @@ third_party_settings:
     enable: true
     custom: false
     allow: false
-    default: default
+    default: mailing_list_default
     displays:
-      default:
+      mailing_list_default:
         blocks:
-          15e0ce5f-0e84-48b8-9f9f-c30ae058cefd:
-            id: 'entity_field:group:field_ml_to'
-            label: To
-            provider: ctools_block
-            label_display: '0'
-            formatter:
-              label: above
-              type: entity_reference_label
-              settings:
-                link: true
-              third_party_settings: {  }
-              weight: 0
-              region: content
-            region: contentmain
-            weight: 1
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
-            uuid: 15e0ce5f-0e84-48b8-9f9f-c30ae058cefd
-          fa20f377-003a-49f5-8be9-d2c8bc73c0a5:
+          400d312c-a495-468d-9c71-fe2dabc9d2ab:
             id: question_form_block
             label: 'Question form block'
             provider: dvm_mailing_list
             label_display: '0'
             region: contentmain
-            weight: 2
+            weight: 0
+            uuid: 400d312c-a495-468d-9c71-fe2dabc9d2ab
             context_mapping: {  }
-            uuid: fa20f377-003a-49f5-8be9-d2c8bc73c0a5
-          ea239d01-54c5-4ff4-8811-1a0e37ba2631:
+          396e1432-6e37-4c9e-9fb5-b40618a06f52:
             id: 'views_block:mailing_list_items-block_1'
-            label: Questions
+            label: ''
             provider: views
-            label_display: '0'
-            views_label: Questions
+            label_display: visible
+            views_label: ''
             items_per_page: none
             region: contentmain
-            weight: 3
+            weight: 0
+            uuid: 396e1432-6e37-4c9e-9fb5-b40618a06f52
             context_mapping: {  }
-            uuid: ea239d01-54c5-4ff4-8811-1a0e37ba2631
         id: panels_variant
-        label: Default
-        uuid: ed79a14f-be60-4edf-bc95-6e6537c02224
+        uuid: 5a557251-3442-4926-8501-afdd5ea5ebf6
+        label: 'Mailing List Default'
         weight: 0
         layout: radix_boxton
         layout_settings: {  }
-        page_title: '[group:title]'
+        page_title: null
         storage_type: panelizer_default
-        storage_id: 'group:mailing_list:default:default'
-        builder: ipe
+        storage_id: 'group:mailing_list:default:mailing_list_default'
         pattern: panelizer
+        builder: ipe
         static_context: {  }
 id: group.mailing_list.default
 targetEntityType: group

@@ -58,12 +58,10 @@ display:
           row_class: ''
           default_row_class: true
       row:
-        type: fields
+        type: 'entity:node'
         options:
-          inline: {  }
-          separator: ''
-          hide_empty: false
-          default_field_elements: true
+          relationship: none
+          view_mode: default
       fields:
         view_group_content:
           id: view_group_content

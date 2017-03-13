@@ -4,7 +4,9 @@ description: 'Geo Area Content type and Migration import'
 core: 8.x
 package: DV
 dependencies:
+  - captcha
   - content_moderation
+  - dv_core
   - field
   - language
   - menu_ui

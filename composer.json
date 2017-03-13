@@ -86,12 +86,9 @@
         "drupal/multiversion": "1.x-dev",
         "drupal/domain": "^1.0@alpha",
         "drupal/collect": "1.x-dev",
-        "drupal/panels": "^3",
+        "drupal/panels": "^4",
         "drupal/ctools": "3.x-dev",
-        "drupal/panelizer": "^3",
-        "drupal/bootstrap_layouts": "^4.1",
-        "drupal/radix_layouts": "^3.0",
-        "drupal/ds": "^2.6",
+        "drupal/panelizer": "^4",
         "drupal/allowed_formats": "1.x-dev"
     },
     "require-dev": {
@@ -110,7 +107,8 @@
         "codeclimate/php-test-reporter": "^0.3.2",
         "drupal-composer/drupal-scaffold": "^2.1.0",
         "jakoch/phantomjs-installer": "^2.1.1-p07",
-        "drush/drush": "^9.0"
+        "drush/drush": "^9.0",
+        "drupal/console": "^1.0"
     },
     "scripts": {
         "blt-alias": "blt install-alias -Dcreate_alias=true",
@@ -216,8 +214,7 @@
                 "https://www.drupal.org/node/2758043": "https://www.drupal.org/files/issues/field_storage_not_installed-2758043-36.patch"
             },
             "drupal/features": {
-                "https://www.drupal.org/node/2668562 #4": "https://www.drupal.org/files/issues/features-not_detecting_profile_files-2668562-4.patch",
-                "https://www.drupal.org/node/2668562" : "https://www.drupal.org/files/issues/features_import_dependency_error-2856466-16.patch"
+                "https://www.drupal.org/node/2668562 #4": "https://www.drupal.org/files/issues/features-not_detecting_profile_files-2668562-4.patch"
             },
             "drupal/entity_browser": {
                 "https://www.drupal.org/node/2845037" : "https://www.drupal.org/files/issues/2845037-4.patch"

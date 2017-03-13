@@ -24,6 +24,9 @@ target-hooks:
   frontend-build:
     dir: '${docroot}/themes/custom/patternlab'
     command: 'npm run compile'
+  pre-config-import:
+    dir: '${docroot}'
+    command: 'echo ''No pre-config-import configured.'''
   post-deploy-build:
     dir: '${docroot}'
     command: 'echo ''No post-deploy build configured.'''
@@ -33,8 +36,6 @@ target-hooks:
 import: '${repo.root}/custom/blt_custom_phing_commands.xml'
 modules:
   local:
-    # dv_secure location location https://drive.google.com/drive/folders/0B0o4prxPrMJsX2N4OEp4bm0wRE0
-    # download it and put it in dv_features
     enable: [devel, field_ui, seckit, features_ui, views_ui, geo_area_migrate, dv_organisation_migrate, masquerade, dv_dev, queue_ui, dblog, mailgun, dv_secure]
     uninstall: [acsf, acquia_connector, shield]
   ci:
@@ -53,11 +54,11 @@ modules:
     enable: [acquia_connector, shield, geo_area_migrate, dv_organisation_migrate]
     uninstall: [devel, field_ui, views_ui]
   pimpmylog:
-      enable: [syslog]
-      uninstall: [dblog]
+    enable: [syslog]
+    uninstall: [dblog]
 cm:
   features:
-    bundle: 'dv'
+    bundle: dv
 drupal:
   account.name: admin
   account.password: admin

@@ -49,7 +49,7 @@ assignments:
     enabled: true
     weight: 4
   namespace:
-    enabled: false
+    enabled: true
     weight: 0
   optional:
     types:

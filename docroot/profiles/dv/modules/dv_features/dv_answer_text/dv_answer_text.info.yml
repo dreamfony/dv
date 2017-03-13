@@ -7,6 +7,7 @@ dependencies:
   - comment
   - content_moderation
   - dv_core
+  - dv_mailing_list
   - field
   - file
   - language

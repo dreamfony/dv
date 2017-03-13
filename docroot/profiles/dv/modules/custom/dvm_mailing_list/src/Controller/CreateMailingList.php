@@ -26,6 +26,8 @@ class CreateMailingList extends ControllerBase {
 
     $group->save();
 
+    /// @todo Check if user already has empty Survey
+
     return $this->redirect('entity.group.canonical', ['group' => $group->id()]);
   }
 
