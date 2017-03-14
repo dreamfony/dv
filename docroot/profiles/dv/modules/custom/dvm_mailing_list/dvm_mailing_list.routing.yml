@@ -6,3 +6,10 @@ dvm_mailing_list.create_mailing_list:
     _title: 'Create a Mailing List'
   requirements:
     _permission: 'create mailing_list group'
+
+dvm_mailing_list.question_edit_form:
+  path: 'question-edit/{id}'
+  defaults:
+    _controller: '\Drupal\dvm_mailing_list\Controller\QuestionEditController::questionEditForm'
+  requirements:
+    _csrf_token: 'TRUE'

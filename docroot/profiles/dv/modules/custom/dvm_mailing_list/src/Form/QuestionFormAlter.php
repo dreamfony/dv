@@ -5,6 +5,7 @@ namespace Drupal\dvm_mailing_list\Form;
 use Drupal\Core\Ajax\AppendCommand;
 use Drupal\Core\Ajax\PrependCommand;
 use Drupal\Core\Block\BlockManager;
+use Drupal\Core\Entity\Entity;
 use Drupal\Core\Form\FormState;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\BeforeCommand;
@@ -24,12 +25,17 @@ class QuestionFormAlter {
    * Rebuild the form.
    */
   public static function ajaxFormEntityNodeFormSubmit($form, FormState &$form_state) {
+    /** @var Entity $entity */
     $entity = $form_state->getBuildInfo()['callback_object']->getEntity();
     $entity_type = $entity->getEntityTypeId();
     $bundle = $entity->bundle();
 
-    $new_entity = \Drupal::entityTypeManager()->getStorage($entity_type)->create(['type' => $bundle]);
-    $form_state->getBuildInfo()['callback_object']->setEntity($new_entity);
+    if (isset($form['#isNew'])) {
+      $new_entity = \Drupal::entityTypeManager()
+        ->getStorage($entity_type)
+        ->create(['type' => $bundle]);
+      $form_state->getBuildInfo()['callback_object']->setEntity($new_entity);
+    }
 
     // Clear user input.
     $input = $form_state->getUserInput();
@@ -62,47 +68,59 @@ class QuestionFormAlter {
     }
     // Else show the result.
     else {
-      $current_path = \Drupal::service('path.current')->getPath();
-      $path_args = explode('/', $current_path);
-
-      // group id
-      $gid = $path_args[2];
-      $group = Group::load($gid);
 
       // get rendered entity
       $userInputs = $form_state->getUserInput();
       /** @var Node $entity */
       $entity = $userInputs['entity'];
       $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
-      $rendered_entity = $view_builder->view($entity, 'full');
-
-      // add node to created group
-      $group->addContent($entity, 'group_node:' . $entity->bundle());
+      $renderable_entity = $view_builder->view($entity, 'full');
+      $question_view_class = '.question-view-' . $entity->id();
 
       // create ajax response
       $response = new AjaxResponse();
 
       // Get messages even if not shown.
       $status_messages = array('#type' => 'status_messages');
-      $message = array('#markup' => \Drupal::service('renderer')->renderRoot($status_messages));
+      $message = array(
+        '#markup' => \Drupal::service('renderer')
+          ->renderRoot($status_messages)
+      );
 
-      // Remove old messages.
-      $response->addCommand(new RemoveCommand('.alert'));
-      $response->addCommand(new ReplaceCommand('.alert', $message));
+      // if entity is new
+      if (isset($form['#isNew'])) {
+        $current_path = \Drupal::service('path.current')->getPath();
+        $path_args = explode('/', $current_path);
 
-      // reload form
-      $response->addCommand(new ReplaceCommand('.ajax-form-entity-node-question-new', $form));
+        // group id
+        $gid = $path_args[2];
+        $group = Group::load($gid);
 
-      // replace view
-      // @depreciated in favor of adding just last question
-      // $view = self::getMailingListView();
-      // $response->addCommand(new ReplaceCommand('.view-mailing-list-items', $view));
+        // add node to created group
+        $group->addContent($entity, 'group_node:' . $entity->bundle());
 
-      // prepend entity to a view
-      $response->addCommand(new PrependCommand('.view-mailing-list-items .view-content', $rendered_entity));
+        // Remove old messages.
+        $response->addCommand(new RemoveCommand('.alert'));
+        $response->addCommand(new ReplaceCommand('.alert', $message));
 
-      // remove view-empty
-      $response->addCommand(new RemoveCommand('.view-mailing-list-items .view-empty'));
+        // replace form with empty one
+        $response->addCommand(new ReplaceCommand('.ajax-form-entity-node-question-new', $form));
+
+        // replace view
+        // @depreciated in favor of adding just last question
+        // $view = self::getMailingListView();
+        // $response->addCommand(new ReplaceCommand('.view-mailing-list-items', $view));
+
+        // remove view-empty
+        $response->addCommand(new RemoveCommand('.view-mailing-list-items .view-empty'));
+
+        // append entity to a view
+        $response->addCommand(new PrependCommand('.view-mailing-list-items .view-content', $renderable_entity));
+      }
+      else {
+        // replace form with edited entity
+        $response->addCommand(new ReplaceCommand($question_view_class, $renderable_entity));
+      }
 
       return $response;
     }

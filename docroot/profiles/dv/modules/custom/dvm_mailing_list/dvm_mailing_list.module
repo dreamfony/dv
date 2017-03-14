@@ -8,6 +8,8 @@
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\group\Entity\Group;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+use Drupal\node\NodeInterface;
 
 
 /**
@@ -49,18 +51,30 @@ function dvm_mailing_list_form_group_mailing_list_edit_form_alter(&$form, $form_
  */
 function dvm_mailing_list_form_node_question_form_alter(&$form, FormStateInterface &$form_state) {
   $form['title']['#access'] = FALSE;
-
   $form['revision_information']['#access'] = FALSE;
 
-  $form['body']['widget']['#title'] = '';
+  $build_info = $form_state->getBuildInfo();
 
-  $form['body']['widget'][0]['#title_display'] = 'hidden';
+  // Get the entity
+  /** @var \Drupal\Core\Entity\Entity $entity */
+  $entity = $build_info['callback_object']->getEntity();
+  $entity_id = $entity->id();
 
-  $ajax_id = 'ajax-form-entity-node-question-new';
+  // if we are editing entity
+  if($entity_id) {
+    // disable refocus so we don't end up on the bottom of the page
+    $form['actions']['submit']['#attributes']['data-disable-refocus'] = 1;
+    $ajax_id = 'ajax-form-entity-node-question-' . $entity_id;
+  } else {
+    $form['actions']['submit']['#attributes']['data-disable-refocus'] = 1;
+    // if we are adding new
+    $form['#isNew'] = TRUE;
+    $ajax_id = 'ajax-form-entity-node-question-new';
+  }
 
   $form['#attributes']['class'][] = $ajax_id;
 
-  // Ajaxification settings of the buttons.
+  // Ajax settings of the buttons.
   $ajax_settings = array(
     'callback' => 'Drupal\dvm_mailing_list\Form\QuestionFormAlter::ajaxFormEntityCallback',
     'wrapper' => $ajax_id,
@@ -82,15 +96,56 @@ function dvm_mailing_list_form_node_question_form_alter(&$form, FormStateInterfa
 }
 
 /**
+ *  Implements hook_entity_extra_field_info().
+ */
+function dvm_mailing_list_entity_extra_field_info() {
+  $extra['node']['question']['display']['question_edit_link'] = array(
+    'label' => t('Question ajax edit link'),
+    'description' => t('Provides an ajax links to manage the current entity.'),
+    'weight' => 100,
+    'visible' => TRUE,
+  );
+
+  return $extra;
+}
+
+/**
+ * Implements hook_node_links_alter().
+ */
+function dvm_mailing_list_node_links_alter(array &$links, NodeInterface $entity, array &$context) {
+  // @todo: sort out edit access here $entity->access() does not work
+  if ($entity->bundle() == 'question') {
+    $links['question_edit_link'] = array(
+      '#theme' => 'links',
+      '#weight' => -10,
+      '#links' => array(
+        'ajax_edit_link' => array(
+          'title' => t('Edit'),
+          'url' => Url::fromRoute(
+            'dvm_mailing_list.question_edit_form',
+            [
+              'id' => $entity->id()
+            ]
+          ),
+          'attributes' => array(
+            'class' => array('use-ajax'),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/**
  * Auto generate title for question node.
  *
  * Implements hook_entity_presave().
  */
 function dvm_mailing_list_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
-  if($entity->bundle() == 'question') {
+  if ($entity->bundle() == 'question') {
     /** @var  \Drupal\node\Entity\Node $entity */
     $body_value = strip_tags($entity->get('body')->getValue()[0]['value']);
-    $title = substr($body_value, 0 , 254);
+    $title = substr($body_value, 0, 254);
     $entity->set('title', $title);
     $entity->isDefaultRevision(TRUE);
   }
@@ -107,7 +162,7 @@ function _dvm_mailing_list_group_form_submit($form, \Drupal\Core\Form\FormStateI
   $group = $form_state->getFormObject()->getEntity();
   $mod_state = $group->get('moderation_state')->getValue()[0]['value'];
 
-  if($mod_state === 'published') {
+  if ($mod_state === 'published') {
 
     /** @var \Drupal\Core\Url $redirect */
     $redirect = $form_state->getRedirect();
