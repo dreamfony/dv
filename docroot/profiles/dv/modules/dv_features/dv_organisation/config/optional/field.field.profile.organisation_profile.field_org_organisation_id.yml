@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_org_organisation_id
+    - profile.type.organisation_profile
+id: profile.organisation_profile.field_org_organisation_id
+field_name: field_org_organisation_id
+entity_type: profile
+bundle: organisation_profile
+label: 'Organisation ID'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

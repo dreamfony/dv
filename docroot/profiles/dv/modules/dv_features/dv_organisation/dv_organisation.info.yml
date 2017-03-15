@@ -11,6 +11,7 @@ dependencies:
   - dv_core
   - dv_geo_area_group
   - dv_issue
+  - dv_mailing_list
   - dv_organisation_group
   - dv_positions
   - dv_user
@@ -30,6 +31,7 @@ dependencies:
   - node
   - panelizer
   - path
+  - profile
   - rabbit_hole
   - taxonomy
   - telephone

@@ -1,0 +1,105 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - hr_organisation_migrate
+id: organisations
+migration_tags: null
+migration_group: organisations
+label: Organisations
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: xml
+  urls:
+    - 'https://drive.google.com/uc?export=download&id=0B0o4prxPrMJsRzBCTHpENGQ3ekU'
+  item_selector: /DATABASE_BIB/RECORD
+  fields:
+    -
+      name: organisation_id
+      label: ID
+      selector: IDZapisa
+    -
+      name: organisation
+      label: Organisation
+      selector: Institucija
+    -
+      name: address
+      label: Address
+      selector: Adresa
+    -
+      name: organisation_group_id
+      label: 'Skupna razina ID'
+      selector: SkupnaRazina_ID
+    -
+      name: web_site_url
+      label: URL
+      selector: URL
+    -
+      name: komunikacije
+      label: Komunikacije
+      selector: Komunikacije
+    -
+      name: area_of_activity_id
+      label: 'Area of activity'
+      selector: PodrucjeDjelatnosti_ID
+    -
+      name: area_of_activity
+      label: 'Area of activity'
+      selector: PodrucjeDjelatnosti
+    -
+      name: function_upholder_id
+      label: 'Function Upholder ID'
+      selector: NositeljFunkcije_ID
+    -
+      name: function_upholder
+      label: 'Function Upholder'
+      selector: NositeljFunkcije
+    -
+      name: function
+      label: Function
+      selector: Funkcija
+    -
+      name: skupna_razina
+      label: 'Skupna razina'
+      selector: SkupnaRazina
+  ids:
+    organisation_id:
+      type: integer
+process:
+  title: organisation
+  type:
+    plugin: default_value
+    default_value: organisation
+  uid:
+    plugin: default_value
+    default_value: 1
+  field_o_web_site: web_site_url
+  field_o_organisation_id: organisation_id
+  field_o_organisation_group:
+    plugin: field_o_organisation_group
+    source: organisation_group_id
+  field_o_parent_organisation:
+    plugin: field_o_parent_organisation
+    source: organisation_group_id
+  field_o_area_of_activity:
+    plugin: field_o_area_of_activity
+    source: area_of_activity_id
+  field_o_email:
+    plugin: field_o_email
+    source: komunikacije
+  field_o_telephone:
+    plugin: field_o_telephone
+    source: komunikacije
+  field_o_fax:
+    plugin: field_o_fax
+    source: komunikacije
+  field_o_address:
+    plugin: field_o_address
+    source: address
+destination:
+  plugin: 'entity:node'
+migration_dependencies:
+  required:
+    - organisation_groups

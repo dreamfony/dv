@@ -1,0 +1,169 @@
+<?php
+
+use Drupal\migrate\Row;
+use Drupal\migrate\Plugin\MigrateSourceInterface;
+use Drupal\migrate\Plugin\MigrationInterface;
+use Drupal\node\Entity\Node;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_migrate_prepare_row()
+ *
+ * We are implementing this hook only for rows that are not
+ * organisations but organisation groups, because we can not
+ * return FALSE from event subscriber.
+ *
+ * @param \Drupal\migrate\Row $row
+ * @param \Drupal\migrate\Plugin\MigrateSourceInterface $source
+ * @param \Drupal\migrate\Plugin\MigrationInterface $migration
+ *
+ * @return BOOL
+ */
+function hr_organisation_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $source, MigrationInterface $migration) {
+
+  // for organisations skip rows that have 'skupna_razina'
+  if ($migration->id() === 'organisation_groups') {
+    // if row is not skupnarazina skip it
+    if (!$row->getSourceProperty('skupna_razina')) {
+      return FALSE;
+    }
+  }
+
+
+  // for organisations skip rows that have 'skupna_razina'
+  if ($migration->id() === 'organisations' OR $migration->id() === 'organisations_user') {
+
+    // if row is not organisation skip it
+    if ($row->getSourceProperty('skupna_razina')) {
+      return FALSE;
+    }
+    else {
+
+      // Row is an organisation
+
+      // Check if organisation_id exists
+      $organisation_id = $row->getSourceProperty('organisation_id');
+      if (empty($organisation_id)) {
+        $organisation_id = Drupal::service('dvm_organisation.organisation')
+          ->getOrganisationId();
+        $row->setSourceProperty('organisation_id', $organisation_id);
+
+      }
+
+
+      // Create User that will hold the profile data if it doesnt exist
+      $dummy_email = $organisation_id . '@dv.com';
+
+      $user_exists = user_load_by_mail($dummy_email);
+//      Skip row if the user already exists
+      if (!empty($user_exists)) {
+        return FALSE;
+      }
+
+      $user = User::create(array(
+        'name' => $dummy_email,
+        'mail' => $dummy_email,
+        'status' => 1,
+        'personas' => array('organisation')
+      ));
+      $user->save();
+
+      $row->setSourceProperty('uid', $user->id());
+
+
+      // Check if Area of Activity ID exits
+      if (!empty($row->getSourceProperty('area_of_activity_id'))) {
+        // Check if there are multiple areas of activity for organisation
+        if (is_array($row->getSourceProperty('area_of_activity_id'))) {
+          // combine ids with names
+          $row->setSourceProperty('area_of_activity_id', array_combine($row->getSourceProperty('area_of_activity_id'), $row->getSourceProperty('area_of_activity')));
+        }
+        else {
+          // convert to id => name array
+          $row->setSourceProperty('area_of_activity_id', array($row->getSourceProperty('area_of_activity_id') => $row->getSourceProperty('area_of_activity')));
+        }
+      }
+
+      // Check any of people exist for organisation
+      if (!empty($row->getSourceProperty('function_upholder_id'))) {
+
+        // Check if there are multiple people for organisation
+        if (is_array($row->getSourceProperty('function_upholder_id'))) {
+          // multiple items
+
+          $person_function = [];
+
+          foreach ($row->getSourceProperty('function_upholder') as $key => $val) {
+            $person_function[] = [
+              'function_upholder' => $row->getSourceProperty('function_upholder')[$key],
+              'function' => $row->getSourceProperty('function')[$key]
+            ];
+          }
+
+          // combine ids with $person_function
+          $data = array_combine(
+            $row->getSourceProperty('function_upholder_id'),
+            $person_function
+          );
+
+        }
+        else {
+          // single item
+          // convert to id => name array
+          $data = array(
+            $row->getSourceProperty('function_upholder_id') => array(
+              'function_upholder' => $row->getSourceProperty('function_upholder'),
+              'function' => $row->getSourceProperty('function')
+            )
+          );
+        }
+
+        foreach ($data as $upholderId => $values) {
+
+          // get person node
+          $query = \Drupal::entityQuery('node');
+
+          $query->condition('type', 'person');
+          $query->condition('field_person_id', $upholderId);
+          $person_id = $query->execute();
+
+          // if person does not exist
+          if (!$person_id) {
+
+            // create a new person
+            $new_person = Node::create([
+              'type' => 'person',
+              'title' => $values['function_upholder'],
+              'field_person_id' => $upholderId,
+              'uid' => 2
+            ]);
+
+            $new_person->save();
+          }
+
+          // get function from taxonomy term
+          $query = \Drupal::entityQuery('taxonomy_term');
+          $query->condition('vid', 'functions');
+          $query->condition('name', $values['function']);
+          $function_id = $query->execute();
+
+          // if function does not exist
+          if (!$function_id) {
+
+            // create a new function
+            $new_function = Term::create([
+              'vid' => 'functions',
+              'name' => $values['function'],
+              'uid' => 2
+            ]);
+
+            $new_function->save();
+
+          }
+
+        }
+      }
+    }
+  }
+}
