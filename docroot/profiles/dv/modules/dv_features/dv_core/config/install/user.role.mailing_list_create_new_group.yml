@@ -6,8 +6,6 @@ label: 'Create Mailing list'
 weight: 9
 is_admin: null
 permissions:
-  - 'access contextual links'
-  - 'access in-place editing'
   - 'create mailing_list group'
   - 'create question content'
   - 'edit own question content'

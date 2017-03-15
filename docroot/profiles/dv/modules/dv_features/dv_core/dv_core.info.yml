@@ -28,6 +28,7 @@ dependencies:
   - dv_issue
   - dv_mailing_list
   - dv_org_legal_status
+  - dv_organisation
   - dv_organisation_founder
   - dv_organisation_group
   - dv_user

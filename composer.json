@@ -196,6 +196,9 @@
             ]
         },
         "patches": {
+            "drupal/ctools": {
+                "Node Links" : "https://www.drupal.org/files/issues/2664654-9.patch"
+            },
             "drupal/inline_entity_form": {
               "Save revisions Node - https://www.drupal.org/node/2367235" : "https://www.drupal.org/files/issues/support_entity_revision-2367235-92.patch"
             },

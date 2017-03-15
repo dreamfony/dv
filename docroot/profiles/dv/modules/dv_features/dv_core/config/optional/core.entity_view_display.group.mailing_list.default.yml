@@ -17,22 +17,22 @@ third_party_settings:
         blocks:
           400d312c-a495-468d-9c71-fe2dabc9d2ab:
             id: question_form_block
-            label: 'Question form block'
+            label: 'Add Question'
             provider: dvm_mailing_list
-            label_display: '0'
+            label_display: visible
             region: contentmain
             weight: 0
             uuid: 400d312c-a495-468d-9c71-fe2dabc9d2ab
             context_mapping: {  }
           396e1432-6e37-4c9e-9fb5-b40618a06f52:
             id: 'views_block:mailing_list_items-block_1'
-            label: ''
+            label: Questions
             provider: views
             label_display: visible
-            views_label: ''
+            views_label: Questions
             items_per_page: none
             region: contentmain
-            weight: 0
+            weight: 1
             uuid: 396e1432-6e37-4c9e-9fb5-b40618a06f52
             context_mapping: {  }
         id: panels_variant
@@ -41,12 +41,61 @@ third_party_settings:
         weight: 0
         layout: radix_boxton
         layout_settings: {  }
-        page_title: null
+        page_title: '[group:title]'
         storage_type: panelizer_default
         storage_id: 'group:mailing_list:default:mailing_list_default'
         pattern: panelizer
         builder: ipe
         static_context: {  }
+      default:
+        blocks:
+          17afb270-76ef-4ee6-806d-9e3c0be2cbf7:
+            id: 'entity_field:group:label'
+            label: Title
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: string
+              settings:
+                link_to_entity: false
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            region: content
+            weight: -5
+            uuid: 17afb270-76ef-4ee6-806d-9e3c0be2cbf7
+          f96d4614-20b3-472d-8d34-d6c6dfb00f07:
+            id: 'entity_field:group:field_ml_to'
+            label: To
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: above
+              type: entity_reference_label
+              settings:
+                link: true
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            region: content
+            weight: -3
+            uuid: f96d4614-20b3-472d-8d34-d6c6dfb00f07
+        id: panels_variant
+        label: Default
+        uuid: c006ad11-aa83-4a2a-981c-f065f2fa859c
+        weight: 0
+        layout: layout_onecol
+        layout_settings: {  }
+        page_title: '[group:title]'
+        storage_type: ''
+        storage_id: ''
+        builder: ipe
+        pattern: panelizer
 id: group.mailing_list.default
 targetEntityType: group
 bundle: mailing_list
