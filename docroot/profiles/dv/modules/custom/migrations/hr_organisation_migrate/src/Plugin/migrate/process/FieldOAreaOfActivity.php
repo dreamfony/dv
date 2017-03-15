@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dv_organisation_migrate\Plugin\migrate\process;
+namespace Drupal\hr_organisation_migrate\Plugin\migrate\process;
 
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\ProcessPluginBase;

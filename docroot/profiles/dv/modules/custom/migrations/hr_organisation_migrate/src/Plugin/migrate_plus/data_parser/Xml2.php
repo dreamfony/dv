@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dv_organisation_migrate\Plugin\migrate_plus\data_parser;
+namespace Drupal\hr_organisation_migrate\Plugin\migrate_plus\data_parser;
 
 use Drupal\migrate_plus\Plugin\migrate_plus\data_parser\Xml;
 

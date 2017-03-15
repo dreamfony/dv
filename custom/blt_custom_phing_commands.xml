@@ -21,7 +21,7 @@
   <target name="import_demo_content">
     <drush command="mi organisation_groups" alias="">
     </drush>
-    <drush command="mi organisations" alias="">
+    <drush command="mi organisations_user" alias="">
       <option name="limit">"50 items"</option>
       <option name="feedback">"10 items"</option>
     </drush>

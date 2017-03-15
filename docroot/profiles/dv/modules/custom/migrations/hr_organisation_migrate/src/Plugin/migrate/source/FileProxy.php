@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dv_organisation_migrate\Plugin\migrate\source;
+namespace Drupal\hr_organisation_migrate\Plugin\migrate\source;
 
 use Drupal\migrate_plus\Plugin\migrate\source\Url;
 use Drupal\migrate\Plugin\MigrationInterface;

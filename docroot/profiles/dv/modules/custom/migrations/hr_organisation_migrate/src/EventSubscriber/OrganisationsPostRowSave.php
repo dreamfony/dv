@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dv_organisation_migrate\EventSubscriber;
+namespace Drupal\hr_organisation_migrate\EventSubscriber;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\migrate\Event\MigrateEvents;

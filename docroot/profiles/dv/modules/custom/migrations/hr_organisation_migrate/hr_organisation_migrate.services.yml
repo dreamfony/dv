@@ -1,0 +1,6 @@
+services:
+  hr_organisation_migrate.post_row_save:
+    class: Drupal\hr_organisation_migrate\EventSubscriber\OrganisationsPostRowSave
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: event_subscriber }

@@ -3,7 +3,7 @@ status: true
 dependencies:
   enforced:
     module:
-      - dv_organisation_migrate
+      - hr_organisation_migrate
 id: organisations
 label: 'Organisation Imports'
 description: 'Organisation Imports.'

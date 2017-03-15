@@ -1,8 +1,8 @@
 <?php
 
-namespace Drupal\dv_organisation_migrate\Plugin\migrate\process;
+namespace Drupal\hr_organisation_migrate\Plugin\migrate\process;
 
-use Drupal\dv_organisation_migrate\ExtractTelephonesTrait;
+use Drupal\hr_organisation_migrate\ExtractTelephonesTrait;
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
@@ -10,10 +10,10 @@ use Drupal\migrate\Row;
 /**
  *
  * @MigrateProcessPlugin(
- *   id = "field_o_fax"
+ *   id = "field_o_telephone"
  * )
  */
-class FieldOFax extends ProcessPluginBase {
+class FieldOTelephone extends ProcessPluginBase {
 
   use ExtractTelephonesTrait;
 
@@ -22,7 +22,8 @@ class FieldOFax extends ProcessPluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
 
-    return self::extract($value, 'faks:');
+      return self::extract($value, 'tel.:');
+
   }
 
 }

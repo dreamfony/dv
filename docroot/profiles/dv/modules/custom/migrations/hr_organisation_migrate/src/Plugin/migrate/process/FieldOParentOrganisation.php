@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dv_organisation_migrate\Plugin\migrate\process;
+namespace Drupal\hr_organisation_migrate\Plugin\migrate\process;
 
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\ProcessPluginBase;
@@ -9,10 +9,10 @@ use Drupal\migrate\Row;
 /**
  *
  * @MigrateProcessPlugin(
- *   id = "field_o_organisation_group"
+ *   id = "field_o_parent_organisation"
  * )
  */
-class FieldOOrganisationGroup extends ProcessPluginBase {
+class FieldOParentOrganisation extends ProcessPluginBase {
 
   /**
    * {@inheritdoc}
@@ -20,10 +20,10 @@ class FieldOOrganisationGroup extends ProcessPluginBase {
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
 
     if ($value) {
-      $query = \Drupal::entityQuery('taxonomy_term');
+      $query = \Drupal::entityQuery('node');
 
-      $query->condition('vid', 'organisation_group');
-      $query->condition('field_organisation_group_id', $value);
+      $query->condition('type', 'organisation');
+      $query->condition('field_o_organisation_id', $value);
       $result = $query->execute();
 
       if ($result) {

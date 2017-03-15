@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dv_organisation_migrate;
+namespace Drupal\hr_organisation_migrate;
 
 /**
  * Extract Telephones from string.

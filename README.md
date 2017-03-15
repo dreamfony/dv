@@ -59,7 +59,7 @@ sudo apt-get install php7.0-bz2
 import test data
 
 - drush mi organisation_groups
-- drush mi organisations --limit="50 items"
+- drush mi organisations_user --limit="50 items"
 - drush mrs to kill busy operation
 
 #### PatternLab Front end
