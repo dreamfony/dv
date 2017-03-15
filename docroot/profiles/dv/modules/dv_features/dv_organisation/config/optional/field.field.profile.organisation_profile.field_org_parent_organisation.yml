@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_org_parent_organisation
+    - profile.type.organisation_profile
+id: profile.organisation_profile.field_org_parent_organisation
+field_name: field_org_parent_organisation
+entity_type: profile
+bundle: organisation_profile
+label: 'Parent Organisation'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: role
+      role:
+        organisation: organisation
+        administrator: '0'
+        moderator: '0'
+        masquerade_as_any_user_except_super_user: '0'
+        administer_blocks: '0'
+        post_comments: '0'
+        mailing_list_create_new_group: '0'
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

@@ -1,0 +1,130 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.profile.organisation_profile.field_org_address
+    - field.field.profile.organisation_profile.field_org_contact_email
+    - field.field.profile.organisation_profile.field_org_email
+    - field.field.profile.organisation_profile.field_org_fax
+    - field.field.profile.organisation_profile.field_org_geo_location
+    - field.field.profile.organisation_profile.field_org_logo
+    - field.field.profile.organisation_profile.field_org_organisation_group
+    - field.field.profile.organisation_profile.field_org_organisation_id
+    - field.field.profile.organisation_profile.field_org_parent_organisation
+    - field.field.profile.organisation_profile.field_org_telephone
+    - field.field.profile.organisation_profile.field_org_title
+    - field.field.profile.organisation_profile.field_org_web_site
+    - image.style.thumbnail
+    - profile.type.organisation_profile
+  module:
+    - address
+    - content_moderation
+    - geofield
+    - image
+    - link
+    - telephone
+id: profile.organisation_profile.default
+targetEntityType: profile
+bundle: organisation_profile
+mode: default
+content:
+  field_org_address:
+    weight: 5
+    settings:
+      default_country: null
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_org_contact_email:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_org_email:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_org_fax:
+    weight: 9
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_org_geo_location:
+    weight: 6
+    settings:
+      html5_geolocation: false
+    third_party_settings: {  }
+    type: geofield_latlon
+    region: content
+  field_org_logo:
+    weight: 4
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_org_organisation_group:
+    weight: 10
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_org_organisation_id:
+    type: number
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_org_parent_organisation:
+    weight: 11
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_org_telephone:
+    weight: 8
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_org_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_org_web_site:
+    weight: 7
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  langcode:
+    type: language_select
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

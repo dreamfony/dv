@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_org_geo_location
+    - profile.type.organisation_profile
+  module:
+    - geocoder_field
+    - geofield
+third_party_settings:
+  geocoder_field:
+    method: source
+    field: field_org_address
+    plugins:
+      - googlemaps
+    dumper: wkt
+    delta_handling: m_to_s
+    failure:
+      handling: preserve
+      status_message: false
+      log: false
+id: profile.organisation_profile.field_org_geo_location
+field_name: field_org_geo_location
+entity_type: profile
+bundle: organisation_profile
+label: 'Geo Location'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geofield
