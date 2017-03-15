@@ -113,7 +113,6 @@ function dvm_mailing_list_entity_extra_field_info() {
  * Implements hook_node_links_alter().
  */
 function dvm_mailing_list_node_links_alter(array &$links, NodeInterface $entity, array &$context) {
-  // @todo: sort out edit access here $entity->access() does not work
   if ($entity->bundle() == 'question' && $entity->access('update')) {
     $links['question_edit_link'] = array(
       '#theme' => 'links',
