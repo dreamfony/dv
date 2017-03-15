@@ -8,8 +8,11 @@ dependencies:
   - dv_core
   - dv_organisation
   - field
+  - field_permissions
   - gnode
   - group
   - node
   - path
+  - profile
+  - taxonomy
   - user
