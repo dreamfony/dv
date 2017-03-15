@@ -114,7 +114,7 @@ function dvm_mailing_list_entity_extra_field_info() {
  */
 function dvm_mailing_list_node_links_alter(array &$links, NodeInterface $entity, array &$context) {
   // @todo: sort out edit access here $entity->access() does not work
-  if ($entity->bundle() == 'question') {
+  if ($entity->bundle() == 'question' && $entity->access('update')) {
     $links['question_edit_link'] = array(
       '#theme' => 'links',
       '#weight' => -10,
@@ -122,9 +122,9 @@ function dvm_mailing_list_node_links_alter(array &$links, NodeInterface $entity,
         'ajax_edit_link' => array(
           'title' => t('Edit'),
           'url' => Url::fromRoute(
-            'dvm_mailing_list.question_edit_form',
+            'dvm_mailing_list.ajax_edit_form',
             [
-              'id' => $entity->id()
+              'node' => $entity->id()
             ]
           ),
           'attributes' => array(

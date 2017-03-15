@@ -7,9 +7,15 @@ dvm_mailing_list.create_mailing_list:
   requirements:
     _permission: 'create mailing_list group'
 
-dvm_mailing_list.question_edit_form:
-  path: 'question-edit/{id}'
+dvm_mailing_list.ajax_edit_form:
+  path: 'node/{node}/ajax-edit'
   defaults:
-    _controller: '\Drupal\dvm_mailing_list\Controller\QuestionEditController::questionEditForm'
+    _controller: '\Drupal\dvm_mailing_list\Controller\QuestionAjaxController::editForm'
   requirements:
-    _csrf_token: 'TRUE'
+    _entity_access: 'node.update'
+    node: \d+
+  options:
+    _node_operation_route: TRUE
+    parameters:
+      node:
+        type: entity:node

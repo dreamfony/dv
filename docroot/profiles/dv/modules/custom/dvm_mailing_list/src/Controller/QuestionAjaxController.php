@@ -6,10 +6,12 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Entity\EntityFormBuilder;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\node\NodeInterface;
 
-class QuestionEditController extends ControllerBase {
+class QuestionAjaxController extends ControllerBase {
 
   /**
    * Drupal\Core\Entity\EntityFormBuilder definition.
@@ -41,15 +43,20 @@ class QuestionEditController extends ControllerBase {
 
   /**
    * Sends back a form to edit question.
+   *
+   * @param \Drupal\Core\Entity\EntityInterface $node
+   * @return \Drupal\Core\Ajax\AjaxResponse
    */
-  public function questionEditForm($id) {
-    // Get the entity and generate the form.
-    $entity = $this->entity_manager->getStorage('node')->load($id);
-    $form = $this->entity_form_builder->getForm($entity);
+  public function editForm(EntityInterface $node) {
+    $form = $this->entity_form_builder->getForm($node);
 
     $response = new AjaxResponse();
-    $selector = '.question-view-' . $id . ' .node';
+    $selector = '.question-view-' . $node->id() . ' .node';
     $response->addCommand(new ReplaceCommand($selector, $form));
     return $response;
+  }
+
+  public function delete(EntityInterface $entity) {
+
   }
 }
