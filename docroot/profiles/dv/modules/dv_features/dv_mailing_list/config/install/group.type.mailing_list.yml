@@ -6,3 +6,4 @@ label: 'Mailing list'
 description: ''
 creator_roles:
   - mailing_list-administrator
+  - mailing_list-owner

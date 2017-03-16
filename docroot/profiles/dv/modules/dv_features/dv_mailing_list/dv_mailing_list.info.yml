@@ -13,6 +13,7 @@ dependencies:
   - dv_geo_area_group
   - dv_issue
   - dv_org_legal_status
+  - dv_organisation
   - dv_organisation_founder
   - dv_organisation_group
   - dv_user

@@ -3,13 +3,12 @@ status: true
 dependencies:
   config:
     - group.type.mailing_list
-id: mailing_list-member
-label: Member
-weight: -100
-internal: true
+id: mailing_list-owner
+label: Owner
+weight: 15
+internal: false
 audience: member
 group_type: mailing_list
 permissions_ui: true
 permissions:
-  - 'view group_node:question entity'
-  - 'view group'
+  2: 'view unpublished group_node:question entity'

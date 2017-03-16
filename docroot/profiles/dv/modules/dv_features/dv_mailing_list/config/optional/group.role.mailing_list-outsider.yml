@@ -11,4 +11,5 @@ audience: outsider
 group_type: mailing_list
 permissions_ui: true
 permissions:
+  - 'view group'
   - 'view group_node:question entity'

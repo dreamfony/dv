@@ -20,7 +20,7 @@ third_party_settings:
             label: 'Add Question'
             provider: dvm_mailing_list
             label_display: visible
-            region: contentmain
+            region: column1
             weight: 0
             uuid: 400d312c-a495-468d-9c71-fe2dabc9d2ab
             context_mapping: {  }
@@ -31,15 +31,35 @@ third_party_settings:
             label_display: visible
             views_label: Questions
             items_per_page: none
-            region: contentmain
+            region: column1
             weight: 1
             uuid: 396e1432-6e37-4c9e-9fb5-b40618a06f52
+            context_mapping: {  }
+          15c1c100-4437-4cfe-92e3-6e9a1be74c2d:
+            id: organisation_form_block
+            label: 'Organisation form block'
+            provider: dvm_mailing_list
+            label_display: '0'
+            region: column2
+            weight: -1
+            uuid: 15c1c100-4437-4cfe-92e3-6e9a1be74c2d
+            context_mapping: {  }
+          1693697c-b1d9-48ec-befb-d982c164b5cd:
+            id: 'views_block:mailing_list_organisations-block_1'
+            label: ''
+            provider: views
+            label_display: visible
+            views_label: ''
+            items_per_page: none
+            region: column2
+            weight: 0
+            uuid: 1693697c-b1d9-48ec-befb-d982c164b5cd
             context_mapping: {  }
         id: panels_variant
         uuid: 5a557251-3442-4926-8501-afdd5ea5ebf6
         label: 'Mailing List Default'
         weight: 0
-        layout: radix_boxton
+        layout: radix_sutro_double
         layout_settings: {  }
         page_title: '[group:title]'
         storage_type: panelizer_default
