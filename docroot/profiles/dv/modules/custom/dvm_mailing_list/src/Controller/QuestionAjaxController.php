@@ -56,7 +56,16 @@ class QuestionAjaxController extends ControllerBase {
     return $response;
   }
 
-  public function delete(EntityInterface $entity) {
+  /**
+   * @param \Drupal\Core\Entity\EntityInterface $node
+   * @return \Drupal\Core\Ajax\AjaxResponse
+   */
+  public function delete(EntityInterface $node) {
+    $node->delete();
 
+    $response = new AjaxResponse();
+    $selector = '.question-view-' . $node->id() . ' .node';
+    $response->addCommand(new ReplaceCommand($selector, ''));
+    return $response;
   }
 }

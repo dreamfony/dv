@@ -1,4 +1,3 @@
-
 dvm_mailing_list.create_mailing_list:
   path: 'create-mailing-list'
   defaults:
@@ -13,6 +12,19 @@ dvm_mailing_list.ajax_edit_form:
     _controller: '\Drupal\dvm_mailing_list\Controller\QuestionAjaxController::editForm'
   requirements:
     _entity_access: 'node.update'
+    node: \d+
+  options:
+    _node_operation_route: TRUE
+    parameters:
+      node:
+        type: entity:node
+
+dvm_mailing_list.ajax_delete_link:
+  path: 'node/{node}/ajax-delete'
+  defaults:
+    _controller: '\Drupal\dvm_mailing_list\Controller\QuestionAjaxController::delete'
+  requirements:
+    _entity_access: 'node.delete'
     node: \d+
   options:
     _node_operation_route: TRUE

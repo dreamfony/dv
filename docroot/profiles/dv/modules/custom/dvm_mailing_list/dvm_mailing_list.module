@@ -113,12 +113,14 @@ function dvm_mailing_list_entity_extra_field_info() {
  * Implements hook_node_links_alter().
  */
 function dvm_mailing_list_node_links_alter(array &$links, NodeInterface $entity, array &$context) {
-  if ($entity->bundle() == 'question' && $entity->access('update')) {
-    $links['question_edit_link'] = array(
+  if ($entity->bundle() == 'question') {
+    $links['question_ajax_links'] = array(
       '#theme' => 'links',
       '#weight' => -10,
-      '#links' => array(
-        'ajax_edit_link' => array(
+      '#links' => array(),
+    );
+    if ($entity->access('update')) {
+      $links['question_ajax_links']['#links']['ajax_edit_link'] = array(
           'title' => t('Edit'),
           'url' => Url::fromRoute(
             'dvm_mailing_list.ajax_edit_form',
@@ -129,9 +131,22 @@ function dvm_mailing_list_node_links_alter(array &$links, NodeInterface $entity,
           'attributes' => array(
             'class' => array('use-ajax'),
           ),
-        ),
-      ),
-    );
+      );
+    }
+    if ($entity->access('update')) {
+      $links['question_ajax_links']['#links']['ajax_delete_link'] = array(
+          'title' => t('Delete'),
+          'url' => Url::fromRoute(
+            'dvm_mailing_list.ajax_delete_link',
+            [
+              'node' => $entity->id()
+            ]
+          ),
+          'attributes' => array(
+            'class' => array('use-ajax'),
+          ),
+      );
+    }
   }
 }
 
