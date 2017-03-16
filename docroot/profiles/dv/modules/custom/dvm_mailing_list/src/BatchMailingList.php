@@ -73,26 +73,6 @@ class BatchMailingList {
 
   }
 
-  /**
-   * @param $nids
-   * @param $group_id
-   * @param $context
-   */
-  public static function addQuestions($nids, $group_id, &$context) {
-
-    /// TODO make batch work
-    $group = Group::load($group_id);
-
-    foreach ($nids as $nid) {
-      $nid = $nid['target_id'];
-      /** @var Group $group */
-      $node = Node::load($nid);
-      $group->addContent($node, 'group_node:question');
-    }
-
-    $context['finished'] = 1;
-  }
-
   public static function deleteNodeExampleFinishedCallback($success, $results, $operations) {
     // The 'success' parameter means no fatal PHP errors were detected. All
     // other error management should be handled using 'results'.

@@ -65,6 +65,21 @@ function dvm_mailing_list_form_node_question_form_alter(&$form, FormStateInterfa
     // disable refocus so we don't end up on the bottom of the page
     $form['actions']['submit']['#attributes']['data-disable-refocus'] = 1;
     $ajax_id = 'ajax-form-entity-node-question-' . $entity_id;
+
+    $form['actions']['cancel'] = [
+      '#type' => 'link',
+      '#title' => t('Cancel'),
+      '#attributes' => ['class' => ['cancel', 'use-ajax']],
+      '#access' => TRUE,
+      '#url' => Url::fromRoute(
+        'dvm_mailing_list.ajax_cancel_link',
+        [
+          'node' => $entity_id
+        ]
+      ),
+      '#weight' => 100
+    ];
+
   } else {
     $form['actions']['submit']['#attributes']['data-disable-refocus'] = 1;
     // if we are adding new
@@ -86,6 +101,8 @@ function dvm_mailing_list_form_node_question_form_alter(&$form, FormStateInterfa
   // @todo : does not work with dropbuttons (needs javascript magic presumably).
   unset($form['actions']['publish']['#dropbutton']);
   unset($form['actions']['unpublish']['#dropbutton']);
+  $form['actions']['delete']['#access'] = FALSE;
+
   // Ajaxify the buttons.
   foreach (array_keys($form['actions']) as $action) {
     if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {

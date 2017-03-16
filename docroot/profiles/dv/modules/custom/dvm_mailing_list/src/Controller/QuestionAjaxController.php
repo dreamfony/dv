@@ -68,4 +68,19 @@ class QuestionAjaxController extends ControllerBase {
     $response->addCommand(new ReplaceCommand($selector, ''));
     return $response;
   }
+
+  /**
+   * @param \Drupal\Core\Entity\EntityInterface $node
+   * @return \Drupal\Core\Ajax\AjaxResponse
+   */
+  public function cancel(EntityInterface $node) {
+
+    $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
+    $renderable_entity = $view_builder->view($node, 'full');
+
+    $response = new AjaxResponse();
+    $selector = '.question-view-' . $node->id();
+    $response->addCommand(new ReplaceCommand($selector, $renderable_entity));
+    return $response;
+  }
 }

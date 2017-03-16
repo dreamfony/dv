@@ -15,9 +15,6 @@ dvm_mailing_list.ajax_edit_form:
     node: \d+
   options:
     _node_operation_route: TRUE
-    parameters:
-      node:
-        type: entity:node
 
 dvm_mailing_list.ajax_delete_link:
   path: 'node/{node}/ajax-delete'
@@ -28,6 +25,13 @@ dvm_mailing_list.ajax_delete_link:
     node: \d+
   options:
     _node_operation_route: TRUE
-    parameters:
-      node:
-        type: entity:node
+
+dvm_mailing_list.ajax_cancel_link:
+  path: 'node/{node}/ajax-cancel'
+  defaults:
+    _controller: '\Drupal\dvm_mailing_list\Controller\QuestionAjaxController::cancel'
+  requirements:
+    _entity_access: 'node.view'
+    node: \d+
+  options:
+    _node_operation_route: TRUE
