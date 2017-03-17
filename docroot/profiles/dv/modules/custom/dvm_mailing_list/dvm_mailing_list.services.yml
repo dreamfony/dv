@@ -1,0 +1,8 @@
+services:
+  dvm_mailing_list.mailing_list:
+    class: Drupal\dvm_mailing_list\MailingList
+    arguments: ['@group.membership_loader', '@plugin.manager.activity_action.processor']
+  access_check.mailing_list_approve:
+    class: Drupal\dvm_mailing_list\Access\MailingListApproveAccessCheck
+    tags:
+      - { name: access_check, applies_to: _mailing_list_add_access }

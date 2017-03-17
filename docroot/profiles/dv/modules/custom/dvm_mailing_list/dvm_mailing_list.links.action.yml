@@ -1,0 +1,12 @@
+dvm_mailing_list.send:
+  route_name: dvm_mailing_list.send
+  title: 'Send for Approval'
+  appears_on:
+    - entity.group.canonical
+
+dvm_mailing_list.approve:
+  route_name: dvm_mailing_list.approve
+  title: 'Approve Sending'
+  appears_on:
+    - entity.group.canonical
+

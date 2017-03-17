@@ -1,10 +1,28 @@
 dvm_mailing_list.create_mailing_list:
   path: 'create-mailing-list'
   defaults:
-    _controller: '\Drupal\dvm_mailing_list\Controller\CreateMailingList::createMailingList'
+    _controller: '\Drupal\dvm_mailing_list\Controller\MailingListController::createMailingList'
     _title: 'Create a Mailing List'
   requirements:
     _permission: 'create mailing_list group'
+
+dvm_mailing_list.send:
+  path: 'group/{group}/send'
+  defaults:
+    _controller: '\Drupal\dvm_mailing_list\Controller\MailingListController::sendForApproval'
+  requirements:
+    _entity_access: 'group.update'
+    group: \d+
+
+dvm_mailing_list.approve:
+  path: 'group/{group}/approve'
+  defaults:
+    _controller: '\Drupal\dvm_mailing_list\Controller\MailingListController::approve'
+  requirements:
+    _mailing_list_add_access: 'TRUE'
+    group: \d+
+  options:
+    group_type: 'mailing_list
 
 dvm_mailing_list.ajax_edit_form:
   path: 'node/{node}/ajax-edit'
@@ -28,6 +46,16 @@ dvm_mailing_list.ajax_delete_link:
 
 dvm_mailing_list.ajax_cancel_link:
   path: 'node/{node}/ajax-cancel'
+  defaults:
+    _controller: '\Drupal\dvm_mailing_list\Controller\QuestionAjaxController::cancel'
+  requirements:
+    _entity_access: 'node.view'
+    node: \d+
+  options:
+    _node_operation_route: TRUE
+
+dvm_mailing_list.ajax_cancel_link:
+  path: 'node/{group}/send-email'
   defaults:
     _controller: '\Drupal\dvm_mailing_list\Controller\QuestionAjaxController::cancel'
   requirements:
