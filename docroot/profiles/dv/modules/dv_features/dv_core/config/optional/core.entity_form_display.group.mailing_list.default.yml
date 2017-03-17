@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.group.mailing_list.field_ml_to
     - group.type.mailing_list
   module:
     - content_moderation
@@ -12,15 +11,6 @@ targetEntityType: group
 bundle: mailing_list
 mode: default
 content:
-  field_ml_to:
-    weight: 4
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   label:
     type: string_textfield
     weight: 0

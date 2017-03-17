@@ -11,4 +11,4 @@ audience: member
 group_type: mailing_list
 permissions_ui: true
 permissions:
-  2: 'view unpublished group_node:question entity'
+  - 'view unpublished group_node:question entity'

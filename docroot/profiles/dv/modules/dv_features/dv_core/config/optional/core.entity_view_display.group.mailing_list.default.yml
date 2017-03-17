@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.group.mailing_list.field_ml_to
     - group.type.mailing_list
   module:
     - panelizer
@@ -126,14 +125,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_ml_to:
-    weight: -3
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   label:
     label: hidden
     type: string
