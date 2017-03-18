@@ -1,5 +1,3 @@
 services:
   dmt_group.helper_service:
     class: Drupal\dmt_group\GroupHelper
-  dmt_group.node_queue_helper:
-    class: Drupal\dmt_group\NodeQueueHelper
