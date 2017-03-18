@@ -11,6 +11,7 @@ dvm_mailing_list.send:
   defaults:
     _controller: '\Drupal\dvm_mailing_list\Controller\MailingListController::sendForApproval'
   requirements:
+    _mailing_list_send_access: 'FALSE'
     _entity_access: 'group.update'
     group: \d+
 
@@ -19,10 +20,8 @@ dvm_mailing_list.approve:
   defaults:
     _controller: '\Drupal\dvm_mailing_list\Controller\MailingListController::approve'
   requirements:
-    _mailing_list_add_access: 'TRUE'
+    _mailing_list_approve_access: 'TRUE'
     group: \d+
-  options:
-    group_type: 'mailing_list
 
 dvm_mailing_list.ajax_edit_form:
   path: 'node/{node}/ajax-edit'

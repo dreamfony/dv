@@ -2,13 +2,9 @@
 
 namespace Drupal\dvm_mailing_list;
 
-use Drupal\Component\Plugin\PluginAwareInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Field\EntityReferenceFieldItemList;
 use Drupal\group\Entity\GroupContent;
-use Drupal\group\GroupMembership;
-use Drupal\user\Entity\User;
-use Drupal\Core\Entity\Entity;
 use Drupal\group\Entity\Group;
 use Drupal\node\Entity\Node;
 use Drupal\activity_creator\Plugin\ActivityActionManager;
@@ -65,10 +61,13 @@ class MailingList {
    * @param \Drupal\group\Entity\Group $group
    */
   public function sendForApproval(Group $group) {
+
     $account = $group->getOwner();
     $group_membership = $this->groupMembershipLoader->load($group, $account);
 
     $group_content = $group_membership->getGroupContent();
+
+    // remove administrator role
     /** @var EntityReferenceFieldItemList $group_roles */
     $group_roles = $group_content->get('group_roles');
 
@@ -79,8 +78,9 @@ class MailingList {
         break;
       }
     }
-
     $group_content->set('group_roles', $group_roles->referencedEntities());
+
+    // save group membership
     $group_content->save();
   }
 
@@ -90,6 +90,8 @@ class MailingList {
    * @param \Drupal\group\Entity\Group $group
    */
   public function approve(Group $group) {
+
+    /// @todo: check what happens to deleted entities due to multiversion
     $group_content_questions = $group->getContent('group_node:question');
 
     foreach ($group_content_questions as $group_content) {

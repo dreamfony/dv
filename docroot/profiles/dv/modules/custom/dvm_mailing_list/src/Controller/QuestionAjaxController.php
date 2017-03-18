@@ -8,8 +8,9 @@ use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Entity\EntityFormBuilder;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityManager;
+use Drupal\group\Entity\GroupContent;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\node\NodeInterface;
+use Drupal\Core\Entity\ContentEntityInterface;
 
 class QuestionAjaxController extends ControllerBase {
 
@@ -57,11 +58,19 @@ class QuestionAjaxController extends ControllerBase {
   }
 
   /**
-   * @param \Drupal\Core\Entity\EntityInterface $node
+   * @param \Drupal\Core\Entity\ContentEntityInterface $node
    * @return \Drupal\Core\Ajax\AjaxResponse
    */
-  public function delete(EntityInterface $node) {
+  public function delete(ContentEntityInterface $node) {
+    $group_contents = GroupContent::loadByEntity($node);
+
+    foreach ($group_contents as $group_content) {
+      /** @var GroupContent $group_content */
+      $group_content->delete();
+    }
+
     $node->delete();
+
 
     $response = new AjaxResponse();
     $selector = '.question-view-' . $node->id() . ' .node';
