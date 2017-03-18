@@ -34,14 +34,18 @@ class MailingListApproveAccessCheck implements AccessInterface {
   public function access(Route $route, AccountInterface $account, GroupInterface $group) {
     $needs_access = $route->getRequirement('_mailing_list_approve_access') === 'TRUE';
 
+    // if group is not mailing list we don't show this link
     if($group->bundle() != 'mailing_list') {
       return AccessResult::forbidden();
     }
 
+    // check moderation state
+    $moderation_state = $group->get('moderation_state')->getString() == 'email';
+
     // Determine whether the user can create groups of the provided type.
     $access = $group->hasPermission('approve sending', $account);
 
-    return AccessResult::allowedIf($access xor !$needs_access);
+    return AccessResult::allowedIf(($access and $moderation_state) xor !$needs_access);
   }
 
 }

@@ -62,12 +62,12 @@ class MailingList {
    */
   public function sendForApproval(Group $group) {
 
+    // remove administrator role
     $account = $group->getOwner();
     $group_membership = $this->groupMembershipLoader->load($group, $account);
 
     $group_content = $group_membership->getGroupContent();
 
-    // remove administrator role
     /** @var EntityReferenceFieldItemList $group_roles */
     $group_roles = $group_content->get('group_roles');
 
@@ -82,6 +82,10 @@ class MailingList {
 
     // save group membership
     $group_content->save();
+
+    // set moderation state
+    $group->set('moderation_state', 'email');
+    $group->save();
   }
 
   /**
@@ -90,8 +94,6 @@ class MailingList {
    * @param \Drupal\group\Entity\Group $group
    */
   public function approve(Group $group) {
-
-    /// @todo: check what happens to deleted entities due to multiversion
     $group_content_questions = $group->getContent('group_node:question');
 
     foreach ($group_content_questions as $group_content) {

@@ -5,32 +5,16 @@
  * Contains dvm_mailing_list.module.
  */
 
-use Drupal\Core\Routing\RouteMatchInterface;
-use Drupal\group\Entity\Group;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Drupal\node\NodeInterface;
 
 
 /**
- * Implements hook_help().
- */
-function dvm_mailing_list_help($route_name, RouteMatchInterface $route_match) {
-  switch ($route_name) {
-    // Main module help for the dvm_mailing_list module.
-    case 'help.page.dvm_mailing_list':
-      $output = '';
-      $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('DV Mailing list') . '</p>';
-      return $output;
-
-    default:
-  }
-}
-
-
-/**
  * Implements hook_inline_entity_form_entity_form_alter().
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
  */
 function dvm_mailing_list_form_node_question_form_alter(&$form, FormStateInterface &$form_state) {
   $form['title']['#access'] = FALSE;
@@ -96,21 +80,11 @@ function dvm_mailing_list_form_node_question_form_alter(&$form, FormStateInterfa
 }
 
 /**
- *  Implements hook_entity_extra_field_info().
- */
-function dvm_mailing_list_entity_extra_field_info() {
-  $extra['node']['question']['display']['question_edit_link'] = array(
-    'label' => t('Question ajax edit link'),
-    'description' => t('Provides an ajax links to manage the current entity.'),
-    'weight' => 100,
-    'visible' => TRUE,
-  );
-
-  return $extra;
-}
-
-/**
  * Implements hook_node_links_alter().
+ *
+ * @param array $links
+ * @param \Drupal\node\NodeInterface $entity
+ * @param array $context
  */
 function dvm_mailing_list_node_links_alter(array &$links, NodeInterface $entity, array &$context) {
   if ($entity->bundle() == 'question') {
@@ -154,6 +128,8 @@ function dvm_mailing_list_node_links_alter(array &$links, NodeInterface $entity,
  * Auto generate title for question node.
  *
  * Implements hook_entity_presave().
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
  */
 function dvm_mailing_list_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
   if ($entity->bundle() == 'question') {
