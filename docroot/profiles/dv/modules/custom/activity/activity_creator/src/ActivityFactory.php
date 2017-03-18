@@ -103,11 +103,29 @@ class ActivityFactory extends ControllerBase {
    */
   private function getFieldHash($data) {
     $value = NULL;
-    if(in_array_r('email', $this->getFieldDestinations($data))) {
+    if($this->inArrayR('email', $this->getFieldDestinations($data))) {
       $random = new ActivityLoggerRandom();
       return $random->hash(20, TRUE, 'activity_factory_hash_validate');
     }
     return $value;
+  }
+
+  /**
+   * Helper function.
+   *
+   * @param $needle
+   * @param $haystack
+   * @param bool $strict
+   * @return bool
+   */
+  private function inArrayR($needle, $haystack, $strict = false) {
+    foreach ($haystack as $item) {
+      if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && $this->inArrayR($needle, $item, $strict))) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   /**
