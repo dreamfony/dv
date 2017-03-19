@@ -14,6 +14,8 @@ dependencies:
     - search_api
     - shortcut
     - votingapi
+    - content_moderation
+    - multiversion
 id: activity.field_activity_entity
 field_name: field_activity_entity
 entity_type: activity
@@ -29,6 +31,13 @@ settings:
     profile: profile
     taxonomy_term: taxonomy_term
     user: user
+    flagging: flagging
+    search_api_task: search_api_task
+    shorcut: shortcut
+    vote_result: vote_result
+    vote: vote
+    workspace: workspace
+    content_moderation_state: content_moderation_state
 module: dynamic_entity_reference
 locked: false
 cardinality: 1

@@ -31,8 +31,8 @@ settings:
     handler: 'default:node'
     handler_settings:
       target_bundles:
-        event: event
-        topic: topic
+        question: question
+        issue: issue
       sort:
         field: _none
       auto_create: false
