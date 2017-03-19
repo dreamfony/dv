@@ -5,9 +5,9 @@ dependencies:
     - field.storage.activity.field_activity_reply
     - field.storage.activity.field_activity_status
     - field.storage.user.field_ac_organisation_node
+    - node.type.question
   module:
     - activity_creator
-    - node
     - options
     - user
 id: answers
@@ -302,15 +302,6 @@ display:
           admin_label: 'field_activity_recipient_user: User'
           required: true
           plugin_id: standard
-        field_ac_organisation_node:
-          id: field_ac_organisation_node
-          table: user__field_ac_organisation_node
-          field: field_ac_organisation_node
-          relationship: field_activity_recipient_user
-          group_type: group
-          admin_label: 'field_ac_organisation_node: Content'
-          required: false
-          plugin_id: standard
       arguments:
         field_activity_entity_target_id:
           id: field_activity_entity_target_id
@@ -338,11 +329,16 @@ display:
             sort_order: asc
             number_of_records: 0
             format: default_summary
-          specify_validation: false
+          specify_validation: true
           validate:
-            type: none
+            type: 'entity:node'
             fail: 'not found'
-          validate_options: {  }
+          validate_options:
+            bundles:
+              question: question
+            access: true
+            operation: view
+            multiple: 0
           break_phrase: false
           not: false
           plugin_id: numeric

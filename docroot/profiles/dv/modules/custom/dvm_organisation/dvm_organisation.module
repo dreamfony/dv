@@ -5,116 +5,38 @@
  * Contains dvm_organisation.module.
  */
 
-use Drupal\Core\Routing\RouteMatchInterface;
-use Drupal\dvm_organisation\Helper\Organisation;
-use Drupal\user\Entity\User;
-use Drupal\node\Entity\Node;
-
-/**
- * Implements hook_help().
- */
-function dvm_organisation_help($route_name, RouteMatchInterface $route_match) {
-  switch ($route_name) {
-    // Main module help for the dvm_organisation module.
-    case 'help.page.dvm_organisation':
-      $output = '';
-      $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('My Awesome Module') . '</p>';
-      return $output;
-
-    default:
-  }
-}
+use Drupal\profile\Entity\Profile;
 
 /**
  * Implements hook_node_insert().
- */
-
-function dvm_organisation_node_insert(Drupal\Core\Entity\EntityInterface $entity) {
-  $bundle = $entity->bundle();
-
-  if ($bundle == 'organisation') {
-    /** @var Node $entity */
-
-    $dummy_email = $entity->get('field_o_organisation_id')
-        ->getString() . '@dv.com';
-
-    // get current email set on organisation node
-    $email = $entity->get('field_o_email')->getValue();
-
-    // if email delta 0 on organisation node is set
-    if (isset($email[0]['value'])) {
-      $email = $email[0]['value'];
-
-      // create a new user and assign it to organisation node
-      $org_user = User::create(array(
-        'name' => $dummy_email,
-        'mail' => $dummy_email,
-        'status' => 1,
-        'personas' => array('organisation')
-      ));
-
-//      $org_user->set('field_ac_contact_email', $email);
-//      $org_user->set('field_ac_organisation_node', $entity);
-
-      $org_user->save();
-      $entity->setOwner($org_user);
-
-    }
-
-    \Drupal::service('dvm_organisation_group.add_group_to_subgroup')
-      ->add($entity, 'organisation', 'field_o_parent_organisation');
-  }
-}
-
-/**
- * Hook node update.
  *
- * @param \Drupal\Core\Entity\EntityInterface $entity
+ * @param \Drupal\profile\Entity\Profile $profile
  */
-function dvm_organisation_node_update(Drupal\Core\Entity\EntityInterface $entity) {
+function dvm_organisation_profile_insert(Profile $profile) {
+  $bundle = $profile->bundle();
 
-  /** @var Organisation $entity */
-  $bundle = $entity->bundle();
-
-  if ($bundle == 'organisation') {
-
-    $email = $entity->get('field_o_email')->getValue();
-
-    // if email delta 0 on organisation node is set
-    if (isset($email[0]['value'])) {
-      $email = $email[0]['value'];
-      /** @var User $user */
-      $user = Drupal::service('dvm_organisation.organisation')
-        ->getOrganisationUserEntity($entity);
-
-      if (!is_null($user)) {
-        $user->set('field_ac_contact_email', $email);
-        $user->save();
-      }
-    }
+  if ($bundle == 'organisation_profile') {
+    \Drupal::service('dvm_organisation_group.add_group_to_subgroup')
+      ->add($profile, 'organisation', 'field_org_parent_organisation');
   }
 }
 
 /**
  * Implements hook_entity_presave().
+ *
+ * @param \Drupal\profile\Entity\Profile $profile
  */
+function dvm_organisation_profile_presave(Profile $profile) {
+  $bundle = $profile->bundle();
 
-function dvm_organisation_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($bundle == 'organisation_profile') {
+    $organisation_id = $profile->get('field_org_organisation_id')->getValue();
+    if (empty($organisation_id)) {
+      $organisation_id = Drupal::service('dvm_organisation.organisation')
+        ->getOrganisationId();
 
-//  Both group and node entity have bundle called "organisation"
-  if ($entity instanceof \Drupal\node\NodeInterface) {
-    /** @var Organisation $entity */
-    $bundle = $entity->bundle();
-
-    if ($bundle == 'organisation') {
-      $organisation_id = $entity->get('field_o_organisation_id')->getValue();
-      if (empty($organisation_id)) {
-        $organisation_id = Drupal::service('dvm_organisation.organisation')
-          ->getOrganisationId();
-
-        $entity->set('field_o_organisation_id', $organisation_id);
-      }
+      $profile->set('field_org_organisation_id', $organisation_id);
     }
   }
+
 }

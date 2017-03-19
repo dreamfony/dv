@@ -12,4 +12,5 @@ permissions:
   - 'view field_ac_contact_email'
   - 'view field_ac_organisation_node'
   - 'view files'
+  - 'view published activity entities'
   - 'view published positions entities'

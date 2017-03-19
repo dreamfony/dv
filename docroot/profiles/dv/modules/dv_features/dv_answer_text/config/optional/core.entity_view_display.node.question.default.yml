@@ -34,7 +34,7 @@ third_party_settings:
               third_party_settings: {  }
               weight: 0
             region: contentmain
-            weight: 0
+            weight: 1
             uuid: 75047371-8127-4565-950b-9a8ec6507fa9
             context_mapping:
               entity: '@panelizer.entity_context:entity'
@@ -46,9 +46,21 @@ third_party_settings:
             views_label: ''
             items_per_page: none
             region: contentmain
-            weight: 0
+            weight: 2
             uuid: 7123c8ef-6e16-4e8f-bbc9-226ebe102b70
-            context_mapping: {  }
+            context_mapping:
+              field_activity_entity_target_id: '@panelizer.entity_context:entity'
+          6e999f8f-d3a5-4862-8897-c435c79dc88c:
+            id: node_links
+            label: 'Node links'
+            provider: ctools
+            label_display: '0'
+            view_mode: default
+            region: contentmain
+            weight: 0
+            uuid: 6e999f8f-d3a5-4862-8897-c435c79dc88c
+            context_mapping:
+              node: '@panelizer.entity_context:entity'
         id: panels_variant
         uuid: e6f8a35e-fcc3-4a01-a484-5442beedc5f2
         label: 'Question Default'
@@ -94,5 +106,8 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  question_edit_link:
+    weight: 100
+    region: content
 hidden:
   langcode: true

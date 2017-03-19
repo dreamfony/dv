@@ -2,9 +2,7 @@
 
 namespace Drupal\dvm_organisation\Helper;
 
-use Drupal\dvm_user\Helper\UserSettings;
-use Drupal\user\Entity\User;
-use Drupal\Core\Entity\Entity;
+use Drupal\profile\Entity\Profile;
 
 /**
  * Class Organisation
@@ -12,28 +10,20 @@ use Drupal\Core\Entity\Entity;
  */
 class Organisation {
 
-  public function getOrganisationUserEntity(Entity $entity) {
-
-    $query = \Drupal::entityQuery('user')
-      ->condition('status', 1)
-      ->condition('roles', UserSettings::ROLE_ORGANISATION)
-      ->condition('field_ac_organisation_node', $entity->id());
-    $entity_id = $query->execute();
-
-    if (!empty($entity_id)) {
-      $user = User::load(reset($entity_id));
-      return $user;
-    }
-    return NULL;
+  /**
+   * @param \Drupal\profile\Entity\Profile $entity
+   * @return \Drupal\Core\Entity\EntityInterface|null|static
+   */
+  public function getOrganisationUserEntity(Profile $entity) {
+    return $entity->getOwner();
   }
 
-  /*
+  /**
    * Generate Unique Organisation ID
    */
-
   public function getOrganisationId() {
     $generated_id = $this->generateOrganisationId();
-    while ($this->checkOrganisatioIdIsUsed($generated_id)) {
+    while ($this->checkOrganisationIdIsUsed($generated_id)) {
       $generated_id = $this->generateOrganisationId();
     }
     return $generated_id;
@@ -43,17 +33,13 @@ class Organisation {
     return rand(10000000, 99999999);
   }
 
-  private function checkOrganisatioIdIsUsed($id) {
-
-    $count_id = \Drupal::entityQuery('node')
-      ->condition('type', 'organisation')
-      ->condition('field_o_organisation_id', $id)
+  private function checkOrganisationIdIsUsed($id) {
+    $count_id = \Drupal::entityQuery('profile')
+      ->condition('type', 'organisation_profile')
+      ->condition('field_org_organisation_id', $id)
       ->count()
       ->execute();
 
-    if ($count_id > 0) {
-      return TRUE;
-    }
-    return FALSE;
+    return $count_id > 0;
   }
 }

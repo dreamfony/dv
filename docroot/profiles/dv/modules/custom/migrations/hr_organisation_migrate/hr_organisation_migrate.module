@@ -32,7 +32,7 @@ function hr_organisation_migrate_migrate_prepare_row(Row $row, MigrateSourceInte
 
 
   // for organisations skip rows that have 'skupna_razina'
-  if ($migration->id() === 'organisations' OR $migration->id() === 'organisations_user') {
+  if ($migration->id() === 'organisations_user') {
 
     // if row is not organisation skip it
     if ($row->getSourceProperty('skupna_razina')) {
@@ -48,15 +48,14 @@ function hr_organisation_migrate_migrate_prepare_row(Row $row, MigrateSourceInte
         $organisation_id = Drupal::service('dvm_organisation.organisation')
           ->getOrganisationId();
         $row->setSourceProperty('organisation_id', $organisation_id);
-
       }
-
 
       // Create User that will hold the profile data if it doesnt exist
       $dummy_email = $organisation_id . '@dv.com';
 
       $user_exists = user_load_by_mail($dummy_email);
-//      Skip row if the user already exists
+
+      // Skip row if the user already exists
       if (!empty($user_exists)) {
         return FALSE;
       }

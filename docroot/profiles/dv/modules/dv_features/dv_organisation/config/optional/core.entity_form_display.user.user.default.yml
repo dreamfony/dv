@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.user.user.field_ac_organisation_node
     - field.field.user.user.field_domain_admin
     - field.field.user.user.user_picture
   module:
@@ -38,6 +37,5 @@ content:
     weight: 6
     region: content
 hidden:
-  field_ac_organisation_node: true
   langcode: true
   user_picture: true

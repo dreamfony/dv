@@ -3,9 +3,8 @@
 namespace Drupal\dvm_organisation_group;
 
 use Drupal\group\Entity\Group;
-use Drupal\Core\Entity\ContentEntityInterface;
-use Drupal\node\Entity\Node;
 use Drupal\group\Entity\GroupContent;
+use Drupal\profile\Entity\Profile;
 
 /**
  * Class AddGroupToSubgroup
@@ -17,8 +16,8 @@ class AddGroupToSubgroup {
   /** @var  string */
   protected $groupType;
 
-  /** @var Node */
-  protected $entity;
+  /** @var Profile */
+  protected $profile;
 
   /** @var \Drupal\group\Entity\GroupInterface */
   protected $group;
@@ -32,13 +31,13 @@ class AddGroupToSubgroup {
   /**
    * Creates a group. Adds entity to a group.
    *
-   * @param \Drupal\Core\Entity\ContentEntityInterface $entity
+   * @param \Drupal\profile\Entity\Profile $profile
    * @param $groupType
    * @param $fieldMachineName
    */
-  public function add(ContentEntityInterface $entity, $groupType, $fieldMachineName) {
+  public function add(Profile $profile, $groupType, $fieldMachineName) {
 
-    $this->entity = $entity;
+    $this->profile = $profile;
     $this->groupType = $groupType;
     $this->fieldMachineName = $fieldMachineName;
 
@@ -46,17 +45,19 @@ class AddGroupToSubgroup {
     $this->group = Group::create([
       'type' => $this->groupType,
       'uid' => 1,
-      'label' => $entity->label()
+      'label' => $this->profile->get('field_org_title')
     ]);
 
     // save new created group
     $this->group->save();
 
-    // add node to created group
-    $this->group->addContent($entity, 'group_node:' . $entity->bundle());
+    $profile_owner = $this->profile->getOwner();
+
+    // add profile owner to the group
+    $this->group->addMember($profile_owner, ['group_roles' => [$this->group->bundle().'-organisation']]);
 
     // get parent entity id
-    $parentEntityId = $this->entity->get($fieldMachineName)->target_id;
+    $parentEntityId = $this->profile->get($fieldMachineName)->target_id;
 
     // if parent group exits
     if (!empty($parentEntityId) && $parentGroupId = $this->getParentGroupId($parentEntityId)) {
@@ -83,8 +84,8 @@ class AddGroupToSubgroup {
    * @return mixed
    */
   protected function getParentGroupId($parentEntityId) {
-    if ( $node = Node::load($parentEntityId) ) {
-      if ($groupContents = GroupContent::loadByEntity($node)) {
+    if ( $profile = Profile::load($parentEntityId) ) {
+      if ($groupContents = GroupContent::loadByEntity($profile)) {
         // Potentially there are more than one.
         foreach ($groupContents as $groupContent) {
           /** @var GroupContent $groupContent */

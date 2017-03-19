@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.full
+    - group.type.mailing_list
   module:
     - gnode
     - group
@@ -261,7 +262,7 @@ display:
           relationship: group_content
           group_type: group
           admin_label: ''
-          default_action: default
+          default_action: 'access denied'
           exception:
             value: all
             title_enable: false
@@ -280,11 +281,16 @@ display:
             sort_order: asc
             number_of_records: 0
             format: default_summary
-          specify_validation: false
+          specify_validation: true
           validate:
-            type: none
+            type: 'entity:group'
             fail: 'not found'
-          validate_options: {  }
+          validate_options:
+            bundles:
+              mailing_list: mailing_list
+            operation: view
+            multiple: 0
+            access: false
           break_phrase: false
           not: false
           entity_type: group_content
@@ -303,18 +309,18 @@ display:
         - 'user.node_grants:view'
       tags:
         - 'config:core.entity_view_display.node.blog_post.default'
-        - 'config:core.entity_view_display.node.blog_post.teaser'
         - 'config:core.entity_view_display.node.geo_area.default'
-        - 'config:core.entity_view_display.node.geo_area.teaser'
         - 'config:core.entity_view_display.node.issue.default'
-        - 'config:core.entity_view_display.node.issue.teaser'
         - 'config:core.entity_view_display.node.organisation.default'
-        - 'config:core.entity_view_display.node.organisation.teaser'
         - 'config:core.entity_view_display.node.page.default'
-        - 'config:core.entity_view_display.node.page.teaser'
         - 'config:core.entity_view_display.node.person.default'
-        - 'config:core.entity_view_display.node.person.teaser'
         - 'config:core.entity_view_display.node.question.default'
+        - 'config:core.entity_view_display.node.blog_post.teaser'
+        - 'config:core.entity_view_display.node.geo_area.teaser'
+        - 'config:core.entity_view_display.node.issue.teaser'
+        - 'config:core.entity_view_display.node.organisation.teaser'
+        - 'config:core.entity_view_display.node.page.teaser'
+        - 'config:core.entity_view_display.node.person.teaser'
         - 'config:core.entity_view_display.node.question.teaser'
   block_1:
     display_plugin: block

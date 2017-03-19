@@ -19,4 +19,5 @@ permissions:
   - 'view field_ac_organisation_node'
   - 'view files'
   - 'view own unpublished content'
+  - 'view published activity entities'
   - 'view published positions entities'

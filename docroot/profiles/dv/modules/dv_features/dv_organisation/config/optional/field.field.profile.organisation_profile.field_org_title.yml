@@ -21,9 +21,9 @@ id: profile.organisation_profile.field_org_title
 field_name: field_org_title
 entity_type: profile
 bundle: organisation_profile
-label: Title
+label: Name
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
