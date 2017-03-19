@@ -5,6 +5,7 @@ namespace Drupal\dvm_organisation_group;
 use Drupal\group\Entity\Group;
 use Drupal\group\Entity\GroupContent;
 use Drupal\profile\Entity\Profile;
+use Drupal\user\Entity\User;
 
 /**
  * Class AddGroupToSubgroup
@@ -84,8 +85,8 @@ class AddGroupToSubgroup {
    * @return mixed
    */
   protected function getParentGroupId($parentEntityId) {
-    if ( $profile = Profile::load($parentEntityId) ) {
-      if ($groupContents = GroupContent::loadByEntity($profile)) {
+    if ( $user = User::load($parentEntityId) ) {
+      if ($groupContents = GroupContent::loadByEntity($user)) {
         // Potentially there are more than one.
         foreach ($groupContents as $groupContent) {
           /** @var GroupContent $groupContent */

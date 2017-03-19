@@ -1,0 +1,17 @@
+<?php
+
+use Drupal\profile\Entity\Profile;
+
+/**
+ * Implements hook_profile_insert().
+ *
+ * @param \Drupal\profile\Entity\Profile $profile
+ */
+function dvm_organisation_group_profile_insert(Profile $profile) {
+  $bundle = $profile->bundle();
+
+  if ($bundle == 'organisation_profile') {
+    \Drupal::service('dvm_organisation_group.add_group_to_subgroup')
+      ->add($profile, 'organisation', 'field_org_parent_organisation');
+  }
+}

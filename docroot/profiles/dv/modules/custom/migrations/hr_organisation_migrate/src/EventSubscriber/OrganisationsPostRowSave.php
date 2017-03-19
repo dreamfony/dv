@@ -8,6 +8,7 @@ use Drupal\migrate\Event\MigratePostRowSaveEvent;
 use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate\Row;
 use Drupal\node\Entity\Node;
+use Drupal\profile\Entity\Profile;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Drupal\group\Entity\Group;
 
@@ -125,16 +126,17 @@ class OrganisationsPostRowSave implements EventSubscriberInterface {
 
         if (is_array($activity_ids)) {
 
-          $organisation_node = Node::load($destination_values[0]);
+          $organisation_profile = Profile::load($destination_values[0]);
+          $organisation_user = $organisation_profile->getOwner();
+
           foreach ($activity_ids as $activity_id) {
 
             $activity_group = Group::load($activity_id);
 
-            // add location node to created group
-            $activity_group->addContent($organisation_node, 'group_node:' . $organisation_node->bundle());
+            $activity_group->addMember($organisation_user, ['group_roles' => [$activity_group->bundle() . '-organisation']]);
 
           }
-          $organisation_node->save();
+
         }
 
       }
