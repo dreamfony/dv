@@ -5,6 +5,7 @@ dependencies:
     - user.role.organisation
   module:
     - group
+    - profile
     - user
 id: mailing_list_organisations
 label: 'Mailing list Organisations'
@@ -268,6 +269,57 @@ display:
           text: 'Remove member'
           entity_type: group_content
           plugin_id: entity_link_delete
+        rendered_entity:
+          id: rendered_entity
+          table: profile
+          field: rendered_entity
+          relationship: profile
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          view_mode: default
+          entity_type: profile
+          plugin_id: rendered_entity
       filters:
         roles_target_id:
           id: roles_target_id
@@ -337,6 +389,16 @@ display:
             group_membership: group_membership
           entity_type: group_content
           plugin_id: group_content_to_entity
+        profile:
+          id: profile
+          table: users_field_data
+          field: profile
+          relationship: gc__user
+          group_type: group
+          admin_label: Profile
+          required: true
+          entity_type: user
+          plugin_id: standard
       arguments:
         gid:
           id: gid
@@ -385,7 +447,8 @@ display:
         - route
         - url
         - url.query_args
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.profile.organisation_profile.default'
   block_1:
     display_plugin: block
     id: block_1
@@ -402,4 +465,5 @@ display:
         - route
         - url
         - url.query_args
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.profile.organisation_profile.default'

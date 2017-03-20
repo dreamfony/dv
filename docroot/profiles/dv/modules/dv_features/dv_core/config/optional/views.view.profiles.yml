@@ -296,7 +296,8 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.profile.organisation_profile.default'
   profile_type_listing:
     display_plugin: embed
     id: profile_type_listing
@@ -310,7 +311,8 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.profile.organisation_profile.default'
   user_view:
     display_plugin: embed
     id: user_view
@@ -378,4 +380,5 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.profile.organisation_profile.default'

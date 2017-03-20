@@ -9,6 +9,7 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
+  - 'view any organisation_profile profile'
   - 'view field_ac_contact_email'
   - 'view field_ac_organisation_node'
   - 'view files'

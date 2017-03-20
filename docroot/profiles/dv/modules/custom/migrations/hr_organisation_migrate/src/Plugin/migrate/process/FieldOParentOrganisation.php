@@ -20,10 +20,10 @@ class FieldOParentOrganisation extends ProcessPluginBase {
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
 
     if ($value) {
-      $query = \Drupal::entityQuery('node');
+      $query = \Drupal::entityQuery('profile');
 
       $query->condition('type', 'organisation');
-      $query->condition('field_o_organisation_id', $value);
+      $query->condition('field_org_organisation_id', $value);
       $result = $query->execute();
 
       if ($result) {

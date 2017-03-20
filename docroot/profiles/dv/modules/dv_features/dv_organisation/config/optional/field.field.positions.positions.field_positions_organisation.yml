@@ -3,7 +3,7 @@ status: true
 dependencies:
   config:
     - field.storage.positions.field_positions_organisation
-    - node.type.organisation
+    - profile.type.organisation_profile
   module:
     - dv_positions
 id: positions.positions.field_positions_organisation
@@ -17,10 +17,10 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node'
+  handler: 'default:profile'
   handler_settings:
     target_bundles:
-      organisation: organisation
+      organisation_profile: organisation_profile
     sort:
       field: _none
     auto_create: false

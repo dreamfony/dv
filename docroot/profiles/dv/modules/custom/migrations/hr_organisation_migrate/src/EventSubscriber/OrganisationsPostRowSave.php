@@ -36,12 +36,15 @@ class OrganisationsPostRowSave implements EventSubscriberInterface {
     /** @var  MigrationInterface $migration */
     $migration = $event->getMigration();
 
-    if ($migration->id() === 'organisations') {
+    if ($migration->id() === 'organisations_user') {
 
       /** @var Row $row */
       $row = $event->getRow();
 
       $destination_values = $event->getDestinationIdValues();
+
+      $organisation_profile = Profile::load($destination_values[0]);
+      $organisation_user = $organisation_profile->getOwner();
 
       $functionUpholderId = $row->getSourceProperty('function_upholder_id');
 
@@ -98,7 +101,7 @@ class OrganisationsPostRowSave implements EventSubscriberInterface {
                 );
 
               // assign organisation to position
-              $position->set('field_positions_organisation', $destination_values[0]);
+              $position->set('field_positions_organisation', $organisation_user);
 
               // get function from taxonomy term
               $query = \Drupal::entityQuery('taxonomy_term');
@@ -125,16 +128,9 @@ class OrganisationsPostRowSave implements EventSubscriberInterface {
         $activity_ids = $row->getDestinationProperty('field_o_area_of_activity')[0];
 
         if (is_array($activity_ids)) {
-
-          $organisation_profile = Profile::load($destination_values[0]);
-          $organisation_user = $organisation_profile->getOwner();
-
           foreach ($activity_ids as $activity_id) {
-
             $activity_group = Group::load($activity_id);
-
             $activity_group->addMember($organisation_user, ['group_roles' => [$activity_group->bundle() . '-organisation']]);
-
           }
 
         }
