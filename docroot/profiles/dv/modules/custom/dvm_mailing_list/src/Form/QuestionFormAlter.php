@@ -100,16 +100,12 @@ class QuestionFormAlter {
         $group->addContent($entity, 'group_node:' . $entity->bundle());
 
         // Remove old messages.
-        $response->addCommand(new RemoveCommand('.alert'));
-        $response->addCommand(new ReplaceCommand('.alert', $message));
+        /// @todo: Figure out how we are going to deal with messages ... also why is this breaking questions form ?
+        //$response->addCommand(new RemoveCommand('.alert'));
+        //$response->addCommand(new ReplaceCommand('.alert', $message));
 
         // replace form with empty one
         $response->addCommand(new ReplaceCommand('.ajax-form-entity-node-question-new', $form));
-
-        // replace view
-        // @depreciated in favor of adding just last question
-        // $view = self::getMailingListView();
-        // $response->addCommand(new ReplaceCommand('.view-mailing-list-items', $view));
 
         // remove view-empty
         $response->addCommand(new RemoveCommand('.view-mailing-list-items .view-empty'));
@@ -124,18 +120,5 @@ class QuestionFormAlter {
 
       return $response;
     }
-  }
-
-  static function getMailingListView() {
-    // replace items view
-    /** @var BlockManager $block_manager */
-    $block_manager = \Drupal::service('plugin.manager.block');
-    $config = [];
-    /** @var ViewsBlock $plugin_block */
-    $plugin_block = $block_manager->createInstance('views_block:mailing_list_items-block_1', $config);
-    if ($plugin_block->access(\Drupal::currentUser())) {
-      return $plugin_block->build();
-    }
-    return FALSE;
   }
 }
