@@ -5,7 +5,6 @@ namespace Drupal\dvm_mailing_list\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Ajax\RemoveCommand;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\group\Entity\Group;
 use Drupal\Core\Block\BlockManager;
@@ -30,7 +29,7 @@ class OrganisationForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    $ajax_id = '.organisation_form';
+    $ajax_id = 'organisation_form';
 
     $form['#attributes']['class'][] = $ajax_id;
 
@@ -40,7 +39,6 @@ class OrganisationForm extends FormBase {
       'wrapper' => $ajax_id,
       'effect' => 'fade',
     );
-
 
     $form['group'] = [
       '#type' => 'entity_autocomplete',
@@ -78,26 +76,26 @@ class OrganisationForm extends FormBase {
     $gids = $form_state->getValue('group');
     $mailing_list_group = Group::load($form['#mailing_list_id']);
 
-      foreach ($gids as $gid) {
-        $gid = $gid['target_id'];
+    foreach ($gids as $gid) {
+      $gid = $gid['target_id'];
 
-        if ($gid) {
-          /** @var Group $group */
-          $group = Group::load($gid);
-          $membership = $group->getMembers([$group->bundle() . '-organisation']);
+      if ($gid) {
+        /** @var Group $group */
+        $group = Group::load($gid);
+        $membership = $group->getMembers([$group->bundle() . '-organisation']);
 
-          foreach ($membership as $membershipgc) {
-            /** @var GroupMembership $membershipgc */
-            $org_uids[] = $membershipgc->getGroupContent()->getEntity()->id();
+        foreach ($membership as $membershipgc) {
+          /** @var GroupMembership $membershipgc */
+          $org_uids[] = $membershipgc->getGroupContent()->getEntity()->id();
 
-            foreach ($org_uids as $org_uid) {
-              $org_user = User::load($org_uid);
-              $mailing_list_group->addMember($org_user, ['group_roles' => [$group->bundle() . '-organisation']]);
-            }
-
+          foreach ($org_uids as $org_uid) {
+            $org_user = User::load($org_uid);
+            $mailing_list_group->addMember($org_user, ['group_roles' => [$group->bundle() . '-organisation']]);
           }
+
         }
       }
+    }
 
   }
 
@@ -109,9 +107,6 @@ class OrganisationForm extends FormBase {
     // Else show the result.
     else {
 
-      // get rendered entity
-      $userInputs = $form_state->getUserInput();
-
       // create ajax response
       $response = new AjaxResponse();
 
@@ -122,16 +117,13 @@ class OrganisationForm extends FormBase {
           ->renderRoot($status_messages)
       );
 
-        // Remove old messages.
-        $response->addCommand(new RemoveCommand('.alert'));
-        $response->addCommand(new ReplaceCommand('.alert', $message));
+      // replace form with empty one
+      $form['group']['#value'] = NULL;
+      $response->addCommand(new ReplaceCommand('.organisation_form', $form));
 
-        // replace form with empty one
-        $response->addCommand(new ReplaceCommand('.organisation_form', $form));
-
-        // replace view
-        $view = self::getMailingListOrganisationsView();
-        $response->addCommand(new ReplaceCommand('.view-mailing-list-organisations', $view));
+      // replace view
+      $view = self::getMailingListOrganisationsView();
+      $response->addCommand(new ReplaceCommand('.view-mailing-list-organisations', $view));
 
       return $response;
     }
