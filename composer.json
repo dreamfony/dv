@@ -89,7 +89,8 @@
         "drupal/panels": "^4",
         "drupal/ctools": "3.x-dev",
         "drupal/panelizer": "^4",
-        "drupal/allowed_formats": "1.x-dev"
+        "drupal/allowed_formats": "1.x-dev",
+        "drupal/page_manager": "1.x-dev"
     },
     "require-dev": {
         "behat/behat": "^3.1",

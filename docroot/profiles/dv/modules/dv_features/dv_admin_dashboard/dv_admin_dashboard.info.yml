@@ -1,0 +1,9 @@
+name: 'Admin Dashboard'
+type: module
+core: 8.x
+dependencies:
+  - page_manager
+  - panels
+  - personas
+  - views
+package: DV
