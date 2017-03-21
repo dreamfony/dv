@@ -1,0 +1,173 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.group.my_surveys_teaser
+    - group.type.mailing_list
+  module:
+    - panelizer
+third_party_settings:
+  panelizer:
+    enable: true
+    custom: false
+    allow: false
+    default: mailing_list_teaser
+    displays:
+      mailing_list_default:
+        blocks:
+          400d312c-a495-468d-9c71-fe2dabc9d2ab:
+            id: question_form_block
+            label: 'Add Question'
+            provider: dvm_mailing_list
+            label_display: visible
+            region: column1
+            weight: 0
+            uuid: 400d312c-a495-468d-9c71-fe2dabc9d2ab
+            context_mapping: {  }
+          396e1432-6e37-4c9e-9fb5-b40618a06f52:
+            id: 'views_block:mailing_list_items-block_1'
+            label: Questions
+            provider: views
+            label_display: visible
+            views_label: Questions
+            items_per_page: none
+            region: column1
+            weight: 1
+            uuid: 396e1432-6e37-4c9e-9fb5-b40618a06f52
+            context_mapping:
+              gid: '@panelizer.entity_context:entity'
+          15c1c100-4437-4cfe-92e3-6e9a1be74c2d:
+            id: organisation_form_block
+            label: 'Organisation form block'
+            provider: dvm_mailing_list
+            label_display: '0'
+            region: column2
+            weight: -1
+            uuid: 15c1c100-4437-4cfe-92e3-6e9a1be74c2d
+            context_mapping: {  }
+          1693697c-b1d9-48ec-befb-d982c164b5cd:
+            id: 'views_block:mailing_list_organisations-block_1'
+            label: ''
+            provider: views
+            label_display: visible
+            views_label: ''
+            items_per_page: none
+            region: column2
+            weight: 0
+            uuid: 1693697c-b1d9-48ec-befb-d982c164b5cd
+            context_mapping: {  }
+        id: panels_variant
+        uuid: 5a557251-3442-4926-8501-afdd5ea5ebf6
+        label: 'Mailing List Default'
+        weight: 0
+        layout: radix_sutro_double
+        layout_settings: {  }
+        page_title: '[group:title]'
+        storage_type: panelizer_default
+        storage_id: 'group:mailing_list:default:mailing_list_default'
+        pattern: panelizer
+        builder: ipe
+        static_context: {  }
+      default:
+        blocks:
+          17afb270-76ef-4ee6-806d-9e3c0be2cbf7:
+            id: 'entity_field:group:label'
+            label: Title
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: string
+              settings:
+                link_to_entity: false
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            region: content
+            weight: -5
+            uuid: 17afb270-76ef-4ee6-806d-9e3c0be2cbf7
+          f96d4614-20b3-472d-8d34-d6c6dfb00f07:
+            id: 'entity_field:group:field_ml_to'
+            label: To
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: above
+              type: entity_reference_label
+              settings:
+                link: true
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            region: content
+            weight: -3
+            uuid: f96d4614-20b3-472d-8d34-d6c6dfb00f07
+        id: panels_variant
+        label: Default
+        uuid: c006ad11-aa83-4a2a-981c-f065f2fa859c
+        weight: 0
+        layout: layout_onecol
+        layout_settings: {  }
+        page_title: '[group:title]'
+        storage_type: ''
+        storage_id: ''
+        builder: ipe
+        pattern: panelizer
+      mailing_list_teaser:
+        blocks:
+          7298b7b3-34e1-43e4-b92f-d98e0a6e1641:
+            id: 'entity_field:group:label'
+            label: Title
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: above
+              type: string
+              settings:
+                link_to_entity: false
+              third_party_settings: {  }
+              weight: 0
+            region: content
+            weight: 0
+            uuid: 7298b7b3-34e1-43e4-b92f-d98e0a6e1641
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+        id: panels_variant
+        uuid: bc02a8f5-6aa3-494c-93f6-eef26387e623
+        label: 'Mailing list Teaser'
+        weight: 0
+        layout: layout_onecol
+        layout_settings: {  }
+        page_title: ''
+        storage_type: panelizer_default
+        storage_id: 'group:mailing_list:default:mailing_list_teaser'
+        pattern: panelizer
+        builder: ipe
+        static_context: {  }
+id: group.mailing_list.my_surveys_teaser
+targetEntityType: group
+bundle: mailing_list
+mode: my_surveys_teaser
+content:
+  content_moderation_control:
+    weight: -20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  label:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  changed: true
+  created: true
+  langcode: true
+  uid: true
