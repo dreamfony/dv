@@ -21,6 +21,7 @@ dvm_mailing_list.approve:
     _controller: '\Drupal\dvm_mailing_list\Controller\MailingListController::approve'
   requirements:
     _mailing_list_approve_access: 'TRUE'
+    _entity_access: 'group.view'
     group: \d+
 
 dvm_mailing_list.ajax_edit_form:

@@ -40,7 +40,7 @@ class MailingListApproveAccessCheck implements AccessInterface {
     }
 
     // check moderation state
-    $moderation_state = $group->get('moderation_state')->getString() == 'email';
+    $moderation_state = $group->moderation_state->value === 'email';
 
     // Determine whether the user can create groups of the provided type.
     $access = $group->hasPermission('approve sending', $account);
