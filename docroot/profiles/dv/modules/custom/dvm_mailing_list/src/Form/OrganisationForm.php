@@ -90,7 +90,7 @@ class OrganisationForm extends FormBase {
 
           foreach ($org_uids as $org_uid) {
             $org_user = User::load($org_uid);
-            $mailing_list_group->addMember($org_user, ['group_roles' => [$group->bundle() . '-organisation']]);
+            $mailing_list_group->addMember($org_user, ['group_roles' => ['mailing_list-organisation']]);
           }
 
         }
