@@ -131,7 +131,7 @@ class ActivitySendEmailWorker extends ActivitySendWorkerBase {
       $profile = \Drupal::entityManager()->getStorage('profile')
         ->loadByUser($target_account, UserSettings::PROFILE_ORGANISATION);
       if($profile) {
-        return $profile->get('field_org_contact_email')->getValue()[0]['value'];
+        return $profile->get('field_org_email')->getValue()[0]['value'];
       }
     }
     else {
