@@ -125,7 +125,7 @@ class OrganisationsPostRowSave implements EventSubscriberInterface {
         }
 
         // since migrate can't import simple list of term ids we do it here
-        $activity_ids = $row->getDestinationProperty('field_o_area_of_activity')[0];
+        $activity_ids = $row->getDestinationProperty('field_org_area_of_activity')[0];
 
         if (is_array($activity_ids)) {
           /// @todo Fix Area of activity add members during import

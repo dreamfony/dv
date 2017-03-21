@@ -9,7 +9,7 @@ use Drupal\migrate\Row;
 /**
  *
  * @MigrateProcessPlugin(
- *   id = "field_o_parent_organisation"
+ *   id = "field_org_parent_organisation"
  * )
  */
 class FieldOParentOrganisation extends ProcessPluginBase {

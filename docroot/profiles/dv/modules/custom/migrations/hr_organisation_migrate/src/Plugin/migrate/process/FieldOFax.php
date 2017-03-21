@@ -10,7 +10,7 @@ use Drupal\migrate\Row;
 /**
  *
  * @MigrateProcessPlugin(
- *   id = "field_o_fax"
+ *   id = "field_org_fax"
  * )
  */
 class FieldOFax extends ProcessPluginBase {

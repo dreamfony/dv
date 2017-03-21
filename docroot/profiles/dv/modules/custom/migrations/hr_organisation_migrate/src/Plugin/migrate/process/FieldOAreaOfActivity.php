@@ -10,7 +10,7 @@ use Drupal\group\Entity\Group;
 /**
  *
  * @MigrateProcessPlugin(
- *   id = "field_o_area_of_activity"
+ *   id = "field_org_area_of_activity"
  * )
  */
 class FieldOAreaOfActivity extends ProcessPluginBase {

@@ -10,7 +10,7 @@ use Drupal\migrate\Row;
 /**
  *
  * @MigrateProcessPlugin(
- *   id = "field_o_telephone"
+ *   id = "field_org_telephone"
  * )
  */
 class FieldOTelephone extends ProcessPluginBase {

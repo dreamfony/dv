@@ -77,25 +77,25 @@ process:
   field_org_web_site: web_site_url
   field_org_organisation_id: organisation_id
   field_org_organisation_group:
-    plugin: field_o_organisation_group
+    plugin: field_org_organisation_group
     source: organisation_group_id
   field_org_parent_organisation:
-    plugin: field_o_parent_organisation
+    plugin: field_org_parent_organisation
     source: organisation_group_id
   field_org_area_of_activity:
-    plugin: field_o_area_of_activity
+    plugin: field_org_area_of_activity
     source: area_of_activity_id
   field_org_email:
-    plugin: field_o_email
+    plugin: field_org_email
     source: komunikacije
   field_org_telephone:
-    plugin: field_o_telephone
+    plugin: field_org_telephone
     source: komunikacije
   field_org_fax:
-    plugin: field_o_fax
+    plugin: field_org_fax
     source: komunikacije
   field_org_address:
-    plugin: field_o_address
+    plugin: field_org_address
     source: address
 destination:
   plugin: 'entity:profile'
