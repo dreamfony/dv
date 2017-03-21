@@ -104,5 +104,10 @@ class MailingList {
       $create_action = $this->activityActionProcessor->createInstance('email_organisation_action');
       $create_action->create($activity_entity, $data);
     }
+
+    // set moderation state
+    $group->set('moderation_state', 'published');
+    $group->save();
+
   }
 }
