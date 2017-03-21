@@ -45,6 +45,9 @@ class MailingList {
 
     /// @todo Check if user already has empty Survey
 
+    // if label = New Survey
+    // no questions and no recipients
+
     $group = Group::create([
       'label' => 'New Survey',
       'type' => 'mailing_list'
