@@ -12,3 +12,4 @@ group_type: mailing_list
 permissions_ui: true
 permissions:
   - 'view unpublished group_node:question entity'
+  - 'approve sending'

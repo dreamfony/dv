@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - field.field.profile.organisation_profile.field_org_address
-    - field.field.profile.organisation_profile.field_org_contact_email
     - field.field.profile.organisation_profile.field_org_email
     - field.field.profile.organisation_profile.field_org_fax
     - field.field.profile.organisation_profile.field_org_geo_location
@@ -34,14 +33,6 @@ content:
       default_country: null
     third_party_settings: {  }
     type: address_default
-    region: content
-  field_org_contact_email:
-    weight: 2
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: email_default
     region: content
   field_org_email:
     weight: 3

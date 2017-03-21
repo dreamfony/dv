@@ -116,6 +116,37 @@ third_party_settings:
         storage_id: ''
         builder: ipe
         pattern: panelizer
+      mailing_list_teaser:
+        blocks:
+          7298b7b3-34e1-43e4-b92f-d98e0a6e1641:
+            id: 'entity_field:group:label'
+            label: Title
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: above
+              type: string
+              settings:
+                link_to_entity: false
+              third_party_settings: {  }
+              weight: 0
+            region: content
+            weight: 0
+            uuid: 7298b7b3-34e1-43e4-b92f-d98e0a6e1641
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+        id: panels_variant
+        uuid: bc02a8f5-6aa3-494c-93f6-eef26387e623
+        label: 'Mailing list Teaser'
+        weight: 0
+        layout: layout_onecol
+        layout_settings: {  }
+        page_title: ''
+        storage_type: panelizer_default
+        storage_id: 'group:mailing_list:default:mailing_list_teaser'
+        pattern: panelizer
+        builder: ipe
+        static_context: {  }
 id: group.mailing_list.default
 targetEntityType: group
 bundle: mailing_list
