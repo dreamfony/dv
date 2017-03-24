@@ -16,6 +16,9 @@ use Drupal\group\GroupMembershipLoaderInterface;
  */
 class MailingList {
 
+  const MAILINGLIST_TYPE = 'mailing_list';
+  const MAILINGLIST_LABEL = 'New Survey';
+
   /**
    * @var GroupMembershipLoaderInterface
    */
@@ -43,17 +46,37 @@ class MailingList {
    */
   public function createMailingList() {
 
-    /// @todo Check if user already has empty Survey
+    // Check if user already has empty Survey
 
-    // if label = New Survey
-    // no questions and no recipients
+    $query = \Drupal::entityQuery('group');
+    $query->condition('type', static::MAILINGLIST_TYPE);
+    $query->condition('label', static::MAILINGLIST_LABEL);
+    $query->condition('uid', \Drupal::currentUser()->id());
+    $result = $query->execute();
 
-    $group = Group::create([
-      'label' => 'New Survey',
-      'type' => 'mailing_list'
-    ]);
+    if ($result) {
 
-    $group->save();
+      $group = Group::load(reset($result));
+      $group_content = $group->getContent('group_node:question');
+      $group_users = $group->getMembers([static::MAILINGLIST_TYPE.'-organisation']);
+      if (!empty($group_content) AND !empty($group_users)) {
+        $group = Group::create([
+          'label' => static::MAILINGLIST_LABEL,
+          'type' => static::MAILINGLIST_TYPE
+        ]);
+
+        $group->save();
+      }
+    }
+    else {
+      $group = Group::create([
+        'label' => static::MAILINGLIST_LABEL,
+        'type' => static::MAILINGLIST_TYPE
+      ]);
+
+      $group->save();
+    }
+
 
     return $group->id();
   }
@@ -76,7 +99,7 @@ class MailingList {
 
     foreach ($group_roles->referencedEntities() as $delta => $role) {
       /** @var EntityInterface $role */
-      if($role->id() == 'mailing_list-administrator') {
+      if ($role->id() == 'mailing_list-administrator') {
         $group_roles->removeItem($delta);
         break;
       }
