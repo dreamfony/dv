@@ -41,3 +41,15 @@ function dv_dev_create_test_accounts() {
 function dv_dev_mail_alter(&$message) {
   $message['to'] = 'dmtit6@gmail.com';
 }
+
+/**
+ * Set Default features bundle that we work with
+ * TODO check user is admin
+ * @param $account
+ */
+function dv_dev_user_login($account) {
+  $session = \Drupal::request()->getSession();
+  if (isset($session)) {
+    $session->set('features_current_bundle', 'dv');
+  }
+}
