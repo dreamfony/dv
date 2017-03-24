@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.profile.teaser
     - field.field.profile.organisation_profile.field_org_address
     - field.field.profile.organisation_profile.field_org_email
     - field.field.profile.organisation_profile.field_org_fax
@@ -47,59 +48,6 @@ third_party_settings:
             context_mapping:
               entity: '@panelizer.entity_context:entity'
             uuid: 80c24f3d-b83e-44fb-9a08-549c6748b4cd
-          586d5e4b-9e2a-45dc-9f91-87f006c42646:
-            id: 'entity_field:profile:field_org_email'
-            label: Email
-            provider: ctools_block
-            label_display: '0'
-            formatter:
-              label: above
-              type: basic_string
-              settings: {  }
-              third_party_settings: {  }
-              weight: 0
-              region: content
-            region: content
-            weight: 2
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
-            uuid: 586d5e4b-9e2a-45dc-9f91-87f006c42646
-          d84726a5-7326-4a4f-8571-62f5820c4eeb:
-            id: 'entity_field:profile:field_org_fax'
-            label: Fax
-            provider: ctools_block
-            label_display: '0'
-            formatter:
-              label: above
-              type: telephone_link
-              settings:
-                title: ''
-              third_party_settings: {  }
-              weight: 0
-              region: content
-            region: content
-            weight: 3
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
-            uuid: d84726a5-7326-4a4f-8571-62f5820c4eeb
-          eb865828-cc89-40ca-86eb-4973f0cfc18d:
-            id: 'entity_field:profile:field_org_geo_location'
-            label: 'Geo Location'
-            provider: ctools_block
-            label_display: '0'
-            formatter:
-              label: above
-              type: geofield_default
-              settings:
-                output_format: wkt
-              third_party_settings: {  }
-              weight: 0
-              region: content
-            region: content
-            weight: 4
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
-            uuid: eb865828-cc89-40ca-86eb-4973f0cfc18d
           c2ac538a-a9ce-42eb-af27-b343b56fe666:
             id: 'entity_field:profile:field_org_logo'
             label: Logo
@@ -119,61 +67,6 @@ third_party_settings:
             context_mapping:
               entity: '@panelizer.entity_context:entity'
             uuid: c2ac538a-a9ce-42eb-af27-b343b56fe666
-          0a3aae3f-8510-4f14-aefc-952276c31e2e:
-            id: 'entity_field:profile:field_org_organisation_group'
-            label: 'Organisation Group'
-            provider: ctools_block
-            label_display: '0'
-            formatter:
-              label: above
-              type: entity_reference_label
-              settings:
-                link: true
-              third_party_settings: {  }
-              weight: 0
-              region: content
-            region: content
-            weight: 6
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
-            uuid: 0a3aae3f-8510-4f14-aefc-952276c31e2e
-          7f8c3034-07fc-4afe-834c-943b61862448:
-            id: 'entity_field:profile:field_org_organisation_id'
-            label: 'Organisation ID'
-            provider: ctools_block
-            label_display: '0'
-            formatter:
-              label: above
-              type: number_integer
-              settings:
-                thousand_separator: ''
-                prefix_suffix: true
-              third_party_settings: {  }
-              weight: 0
-              region: content
-            region: content
-            weight: 7
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
-            uuid: 7f8c3034-07fc-4afe-834c-943b61862448
-          251754f7-6a03-4f1e-9883-14d8491acdbd:
-            id: 'entity_field:profile:field_org_parent_organisation'
-            label: 'Parent Organisation'
-            provider: ctools_block
-            label_display: '0'
-            formatter:
-              label: above
-              type: entity_reference_label
-              settings:
-                link: true
-              third_party_settings: {  }
-              weight: 0
-              region: content
-            region: content
-            weight: 8
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
-            uuid: 251754f7-6a03-4f1e-9883-14d8491acdbd
           5d4e919d-99e4-40d2-b304-4dd3eb312037:
             id: 'entity_field:profile:field_org_telephone'
             label: Telephone
@@ -222,14 +115,14 @@ third_party_settings:
         layout_settings: {  }
         page_title: '[profile:field_org_title]'
         storage_type: panelizer_default
-        storage_id: 'profile:organisation_profile:default:default'
+        storage_id: 'profile:organisation_profile:teaser:default'
         builder: ipe
         pattern: panelizer
         static_context: {  }
-id: profile.organisation_profile.default
+id: profile.organisation_profile.teaser
 targetEntityType: profile
 bundle: organisation_profile
-mode: default
+mode: teaser
 content:
   field_org_address:
     weight: 1
