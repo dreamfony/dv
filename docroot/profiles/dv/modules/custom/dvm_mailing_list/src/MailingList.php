@@ -16,8 +16,10 @@ use Drupal\group\GroupMembershipLoaderInterface;
  */
 class MailingList {
 
-  const MAILINGLIST_TYPE = 'mailing_list';
-  const MAILINGLIST_LABEL = 'New Survey';
+
+  protected $mailingListType;
+
+  protected $mailingListLabel;
 
   /**
    * @var GroupMembershipLoaderInterface
@@ -37,6 +39,9 @@ class MailingList {
   public function __construct(GroupMembershipLoaderInterface $group_membership_loader, ActivityActionManager $activity_action_processor) {
     $this->groupMembershipLoader = $group_membership_loader;
     $this->activityActionProcessor = $activity_action_processor;
+
+    $this->mailingListLabel = 'New Survey';
+    $this->mailingListType = 'mailing_list';
   }
 
   /**
@@ -46,39 +51,44 @@ class MailingList {
    */
   public function createMailingList() {
 
-    // Check if user already has empty Survey
+    $emptyGroup = $this->getUsersEmptyGroup();
 
-    $query = \Drupal::entityQuery('group');
-    $query->condition('type', static::MAILINGLIST_TYPE);
-    $query->condition('label', static::MAILINGLIST_LABEL);
-    $query->condition('uid', \Drupal::currentUser()->id());
-    $result = $query->execute();
-
-    if ($result) {
-
-      $group = Group::load(reset($result));
-      $group_content = $group->getContent('group_node:question');
-      $group_users = $group->getMembers([static::MAILINGLIST_TYPE.'-organisation']);
-      if (!empty($group_content) AND !empty($group_users)) {
-        $group = Group::create([
-          'label' => static::MAILINGLIST_LABEL,
-          'type' => static::MAILINGLIST_TYPE
-        ]);
-
-        $group->save();
-      }
-    }
-    else {
+    if (!$emptyGroup) {
       $group = Group::create([
-        'label' => static::MAILINGLIST_LABEL,
-        'type' => static::MAILINGLIST_TYPE
+        'label' => $this->mailingListLabel,
+        'type' => $this->mailingListType
       ]);
 
       $group->save();
+
+
+      return $group->id();
     }
 
+    return $emptyGroup->id();
 
-    return $group->id();
+  }
+
+  /**
+   * @return bool|\Drupal\Core\Entity\EntityInterface|null|static
+   */
+  protected function getUsersEmptyGroup() {
+    // Check if user already has empty Survey
+
+    $query = \Drupal::entityQuery('group');
+    $query->condition('type', $this->mailingListType);
+    $query->condition('label', $this->mailingListLabel);
+    $query->condition('uid', \Drupal::currentUser()->id());
+    $result = $query->execute();
+
+    $group = Group::load(reset($result));
+    $group_content = $group->getContent('group_node:question');
+    $group_users = $group->getMembers([$this->mailingListType . '-organisation']);
+    if (empty($group_content) AND empty($group_users)) {
+      return $group;
+    }
+
+    return FALSE;
   }
 
   /**
