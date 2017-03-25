@@ -1,0 +1,11 @@
+system.dmt_configuration:
+  title: 'DMT Core'
+  description: 'Configure and Manage DMT'
+  route_name: dmt_configuration.dmtcore
+  parent: 'system.admin'
+  weight: -95
+
+dmt_configuration.dmtcore.one:
+  title: Test1
+  parent: system.dmt_configuration
+  route_name: dmt_configuration.dmtcore.one

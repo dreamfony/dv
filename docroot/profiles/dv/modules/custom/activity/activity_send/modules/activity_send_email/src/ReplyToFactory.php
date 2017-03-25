@@ -18,8 +18,9 @@ class ReplyToFactory {
 
     $replyto = $config->get('replyto');
     $noreply = $config->get('noreply');
+    $filterstring = $config->get('filterstring');
 
-    return new ReplyTo($replyto, $noreply);
+    return new ReplyTo($replyto, $noreply, $filterstring);
   }
 
 }

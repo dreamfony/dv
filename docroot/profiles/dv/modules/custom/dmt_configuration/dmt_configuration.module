@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains dmt_configuration.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function dmt_configuration_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the dmt_configuration module.
+    case 'help.page.dmt_configuration':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Dmt Configuration') . '</p>';
+      return $output;
+
+    default:
+  }
+}

@@ -1,0 +1,5 @@
+name: dmt configuration
+type: module
+description: Dmt Configuration
+core: 8.x
+package: DMT

@@ -54,6 +54,16 @@ class ActivityEmailSendConfigForm extends ConfigFormBase {
       '#required' => TRUE,
     ];
 
+    $form['filterstring'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Filter String'),
+      '#description' => $this->t('String used for inbox filtering'),
+      '#maxlength' => 12,
+      '#size' => 12,
+      '#default_value' => $config->get('filterstring'),
+      '#required' => TRUE,
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -73,6 +83,7 @@ class ActivityEmailSendConfigForm extends ConfigFormBase {
     $this->config('activity_send_email.config')
       ->set('replyto', $form_state->getValue('replyto'))
       ->set('noreply', $form_state->getValue('noreply'))
+      ->set('filterstring', $form_state->getValue('filterstring'))
       ->save();
   }
 

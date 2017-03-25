@@ -13,9 +13,12 @@ class ReplyTo {
 
   protected $noreply;
 
-  public function __construct( $replyto, $noreply) {
+  protected $filterstring;
+
+  public function __construct($replyto, $noreply, $filterstring) {
     $this->replyto = $replyto;
     $this->noreply = $noreply;
+    $this->filterstring = $filterstring;
   }
 
   /**
@@ -25,16 +28,17 @@ class ReplyTo {
    * @return string
    */
   public function getAddress($hash = NULL) {
-    if($hash) {
+    if ($hash) {
       return $this->getReplyTo($hash);
-    } else {
+    }
+    else {
       return $this->noreply;
     }
   }
 
   protected function getReplyTo($hash) {
     $address = explode('@', $this->replyto);
-    return $address[0] . '+' . $hash . '+dmtit222' . '@' . $address[1];
+    return $address[0] . '+' . $hash . '+' . $this->filterstring . '@' . $address[1];
   }
 
 }
