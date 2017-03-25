@@ -2,6 +2,7 @@ name: 'Admin Dashboard'
 type: module
 core: 8.x
 dependencies:
+  - dv_organisation
   - page_manager
   - panels
   - personas

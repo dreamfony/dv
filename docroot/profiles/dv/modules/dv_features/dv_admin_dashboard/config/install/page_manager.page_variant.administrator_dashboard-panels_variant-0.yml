@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - page_manager.page.administrator_dashboard
+    - views.view.manage_org_view_org_without_email
     - views.view.who_s_online
   module:
     - panels
@@ -22,6 +23,17 @@ variant_settings:
       region: contentmain
       weight: 0
       uuid: 6a87d2df-68bc-40be-9d3a-83b09333a897
+      context_mapping: {  }
+    a0b1a970-abe7-43ca-a2a9-bb8d4b81c506:
+      id: 'views_block:manage_org_view_org_without_email-block_1'
+      label: 'Organisations without email'
+      provider: views
+      label_display: visible
+      views_label: 'Organisations without email'
+      items_per_page: none
+      region: contentmain
+      weight: 0
+      uuid: a0b1a970-abe7-43ca-a2a9-bb8d4b81c506
       context_mapping: {  }
   id: panels_variant
   uuid: e521cad6-85cb-4022-b00c-e41c84249b1b
