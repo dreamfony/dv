@@ -1,2 +1,4 @@
 bundle: dv
+excluded:
+  - activity_send_email.config
 required: true
