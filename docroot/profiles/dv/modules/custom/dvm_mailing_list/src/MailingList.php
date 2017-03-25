@@ -16,9 +16,14 @@ use Drupal\group\GroupMembershipLoaderInterface;
  */
 class MailingList {
 
-
+  /**
+   * @var string
+   */
   protected $mailingListType;
 
+  /**
+   * @var string
+   */
   protected $mailingListLabel;
 
   /**
@@ -61,20 +66,18 @@ class MailingList {
 
       $group->save();
 
-
       return $group->id();
     }
 
     return $emptyGroup->id();
-
   }
 
   /**
-   * @return bool|\Drupal\Core\Entity\EntityInterface|null|static
+   * Check if user already has empty Survey
+   *
+   * @return bool|\Drupal\group\Entity\Group
    */
   protected function getUsersEmptyGroup() {
-    // Check if user already has empty Survey
-
     $query = \Drupal::entityQuery('group');
     $query->condition('type', $this->mailingListType);
     $query->condition('label', $this->mailingListLabel);
