@@ -84,11 +84,13 @@ class MailingList {
     $query->condition('uid', \Drupal::currentUser()->id());
     $result = $query->execute();
 
-    $group = Group::load(reset($result));
-    $group_content = $group->getContent('group_node:question');
-    $group_users = $group->getMembers([$this->mailingListType . '-organisation']);
-    if (empty($group_content) AND empty($group_users)) {
-      return $group;
+    if($result) {
+      $group = Group::load(reset($result));
+      $group_content = $group->getContent('group_node:question');
+      $group_users = $group->getMembers([$this->mailingListType . '-organisation']);
+      if (empty($group_content) AND empty($group_users)) {
+        return $group;
+      }
     }
 
     return FALSE;

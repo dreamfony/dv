@@ -1,0 +1,6 @@
+dvm_mailing_list.create_mailing_list:
+  title: 'New Survey'
+  description: 'New Survey'
+  route_name: dvm_mailing_list.create_mailing_list
+  weight: 100
+  menu_name: main
