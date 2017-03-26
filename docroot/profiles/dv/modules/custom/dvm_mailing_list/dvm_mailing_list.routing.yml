@@ -63,3 +63,12 @@ dvm_mailing_list.ajax_cancel_link:
     node: \d+
   options:
     _node_operation_route: TRUE
+
+dvm_mailing_list.ajax_organisation_delete_link:
+  path: 'ajax/{group}/{group_content}/ajax-delete'
+  defaults:
+    _controller: '\Drupal\dvm_mailing_list\Controller\GroupContentAjaxController::delete'
+  requirements:
+    _entity_access: 'group.update'
+    group: \d+
+    group_content: \d+

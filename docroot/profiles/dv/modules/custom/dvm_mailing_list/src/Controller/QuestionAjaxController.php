@@ -71,7 +71,6 @@ class QuestionAjaxController extends ControllerBase {
 
     $node->delete();
 
-
     $response = new AjaxResponse();
     $selector = '.question-view-' . $node->id() . ' .node';
     $response->addCommand(new ReplaceCommand($selector, ''));
