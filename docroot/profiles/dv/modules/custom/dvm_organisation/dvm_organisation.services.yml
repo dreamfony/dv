@@ -1,3 +1,0 @@
-services:
-  dvm_organisation.organisation:
-    class: Drupal\dvm_organisation\Helper\Organisation

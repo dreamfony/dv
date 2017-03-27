@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains dvm_organisation.module.
+ * Contains dmt_organisation.module.
  */
 
 use Drupal\profile\Entity\Profile;
@@ -12,13 +12,13 @@ use Drupal\profile\Entity\Profile;
  *
  * @param \Drupal\profile\Entity\Profile $profile
  */
-function dvm_organisation_profile_presave(Profile $profile) {
+function dmt_organisation_profile_presave(Profile $profile) {
   $bundle = $profile->bundle();
 
   if ($bundle == 'organisation_profile') {
     $organisation_id = $profile->get('field_org_organisation_id')->getValue();
     if (empty($organisation_id)) {
-      $organisation_id = Drupal::service('dvm_organisation.organisation')
+      $organisation_id = Drupal::service('dmt_organisation.organisation')
         ->getOrganisationId();
 
       $profile->set('field_org_organisation_id', $organisation_id);

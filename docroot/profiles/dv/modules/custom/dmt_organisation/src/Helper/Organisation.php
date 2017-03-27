@@ -1,12 +1,12 @@
 <?php
 
-namespace Drupal\dvm_organisation\Helper;
+namespace Drupal\dmt_organisation\Helper;
 
 use Drupal\profile\Entity\Profile;
 
 /**
  * Class Organisation
- * @package Drupal\dvm_organisation\Helper
+ * @package Drupal\dmt_organisation\Helper
  */
 class Organisation {
 

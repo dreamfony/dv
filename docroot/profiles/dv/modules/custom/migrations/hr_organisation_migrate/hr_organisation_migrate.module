@@ -45,7 +45,7 @@ function hr_organisation_migrate_migrate_prepare_row(Row $row, MigrateSourceInte
       // Check if organisation_id exists
       $organisation_id = $row->getSourceProperty('organisation_id');
       if (empty($organisation_id)) {
-        $organisation_id = Drupal::service('dvm_organisation.organisation')
+        $organisation_id = Drupal::service('dmt_organisation.organisation')
           ->getOrganisationId();
         $row->setSourceProperty('organisation_id', $organisation_id);
       }
