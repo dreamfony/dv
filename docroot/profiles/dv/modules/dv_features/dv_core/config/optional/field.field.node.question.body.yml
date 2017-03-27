@@ -28,7 +28,7 @@ id: node.question.body
 field_name: body
 entity_type: node
 bundle: question
-label: Body
+label: Question
 description: ''
 required: true
 translatable: true

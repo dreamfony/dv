@@ -18,7 +18,7 @@ third_party_settings:
             id: question_form_block
             label: 'Add Question'
             provider: dvm_mailing_list
-            label_display: visible
+            label_display: '0'
             region: column1
             weight: 0
             uuid: 400d312c-a495-468d-9c71-fe2dabc9d2ab

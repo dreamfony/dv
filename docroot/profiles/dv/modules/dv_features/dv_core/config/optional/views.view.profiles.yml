@@ -298,6 +298,7 @@ display:
         - url
       tags:
         - 'config:core.entity_view_display.profile.organisation_profile.default'
+        - 'config:core.entity_view_display.profile.organisation_profile.teaser'
   profile_type_listing:
     display_plugin: embed
     id: profile_type_listing
@@ -313,6 +314,7 @@ display:
         - url
       tags:
         - 'config:core.entity_view_display.profile.organisation_profile.default'
+        - 'config:core.entity_view_display.profile.organisation_profile.teaser'
   user_view:
     display_plugin: embed
     id: user_view
@@ -382,3 +384,4 @@ display:
         - url
       tags:
         - 'config:core.entity_view_display.profile.organisation_profile.default'
+        - 'config:core.entity_view_display.profile.organisation_profile.teaser'

@@ -24,7 +24,7 @@ third_party_settings:
         blocks:
           75047371-8127-4565-950b-9a8ec6507fa9:
             id: 'entity_field:node:body'
-            label: Body
+            label: Question
             provider: ctools_block
             label_display: '0'
             formatter:
