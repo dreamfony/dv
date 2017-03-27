@@ -33,7 +33,7 @@ class Organisation {
     return rand(10000000, 99999999);
   }
 
-  private function checkOrganisationIdIsUsed($id) {
+  public function checkOrganisationIdIsUsed($id) {
     $count_id = \Drupal::entityQuery('profile')
       ->condition('type', 'organisation_profile')
       ->condition('field_org_organisation_id', $id)

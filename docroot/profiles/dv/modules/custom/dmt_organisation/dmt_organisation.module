@@ -24,5 +24,16 @@ function dmt_organisation_profile_presave(Profile $profile) {
       $profile->set('field_org_organisation_id', $organisation_id);
     }
   }
+}
 
+
+/**
+ * Implements hook_entity_bundle_field_info_alter().
+ */
+function dmt_organisation_entity_bundle_field_info_alter(&$fields, \Drupal\Core\Entity\EntityTypeInterface $entity_type, $bundle) {
+  if ($bundle === 'organisation_profile') {
+    if (isset($fields['field_org_organisation_id'])) {
+      $fields['field_org_organisation_id']->addConstraint('UniqueOrganisationID', []);
+    }
+  }
 }
