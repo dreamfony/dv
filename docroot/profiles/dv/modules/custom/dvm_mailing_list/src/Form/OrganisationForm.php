@@ -43,8 +43,8 @@ class OrganisationForm extends FormBase {
     $form['group'] = [
       '#type' => 'entity_autocomplete',
       '#target_type' => 'group',
-      '#title' => t('Organisation Group'),
-      '#description' => t('Select a group.'),
+      '#title' => t('Recipients'),
+      '#description' => t('Select a recipient.'),
       '#tags' => TRUE,
       '#selection_settings' => array(
         'target_bundles' => array('organisation', 'area_of_activity'),
@@ -59,7 +59,7 @@ class OrganisationForm extends FormBase {
 
     $form['actions']['submit'] = array(
       '#type' => 'submit',
-      '#value' => $this->t('Add'),
+      '#value' => $this->t('Add Recipient'),
       '#button_type' => 'primary',
       '#ajax' => $ajax_settings
     );

@@ -62,6 +62,7 @@ function dvm_mailing_list_form_node_question_form_alter(&$form, FormStateInterfa
     'wrapper' => $ajax_id,
     'effect' => 'fade',
   );
+  $form['actions']['submit']['#value'] = t('Add Question');
   $form['actions']['submit']['#ajax'] = $ajax_settings;
   $form['actions']['publish']['#ajax'] = $ajax_settings;
   $form['actions']['unpublish']['#ajax'] = $ajax_settings;
