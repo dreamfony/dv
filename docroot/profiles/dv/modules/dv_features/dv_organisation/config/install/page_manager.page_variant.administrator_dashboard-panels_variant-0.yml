@@ -4,6 +4,7 @@ dependencies:
   config:
     - page_manager.page.administrator_dashboard
     - views.view.manage_org_view_org_without_email
+    - views.view.survey_moderation
     - views.view.who_s_online
   module:
     - panels
@@ -34,6 +35,17 @@ variant_settings:
       region: contentmain
       weight: 0
       uuid: a0b1a970-abe7-43ca-a2a9-bb8d4b81c506
+      context_mapping: {  }
+    a1689750-bba0-4022-826e-0dec64fd8fa7:
+      id: 'views_block:survey_moderation-block_1'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: contentmain
+      weight: 0
+      uuid: a1689750-bba0-4022-826e-0dec64fd8fa7
       context_mapping: {  }
   id: panels_variant
   uuid: e521cad6-85cb-4022-b00c-e41c84249b1b

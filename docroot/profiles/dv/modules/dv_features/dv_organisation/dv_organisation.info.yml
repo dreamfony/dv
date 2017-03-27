@@ -7,6 +7,7 @@ dependencies:
   - address
   - content_moderation
   - datetime_range
+  - dv_admin_dashboard
   - dv_area_of_activity
   - dv_core
   - dv_geo_area_group
@@ -29,8 +30,11 @@ dependencies:
   - link
   - menu_ui
   - node
+  - page_manager
   - panelizer
+  - panels
   - path
+  - personas
   - profile
   - rabbit_hole
   - taxonomy

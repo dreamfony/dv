@@ -1,3 +1,0 @@
-services:
-  dv_survey.generate:
-    class: Drupal\dv_survey\SurveyGenerate
