@@ -4,6 +4,7 @@ namespace Drupal\dmt_organisation\Helper;
 
 use Drupal\profile\Entity\Profile;
 use Drupal\user\Entity\User;
+use Drupal\user\UserInterface;
 
 /**
  * Class Organisation
@@ -17,6 +18,12 @@ class Organisation {
    */
   public function getOrganisationUserEntity(Profile $entity) {
     return $entity->getOwner();
+  }
+
+  public function getOrganisationIdByUser(UserInterface $user) {
+    $email = $user->getEmail();
+    $exploded_mail = explode('@', $email);
+    return $exploded_mail[0];
   }
 
   /**

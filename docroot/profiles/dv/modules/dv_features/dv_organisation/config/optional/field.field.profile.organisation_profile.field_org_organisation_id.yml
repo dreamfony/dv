@@ -10,7 +10,7 @@ entity_type: profile
 bundle: organisation_profile
 label: 'Organisation ID'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
