@@ -63,4 +63,27 @@ class Organisation {
     $user->save();
     return $user;
   }
+
+
+  /**
+   * Create Organisation.
+   *
+   * @return string
+   */
+  public function createOrganisation() {
+
+    $organisation_id = $this->getOrganisationId();
+    $dummy_email = $this->getOrganisationDummyEmail($organisation_id);
+    $user = $this->createOrganisationUser($dummy_email);
+
+    $profile = Profile::create([
+      'type' => 'organisation_profile',
+      'uid' => $user->id(),
+    ]);
+
+    $profile->set('field_org_organisation_id', $organisation_id);
+    $profile->save();
+
+    return $user->id();
+  }
 }
