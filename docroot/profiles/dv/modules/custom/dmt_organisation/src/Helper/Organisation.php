@@ -3,6 +3,7 @@
 namespace Drupal\dmt_organisation\Helper;
 
 use Drupal\profile\Entity\Profile;
+use Drupal\user\Entity\User;
 
 /**
  * Class Organisation
@@ -41,5 +42,25 @@ class Organisation {
       ->execute();
 
     return $count_id > 0;
+  }
+
+  public function getOrganisationDummyEmail($organisation_id) {
+//    TODO make dv.com configurable
+    return $organisation_id . '@dv.com';
+  }
+
+  /**
+   * @param $email
+   * @return mixed
+   */
+  public function createOrganisationUser($email) {
+    $user = User::create(array(
+      'name' => $email,
+      'mail' => $email,
+      'status' => 1,
+      'personas' => array('organisation')
+    ));
+    $user->save();
+    return $user;
   }
 }

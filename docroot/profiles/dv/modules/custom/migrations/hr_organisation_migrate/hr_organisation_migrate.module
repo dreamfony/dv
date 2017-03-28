@@ -43,7 +43,7 @@ function hr_organisation_migrate_migrate_prepare_row(Row $row, MigrateSourceInte
       // Row is an organisation
 
       // Check if organisation_id exists
-      $organisation_id = $row->getSourceProperty('organisation_id');
+      $organisation_id = intval($row->getSourceProperty('organisation_id'));
       if (empty($organisation_id)) {
         $organisation_id = Drupal::service('dmt_organisation.organisation')
           ->getOrganisationId();
@@ -51,7 +51,8 @@ function hr_organisation_migrate_migrate_prepare_row(Row $row, MigrateSourceInte
       }
 
       // Create User that will hold the profile data if it doesnt exist
-      $dummy_email = $organisation_id . '@dv.com';
+      $dummy_email = Drupal::service('dmt_organisation.organisation')
+        ->getOrganisationDummyEmail($organisation_id);
 
       $user_exists = user_load_by_mail($dummy_email);
 
@@ -60,13 +61,8 @@ function hr_organisation_migrate_migrate_prepare_row(Row $row, MigrateSourceInte
         return FALSE;
       }
 
-      $user = User::create(array(
-        'name' => $dummy_email,
-        'mail' => $dummy_email,
-        'status' => 1,
-        'personas' => array('organisation')
-      ));
-      $user->save();
+      $user = Drupal::service('dmt_organisation.organisation')
+        ->createOrganisationUser($dummy_email);
 
       $row->setSourceProperty('uid', $user->id());
 
