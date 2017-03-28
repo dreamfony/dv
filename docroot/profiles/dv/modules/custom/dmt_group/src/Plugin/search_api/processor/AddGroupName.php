@@ -58,7 +58,14 @@ class AddGroupName extends ProcessorPluginBase {
   public function addFieldValues(ItemInterface $item) {
     $entity = $item->getOriginalObject()->getValue();
 
-    if ($groupContent = GroupContent::loadByEntity($entity)) {
+    $groupContent = \Drupal::entityTypeManager()
+      ->getStorage('group_content')
+      ->loadByProperties([
+        'type' => ['group_content_type_2d36600d04881'],
+        'entity_id' => $entity->id(),
+      ]);
+
+    if ($groupContent) {
       foreach ($groupContent as $gc) {
         /** @var GroupContent $gc */
         $group = $gc->getGroup();
