@@ -35,13 +35,8 @@ class Organisation {
   }
 
   public function checkOrganisationIdIsUsed($id) {
-    $count_id = \Drupal::entityQuery('profile')
-      ->condition('type', 'organisation_profile')
-      ->condition('field_org_organisation_id', $id)
-      ->count()
-      ->execute();
-
-    return $count_id > 0;
+    $user = user_load_by_mail($this->getOrganisationDummyEmail($id));
+    return $user ? TRUE : FALSE;
   }
 
   public function getOrganisationDummyEmail($organisation_id) {
@@ -71,18 +66,9 @@ class Organisation {
    * @return string
    */
   public function createOrganisation() {
-
     $organisation_id = $this->getOrganisationId();
     $dummy_email = $this->getOrganisationDummyEmail($organisation_id);
     $user = $this->createOrganisationUser($dummy_email);
-
-    $profile = Profile::create([
-      'type' => 'organisation_profile',
-      'uid' => $user->id(),
-    ]);
-
-    $profile->set('field_org_organisation_id', $organisation_id);
-    $profile->save();
 
     return $user->id();
   }
