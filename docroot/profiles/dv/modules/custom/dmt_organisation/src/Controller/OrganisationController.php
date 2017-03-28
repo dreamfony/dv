@@ -26,6 +26,13 @@ class OrganisationController extends ControllerBase {
     $user = Drupal::service('dmt_organisation.organisation')
       ->createOrganisationUser($dummy_email);
 
+    $profile = Profile::create([
+      'type' => 'organisation_profile',
+      'uid' => $user->id(),
+    ]);
+    $profile->set('field_org_organisation_id', $organisation_id);
+    $status = $profile->save();
+
     // Redirect to user/$user_id/organisation_profile
     return $this->redirect('entity.group.canonical', ['group' => $user->id()]);
   }
