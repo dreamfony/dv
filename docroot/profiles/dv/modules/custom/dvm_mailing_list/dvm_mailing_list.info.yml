@@ -3,3 +3,8 @@ type: module
 description: DV Mailing list
 core: 8.x
 package: DV
+dependencies:
+  - activity_creator
+  - group
+  - node
+  - views

@@ -36,7 +36,6 @@ dependencies:
   - datetime_range
   - dv_blog
   - dv_core
-  - dv_mailing_list
   - dvm_moderation
   - dynamic_entity_reference
   - dynamic_page_cache

@@ -15,7 +15,7 @@ use Drupal\Component\Utility\Html;
 /**
  * Provides the Activity action plugin manager.
  */
-class ActivityActionManager extends DefaultPluginManager {
+class ActivityActionManager extends DefaultPluginManager implements ActivityActionManagerInterface {
 
   /**
    * Constructor for ActivityActionManager objects.

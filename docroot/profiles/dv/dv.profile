@@ -74,10 +74,10 @@ function dv_install_profile_modules(&$install_state) {
     'dv_organisation_founder' => 'dv_organisation_founder',
     'dv_org_legal_status' => 'dv_org_legal_status',
     'dmt_mail' => 'dmt_mail',
+    'dvm_mailing_list' => 'dvm_mailing_list',
     'dv_mailing_list' => 'dv_mailing_list',
     'dv_answer_text' => 'dv_answer_text',
     'dv_answer_number' => 'dv_answer_number',
-    'dvm_mailing_list' => 'dvm_mailing_list',
     'ggroup' => 'ggroup', // we add ggroup here since it can't be enabled without any groups
     'dv_mailsystem_settings' => 'dv_mailsystem_settings',
     'dmt_organisation' => 'dmt_organisation',

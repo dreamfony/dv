@@ -2,12 +2,12 @@
 
 namespace Drupal\dvm_mailing_list;
 
+use Drupal\activity_creator\Plugin\ActivityActionManagerInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Field\EntityReferenceFieldItemList;
 use Drupal\group\Entity\GroupContent;
 use Drupal\group\Entity\Group;
 use Drupal\node\Entity\Node;
-use Drupal\activity_creator\Plugin\ActivityActionManager;
 use Drupal\group\GroupMembershipLoaderInterface;
 
 /**
@@ -39,11 +39,10 @@ class MailingList {
 
   /**
    * @param GroupMembershipLoaderInterface $group_membership_loader
-   * @param \Drupal\activity_creator\Plugin\ActivityActionManager $activity_action_processor
    */
-  public function __construct(GroupMembershipLoaderInterface $group_membership_loader, ActivityActionManager $activity_action_processor) {
+  public function __construct(GroupMembershipLoaderInterface $group_membership_loader) {
     $this->groupMembershipLoader = $group_membership_loader;
-    $this->activityActionProcessor = $activity_action_processor;
+    $this->activityActionProcessor = \Drupal::service('plugin.manager.activity_action.processor');
 
     $this->mailingListLabel = 'New Survey';
     $this->mailingListType = 'mailing_list';
