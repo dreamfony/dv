@@ -120,20 +120,10 @@ nbproject/*
 
 # Compiled files
 dest/
-source/_patterns/01-atoms/images/_icons-settings.scss
-
-# OS generated files
-.DS_Store?
 
 # Dependencies
 bower_components
 node_modules
-
-# Generated files
-*.sass-cache/
-
-#IDE plugins
-.idea
 
 source/styleguide/css
 # PHPStorm

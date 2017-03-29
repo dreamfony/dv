@@ -64,7 +64,7 @@ function dv_install_profile_modules(&$install_state) {
     'dv_user' => 'dv_user',
     'dvm_user_groups' => 'dvm_user_groups',
     'dv_organisation' => 'dv_organisation',
-    'dvm_organisation_group' => 'dvm_organisation_group',
+    'dmt_organisation_group' => 'dmt_organisation_group',
     'dv_issue' => 'dv_issue',
     'dv_person' => 'dv_person',
     'dv_positions' => 'dv_positions',
