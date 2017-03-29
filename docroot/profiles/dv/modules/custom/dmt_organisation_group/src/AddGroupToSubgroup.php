@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dvm_organisation_group;
+namespace Drupal\dmt_organisation_group;
 
 use Drupal\group\Entity\Group;
 use Drupal\group\Entity\GroupContent;
@@ -10,7 +10,7 @@ use Drupal\user\Entity\User;
 /**
  * Class AddGroupToSubgroup
  *
- * @package Drupal\dvm_organisation_group
+ * @package Drupal\dmt_organisation_group
  */
 class AddGroupToSubgroup {
 

@@ -38,3 +38,19 @@ function dmt_organisation_entity_bundle_field_info_alter(&$fields, \Drupal\Core\
     }
   }
 }
+
+
+
+/**
+ * Implements hook_profile_insert().
+ *
+ * @param \Drupal\profile\Entity\Profile $profile
+ */
+function dmt_organisation_profile_insert(Profile $profile) {
+  $bundle = $profile->bundle();
+
+  if ($bundle == 'organisation_profile') {
+    \Drupal::service('dmt_organisation_group.add_group_to_subgroup')
+      ->add($profile, 'organisation', 'field_org_parent_organisation');
+  }
+}

@@ -3,7 +3,6 @@
 namespace Drupal\dmt_organisation\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\profile\Entity\ProfileType;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\dmt_organisation\Helper\Organisation;
 
