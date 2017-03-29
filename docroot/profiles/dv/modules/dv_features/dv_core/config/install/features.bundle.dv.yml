@@ -66,6 +66,8 @@ assignments:
         group_role: group_role
         configurable_language: configurable_language
         message_template: message_template
+        page: page
+        page_variant: page_variant
         view: view
         entity_view_mode: entity_view_mode
         workflow: workflow

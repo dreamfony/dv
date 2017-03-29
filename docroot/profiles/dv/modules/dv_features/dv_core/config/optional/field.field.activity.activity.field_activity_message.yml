@@ -2,9 +2,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - activity_creator.activity_type.activity
     - field.storage.activity.field_activity_message
-  module:
-    - activity_creator
 id: activity.activity.field_activity_message
 field_name: field_activity_message
 entity_type: activity

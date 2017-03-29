@@ -2,9 +2,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - activity_creator.activity_type.activity
     - field.storage.activity.field_activity_recipient_group
-  module:
-    - activity_creator
 id: activity.activity.field_activity_recipient_group
 field_name: field_activity_recipient_group
 entity_type: activity

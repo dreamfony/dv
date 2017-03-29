@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - activity_creator.activity_type.activity
     - field.field.activity.activity.field_activity_destinations
     - field.field.activity.activity.field_activity_entity
     - field.field.activity.activity.field_activity_hash
@@ -12,7 +13,6 @@ dependencies:
     - field.field.activity.activity.field_activity_reply
     - field.field.activity.activity.field_activity_status
   module:
-    - activity_creator
     - dynamic_entity_reference
     - text
 id: activity.activity.default

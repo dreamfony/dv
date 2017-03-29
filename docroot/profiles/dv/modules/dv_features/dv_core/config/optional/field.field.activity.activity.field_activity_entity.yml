@@ -2,9 +2,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - activity_creator.activity_type.activity
     - field.storage.activity.field_activity_entity
   module:
-    - activity_creator
     - dynamic_entity_reference
 id: activity.activity.field_activity_entity
 field_name: field_activity_entity
@@ -103,5 +103,8 @@ settings:
     handler_settings: {  }
   positions:
     handler: 'default:positions'
+    handler_settings: {  }
+  workspace:
+    handler: 'default:workspace'
     handler_settings: {  }
 field_type: dynamic_entity_reference

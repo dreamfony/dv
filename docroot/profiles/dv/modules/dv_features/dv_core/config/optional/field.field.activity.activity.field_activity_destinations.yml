@@ -2,9 +2,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - activity_creator.activity_type.activity
     - field.storage.activity.field_activity_destinations
   module:
-    - activity_creator
     - options
 id: activity.activity.field_activity_destinations
 field_name: field_activity_destinations

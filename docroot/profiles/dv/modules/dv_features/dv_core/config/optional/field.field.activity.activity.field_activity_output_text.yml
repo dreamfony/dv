@@ -2,9 +2,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - activity_creator.activity_type.activity
     - field.storage.activity.field_activity_output_text
   module:
-    - activity_creator
     - text
 id: activity.activity.field_activity_output_text
 field_name: field_activity_output_text
