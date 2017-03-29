@@ -3,7 +3,6 @@ status: true
 dependencies:
   module:
     - content_moderation
-    - dv_positions
     - dynamic_entity_reference
     - flag
     - message

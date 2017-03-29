@@ -2,7 +2,7 @@ name: Activity Basics
 type: module
 description: Basic implementation of activites in DV
 core: 8.x
-package: Custom
+package: Activity
 dependencies:
   - activity_creator
   - activity_logger

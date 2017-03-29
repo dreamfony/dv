@@ -2,23 +2,23 @@
 
 /**
  * @file
- * Contains \Drupal\activity_creator\Plugin\ActivityDestinationManager.
+ * Contains \Drupal\activity_creator\Plugin\ActivityContextManager.
  */
 
-namespace Drupal\activity_creator\Plugin;
+namespace Drupal\activity_creator\Plugin\Type;
 
-use Drupal\Component\Utility\Html;
 use Drupal\Core\Plugin\DefaultPluginManager;
 use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
+use Drupal\Component\Utility\Html;
 
 /**
- * Provides the Activity destination plugin manager.
+ * Provides the Activity context plugin manager.
  */
-class ActivityDestinationManager extends DefaultPluginManager {
+class ActivityContextManager extends DefaultPluginManager {
 
   /**
-   * Constructor for ActivityDestinationManager objects.
+   * Constructor for ActivityContextManager objects.
    *
    * @param \Traversable $namespaces
    *   An object that implements \Traversable which contains the root paths
@@ -29,10 +29,10 @@ class ActivityDestinationManager extends DefaultPluginManager {
    *   The module handler to invoke the alter hook with.
    */
   public function __construct(\Traversable $namespaces, CacheBackendInterface $cache_backend, ModuleHandlerInterface $module_handler) {
-    parent::__construct('Plugin/ActivityDestination', $namespaces, $module_handler, 'Drupal\activity_creator\Plugin\ActivityDestinationInterface', 'Drupal\activity_creator\Annotation\ActivityDestination');
+    parent::__construct('Plugin/ActivityContext', $namespaces, $module_handler, 'Drupal\activity_creator\Plugin\ActivityContextInterface', 'Drupal\activity_creator\Annotation\ActivityContext');
 
-    $this->alterInfo('activity_creator_activity_destination_info');
-    $this->setCacheBackend($cache_backend, 'activity_creator_activity_destination_plugins');
+    $this->alterInfo('activity_creator_activity_context_info');
+    $this->setCacheBackend($cache_backend, 'activity_creator_activity_context_plugins');
   }
 
   /**

@@ -5,7 +5,7 @@
  * Contains \Drupal\activity_creator\Plugin\ActivityEntityConditionManager.
  */
 
-namespace Drupal\activity_creator\Plugin;
+namespace Drupal\activity_creator\Plugin\Type;
 
 use Drupal\Core\Plugin\DefaultPluginManager;
 use Drupal\Core\Cache\CacheBackendInterface;

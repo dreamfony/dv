@@ -5,7 +5,6 @@ dependencies:
     - activity_creator
     - comment
     - content_moderation
-    - dv_positions
     - dynamic_entity_reference
     - flag
     - group

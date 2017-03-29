@@ -53,7 +53,6 @@ function dv_install_tasks_alter(&$tasks, $install_state) {
  *   The batch definition.
  */
 function dv_install_profile_modules(&$install_state) {
-
   $files = system_rebuild_module_data();
 
   $modules = array(
@@ -193,6 +192,10 @@ function dv_install_finished(&$install_state) {
  */
 function _dv_install_module_batch($module, $module_name, &$context) {
   set_time_limit(0);
+  drush_print("b-----");
+  drush_print_r($module);
+  drush_print_r($module_name);
+  drush_print("e-----");
   \Drupal::service('module_installer')->install($module);
   $context['results'][] = $module;
   $context['message'] = t('Install %module_name module.', array('%module_name' => $module_name));

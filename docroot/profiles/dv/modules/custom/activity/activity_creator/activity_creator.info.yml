@@ -1,17 +1,13 @@
-name: activity_creator
+name: Activity Creator
 type: module
 description: My Awesome Module
 core: 8.x
-package: DMT
+package: Activity
 dependencies:
   - activity_creator
   - block_content
   - comment
   - content_moderation
-  - dv_answer_number
-  - dv_answer_text
-  - dv_core
-  - dv_positions
   - dynamic_entity_reference
   - field
   - file
@@ -28,3 +24,4 @@ dependencies:
   - text
   - user
   - votingapi
+  - menu_ui

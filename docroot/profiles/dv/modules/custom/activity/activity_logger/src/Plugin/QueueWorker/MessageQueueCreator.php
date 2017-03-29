@@ -45,7 +45,7 @@ class MessageQueueCreator extends MessageQueueBase {
         $queue->createItem($data);
       }
       else {
-        $activity_logger_factory = \Drupal::service('plugin.manager.activity_action.processor');
+        $activity_logger_factory = \Drupal::service('plugin.manager.activity_action_processor');
         // Trigger the create action for entities.
         /** @var ActivityActionBase $create_action */
         $create_action = $activity_logger_factory->createInstance($data['action']);

@@ -6,7 +6,6 @@ package: Activity
 dependencies:
   - comment
   - content_moderation
-  - dv_positions
   - dynamic_entity_reference
   - field
   - file

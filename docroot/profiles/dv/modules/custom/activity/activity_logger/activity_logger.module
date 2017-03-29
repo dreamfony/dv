@@ -98,7 +98,7 @@ function activity_logger_form_message_template_form_alter(&$form, FormStateInter
     '#access' => !empty($activity_entity_condition_options),
   );
 
-  $activity_actions = \Drupal::service('plugin.manager.activity_action.processor');
+  $activity_actions = \Drupal::service('plugin.manager.activity_action_processor');
   $activity_actions = $activity_actions->getOptionsList();
 
   $form['activity_action'] = array(
