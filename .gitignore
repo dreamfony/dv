@@ -24,9 +24,6 @@ docroot/profiles/contrib
 docroot/libraries
 drush/contrib
 
-# Ignore custom theme node_modules folders
-docroot/themes/custom/*/node_modules
-
 # Ignore build artifacts
 /deploy
 bin/*
