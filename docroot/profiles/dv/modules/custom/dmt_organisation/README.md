@@ -19,7 +19,7 @@
   
 ##Update Organisation
 
-- 
+- If field_org_title is changed then update related group label
 
 ##Disable Organisation
   

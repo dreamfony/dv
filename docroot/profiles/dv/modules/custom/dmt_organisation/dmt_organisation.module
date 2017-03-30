@@ -6,6 +6,7 @@
  */
 
 use Drupal\profile\Entity\Profile;
+use Drupal\group\Entity\Group;
 
 /**
  * Implements hook_entity_presave().
@@ -40,7 +41,6 @@ function dmt_organisation_entity_bundle_field_info_alter(&$fields, \Drupal\Core\
 }
 
 
-
 /**
  * Implements hook_profile_insert().
  *
@@ -52,5 +52,27 @@ function dmt_organisation_profile_insert(Profile $profile) {
   if ($bundle == 'organisation_profile') {
     \Drupal::service('dmt_organisation_group.add_group_to_subgroup')
       ->add($profile, 'organisation', 'field_org_parent_organisation');
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function dmt_organisation_profile_update(Profile $profile) {
+
+//  Keep Organisation
+  $bundle = $profile->bundle();
+
+  if ($bundle == 'organisation_profile') {
+
+    $org_title = $profile->field_org_title->value;
+    $org_group_id = Drupal::service('dmt_organisation.organisation')
+      ->getRelatedOrganisationGroupId($profile);
+    $group = Group::load($org_group_id);
+
+    if ($org_title != $group->label()) {
+      $group->set('label', $org_title);
+      $group->save();
+    }
   }
 }

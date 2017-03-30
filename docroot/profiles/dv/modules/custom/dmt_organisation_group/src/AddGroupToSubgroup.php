@@ -52,6 +52,12 @@ class AddGroupToSubgroup {
     // save new created group
     $this->group->save();
 
+    // save group reference to profile
+    // TODO Why is it neccessary to load again profile?
+    $profile = Profile::load($this->profile->id());
+    $profile->field_org_related_group->target_id = $this->group->id();
+    $profile->save();
+
     $profile_owner = $this->profile->getOwner();
 
     // add profile owner to the group
