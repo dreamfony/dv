@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.profile.teaser
+    - group.type.mailing_list
     - user.role.organisation
   module:
     - dvm_mailing_list
@@ -291,11 +292,16 @@ display:
             sort_order: asc
             number_of_records: 0
             format: default_summary
-          specify_validation: false
+          specify_validation: true
           validate:
-            type: none
+            type: 'entity:group'
             fail: 'not found'
-          validate_options: {  }
+          validate_options:
+            bundles:
+              mailing_list: mailing_list
+            operation: view
+            multiple: 0
+            access: false
           break_phrase: false
           not: false
           entity_type: group_content

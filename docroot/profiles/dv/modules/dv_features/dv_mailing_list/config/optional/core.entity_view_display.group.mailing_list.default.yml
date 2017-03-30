@@ -23,18 +23,6 @@ third_party_settings:
             weight: 0
             uuid: 400d312c-a495-468d-9c71-fe2dabc9d2ab
             context_mapping: {  }
-          396e1432-6e37-4c9e-9fb5-b40618a06f52:
-            id: 'views_block:mailing_list_items-block_1'
-            label: Questions
-            provider: views
-            label_display: visible
-            views_label: Questions
-            items_per_page: none
-            region: column1
-            weight: 1
-            uuid: 396e1432-6e37-4c9e-9fb5-b40618a06f52
-            context_mapping:
-              gid: '@panelizer.entity_context:entity'
           15c1c100-4437-4cfe-92e3-6e9a1be74c2d:
             id: organisation_form_block
             label: 'Organisation form block'
@@ -44,7 +32,19 @@ third_party_settings:
             weight: -1
             uuid: 15c1c100-4437-4cfe-92e3-6e9a1be74c2d
             context_mapping: {  }
-          1693697c-b1d9-48ec-befb-d982c164b5cd:
+          2e264497-4fa2-4923-a308-afb16c03e74b:
+            id: 'views_block:mailing_list_items-block_1'
+            label: ''
+            provider: views
+            label_display: visible
+            views_label: ''
+            items_per_page: none
+            region: column1
+            weight: 0
+            uuid: 2e264497-4fa2-4923-a308-afb16c03e74b
+            context_mapping:
+              gid: '@panelizer.entity_context:entity'
+          259875cd-8ca1-4a13-a43b-3512e374e960:
             id: 'views_block:mailing_list_organisations-block_1'
             label: ''
             provider: views
@@ -53,8 +53,9 @@ third_party_settings:
             items_per_page: none
             region: column2
             weight: 0
-            uuid: 1693697c-b1d9-48ec-befb-d982c164b5cd
-            context_mapping: {  }
+            uuid: 259875cd-8ca1-4a13-a43b-3512e374e960
+            context_mapping:
+              gid: '@panelizer.entity_context:entity'
         id: panels_variant
         uuid: 5a557251-3442-4926-8501-afdd5ea5ebf6
         label: 'Mailing List Default'

@@ -259,7 +259,13 @@ display:
           group_type: group
           admin_label: 'Content relation'
           required: true
-          group_content_plugins: {  }
+          group_content_plugins:
+            'group_node:question': 'group_node:question'
+            'group_node:blog_post': '0'
+            'group_node:geo_area': '0'
+            'group_node:issue': '0'
+            'group_node:page': '0'
+            'group_node:person': '0'
           entity_type: node
           plugin_id: group_content_to_entity_reverse
       arguments:
