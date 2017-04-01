@@ -9,6 +9,8 @@ use Drupal\group\Entity\GroupContent;
 use Drupal\group\Entity\Group;
 use Drupal\node\Entity\Node;
 use Drupal\group\GroupMembershipLoaderInterface;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
 
 /**
  * Class Mailing List
@@ -153,4 +155,5 @@ class MailingList {
     $group->save();
 
   }
+
 }

@@ -6,6 +6,14 @@ dvm_mailing_list.create_mailing_list:
   requirements:
     _permission: 'create mailing_list group'
 
+dvm_mailing_list.edit_title:
+  path: 'group/{group}/edit_title'
+  defaults:
+    _controller: '\Drupal\dvm_mailing_list\Controller\MailingListController::editTitle'
+  requirements:
+    _entity_access: 'group.update'
+    group: \d+
+
 dvm_mailing_list.send:
   path: 'group/{group}/send'
   defaults:
