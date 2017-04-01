@@ -10,6 +10,7 @@ dependencies:
     - field.field.profile.organisation_profile.field_org_organisation_group
     - field.field.profile.organisation_profile.field_org_organisation_id
     - field.field.profile.organisation_profile.field_org_parent_organisation
+    - field.field.profile.organisation_profile.field_org_related_group
     - field.field.profile.organisation_profile.field_org_telephone
     - field.field.profile.organisation_profile.field_org_title
     - field.field.profile.organisation_profile.field_org_web_site
@@ -82,6 +83,15 @@ content:
     third_party_settings: {  }
   field_org_parent_organisation:
     weight: 11
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_org_related_group:
+    weight: 13
     settings:
       match_operator: CONTAINS
       size: 60

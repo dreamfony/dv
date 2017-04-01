@@ -3,8 +3,11 @@ type: module
 core: 8.x
 dependencies:
   - dv_organisation
+  - link
   - page_manager
   - panels
   - personas
+  - profile
+  - telephone
   - views
 package: DV

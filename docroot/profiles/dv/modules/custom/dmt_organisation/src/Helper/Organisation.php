@@ -79,4 +79,9 @@ class Organisation {
 
     return $user->id();
   }
+
+  public function getRelatedOrganisationGroupId(Profile $profile){
+//    TODO check if field is not empty
+    return $profile->field_org_related_group->target_id;
+  }
 }
