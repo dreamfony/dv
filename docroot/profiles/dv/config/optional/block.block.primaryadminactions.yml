@@ -6,7 +6,7 @@ dependencies:
 id: primaryadminactions
 theme: patternlab
 region: header
-weight: 1
+weight: 0
 provider: null
 plugin: local_actions_block
 settings:

@@ -8,7 +8,7 @@ dependencies:
 id: breadcrumbs
 theme: patternlab
 region: header
-weight: -3
+weight: -5
 provider: null
 plugin: system_breadcrumb_block
 settings:

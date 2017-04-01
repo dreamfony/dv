@@ -6,7 +6,7 @@ dependencies:
 id: pagetitle
 theme: patternlab
 region: header
-weight: -1
+weight: -2
 provider: null
 plugin: page_title_block
 settings:
