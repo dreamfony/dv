@@ -4,7 +4,7 @@ entity.activity.collection:
   title: 'Activity list'
   route_name: entity.activity.collection
   description: 'List Activity entities'
-  parent: system.admin_structure
+  parent: dmt_configuration.dmt_activities
   weight: 100
 
 
@@ -13,6 +13,6 @@ entity.activity_type.collection:
   title: 'Activity type'
   route_name: entity.activity_type.collection
   description: 'List Activity type (bundles)'
-  parent: system.admin_structure
+  parent: dmt_configuration.dmt_activities
   weight: 99
 

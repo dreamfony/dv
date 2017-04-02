@@ -2,5 +2,5 @@ activity_send_email.activity_email_send_config_form:
   title: 'Activity Send Email'
   route_name: activity_send_email.activity_email_send_config_form
   description: 'A description for the menu entry'
-  parent: system.dmt_configuration
+  parent: dmt_configuration.dmt_settings
   weight: 99

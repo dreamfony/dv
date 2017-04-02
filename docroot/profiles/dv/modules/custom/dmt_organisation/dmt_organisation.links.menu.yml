@@ -1,0 +1,5 @@
+dmt_organisation.create_organisation:
+  title: 'Create Organisation'
+  parent: dmt_configuration.dmt_organisation
+  route_name: dmt_organisation.create_organisation
+  weight: 100
