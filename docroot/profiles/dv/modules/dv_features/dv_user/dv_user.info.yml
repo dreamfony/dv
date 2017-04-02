@@ -5,11 +5,13 @@ core: 8.x
 dependencies:
   - captcha
   - content_translation
+  - dmt_group
   - dv_core
   - dv_organisation
   - field
   - field_permissions
   - file
+  - group
   - image
   - node
   - path
@@ -17,4 +19,5 @@ dependencies:
   - rdf
   - system
   - user
+  - views
 package: DV

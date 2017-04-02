@@ -16,3 +16,4 @@ required:
   - personas.persona.moderator
   - personas.persona.administrator
   - personas.persona.organisation
+  - views.view.groups
