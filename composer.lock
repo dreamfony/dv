@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0fd4cecb57313f060fafd3622095abb3",
-    "content-hash": "e54884cadefe34ce1cc964ea68414ac4",
+    "hash": "ae5e5293b72f8271a1035e2209141901",
+    "content-hash": "819af1f5c7eb29716feb86c17570ba4a",
     "packages": [
         {
             "name": "acquia/blt",
@@ -2333,7 +2333,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/ctools",
-                "reference": "abea18101ce79143333385b7c6f3f1613b6154f6"
+                "reference": "52b174ba66c6d38a7da21508c8896322a9bd051f"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -2344,8 +2344,8 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.0-alpha27+5-dev",
-                    "datestamp": "1489853282"
+                    "version": "8.x-3.0-beta1+0-dev",
+                    "datestamp": "1490677684"
                 },
                 "patches_applied": {
                     "Node Links": "https://www.drupal.org/files/issues/2664654-9.patch"
@@ -2408,7 +2408,7 @@
                 "source": "http://cgit.drupalcode.org/ctools",
                 "issues": "https://www.drupal.org/project/issues/ctools"
             },
-            "time": "2017-03-18 16:16:44"
+            "time": "2017-03-28 05:05:29"
         },
         {
             "name": "drupal/ctools_block",
@@ -5283,17 +5283,11 @@
         },
         {
             "name": "drupal/rules",
-            "version": "3.0.0-alpha2",
+            "version": "dev-3.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/rules",
-                "reference": "8.x-3.0-alpha2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/rules-8.x-3.0-alpha2.zip",
-                "reference": "8.x-3.0-alpha2",
-                "shasum": "9f06095cf9219865f1d66f20721c8f140389b70c"
+                "reference": "f7d1ce8dcf5e5580ee439df0577d9837196bec12"
             },
             "require": {
                 "drupal/core": "~8.0",
@@ -5305,8 +5299,11 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.0-alpha2",
+                    "version": "8.x-3.0-alpha2+0-dev",
                     "datestamp": "1475246339"
+                },
+                "patches_applied": {
+                    "https://www.drupal.org/node/2849779": "https://www.drupal.org/files/issues/rules-fix-tests.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -5327,7 +5324,8 @@
             "homepage": "https://www.drupal.org/project/rules",
             "support": {
                 "source": "http://cgit.drupalcode.org/rules"
-            }
+            },
+            "time": "2017-01-28 12:19:10"
         },
         {
             "name": "drupal/search_api",
@@ -12919,6 +12917,7 @@
         "drupal/address": 10,
         "drupal/config_inspector": 10,
         "drupal/inline_entity_form": 10,
+        "drupal/rules": 20,
         "drupal/libraries": 20,
         "drupal/search_api_solr": 10,
         "drupal/search_api": 10,

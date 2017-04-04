@@ -36,7 +36,7 @@
         "drupal/features": "^3.0.0",
         "drupal/migrate_plus": "^2.0",
         "drupal/migrate_tools": "^2.0",
-        "drupal/rules": "~3.0",
+        "drupal/rules": "3.x-dev",
         "drupal/coffee": "~1.0",
         "drupal/hook_event_dispatcher": "~1.0",
         "nikkobautista/geonames": "~1.0",
@@ -238,6 +238,9 @@
             },
             "drupal/webhooks": {
                 "https://www.drupal.org/node/2851615" : "https://www.drupal.org/files/issues/return-data-2851615-2.patch"
+            },
+            "drupal/rules": {
+               "https://www.drupal.org/node/2849779" : "https://www.drupal.org/files/issues/rules-fix-tests.patch"
             }
         },
         "drupal-scaffold": {
