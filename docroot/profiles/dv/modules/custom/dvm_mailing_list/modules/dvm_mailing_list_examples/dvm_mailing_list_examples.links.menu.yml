@@ -1,0 +1,6 @@
+dvm_mailing_list_examples.create_mailing_list:
+  title: 'Create Demo Survey'
+  description: 'Create Demo Survey'
+  route_name: dvm_mailing_list.create_mailing_list
+  weight: 100
+  parent: dmt_configuration.dmt_survey

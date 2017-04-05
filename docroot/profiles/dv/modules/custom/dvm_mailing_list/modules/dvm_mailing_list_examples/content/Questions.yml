@@ -1,0 +1,43 @@
+---
+3bc51523-4f40-459c-887c-056432fe1000:
+  uuid: 3bc51523-4f40-459c-887c-056432fe1000
+  language: und
+  user: TEST_journalist
+  created: -60 day|15:30
+  body: Question 1
+  field_question_comment_type: answer_text
+3bc51523-4f40-459c-887c-056432fe1001:
+  uuid: 3bc51523-4f40-459c-887c-056432fe1000
+  language: und
+  user: TEST_journalist
+  created: -60 day|15:30
+  body: Question 2
+  field_question_comment_type: answer_text
+3bc51523-4f40-459c-887c-056432fe1002:
+  uuid: 3bc51523-4f40-459c-887c-056432fe1000
+  language: und
+  user: TEST_journalist
+  created: -60 day|15:30
+  body: Question 3
+  field_question_comment_type: answer_text
+3bc51523-4f40-459c-887c-056432fe1003:
+  uuid: 3bc51523-4f40-459c-887c-056432fe1000
+  language: und
+  user: TEST_journalist
+  created: -60 day|15:30
+  body: Question 4
+  field_question_comment_type: answer_text
+3bc51523-4f40-459c-887c-056432fe1004:
+  uuid: 3bc51523-4f40-459c-887c-056432fe1000
+  language: und
+  user: TEST_journalist
+  created: -60 day|15:30
+  body: Question 5
+  field_question_comment_type: answer_text
+3bc51523-4f40-459c-887c-056432fe1005:
+  uuid: 3bc51523-4f40-459c-887c-056432fe1000
+  language: und
+  user: TEST_journalist
+  created: -60 day|15:30
+  body: Question 6
+  field_question_comment_type: answer_text

@@ -1,0 +1,7 @@
+dvm_mailing_list_examples.create_mailing_list:
+  path: 's/create-demo'
+  defaults:
+    _controller: '\Drupal\dvm_mailing_list_examples\Controller\MailingListController::createMailingList'
+    _title: 'Create Demo Survey'
+  requirements:
+    _permission: 'create mailing_list group'

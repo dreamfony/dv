@@ -1,0 +1,7 @@
+name: DVM Mailing List Examples
+type: module
+description: DV Mailing list Examples
+core: 8.x
+package: DV
+dependencies:
+  - dvm_mailing_list
