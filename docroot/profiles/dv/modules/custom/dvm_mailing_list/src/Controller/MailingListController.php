@@ -8,8 +8,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\dvm_mailing_list\MailingList;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\HtmlCommand;
-use Drupal\Core\Entity\EntityFormBuilder;
-use Drupal\Core\Entity\EntityManager;
+
 
 /**
  * Class CreateMailingList.
@@ -18,14 +17,16 @@ use Drupal\Core\Entity\EntityManager;
  */
 class MailingListController extends ControllerBase {
 
-  /** @var \Drupal\Core\Entity\EntityFormBuilder $entity_form_builder */
-  protected $entity_form_builder;
-
-  /** @var \Drupal\Core\Entity\EntityManager $entity_manager */
-  protected $entity_manager;
-
   /** @var \Drupal\dvm_mailing_list\MailingList */
   protected $mailingList;
+
+  /**
+   * MailingListController constructor.
+   * @param \Drupal\dvm_mailing_list\MailingList $mailing_list
+   */
+  public function __construct(MailingList $mailing_list) {
+    $this->mailingList = $mailing_list;
+  }
 
   /**
    * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
@@ -33,22 +34,8 @@ class MailingListController extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('dvm_mailing_list.mailing_list'),
-      $container->get('entity.form_builder'),
-      $container->get('entity.manager')
+      $container->get('dvm_mailing_list.mailing_list')
     );
-  }
-
-  /**
-   * MailingListController constructor.
-   * @param \Drupal\dvm_mailing_list\MailingList $mailing_list
-   * @param \Drupal\Core\Entity\EntityFormBuilder $entity_form_builder
-   * @param \Drupal\Core\Entity\EntityManager $entity_manager
-   */
-  public function __construct(MailingList $mailing_list, EntityFormBuilder $entity_form_builder, EntityManager $entity_manager) {
-    $this->mailingList = $mailing_list;
-    $this->entity_form_builder = $entity_form_builder;
-    $this->entity_manager = $entity_manager;
   }
 
   /**
@@ -66,7 +53,7 @@ class MailingListController extends ControllerBase {
    * Send for Approval.
    *
    * @param \Drupal\group\Entity\Group $group
-   * @return bool
+   * @return \Symfony\Component\HttpFoundation\RedirectResponse
    */
   public function sendForApproval(Group $group) {
     $this->mailingList->sendForApproval($group);
@@ -77,7 +64,7 @@ class MailingListController extends ControllerBase {
    * Approve sending.
    *
    * @param \Drupal\group\Entity\Group $group
-   * @return bool
+   * @return \Symfony\Component\HttpFoundation\RedirectResponse
    */
   public function approve(Group $group) {
     $this->mailingList->approve($group);

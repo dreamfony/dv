@@ -7,7 +7,7 @@ use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Entity\EntityFormBuilder;
 use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Entity\EntityManager;
+use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\group\Entity\GroupContent;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
@@ -18,17 +18,23 @@ class QuestionAjaxController extends ControllerBase {
    * Drupal\Core\Entity\EntityFormBuilder definition.
    *
    * @var \Drupal\Core\Entity\EntityFormBuilder
-   * @var \Drupal\Core\Entity\EntityManager
    */
-  protected $entity_form_builder;
-  protected $entity_manager;
+  protected $entityFormBuilder;
 
   /**
-   * {@inheritdoc}
+   * @var \Drupal\Core\Entity\EntityTypeManager
    */
-  public function __construct(EntityFormBuilder $entity_form_builder, EntityManager $entity_manager) {
-    $this->entity_form_builder = $entity_form_builder;
-    $this->entity_manager = $entity_manager;
+  protected $entityTypeManager;
+
+  /**
+   * QuestionAjaxController constructor.
+   *
+   * @param \Drupal\Core\Entity\EntityFormBuilder $entity_form_builder
+   * @param \Drupal\Core\Entity\EntityTypeManager $entity_type_manager
+   */
+  public function __construct(EntityFormBuilder $entity_form_builder, EntityTypeManager $entity_type_manager) {
+    $this->entityFormBuilder = $entity_form_builder;
+    $this->entityTypeManager = $entity_type_manager;
   }
 
   /**
@@ -37,7 +43,7 @@ class QuestionAjaxController extends ControllerBase {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('entity.form_builder'),
-      $container->get('entity.manager')
+      $container->get('entity_type.manager')
     );
   }
 
@@ -49,7 +55,7 @@ class QuestionAjaxController extends ControllerBase {
    * @return \Drupal\Core\Ajax\AjaxResponse
    */
   public function editForm(EntityInterface $node) {
-    $form = $this->entity_form_builder->getForm($node);
+    $form = $this->entityFormBuilder->getForm($node);
 
     $response = new AjaxResponse();
     $selector = '.question-view-' . $node->id() . ' .node';
@@ -83,7 +89,7 @@ class QuestionAjaxController extends ControllerBase {
    */
   public function cancel(EntityInterface $node) {
 
-    $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
+    $view_builder = $this->entityTypeManager->getViewBuilder('node');
     $renderable_entity = $view_builder->view($node, 'full');
 
     $response = new AjaxResponse();

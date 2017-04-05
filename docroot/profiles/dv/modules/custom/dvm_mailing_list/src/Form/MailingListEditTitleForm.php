@@ -6,18 +6,10 @@ use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\group\Entity\Group;
 use Drupal\Core\Block\BlockManager;
-use Drupal\views\Plugin\Block\ViewsBlock;
-use Drupal\user\Entity\User;
-use Drupal\group\GroupMembership;
-use Drupal\Core\Ajax\AppendCommand;
 
 
-/**
- * Form for editing Persistent Login module settings.
- */
 class MailingListEditTitleForm extends FormBase {
 
   /**
@@ -100,9 +92,7 @@ class MailingListEditTitleForm extends FormBase {
 
       /** @var BlockManager $block_manager */
       $block_manager = \Drupal::service('plugin.manager.block');
-      $config = [];
-      /** @var ViewsBlock $plugin_block */
-      $plugin_block = $block_manager->createInstance('mailing_list_title_block', $config);
+      $plugin_block = $block_manager->createInstance('mailing_list_title_block');
 
       // replace form with empty one
       $response->addCommand(new HtmlCommand('.block-mailing-list-title-block', $plugin_block->build()));

@@ -6,16 +6,37 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
-use Drupal\group\Entity\Group;
 use Drupal\Core\Block\BlockManager;
-use Drupal\views\Plugin\Block\ViewsBlock;
-use Drupal\user\Entity\User;
-use Drupal\group\GroupMembership;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\dvm_mailing_list\MailingList;
 
 /**
  * Form for editing Persistent Login module settings.
  */
 class OrganisationForm extends FormBase {
+
+  /**
+   * @var \Drupal\dvm_mailing_list\MailingList $mailingList
+   */
+  protected $mailingList;
+
+  /**
+   * OrganisationForm constructor.
+   *
+   * @param \Drupal\dvm_mailing_list\MailingList $mailing_list
+   */
+  public function __construct(MailingList $mailing_list) {
+    $this->mailingList = $mailing_list;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('dvm_mailing_list.mailing_list')
+    );
+  }
 
   /**
    * {@inheritdoc}
@@ -51,9 +72,8 @@ class OrganisationForm extends FormBase {
       ),
     ];
 
-    $current_path = \Drupal::service('path.current')->getPath();
-    $path_args = explode('/', $current_path);
-    $form['#mailing_list_id'] = $path_args[2];
+    $group = \Drupal::routeMatch()->getParameter('group');
+    $form['#mailing_list_id'] = $group->id();
 
     $form['actions']['#type'] = 'actions';
 
@@ -71,32 +91,11 @@ class OrganisationForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-
     // getMembership gids
     $gids = $form_state->getValue('group');
-    $mailing_list_group = Group::load($form['#mailing_list_id']);
+    $mailing_list_id = $form['#mailing_list_id'];
 
-    foreach ($gids as $gid) {
-      $gid = $gid['target_id'];
-
-      if ($gid) {
-        /** @var Group $group */
-        $group = Group::load($gid);
-        $membership = $group->getMembers([$group->bundle() . '-organisation']);
-
-        foreach ($membership as $membershipgc) {
-          /** @var GroupMembership $membershipgc */
-          $org_uids[] = $membershipgc->getGroupContent()->getEntity()->id();
-
-          foreach ($org_uids as $org_uid) {
-            $org_user = User::load($org_uid);
-            $mailing_list_group->addMember($org_user, ['group_roles' => ['mailing_list-organisation']]);
-          }
-
-        }
-      }
-    }
-
+    $this->mailingList->addRecipients($gids, $mailing_list_id);
   }
 
   public function ajaxFormCallback(array &$form, FormStateInterface $form_state) {
@@ -133,9 +132,8 @@ class OrganisationForm extends FormBase {
     // replace items view
     /** @var BlockManager $block_manager */
     $block_manager = \Drupal::service('plugin.manager.block');
-    $config = [];
-    /** @var ViewsBlock $plugin_block */
-    $plugin_block = $block_manager->createInstance('views_block:mailing_list_organisations-block_1', $config);
+
+    $plugin_block = $block_manager->createInstance('views_block:mailing_list_organisations-block_1');
     if ($plugin_block->access(\Drupal::currentUser())) {
       return $plugin_block->build();
     }

@@ -89,12 +89,8 @@ class QuestionFormAlter {
 
       // if entity is new
       if (isset($form['#isNew'])) {
-        $current_path = \Drupal::service('path.current')->getPath();
-        $path_args = explode('/', $current_path);
 
-        // group id
-        $gid = $path_args[2];
-        $group = Group::load($gid);
+        $group = \Drupal::routeMatch()->getParameter('group');
 
         // add node to created group
         $group->addContent($entity, 'group_node:' . $entity->bundle());

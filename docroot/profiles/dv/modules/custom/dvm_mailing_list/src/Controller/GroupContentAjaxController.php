@@ -6,30 +6,32 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Entity\EntityFormBuilder;
-use Drupal\Core\Entity\EntityManager;
 use Drupal\group\Entity\GroupContent;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Block\BlockManager;
-use Drupal\views\Plugin\Block\ViewsBlock;
 
 class GroupContentAjaxController extends ControllerBase {
 
   /**
-   * Drupal\Core\Entity\EntityFormBuilder definition.
-   *
    * @var \Drupal\Core\Entity\EntityFormBuilder
-   * @var \Drupal\Core\Entity\EntityManager
    */
-  protected $entity_form_builder;
-  protected $entity_manager;
+  protected $entityFormBuilder;
 
   /**
-   * {@inheritdoc}
+   * @var \Drupal\Core\Block\BlockManager
    */
-  public function __construct(EntityFormBuilder $entity_form_builder, EntityManager $entity_manager) {
-    $this->entity_form_builder = $entity_form_builder;
-    $this->entity_manager = $entity_manager;
+  protected $blockManager;
+
+  /**
+   * GroupContentAjaxController constructor.
+   *
+   * @param \Drupal\Core\Entity\EntityFormBuilder $entity_form_builder
+   * @param \Drupal\Core\Block\BlockManager $block_manager
+   */
+  public function __construct(EntityFormBuilder $entity_form_builder, BlockManager $block_manager) {
+    $this->entityFormBuilder = $entity_form_builder;
+    $this->blockManager = $block_manager;
   }
 
   /**
@@ -38,7 +40,7 @@ class GroupContentAjaxController extends ControllerBase {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('entity.form_builder'),
-      $container->get('entity.manager')
+      $container->get('plugin.manager.block')
     );
   }
 
@@ -55,16 +57,12 @@ class GroupContentAjaxController extends ControllerBase {
 
     $view = $this->getMailingListOrganisationsView();
     $response->addCommand(new ReplaceCommand($selector, $view));
+
     return $response;
   }
 
   public function getMailingListOrganisationsView() {
-    // replace items view
-    /** @var BlockManager $block_manager */
-    $block_manager = \Drupal::service('plugin.manager.block');
-    $config = [];
-    /** @var ViewsBlock $plugin_block */
-    $plugin_block = $block_manager->createInstance('views_block:mailing_list_organisations-block_1', $config);
+    $plugin_block = $this->blockManager->createInstance('views_block:mailing_list_organisations-block_1');
     if ($plugin_block->access(\Drupal::currentUser())) {
       return $plugin_block->build();
     }

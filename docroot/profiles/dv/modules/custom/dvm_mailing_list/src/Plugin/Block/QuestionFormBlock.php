@@ -34,13 +34,7 @@ class QuestionFormBlock extends BlockBase {
   }
 
   public function access(AccountInterface $account, $return_as_object = FALSE) {
-    $current_path = \Drupal::service('path.current')->getPath();
-    $path_args = explode('/', $current_path);
-
-    // group id
-    $gid = $path_args[2];
-    $group = Group::load($gid);
-
+    $group = \Drupal::routeMatch()->getParameter('group');
     return $group->hasPermission('edit group', $account);
   }
 
