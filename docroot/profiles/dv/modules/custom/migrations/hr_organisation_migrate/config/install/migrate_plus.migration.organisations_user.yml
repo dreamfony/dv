@@ -73,7 +73,6 @@ process:
     default_value: organisation_profile
   field_org_title: organisation
   uid: uid
-  is_default: true
   field_org_web_site: web_site_url
   field_org_organisation_id: organisation_id
   field_org_organisation_group:
