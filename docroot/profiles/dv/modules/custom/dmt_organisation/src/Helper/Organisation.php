@@ -5,6 +5,7 @@ namespace Drupal\dmt_organisation\Helper;
 use Drupal\profile\Entity\Profile;
 use Drupal\user\Entity\User;
 use Drupal\user\UserInterface;
+use Drupal\dvm_user\Helper\UserSettings;
 
 /**
  * Class Organisation
@@ -21,6 +22,24 @@ class Organisation {
   }
 
   public function getOrganisationIdByUser(UserInterface $user) {
+//    get users profile field id query if empty then
+    $profile = \Drupal::entityManager()->getStorage('profile')
+      ->loadByUser($user, UserSettings::PROFILE_ORGANISATION);
+
+    if ($profile) {
+      $organisation_id = $profile->get('field_org_organisation_id')->getValue();
+      if (empty($organisation_id)) {
+        $organisation_id = $this->getOrganisationIdByUserFromEmail($user);
+      }
+    }
+    else {
+      $organisation_id = $this->getOrganisationIdByUserFromEmail($user);
+    }
+
+    return $organisation_id;
+  }
+
+  private function getOrganisationIdByUserFromEmail(UserInterface $user) {
     $email = $user->getEmail();
     $exploded_mail = explode('@', $email);
     return $exploded_mail[0];
@@ -80,7 +99,7 @@ class Organisation {
     return $user->id();
   }
 
-  public function getRelatedOrganisationGroupId(Profile $profile){
+  public function getRelatedOrganisationGroupId(Profile $profile) {
 //    TODO check if field is not empty
     return $profile->field_org_related_group->target_id;
   }
