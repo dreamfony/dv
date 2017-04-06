@@ -6,7 +6,6 @@ use Drupal\user\Entity\User;
 use Drupal\group\Entity\Group;
 use Drupal\dvm_mailing_list\MailingList;
 use Drupal\Core\Entity\EntityTypeManager;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\node\Entity\Node;
 
 /**
@@ -61,88 +60,119 @@ class MailingListExamples {
   public function createContent() {
 
     // Loop through the content and try to create new entries.
-    foreach ($this->groups as $uuid => $group) {
-      // Must have uuid and same key value.
-      if ($uuid !== $group['uuid']) {
-        continue;
-      }
+    foreach ($this->groups as $uuid => $group_data) {
+
       // Check if the group does not exist yet.
       $existing_groups = $this->groupStorage->loadByProperties(array('uuid' => $uuid));
-      $existing_group = reset($existing_groups);
-      // If it already exists, leave it.
-      if ($existing_group) {
-        continue;
+
+      // Loop through the groups.
+      foreach ($existing_groups as $key => $group) {
+        // And delete them.
+        $group->delete();
       }
 
-      $user_id = user_load_by_name($group['user']);
+      $user_id = user_load_by_name($group_data['user']);
 
-      // Calculate data.
-      $grouptime = $this->createDate($group['created']);
-      // Let's create some groups.
-      $group_object = Group::create([
-        'uuid' => $group['uuid'],
-        'langcode' => $group['language'],
-        'type' => $group['group_type'],
-        'label' => $group['title'],
-        'uid' => $user_id,
-        'created' => $grouptime,
-        'changed' => $grouptime,
-      ]);
-      $group_object->save();
+      $group_object = $this->createGroup($uuid, $group_data, $user_id);
 
       if ($group_object instanceof Group) {
 
         // add recipients
-        foreach ($group['members'] as $area_of_activity_id) {
-          $query = \Drupal::entityQuery('group');
-          $query->condition('type', 'area_of_activity');
-          $query->condition('field_area_of_activity_id', $area_of_activity_id);
-          $result = $query->execute();
-
-          $this->mailingList->addRecipients($result, $group_object->id());
+        if( isset($group_data['recipients']) ) {
+          $this->addMembers($group_object, $group_data);
         }
 
-        // add questions
-        foreach ($this->nodes as $node_uuid => $question) {
-          $node = Node::create([
-            'uuid' => $question['uuid'],
-            'type' => 'question',
-            'langcode' => $question['language'],
-            'title' => '',
-            'body' => [
-              'summary' => '',
-              'value' => $question['body'],
-              'format' => 'basic_html',
-            ],
-            'uid' => $user_id,
-            'created' => REQUEST_TIME,
-            'changed' => REQUEST_TIME,
-            'field_question_comment_type' => $question['field_question_comment_type']
-          ]);
-          $node->save();
-          // add node to created group
-          $group_object->addContent($node, 'group_node:' . $node->bundle());
+        // create questions
+        if($group_data['state'] !== 'new'){
+          $this->createQuestions($group_object, $user_id);
+        }
+
+        // send for approval
+        if($group_data['state'] == 'email' || $group_data['state'] == 'approved'){
+          $this->mailingList->sendForApproval($group_object);
+        }
+
+        // approve
+        if($group_data['state'] == 'approved'){
+          $this->mailingList->approve($group_object);
+          /// @todo Process Queues!
         }
 
       }
 
-      /// @todo Approve!
-      /// @todo Run Queues!
-
-      return $group_object->id();
     }
-
+    return TRUE;
   }
+
+  public function createGroup($uuid, $group_data, $user_id) {
+    // Calculate data.
+    $grouptime = $this->createDate($group_data['created']);
+    // Let's create some groups.
+    $group_object = Group::create([
+      'uuid' => $uuid,
+      'type' => $group_data['group_type'],
+      'label' => $group_data['title'],
+      'uid' => $user_id,
+      'created' => $grouptime,
+      'changed' => $grouptime,
+    ]);
+    $group_object->save();
+
+    return $group_object;
+  }
+
+  /**
+   * @param $group_object
+   * @param $group_data
+   */
+  public function addMembers(Group $group_object, array $group_data) {
+    // add recipients
+    foreach ($group_data['recipients'] as $area_of_activity_id) {
+      $query = \Drupal::entityQuery('group');
+      $query->condition('type', 'area_of_activity');
+      $query->condition('field_area_of_activity_id', $area_of_activity_id);
+      $result = $query->execute();
+
+      if($result) {
+
+        // add target_id
+        foreach ($result as $r) {
+          $result_target_id[$r] = ['target_id' => $r];
+        }
+
+        $this->mailingList->addRecipients($result_target_id, $group_object->id());
+      }
+    }
+  }
+
+  public function createQuestions(Group $group_object, $user_id) {
+    // add questions
+    foreach ($this->nodes as $question_uuid => $question) {
+      $node = Node::create([
+        'type' => 'question',
+        'title' => '',
+        'body' => [
+          'summary' => '',
+          'value' => $question['body'],
+          'format' => 'basic_html',
+        ],
+        'uid' => $user_id,
+        'created' => REQUEST_TIME,
+        'changed' => REQUEST_TIME,
+        'field_question_comment_type' => $question['field_question_comment_type']
+      ]);
+      $node->save();
+      // add node to created group
+      $group_object->addContent($node, 'group_node:' . $node->bundle());
+    }
+  }
+
   /**
    * Function to remove content.
    */
   public function removeContent() {
     // Loop through the content and try to create new entries.
     foreach ($this->groups as $uuid => $group) {
-      // Must have uuid and same key value.
-      if ($uuid !== $group['uuid']) {
-        continue;
-      }
       // Load the groups from the uuid.
       $groups = $this->groupStorage->loadByProperties(array('uuid' => $uuid));
       // Loop through the groups.

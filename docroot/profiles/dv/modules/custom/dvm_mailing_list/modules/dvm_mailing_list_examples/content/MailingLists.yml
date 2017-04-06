@@ -1,10 +1,55 @@
 ---
-3bc51523-4f40-459c-887c-056432fe17cd:
-  uuid: 3bc51523-4f40-459c-887c-056432fe17cd
+3bc51523-4f40-459c-887c-056432fe1000:
   language: und
   user: TEST_journalist
   created: -60 day|15:30
-  title: Test Survey 1
+  title: New - Test Survey 1
   group_type: mailing_list
-  members:
+  state: new
+3bc51523-4f40-459c-887c-056432fe1001:
+  language: en
+  user: TEST_journalist
+  created: -60 day|15:30
+  title: Draft - Test Survey 2
+  group_type: mailing_list
+  state: draft
+  recipients:
     - 35332
+3bc51523-4f40-459c-887c-056432fe1002:
+  language: en
+  user: TEST_journalist
+  created: -60 day|15:30
+  title: Waiting for Approval - Test Survey 3
+  group_type: mailing_list
+  state: email
+  recipients:
+    - 35332
+3bc51523-4f40-459c-887c-056432fe1003:
+  language: en
+  user: TEST_journalist
+  created: -60 day|15:30
+  title: Approved and Sent - Test Survey 4
+  group_type: mailing_list
+  state: approved
+  recipients:
+    - 35332
+#3bc51523-4f40-459c-887c-056432fe1004:
+#  language: und
+#  user: TEST_journalist
+#  created: -60 day|15:30
+#  title: Partialy Answered - Test Survey 5
+#  group_type: mailing_list
+#  state: answered
+#  recipients:
+#    - 35332
+#3bc51523-4f40-459c-887c-056432fe1005:
+#  language: und
+#  user: TEST_journalist
+#  created: -60 day|15:30
+#  title: Fully Answered - Test Survey 6
+#  group_type: mailing_list
+#  state: fully_answered
+#  recipients:
+#    - 35332
+
+
