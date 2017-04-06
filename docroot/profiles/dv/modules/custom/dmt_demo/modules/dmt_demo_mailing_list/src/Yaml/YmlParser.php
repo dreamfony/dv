@@ -1,5 +1,5 @@
 <?php
-namespace Drupal\dvm_mailing_list_examples\Yaml;
+namespace Drupal\dmt_demo_mailing_list\Yaml;
 
 use Symfony\Component\Yaml\Yaml;
 
@@ -15,14 +15,14 @@ class YmlParser extends Yaml {
    * @return string
    *   String with the full pathname including the file.
    */
-  public function getPath($file, $module = 'dvm_mailing_list_examples') {
+  public function getPath($file, $module = 'dmt_demo_mailing_list') {
     // @todo Fix this for other file paths?!.
     return drupal_get_path('module', $module) . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . $file;
   }
   /**
    * {@inheritdoc}
    */
-  public function parseFile($file, $module = 'dvm_mailing_list_examples') {
+  public function parseFile($file, $module = 'dmt_demo_mailing_list') {
     return $this->parse(file_get_contents($this->getPath($file, $module)));
   }
 }

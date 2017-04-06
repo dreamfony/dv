@@ -1,7 +1,7 @@
 <?php
-namespace Drupal\dvm_mailing_list_examples;
+namespace Drupal\dmt_demo_mailing_list;
 
-use Drupal\dvm_mailing_list_examples\Yaml\YmlParser;
+use Drupal\dmt_demo_mailing_list\Yaml\YmlParser;
 use Drupal\user\Entity\User;
 use Drupal\group\Entity\Group;
 use Drupal\dvm_mailing_list\MailingList;
@@ -43,7 +43,7 @@ class MailingListExamples {
    *
    * @param \Drupal\Core\Entity\EntityTypeManager $entity_manager
    * @param \Drupal\dvm_mailing_list\MailingList $mailing_list
-   * @param \Drupal\dvm_mailing_list_examples\Yaml\YmlParser $yml_parser
+   * @param \Drupal\dmt_demo_mailing_list\Yaml\YmlParser $yml_parser
    */
   public function __construct(EntityTypeManager $entity_manager, MailingList $mailing_list, YmlParser $yml_parser) {
     $this->userStorage = $entity_manager->getStorage('user');

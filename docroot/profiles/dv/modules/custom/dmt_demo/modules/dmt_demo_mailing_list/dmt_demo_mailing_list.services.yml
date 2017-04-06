@@ -1,0 +1,7 @@
+services:
+  dmt_demo_mailing_list.mailing_list_examples:
+    class: Drupal\dmt_demo_mailing_list\MailingListExamples
+    arguments: ['@entity_type.manager', '@dvm_mailing_list.mailing_list', '@dmt_demo_mailing_list.yml_parser']
+  dmt_demo_mailing_list.yml_parser:
+    class: Drupal\dmt_demo_mailing_list\Yaml\YmlParser
+

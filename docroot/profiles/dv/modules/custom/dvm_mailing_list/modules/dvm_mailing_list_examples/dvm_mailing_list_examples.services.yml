@@ -1,7 +1,0 @@
-services:
-  dvm_mailing_list_examples.mailing_list_examples:
-    class: Drupal\dvm_mailing_list_examples\MailingListExamples
-    arguments: ['@entity_type.manager', '@dvm_mailing_list.mailing_list', '@dvm_mailing_list_examples.yml_parser']
-  dvm_mailing_list_examples.yml_parser:
-    class: Drupal\dvm_mailing_list_examples\Yaml\YmlParser
-

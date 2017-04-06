@@ -3,8 +3,8 @@
 /**
  * Implements hook_drush_command().
  */
-function dvm_mailing_list_examples_drush_command() {
-  $items['mailing-list-examples'] = array(
+function dmt_demo_mailing_list_drush_command() {
+  $items['demo-mailing-list'] = array(
     'description' => dt('Add Mailing list examples.'),
     'examples' => array(
       "drush mle" => "Generates example mailing lists.",
@@ -16,9 +16,9 @@ function dvm_mailing_list_examples_drush_command() {
 /**
  * Add demo content.
  */
-function drush_dvm_mailing_list_examples_mailing_list_examples() {
+function drush_dmt_demo_mailing_list_demo_mailing_list() {
     // Create an instance of the necessary class.
-    $mailing_list_examples = \Drupal::service('dvm_mailing_list_examples.mailing_list_examples');
+    $mailing_list_examples = \Drupal::service('dmt_demo_mailing_list.mailing_list_examples');
     $mailing_list_examples->createContent();
 
     drush_print("Mailing lists created.");
