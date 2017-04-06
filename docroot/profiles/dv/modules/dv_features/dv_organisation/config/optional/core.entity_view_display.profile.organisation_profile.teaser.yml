@@ -11,6 +11,7 @@ dependencies:
     - field.field.profile.organisation_profile.field_org_organisation_group
     - field.field.profile.organisation_profile.field_org_organisation_id
     - field.field.profile.organisation_profile.field_org_parent_organisation
+    - field.field.profile.organisation_profile.field_org_related_group
     - field.field.profile.organisation_profile.field_org_telephone
     - field.field.profile.organisation_profile.field_org_title
     - field.field.profile.organisation_profile.field_org_web_site
@@ -217,4 +218,5 @@ content:
     type: link
     region: content
 hidden:
+  field_org_related_group: true
   langcode: true
