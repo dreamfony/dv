@@ -39,6 +39,11 @@ class MailingListExamples {
   protected $nodes;
 
   /**
+   * @var User
+   */
+  protected $user;
+
+  /**
    * MailingListExamples constructor.
    *
    * @param \Drupal\Core\Entity\EntityTypeManager $entity_manager
@@ -71,9 +76,9 @@ class MailingListExamples {
         $group->delete();
       }
 
-      $user_id = user_load_by_name($group_data['user']);
+      $user = $this->getUser($group_data['user']);
 
-      $group_object = $this->createGroup($uuid, $group_data, $user_id);
+      $group_object = $this->createGroup($uuid, $group_data, $user);
 
       if ($group_object instanceof Group) {
 
@@ -84,7 +89,7 @@ class MailingListExamples {
 
         // create questions
         if($group_data['state'] !== 'new'){
-          $this->createQuestions($group_object, $user_id);
+          $this->createQuestions($group_object, $user);
         }
 
         // send for approval
@@ -104,7 +109,35 @@ class MailingListExamples {
     return TRUE;
   }
 
-  public function createGroup($uuid, $group_data, $user_id) {
+  public function getUser($user_name) {
+
+    if ($this->user instanceof User) {
+      return $this->user;
+    }
+
+    $this->createUser($user_name);
+    return $this->user;
+  }
+
+  public function createUser($user_name) {
+
+    $user = user_load_by_name($user_name);
+
+    if(!$user) {
+        $user = User::create(array(
+          'name' => $user_name,
+          'mail' => $user_name . '@test.com',
+          'status' => 1,
+          'pass' => $user_name,
+          'personas' => array('journalist')
+        ));
+        $user->save();
+    }
+
+    $this->user = $user;
+  }
+
+  public function createGroup($uuid, $group_data, User $user) {
     // Calculate data.
     $grouptime = $this->createDate($group_data['created']);
     // Let's create some groups.
@@ -112,7 +145,7 @@ class MailingListExamples {
       'uuid' => $uuid,
       'type' => $group_data['group_type'],
       'label' => $group_data['title'],
-      'uid' => $user_id,
+      'uid' => $user->id(),
       'created' => $grouptime,
       'changed' => $grouptime,
     ]);
@@ -145,7 +178,7 @@ class MailingListExamples {
     }
   }
 
-  public function createQuestions(Group $group_object, $user_id) {
+  public function createQuestions(Group $group_object, User $user) {
     // add questions
     foreach ($this->nodes as $question_uuid => $question) {
       $node = Node::create([
@@ -156,7 +189,7 @@ class MailingListExamples {
           'value' => $question['body'],
           'format' => 'basic_html',
         ],
-        'uid' => $user_id,
+        'uid' => $user->id(),
         'created' => REQUEST_TIME,
         'changed' => REQUEST_TIME,
         'field_question_comment_type' => $question['field_question_comment_type']

@@ -1,5 +1,7 @@
 <?php
 
 function dv_dev_install() {
-  dv_dev_create_test_accounts();
+  // we are not creating test accounts this way anymore since we
+  // are doing it dmt_demo when creating demo content
+  // dv_dev_create_test_accounts();
 }
