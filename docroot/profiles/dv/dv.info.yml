@@ -39,6 +39,8 @@ dependencies:
   - editor
   - email_registration
   - entity_browser
+  - domain
+  - domain_config
   - features
   - field
   - field_ui

@@ -33,7 +33,6 @@
         "drupal/profile": "~1.0",
         "drupal/r4032login": "~1.0",
         "drupal/config_update": "~1.0",
-        "drupal/features": "^3.0.0",
         "drupal/migrate_plus": "^2.0",
         "drupal/migrate_tools": "^2.0",
         "drupal/rules": "3.x-dev",
@@ -51,12 +50,9 @@
         "drupal/email_registration": "~1.0",
         "drupal/user_registrationpassword": "~1.0",
         "acquia/blt": "^8.6.10",
-        "drupal/acquia_connector": "^1.5.0",
         "drupal/libraries": "3.x-dev#fa93a5aec2cfcfd5717e42c7112e381487fed9fd",
         "drupal/token": "^1.0",
         "drupal/memcache": "2.0.0-alpha2",
-        "drupal/seckit": "^1.0.0-alpha2",
-        "drupal/security_review": "*",
         "drupal/search_api_solr": "^1.0@beta",
         "drupal/search_api": "^1.0@beta",
         "drupal/default_content": "~1.0",
@@ -93,36 +89,13 @@
         "drupal/page_manager": "1.x-dev"
     },
     "require-dev": {
-        "behat/behat": "^3.1",
-        "behat/mink": "~1.7",
-        "behat/mink-selenium2-driver": "^1.3.1",
-        "drupal/drupal-extension": "^3.2",
-        "jarnaiz/behat-junit-formatter": "^1.3.2",
-        "se/selenium-server-standalone": "^2.53",
         "squizlabs/php_codesniffer": "^2.7",
         "jcalderonzumba/gastonjs": "~1.0.2",
         "mikey179/vfsStream": "~1.2",
         "symfony/css-selector": "~2.8",
-        "drupal/devel": "^1.0.0-alpha1",
         "geerlingguy/drupal-vm": "~3.4",
         "codeclimate/php-test-reporter": "^0.3.2",
-        "drupal-composer/drupal-scaffold": "^2.1.0",
-        "jakoch/phantomjs-installer": "^2.1.1-p07",
-        "drush/drush": "^9.0",
-        "drupal/console": "^1.0"
-    },
-    "scripts": {
-        "blt-alias": "blt install-alias -Dcreate_alias=true",
-        "nuke": [
-            "rm -rf vendor composer.lock",
-            "@composer clearcache",
-            "@composer install"
-        ],
-        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
-        "install-phantomjs": [
-            "rm -rf vendor/bin/phantomjs",
-            "PhantomInstaller\\Installer::installPhantomJS"
-        ]
+        "jakoch/phantomjs-installer": "^2.1.1-p07"
     },
     "repositories": [
         {
@@ -154,43 +127,34 @@
             }
         }
     ],
-    "autoload-dev": {
-        "psr-4": {
-            "Drupal\\Tests\\PHPUnit\\": "tests/phpunit/src/"
-        }
-    },
     "extra": {
         "blt": {
-            "update": true,
-            "composer-exclude-merge": {
-                "require": [
-                    "acquia/lightning",
-                    "drupal/acquia_connector",
-                    "drupal/acsf",
-                    "drupal/cog",
-                    "drupal/seckit",
-                    "drupal/security_review",
-                    "drupal/shield",
-                    "drush/drush"
-                ],
-                "require-dev": "*"
-            }
+            "update": true
         },
         "installer-paths": {
             "docroot/core": [
                 "type:drupal-core"
             ],
-            "docroot/libraries/{$name}": [
-                "type:drupal-library"
-            ],
             "docroot/modules/contrib/{$name}": [
                 "type:drupal-module"
+            ],
+            "docroot/modules/custom/{$name}": [
+                "type:drupal-custom-module"
             ],
             "docroot/profiles/contrib/{$name}": [
                 "type:drupal-profile"
             ],
+            "docroot/profiles/custom/{$name}": [
+                "type:drupal-custom-profile"
+            ],
             "docroot/themes/contrib/{$name}": [
                 "type:drupal-theme"
+            ],
+            "docroot/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ],
+            "docroot/libraries/{$name}": [
+                "type:drupal-library"
             ],
             "drush/contrib/{$name}": [
                 "type:drupal-drush"
@@ -198,10 +162,10 @@
         },
         "patches": {
             "drupal/ctools": {
-                "Node Links" : "https://www.drupal.org/files/issues/2664654-9.patch"
+                "Node Links": "https://www.drupal.org/files/issues/2664654-9.patch"
             },
             "drupal/inline_entity_form": {
-              "Save revisions Node - https://www.drupal.org/node/2367235" : "https://www.drupal.org/files/issues/support_entity_revision-2367235-92.patch"
+                "Save revisions Node - https://www.drupal.org/node/2367235": "https://www.drupal.org/files/issues/support_entity_revision-2367235-92.patch"
             },
             "drupal/profile": {
                 "Fixes access control on entities": "https://www.drupal.org/files/issues/profile-accesscontrol-2703825-6.patch"
@@ -221,37 +185,40 @@
                 "https://www.drupal.org/node/2668562 #4": "https://www.drupal.org/files/issues/features-not_detecting_profile_files-2668562-4.patch"
             },
             "drupal/entity_browser": {
-                "https://www.drupal.org/node/2845037" : "https://www.drupal.org/files/issues/2845037-4.patch"
+                "https://www.drupal.org/node/2845037": "https://www.drupal.org/files/issues/2845037-4.patch"
             },
             "drupal/leaflet": {
-                "https://www.drupal.org/node/2825567" : "https://www.drupal.org/files/issues/leaflet-viewstyle-id-typo-2825567-2.patch"
+                "https://www.drupal.org/node/2825567": "https://www.drupal.org/files/issues/leaflet-viewstyle-id-typo-2825567-2.patch"
             },
             "drupal/core": {
-                "https://www.drupal.org/files/issues/2817305.patch" : "https://www.drupal.org/files/issues/2817305.patch",
-                "slash latest" : "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/slash_latest.patch",
-                "https://www.drupal.org/node/2744069" : "https://www.drupal.org/files/issues/2744069-5-views-in-queries.patch",
-                "add menu link patch" : "https://raw.githubusercontent.com/dreamfony/dv/da434a5adb17690c00bd14451573f1a1b14f2c9d/patches/drupal/content_moderation_add_link.patch"
+                "https://www.drupal.org/files/issues/2817305.patch": "https://www.drupal.org/files/issues/2817305.patch",
+                "slash latest": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/slash_latest.patch",
+                "https://www.drupal.org/node/2744069": "https://www.drupal.org/files/issues/2744069-5-views-in-queries.patch",
+                "add menu link patch": "https://raw.githubusercontent.com/dreamfony/dv/da434a5adb17690c00bd14451573f1a1b14f2c9d/patches/drupal/content_moderation_add_link.patch"
             },
             "drupal/mailgun": {
-                "https://www.drupal.org/node/2847665" : "https://www.drupal.org/files/issues/remove-composer-manager-2847665-2.patch",
-                "https://www.drupal.org/node/2851007" : "https://www.drupal.org/files/issues/extract-params-2851007-2.patch"
+                "https://www.drupal.org/node/2847665": "https://www.drupal.org/files/issues/remove-composer-manager-2847665-2.patch",
+                "https://www.drupal.org/node/2851007": "https://www.drupal.org/files/issues/extract-params-2851007-2.patch"
             },
             "drupal/webhooks": {
-                "https://www.drupal.org/node/2851615" : "https://www.drupal.org/files/issues/return-data-2851615-2.patch"
+                "https://www.drupal.org/node/2851615": "https://www.drupal.org/files/issues/return-data-2851615-2.patch"
             },
             "drupal/rules": {
-               "https://www.drupal.org/node/2849779" : "https://www.drupal.org/files/issues/rules-fix-tests.patch"
+                "https://www.drupal.org/node/2849779": "https://www.drupal.org/files/issues/rules-fix-tests.patch"
             }
         },
-        "drupal-scaffold": {
-            "initial": {
-                "sites/default/default.services.yml": "sites/default/services.yml",
-                "sites/default/default.settings.php": "sites/default/settings.php"
-            },
-            "excludes": [
-                "sites/development.services.yml"
-            ]
-        },
-        "enable-patching": true
+        "enable-patching": true,
+        "merge-plugin": {
+            "require": [
+                "vendor/acquia/blt/composer.required.json"
+            ],
+            "include": [
+                "blt/composer.overrides.json"
+            ],
+            "merge-extra": true,
+            "merge-extra-deep": true,
+            "merge-scripts": true,
+            "replace": true
+        }
     }
 }

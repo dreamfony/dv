@@ -111,8 +111,5 @@ assignments:
     core: 1
     uuid: 1
     user_permissions: 0
-  domain:
-    enabled: true
-    weight: 0
 profile_name: dv
 is_profile: true

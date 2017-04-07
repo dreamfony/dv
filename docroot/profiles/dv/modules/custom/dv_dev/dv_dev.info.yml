@@ -5,4 +5,5 @@ dependencies:
   - block
   - domain
   - masquerade
+  - personas
 package: DV

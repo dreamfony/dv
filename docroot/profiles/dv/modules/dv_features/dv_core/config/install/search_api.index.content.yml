@@ -151,9 +151,6 @@ processor_settings:
       weights:
         preprocess_index: -9
         preprocess_query: -8
-  node_status:
-    plugin_id: node_status
-    settings: {  }
   content_access:
     plugin_id: content_access
     settings:
