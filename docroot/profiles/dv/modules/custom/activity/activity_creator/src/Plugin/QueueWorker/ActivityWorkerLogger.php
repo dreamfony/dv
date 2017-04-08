@@ -11,7 +11,7 @@ namespace Drupal\activity_creator\Plugin\QueueWorker;
  *
  * @QueueWorker(
  *   id = "activity_creator_logger",
- *   title = @Translation("Process activity loggers."),
+ *   title = @Translation("Process 2 activity_creator_logger."),
  *   cron = {"time" = 60}
  * )
  *

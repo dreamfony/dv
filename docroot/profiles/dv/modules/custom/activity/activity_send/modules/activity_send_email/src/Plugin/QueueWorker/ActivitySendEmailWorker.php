@@ -20,7 +20,7 @@ use Drupal\user\Entity\User;
  *
  * @QueueWorker(
  *   id = "activity_send_email_worker",
- *   title = @Translation("Process activity_send_email queue."),
+ *   title = @Translation("Process 4 activity_send_email_worker."),
  *   cron = {"time" = 60}
  * )
  *

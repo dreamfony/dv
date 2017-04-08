@@ -15,7 +15,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * @QueueWorker(
  *   id = "activity_creator_activities",
- *   title = @Translation("Process activity activities."),
+ *   title = @Translation("Process 3 activity_creator_activities."),
  *   cron = {"time" = 60}
  * )
  *

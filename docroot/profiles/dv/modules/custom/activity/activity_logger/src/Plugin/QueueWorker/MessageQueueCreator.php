@@ -16,7 +16,7 @@ use Drupal\activity_creator\Plugin\ActivityActionBase;
  *
  * @QueueWorker(
  *   id = "activity_logger_message",
- *   title = @Translation("Process activity_logger_message queue."),
+ *   title = @Translation("Process 1 activity_logger_message."),
  *   cron = {"time" = 60}
  * )
  *
