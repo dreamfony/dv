@@ -5,6 +5,7 @@ core: 8.x
 dependencies:
   - activity_creator
   - activity_logger
+  - allowed_formats
   - comment
   - content_moderation
   - dv_answer_text
@@ -26,6 +27,7 @@ dependencies:
   - gnode
   - group
   - inline_entity_form
+  - language
   - menu_ui
   - message
   - node
