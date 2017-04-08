@@ -1,5 +1,6 @@
 ---
 3bc51523-4f40-459c-887c-056432fe1000:
+  status: true # true if you want to generate this one
   language: und
   user: TEST_journalist
   created: -60 day|15:30
@@ -7,6 +8,7 @@
   group_type: mailing_list
   state: new
 3bc51523-4f40-459c-887c-056432fe1001:
+  status: true
   language: en
   user: TEST_journalist
   created: -60 day|15:30
@@ -16,6 +18,7 @@
   recipients:
     - 35332
 3bc51523-4f40-459c-887c-056432fe1002:
+  status: true
   language: en
   user: TEST_journalist
   created: -60 day|15:30
@@ -25,31 +28,52 @@
   recipients:
     - 35332
 3bc51523-4f40-459c-887c-056432fe1003:
+  status: true
   language: en
   user: TEST_journalist
   created: -60 day|15:30
-  title: Approved and Sent - Test Survey 4
+  title: Approved - Queue Not Processed Yet - Test Survey 4
   group_type: mailing_list
   state: approved
   recipients:
     - 35332
-#3bc51523-4f40-459c-887c-056432fe1004:
-#  language: und
-#  user: TEST_journalist
-#  created: -60 day|15:30
-#  title: Partialy Answered - Test Survey 5
-#  group_type: mailing_list
-#  state: answered
-#  recipients:
-#    - 35332
-#3bc51523-4f40-459c-887c-056432fe1005:
-#  language: und
-#  user: TEST_journalist
-#  created: -60 day|15:30
-#  title: Fully Answered - Test Survey 6
-#  group_type: mailing_list
-#  state: fully_answered
-#  recipients:
-#    - 35332
-
-
+3bc51523-4f40-459c-887c-056432fe1004:
+  status: true
+  language: und
+  user: TEST_journalist
+  created: -60 day|15:30
+  title: Actvities Created But not Sent - Test Survey 5
+  group_type: mailing_list
+  state: activities_created
+  recipients:
+    - 35332
+3bc51523-4f40-459c-887c-056432fe1005:
+  status: false # set to true when everything is working
+  language: und
+  user: TEST_journalist
+  created: -60 day|15:30
+  title: Sent to Organisations - Test Survey 6
+  group_type: mailing_list
+  state: sent
+  recipients:
+    - 35332
+3bc51523-4f40-459c-887c-056432fe1006:
+  status: false # set to true when everything is working
+  language: und
+  user: TEST_journalist
+  created: -60 day|15:30
+  title: Partialy Answered - Test Survey 7
+  group_type: mailing_list
+  state: partialy_answered
+  recipients:
+    - 35332
+3bc51523-4f40-459c-887c-056432fe1007:
+  status: false # set to true when everything is working
+  language: und
+  user: TEST_journalist
+  created: -60 day|15:30
+  title: Fully Answered - Test Survey 8
+  group_type: mailing_list
+  state: partialy_answered
+  recipients:
+    - 35332

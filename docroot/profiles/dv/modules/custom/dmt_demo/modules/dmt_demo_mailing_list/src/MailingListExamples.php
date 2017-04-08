@@ -1,6 +1,7 @@
 <?php
 namespace Drupal\dmt_demo_mailing_list;
 
+use Drupal\dmt_demo_mailing_list\Queue\ProcessQueue;
 use Drupal\dmt_demo_mailing_list\Yaml\YmlParser;
 use Drupal\user\Entity\User;
 use Drupal\group\Entity\Group;
@@ -44,19 +45,25 @@ class MailingListExamples {
   protected $user;
 
   /**
+   * @var \Drupal\dmt_demo_mailing_list\Queue\ProcessQueue
+   */
+  protected $processQueue;
+
+  /**
    * MailingListExamples constructor.
-   *
    * @param \Drupal\Core\Entity\EntityTypeManager $entity_manager
    * @param \Drupal\dvm_mailing_list\MailingList $mailing_list
    * @param \Drupal\dmt_demo_mailing_list\Yaml\YmlParser $yml_parser
+   * @param \Drupal\dmt_demo_mailing_list\Queue\ProcessQueue $process_queue
    */
-  public function __construct(EntityTypeManager $entity_manager, MailingList $mailing_list, YmlParser $yml_parser) {
+  public function __construct(EntityTypeManager $entity_manager, MailingList $mailing_list, YmlParser $yml_parser, ProcessQueue $process_queue) {
     $this->userStorage = $entity_manager->getStorage('user');
     $this->groupStorage = $entity_manager->getStorage('group');
     $this->mailingList = $mailing_list;
     $yml_data = $yml_parser;
     $this->groups = $yml_data->parseFile('MailingLists.yml');
     $this->nodes = $yml_data->parseFile('Questions.yml');
+    $this->processQueue = $process_queue;
   }
 
   /**
@@ -66,6 +73,11 @@ class MailingListExamples {
 
     // Loop through the content and try to create new entries.
     foreach ($this->groups as $uuid => $group_data) {
+
+      /// skip if item is not enabled
+      if($group_data['status'] === false) {
+        continue;
+      }
 
       // Check if the group does not exist yet.
       $existing_groups = $this->groupStorage->loadByProperties(array('uuid' => $uuid));
@@ -93,14 +105,35 @@ class MailingListExamples {
         }
 
         // send for approval
-        if($group_data['state'] == 'email' || $group_data['state'] == 'approved'){
+        if($group_data['state'] == 'email'){
           $this->mailingList->sendForApproval($group_object);
         }
 
         // approve
         if($group_data['state'] == 'approved'){
+          $this->mailingList->sendForApproval($group_object);
           $this->mailingList->approve($group_object);
-          /// @todo Process Queues!
+        }
+
+        // activities created
+        if($group_data['state'] == 'activities_created'){
+          $this->mailingList->sendForApproval($group_object);
+          $this->mailingList->approve($group_object);
+
+          $this->processQueue->queueProcess('activity_logger_message');
+          $this->processQueue->queueProcess('activity_creator_logger');
+          $this->processQueue->queueProcess('activity_creator_activities');
+        }
+
+        // sent
+        if($group_data['state'] == 'sent'){
+          $this->mailingList->sendForApproval($group_object);
+          $this->mailingList->approve($group_object);
+
+          $this->processQueue->queueProcess('activity_logger_message');
+          $this->processQueue->queueProcess('activity_creator_logger');
+          $this->processQueue->queueProcess('activity_creator_activities');
+          $this->processQueue->queueProcess('activity_send_email_worker');
         }
 
       }
