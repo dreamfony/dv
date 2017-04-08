@@ -36,7 +36,10 @@ class MailingListSendAccessCheck implements AccessInterface {
       return AccessResult::forbidden();
     }
 
-    return AccessResult::allowedIf(!$needs_access);
+    // check moderation state
+    $moderation_state = $group->moderation_state->value == 'draft';
+
+    return AccessResult::allowedIf($moderation_state);
   }
 
 }
