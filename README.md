@@ -162,6 +162,10 @@ The default Drupal cron (poor man's cron) is enabled by default and you should d
 
 ### Vagrant
 
+*VM on Windows*
+
+https://www.jeffgeerling.com/blog/2017/drupal-vm-on-windows-fast-container-blt-project-development
+
 Install the Vagrant::Hostsupdater plugin with
 `vagrant plugin install vagrant-hostsupdater` 
 which will manage the host’s /etc/hosts file by adding and removing hostname entries for you
