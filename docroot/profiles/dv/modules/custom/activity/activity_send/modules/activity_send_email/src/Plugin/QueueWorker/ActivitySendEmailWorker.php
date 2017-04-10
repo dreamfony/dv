@@ -10,6 +10,7 @@ namespace Drupal\activity_send_email\Plugin\QueueWorker;
 use Drupal\activity_send_email\Plugin\ActivityDestination\EmailActivityDestination;
 use Drupal\activity_send\Plugin\QueueWorker\ActivitySendWorkerBase;
 use Drupal\activity_creator\Entity\Activity;
+use Drupal\message\MessageInterface;
 use Drupal\message\Entity\Message;
 use Drupal\dvm_user\Helper\UserSettings;
 use Drupal\user\Entity\User;
@@ -71,14 +72,14 @@ class ActivitySendEmailWorker extends ActivitySendWorkerBase {
   }
 
   /**
-   * Get message params.
+   * Get Email Params.
    *
-   * @param \Drupal\message\Entity\Message $message
+   * @param \Drupal\message\MessageInterface $message
    * @param \Drupal\activity_creator\Entity\Activity $activity
    * @param $data
    * @return mixed
    */
-  protected function getEmailParams(Message $message, Activity $activity, $data) {
+  protected function getEmailParams(MessageInterface $message, Activity $activity, $data) {
     $params['body'] = $this->getEmailBody($message, $activity);
 
     $hash = $activity->get('field_activity_hash')->getString();
@@ -100,11 +101,11 @@ class ActivitySendEmailWorker extends ActivitySendWorkerBase {
   /**
    * Get Email Body.
    *
-   * @param \Drupal\message\Entity\Message $message
+   * @param \Drupal\message\MessageInterface $message
    * @param \Drupal\activity_creator\Entity\Activity $activity
-   * @return string
+   * @return mixed|string
    */
-  protected function getEmailBody(Message $message, Activity $activity) {
+  protected function getEmailBody(MessageInterface $message, Activity $activity) {
     $body = EmailActivityDestination::getSendEmailOutputText($message);
 
     // replace tokens from activity before sending

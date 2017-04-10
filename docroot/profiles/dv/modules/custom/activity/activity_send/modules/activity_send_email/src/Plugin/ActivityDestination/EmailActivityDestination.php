@@ -8,7 +8,7 @@
 namespace Drupal\activity_send_email\Plugin\ActivityDestination;
 
 use Drupal\activity_send\Plugin\SendActivityDestinationBase;
-use Drupal\message\Entity\Message;
+use Drupal\message\MessageInterface;
 
 /**
  * Provides a 'EmailActivityDestination' activity destination.
@@ -43,8 +43,11 @@ class EmailActivityDestination extends SendActivityDestinationBase {
 
   /**
    * Get field value for 'output_text' field from data array.
+   *
+   * @param \Drupal\contact\MessageInterface $message
+   * @return mixed
    */
-  public static function getSendEmailOutputText(Message $message) {
+  public static function getSendEmailOutputText(MessageInterface $message) {
     $value = NULL;
     if (isset($message)) {
       $value = $message->getText();

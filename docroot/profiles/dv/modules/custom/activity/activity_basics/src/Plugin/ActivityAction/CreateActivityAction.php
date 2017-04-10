@@ -29,7 +29,6 @@ class CreateActivityAction extends ActivityActionBase {
         /** @var Entity $entity */
         $data['entity_id'] = $entity->id();
         $data['entity_type_id'] = $entity->getEntityTypeId();
-        $data['action'] = 'create_activity_action';
         $queue = \Drupal::queue('activity_logger_message');
         $queue->createItem($data);
     }

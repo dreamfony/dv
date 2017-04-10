@@ -7,7 +7,7 @@ third_party_settings:
   activity_logger:
     activity_bundle_entities:
       node-question: node-question
-    activity_action: email_organisation_action
+    activity_action: create_activity_action
     activity_context: organisation_activity_context
     activity_destinations:
       email: email
@@ -19,7 +19,7 @@ label: Question
 description: Question
 text:
   -
-    value: "<p>Molimo odgovoriti na sljedeće pitanje</p>\r\n\r\n<p>[message:node-body]</p>\r\n\r\n<p>Molimo da kada odgovarate na pitanje koristite sljedeći email:</p>\r\n\r\n<p>[activity:replyto-email]</p>\r\n"
+    value: "<p>@todo: mail header</p>\r\n\r\n<p>[activity:recipient-data]</p>\r\n\r\n<p>[activity:sender-data]</p>\r\n\r\n<p>Molimo odgovoriti na sljedeće pitanje</p>\r\n\r\n<p>[message:node-body]</p>\r\n\r\n<p>Molimo da kada odgovarate na pitanje koristite sljedeći email:</p>\r\n\r\n<p>[activity:replyto-email]</p>\r\n"
     format: basic_html
 settings:
   'token options':

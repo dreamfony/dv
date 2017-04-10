@@ -48,7 +48,7 @@ class MessageQueueCreator extends MessageQueueBase {
         $activity_logger_factory = \Drupal::service('plugin.manager.activity_action_processor');
         // Trigger the create action for entities.
         /** @var ActivityActionBase $create_action */
-        $create_action = $activity_logger_factory->createInstance($data['action']);
+        $create_action = $activity_logger_factory->createInstance('create_activity_action');
         $create_action->createMessage($entity, $data);
       }
     }

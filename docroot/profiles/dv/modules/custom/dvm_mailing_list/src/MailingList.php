@@ -179,8 +179,9 @@ class MailingList {
       /** @var GroupContent $group_content */
       $activity_entity = Node::load($group_content->getEntity()->id());
       $data['group_id'] = $group_content->getGroup()->id();
+      $data['context'] = 'organisation_activity_context';
 
-      $create_action = $this->activityActionProcessor->createInstance('email_organisation_action');
+      $create_action = $this->activityActionProcessor->createInstance('create_activity_action');
       $create_action->create($activity_entity, $data);
     }
 
