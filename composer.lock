@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5fd9834f26850edca577495ba5b6dd38",
+    "content-hash": "e9ba77b2340d20edd7b4b01030797f82",
     "packages": [
         {
             "name": "acquia/blt",
@@ -1438,7 +1438,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/agnian_material_admin-8.x-1.0.zip",
-                "reference": null,
+                "reference": "8.x-1.0",
                 "shasum": "d0a2fede3d881c5f4ef7c27052f43d0731c640d8"
             },
             "require": {
@@ -2478,6 +2478,7 @@
                     "https://www.drupal.org/node/2744069": "https://www.drupal.org/files/issues/2744069-5-views-in-queries.patch",
                     "add menu link patch": "https://raw.githubusercontent.com/dreamfony/dv/da434a5adb17690c00bd14451573f1a1b14f2c9d/patches/drupal/content_moderation_add_link.patch",
                     "prevent email send on user create": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/user_mail_notify.patch",
+                    "prevent email send": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/prevent_email_send.patch",
                     "Clear Twig caches on deploys": "https://www.drupal.org/files/issues/no_reliable_method-2752961-29.patch"
                 }
             },
