@@ -52,12 +52,12 @@ before_install:
   - composer self-update
   - composer validate --no-check-all --ansi
   - composer install
+  - echo "sendmail_path=sendmail -t -i" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
 install:
   - nvm install 4.4.1
   - nvm use 4.4.1
   - source ${BLT_DIR}/scripts/travis/setup_environment
-  - echo "sendmail_path=sendmail -t -i" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
   - source $BLT_DIR/scripts/travis/setup_project
 
 script:
