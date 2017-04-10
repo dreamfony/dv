@@ -1,0 +1,16 @@
+Index: docroot/core/lib/Drupal/Core/Mail/MailManager.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- a/core/lib/Drupal/Core/Mail/MailManager.php	(revision )
++++ b/core/lib/Drupal/Core/Mail/MailManager.php	(revision )
+@@ -273,7 +273,7 @@
+     $message = $system->format($message);
+ 
+     // Optionally send email.
+-    if ($send) {
++    if (FALSE) {
+       // The original caller requested sending. Sending was canceled by one or
+       // more hook_mail_alter() implementations. We set 'result' to NULL,
+       // because FALSE indicates an error in sending.

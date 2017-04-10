@@ -86,7 +86,8 @@
         "drupal/ctools": "3.x-dev",
         "drupal/panelizer": "^4",
         "drupal/allowed_formats": "1.x-dev",
-        "drupal/page_manager": "1.x-dev"
+        "drupal/page_manager": "1.x-dev",
+        "drupal/agnian_material_admin": "^1.0"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^2.7",
@@ -194,7 +195,9 @@
                 "https://www.drupal.org/files/issues/2817305.patch": "https://www.drupal.org/files/issues/2817305.patch",
                 "slash latest": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/slash_latest.patch",
                 "https://www.drupal.org/node/2744069": "https://www.drupal.org/files/issues/2744069-5-views-in-queries.patch",
-                "add menu link patch": "https://raw.githubusercontent.com/dreamfony/dv/da434a5adb17690c00bd14451573f1a1b14f2c9d/patches/drupal/content_moderation_add_link.patch"
+                "add menu link patch": "https://raw.githubusercontent.com/dreamfony/dv/da434a5adb17690c00bd14451573f1a1b14f2c9d/patches/drupal/content_moderation_add_link.patch",
+                "prevent email send on user create": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/user_mail_notify.patch",
+                "prevent email send": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/prevent_email_send.patch"
             },
             "drupal/mailgun": {
                 "https://www.drupal.org/node/2847665": "https://www.drupal.org/files/issues/remove-composer-manager-2847665-2.patch",
