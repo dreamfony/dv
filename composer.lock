@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4df2c1d5f299702059e3df4ad408f2cf",
+    "content-hash": "5fd9834f26850edca577495ba5b6dd38",
     "packages": [
         {
             "name": "acquia/blt",
@@ -1425,6 +1425,52 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/admin_toolbar",
                 "issues": "https://www.drupal.org/project/issues/admin_toolbar"
+            }
+        },
+        {
+            "name": "drupal/agnian_material_admin",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/agnian_material_admin",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/agnian_material_admin-8.x-1.0.zip",
+                "reference": null,
+                "shasum": "d0a2fede3d881c5f4ef7c27052f43d0731c640d8"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-theme",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1491385383"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "raffi",
+                    "homepage": "https://www.drupal.org/user/74748"
+                },
+                {
+                    "name": "ysarkisyan",
+                    "homepage": "https://www.drupal.org/user/420671"
+                }
+            ],
+            "homepage": "https://www.drupal.org/project/agnian_material_admin",
+            "support": {
+                "source": "http://cgit.drupalcode.org/agnian_material_admin"
             }
         },
         {
