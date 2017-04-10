@@ -43,6 +43,8 @@ addons:
 notifications:
 # - hipchat: [api token]@[room id or name]
 # - slack: '<account>:<token>#[channel]'
+  slack:
+    secure: dzFsX8by42nys1YDMsX7XpANi/F42Wonj9oSf5frexWY4CX/SryQNZRtysRbLeEqymVSEWdFfyfG6O+Nu7CjuyKoQvuxI5oU+8N7qmvpkT8BFG7pjb+trOS7ykJZQ9d/U7ltSoPfgK9nZOD7h33jk1Ub0YL1fSngUqJe1GjFTk4atsEB56XGO/dHj634OJ7TVXPwwjDUAsKC/ZAeoH6VtfZUWyY/XJDH008Xq1GEx54QlcNKiPhbWYNCbYPrphnKs4RX6ypkzKqIXdeZPm2qkyOO/pu6pRJrb9cfX739BgKmyksmTH3jhddGjuwFQHQ1Ur9/VGtGVCBHPl3BenMNf65/Vjt26d0NoD1duQ7z2XUfcwp50CCC24WTR9nHuC06+1AxyyUNBpcvhx+WeJ4z7TwLIl3ZBKcLtTRGq43gNHP8RUTH2RxFZlcbN13NomT7gjC63ugyOAoTgECV+CCLMOblH11Gx+Ufqj5pHn1vqh4gO2IAKF4rFmP7tQ+iKFPZT/jPwj4ZHr2036yy75k5YqyU+2CYSdxIULE9kNhfmoz7omzPlW4+AprWTjMgN0v9A9skXSr9FZ01wX8mBxSxpM1g7Q8RfPkU8MmNzn2Fb1bp1BvAvqiIwsaWAplka/8MHuY1L8vqJtKIIeybw11wwpFgx7b9IbFwRnO+VK77Fjw=
 
 before_install:
   # Disable xdebug.
@@ -52,11 +54,21 @@ before_install:
   - composer install
 
 install:
+  - nvm install 4.4.1
+  - nvm use 4.4.1
   - source ${BLT_DIR}/scripts/travis/setup_environment
   - source $BLT_DIR/scripts/travis/setup_project
 
 script:
   - source $BLT_DIR/scripts/travis/run_tests
+
+before_deploy:
+# Decrypt private key
+  - openssl aes-256-cbc -K $encrypted_3fec15fb840c_key -iv $encrypted_3fec15fb840c_iv -in travis_acquia_pri.ppk.enc -out ~/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa
+  - ls -lash ~/.ssh
+  - eval "$(ssh-agent -s)"
+  - ssh-add ~/.ssh/id_rsa
 
 deploy:
    - provider: script
