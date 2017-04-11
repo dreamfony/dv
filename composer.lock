@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e9ba77b2340d20edd7b4b01030797f82",
+    "content-hash": "3d3439f07e2e67c75ac9b72af3fe2231",
     "packages": [
         {
             "name": "acquia/blt",
@@ -2477,8 +2477,6 @@
                     "slash latest": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/slash_latest.patch",
                     "https://www.drupal.org/node/2744069": "https://www.drupal.org/files/issues/2744069-5-views-in-queries.patch",
                     "add menu link patch": "https://raw.githubusercontent.com/dreamfony/dv/da434a5adb17690c00bd14451573f1a1b14f2c9d/patches/drupal/content_moderation_add_link.patch",
-                    "prevent email send on user create": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/user_mail_notify.patch",
-                    "prevent email send": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/prevent_email_send.patch",
                     "Clear Twig caches on deploys": "https://www.drupal.org/files/issues/no_reliable_method-2752961-29.patch"
                 }
             },

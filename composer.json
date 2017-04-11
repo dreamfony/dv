@@ -206,9 +206,6 @@
             },
             "drupal/rules": {
                 "https://www.drupal.org/node/2849779": "https://www.drupal.org/files/issues/rules-fix-tests.patch"
-            },
-            "acquia/blt": {
-                "https://github.com/acquia/blt/pull/1353": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/blt/blt_update_module.patch"
             }
         },
         "enable-patching": true,
