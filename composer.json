@@ -196,8 +196,6 @@
                 "slash latest": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/slash_latest.patch",
                 "https://www.drupal.org/node/2744069": "https://www.drupal.org/files/issues/2744069-5-views-in-queries.patch",
                 "add menu link patch": "https://raw.githubusercontent.com/dreamfony/dv/da434a5adb17690c00bd14451573f1a1b14f2c9d/patches/drupal/content_moderation_add_link.patch",
-                "prevent email send on user create": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/user_mail_notify.patch",
-                "prevent email send": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/prevent_email_send.patch"
             },
             "drupal/mailgun": {
                 "https://www.drupal.org/node/2847665": "https://www.drupal.org/files/issues/remove-composer-manager-2847665-2.patch",
@@ -208,6 +206,9 @@
             },
             "drupal/rules": {
                 "https://www.drupal.org/node/2849779": "https://www.drupal.org/files/issues/rules-fix-tests.patch"
+            },
+            "acquia/blt": {
+                "https://github.com/acquia/blt/pull/1353": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/blt/blt_update_module.patch"
             }
         },
         "enable-patching": true,
