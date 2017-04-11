@@ -3,8 +3,8 @@ IDEA additional info:
 Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 <+>UTF-8
 ===================================================================
---- a/acquia/blt/phing/tasks/drupal.xml	(revision )
-+++ b/acquia/blt/phing/tasks/drupal.xml	(revision )
+--- a/vendor/acquia/blt/phing/tasks/drupal.xml	(revision )
++++ b/vendor/acquia/blt/phing/tasks/drupal.xml	(revision )
 @@ -24,7 +24,7 @@
                    <option name="account-mail">"${drupal.account.mail}"</option>
                    <option name="locale">"${drupal.locale}"</option>
