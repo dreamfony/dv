@@ -5,7 +5,7 @@
  * Contains \Drupal\activity_creator\Plugin\ActivityEntityConditionInterface.
  */
 
-namespace Drupal\activity_creator\Plugin\Type;
+namespace Drupal\activity_creator\Plugin;
 
 use Drupal\Component\Plugin\PluginInspectionInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
