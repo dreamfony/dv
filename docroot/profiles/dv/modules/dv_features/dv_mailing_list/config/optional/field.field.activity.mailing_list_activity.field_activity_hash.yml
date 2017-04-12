@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - activity_creator.activity_type.mailing_list_activity
+    - field.storage.activity.field_activity_hash
+  module:
+    - geocoder_field
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: moderation_state
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: activity.mailing_list_activity.field_activity_hash
+field_name: field_activity_hash
+entity_type: activity
+bundle: mailing_list_activity
+label: Hash
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

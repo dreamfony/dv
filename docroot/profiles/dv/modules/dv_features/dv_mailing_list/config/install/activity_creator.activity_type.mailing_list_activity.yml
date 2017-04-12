@@ -1,0 +1,5 @@
+langcode: en
+status: true
+dependencies: {  }
+id: mailing_list_activity
+label: 'Mailing List Activity'

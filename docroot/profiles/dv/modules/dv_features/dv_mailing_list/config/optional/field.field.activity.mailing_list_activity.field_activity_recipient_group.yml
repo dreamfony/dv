@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - activity_creator.activity_type.mailing_list_activity
+    - field.storage.activity.field_activity_recipient_group
+    - group.type.mailing_list
+id: activity.mailing_list_activity.field_activity_recipient_group
+field_name: field_activity_recipient_group
+entity_type: activity
+bundle: mailing_list_activity
+label: 'Recipient group'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:group'
+  handler_settings:
+    target_bundles:
+      mailing_list: mailing_list
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

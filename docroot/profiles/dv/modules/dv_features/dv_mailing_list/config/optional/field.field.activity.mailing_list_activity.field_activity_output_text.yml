@@ -1,0 +1,38 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - activity_creator.activity_type.mailing_list_activity
+    - field.storage.activity.field_activity_output_text
+  module:
+    - allowed_formats
+    - geocoder_field
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
+    plain_text: '0'
+  geocoder_field:
+    method: none
+    field: moderation_state
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: activity.mailing_list_activity.field_activity_output_text
+field_name: field_activity_output_text
+entity_type: activity
+bundle: mailing_list_activity
+label: 'Output text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

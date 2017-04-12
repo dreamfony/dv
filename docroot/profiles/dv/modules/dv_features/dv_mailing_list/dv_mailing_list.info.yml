@@ -8,6 +8,7 @@ dependencies:
   - allowed_formats
   - comment
   - content_moderation
+  - dv_answer_number
   - dv_answer_text
   - dv_area_of_activity
   - dv_core
