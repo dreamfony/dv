@@ -61,7 +61,15 @@ class ActivityFactory extends ControllerBase {
       'user_id' => $this->getActor($data),
     ];
 
-    $activity_fields['type'] = 'activity';
+    // get activity type
+    $message_template = $message->getTemplate();
+    $activity_fields['type'] = reset($message_template->getThirdPartySetting('activity_logger', 'activity_type', NULL));
+
+    // add mailing list group to activity
+    /// @todo: find a way to get these extra fields here in other way some kind of plugin or something
+    if($activity_fields['type'] == 'mailing_list_activity') {
+      $activity_fields['field_activity_mailing_list'] = $data['group_id'];
+    }
 
     // Check if aggregation is enabled for this message type.
     // @TODO: Consider if we should put aggregation to separate service.
