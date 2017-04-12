@@ -278,6 +278,9 @@ function activity_creator_entity_delete(Drupal\Core\Entity\EntityInterface $enti
 
 
 /**
+ * Replace tokens in activity from activity. Because if activity is not yet created it cant see
+ * own fields.
+ *
  * Implements hook_entity_presave().
  */
 function activity_creator_activity_presave(\Drupal\activity_creator\Entity\Activity $activity) {
