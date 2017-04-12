@@ -48,7 +48,7 @@
   recipients:
     - 35332
 3bc51523-4f40-459c-887c-056432fe1005:
-  status: false # set to true when everything is working
+  status: true # set to true when everything is working
   language: und
   user: TEST_journalist
   created: -60 day|15:30

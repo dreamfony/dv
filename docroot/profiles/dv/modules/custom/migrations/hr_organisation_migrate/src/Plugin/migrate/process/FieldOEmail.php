@@ -19,12 +19,10 @@ class FieldOEmail extends ProcessPluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
 
+    $emails = [];
+
     if ($row->getSourceProperty('komunikacije')) {
       $emails = $this->parseEmailFromKomunikacije($row->getSourceProperty('komunikacije'));
-    }
-
-    if (!isset($emails)) {
-      $emails[] = $this->generateEmail($row->getSourceProperty('organisation_id'));
     }
 
     return $emails;
@@ -41,10 +39,6 @@ class FieldOEmail extends ProcessPluginBase {
     }
 
     return NULL;
-  }
-
-  protected function generateEmail($organisationId) {
-    return $organisationId . '@' . 'no-email.com';
   }
 
 }
