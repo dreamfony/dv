@@ -39,5 +39,6 @@ dependencies:
   - text
   - user
   - views
+  - views_field_view
   - workflows
 package: DV

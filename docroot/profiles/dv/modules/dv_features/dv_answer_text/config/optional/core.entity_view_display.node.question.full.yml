@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_display.comment.answer_text.default
+    - core.entity_view_mode.node.full
     - field.field.node.question.body
     - field.field.node.question.field_question_answers
     - field.field.node.question.field_question_comment_type
@@ -38,6 +39,18 @@ third_party_settings:
             uuid: 75047371-8127-4565-950b-9a8ec6507fa9
             context_mapping:
               entity: '@panelizer.entity_context:entity'
+          7123c8ef-6e16-4e8f-bbc9-226ebe102b70:
+            id: 'views_block:answers-block_1'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            region: contentmain
+            weight: 2
+            uuid: 7123c8ef-6e16-4e8f-bbc9-226ebe102b70
+            context_mapping:
+              field_activity_entity_target_id: '@panelizer.entity_context:entity'
           6e999f8f-d3a5-4862-8897-c435c79dc88c:
             id: node_links
             label: 'Node links'
@@ -164,10 +177,10 @@ third_party_settings:
         storage_id: ''
         builder: ipe
         pattern: panelizer
-id: node.question.default
+id: node.question.full
 targetEntityType: node
 bundle: question
-mode: default
+mode: full
 content:
   body:
     label: above

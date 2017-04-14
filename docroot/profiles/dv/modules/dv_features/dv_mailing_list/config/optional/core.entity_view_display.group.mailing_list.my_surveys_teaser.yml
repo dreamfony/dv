@@ -3,14 +3,15 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.group.my_surveys_teaser
+    - field.field.group.mailing_list.panelizer
     - group.type.mailing_list
   module:
     - panelizer
 third_party_settings:
   panelizer:
     enable: true
-    custom: false
-    allow: false
+    custom: true
+    allow: true
     default: mailing_list_teaser
     displays:
       mailing_list_default:
@@ -170,4 +171,5 @@ hidden:
   changed: true
   created: true
   langcode: true
+  panelizer: true
   uid: true

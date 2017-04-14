@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.panelizer
+    - group.type.mailing_list
+  module:
+    - panelizer
+id: group.mailing_list.panelizer
+field_name: panelizer
+entity_type: group
+bundle: mailing_list
+label: Panelizer
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    panels_display: null
+    default: __bundle_default__
+    view_mode: ''
+  -
+    panels_display: {  }
+    default: mailing_list_teaser
+    view_mode: my_surveys_teaser
+  -
+    panels_display: {  }
+    default: default
+    view_mode: token
+default_value_callback: ''
+settings: {  }
+field_type: panelizer

@@ -11,4 +11,7 @@ dependencies:
   - field
   - file
   - language
+  - options
+  - panelizer
   - text
+  - user
