@@ -78,7 +78,7 @@
         "drupal/webhooks": "1.x-dev",
         "drupal/personas": "^1.0@beta",
         "drupal/field_permissions": "^1.0@beta",
-        "drupal/views_field_view": "^1.0@beta",
+        "drupal/views_field_view": "1.x-dev",
         "drupal/multiversion": "1.x-dev",
         "drupal/domain": "^1.0@alpha",
         "drupal/collect": "1.x-dev",
