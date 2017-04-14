@@ -12,4 +12,12 @@ function dvm_mailing_list_views_data_alter(array &$data) {
       'id' => 'group_content_ajax_delete_link',
     ),
   );
+  $data['group_content']['group_content_mailing_list_stats'] = array(
+    'title' => t('Mailing List Stats'),
+    'field' => array(
+      'title' => t('Mailing List Stats'),
+      'help' => t('Mailing List Stats.'),
+      'id' => 'group_content_mailing_list_stats',
+    ),
+  );
 }
