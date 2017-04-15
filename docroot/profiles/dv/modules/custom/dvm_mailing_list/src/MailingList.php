@@ -191,4 +191,27 @@ class MailingList {
 
   }
 
+  /**
+   * Get count.
+   *
+   * @param $group_id
+   * @param $user_id
+   * @param bool $status
+   * @return array|int
+   */
+  public function getCountByStatus($group_id, $user_id, $status = FALSE) {
+
+    $query = \Drupal::entityQuery('activity')
+      ->condition('field_activity_mailing_list.target_id', $group_id)
+      ->condition('field_activity_recipient_user.target_id', $user_id);
+
+    if($status) {
+      $query->condition('field_activity_status', $status);
+    }
+
+    $count = $query->count()->execute();
+
+    return $count;
+  }
+
 }

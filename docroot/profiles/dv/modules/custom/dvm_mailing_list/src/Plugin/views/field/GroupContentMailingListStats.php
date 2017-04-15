@@ -6,6 +6,9 @@ use Drupal\group\Entity\GroupContent;
 use Drupal\group\Entity\Group;
 use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\ResultRow;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\dvm_mailing_list\MailingList;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Field handler to delete group content.
@@ -17,35 +20,67 @@ use Drupal\views\ResultRow;
 class GroupContentMailingListStats extends FieldPluginBase {
 
   /**
+   * @var \Drupal\dvm_mailing_list\MailingList
+   */
+  protected $mailingList;
+
+  /**
+   * GroupContentMailingListStats constructor.
+   *
+   * @param array $configuration
+   * @param string $plugin_id
+   * @param mixed $plugin_definition
+   * @param \Drupal\dvm_mailing_list\MailingList $mailing_list
+   */
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, MailingList $mailing_list) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+
+    $this->mailingList = $mailing_list;
+  }
+
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    return new static(
+      $configuration,
+      $plugin_id,
+      $plugin_definition,
+      $container->get('dvm_mailing_list.mailing_list')
+    );
+  }
+
+  /**
+   * Define the available options
+   * @return array
+   */
+  protected function defineOptions() {
+    $options = parent::defineOptions();
+    $options['status'] = array('default' => 'all');
+
+    return $options;
+  }
+
+  /**
+   * Provide the options form.
+   */
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
+
+    $statuses = ['all' => $this->t('All') ] + activity_creator_field_activity_status_allowed_values();
+
+    $form['status'] = array(
+      '#title' => $this->t('Activity Status'),
+      '#description' => $this->t('Select a Activity Status you want the count for.'),
+      '#type' => 'select',
+      '#default_value' => $this->options['status'],
+      '#options' => $statuses,
+    );
+
+    parent::buildOptionsForm($form, $form_state);
+  }
+
+  /**
    * @{inheritdoc}
    */
   public function query() {
     // Leave empty to avoid a query on this field.
-  }
-
-  /**
-   * Get count.
-   *
-   * @param $group_id
-   * @param $user_id
-   * @param bool $status
-   * @return array|int
-   */
-  public function getCountByStatus($group_id, $user_id, $status = FALSE) {
-
-    // Total questions
-    $query = \Drupal::entityQuery('activity')
-      ->condition('field_activity_mailing_list.target_id', $group_id)
-      ->condition('field_activity_recipient_user.target_id', $user_id);
-
-      if($status) {
-        $query->condition('field_activity_status', $status);
-      }
-
-    $count = $query->count()
-      ->execute();
-
-    return $count;
   }
 
   /**
@@ -54,14 +89,17 @@ class GroupContentMailingListStats extends FieldPluginBase {
   public function render(ResultRow $values) {
     /** @var GroupContent $group_content */
     $group_content = $values->_entity;
-    /** @var User $user */
-    $user_id = $values->users_field_data_group_content_field_data_uid;
+
     /** @var Group $group */
     $group_id = $group_content->getGroup()->id();
 
-    $total = $this->getCountByStatus($group_id, $user_id);
-    $answered = $this->getCountByStatus($group_id, $user_id, ACTIVITY_STATUS_ANSWERED);
+    $user_id = $values->users_field_data_group_content_field_data_uid;
 
-    return $answered. '/' . $total;
+    // if total count then status is FALSE
+    $status = $this->options['status'] == 'all' ? FALSE : $this->options['status'];
+
+    $count = $this->mailingList->getCountByStatus($group_id, $user_id, $status);
+
+    return $count;
   }
 }
