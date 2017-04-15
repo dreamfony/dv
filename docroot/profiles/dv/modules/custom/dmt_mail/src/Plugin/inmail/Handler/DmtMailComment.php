@@ -97,14 +97,17 @@ class DmtMailComment extends HandlerBase implements ContainerFactoryPluginInterf
 
       $hash = $result->getContext('hash')->getContextValue();
 
+      /** @var Activity $activity */
       $activity = Activity::getActivityEntityByHash($hash);
+
+
       if ($activity) {
         $related_object = $activity->get('field_activity_entity')->getValue();
 
         if (!empty($related_object)) {
           $ref_entity_type = $related_object['0']['target_type'];
           $ref_entity_id = $related_object['0']['target_id'];
-          $this->entity = \Drupal::entityManager()
+          $this->entity = $this->entityTypeManager
             ->getStorage($ref_entity_type)
             ->load($ref_entity_id);
           $this->commentType = $this->entity->get('field_question_comment_type')
@@ -122,16 +125,18 @@ class DmtMailComment extends HandlerBase implements ContainerFactoryPluginInterf
         // set activity status to answered
         $activity->set('field_activity_status', ACTIVITY_STATUS_ANSWERED);
 
-      // set comment reply
-      $activity->field_activity_reply[] = $comment->id();
+        // set comment reply
+        $activity->field_activity_reply[] = $comment->id();
 
         // save activity
         $activity->save();
 
+        /* we do not need this
         $processor_result->log('CommentHandler', '@comment has been created by @user.', [
           '@comment' => $comment->label(),
           '@user' => $comment->getAuthorName()
         ]);
+        */
       }
       else {
         \Drupal::logger('dmt_mail')
@@ -185,9 +190,6 @@ class DmtMailComment extends HandlerBase implements ContainerFactoryPluginInterf
     // Validate whether user is allowed to post comments.
     $user = $this->validateUser($result);
 
-    // attachments
-    $files = $this->getAttachments($result);
-
     // Create a comment entity.
     $comment = Comment::create([
       'entity_type' => $this->configuration['entity_type'],
@@ -198,11 +200,18 @@ class DmtMailComment extends HandlerBase implements ContainerFactoryPluginInterf
         'value' => $result->getBody(),
         'format' => 'basic_html',
       ],
-      'field_c_attachments' => $files,
       'field_name' => 'field_question_answers',
       'comment_type' => $this->commentType,
       'status' => CommentInterface::PUBLISHED,
     ]);
+
+    // handle attachments
+    $files = $this->getAttachments($result);
+
+    if(!empty($files)) {
+      $comment->set('field_c_attachments', $files);
+    }
+
     $comment->save();
 
     return $comment;
