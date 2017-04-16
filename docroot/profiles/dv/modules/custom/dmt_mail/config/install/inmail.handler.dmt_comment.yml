@@ -1,5 +1,5 @@
 langcode: en
-status: true
+status: false
 id: dmt_comment
 label: Post comments via email
 plugin: dmt_comment

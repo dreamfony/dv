@@ -14,8 +14,6 @@ use Drupal\inmail\Plugin\inmail\Handler\HandlerBase;
 use Drupal\inmail\ProcessorResultInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\activity_creator\Entity\Activity;
-use Drupal\inmail\MIME\MimeMultipartMessage;
-use Drupal\inmail\Element\InmailMessage;
 use Drupal\inmail\MIME\MimeEncodings;
 
 /**
@@ -90,6 +88,9 @@ class DmtMailComment extends HandlerBase implements ContainerFactoryPluginInterf
    * {@inheritdoc}
    */
   public function invoke(MimeMessageInterface $message, ProcessorResultInterface $processor_result) {
+    // make sure this plugin does NOT run at all
+    // we can probably just delete the whole plugin
+    return;
 
     try {
       /** @var DefaultAnalyzerResult $result */
@@ -99,6 +100,8 @@ class DmtMailComment extends HandlerBase implements ContainerFactoryPluginInterf
 
       /** @var Activity $activity */
       $activity = Activity::getActivityEntityByHash($hash);
+
+      $activity_type = $activity->bundle();
 
 
       if ($activity) {

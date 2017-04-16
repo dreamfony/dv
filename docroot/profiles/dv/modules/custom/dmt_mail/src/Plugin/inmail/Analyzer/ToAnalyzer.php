@@ -57,6 +57,8 @@ class ToAnalyzer extends AnalyzerBase {
   /**
    * Get Hash.
    *
+   * @param \Drupal\inmail\MIME\MimeMessageInterface $message
+   * @param \Drupal\inmail\DefaultAnalyzerResult $result
    */
   protected function findHash(MimeMessageInterface $message, DefaultAnalyzerResult $result) {
     $recipient = explode('@', $this->to)[0];
