@@ -3,6 +3,10 @@ services:
     class: Drupal\dvm_mailing_list\MailingList
     arguments: ['@group.membership_loader', '@plugin.manager.activity_action_processor']
 
+  dvm_mailing_list.mailing_list_answer:
+    class: Drupal\dvm_mailing_list\MailingListAnswer
+    arguments: ['@entity_type.manager']
+
   access_check.mailing_list_approve:
     class: Drupal\dvm_mailing_list\Access\MailingListApproveAccessCheck
     tags:
