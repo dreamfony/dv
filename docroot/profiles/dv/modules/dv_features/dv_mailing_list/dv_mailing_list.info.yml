@@ -23,6 +23,7 @@ dependencies:
   - dynamic_entity_reference
   - field
   - field_permissions
+  - file
   - geo_area_group
   - geocoder_field
   - gnode

@@ -333,6 +333,7 @@ display:
         - 'config:core.entity_view_display.node.person.default'
         - 'config:core.entity_view_display.node.person.teaser'
         - 'config:core.entity_view_display.node.question.default'
+        - 'config:core.entity_view_display.node.question.full'
         - 'config:core.entity_view_display.node.question.teaser'
   block_1:
     display_plugin: block
@@ -363,4 +364,5 @@ display:
         - 'config:core.entity_view_display.node.person.default'
         - 'config:core.entity_view_display.node.person.teaser'
         - 'config:core.entity_view_display.node.question.default'
+        - 'config:core.entity_view_display.node.question.full'
         - 'config:core.entity_view_display.node.question.teaser'

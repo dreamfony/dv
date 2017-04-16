@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.group.mailing_list.panelizer
     - group.type.mailing_list
   module:
     - content_moderation
@@ -32,4 +33,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  panelizer: true
   uid: true
