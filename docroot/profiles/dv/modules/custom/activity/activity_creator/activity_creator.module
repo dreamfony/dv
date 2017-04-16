@@ -7,8 +7,6 @@
 /**
  * Activity statuses.
  */
-
-
 const ACTIVITY_STATUS_PENDING = "pending";
 const ACTIVITY_STATUS_SENT = 'sent';
 const ACTIVITY_STATUS_SEEN = 'seen';
