@@ -7,7 +7,7 @@ use Drupal\group\Entity\Group;
 use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\ResultRow;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\dvm_mailing_list\MailingList;
+use Drupal\dvm_mailing_list\MailingListAnswer;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -20,9 +20,9 @@ use Drupal\Core\Form\FormStateInterface;
 class GroupContentMailingListStats extends FieldPluginBase {
 
   /**
-   * @var \Drupal\dvm_mailing_list\MailingList
+   * @var \Drupal\dvm_mailing_list\MailingListAnswer
    */
-  protected $mailingList;
+  protected $mailingListAnswers;
 
   /**
    * GroupContentMailingListStats constructor.
@@ -30,12 +30,12 @@ class GroupContentMailingListStats extends FieldPluginBase {
    * @param array $configuration
    * @param string $plugin_id
    * @param mixed $plugin_definition
-   * @param \Drupal\dvm_mailing_list\MailingList $mailing_list
+   * @param \Drupal\dvm_mailing_list\MailingListAnswer $mailing_list_answers
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, MailingList $mailing_list) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, MailingListAnswer $mailing_list_answers) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
 
-    $this->mailingList = $mailing_list;
+    $this->mailingListAnswers = $mailing_list_answers;
   }
 
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
@@ -43,7 +43,7 @@ class GroupContentMailingListStats extends FieldPluginBase {
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('dvm_mailing_list.mailing_list')
+      $container->get('dvm_mailing_list.mailing_list_answer')
     );
   }
 
@@ -98,7 +98,7 @@ class GroupContentMailingListStats extends FieldPluginBase {
     // if total count then status is FALSE
     $status = $this->options['status'] == 'all' ? FALSE : $this->options['status'];
 
-    $count = $this->mailingList->getCountByStatus($group_id, $user_id, $status);
+    $count = $this->mailingListAnswers->getAnswerCount($group_id, $user_id, $status);
 
     return $count;
   }
