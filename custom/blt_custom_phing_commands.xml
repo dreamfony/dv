@@ -19,6 +19,9 @@
     </drush>
   </target>
   <target name="import_demo_content">
+    <drush command="fra" assume="yes" alias="${drush.alias}" passthru="false">
+      <option name="bundle">${bundle}</option>
+    </drush>
     <drush command="mi organisation_groups" alias="">
     </drush>
     <drush command="mi organisations_user" alias="">
