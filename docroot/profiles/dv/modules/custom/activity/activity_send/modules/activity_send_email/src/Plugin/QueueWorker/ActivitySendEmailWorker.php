@@ -110,7 +110,7 @@ class ActivitySendEmailWorker extends ActivitySendWorkerBase {
 
     // replace tokens from activity before sending
     $activity_token_options = [
-      'langcode' => $message->language(),
+      'langcode' => $message->language()->getId(),
       'clear' => false,
     ];
 
