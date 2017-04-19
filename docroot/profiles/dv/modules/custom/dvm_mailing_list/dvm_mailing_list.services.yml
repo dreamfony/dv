@@ -1,7 +1,7 @@
 services:
   dvm_mailing_list.mailing_list:
     class: Drupal\dvm_mailing_list\MailingList
-    arguments: ['@group.membership_loader', '@plugin.manager.activity_action_processor']
+    arguments: ['@group.membership_loader', '@plugin.manager.activity_action_processor', '@panelizer']
 
   dvm_mailing_list.mailing_list_answer:
     class: Drupal\dvm_mailing_list\MailingListAnswer

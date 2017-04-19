@@ -31,6 +31,10 @@ class MailingListEditAccessCheck implements AccessInterface {
    */
   public function access(Route $route, AccountInterface $account, GroupInterface $group) {
 
+    if($account->id() == 1) {
+      return AccessResult::allowed();
+    }
+
     if($group->bundle() != 'mailing_list') {
       return AccessResult::forbidden();
     }

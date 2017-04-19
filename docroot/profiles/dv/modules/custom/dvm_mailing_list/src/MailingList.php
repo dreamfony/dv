@@ -10,6 +10,8 @@ use Drupal\group\Entity\Group;
 use Drupal\node\Entity\Node;
 use Drupal\group\GroupMembershipLoaderInterface;
 use Drupal\group\GroupMembership;
+use Drupal\panelizer\Panelizer;
+use Drupal\panelizer\PanelizerInterface;
 use Drupal\user\Entity\User;
 
 
@@ -39,16 +41,23 @@ class MailingList {
    */
   protected $activityActionProcessor;
 
+  /**
+   * @var \Drupal\panelizer\PanelizerInterface
+   */
+  protected $panelizer;
+
 
   /**
    * MailingList constructor.
    *
    * @param \Drupal\group\GroupMembershipLoaderInterface $group_membership_loader
    * @param \Drupal\activity_creator\Plugin\Type\ActivityActionManager $activity_action_manager
+   * @param \Drupal\panelizer\PanelizerInterface $panelizer
    */
-  public function __construct(GroupMembershipLoaderInterface $group_membership_loader, ActivityActionManager $activity_action_manager) {
+  public function __construct(GroupMembershipLoaderInterface $group_membership_loader, ActivityActionManager $activity_action_manager, PanelizerInterface $panelizer) {
     $this->groupMembershipLoader = $group_membership_loader;
     $this->activityActionProcessor = $activity_action_manager;
+    $this->panelizer = $panelizer;
 
     $this->mailingListLabel = 'New Survey';
     $this->mailingListType = 'mailing_list';
@@ -184,6 +193,12 @@ class MailingList {
       $create_action = $this->activityActionProcessor->createInstance('create_activity_action');
       $create_action->create($activity_entity, $data);
     }
+
+    // set view display mode
+    /// @todo: this is only an example we need to do this after last activity for this
+    /// @todo: mailing list was created
+    $panels_displays = $this->panelizer->getDefaultPanelsDisplays('group', 'mailing_list', 'full');
+    $this->panelizer->setPanelsDisplay($group,'full', NULL, $panels_displays['default']);
 
     // set moderation state
     $group->set('moderation_state', 'published');
