@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @param array $entity_types
+ */
+function dmt_core_entity_type_alter(array &$entity_types) {
+
+  // special handling for block storage since block storage is already extended by multiversion
+  if (isset($entity_types['profile'])) {
+    $entity_types['profile']->setHandlerClass('storage', 'Drupal\\dmt_core\\Config\\ProfileStorage');
+  }
+
+}
