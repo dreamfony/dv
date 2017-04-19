@@ -3,15 +3,16 @@ status: true
 dependencies:
   config:
     - comment.type.answer_number
+    - core.entity_view_mode.comment.full
     - field.field.comment.answer_number.comment_body
     - field.field.comment.answer_number.field_c_attachments
     - field.field.comment.answer_number.field_c_number
   module:
     - file
-id: comment.answer_number.default
+id: comment.answer_number.full
 targetEntityType: comment
 bundle: answer_number
-mode: default
+mode: full
 content:
   field_c_attachments:
     weight: 101
@@ -23,8 +24,6 @@ content:
   links:
     weight: 100
     region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   comment_body: true
   field_c_number: true

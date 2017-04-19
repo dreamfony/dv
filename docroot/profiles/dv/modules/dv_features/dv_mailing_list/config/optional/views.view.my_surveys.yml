@@ -189,6 +189,7 @@ display:
       tags:
         - 'config:core.entity_view_display.group.area_of_activity.default'
         - 'config:core.entity_view_display.group.mailing_list.default'
+        - 'config:core.entity_view_display.group.mailing_list.full'
         - 'config:core.entity_view_display.group.mailing_list.my_surveys_teaser'
   page_1:
     display_plugin: page
@@ -217,4 +218,5 @@ display:
       tags:
         - 'config:core.entity_view_display.group.area_of_activity.default'
         - 'config:core.entity_view_display.group.mailing_list.default'
+        - 'config:core.entity_view_display.group.mailing_list.full'
         - 'config:core.entity_view_display.group.mailing_list.my_surveys_teaser'
