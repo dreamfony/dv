@@ -7,6 +7,5 @@ enabled_entity_types:
   - media
   - content_moderation_state
   - replication_log
-  - activity
   - group
   - profile
