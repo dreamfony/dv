@@ -173,8 +173,7 @@
             },
             "drupal/group": {
                 "https://www.drupal.org/node/2736233": "https://www.drupal.org/files/issues/group-add_subgroups_module-2736233-57-D8.patch",
-                "https://www.drupal.org/node/2746839 - develgenerate": "https://www.drupal.org/files/issues/develGenerate.patch",
-                "https://www.drupal.org/node/2829966 - Make groups revisionable": "https://www.drupal.org/files/issues/group-revisions-2829966-3.patch"
+                "https://www.drupal.org/node/2746839 - develgenerate": "https://www.drupal.org/files/issues/develGenerate.patch"
             },
             "drupal/user_registrationpassword": {
                 "https://www.drupal.org/node/2805963": "https://www.drupal.org/files/issues/user_registrationpassword-register-config-save-2805963-5.patch"
