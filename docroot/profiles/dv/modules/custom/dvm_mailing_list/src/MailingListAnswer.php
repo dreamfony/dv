@@ -112,11 +112,14 @@ class MailingListAnswer {
    * @param bool $status
    * @return array|int
    */
-  public function getAnswerCount($group_id, $user_id, $status = FALSE) {
+  public function getAnswerCount($group_id, $user_id = FALSE, $status = FALSE) {
 
     $query = \Drupal::entityQuery('activity')
-      ->condition('field_activity_mailing_list.target_id', $group_id)
-      ->condition('field_activity_recipient_user.target_id', $user_id);
+      ->condition('field_activity_mailing_list.target_id', $group_id);
+
+    if($user_id) {
+      $query->condition('field_activity_recipient_user.target_id', $user_id);
+    }
 
     if ($status) {
       $query->condition('field_activity_status', $status);
