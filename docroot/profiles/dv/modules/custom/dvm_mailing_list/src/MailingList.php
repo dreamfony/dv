@@ -98,7 +98,7 @@ class MailingList {
     $query->condition('uid', \Drupal::currentUser()->id());
     $result = $query->execute();
 
-    if($result) {
+    if ($result) {
       $group = Group::load(reset($result));
       $group_content = $group->getContent('group_node:question');
       $group_users = $group->getMembers([$this->mailingListType . '-organisation']);
@@ -118,7 +118,7 @@ class MailingList {
    */
   public function addRecipients(array $gids, $mailing_list_id) {
 
-    $mailing_list_group = Group::load( $mailing_list_id );
+    $mailing_list_group = Group::load($mailing_list_id);
 
     foreach ($gids as $gid) {
       $gid = $gid['target_id'];
@@ -194,16 +194,37 @@ class MailingList {
       $create_action->create($activity_entity, $data);
     }
 
-    // set view display mode
-    /// @todo: this is only an example we need to do this after last activity for this
-    /// @todo: mailing list was created
-    $panels_displays = $this->panelizer->getDefaultPanelsDisplays('group', 'mailing_list', 'full');
-    $this->panelizer->setPanelsDisplay($group,'full', NULL, $panels_displays['default']);
-
     // set moderation state
     $group->set('moderation_state', 'published');
     $group->save();
 
+  }
+
+  public function getQuestionsCount(Group $group) {
+//    $group = Group::load($gid);
+    $group_content_questions = $group->getContent('group_node:question');
+  }
+
+  public function getMembersCount(Group $group) {
+//    $group = Group::load($gid);
+    $group_users = $group->getMembers([$group->bundle() . '-organisation']);
+  }
+
+  public function checkActivitesCreated(Group $group) {
+//    $current_activites_count = getAnswerCount
+    $all_activites_count = $this->getMembersCount($group) * $this->getQuestionsCount($group);
+    if ($current_activites_count < $all_activites_count) {
+      return FALSE;
+    }
+    return TRUE;
+  }
+
+  public function switchDisplay(Group $group, $view_mode = 'full') {
+    // set view display mode
+    /// @todo: this is only an example we need to do this after last activity for this
+    /// @todo: mailing list was created
+    $panels_displays = $this->panelizer->getDefaultPanelsDisplays('group', 'mailing_list', $view_mode);
+    $this->panelizer->setPanelsDisplay($group, $view_mode, NULL, $panels_displays['default']);
   }
 
 }
