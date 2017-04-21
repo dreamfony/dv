@@ -53,6 +53,12 @@ function dv_install_tasks_alter(&$tasks, $install_state) {
  *   The batch definition.
  */
 function dv_install_profile_modules(&$install_state) {
+//  Enable multiversion on entites because they dont get enabled properly via features.
+//  Should we move this to dv.install?
+  
+  $entity_types = ['group', 'profile'];
+  \Drupal::service('multiversion.manager')->enableEntityTypes($entity_types);
+
   $files = system_rebuild_module_data();
 
   $modules = array(
