@@ -18,6 +18,14 @@ use Drupal\shortcut\Entity\Shortcut;
  */
 function dv_install() {
 
+  //  Enable multiversion on entites because they dont get enabled properly via features.
+
+  $entity_types = [
+    "group" => "group",
+    "profile" => "profile"
+  ];
+  \Drupal::service('multiversion.manager')->enableEntityTypes($entity_types);
+
   // First, do everything in standard profile.
 
   // Set front page to "node".
@@ -40,33 +48,11 @@ function dv_install() {
   // menu links are valid.
   \Drupal::service('router.builder')->rebuildIfNeeded();
 
-  // Enable the Contact link in the footer menu.
-  /** @var \Drupal\Core\Menu\MenuLinkManagerInterface $menu_link_manager */
-  $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
-  $menu_link_manager->updateDefinition('contact.site_page', array('enabled' => TRUE));
-
   user_role_grant_permissions(RoleInterface::ANONYMOUS_ID, array('access site-wide contact form'));
   user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, array('access site-wide contact form'));
 
   // Allow authenticated users to use shortcuts.
   user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, array('access shortcuts'));
-
-  // Populate the default shortcut set.
-  $shortcut = Shortcut::create(array(
-    'shortcut_set' => 'default',
-    'title' => t('Add content'),
-    'weight' => -20,
-    'link' => array('uri' => 'internal:/node/add'),
-  ));
-  $shortcut->save();
-
-  $shortcut = Shortcut::create(array(
-    'shortcut_set' => 'default',
-    'title' => t('All content'),
-    'weight' => -19,
-    'link' => array('uri' => 'internal:/admin/content'),
-  ));
-  $shortcut->save();
 
   // Enable the admin theme.
   \Drupal::configFactory()->getEditable('node.settings')->set('use_admin_theme', TRUE)->save(TRUE);
