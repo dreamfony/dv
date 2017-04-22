@@ -46,9 +46,10 @@
     <drush command="uli" alias="">
     </drush>
   </target>
-
+<!-- Features are fixed now so this is override is not neccessary anymore -->
+<!--
   <target name="setup:update:features-override-check" description="Checks if features are overridden.">
-    <exec dir="${docroot}" command="${drush.cmd} fl --bundle=${bundle} | grep -Ei '(changed|conflicts|added)( *)$'" outputProperty="features.overrides"/>
+    <exec dir="${docroot}" command="${drush.cmd} fl &#45;&#45;bundle=${bundle} | grep -Ei '(changed|conflicts|added)( *)$'" outputProperty="features.overrides"/>
     <if>
       <istrue value="${features.overrides}"/>
       <then>
@@ -56,4 +57,5 @@
       </then>
     </if>
   </target>
+-->
 </project>
