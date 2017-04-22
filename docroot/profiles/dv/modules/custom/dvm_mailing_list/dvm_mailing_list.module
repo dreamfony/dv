@@ -152,10 +152,9 @@ function dvm_mailing_list_activity_insert(\Drupal\activity_creator\Entity\Activi
   if ($entity->getType() == 'mailing_list_activity') {
     $group_id = $entity->field_activity_mailing_list->target_id;
     if (!empty($group_id)) {
-      $group = Group::load($group_id);
       $mailing_list = \Drupal::service('dvm_mailing_list.mailing_list');
-      if ($mailing_list->checkActivitesCreated($group)) {
-        $mailing_list->switchDisplay($group, 'full');
+      if ($mailing_list->checkActivitiesCreated($group_id)) {
+        $mailing_list->switchDisplay($group_id, 'full');
       }
     }
   }
