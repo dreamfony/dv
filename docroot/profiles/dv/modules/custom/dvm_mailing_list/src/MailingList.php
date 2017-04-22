@@ -200,19 +200,22 @@ class MailingList {
 
   }
 
-  public function getQuestionsCount(Group $group) {
-//    $group = Group::load($gid);
-    $group_content_questions = $group->getContent('group_node:question');
-  }
-
-  public function getMembersCount(Group $group) {
-//    $group = Group::load($gid);
-    $group_users = $group->getMembers([$group->bundle() . '-organisation']);
-  }
+  /**
+   * Check that all activites for mailing list have been created
+   * So that we can switch display mode that shows activites
+   *
+   * @param \Drupal\group\Entity\Group $group
+   * @return bool
+   */
 
   public function checkActivitesCreated(Group $group) {
-//    $current_activites_count = getAnswerCount
-    $all_activites_count = $this->getMembersCount($group) * $this->getQuestionsCount($group);
+    $group_content_questions = count($group->getContent('group_node:question'));
+    $group_users = count($group->getMembers([$group->bundle() . '-organisation']));
+
+    $all_activites_count = (int) $group_content_questions * $group_users;
+    $mailing_list_answer = \Drupal::service('dvm_mailing_list.mailing_list_answer');
+    $current_activites_count = (int) $mailing_list_answer->getAnswerCount($group->id());
+
     if ($current_activites_count < $all_activites_count) {
       return FALSE;
     }

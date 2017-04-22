@@ -8,6 +8,7 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Drupal\node\NodeInterface;
+use Drupal\group\Entity\Group;
 
 
 /**
@@ -139,5 +140,22 @@ function dvm_mailing_list_node_presave(Drupal\Core\Entity\EntityInterface $entit
     $title = substr($body_value, 0, 254);
     $entity->set('title', $title);
     $entity->isDefaultRevision(TRUE);
+  }
+}
+
+/**
+ * Switch Display when all activites are created
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function dvm_mailing_list_activity_insert(\Drupal\activity_creator\Entity\Activity $entity) {
+  if ($entity->getType() == 'mailing_list_activity') {
+    $group_id = $entity->field_activity_mailing_list->target_id;
+    if (!empty($group_id)) {
+      $group = Group::load($group_id);
+      $mailing_list = \Drupal::service('dvm_mailing_list.mailing_list');
+      if ($mailing_list->checkActivitesCreated($group)) {
+        $mailing_list->switchDisplay($group, 'full');
+      }
+    }
   }
 }

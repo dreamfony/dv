@@ -138,20 +138,6 @@ function activity_creator_message_insert(\Drupal\message\Entity\Message $entity)
 }
 
 /**
- * Implements hook_ENTITY_TYPE_insert().
- */
-function activity_creator_activity_insert(\Drupal\activity_creator\Entity\Activity $entity) {
-  if ($entity) {
-  /**
-   * check activity bundle
-   * get group from activity
-   * if checkActivitesCreated
-   * switchDisplay
-   */
-  }
-}
-
-/**
  * Implements hook_views_data().
  */
 function activity_creator_views_data() {
