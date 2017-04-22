@@ -29,7 +29,7 @@ function dvm_mailing_list_form_node_question_form_alter(&$form, FormStateInterfa
   $entity_id = $entity->id();
 
   // if we are editing entity
-  if($entity_id) {
+  if ($entity_id) {
     // disable refocus so we don't end up on the bottom of the page
     $form['actions']['submit']['#attributes']['data-disable-refocus'] = 1;
     $ajax_id = 'ajax-form-entity-node-question-' . $entity_id;
@@ -48,7 +48,8 @@ function dvm_mailing_list_form_node_question_form_alter(&$form, FormStateInterfa
       '#weight' => 100
     ];
 
-  } else {
+  }
+  else {
     $form['actions']['submit']['#attributes']['data-disable-refocus'] = 1;
     // if we are adding new
     $form['#isNew'] = TRUE;
@@ -97,30 +98,30 @@ function dvm_mailing_list_node_links_alter(array &$links, NodeInterface $entity,
     );
     if ($entity->access('update')) {
       $links['question_ajax_links']['#links']['ajax_edit_link'] = array(
-          'title' => t('Edit'),
-          'url' => Url::fromRoute(
-            'dvm_mailing_list.ajax_edit_form',
-            [
-              'node' => $entity->id()
-            ]
-          ),
-          'attributes' => array(
-            'class' => array('use-ajax'),
-          ),
+        'title' => t('Edit'),
+        'url' => Url::fromRoute(
+          'dvm_mailing_list.ajax_edit_form',
+          [
+            'node' => $entity->id()
+          ]
+        ),
+        'attributes' => array(
+          'class' => array('use-ajax'),
+        ),
       );
     }
     if ($entity->access('update')) {
       $links['question_ajax_links']['#links']['ajax_delete_link'] = array(
-          'title' => t('Delete'),
-          'url' => Url::fromRoute(
-            'dvm_mailing_list.ajax_delete_link',
-            [
-              'node' => $entity->id()
-            ]
-          ),
-          'attributes' => array(
-            'class' => array('use-ajax'),
-          ),
+        'title' => t('Delete'),
+        'url' => Url::fromRoute(
+          'dvm_mailing_list.ajax_delete_link',
+          [
+            'node' => $entity->id()
+          ]
+        ),
+        'attributes' => array(
+          'class' => array('use-ajax'),
+        ),
       );
     }
   }
