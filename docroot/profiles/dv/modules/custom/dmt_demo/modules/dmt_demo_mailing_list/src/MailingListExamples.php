@@ -86,21 +86,15 @@ class MailingListExamples {
    */
   public function createContent() {
 
+    // Remove all existing groups before creating new ones
+    $this->removeContent();
+
     // Loop through the content and try to create new entries.
     foreach ($this->groups as $uuid => $group_data) {
 
       /// skip if item is not enabled
       if($group_data['status'] === false) {
         continue;
-      }
-
-      // Check if the group does not exist yet.
-      $existing_groups = $this->groupStorage->loadByProperties(array('uuid' => $uuid));
-
-      // Loop through the groups.
-      foreach ($existing_groups as $key => $group) {
-        // And delete them.
-        $group->delete();
       }
 
       $user = $this->getUser($group_data['user']);
@@ -316,7 +310,11 @@ class MailingListExamples {
       // Load the groups from the uuid.
       $groups = $this->groupStorage->loadByProperties(array('uuid' => $uuid));
       // Loop through the groups.
-      foreach ($groups as $key => $group) {
+      foreach ($groups as $group) {
+        $activities = $this->getActivitiesByGroup($group);
+        foreach ($activities as $activity) {
+          $activity->delete();
+        }
         // And delete them.
         $group->delete();
       }
