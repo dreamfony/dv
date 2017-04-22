@@ -39,18 +39,6 @@ third_party_settings:
             uuid: 75047371-8127-4565-950b-9a8ec6507fa9
             context_mapping:
               entity: '@panelizer.entity_context:entity'
-          7123c8ef-6e16-4e8f-bbc9-226ebe102b70:
-            id: 'views_block:answers-block_1'
-            label: ''
-            provider: views
-            label_display: '0'
-            views_label: ''
-            items_per_page: none
-            region: contentmain
-            weight: 2
-            uuid: 7123c8ef-6e16-4e8f-bbc9-226ebe102b70
-            context_mapping:
-              field_activity_entity_target_id: '@panelizer.entity_context:entity'
           6e999f8f-d3a5-4862-8897-c435c79dc88c:
             id: node_links
             label: 'Node links'
@@ -70,7 +58,7 @@ third_party_settings:
         layout_settings: {  }
         page_title: ''
         storage_type: panelizer_default
-        storage_id: 'node:question:default:question_default'
+        storage_id: 'node:question:full:question_default'
         pattern: panelizer
         builder: ipe
         static_context: {  }
