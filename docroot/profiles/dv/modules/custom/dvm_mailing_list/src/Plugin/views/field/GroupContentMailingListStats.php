@@ -6,6 +6,7 @@ use Drupal\group\Entity\GroupContent;
 use Drupal\group\Entity\Group;
 use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\ResultRow;
+use Drupal\workflows\Entity\Workflow;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\dvm_mailing_list\MailingListAnswer;
 use Drupal\Core\Form\FormStateInterface;
@@ -63,7 +64,13 @@ class GroupContentMailingListStats extends FieldPluginBase {
    */
   public function buildOptionsForm(&$form, FormStateInterface $form_state) {
 
-    $statuses = ['all' => $this->t('All') ] + activity_creator_field_activity_status_allowed_values();
+    // @todo: get states from activity workflow
+    $workflow = Workflow::load('mailing_list_activity_workflow');
+    foreach ($workflow->getStates() as $state) {
+      /** @var \Drupal\content_moderation\Entity\ContentModerationState $state */
+      $statuses[$state->id()] = $state->label();
+    }
+    $statuses = ['all' => $this->t('All') ] + $statuses;
 
     $form['status'] = array(
       '#title' => $this->t('Activity Status'),

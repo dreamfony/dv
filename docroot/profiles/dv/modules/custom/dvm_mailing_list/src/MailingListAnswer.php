@@ -64,7 +64,7 @@ class MailingListAnswer {
     $answer = $this->createAnswer($values);
 
     // set activity status to answered
-    $activity->set('field_activity_status', ACTIVITY_STATUS_ANSWERED);
+    $activity->setModerationState('answered');
 
     // set comment reply
     $activity->field_activity_reply[] = $answer->id();
@@ -122,7 +122,7 @@ class MailingListAnswer {
     }
 
     if ($status) {
-      $query->condition('field_activity_status', $status);
+      $query->condition('moderation_state', $status);
     }
 
     $count = $query->count()->execute();
