@@ -126,7 +126,7 @@ class DmtMailComment extends HandlerBase implements ContainerFactoryPluginInterf
         $comment = $this->createComment($message, $result);
 
         // set activity status to answered
-        $activity->set('field_activity_status', ACTIVITY_STATUS_ANSWERED);
+        $activity->setModerationState('answered');
 
         // set comment reply
         $activity->field_activity_reply[] = $comment->id();

@@ -93,11 +93,12 @@ class DvMailgunWebhook extends QueueWorkerBase {
 
 //    Update activity
 
-
-      $activity = \Drupal::entityManager()
+      /** @var \Drupal\activity_creator\Entity\Activity $activity */
+      /// @todo: inject Entity Type Manager
+      $activity = \Drupal::entityTypeManager()
         ->getStorage('activity')
         ->load($data['entity_id']);
-      $activity->set('field_activity_status', $status);
+      $activity->setModerationState($status);
 //    TODO Change this when collect is fixed
 //      $activity->revision_log_message = $data['event'].':'. $status . '->' . $uuid;
       $activity->revision_log_message = serialize($data);
