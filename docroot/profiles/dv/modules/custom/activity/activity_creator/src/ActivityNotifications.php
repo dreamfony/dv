@@ -42,7 +42,6 @@ class ActivityNotifications extends ControllerBase {
    * @param \Drupal\Core\Session\AccountInterface $account
    *   Account object.
    * @param array $status
-   *   Status string: activity_creator_field_activity_status_allowed_values().
    *
    * @return array
    *   Return array of notifications as activity objects.
@@ -121,15 +120,15 @@ class ActivityNotifications extends ControllerBase {
    *
    * @param \Drupal\activity_creator\Entity\Activity $activity
    *    Activity object.
-   * @param array $status
-   *    See: activity_creator_field_activity_status_allowed_values().
+   * @param $status
    *
    * @return Activity
    *    Returns activity object.
    */
   public function changeStatusOfActivity(Activity $activity, $status = ACTIVITY_STATUS_PENDING) {
-    $activity->set('field_activity_status', $status);
+    $activity->setModerationState($status);
 
+    /// @todo: fix this
     return $activity->save();
   }
 
@@ -163,7 +162,7 @@ class ActivityNotifications extends ControllerBase {
 
     }
     if (!empty($status)) {
-      $entity_query->condition('field_activity_status', $status, 'IN');
+      $entity_query->condition('content_moderation', $status, 'IN');
     }
 
     $ids = $entity_query->execute();

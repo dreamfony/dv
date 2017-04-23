@@ -56,8 +56,6 @@ class ActivityFactory extends ControllerBase {
       'field_activity_recipient_group' => $this->getFieldRecipientGroup($data),
       'field_activity_recipient_user' => $this->getFieldRecipientUser($data),
       'field_activity_hash' => $this->getFieldHash($data),
-      // Default activity status.
-      'field_activity_status' => ACTIVITY_STATUS_PENDING,
       'user_id' => $this->getActor($data),
     ];
 
@@ -78,6 +76,7 @@ class ActivityFactory extends ControllerBase {
     }
     else {
       $activity = Activity::create($activity_fields);
+      $activity->setModerationState(ACTIVITY_STATUS_PENDING);
       $activity->save();
       $activities[] = $activity;
     }

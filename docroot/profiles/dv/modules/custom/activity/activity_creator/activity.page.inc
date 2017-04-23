@@ -72,9 +72,9 @@ function template_preprocess_activity(array &$variables) {
 
   $variables['full_url'] = $full_url;
 
-  $status = $activity->get('field_activity_status')->getValue();
+  $status = $activity->getActivityState();
 
-  switch ($status['0']['value']) {
+  switch ($status) {
     case ACTIVITY_STATUS_READ:
       $status_class = 'bg-white';
       break;

@@ -4,40 +4,35 @@
  * Activity Creator module file.
  */
 
+use Drupal\workflows\Entity\Workflow;
+
 /**
  * Activity statuses.
  */
 const ACTIVITY_STATUS_PENDING = "pending";
 const ACTIVITY_STATUS_SENT = 'sent';
 const ACTIVITY_STATUS_SEEN = 'seen';
-const ACTIVITY_STATUS_ANSWERED = 'answered';
 const ACTIVITY_STATUS_CANCELED = 'canceled';
 const ACTIVITY_STATUS_DELIVERY_ERROR = 'delivery_error';
-const ACTIVITY_STATUS_REJECTED = 'rejected';
-const ACTIVITY_STATUS_NOT_HELD = 'not_held';
-
 
 /**
- * Returns the allowed values for the activity status field.
- *
- * @return array
- *    Return an array of allowed values for status field.
+ * Implements hook_entity_bundle_info_alter().
  */
-function activity_creator_field_activity_status_allowed_values() {
-
-  $allowed_values = [
-    ACTIVITY_STATUS_PENDING => "Pending",
-    ACTIVITY_STATUS_SENT => "Sent",
-    ACTIVITY_STATUS_SEEN => "Seen",
-    ACTIVITY_STATUS_ANSWERED => "Answered",
-    ACTIVITY_STATUS_CANCELED => "Canceled",
-    ACTIVITY_STATUS_DELIVERY_ERROR => "Delivery Error",
-    ACTIVITY_STATUS_REJECTED => "Rejected",
-    ACTIVITY_STATUS_NOT_HELD => "Not Held",
-  ];
-
-  return $allowed_values;
+function activity_creator_entity_bundle_info_alter(&$bundles) {
+  /** @var \Drupal\workflows\WorkflowInterface $workflow */
+  foreach (Workflow::loadMultipleByType('activity_workflow') as $workflow) {
+    /** @var \Drupal\content_moderation\Plugin\WorkflowType\ContentModeration $plugin */
+    $plugin = $workflow->getTypePlugin();
+    foreach ($plugin->getEntityTypes() as $entity_type_id) {
+      foreach ($plugin->getBundlesForEntityType($entity_type_id) as $bundle_id) {
+        if (isset($bundles[$entity_type_id][$bundle_id])) {
+          $bundles[$entity_type_id][$bundle_id]['workflow'] = $workflow->id();
+        }
+      }
+    }
+  }
 }
+
 
 /**
  * Returns the allowed values for the activity destinations field.
