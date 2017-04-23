@@ -22,13 +22,3 @@ function dvm_moderation_help($route_name, RouteMatchInterface $route_match) {
     default:
   }
 }
-
-/**
- * Returns the allowed values for the Manager group field_mg_event_type
- *
- * @return array
- *    Return an array of allowed values for field_mg_event_type.
- */
-function dvm_moderation_field_mg_event_type_allowed_values() {
-  return activity_creator_field_activity_status_allowed_values();
-}
