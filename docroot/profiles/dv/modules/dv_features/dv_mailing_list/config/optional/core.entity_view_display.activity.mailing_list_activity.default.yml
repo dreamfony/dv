@@ -12,7 +12,6 @@ dependencies:
     - field.field.activity.mailing_list_activity.field_activity_recipient_group
     - field.field.activity.mailing_list_activity.field_activity_recipient_user
     - field.field.activity.mailing_list_activity.field_activity_reply
-    - field.field.activity.mailing_list_activity.field_activity_status
   module:
     - dynamic_entity_reference
     - options
@@ -92,13 +91,6 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
-    region: content
-  field_activity_status:
-    weight: 9
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
     region: content
   user_id:
     label: hidden

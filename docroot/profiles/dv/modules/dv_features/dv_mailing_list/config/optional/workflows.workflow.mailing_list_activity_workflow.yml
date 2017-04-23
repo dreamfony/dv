@@ -1,0 +1,100 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - activity_creator.activity_type.mailing_list_activity
+  module:
+    - activity_creator
+id: mailing_list_activity_workflow
+label: 'Mailing List Activity Workflow'
+states:
+  answered:
+    label: Answered
+    weight: -10
+  canceled:
+    label: Canceled
+    weight: -10
+  delivery_error:
+    label: 'Delivery Error'
+    weight: 0
+  not_held:
+    label: 'Not Held'
+    weight: -10
+  pending:
+    label: Pending
+    weight: -5
+  rejected:
+    label: Rejected
+    weight: -10
+  seen:
+    label: Seen
+    weight: 10
+  sent:
+    label: Sent
+    weight: 5
+transitions:
+  answer:
+    label: Answer
+    from:
+      - pending
+      - seen
+      - sent
+    to: answered
+    weight: 4
+  cancel:
+    label: Cancel
+    from:
+      - delivery_error
+      - pending
+      - seen
+      - sent
+    to: canceled
+    weight: 2
+  erred:
+    label: Erred
+    from:
+      - pending
+    to: delivery_error
+    weight: 0
+  see:
+    label: See
+    from:
+      - sent
+    to: seen
+    weight: 3
+  send:
+    label: Send
+    from:
+      - pending
+    to: sent
+    weight: 1
+type: activity_workflow
+type_settings:
+  states:
+    answered:
+      published: 1
+      default_revision: 1
+    canceled:
+      published: false
+      default_revision: true
+    delivery_error:
+      published: true
+      default_revision: true
+    not_held:
+      published: 1
+      default_revision: 1
+    pending:
+      published: true
+      default_revision: true
+    rejected:
+      published: 1
+      default_revision: 1
+    seen:
+      published: true
+      default_revision: true
+    sent:
+      published: true
+      default_revision: true
+  entity_types:
+    activity:
+      - mailing_list_activity

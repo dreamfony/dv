@@ -11,7 +11,6 @@ dependencies:
     - field.field.activity.activity.field_activity_recipient_group
     - field.field.activity.activity.field_activity_recipient_user
     - field.field.activity.activity.field_activity_reply
-    - field.field.activity.activity.field_activity_status
   module:
     - dynamic_entity_reference
     - text
@@ -51,6 +50,5 @@ hidden:
   field_activity_recipient_group: true
   field_activity_recipient_user: true
   field_activity_reply: true
-  field_activity_status: true
   langcode: true
   user_id: true
