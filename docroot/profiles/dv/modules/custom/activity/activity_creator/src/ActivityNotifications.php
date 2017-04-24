@@ -162,6 +162,7 @@ class ActivityNotifications extends ControllerBase {
 
     }
     if (!empty($status)) {
+      /** @see activity_creator_query_cm_states_alter */
       $entity_query->addTag('cm_states');
       $entity_query->addMetaData('states', $status);
     }

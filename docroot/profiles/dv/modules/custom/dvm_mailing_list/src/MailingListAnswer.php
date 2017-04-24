@@ -121,8 +121,9 @@ class MailingListAnswer {
     }
 
     if ($status) {
-      $query->addMetaData('states', [$status]);
+      /** @see activity_creator_query_cm_states_alter */
       $query->addTag('cm_states');
+      $query->addMetaData('states', [$status]);
     }
 
     $count = $query->count()->execute();
