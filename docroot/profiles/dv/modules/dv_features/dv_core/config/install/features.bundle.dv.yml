@@ -68,6 +68,8 @@ assignments:
         message_template: message_template
         page: page
         page_variant: page_variant
+        search_api_index: search_api_index
+        search_api_server: search_api_server
         view: view
         entity_view_mode: entity_view_mode
         workflow: workflow
