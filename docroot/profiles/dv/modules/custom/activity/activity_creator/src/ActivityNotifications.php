@@ -162,7 +162,8 @@ class ActivityNotifications extends ControllerBase {
 
     }
     if (!empty($status)) {
-      $entity_query->condition('content_moderation', $status, 'IN');
+      $entity_query->addTag('cm_states');
+      $entity_query->addMetaData('states', $status);
     }
 
     $ids = $entity_query->execute();
