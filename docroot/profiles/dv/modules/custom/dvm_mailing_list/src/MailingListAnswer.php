@@ -113,7 +113,6 @@ class MailingListAnswer {
    * @return array|int
    */
   public function getAnswerCount($group_id, $user_id = FALSE, $status = FALSE) {
-
     $query = \Drupal::entityQuery('activity')
       ->condition('field_activity_mailing_list.target_id', $group_id);
 
@@ -122,7 +121,8 @@ class MailingListAnswer {
     }
 
     if ($status) {
-      $query->condition('moderation_state', $status);
+      $query->addMetaData('state', $status);
+      $query->addTag('get_answer_count');
     }
 
     $count = $query->count()->execute();

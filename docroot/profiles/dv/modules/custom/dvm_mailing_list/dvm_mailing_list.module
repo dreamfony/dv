@@ -159,3 +159,20 @@ function dvm_mailing_list_activity_insert(\Drupal\activity_creator\Entity\Activi
     }
   }
 }
+
+
+/**
+ * Alter get answer query count to use content moderation
+ *
+ * Implements hook_query_TAG_alter().
+ */
+function dvm_mailing_list_query_get_answer_count_alter(Drupal\Core\Database\Query\AlterableInterface $query) {
+  /** @var \Drupal\Core\Database\Query\SelectInterface $query */
+  $query->addJoin('INNER' ,'content_moderation_state_field_data', 'cm',
+    'base_table.id = cm.content_entity_id');
+  $query->where('cm.content_entity_type_id = :entity_type_id', [':entity_type_id' => 'activity']);
+
+  $state = $query->getMetaData('state');
+  $query->where('cm.moderation_state = :moderation_state', [':moderation_state' => $state]);
+}
+
