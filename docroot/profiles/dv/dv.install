@@ -18,14 +18,6 @@ use Drupal\shortcut\Entity\Shortcut;
  */
 function dv_install() {
 
-  //  Enable multiversion on entites because they dont get enabled properly via features.
-
-  $entity_types = [
-    "group" => "group",
-    "profile" => "profile"
-  ];
-  \Drupal::service('multiversion.manager')->enableEntityTypes($entity_types);
-
   // Enable the admin theme.
   \Drupal::configFactory()
     ->getEditable('node.settings')
