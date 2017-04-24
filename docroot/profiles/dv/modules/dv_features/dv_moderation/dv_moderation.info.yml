@@ -1,0 +1,19 @@
+name: Moderation
+description: 'Provides Moderation group type and related configuration. '
+type: module
+core: 8.x
+dependencies:
+  - activity_creator
+  - allowed_formats
+  - content_moderation
+  - dv_issue
+  - dynamic_entity_reference
+  - field
+  - geocoder_field
+  - group
+  - options
+  - path
+  - text
+  - user
+  - workflows
+package: DV

@@ -6,6 +6,8 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\message\MessageTemplateInterface;
 
 /**
  * Implements hook_help().
@@ -20,5 +22,58 @@ function dvm_moderation_help($route_name, RouteMatchInterface $route_match) {
       return $output;
 
     default:
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for message_template_form().
+ */
+function dvm_moderation_form_message_template_form_alter(&$form, FormStateInterface $form_state) {
+  /** @var \Drupal\contact\ContactFormInterface $message_template */
+  $message_template = $form_state->getFormObject()->getEntity();
+
+  // get all moderation groups
+  $groups = \Drupal::entityTypeManager()->getStorage('group')->loadByProperties(['type' => 'moderation']);
+
+  $options = [];
+  $options[] = t('None');
+  foreach ($groups as $group) {
+    $options[$group->uuid()] = $group->label();
+  }
+
+  $form['activity_action']['#weight'] = 40;
+
+  // @todo: make states for this form element hide if activity_action is not moderation_action
+  $form['moderation_group'] = array(
+    '#type' => 'select',
+    '#required' => FALSE,
+    '#title' => t('Moderation Group To Send this Ticket'),
+    '#description' => t('Select Moderation Group.'),
+    '#default_value' => $message_template->getThirdPartySetting('activity_logger', 'moderation_group', NULL),
+    '#options' => $options,
+    '#weight' => 50
+  );
+
+  $form['#entity_builders'][] = 'dvm_moderation_form_message_template_form_builder';
+}
+
+
+/**
+ * Entity builder for the message type edit form with third party options.
+ *
+ * @see activity_logger_form_message_template_form_alter()
+ */
+function dvm_moderation_form_message_template_form_builder($entity_type, MessageTemplateInterface $message_template, &$form, FormStateInterface $form_state) {
+  $message_template->setThirdPartySetting('activity_logger', 'moderation_group', $form_state->getValue('moderation_group'));
+}
+
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function dvm_moderation_activity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  if($entity->bundle() == 'moderation_activity') {
+    /// @todo add content to group
+
   }
 }

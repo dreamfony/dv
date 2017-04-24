@@ -1,0 +1,50 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - activity_creator.activity_type.moderation_activity
+  module:
+    - activity_creator
+id: moderation_activity_workflow
+label: 'Moderation Activity Workflow'
+states:
+  canceled:
+    label: Canceled
+    weight: -10
+  pending:
+    label: Pending
+    weight: -5
+  resolved:
+    label: Resolved
+    weight: 0
+transitions:
+  cancel:
+    label: Cancel
+    from:
+      - pending
+    to: canceled
+    weight: 2
+type: activity_workflow
+type_settings:
+  states:
+    canceled:
+      published: false
+      default_revision: true
+    delivery_error:
+      published: true
+      default_revision: true
+    pending:
+      published: true
+      default_revision: true
+    resolved:
+      published: true
+      default_revision: true
+    seen:
+      published: true
+      default_revision: true
+    sent:
+      published: true
+      default_revision: true
+  entity_types:
+    activity:
+      - moderation_activity

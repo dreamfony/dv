@@ -188,6 +188,10 @@ class MailingList {
     // set moderation state
     $group->set('moderation_state', 'email');
     $group->save();
+
+    // send message to moderator
+    $create_action = $this->activityActionProcessor->createInstance('moderation_action');
+    $create_action->create($group);
   }
 
   /**
@@ -196,6 +200,11 @@ class MailingList {
    * @param \Drupal\group\Entity\Group $group
    */
   public function approve(Group $group) {
+    // skip if moderation state is not email
+    if($group->moderation_state->value !== 'email') {
+      return;
+    }
+
     $group_content_questions = $group->getContent('group_node:question');
 
     foreach ($group_content_questions as $group_content) {
@@ -203,7 +212,6 @@ class MailingList {
       $activity_entity = Node::load($group_content->getEntity()->id());
       $data['group_id'] = $group_content->getGroup()->id();
       $data['context'] = 'organisation_activity_context';
-
       $create_action = $this->activityActionProcessor->createInstance('create_activity_action');
       $create_action->create($activity_entity, $data);
     }
@@ -211,7 +219,6 @@ class MailingList {
     // set moderation state
     $group->set('moderation_state', 'published');
     $group->save();
-
   }
 
   /**

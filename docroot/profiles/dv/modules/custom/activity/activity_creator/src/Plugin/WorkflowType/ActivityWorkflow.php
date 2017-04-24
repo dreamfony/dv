@@ -17,10 +17,7 @@ use Drupal\workflows\WorkflowInterface;
  *   label = @Translation("Activity Workflow"),
  *   required_states = {
  *     "canceled",
- *     "pending",
- *     "delivery_error",
- *     "sent",
- *     "seen",
+ *     "pending"
  *   },
  * )
  */

@@ -7,8 +7,9 @@
 
 namespace Drupal\activity_logger\Plugin\QueueWorker;
 
-use Drupal\node\Entity\Node;
+use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\activity_creator\Plugin\ActivityActionBase;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 
 /**
@@ -25,12 +26,40 @@ use Drupal\activity_creator\Plugin\ActivityActionBase;
 class MessageQueueCreator extends MessageQueueBase {
 
   /**
+   * @var \Drupal\Core\Entity\EntityTypeManager
+   */
+  protected $entityTypeManager;
+
+  /**
+   * MessageQueueCreator constructor.
+   *
+   * @param array $configuration
+   * @param string $plugin_id
+   * @param mixed $plugin_definition
+   * @param \Drupal\Core\Entity\EntityTypeManager $entity_type_manager
+   */
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManager $entity_type_manager) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+
+    $this->entityTypeManager = $entity_type_manager;
+  }
+
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    return new static(
+      $configuration,
+      $plugin_id,
+      $plugin_definition,
+      $container->get('entity_type.manager')
+    );
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function processItem($data) {
 
     // First make sure it's an actual entity.
-    if ($entity = Node::load($data['entity_id'])) {
+    if ($entity = $this->entityTypeManager->getStorage($data['entity_type_id'])->load($data['entity_id'])) {
       $timestamp = $entity->getCreatedTime();
       // Current time.
       $now = time();

@@ -368,7 +368,7 @@ class Activity extends RevisionableContentEntityBase implements ActivityInterfac
   }
 
   public function getActivityState() {
-    return $this->get('moderation_state')->getValue()[0]['value'];
+    return $this->moderation_state->value;
   }
 
 }

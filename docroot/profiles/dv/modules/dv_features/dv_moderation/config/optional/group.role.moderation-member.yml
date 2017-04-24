@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.moderation
+id: moderation-member
+label: Member
+weight: -100
+internal: true
+audience: member
+group_type: moderation
+permissions_ui: true
+permissions: {  }

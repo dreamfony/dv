@@ -139,7 +139,7 @@ function activity_logger_form_message_template_form_alter(&$form, FormStateInter
     '#title' => t('The activity actions for this message'),
     '#description' => t('Select a action for when to display this message.'),
     '#default_value' => $message_template->getThirdPartySetting('activity_logger', 'activity_action', NULL),
-    '#options' => $activity_actions,
+    '#options' => $activity_actions
   );
 
   $activity_recipient_manager = \Drupal::service('plugin.manager.activity_context.processor');

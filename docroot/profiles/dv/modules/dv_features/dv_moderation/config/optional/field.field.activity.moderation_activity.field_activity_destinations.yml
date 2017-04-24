@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - activity_creator.activity_type.moderation_activity
+    - field.storage.activity.field_activity_destinations
+  module:
+    - options
+id: activity.moderation_activity.field_activity_destinations
+field_name: field_activity_destinations
+entity_type: activity
+bundle: moderation_activity
+label: Destinations
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

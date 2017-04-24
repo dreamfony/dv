@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - activity_creator.activity_type.moderation_activity
+    - field.storage.activity.field_activity_message
+    - message.template.issue
+id: activity.moderation_activity.field_activity_message
+field_name: field_activity_message
+entity_type: activity
+bundle: moderation_activity
+label: Message
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:message'
+  handler_settings:
+    target_bundles:
+      issue: issue
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
