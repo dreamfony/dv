@@ -16,6 +16,7 @@ dependencies:
   - node
   - path
   - personas
+  - profile
   - rdf
   - system
   - user
