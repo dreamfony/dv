@@ -7,6 +7,7 @@ dependencies:
   - address
   - content_moderation
   - datetime_range
+  - dmt_group
   - dv_admin_dashboard
   - dv_area_of_activity
   - dv_core
@@ -37,6 +38,7 @@ dependencies:
   - personas
   - profile
   - rabbit_hole
+  - search_api
   - taxonomy
   - telephone
   - text
