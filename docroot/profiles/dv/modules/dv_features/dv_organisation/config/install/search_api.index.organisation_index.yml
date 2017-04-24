@@ -1,0 +1,63 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_org_email
+    - field.storage.profile.field_org_title
+    - search_api.server.solr
+  module:
+    - search_api
+    - dmt_group
+    - profile
+id: organisation_index
+name: 'Organisation Index'
+description: ''
+read_only: false
+field_settings:
+  field_org_email:
+    label: Email
+    datasource_id: 'entity:profile'
+    property_path: field_org_email
+    type: string
+    dependencies:
+      config:
+        - field.storage.profile.field_org_email
+  field_org_title:
+    label: Name
+    datasource_id: 'entity:profile'
+    property_path: field_org_title
+    type: string
+    dependencies:
+      config:
+        - field.storage.profile.field_org_title
+datasource_settings:
+  'entity:profile':
+    bundles:
+      default: false
+      selected:
+        - organisation_profile
+processor_settings:
+  add_group_name: {  }
+  add_url: {  }
+  aggregated_field: {  }
+  rendered_item: {  }
+  ignorecase:
+    fields:
+      - field_org_email
+      - field_org_title
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+  transliteration:
+    fields:
+      - field_org_email
+      - field_org_title
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+tracker_settings:
+  default: {  }
+options:
+  index_directly: true
+  cron_limit: 50
+server: solr
