@@ -16,9 +16,9 @@ use Drupal\Core\Form\FormStateInterface;
  *
  * @ingroup views_field_handlers
  *
- * @ViewsField("group_content_mailing_list_stats")
+ * @ViewsField("mailing_list_stats")
  */
-class GroupContentMailingListStats extends FieldPluginBase {
+class MailingListStats extends FieldPluginBase {
 
   /**
    * @var \Drupal\dvm_mailing_list\MailingListAnswer
@@ -55,7 +55,6 @@ class GroupContentMailingListStats extends FieldPluginBase {
   protected function defineOptions() {
     $options = parent::defineOptions();
     $options['status'] = array('default' => 'all');
-
     return $options;
   }
 
@@ -64,7 +63,7 @@ class GroupContentMailingListStats extends FieldPluginBase {
    */
   public function buildOptionsForm(&$form, FormStateInterface $form_state) {
 
-    // @todo: get states from activity workflow
+    // get states from activity workflow
     $workflow = Workflow::load('mailing_list_activity_workflow');
     foreach ($workflow->getStates() as $state) {
       /** @var \Drupal\content_moderation\Entity\ContentModerationState $state */
@@ -94,13 +93,15 @@ class GroupContentMailingListStats extends FieldPluginBase {
    * @{inheritdoc}
    */
   public function render(ResultRow $values) {
-    /** @var GroupContent $group_content */
-    $group_content = $values->_entity;
+    $entity = $values->_entity;
 
-    /** @var Group $group */
-    $group_id = $group_content->getGroup()->id();
-
-    $user_id = $values->users_field_data_group_content_field_data_uid;
+    if($entity instanceof GroupContent) {
+      $user_id = $values->users_field_data_group_content_field_data_uid;
+      $group_id = $entity->getGroup()->id();
+    } elseif($entity instanceof Group) {
+      $user_id = FALSE;
+      $group_id = $entity->id();
+    }
 
     // if total count then status is FALSE
     $status = $this->options['status'] == 'all' ? FALSE : $this->options['status'];
