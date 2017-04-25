@@ -1,7 +1,6 @@
 <?php
 namespace Drupal\dvm_moderation;
 
-use Drupal\dmt_demo_mailing_list\Yaml\YmlParser;
 use Drupal\user\Entity\User;
 use Drupal\group\Entity\Group;
 use Drupal\Core\Entity\EntityTypeManager;
@@ -26,9 +25,8 @@ class CreateDefaultModerationGroups {
   /**
    * CreateDefaultModerationGroups constructor.
    * @param \Drupal\Core\Entity\EntityTypeManager $entity_manager
-   * @param \Drupal\dmt_demo_mailing_list\Yaml\YmlParser $yml_parser
    */
-  public function __construct(EntityTypeManager $entity_manager, YmlParser $yml_parser) {
+  public function __construct(EntityTypeManager $entity_manager) {
     $this->groupStorage = $entity_manager->getStorage('group');
     $file = 'ModerationGroups.yml';
     $this->groups = Yaml::parse(file_get_contents($this->getPath($file)));
