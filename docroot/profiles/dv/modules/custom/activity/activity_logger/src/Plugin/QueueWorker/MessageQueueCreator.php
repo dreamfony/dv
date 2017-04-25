@@ -10,6 +10,7 @@ namespace Drupal\activity_logger\Plugin\QueueWorker;
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\activity_creator\Plugin\ActivityActionBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 
 
 /**
@@ -23,7 +24,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * This QueueWorker is responsible for creating message items from the queue
  */
-class MessageQueueCreator extends MessageQueueBase {
+class MessageQueueCreator extends MessageQueueBase implements ContainerFactoryPluginInterface {
 
   /**
    * @var \Drupal\Core\Entity\EntityTypeManager
