@@ -85,7 +85,8 @@ function dv_install_profile_modules(&$install_state) {
     'dmt_domain_config' => 'dmt_domain_config',
     'dv_domain_dmtit_dev' => 'dv_domain_dmtit_dev',
     'dv_admin_dashboard' => 'dv_admin_dashboard',
-    'dmt_configuration' => 'dmt_configuration'
+    'dmt_configuration' => 'dmt_configuration',
+    'dvm_moderation' => 'dvm_moderation'
   );
 
   $dv_modules = $modules;
