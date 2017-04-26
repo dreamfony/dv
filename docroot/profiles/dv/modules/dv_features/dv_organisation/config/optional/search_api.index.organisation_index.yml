@@ -38,9 +38,6 @@ datasource_settings:
         - organisation_profile
 processor_settings:
   add_group_name: {  }
-  add_url: {  }
-  aggregated_field: {  }
-  rendered_item: {  }
   ignorecase:
     fields:
       - field_org_email
@@ -48,6 +45,9 @@ processor_settings:
     weights:
       preprocess_index: -20
       preprocess_query: -20
+  aggregated_field: {  }
+  add_url: {  }
+  rendered_item: {  }
   transliteration:
     fields:
       - field_org_email

@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - activity.type.activity
     - group.type.organisation
   module:
     - activity_creator
