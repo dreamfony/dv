@@ -5,8 +5,21 @@ namespace Drupal\dmt_moderation;
 
 use Drupal\group\Entity\Group;
 use Drupal\activity_creator\Entity\Activity;
+use Drupal\activity_creator\Plugin\Type\ActivityActionManager;
+
 
 class ModerateMailingList {
+
+
+  /**
+   * @var \Drupal\activity_creator\Plugin\Type\ActivityActionManager
+   */
+  protected $activityActionProcessor;
+
+  public function __construct(ActivityActionManager $activity_action_manager) {
+    $this->activityActionProcessor = $activity_action_manager;
+  }
+
   public function openModerationTicket(Group $group) {
 //    Create Activity
     $create_action = $this->activityActionProcessor->createInstance('moderation_action');
@@ -14,7 +27,7 @@ class ModerateMailingList {
   }
 
   public function closeModerationTicket(Group $group) {
-    $activites = $this->GetRelatedActivites($group);
+    $activites = $this->GetRelatedActivites($group->id(), 'open');
     foreach ($activites as $activity) {
       $this->changeActivityState($activity);
     }

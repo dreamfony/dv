@@ -4,3 +4,4 @@ services:
     arguments: ['@entity_type.manager']
   dmt_moderation.moderate_mailing_list:
     class: Drupal\dmt_moderation\ModerateMailingList
+    arguments: ['@plugin.manager.activity_action_processor']
