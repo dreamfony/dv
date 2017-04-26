@@ -75,7 +75,7 @@ third_party_settings:
             id: 'views_block:mailing_list_answers_group_by_recipient-by_recipient'
             label: ''
             provider: views
-            label_display: visible
+            label_display: '0'
             views_label: ''
             items_per_page: none
             region: content
@@ -89,7 +89,7 @@ third_party_settings:
         weight: 0
         layout: layout_onecol
         layout_settings: {  }
-        page_title: '[group:title]'
+        page_title: null
         storage_type: panelizer_default
         storage_id: 'group:mailing_list:default:default'
         builder: ipe

@@ -522,7 +522,7 @@ display:
           entity_field: type
           plugin_id: bundle
       sorts: {  }
-      title: 'Mailing List Answers :: Group By Recipient'
+      title: ''
       header: {  }
       footer: {  }
       empty: {  }
@@ -610,23 +610,6 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-      tags:
-        - 'config:field.storage.profile.field_org_title'
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
-    position: 2
-    display_options:
-      display_extenders: {  }
-      path: test-test/%
     cache_metadata:
       max-age: -1
       contexts:
