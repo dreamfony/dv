@@ -190,8 +190,7 @@ class MailingList {
     $group->save();
 
     // send message to moderator
-    $create_action = $this->activityActionProcessor->createInstance('moderation_action');
-    $create_action->create($group);
+    \Drupal::service('dmt_moderation.moderate_mailing_list')->openModerationTicket($group);
   }
 
   /**
@@ -219,6 +218,9 @@ class MailingList {
     // set moderation state
     $group->set('moderation_state', 'published');
     $group->save();
+
+    \Drupal::service('dmt_moderation.moderate_mailing_list')->closeModerationTicket($group);
+
   }
 
   /**
