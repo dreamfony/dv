@@ -7,6 +7,7 @@ dependencies:
   - allowed_formats
   - content_moderation
   - dv_issue
+  - dv_mailing_list
   - dynamic_entity_reference
   - field
   - geocoder_field
