@@ -4,7 +4,7 @@ namespace Drupal\dvm_user\Helper;
 
 /**
  * Class WebhookEvents
- * @package Drupal\dvm_moderation\Helper
+ * @package Drupal\dmt_moderation\Helper
  */
 
 final class UserSettings {

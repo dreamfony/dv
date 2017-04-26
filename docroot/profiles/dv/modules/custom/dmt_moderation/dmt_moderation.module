@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains dvm_moderation.module.
+ * Contains dmt_moderation.module.
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
@@ -12,10 +12,10 @@ use Drupal\message\MessageTemplateInterface;
 /**
  * Implements hook_help().
  */
-function dvm_moderation_help($route_name, RouteMatchInterface $route_match) {
+function dmt_moderation_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
-    // Main module help for the dvm_moderation module.
-    case 'help.page.dvm_moderation':
+    // Main module help for the dmt_moderation module.
+    case 'help.page.dmt_moderation':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
       $output .= '<p>' . t('My Awesome Module') . '</p>';
@@ -28,7 +28,7 @@ function dvm_moderation_help($route_name, RouteMatchInterface $route_match) {
 /**
  * Implements hook_form_FORM_ID_alter() for message_template_form().
  */
-function dvm_moderation_form_message_template_form_alter(&$form, FormStateInterface $form_state) {
+function dmt_moderation_form_message_template_form_alter(&$form, FormStateInterface $form_state) {
   /** @var \Drupal\contact\ContactFormInterface $message_template */
   $message_template = $form_state->getFormObject()->getEntity();
 
@@ -54,7 +54,7 @@ function dvm_moderation_form_message_template_form_alter(&$form, FormStateInterf
     '#weight' => 50
   );
 
-  $form['#entity_builders'][] = 'dvm_moderation_form_message_template_form_builder';
+  $form['#entity_builders'][] = 'dmt_moderation_form_message_template_form_builder';
 }
 
 
@@ -63,7 +63,7 @@ function dvm_moderation_form_message_template_form_alter(&$form, FormStateInterf
  *
  * @see activity_logger_form_message_template_form_alter()
  */
-function dvm_moderation_form_message_template_form_builder($entity_type, MessageTemplateInterface $message_template, &$form, FormStateInterface $form_state) {
+function dmt_moderation_form_message_template_form_builder($entity_type, MessageTemplateInterface $message_template, &$form, FormStateInterface $form_state) {
   $message_template->setThirdPartySetting('activity_logger', 'moderation_group', $form_state->getValue('moderation_group'));
 }
 
@@ -71,7 +71,7 @@ function dvm_moderation_form_message_template_form_builder($entity_type, Message
 /**
  * Implements hook_ENTITY_TYPE_insert().
  */
-function dvm_moderation_activity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+function dmt_moderation_activity_insert(Drupal\Core\Entity\EntityInterface $entity) {
   if($entity->bundle() == 'moderation_activity') {
     /// @todo add content to group
 

@@ -1,0 +1,4 @@
+services:
+  dmt_moderation.create_default_groups:
+    class: Drupal\dmt_moderation\CreateDefaultModerationGroups
+    arguments: ['@entity_type.manager']
