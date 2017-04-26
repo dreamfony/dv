@@ -10,6 +10,7 @@ namespace Drupal\activity_basics\Plugin\ActivityContext;
 use Drupal\activity_creator\Plugin\ActivityContextBase;
 use Drupal\comment\CommentInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\dmt_group\GroupHelper;
 use Drupal\group\Entity\GroupContent;
 
@@ -30,19 +31,6 @@ class GroupActivityContext extends ActivityContextBase {
 
     $recipients = [];
 
-    // We only know the context if there is a related object.
-    if (isset($data['related_object']) && !empty($data['related_object'])) {
-
-      $referenced_entity = $data['related_object']['0'];
-
-      if ($gid = GroupHelper::getGroupFromEntity($referenced_entity)) {
-        $recipients[] = [
-          'target_type' => 'group',
-          'target_id' => $gid,
-        ];
-      }
-    }
-
     return $recipients;
   }
 
@@ -50,28 +38,11 @@ class GroupActivityContext extends ActivityContextBase {
    * {@inheritdoc}
    */
   public function isValidEntity(ContentEntityInterface $entity) {
-    // Special cases for comments.
-    if ($entity->getEntityTypeId() === 'comment') {
-      // Returns the entity to which the comment is attached.
-      /** @var CommentInterface $entity */
-      $entity = $entity->getCommentedEntity();
-    }
 
-    if (!isset($entity)) {
-      return FALSE;
-    }
-
-    // Check if it's placed in a group (regardless off content type).
-    if ($group_entity = GroupContent::loadByEntity($entity)) {
+    if($entity instanceof ContentEntityInterface) {
       return TRUE;
     }
-    /*
-    if ($entity->getEntityTypeId() === 'post') {
-      if (!empty($entity->get('field_recipient_group')->getValue())) {
-        return TRUE;
-      }
-    }
-    */
+
     return FALSE;
   }
 

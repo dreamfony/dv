@@ -45,13 +45,14 @@ class ActivityFactory extends ControllerBase {
   private function buildActivities(array $data) {
     $activities = [];
     $message = Message::load($data['mid']);
-    // Initialize fields for new activity entity.
+    $message_template = $message->getTemplate();
 
+    // Initialize fields for new activity entity.
     $activity_fields = [
       'created' => $this->getCreated($message),
       'field_activity_destinations' => $this->getFieldDestinations($data),
       'field_activity_entity' => $this->getFieldEntity($data),
-      'field_activity_message' => $this->getFieldMessage($data),
+      'field_activity_message' => $message,
       'field_activity_output_text' => $this->getFieldOutputText($message),
       'field_activity_recipient_group' => $this->getFieldRecipientGroup($data),
       'field_activity_recipient_user' => $this->getFieldRecipientUser($data),
@@ -60,7 +61,6 @@ class ActivityFactory extends ControllerBase {
     ];
 
     // get activity type
-    $message_template = $message->getTemplate();
     $activity_fields['type'] = reset($message_template->getThirdPartySetting('activity_logger', 'activity_type', NULL));
 
     // add mailing list group to activity

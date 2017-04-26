@@ -91,9 +91,9 @@ function activity_creator_message_insert(\Drupal\message\Entity\Message $entity)
       'status' => NULL,
     ];
 
-    $data['group_id'] = $entity->get('field_message_related_group')
-      ->first()
-      ->getValue()['target_id'];
+    if($entity->field_message_related_group->target_id) {
+      $data['group_id'] = $entity->field_message_related_group->target_id;
+    }
 
     $message_template = $entity->getTemplate();
 
