@@ -5,7 +5,7 @@
  * Contains \Drupal\activity_basics\Plugin\ActivityAction\CreateActivityAction.
  */
 
-namespace Drupal\activity_basics\Plugin\ActivityModeration;
+namespace Drupal\activity_moderation\Plugin\ActivityModeration;
 
 use Drupal\activity_moderation\ActivityModerationBase;
 

@@ -15,7 +15,7 @@ use Drupal\activity_moderation\ActivityModerationBase;
  * @ActivityModeration(
  *  id = "close_mailing_list_ticket",
  *  label = @Translation("Close Mailing List Moderation Ticket"),
- *  message_type = "mailing_list_needs_aproval"
+ *  message_type_id = "mailing_list_needs_aproval"
  * )
  */
 class CloseModerationTicket extends ActivityModerationBase {
