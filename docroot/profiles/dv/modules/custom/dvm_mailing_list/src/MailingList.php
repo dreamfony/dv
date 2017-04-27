@@ -117,17 +117,17 @@ class MailingList {
     $query->condition('type', $this->mailingListType);
     $query->condition('label', $this->mailingListLabel);
     $query->condition('uid', \Drupal::currentUser()->id());
-    $result = $query->execute();
+    $results = $query->execute();
 
-    if ($result) {
-      $group = Group::load(reset($result));
+    foreach ($results as $result) {
+      $group = Group::load($result);
+
       $group_content = $group->getContent('group_node:question');
       $group_users = $group->getMembers([$this->mailingListType . '-organisation']);
       if (empty($group_content) AND empty($group_users)) {
         return $group;
       }
     }
-
     return FALSE;
   }
 
@@ -209,7 +209,7 @@ class MailingList {
    */
   public function approve(Group $group) {
     // skip if moderation state is not email
-    if($group->moderation_state->value !== 'email') {
+    if ($group->moderation_state->value !== 'email') {
       return;
     }
 
@@ -238,16 +238,17 @@ class MailingList {
    * @return false|int|object
    */
   public function allActivitiesCount($group_id) {
-    if($count = $this->cacheBackend->get('dvm_mailing_list:total_activity_count:'.$group_id)) {
+    if ($count = $this->cacheBackend->get('dvm_mailing_list:total_activity_count:' . $group_id)) {
       return $count->data;
-    } else {
+    }
+    else {
       $group = Group::load($group_id);
       $group_content_questions = count($group->getContent('group_node:question'));
       $group_users = count($group->getMembers([$group->bundle() . '-organisation']));
 
       $count = (int) $group_content_questions * $group_users;
 
-      $this->cacheBackend->set('dvm_mailing_list:total_activity_count:'.$group->id(), $count);
+      $this->cacheBackend->set('dvm_mailing_list:total_activity_count:' . $group->id(), $count);
 
       return $count;
     }
