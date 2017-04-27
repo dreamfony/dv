@@ -9,6 +9,7 @@ dependencies:
   - activity_send
   - activity_send_email
   - activity_viewer
+  - activity_moderation
   - address
   - admin_toolbar
   - admin_toolbar_tools

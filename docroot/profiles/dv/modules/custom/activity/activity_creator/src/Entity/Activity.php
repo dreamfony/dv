@@ -371,4 +371,10 @@ class Activity extends RevisionableContentEntityBase implements ActivityInterfac
     return $this->moderation_state->value;
   }
 
+  public function getMessageTypeId() {
+    /** @var \Drupal\message\Entity\Message $message */
+    $message = \Drupal::entityTypeManager()->getStorage('message')->load($this->field_activity_message->target_id);
+    return $message->getTemplate()->id();
+  }
+
 }

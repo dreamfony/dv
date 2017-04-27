@@ -50,7 +50,7 @@ class ModerateMailingList {
         /// $query->addMetaData($entity_id);
         /// and then implement dvm_mailing_list_query_group_mailing_list_alter
         /// to add this first condition
-      ->condition('field_activity_mailing_list.target_id', $group_id)
+      ->condition('field_activity_entity.target_id', $group_id)
       ->condition('type', $bundle);
 
     if ($status) {

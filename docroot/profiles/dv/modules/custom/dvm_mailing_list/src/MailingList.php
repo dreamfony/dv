@@ -3,6 +3,7 @@
 namespace Drupal\dvm_mailing_list;
 
 use Drupal\activity_creator\Plugin\Type\ActivityActionManager;
+use Drupal\activity_moderation\Plugin\Type\ActivityModerationManager;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Field\EntityReferenceFieldItemList;
 use Drupal\group\Entity\GroupContent;
@@ -58,20 +59,26 @@ class MailingList {
   protected $mailingListAnswer;
 
 
+  protected $activityModerationManager;
+
+
   /**
    * MailingList constructor.
    *
    * @param \Drupal\group\GroupMembershipLoaderInterface $group_membership_loader
+   * @param \Drupal\activity_moderation\Plugin\Type\ActivityModerationManager $activity_moderation_manager
    * @param \Drupal\activity_creator\Plugin\Type\ActivityActionManager $activity_action_manager
    * @param \Drupal\panelizer\PanelizerInterface $panelizer
    * @param \Drupal\Core\Cache\CacheBackendInterface $cache_backend
+   * @param \Drupal\dvm_mailing_list\MailingListAnswer $mailing_list_answer
    */
-  public function __construct(GroupMembershipLoaderInterface $group_membership_loader, ActivityActionManager $activity_action_manager, PanelizerInterface $panelizer, CacheBackendInterface $cache_backend, MailingListAnswer $mailing_list_answer) {
+  public function __construct(GroupMembershipLoaderInterface $group_membership_loader, ActivityModerationManager $activity_moderation_manager, ActivityActionManager $activity_action_manager, PanelizerInterface $panelizer, CacheBackendInterface $cache_backend, MailingListAnswer $mailing_list_answer) {
     $this->groupMembershipLoader = $group_membership_loader;
     $this->activityActionProcessor = $activity_action_manager;
     $this->panelizer = $panelizer;
     $this->cacheBackend = $cache_backend;
     $this->mailingListAnswer = $mailing_list_answer;
+    $this->activityModerationManager = $activity_moderation_manager;
 
     $this->mailingListLabel = 'New Survey';
     $this->mailingListType = 'mailing_list';
@@ -190,7 +197,9 @@ class MailingList {
     $group->save();
 
     // send message to moderator
-    \Drupal::service('dmt_moderation.moderate_mailing_list')->openModerationTicket($group);
+    /** @var \Drupal\activity_moderation\Plugin\ActivityModeration\OpenModerationTicket $create_action */
+    $activity_moderation = $this->activityModerationManager->createInstance('open_moderation_ticket');
+    $activity_moderation->createModerationActivity($group);
   }
 
   /**
@@ -219,8 +228,9 @@ class MailingList {
     $group->set('moderation_state', 'published');
     $group->save();
 
-    \Drupal::service('dmt_moderation.moderate_mailing_list')->closeModerationTicket($group);
-
+    /** @var \Drupal\activity_moderation\Plugin\ActivityModeration\OpenModerationTicket $create_action */
+    $activity_moderation = $this->activityModerationManager->createInstance('close_mailing_list_ticket');
+    $activity_moderation->closeModerationActivity($group);
   }
 
   /**

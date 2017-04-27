@@ -1,0 +1,4 @@
+services:
+  plugin.manager.activity_moderation_manager:
+    class: Drupal\activity_moderation\Plugin\Type\ActivityModerationManager
+    parent: default_plugin_manager
