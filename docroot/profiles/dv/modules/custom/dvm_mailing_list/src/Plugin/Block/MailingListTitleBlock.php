@@ -31,6 +31,13 @@ class MailingListTitleBlock extends BlockBase {
     return $content;
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function getCacheMaxAge() {
+    return 0;
+  }
+
   public function editTitleLink() {
 
     $url = Url::fromRoute('dvm_mailing_list.edit_title', [
