@@ -14,6 +14,7 @@ const ACTIVITY_STATUS_SENT = 'sent';
 const ACTIVITY_STATUS_SEEN = 'seen';
 const ACTIVITY_STATUS_CANCELED = 'canceled';
 const ACTIVITY_STATUS_DELIVERY_ERROR = 'delivery_error';
+const ACTIVITY_STATUS_RESOLVED = 'resolved';
 
 /**
  * Implements hook_entity_bundle_info_alter().

@@ -75,12 +75,13 @@ class ActivityModerationBase extends PluginBase implements ActivityModerationInt
    */
   public function closeModerationActivity(EntityInterface $entity) {
     $message_type_id = $this->getPluginDefinition()['message_type_id'];
-    $activity_ids = $this->getRelatedActivities($entity->id(), 'pending');
+    $activity_ids = $this->getRelatedActivities($entity->id(), ACTIVITY_STATUS_PENDING);
     foreach ($activity_ids as $activity_id) {
       $activity = Activity::load($activity_id);
-      if($activity->getMessageTypeId() == $message_type_id) {
+      if ($activity->getMessageTypeId() == $message_type_id) {
         /** @var Activity $activity */
-        $activity->setModerationState('resolved');
+        $activity->setModerationState(ACTIVITY_STATUS_RESOLVED);
+        $activity->save();
       }
     }
   }
