@@ -80,6 +80,8 @@ class MailingListEditTitleForm extends FormBase {
     // Else show the result.
     else {
 
+      $mailing_list_group = Group::load($form['#mailing_list_id']);
+
       // create ajax response
       $response = new AjaxResponse();
 
@@ -91,10 +93,17 @@ class MailingListEditTitleForm extends FormBase {
       );
 
       /** @var BlockManager $block_manager */
+      $block_configuration = [
+        'label_display' => '0',
+        'context_mapping' =>
+          [
+            'group' => '@group.group_route_context:group',
+          ],
+      ];
       $block_manager = \Drupal::service('plugin.manager.block');
-      $plugin_block = $block_manager->createInstance('mailing_list_title_block');
-
-      // replace form with empty one
+      $plugin_block = $block_manager->createInstance('mailing_list_title_block', $block_configuration);
+      $plugin_block->setContextValue('group', $mailing_list_group);
+      // replace form with mailing list title block
       $response->addCommand(new HtmlCommand('.block-mailing-list-title-block', $plugin_block->build()));
 
       $title = $form_state->getValue('title');

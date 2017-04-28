@@ -4,7 +4,6 @@ namespace Drupal\dvm_mailing_list\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Session\AccountInterface;
-use Drupal\group\Entity\Group;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
 use Drupal\Core\Access\AccessResult;
@@ -15,6 +14,9 @@ use Drupal\Core\Access\AccessResult;
  * @Block(
  *   id = "mailing_list_title_block",
  *   admin_label = @Translation("Mailing List Title block"),
+ *   context = {
+ *     "group" = @ContextDefinition("entity:group", required = FALSE)
+ *   }
  * )
  */
 class MailingListTitleBlock extends BlockBase {
@@ -31,17 +33,10 @@ class MailingListTitleBlock extends BlockBase {
     return $content;
   }
 
-  /**
-   * {@inheritdoc}
-   */
-  public function getCacheMaxAge() {
-    return 0;
-  }
-
   public function editTitleLink() {
 
     $url = Url::fromRoute('dvm_mailing_list.edit_title', [
-      'group' => \Drupal::routeMatch()->getParameter('group')->id()
+      'group' => $this->getContextValue('group')->id()
     ]);
 
     $link = Link::fromTextAndUrl(t('Edit Title'), $url);
@@ -61,13 +56,13 @@ class MailingListTitleBlock extends BlockBase {
    * @return \Drupal\Core\Access\AccessResultAllowed|\Drupal\Core\Access\AccessResultForbidden
    */
   public function access(AccountInterface $account, $return_as_object = FALSE) {
+    /** @var \Drupal\group\Entity\GroupInterface $group */
+    $group = $this->getContextValue('group');
 
-    if($group = \Drupal::routeMatch()->getParameter('group')) {
-      /** @var Group $group */
-      if ($group->bundle() == 'mailing_list' && $group->access('update')) {
-        return AccessResult::allowed();
-      }
+    if ($group->id() && $group->bundle() == 'mailing_list' && $group->access('update')) {
+      return AccessResult::allowed();
     }
+
 
     return AccessResult::forbidden();
   }
