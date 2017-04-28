@@ -525,7 +525,20 @@ display:
       title: ''
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'Processing data ...'
+            format: basic_html
+          plugin_id: text
       relationships:
         gc__user:
           id: gc__user

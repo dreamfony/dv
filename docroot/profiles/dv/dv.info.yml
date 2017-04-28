@@ -6,10 +6,10 @@ dependencies:
   - activity_basics
   - activity_creator
   - activity_logger
+  - activity_moderation
   - activity_send
   - activity_send_email
   - activity_viewer
-  - activity_moderation
   - address
   - admin_toolbar
   - admin_toolbar_tools
@@ -35,13 +35,13 @@ dependencies:
   - ctools_views
   - datetime
   - datetime_range
+  - domain
+  - domain_config
   - dynamic_entity_reference
   - dynamic_page_cache
   - editor
   - email_registration
   - entity_browser
-  - domain
-  - domain_config
   - features
   - field
   - field_ui
