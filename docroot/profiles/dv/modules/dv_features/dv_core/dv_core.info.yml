@@ -45,6 +45,7 @@ dependencies:
   - geocoder_field
   - group
   - hal
+  - help
   - image
   - inmail
   - language
