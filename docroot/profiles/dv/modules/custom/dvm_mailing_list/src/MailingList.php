@@ -171,6 +171,11 @@ class MailingList {
    */
   public function sendForApproval(Group $group) {
 
+    if($this->allActivitiesCount($group->id()) == 0) {
+      drupal_set_message(t('Please add questions and recipients before sending for approval.'), 'error');
+      return;
+    }
+
     // remove administrator role
     $account = $group->getOwner();
     $group_membership = $this->groupMembershipLoader->load($group, $account);
