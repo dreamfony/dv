@@ -210,9 +210,6 @@ class MailingListExamples {
       'changed' => $grouptime,
     ]);
 
-    $group->set('moderation_state', 'draft');
-    $group->save();
-
     return $group;
   }
 
