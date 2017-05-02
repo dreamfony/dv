@@ -50,28 +50,6 @@ class MailingListController extends ControllerBase {
   }
 
   /**
-   * Send for Approval.
-   *
-   * @param \Drupal\group\Entity\Group $group
-   * @return \Symfony\Component\HttpFoundation\RedirectResponse
-   */
-  public function sendForApproval(Group $group) {
-    $this->mailingList->sendForApproval($group);
-    return $this->redirect('entity.group.canonical', ['group' => $group->id()]);
-  }
-
-  /**
-   * Approve sending.
-   *
-   * @param \Drupal\group\Entity\Group $group
-   * @return \Symfony\Component\HttpFoundation\RedirectResponse
-   */
-  public function approve(Group $group) {
-    $this->mailingList->approve($group);
-    return $this->redirect('entity.group.canonical', ['group' => $group->id()]);
-  }
-
-  /**
    * Edit Title.
    *
    * @param \Drupal\group\Entity\Group $group

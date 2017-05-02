@@ -14,24 +14,6 @@ dvm_mailing_list.edit_title:
     _entity_access: 'group.update'
     group: \d+
 
-dvm_mailing_list.send:
-  path: 'group/{group}/send'
-  defaults:
-    _controller: '\Drupal\dvm_mailing_list\Controller\MailingListController::sendForApproval'
-  requirements:
-    _mailing_list_send_access: 'FALSE'
-    _entity_access: 'group.update'
-    group: \d+
-
-dvm_mailing_list.approve:
-  path: 'group/{group}/approve'
-  defaults:
-    _controller: '\Drupal\dvm_mailing_list\Controller\MailingListController::approve'
-  requirements:
-    _mailing_list_approve_access: 'TRUE'
-    _entity_access: 'group.view'
-    group: \d+
-
 dvm_mailing_list.ajax_edit_form:
   path: 'node/{node}/ajax-edit'
   defaults:

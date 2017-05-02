@@ -56,13 +56,17 @@ class MailingListTitleBlock extends BlockBase {
    * @return \Drupal\Core\Access\AccessResultAllowed|\Drupal\Core\Access\AccessResultForbidden
    */
   public function access(AccountInterface $account, $return_as_object = FALSE) {
+    // if route is not group view return forbidden
+    if(\Drupal::routeMatch()->getRouteName() != 'entity.group.canonical') {
+      return AccessResult::forbidden();
+    }
+
     /** @var \Drupal\group\Entity\GroupInterface $group */
     $group = $this->getContextValue('group');
 
     if ($group->id() && $group->bundle() == 'mailing_list' && $group->access('update')) {
       return AccessResult::allowed();
     }
-
 
     return AccessResult::forbidden();
   }

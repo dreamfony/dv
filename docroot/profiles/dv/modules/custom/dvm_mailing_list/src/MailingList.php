@@ -4,6 +4,7 @@ namespace Drupal\dvm_mailing_list;
 
 use Drupal\activity_creator\Plugin\Type\ActivityActionManager;
 use Drupal\activity_moderation\Plugin\Type\ActivityModerationManager;
+use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Field\EntityReferenceFieldItemList;
 use Drupal\group\Entity\GroupContent;
@@ -14,6 +15,7 @@ use Drupal\group\GroupMembership;
 use Drupal\panelizer\PanelizerInterface;
 use Drupal\user\Entity\User;
 use Drupal\Core\Cache\CacheBackendInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 
 /**
@@ -120,6 +122,7 @@ class MailingList {
     $results = $query->execute();
 
     foreach ($results as $result) {
+      /** @var \Drupal\group\Entity\GroupInterface $group */
       $group = Group::load($result);
 
       $group_content = $group->getContent('group_node:question');
@@ -167,15 +170,9 @@ class MailingList {
   /**
    * Send Mailing List
    *
-   * @param \Drupal\group\Entity\Group $group
+   * @param \Drupal\Core\Entity\ContentEntityInterface $group
    */
-  public function sendForApproval(Group $group) {
-
-    if($this->allActivitiesCount($group->id()) == 0) {
-      drupal_set_message(t('Please add questions and recipients before sending for approval.'), 'error');
-      return;
-    }
-
+  public function sendForApproval(ContentEntityInterface $group) {
     // remove administrator role
     $account = $group->getOwner();
     $group_membership = $this->groupMembershipLoader->load($group, $account);
@@ -197,10 +194,6 @@ class MailingList {
     // save group membership
     $group_content->save();
 
-    // set moderation state
-    $group->set('moderation_state', 'email');
-    $group->save();
-
     // send message to moderator
     /** @var \Drupal\activity_moderation\Plugin\ActivityModeration\OpenModerationTicket $create_action */
     $activity_moderation = $this->activityModerationManager->createInstance('open_moderation_ticket');
@@ -208,13 +201,35 @@ class MailingList {
   }
 
   /**
+   * Approve Validate.
+   *
+   * @param \Drupal\Core\Entity\ContentEntityInterface $group
+   * @return array
+   */
+  public function allActivitiesCountValidate(ContentEntityInterface $group) {
+    $violations = [];
+
+    // prevent sending for approval with a message
+    if($this->allActivitiesCount($group->id()) == 0) {
+      $violations[] = 'Please add questions and recipients before sending for approval.';
+    }
+
+    return $violations;
+  }
+
+  /**
    * Approve.
    *
-   * @param \Drupal\group\Entity\Group $group
+   * @param \Drupal\Core\Entity\ContentEntityInterface $group
+   * @return void
    */
-  public function approve(Group $group) {
-    // skip if moderation state is not email
-    if ($group->moderation_state->value !== 'email') {
+  public function approve(ContentEntityInterface $group) {
+    // prevent approve with a message and redirect back to group_view
+    if($this->allActivitiesCount($group->id()) == 0) {
+      drupal_set_message(t('Survey needs to have questions and recipients before approving.'), 'error');
+      // we redirect here since theres no other way to prevent saving entity
+      $response = new RedirectResponse($group->toUrl()->toString(), 302);
+      $response->send();
       return;
     }
 
@@ -228,10 +243,6 @@ class MailingList {
       $create_action = $this->activityActionProcessor->createInstance('create_activity_action');
       $create_action->create($activity_entity, $data);
     }
-
-    // set moderation state
-    $group->set('moderation_state', 'published');
-    $group->save();
 
     /** @var \Drupal\activity_moderation\Plugin\ActivityModeration\OpenModerationTicket $create_action */
     $activity_moderation = $this->activityModerationManager->createInstance('close_mailing_list_ticket');
