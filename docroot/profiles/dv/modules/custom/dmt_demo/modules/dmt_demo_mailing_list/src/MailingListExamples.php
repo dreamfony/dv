@@ -109,53 +109,31 @@ class MailingListExamples {
         }
 
         // create questions
-        if($group_data['state'] !== 'new'){
+        if($group_data['add_questions']){
           $this->createQuestions($group_object, $user);
         }
 
-        // send for approval
-        if($group_data['state'] == 'email'){
-          $this->mailingList->sendForApproval($group_object);
-        }
+        // Loop trough states save each and process queues
+        foreach ($group_data['states'] as $state) {
+          $group_object->set('moderation_state', $state);
+          $group_object->save();
 
-        // approve
-        if($group_data['state'] == 'approved'){
-          $this->mailingList->sendForApproval($group_object);
-          $this->mailingList->approve($group_object);
-        }
-
-        // activities created
-        if($group_data['state'] == 'activities_created'){
-          $this->mailingList->sendForApproval($group_object);
-          $this->mailingList->approve($group_object);
-
-          $this->processQueue->queueProcess('activity_logger_message');
-          $this->processQueue->queueProcess('activity_creator_logger');
-          $this->processQueue->queueProcess('activity_creator_activities');
-        }
-
-        // sent
-        if($group_data['state'] == 'sent'){
-          $this->mailingList->sendForApproval($group_object);
-          $this->mailingList->approve($group_object);
-
+          // process all activity queues before switching to next state
           $this->processQueue->queueProcess('activity_logger_message');
           $this->processQueue->queueProcess('activity_creator_logger');
           $this->processQueue->queueProcess('activity_creator_activities');
           $this->processQueue->queueProcess('activity_send_email_worker');
         }
 
-        // partially answers
-        if($group_data['state'] == 'partially_answered'){
-          $this->mailingList->sendForApproval($group_object);
-          $this->mailingList->approve($group_object);
+        // process answers if present
+        if(isset($group_data['answers'])) {
+          $answer_count = $group_data['answers'];
 
-          $this->processQueue->queueProcess('activity_logger_message');
-          $this->processQueue->queueProcess('activity_creator_logger');
-          $this->processQueue->queueProcess('activity_creator_activities');
-          $this->processQueue->queueProcess('activity_send_email_worker');
-
-          $activities = $this->getActivitiesByGroup($group_object, 10);
+          if($answer_count > 0) {
+            $activities = $this->getActivitiesByGroup($group_object, $answer_count);
+          } else {
+            $activities = $this->getActivitiesByGroup($group_object);
+          }
 
           $values = array_values($this->comments)[0];
 
@@ -164,27 +142,8 @@ class MailingListExamples {
           }
         }
 
-        // fully answers
-        if($group_data['state'] == 'fully_answered'){
-          $this->mailingList->sendForApproval($group_object);
-          $this->mailingList->approve($group_object);
-
-          $this->processQueue->queueProcess('activity_logger_message');
-          $this->processQueue->queueProcess('activity_creator_logger');
-          $this->processQueue->queueProcess('activity_creator_activities');
-          $this->processQueue->queueProcess('activity_send_email_worker');
-
-          $activities = $this->getActivitiesByGroup($group_object);
-
-          $values = array_values($this->comments)[0];
-
-          foreach ($activities as $activity) {
-            $this->mailingListAnswer->createAnswerFromActivity($activity, $values);
-          }
-        }
-
+        drush_log(dt('Create: @title', ['@title' => $group_data['title']]), 'success');
       }
-
     }
     return TRUE;
   }
@@ -242,7 +201,7 @@ class MailingListExamples {
     // Calculate data.
     $grouptime = $this->createDate($group_data['created']);
     // Let's create some groups.
-    $group_object = Group::create([
+    $group = Group::create([
       'uuid' => $uuid,
       'type' => $group_data['group_type'],
       'label' => $group_data['title'],
@@ -250,9 +209,11 @@ class MailingListExamples {
       'created' => $grouptime,
       'changed' => $grouptime,
     ]);
-    $group_object->save();
 
-    return $group_object;
+    $group->set('moderation_state', 'draft');
+    $group->save();
+
+    return $group;
   }
 
   /**
