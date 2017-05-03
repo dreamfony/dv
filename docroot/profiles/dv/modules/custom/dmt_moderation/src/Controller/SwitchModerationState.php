@@ -3,8 +3,6 @@
 namespace Drupal\dmt_moderation\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\dmt_moderation\Plugin\Type\SwitchModerationStateManager;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
@@ -13,29 +11,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  * @package Drupal\dmt_moderation\Controller
  */
 class SwitchModerationState extends ControllerBase {
-
-  /**
-   * @var \Drupal\dmt_moderation\Plugin\Type\SwitchModerationStateManager
-   */
-  protected $switchModerationStateManager;
-
-  /**
-   * SwitchModerationState constructor.
-   * @param \Drupal\dmt_moderation\Plugin\Type\SwitchModerationStateManager $switchModerationStateManager
-   */
-  public function __construct(SwitchModerationStateManager $switchModerationStateManager) {
-    $this->switchModerationStateManager = $switchModerationStateManager;
-  }
-
-  /**
-   * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
-   * @return static
-   */
-  public static function create(ContainerInterface $container) {
-    return new static(
-      $container->get('plugin.manager.switch_moderation_state_manager')
-    );
-  }
 
   /**
    * Switch method.

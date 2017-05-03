@@ -3,7 +3,6 @@
 namespace Drupal\dmt_moderation\Plugin\Validation\Constraint;
 
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
-use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\content_moderation\ModerationInformationInterface;
 use Drupal\content_moderation\StateTransitionValidation;
@@ -76,22 +75,9 @@ class EntityModerationConstraintValidator extends ConstraintValidator implements
   /**
    * {@inheritdoc}
    */
-  public function validate($entity, Constraint $constraint) {
-    // Ignore entities that are not subject to moderation anyway.
-    if (!$this->moderationInformation->isModeratedEntity($entity)) {
-      return;
-    }
-
-    // Ignore entities that are being created for the first time.
-    if ($entity->isNew()) {
-      return;
-    }
-
-    // Ignore entities that are being moderated for the first time, such as
-    // when they existed before moderation was enabled for this entity type.
-    if ($this->isFirstTimeModeration($entity)) {
-      return;
-    }
+  public function validate($value, Constraint $constraint) {
+    /** @var \Drupal\Core\Entity\EntityInterface $entity */
+    $entity = $value->getEntity();
 
     $original_entity = $this->moderationInformation->getLatestRevision($entity->getEntityTypeId(), $entity->id());
     if (!$entity->isDefaultTranslation() && $original_entity->hasTranslation($entity->language()->getId())) {
@@ -102,7 +88,7 @@ class EntityModerationConstraintValidator extends ConstraintValidator implements
     $new_state = $workflow->getState($entity->moderation_state->value) ?: $workflow->getInitialState();
     $original_state = $workflow->getState($original_entity->moderation_state->value);
 
-    $plugin_id = $this->switchModerationStateManager->getPluginId($entity);
+    $plugin_id = $this->switchModerationStateManager->getPluginIdByEntity($entity);
 
     /** @var \Drupal\dmt_moderation\SwitchModerationStateBase $sms */
     $sms = $this->switchModerationStateManager->createInstance($plugin_id);
@@ -114,25 +100,5 @@ class EntityModerationConstraintValidator extends ConstraintValidator implements
         $this->context->addViolation($violation);
       }
     }
-  }
-
-  /**
-   * Determines if this entity is being moderated for the first time.
-   *
-   * If the previous version of the entity has no moderation state, we assume
-   * that means it predates the presence of moderation states.
-   *
-   * @param \Drupal\Core\Entity\EntityInterface $entity
-   *   The entity being moderated.
-   *
-   * @return bool
-   *   TRUE if this is the entity's first time being moderated, FALSE otherwise.
-   */
-  protected function isFirstTimeModeration(EntityInterface $entity) {
-    $original_entity = $this->moderationInformation->getLatestRevision($entity->getEntityTypeId(), $entity->id());
-
-    $original_id = $original_entity->moderation_state;
-
-    return !($entity->moderation_state && $original_entity && $original_id);
   }
 }

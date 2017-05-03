@@ -57,6 +57,8 @@ class ModerationStateLinks {
       return FALSE;
     }
 
+    /// @todo: this method can be cached per request just need to figure out weather its necessary
+    // since we are caching the block
     $links = [];
 
     $valid_transitions = $this->stateTransitionValidation->getValidTransitions($entity, $this->account);
@@ -88,6 +90,7 @@ class ModerationStateLinks {
 
     if ($url->access()) {
       $link = Link::fromTextAndUrl($transition->label(), $url);
+      /// @todo this method should probably just return urls
       return $link->toRenderable();
     }
     return;

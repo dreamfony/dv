@@ -96,7 +96,7 @@ function dmt_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $entit
 
   /** @var \Drupal\dmt_moderation\Plugin\Type\SwitchModerationStateManager $switch_moderation_state_manager */
   $switch_moderation_state_manager = \Drupal::service('plugin.manager.switch_moderation_state_manager');
-  $plugin_id = $switch_moderation_state_manager->getPluginId($entity);
+  $plugin_id = $switch_moderation_state_manager->getPluginIdByEntity($entity);
 
   /** @var \Drupal\dmt_moderation\SwitchModerationStateBase $sms */
   $sms = $switch_moderation_state_manager->createInstance($plugin_id);
@@ -107,15 +107,10 @@ function dmt_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $entit
 
 
 /**
- * Implements hook_entity_type_alter().
+ * Implements hook_entity_base_field_info_alter().
  */
-function dmt_moderation_entity_type_alter(array &$entity_types) {
-  foreach ($entity_types as $entity_type) {
-    if($entity_type instanceof \Drupal\Core\Entity\ContentEntityType) {
-      // check if entity is Moderated Entity
-      if($entity_type->getHandlerClass('moderation')) {
-        $entity_type->addConstraint('EntityModeration', []);      }
-
-    }
+function dmt_moderation_entity_base_field_info_alter(&$fields, \Drupal\Core\Entity\EntityTypeInterface $entity_type) {
+  if (!empty($fields['moderation_state'])) {
+    $fields['moderation_state']->addConstraint('EntityModeration', []);
   }
 }

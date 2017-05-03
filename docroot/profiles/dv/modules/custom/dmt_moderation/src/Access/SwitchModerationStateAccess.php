@@ -42,7 +42,7 @@ class SwitchModerationStateAccess implements AccessInterface {
    *   The access result.
    */
   public function access(Route $route, AccountInterface $account, ContentEntityInterface $entity, $state_id) {
-    $plugin_id = $this->switchModerationStateManager->getPluginId($entity);
+    $plugin_id = $this->switchModerationStateManager->getPluginIdByEntity($entity);
     /** @var \Drupal\dmt_moderation\SwitchModerationStateBase $sms */
     $sms = $this->switchModerationStateManager->createInstance($plugin_id);
     $old_state = $entity->moderation_state->value;

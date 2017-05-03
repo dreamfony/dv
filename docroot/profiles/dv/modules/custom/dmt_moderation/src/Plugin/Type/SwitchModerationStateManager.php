@@ -52,19 +52,19 @@ class SwitchModerationStateManager extends DefaultPluginManager {
   }
 
   /**
-   * Get Plugin Id.
+   * Get Plugin Id By Entity.
    *
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
    * @return int|string
    */
-  public function getPluginId(ContentEntityInterface $entity) {
+  public function getPluginIdByEntity(ContentEntityInterface $entity) {
     foreach ($this->getDefinitions() as $plugin_id => $plugin_definition) {
       if($plugin_definition['entity_type'] == $entity->getEntityTypeId() && $plugin_definition['entity_bundle'] == $entity->bundle()) {
         return $plugin_id;
       }
     }
 
-    // if no other plugins are implement return default
+    // if no other plugins are implemented return default
     return 'switch_moderation_state_default';
   }
 

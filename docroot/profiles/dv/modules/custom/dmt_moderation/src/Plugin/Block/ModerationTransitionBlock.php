@@ -49,16 +49,14 @@ class ModerationTransitionBlock extends BlockBase implements ContainerFactoryPlu
     );
   }
 
-
   /**
    * {@inheritdoc}
    */
   public function build() {
 
+    /// @todo: figure out how to make this a renderable list
     $links = $this->moderationStateLinks->getLinks($this->getEntityFromRoute());
-
     $content['block_content'] = $links;
-
     return $content;
   }
 
@@ -72,7 +70,6 @@ class ModerationTransitionBlock extends BlockBase implements ContainerFactoryPlu
   }
 
   public function getCacheTags() {
-    /// @todo: check this code seems its not working
     // When entity changes rebuild block block will rebuild
     if ($entity = $this->getEntityFromRoute()) {
       /** @var ContentEntityInterface $entity */
