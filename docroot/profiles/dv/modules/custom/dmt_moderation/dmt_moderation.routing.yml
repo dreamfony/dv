@@ -1,7 +1,7 @@
 dmt_moderation.switch_moderation_state:
   path: 'switch-moderation-state/{entity_type}/{entity}/{state_id}'
   defaults:
-    _controller: '\Drupal\dmt_moderation\Controller\SwitchModerationState::switch'
+    _controller: '\Drupal\dmt_moderation\Controller\SwitchModerationState::switchState'
   requirements:
     _switch_moderation_state: 'TRUE'
     _entity_access: 'entity.update'

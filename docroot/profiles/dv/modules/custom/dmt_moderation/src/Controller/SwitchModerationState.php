@@ -20,7 +20,7 @@ class SwitchModerationState extends ControllerBase {
    * @param $state_id
    * @return \Symfony\Component\HttpFoundation\RedirectResponse
    */
-  public function switch($entity_type, ContentEntityInterface $entity, $state_id) {
+  public function switchState($entity_type, ContentEntityInterface $entity, $state_id) {
     $entity->set('moderation_state', $state_id);
 
     /** @var \Drupal\Core\Entity\EntityConstraintViolationList $violations */
