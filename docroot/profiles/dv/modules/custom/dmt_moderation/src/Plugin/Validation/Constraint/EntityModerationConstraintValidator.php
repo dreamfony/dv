@@ -5,7 +5,6 @@ namespace Drupal\dmt_moderation\Plugin\Validation\Constraint;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\content_moderation\ModerationInformationInterface;
-use Drupal\content_moderation\StateTransitionValidation;
 use Drupal\dmt_moderation\Plugin\Type\SwitchModerationStateManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Validator\Constraint;
@@ -15,13 +14,6 @@ use Symfony\Component\Validator\ConstraintValidator;
  * Validates the Entity Moderation constraint.
  */
 class EntityModerationConstraintValidator extends ConstraintValidator implements ContainerInjectionInterface {
-
-  /**
-   * The state transition validation.
-   *
-   * @var \Drupal\content_moderation\StateTransitionValidation
-   */
-  protected $validation;
 
   /**
    * The entity type manager.
@@ -47,14 +39,11 @@ class EntityModerationConstraintValidator extends ConstraintValidator implements
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
-   * @param \Drupal\content_moderation\StateTransitionValidation $validation
-   *   The state transition validation.
    * @param \Drupal\content_moderation\ModerationInformationInterface $moderation_information
    *   The moderation information.
    * @param \Drupal\dmt_moderation\Plugin\Type\SwitchModerationStateManager $switchModerationStateManager
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, StateTransitionValidation $validation, ModerationInformationInterface $moderation_information, SwitchModerationStateManager $switchModerationStateManager) {
-    $this->validation = $validation;
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, ModerationInformationInterface $moderation_information, SwitchModerationStateManager $switchModerationStateManager) {
     $this->entityTypeManager = $entity_type_manager;
     $this->moderationInformation = $moderation_information;
     $this->switchModerationStateManager = $switchModerationStateManager;
@@ -66,7 +55,6 @@ class EntityModerationConstraintValidator extends ConstraintValidator implements
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('entity_type.manager'),
-      $container->get('content_moderation.state_transition_validation'),
       $container->get('content_moderation.moderation_information'),
       $container->get('plugin.manager.switch_moderation_state_manager')
     );
