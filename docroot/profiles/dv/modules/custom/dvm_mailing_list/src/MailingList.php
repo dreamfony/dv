@@ -35,16 +35,6 @@ class MailingList {
   protected $mailingListLabel;
 
   /**
-   * @var GroupMembershipLoaderInterface
-   */
-  protected $groupMembershipLoader;
-
-  /**
-   * @var \Drupal\activity_creator\Plugin\Type\ActivityActionManager
-   */
-  protected $activityActionProcessor;
-
-  /**
    * @var \Drupal\panelizer\PanelizerInterface
    */
   protected $panelizer;
@@ -61,26 +51,18 @@ class MailingList {
   protected $mailingListAnswer;
 
 
-  protected $activityModerationManager;
-
-
   /**
    * MailingList constructor.
    *
-   * @param \Drupal\group\GroupMembershipLoaderInterface $group_membership_loader
-   * @param \Drupal\activity_moderation\Plugin\Type\ActivityModerationManager $activity_moderation_manager
-   * @param \Drupal\activity_creator\Plugin\Type\ActivityActionManager $activity_action_manager
    * @param \Drupal\panelizer\PanelizerInterface $panelizer
    * @param \Drupal\Core\Cache\CacheBackendInterface $cache_backend
    * @param \Drupal\dvm_mailing_list\MailingListAnswer $mailing_list_answer
    */
-  public function __construct(GroupMembershipLoaderInterface $group_membership_loader, ActivityModerationManager $activity_moderation_manager, ActivityActionManager $activity_action_manager, PanelizerInterface $panelizer, CacheBackendInterface $cache_backend, MailingListAnswer $mailing_list_answer) {
-    $this->groupMembershipLoader = $group_membership_loader;
-    $this->activityActionProcessor = $activity_action_manager;
+  public function __construct(PanelizerInterface $panelizer, CacheBackendInterface $cache_backend, MailingListAnswer $mailing_list_answer) {
     $this->panelizer = $panelizer;
     $this->cacheBackend = $cache_backend;
     $this->mailingListAnswer = $mailing_list_answer;
-    $this->activityModerationManager = $activity_moderation_manager;
+
 
     $this->mailingListLabel = 'New Survey';
     $this->mailingListType = 'mailing_list';
@@ -165,88 +147,6 @@ class MailingList {
       }
     }
 
-  }
-
-  /**
-   * Send Mailing List
-   *
-   * @param \Drupal\Core\Entity\ContentEntityInterface $group
-   */
-  public function sendForApproval(ContentEntityInterface $group) {
-    // remove administrator role
-    $account = $group->getOwner();
-    $group_membership = $this->groupMembershipLoader->load($group, $account);
-
-    $group_content = $group_membership->getGroupContent();
-
-    /** @var EntityReferenceFieldItemList $group_roles */
-    $group_roles = $group_content->get('group_roles');
-
-    foreach ($group_roles->referencedEntities() as $delta => $role) {
-      /** @var EntityInterface $role */
-      if ($role->id() == 'mailing_list-administrator') {
-        $group_roles->removeItem($delta);
-        break;
-      }
-    }
-    $group_content->set('group_roles', $group_roles->referencedEntities());
-
-    // save group membership
-    $group_content->save();
-
-    // send message to moderator
-    /** @var \Drupal\activity_moderation\Plugin\ActivityModeration\OpenModerationTicket $create_action */
-    $activity_moderation = $this->activityModerationManager->createInstance('open_moderation_ticket');
-    $activity_moderation->createModerationActivity($group);
-  }
-
-  /**
-   * Approve Validate.
-   *
-   * @param \Drupal\Core\Entity\ContentEntityInterface $group
-   * @return array
-   */
-  public function allActivitiesCountValidate(ContentEntityInterface $group) {
-    $violations = [];
-
-    // prevent sending for approval with a message
-    if($this->allActivitiesCount($group->id()) == 0) {
-      $violations[] = 'Please add questions and recipients before sending for approval.';
-    }
-
-    return $violations;
-  }
-
-  /**
-   * Approve.
-   *
-   * @param \Drupal\Core\Entity\ContentEntityInterface $group
-   * @return void
-   */
-  public function approve(ContentEntityInterface $group) {
-    // prevent approve with a message and redirect back to group_view
-    if($this->allActivitiesCount($group->id()) == 0) {
-      drupal_set_message(t('Survey needs to have questions and recipients before approving.'), 'error');
-      // we redirect here since theres no other way to prevent saving entity
-      $response = new RedirectResponse($group->toUrl()->toString(), 302);
-      $response->send();
-      return;
-    }
-
-    $group_content_questions = $group->getContent('group_node:question');
-
-    foreach ($group_content_questions as $group_content) {
-      /** @var GroupContent $group_content */
-      $activity_entity = Node::load($group_content->getEntity()->id());
-      $data['group_id'] = $group_content->getGroup()->id();
-      $data['context'] = 'organisation_activity_context';
-      $create_action = $this->activityActionProcessor->createInstance('create_activity_action');
-      $create_action->create($activity_entity, $data);
-    }
-
-    /** @var \Drupal\activity_moderation\Plugin\ActivityModeration\OpenModerationTicket $create_action */
-    $activity_moderation = $this->activityModerationManager->createInstance('close_mailing_list_ticket');
-    $activity_moderation->closeModerationActivity($group);
   }
 
   /**
