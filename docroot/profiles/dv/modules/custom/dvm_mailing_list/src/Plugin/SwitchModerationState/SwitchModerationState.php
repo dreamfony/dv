@@ -50,8 +50,8 @@ class SwitchModerationState extends SwitchModerationStateBase implements Contain
   /**
    * {@inheritdoc}
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, StateTransitionValidation $stateTransitionValidation, ModerationInformation $moderationInformation, MailingList $mailingList, GroupMembershipLoader $groupMembershipLoader, ActivityModerationManager $activityModerationManager, ActivityActionManager $activityActionManager) {
-    parent::__construct($configuration, $plugin_id, $plugin_definition, $stateTransitionValidation, $moderationInformation);
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, StateTransitionValidation $stateTransitionValidation, ModerationInformation $moderationInformation, MailingList $mailingList, GroupMembershipLoader $groupMembershipLoader, ActivityModerationManager $activityModerationManager, ActivityActionManager $activityActionManager, AccountInterface $account) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition, $stateTransitionValidation, $moderationInformation, $account);
 
     $this->mailingList = $mailingList;
     $this->groupMembershipLoader = $groupMembershipLoader;
@@ -72,27 +72,30 @@ class SwitchModerationState extends SwitchModerationStateBase implements Contain
       $container->get('dvm_mailing_list.mailing_list'),
       $container->get('group.membership_loader'),
       $container->get('plugin.manager.activity_moderation_manager'),
-      $container->get('plugin.manager.activity_action_processor')
+      $container->get('plugin.manager.activity_action_processor'),
+      $container->get('current_user')
     );
   }
 
   /**
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
-   * @param \Drupal\Core\Session\AccountInterface $account
    * @return array
    */
-  public function approve_sending_validate(ContentEntityInterface $entity, AccountInterface $account) {
+  public function approve_sending_validate(ContentEntityInterface $entity) {
     $violations = [];
 
     // prevent sending for approval with a message
     if($this->mailingList->allActivitiesCount($entity->id()) == 0) {
-      $violations[] = 'Please add questions and recipients before sending for approval.';
+      $violations[] = [
+        'message' => 'Please add questions and recipients before sending for approval.',
+        'cause' => 'allow_link' // send this cause if you want to ignore this violation when showing links
+      ];
     }
 
     return $violations;
   }
 
-  public function approve_sending_switch(ContentEntityInterface $entity, AccountInterface $account) {
+  public function approve_sending_switch(ContentEntityInterface $entity) {
     /** @var \Drupal\group\Entity\GroupInterface $group */
     $group = $entity;
 
@@ -114,21 +117,23 @@ class SwitchModerationState extends SwitchModerationStateBase implements Contain
 
   /**
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
-   * @param \Drupal\Core\Session\AccountInterface $account
    * @return array
    */
-  public function send_email_validate(ContentEntityInterface $entity, AccountInterface $account) {
+  public function send_email_validate(ContentEntityInterface $entity) {
     $violations = [];
 
     // prevent sending for approval with a message
     if($this->mailingList->allActivitiesCount($entity->id()) == 0) {
-      $violations[] = 'Please add questions and recipients before sending for approval.';
+      $violations[] = [
+        'message' => 'Please add questions and recipients before sending for approval.',
+        'cause' => 'allow_link' // send this cause if you want to ignore this violation when showing links
+        ];
     }
 
     return $violations;
   }
 
-  public function send_email_switch(ContentEntityInterface $entity, AccountInterface $account) {
+  public function send_email_switch(ContentEntityInterface $entity) {
     /** @var \Drupal\group\Entity\GroupInterface $group */
     $group = $entity;
 
