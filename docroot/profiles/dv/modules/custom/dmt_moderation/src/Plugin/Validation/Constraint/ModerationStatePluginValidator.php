@@ -3,7 +3,7 @@
 namespace Drupal\dmt_moderation\Plugin\Validation\Constraint;
 
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
-use Drupal\dmt_moderation\Plugin\Type\SwitchModerationStateManager;
+use Drupal\dmt_moderation\Plugin\Type\ModerationStateMachineManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
@@ -15,7 +15,7 @@ use Drupal\Core\Entity\EntityInterface;
 /**
  * Validates the Entity Moderation constraint.
  */
-class EntityModerationConstraintValidator extends ConstraintValidator implements ContainerInjectionInterface {
+class ModerationStatePluginValidator extends ConstraintValidator implements ContainerInjectionInterface {
 
   /**
    * The state transition validation.
@@ -39,9 +39,9 @@ class EntityModerationConstraintValidator extends ConstraintValidator implements
   protected $moderationInformation;
 
   /**
-   * @var \Drupal\dmt_moderation\Plugin\Type\SwitchModerationStateManager
+   * @var \Drupal\dmt_moderation\Plugin\Type\ModerationStateMachineManager
    */
-  protected $switchModerationStateManager;
+  protected $moderationStateMachineManager;
 
   /**
    * Creates a new ModerationStateConstraintValidator instance.
@@ -52,13 +52,13 @@ class EntityModerationConstraintValidator extends ConstraintValidator implements
    *   The state transition validation.
    * @param \Drupal\content_moderation\ModerationInformationInterface $moderation_information
    *   The moderation information.
-   * @param \Drupal\dmt_moderation\Plugin\Type\SwitchModerationStateManager $switchModerationStateManager
+   * @param \Drupal\dmt_moderation\Plugin\Type\ModerationStateMachineManager $moderationStateMachineManager
    */
-  public function __construct(EntityTypeManager $entity_type_manager, StateTransitionValidation $validation, ModerationInformationInterface $moderation_information, SwitchModerationStateManager $switchModerationStateManager) {
+  public function __construct(EntityTypeManager $entity_type_manager, StateTransitionValidation $validation, ModerationInformationInterface $moderation_information, ModerationStateMachineManager $moderationStateMachineManager) {
     $this->validation = $validation;
     $this->entityTypeManager = $entity_type_manager;
     $this->moderationInformation = $moderation_information;
-    $this->switchModerationStateManager = $switchModerationStateManager;
+    $this->moderationStateMachineManager = $moderationStateMachineManager;
   }
 
   /**
@@ -96,10 +96,10 @@ class EntityModerationConstraintValidator extends ConstraintValidator implements
       return;
     }
 
-    $plugin_id = $this->switchModerationStateManager->getPluginIdByEntity($entity);
+    $plugin_id = $this->moderationStateMachineManager->getPluginIdByEntity($entity);
 
-    /** @var \Drupal\dmt_moderation\SwitchModerationStateBase $sms */
-    $sms = $this->switchModerationStateManager->createInstance($plugin_id);
+    /** @var \Drupal\dmt_moderation\ModerationStateMachineBase $sms */
+    $sms = $this->moderationStateMachineManager->createInstance($plugin_id);
     $violations = $sms->switchStateValidate($entity);
 
     if(!empty($violations)) {

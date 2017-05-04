@@ -7,10 +7,10 @@ use Drupal\Core\Entity\ContentEntityInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
- * Class SwitchModerationState
+ * Class ModerationStateMachine
  * @package Drupal\dmt_moderation\Controller
  */
-class SwitchModerationState extends ControllerBase {
+class ModerationStateMachine extends ControllerBase {
 
   /**
    * Switch method.

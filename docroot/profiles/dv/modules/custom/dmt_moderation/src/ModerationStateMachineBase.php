@@ -13,7 +13,7 @@ use Drupal\Core\Session\AccountInterface;
 /**
  * Base class for Switch Moderation State plugins.
  */
-class SwitchModerationStateBase extends PluginBase implements SwitchModerationStateInterface, ContainerFactoryPluginInterface {
+class ModerationStateMachineBase extends PluginBase implements ModerationStateMachineInterface, ContainerFactoryPluginInterface {
 
   /**
    * @var \Drupal\content_moderation\StateTransitionValidation
@@ -31,7 +31,7 @@ class SwitchModerationStateBase extends PluginBase implements SwitchModerationSt
   protected $account;
 
   /**
-   * SwitchModerationStateBase constructor.
+   * ModerationStateMachineBase constructor.
    *
    * @param array $configuration
    * @param string $plugin_id

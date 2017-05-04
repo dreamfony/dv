@@ -4,7 +4,7 @@ services:
     arguments: ['@entity_type.manager']
 
   plugin.manager.switch_moderation_state_manager:
-    class: Drupal\dmt_moderation\Plugin\Type\SwitchModerationStateManager
+    class: Drupal\dmt_moderation\Plugin\Type\ModerationStateMachineManager
     parent: default_plugin_manager
 
   dmt_moderation.moderation_state_links:

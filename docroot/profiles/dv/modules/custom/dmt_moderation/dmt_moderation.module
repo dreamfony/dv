@@ -99,11 +99,11 @@ function dmt_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $entit
     return;
   }
 
-  /** @var \Drupal\dmt_moderation\Plugin\Type\SwitchModerationStateManager $switch_moderation_state_manager */
+  /** @var \Drupal\dmt_moderation\Plugin\Type\ModerationStateMachineManager $switch_moderation_state_manager */
   $switch_moderation_state_manager = \Drupal::service('plugin.manager.switch_moderation_state_manager');
   $plugin_id = $switch_moderation_state_manager->getPluginIdByEntity($entity);
 
-  /** @var \Drupal\dmt_moderation\SwitchModerationStateBase $sms */
+  /** @var \Drupal\dmt_moderation\ModerationStateMachineBase $sms */
   $sms = $switch_moderation_state_manager->createInstance($plugin_id);
   $sms->switchState($entity);
 }
@@ -114,6 +114,6 @@ function dmt_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $entit
  */
 function dmt_moderation_entity_base_field_info_alter(&$fields, \Drupal\Core\Entity\EntityTypeInterface $entity_type) {
   if (!empty($fields['moderation_state'])) {
-    $fields['moderation_state']->addConstraint('EntityModeration', []);
+    $fields['moderation_state']->addConstraint('ModerationStatePlugin', []);
   }
 }

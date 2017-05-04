@@ -10,14 +10,14 @@ namespace Drupal\dmt_moderation\Annotation;
 use Drupal\Component\Annotation\Plugin;
 
 /**
- * Defines a Switch Moderation State item annotation object.
+ * Defines a Moderation State Machine item annotation object.
  *
- * @see \Drupal\dmt_moderation\Plugin\Type\SwitchModerationStateManager
+ * @see \Drupal\dmt_moderation\Plugin\Type\ModerationStateMachineManager
  * @see plugin_api
  *
  * @Annotation
  */
-class SwitchModerationState extends Plugin {
+class ModerationStateMachine extends Plugin {
 
   /**
    * The plugin ID.

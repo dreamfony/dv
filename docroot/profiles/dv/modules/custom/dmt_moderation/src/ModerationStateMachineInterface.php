@@ -12,6 +12,6 @@ use Drupal\Component\Plugin\PluginInspectionInterface;
 /**
  * Defines an interface for Activity action plugins.
  */
-interface SwitchModerationStateInterface extends PluginInspectionInterface {
+interface ModerationStateMachineInterface extends PluginInspectionInterface {
 
 }

@@ -16,10 +16,10 @@ use Drupal\Component\Utility\Html;
 /**
  * Provides the Activity Moderation plugin manager.
  */
-class SwitchModerationStateManager extends DefaultPluginManager {
+class ModerationStateMachineManager extends DefaultPluginManager {
 
   /**
-   * Constructor for ActivityModerationManager objects.
+   * Constructor for Moderation State Machine objects.
    *
    * @param \Traversable $namespaces
    *   An object that implements \Traversable which contains the root paths
@@ -30,10 +30,10 @@ class SwitchModerationStateManager extends DefaultPluginManager {
    *   The module handler to invoke the alter hook with.
    */
   public function __construct(\Traversable $namespaces, CacheBackendInterface $cache_backend, ModuleHandlerInterface $module_handler) {
-    parent::__construct('Plugin/SwitchModerationState', $namespaces, $module_handler, 'Drupal\dmt_moderation\SwitchModerationStateInterface', 'Drupal\dmt_moderation\Annotation\SwitchModerationState');
+    parent::__construct('Plugin/ModerationStateMachine', $namespaces, $module_handler, 'Drupal\dmt_moderation\ModerationStateMachineInterface', 'Drupal\dmt_moderation\Annotation\ModerationStateMachine');
 
-    $this->alterInfo('dmt_moderation_switch_moderation_state_info');
-    $this->setCacheBackend($cache_backend, 'dmt_moderation_switch_moderation_plugins');
+    $this->alterInfo('moderation_state_machine_info');
+    $this->setCacheBackend($cache_backend, 'moderation_state_machine_plugins');
   }
 
   /**
@@ -65,7 +65,7 @@ class SwitchModerationStateManager extends DefaultPluginManager {
     }
 
     // if no other plugins are implemented return default
-    return 'switch_moderation_state_default';
+    return 'moderation_state_machine_default';
   }
 
 }
