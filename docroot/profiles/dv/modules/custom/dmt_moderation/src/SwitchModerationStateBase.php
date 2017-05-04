@@ -26,22 +26,26 @@ class SwitchModerationStateBase extends PluginBase implements SwitchModerationSt
   protected $moderationInformation;
 
   /**
-   * Constructs a ActivityModerationBase object.
+   * @var \Drupal\Core\Session\AccountInterface
+   */
+  protected $account;
+
+  /**
+   * SwitchModerationStateBase constructor.
    *
    * @param array $configuration
-   *   A configuration array containing information about the plugin instance.
    * @param string $plugin_id
-   *   The plugin_id for the plugin instance.
    * @param mixed $plugin_definition
-   *   The plugin implementation definition.
    * @param \Drupal\content_moderation\StateTransitionValidation $stateTransitionValidation
    * @param \Drupal\content_moderation\ModerationInformation $moderationInformation
+   * @param \Drupal\Core\Session\AccountInterface $account
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, StateTransitionValidation $stateTransitionValidation, ModerationInformation $moderationInformation) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, StateTransitionValidation $stateTransitionValidation, ModerationInformation $moderationInformation, AccountInterface $account) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
 
     $this->stateTransitionValidation = $stateTransitionValidation;
     $this->moderationInformation = $moderationInformation;
+    $this->account = $account;
   }
 
   /**
@@ -53,44 +57,39 @@ class SwitchModerationStateBase extends PluginBase implements SwitchModerationSt
       $plugin_id,
       $plugin_definition,
       $container->get('content_moderation.state_transition_validation'),
-      $container->get('content_moderation.moderation_information')
+      $container->get('content_moderation.moderation_information'),
+      $container->get('current_user')
     );
   }
 
   /**
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
-   * @param \Drupal\Core\Session\AccountInterface $account
-   * @param string $state_id
-   * @param string $old_state
    */
-  public function switchState(ContentEntityInterface &$entity, AccountInterface $account, $old_state, $state_id) {
+  public function switchState(ContentEntityInterface $entity) {
     /** @var \Drupal\workflows\Transition $transition */
-    if($transition = $this->getTransition($entity, $account, $old_state, $state_id)) {
+    if ($transition = $this->getTransition($entity)) {
 
       // if method named same as a transition exists call that method
       $switch_method = $transition->id() . '_switch';
 
       if (is_callable(array($this, $switch_method))) {
-        $this->$switch_method($entity, $account);
+        $this->$switch_method($entity);
       }
     }
   }
 
   /**
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
-   * @param \Drupal\Core\Session\AccountInterface $account
-   * @param string $state_id
-   * @param string $old_state
    */
-  public function switchStateValidate(ContentEntityInterface &$entity, AccountInterface $account, $old_state, $state_id) {
+  public function switchStateValidate(ContentEntityInterface $entity) {
     /** @var \Drupal\workflows\Transition $transition */
-    if($transition = $this->getTransition($entity, $account, $old_state, $state_id)) {
+    if ($transition = $this->getTransition($entity)) {
 
       // if method named same as a transition exists call that method
       $validate_method = $transition->id() . '_validate';
 
       if (is_callable(array($this, $validate_method))) {
-        return $this->$validate_method($entity, $account);
+        return $this->$validate_method($entity);
       }
     }
   }
@@ -99,41 +98,44 @@ class SwitchModerationStateBase extends PluginBase implements SwitchModerationSt
    * Is Valid Transition method. This method is not used but its meant to be used for access check.
    *
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
-   * @param \Drupal\Core\Session\AccountInterface $account
-   * @param string $old_state
-   * @param string $state_id
    * @return bool
    */
-  public function isValidTransition(ContentEntityInterface $entity, AccountInterface $account, $old_state, $state_id) {
-    return $this->getTransition($entity, $account, $old_state, $state_id) ? TRUE : FALSE;
+  public function isValidTransition(ContentEntityInterface $entity) {
+    return $this->getTransition($entity) ? TRUE : FALSE;
   }
 
   /**
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
-   * @param \Drupal\Core\Session\AccountInterface $account
-   * @param string $old_state
-   * @param string $state_id
-   * @return bool|\Drupal\workflows\Transition
+   * @return array|\Drupal\workflows\Transition
    */
-  private function getTransition(ContentEntityInterface $entity, AccountInterface $account, $old_state, $state_id) {
+  private function getTransition(ContentEntityInterface $entity) {
     // get original entity
     $original_entity = $this->moderationInformation->getLatestRevision($entity->getEntityTypeId(), $entity->id());
-    if (!$entity->isDefaultTranslation() && $original_entity->hasTranslation($entity->language()->getId())) {
-      $original_entity = $original_entity->getTranslation($entity->language()->getId());
+    if (!$entity->isDefaultTranslation() && $original_entity->hasTranslation($entity->language()
+        ->getId())
+    ) {
+      $original_entity = $original_entity->getTranslation($entity->language()
+        ->getId());
     }
 
-    $valid_transitions = $this->stateTransitionValidation->getValidTransitions($original_entity, $account);
+    // get valid transitions for original entity
+    $valid_transitions = $this->stateTransitionValidation->getValidTransitions($original_entity, $this->account);
 
-    // check if user can transition entity to a given $state_id
+    // check if user can transition entity
     foreach ($valid_transitions as $valid_transition) {
       /** @var \Drupal\workflows\Transition $valid_transition */
-      if( $state_id != $old_state && $state_id == $valid_transition->to()->id()) {
-        return $valid_transition;
+      if ($entity->moderation_state->value != $original_entity->moderation_state->value && $entity->moderation_state->value == $valid_transition->to()
+          ->id()
+      ) {
+        foreach ($valid_transition->from() as $from_state) {
+          /** @var \Drupal\workflows\State $from_state */
+          if ($from_state->id() == $original_entity->moderation_state->value) {
+            return $valid_transition;
+          }
+        }
+
       }
     }
-
-    return FALSE;
   }
 
 }
-

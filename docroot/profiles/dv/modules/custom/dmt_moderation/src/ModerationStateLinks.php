@@ -4,6 +4,8 @@ namespace Drupal\dmt_moderation;
 
 use Drupal\content_moderation\ContentModerationStateInterface;
 use Drupal\content_moderation\ModerationInformation;
+use Drupal\Core\Access\AccessResultAllowed;
+use Drupal\Core\Access\AccessResultForbidden;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\content_moderation\StateTransitionValidation;
 use Drupal\Core\Session\AccountInterface;
@@ -32,6 +34,10 @@ class ModerationStateLinks {
    */
   protected $moderationInformation;
 
+  protected $routeName = 'dmt_moderation.switch_moderation_state';
+
+  protected $routeParameters;
+
   /**
    * ModerationStateLinks constructor.
    *
@@ -45,33 +51,62 @@ class ModerationStateLinks {
     $this->moderationInformation = $moderationInformation;
   }
 
+  public function getLinksAccess(ContentEntityInterface $entity) {
+    if(!$this->moderationInformation->isModeratedEntity($entity)) {
+      return FALSE;
+    }
+
+    $valid_transitions = $this->stateTransitionValidation->getValidTransitions($entity, $this->account);
+
+    foreach ($valid_transitions as $transition) {
+      /** @var \Drupal\workflows\Transition $transition */
+      if($link = $this->getLink($entity, $transition)) {
+        return TRUE;
+      }
+    }
+
+    return FALSE;
+  }
+
 
   /**
    * Get Links.
    *
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
-   * @return array|bool
+   * @return array|void
+  */
+  /**
+   * @param \Drupal\Core\Entity\ContentEntityInterface $entity
+   * @return array
    */
   public function getLinks(ContentEntityInterface $entity) {
-    if(!$this->moderationInformation->isModeratedEntity($entity)) {
-      return FALSE;
+    // get original entity
+    $original_entity = $this->moderationInformation->getLatestRevision($entity->getEntityTypeId(), $entity->id());
+    if (!$entity->isDefaultTranslation() && $original_entity->hasTranslation($entity->language()
+        ->getId())
+    ) {
+      $original_entity = $original_entity->getTranslation($entity->language()
+        ->getId());
     }
 
-    /// @todo: this method can be cached per request just need to figure out weather its necessary
-    // since we are caching the block
+    $valid_transitions = $this->stateTransitionValidation->getValidTransitions($original_entity, $this->account);
+
     $links = [];
 
-    $valid_transitions = $this->stateTransitionValidation->getValidTransitions($entity, $this->account);
     foreach ($valid_transitions as $transition) {
       /** @var \Drupal\workflows\Transition $transition */
-      $links[] = $this->getLink($entity, $transition);
+      if($original_entity->moderation_state->value != $transition->to()->id() && $link = $this->getLink($entity, $transition)) {
+        $links[] = $link;
+      }
     }
 
-    if (!empty($links)) {
-      return $links;
-    }
-
-    return FALSE;
+    return [
+      '#theme' => 'item_list',
+      '#list_type' => 'ul',
+      '#items' => $links,
+      '#attributes' => ['class' => 'moderation-links'],
+      '#wrapper_attributes' => ['class' => 'container'],
+    ];
   }
 
   /**
@@ -79,23 +114,58 @@ class ModerationStateLinks {
    *
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
    * @param \Drupal\workflows\Transition $transition
-   * @return array|\mixed[]|void
+   * @return array|bool|\mixed[]
    */
   private function getLink(ContentEntityInterface $entity, Transition $transition) {
-    $url = Url::fromRoute('dmt_moderation.switch_moderation_state', [
+    $this->routeParameters = [
       'entity_type' => $entity->getEntityTypeId(),
       'entity' => $entity->id(),
       'state_id' => $transition->to()->id()
-    ]);
+    ];
 
-    if ($url->access()) {
+    $url = Url::fromRoute($this->routeName, $this->routeParameters);
+
+    if ($this->linkAccess($entity, $transition->to()->id())) {
       $link = Link::fromTextAndUrl($transition->label(), $url);
-      /// @todo this method should probably just return urls
       return $link->toRenderable();
     }
-    return;
+
+    return FALSE;
   }
 
+  /**
+   * Checks access for switch moderation state link.
+   *
+   * @param ContentEntityInterface $entity
+   *   Content Entity
+   * @param string $state_id
+   *   State Id
+   *
+   * @return bool
+   */
+  private function linkAccess(ContentEntityInterface $entity, $state_id) {
+    $entity->set('moderation_state', $state_id);
+
+    $causes = [];
+
+    $violations = $entity->validate();
+    if ($violations->count()) {
+      foreach ($violations as $violation) {
+        /** @var \Symfony\Component\Validator\ConstraintViolation $violation */
+        if($violation->getCause() == 'allow_link' ) {
+          $causes[] = $violation->getCause();
+        } else {
+          $causes[] = 'forbidden';
+        }
+      }
+    }
+
+    if(!in_array('forbidden', $causes)) {
+      return TRUE;
+    }
+
+    return FALSE;
+  }
 
 }
 

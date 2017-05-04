@@ -94,15 +94,18 @@ function dmt_moderation_entity_presave(Drupal\Core\Entity\EntityInterface $entit
     return;
   }
 
+  // Ignore entities that are being created for the first time.
+  if ($entity->isNew()) {
+    return;
+  }
+
   /** @var \Drupal\dmt_moderation\Plugin\Type\SwitchModerationStateManager $switch_moderation_state_manager */
   $switch_moderation_state_manager = \Drupal::service('plugin.manager.switch_moderation_state_manager');
   $plugin_id = $switch_moderation_state_manager->getPluginIdByEntity($entity);
 
   /** @var \Drupal\dmt_moderation\SwitchModerationStateBase $sms */
   $sms = $switch_moderation_state_manager->createInstance($plugin_id);
-  $account = \Drupal::currentUser();
-  $old_state = isset($entity->original->moderation_state->value) ? $entity->original->moderation_state->value : NULL;
-  $sms->switchState($entity, $account, $old_state, $entity->moderation_state->value);
+  $sms->switchState($entity);
 }
 
 

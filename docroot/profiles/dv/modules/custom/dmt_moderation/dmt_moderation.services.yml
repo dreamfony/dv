@@ -7,12 +7,6 @@ services:
     class: Drupal\dmt_moderation\Plugin\Type\SwitchModerationStateManager
     parent: default_plugin_manager
 
-  access_check.switch_moderation_state:
-    class: Drupal\dmt_moderation\Access\SwitchModerationStateAccess
-    tags:
-      - { name: access_check, applies_to: _switch_moderation_state }
-    arguments: ['@plugin.manager.switch_moderation_state_manager']
-
   dmt_moderation.moderation_state_links:
     class: Drupal\dmt_moderation\ModerationStateLinks
     arguments: ['@content_moderation.state_transition_validation', '@current_user', '@content_moderation.moderation_information']

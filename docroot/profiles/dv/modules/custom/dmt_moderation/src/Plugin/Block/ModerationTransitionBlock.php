@@ -53,8 +53,6 @@ class ModerationTransitionBlock extends BlockBase implements ContainerFactoryPlu
    * {@inheritdoc}
    */
   public function build() {
-
-    /// @todo: figure out how to make this a renderable list
     $links = $this->moderationStateLinks->getLinks($this->getEntityFromRoute());
     $content['block_content'] = $links;
     return $content;
@@ -75,17 +73,15 @@ class ModerationTransitionBlock extends BlockBase implements ContainerFactoryPlu
       /** @var ContentEntityInterface $entity */
       //if there is an entity add its cachetag
       return Cache::mergeTags(parent::getCacheTags(), array($entity->getEntityTypeId() . ':' . $entity->id()));
-    } else {
-      //Return default tags instead.
-      return parent::getCacheTags();
     }
+
+    return parent::getCacheTags();
   }
 
   public function getCacheContexts() {
     //Every new route this block will rebuild
     return Cache::mergeContexts(parent::getCacheContexts(), array('route'));
   }
-
 
   /**
    * @param \Drupal\Core\Session\AccountInterface $account
@@ -95,7 +91,7 @@ class ModerationTransitionBlock extends BlockBase implements ContainerFactoryPlu
   public function access(AccountInterface $account, $return_as_object = FALSE) {
     $entity = $this->getEntityFromRoute();
 
-    if($entity && $this->moderationStateLinks->getLinks($entity)) {
+    if($entity && $this->moderationStateLinks->getLinksAccess($entity)) {
       return AccessResult::allowed();
     }
 

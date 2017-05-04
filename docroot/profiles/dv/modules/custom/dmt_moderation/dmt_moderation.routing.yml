@@ -3,7 +3,6 @@ dmt_moderation.switch_moderation_state:
   defaults:
     _controller: '\Drupal\dmt_moderation\Controller\SwitchModerationState::switchState'
   requirements:
-    _switch_moderation_state: 'TRUE'
     _entity_access: 'entity.update'
     entity: \d+
     entity_type: ^[a-z_]+
