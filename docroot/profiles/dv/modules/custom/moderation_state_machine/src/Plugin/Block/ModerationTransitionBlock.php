@@ -60,7 +60,6 @@ class ModerationTransitionBlock extends BlockBase implements ContainerFactoryPlu
 
   protected function getEntityFromRoute() {
     $route_object = \Drupal::routeMatch();
-    dpm($route_object->getRouteName());
     foreach ($route_object->getParameters() as $parameter) {
       if($parameter instanceof ContentEntityInterface) {
         return $parameter;
