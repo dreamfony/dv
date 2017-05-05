@@ -107,6 +107,7 @@ dependencies:
   - user_registrationpassword
   - views
   - views_ui
+  - moderation_state_machine
 themes:
   - patternlab
   - seven
