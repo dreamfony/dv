@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dmt_moderation\Controller;
+namespace Drupal\moderation_state_machine\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\ContentEntityInterface;
@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Class ModerationStateMachine
- * @package Drupal\dmt_moderation\Controller
+ * @package Drupal\moderation_state_machine\Controller
  */
 class ModerationStateMachine extends ControllerBase {
 

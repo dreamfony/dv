@@ -2,12 +2,3 @@ services:
   dmt_moderation.create_default_groups:
     class: Drupal\dmt_moderation\CreateDefaultModerationGroups
     arguments: ['@entity_type.manager']
-
-  plugin.manager.switch_moderation_state_manager:
-    class: Drupal\dmt_moderation\Plugin\Type\ModerationStateMachineManager
-    parent: default_plugin_manager
-
-  dmt_moderation.moderation_state_links:
-    class: Drupal\dmt_moderation\ModerationStateLinks
-    arguments: ['@content_moderation.state_transition_validation', '@current_user', '@content_moderation.moderation_information']
-

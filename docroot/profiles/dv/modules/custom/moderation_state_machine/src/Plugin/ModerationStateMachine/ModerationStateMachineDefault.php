@@ -1,8 +1,8 @@
 <?php
 
-namespace Drupal\dmt_moderation\Plugin\ModerationStateMachine;
+namespace Drupal\moderation_state_machine\Plugin\ModerationStateMachine;
 
-use Drupal\dmt_moderation\ModerationStateMachineBase;
+use Drupal\moderation_state_machine\ModerationStateMachineBase;
 
 /**
  * Default switch state plugin is a fall back.

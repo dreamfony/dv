@@ -5,7 +5,7 @@
  * Contains \Drupal\activity_creator\Plugin\ActivityActionManager.
  */
 
-namespace Drupal\dmt_moderation\Plugin\Type;
+namespace Drupal\moderation_state_machine\Plugin\Type;
 
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Plugin\DefaultPluginManager;
@@ -30,7 +30,7 @@ class ModerationStateMachineManager extends DefaultPluginManager {
    *   The module handler to invoke the alter hook with.
    */
   public function __construct(\Traversable $namespaces, CacheBackendInterface $cache_backend, ModuleHandlerInterface $module_handler) {
-    parent::__construct('Plugin/ModerationStateMachine', $namespaces, $module_handler, 'Drupal\dmt_moderation\ModerationStateMachineInterface', 'Drupal\dmt_moderation\Annotation\ModerationStateMachine');
+    parent::__construct('Plugin/ModerationStateMachine', $namespaces, $module_handler, 'Drupal\moderation_state_machine\ModerationStateMachineInterface', 'Drupal\moderation_state_machine\Annotation\ModerationStateMachine');
 
     $this->alterInfo('moderation_state_machine_info');
     $this->setCacheBackend($cache_backend, 'moderation_state_machine_plugins');

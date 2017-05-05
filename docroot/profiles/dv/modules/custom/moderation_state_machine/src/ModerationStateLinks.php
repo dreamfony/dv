@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dmt_moderation;
+namespace Drupal\moderation_state_machine;
 
 use Drupal\content_moderation\ContentModerationStateInterface;
 use Drupal\content_moderation\ModerationInformation;
@@ -34,7 +34,7 @@ class ModerationStateLinks {
    */
   protected $moderationInformation;
 
-  protected $routeName = 'dmt_moderation.switch_moderation_state';
+  protected $routeName = 'moderation_state_machine.switch_moderation_state';
 
   protected $routeParameters;
 

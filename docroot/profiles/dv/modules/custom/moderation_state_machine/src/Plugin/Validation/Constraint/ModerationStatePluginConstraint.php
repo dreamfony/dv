@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dmt_moderation\Plugin\Validation\Constraint;
+namespace Drupal\moderation_state_machine\Plugin\Validation\Constraint;
 
 use Symfony\Component\Validator\Constraint;
 

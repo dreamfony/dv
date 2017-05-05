@@ -1,5 +1,5 @@
 <?php
-namespace Drupal\dmt_moderation;
+namespace Drupal\moderation_state_machine;
 
 use Drupal\user\Entity\User;
 use Drupal\group\Entity\Group;
@@ -74,7 +74,7 @@ class CreateDefaultModerationGroups {
    * @return string
    *   String with the full pathname including the file.
    */
-  public function getPath($file, $module = 'dmt_moderation') {
+  public function getPath($file, $module = 'moderation_state_machine') {
     return drupal_get_path('module', $module) . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . $file;
   }
 

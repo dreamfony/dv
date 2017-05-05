@@ -1,9 +1,9 @@
 <?php
 
-namespace Drupal\dmt_moderation\Plugin\Validation\Constraint;
+namespace Drupal\moderation_state_machine\Plugin\Validation\Constraint;
 
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
-use Drupal\dmt_moderation\Plugin\Type\ModerationStateMachineManager;
+use Drupal\moderation_state_machine\Plugin\Type\ModerationStateMachineManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
@@ -39,7 +39,7 @@ class ModerationStatePluginConstraintValidator extends ConstraintValidator imple
   protected $moderationInformation;
 
   /**
-   * @var \Drupal\dmt_moderation\Plugin\Type\ModerationStateMachineManager
+   * @var \Drupal\moderation_state_machine\Plugin\Type\ModerationStateMachineManager
    */
   protected $moderationStateMachineManager;
 
@@ -52,7 +52,7 @@ class ModerationStatePluginConstraintValidator extends ConstraintValidator imple
    *   The state transition validation.
    * @param \Drupal\content_moderation\ModerationInformationInterface $moderation_information
    *   The moderation information.
-   * @param \Drupal\dmt_moderation\Plugin\Type\ModerationStateMachineManager $moderationStateMachineManager
+   * @param \Drupal\moderation_state_machine\Plugin\Type\ModerationStateMachineManager $moderationStateMachineManager
    */
   public function __construct(EntityTypeManager $entity_type_manager, StateTransitionValidation $validation, ModerationInformationInterface $moderation_information, ModerationStateMachineManager $moderationStateMachineManager) {
     $this->validation = $validation;
@@ -98,7 +98,7 @@ class ModerationStatePluginConstraintValidator extends ConstraintValidator imple
 
     $plugin_id = $this->moderationStateMachineManager->getPluginIdByEntity($entity);
 
-    /** @var \Drupal\dmt_moderation\ModerationStateMachineBase $sms */
+    /** @var \Drupal\moderation_state_machine\ModerationStateMachineBase $sms */
     $sms = $this->moderationStateMachineManager->createInstance($plugin_id);
     $violations = $sms->switchStateValidate($entity);
 

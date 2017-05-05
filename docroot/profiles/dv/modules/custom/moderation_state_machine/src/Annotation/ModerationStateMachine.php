@@ -5,14 +5,14 @@
  * Contains \Drupal\activity_creator\Annotation\ActivityAction.
  */
 
-namespace Drupal\dmt_moderation\Annotation;
+namespace Drupal\moderation_state_machine\Annotation;
 
 use Drupal\Component\Annotation\Plugin;
 
 /**
  * Defines a Moderation State Machine item annotation object.
  *
- * @see \Drupal\dmt_moderation\Plugin\Type\ModerationStateMachineManager
+ * @see \Drupal\moderation_state_machine\Plugin\Type\ModerationStateMachineManager
  * @see plugin_api
  *
  * @Annotation

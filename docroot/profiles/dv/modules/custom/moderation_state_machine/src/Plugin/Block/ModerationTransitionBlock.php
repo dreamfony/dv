@@ -1,12 +1,12 @@
 <?php
 
-namespace Drupal\dmt_moderation\Plugin\Block;
+namespace Drupal\moderation_state_machine\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Access\AccessResult;
-use Drupal\dmt_moderation\ModerationStateLinks;
+use Drupal\moderation_state_machine\ModerationStateLinks;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Cache\Cache;
@@ -22,7 +22,7 @@ use Drupal\Core\Cache\Cache;
 class ModerationTransitionBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
-   * @var \Drupal\dmt_moderation\ModerationStateLinks
+   * @var \Drupal\moderation_state_machine\ModerationStateLinks
    */
   protected $moderationStateLinks;
 
@@ -32,7 +32,7 @@ class ModerationTransitionBlock extends BlockBase implements ContainerFactoryPlu
    * @param array $configuration
    * @param string $plugin_id
    * @param mixed $plugin_definition
-   * @param \Drupal\dmt_moderation\ModerationStateLinks $moderationStateLinks
+   * @param \Drupal\moderation_state_machine\ModerationStateLinks $moderationStateLinks
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, ModerationStateLinks $moderationStateLinks) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
@@ -45,7 +45,7 @@ class ModerationTransitionBlock extends BlockBase implements ContainerFactoryPlu
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('dmt_moderation.moderation_state_links')
+      $container->get('moderation_state_machine.moderation_state_links')
     );
   }
 

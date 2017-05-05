@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dmt_moderation;
+namespace Drupal\moderation_state_machine;
 
 use Drupal\Component\Plugin\PluginBase;
 use Drupal\content_moderation\ModerationInformation;

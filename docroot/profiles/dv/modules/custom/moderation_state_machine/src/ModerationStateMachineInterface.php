@@ -5,7 +5,7 @@
  * Contains \Drupal\activity_creator\Plugin\ActivityActionInterface.
  */
 
-namespace Drupal\dmt_moderation;
+namespace Drupal\moderation_state_machine;
 
 use Drupal\Component\Plugin\PluginInspectionInterface;
 

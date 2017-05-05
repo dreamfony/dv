@@ -1,0 +1,65 @@
+<?php
+
+/**
+ * @file
+ * Contains moderation_state_machine.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function moderation_state_machine_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the moderation_state_machine module.
+    case 'help.page.moderation_state_machine':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('My Awesome Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+/**
+ * Implements hook_entity_presave().
+ */
+function moderation_state_machine_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+
+  if(!$entity instanceof \Drupal\Core\Entity\ContentEntityInterface) {
+    return;
+  }
+
+  // check if entity is Moderated Entity
+  /** @var \Drupal\content_moderation\ModerationInformationInterface $moderationInfo */
+  $moderationInfo = \Drupal::service('content_moderation.moderation_information');
+  if (!$moderationInfo->isModeratedEntity($entity)) {
+    return;
+  }
+
+  // Ignore entities that are being created for the first time.
+  if ($entity->isNew()) {
+    return;
+  }
+
+  /** @var \Drupal\moderation_state_machine\Plugin\Type\ModerationStateMachineManager $switch_moderation_state_manager */
+  $switch_moderation_state_manager = \Drupal::service('plugin.manager.switch_moderation_state_manager');
+  $plugin_id = $switch_moderation_state_manager->getPluginIdByEntity($entity);
+
+  /** @var \Drupal\moderation_state_machine\ModerationStateMachineBase $sms */
+  $sms = $switch_moderation_state_manager->createInstance($plugin_id);
+  $sms->switchState($entity);
+}
+
+
+/**
+ * Implements hook_entity_base_field_info_alter().
+ */
+function moderation_state_machine_entity_base_field_info_alter(&$fields, \Drupal\Core\Entity\EntityTypeInterface $entity_type) {
+  if (!empty($fields['moderation_state'])) {
+    $fields['moderation_state']->addConstraint('ModerationStatePlugin', []);
+  }
+}
