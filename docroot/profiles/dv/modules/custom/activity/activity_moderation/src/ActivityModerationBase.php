@@ -54,13 +54,6 @@ class ActivityModerationBase extends PluginBase implements ActivityModerationInt
   }
 
   /**
-   * @inheritdoc
-   */
-  public function test() {
-    $test = $this->getPluginDefinition();
-  }
-
-  /**
    * Create Moderation Activity
    *
    * @param \Drupal\Core\Entity\EntityInterface $entity
@@ -93,7 +86,6 @@ class ActivityModerationBase extends PluginBase implements ActivityModerationInt
    *
    * @param $entity_id
    * @param $status
-   * @param string $bundle
    * @return array|int
    */
   private function getRelatedActivities($entity_id, $status) {

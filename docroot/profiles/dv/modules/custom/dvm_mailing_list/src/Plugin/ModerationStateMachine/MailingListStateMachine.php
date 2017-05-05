@@ -1,12 +1,13 @@
 <?php
 
-namespace Drupal\dvm_mailing_list\Plugin\SwitchModerationState;
+namespace Drupal\dvm_mailing_list\Plugin\ModerationStateMachine;
 
 use Drupal\activity_creator\Plugin\Type\ActivityActionManager;
 use Drupal\activity_moderation\Plugin\Type\ActivityModerationManager;
 use Drupal\content_moderation\ModerationInformation;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\dmt_moderation\ModerationStateMachineBase;
 use Drupal\dmt_moderation\SwitchModerationStateBase;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\dvm_mailing_list\MailingList;
@@ -18,14 +19,14 @@ use Drupal\group\Entity\GroupContent;
 /**
  * Provides a 'ModerationAction' activity action.
  *
- * @SwitchModerationState(
+ * @ModerationStateMachine(
  *  id = "dvm_mailing_list",
  *  entity_type = "group",
  *  entity_bundle = "mailing_list",
  *  label = @Translation("Switch Moderation State"),
  * )
  */
-class SwitchModerationState extends SwitchModerationStateBase implements ContainerFactoryPluginInterface {
+class MailingListStateMachine extends ModerationStateMachineBase implements ContainerFactoryPluginInterface {
 
   /**
    * @var \Drupal\dvm_mailing_list\MailingList

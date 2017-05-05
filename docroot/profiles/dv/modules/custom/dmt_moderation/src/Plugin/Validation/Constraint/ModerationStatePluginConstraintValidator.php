@@ -15,7 +15,7 @@ use Drupal\Core\Entity\EntityInterface;
 /**
  * Validates the Entity Moderation constraint.
  */
-class ModerationStatePluginValidator extends ConstraintValidator implements ContainerInjectionInterface {
+class ModerationStatePluginConstraintValidator extends ConstraintValidator implements ContainerInjectionInterface {
 
   /**
    * The state transition validation.
