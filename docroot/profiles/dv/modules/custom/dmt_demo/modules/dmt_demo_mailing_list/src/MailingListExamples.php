@@ -115,6 +115,11 @@ class MailingListExamples {
 
         // Loop trough states save each and process queues
         foreach ($group_data['states'] as $state) {
+          // skip draft state
+          if($state == 'draft') {
+            continue;
+          }
+
           $group_object->set('moderation_state', $state);
           $group_object->save();
 
@@ -209,6 +214,10 @@ class MailingListExamples {
       'created' => $grouptime,
       'changed' => $grouptime,
     ]);
+
+    $group->set('moderation_state', 'draft');
+
+    $group->save();
 
     return $group;
   }
