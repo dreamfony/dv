@@ -12,11 +12,11 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Cache\Cache;
 
 /**
- * Provides a 'Demo' block.
+ * Provides a 'Moderation state switcher' block.
  *
  * @Block(
  *   id = "moderation_state_switch",
- *   admin_label = @Translation("Switch Moderation State"),
+ *   admin_label = @Translation("Moderation state switcher"),
  * )
  */
 class ModerationTransitionBlock extends BlockBase implements ContainerFactoryPluginInterface {
