@@ -6,8 +6,11 @@ dependencies:
   - activity_creator
   - activity_logger
   - allowed_formats
+  - block
   - comment
   - content_moderation
+  - ctools
+  - ctools_block
   - dv_answer_number
   - dv_answer_text
   - dv_area_of_activity
@@ -34,8 +37,11 @@ dependencies:
   - message
   - node
   - options
+  - page_manager
   - panelizer
+  - panels
   - path
+  - personas
   - profile
   - text
   - user

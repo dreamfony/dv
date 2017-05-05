@@ -5,4 +5,3 @@ id: administer_blocks
 label: 'Administer blocks'
 weight: 7
 is_admin: null
-permissions: {  }

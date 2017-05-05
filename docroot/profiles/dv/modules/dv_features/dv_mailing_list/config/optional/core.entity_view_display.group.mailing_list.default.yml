@@ -2,9 +2,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.group.mailing_list.field_group_comments
     - field.field.group.mailing_list.panelizer
     - group.type.mailing_list
   module:
+    - comment
     - panelizer
 third_party_settings:
   panelizer:
@@ -105,6 +107,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_group_comments:
+    weight: -4
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    type: comment_default
+    region: content
   label:
     label: hidden
     type: string

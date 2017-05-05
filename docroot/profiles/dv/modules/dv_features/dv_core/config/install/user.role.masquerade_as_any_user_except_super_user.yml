@@ -5,4 +5,3 @@ id: masquerade_as_any_user_except_super_user
 label: 'Masquerade as any user except super user'
 weight: 6
 is_admin: null
-permissions: {  }

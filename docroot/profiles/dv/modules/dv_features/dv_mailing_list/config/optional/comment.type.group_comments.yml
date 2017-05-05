@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: group_comments
+label: 'Group Comments'
+target_entity_type_id: group
+description: ''

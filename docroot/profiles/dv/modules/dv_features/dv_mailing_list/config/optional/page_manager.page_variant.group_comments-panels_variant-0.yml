@@ -1,0 +1,46 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.group_comments
+  module:
+    - ctools_block
+    - panels
+id: group_comments-panels_variant-0
+label: 'Group Comments'
+variant: panels_variant
+variant_settings:
+  blocks:
+    f0cff6cf-f0c3-4685-92ff-7f6e28feb832:
+      id: 'entity_field:group:field_group_comments'
+      label: 'Group Comments'
+      provider: ctools_block
+      label_display: '0'
+      formatter:
+        label: hidden
+        type: comment_default
+        settings:
+          view_mode: default
+          pager_id: 0
+        third_party_settings: {  }
+        weight: 0
+      context_mapping:
+        entity: group
+      region: content
+      uuid: f0cff6cf-f0c3-4685-92ff-7f6e28feb832
+      weight: 1
+  id: panels_variant
+  uuid: f5134a4c-2c23-42e5-b221-bc5ae3df2497
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: group_comments-panels_variant-0
+  builder: ipe
+page: group_comments
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }
