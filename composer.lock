@@ -2318,12 +2318,12 @@
             "version": "8.3.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/drupal-composer/drupal-core.git",
+                "url": "https://github.com/drupal/core.git",
                 "reference": "53326f9503e5e9e406fab22e4fbae6ddb706f7be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/53326f9503e5e9e406fab22e4fbae6ddb706f7be",
+                "url": "https://api.github.com/repos/drupal/core/zipball/53326f9503e5e9e406fab22e4fbae6ddb706f7be",
                 "reference": "53326f9503e5e9e406fab22e4fbae6ddb706f7be",
                 "shasum": ""
             },
