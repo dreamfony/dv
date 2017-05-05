@@ -35,7 +35,7 @@ variant_settings:
   weight: 0
   layout: layout_onecol
   layout_settings: {  }
-  page_title: ''
+  page_title: '[group:title] comments'
   storage_type: page_manager
   storage_id: group_comments-panels_variant-0
   builder: ipe
