@@ -5,3 +5,20 @@ id: authenticated
 label: 'Authenticated user'
 weight: 1
 is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access shortcuts'
+  - 'access site-wide contact form'
+  - 'flag follow_issue'
+  - 'post comments'
+  - 'skip comment approval'
+  - 'unflag follow_issue'
+  - 'use draft_draft transition'
+  - 'view any organisation_profile profile'
+  - 'view field_ac_contact_email'
+  - 'view field_ac_organisation_node'
+  - 'view files'
+  - 'view own unpublished content'
+  - 'view published activity entities'
+  - 'view published positions entities'
