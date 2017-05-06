@@ -49,4 +49,11 @@ class ModerationStateMachine extends Plugin {
    */
   public $entity_bundle;
 
+  /**
+   * Plugin weight
+   *
+   * @var integer
+   */
+  public $weight;
+
 }
