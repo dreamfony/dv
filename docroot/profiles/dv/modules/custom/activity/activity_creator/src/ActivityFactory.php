@@ -61,7 +61,8 @@ class ActivityFactory extends ControllerBase {
     ];
 
     // get activity type
-    $activity_fields['type'] = reset($message_template->getThirdPartySetting('activity_logger', 'activity_type', NULL));
+    $activity_type = $message_template->getThirdPartySetting('activity_logger', 'activity_type', NULL);
+    $activity_fields['type'] = reset($activity_type);
 
     // add mailing list group to activity
     /// @todo: find a way to get these extra fields here in other way some kind of plugin or something
