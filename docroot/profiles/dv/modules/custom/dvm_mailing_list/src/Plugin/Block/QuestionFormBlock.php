@@ -34,10 +34,13 @@ class QuestionFormBlock extends BlockBase {
 
   /**
    * @param \Drupal\Core\Session\AccountInterface $account
-   * @param bool $return_as_object
    * @return \Drupal\Core\Access\AccessResult|\Drupal\Core\Access\AccessResultForbidden
    */
-  public function access(AccountInterface $account, $return_as_object = FALSE) {
+  public function blockAccess(AccountInterface $account) {
+    if(\Drupal::routeMatch()->getRouteName() != 'entity.group.canonical') {
+      return AccessResult::forbidden();
+    }
+
     $group = \Drupal::routeMatch()->getParameter('group');
 
     if($group) {
