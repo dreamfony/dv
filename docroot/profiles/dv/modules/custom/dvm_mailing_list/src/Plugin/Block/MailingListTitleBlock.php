@@ -25,27 +25,24 @@ class MailingListTitleBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-
     $link = $this->editTitleLink();
-
     $content['block_content'] = $link;
-
     return $content;
   }
 
+  /**
+   * Edit title link.
+   *
+   * @return array
+   */
   public function editTitleLink() {
-
     $url = Url::fromRoute('dvm_mailing_list.edit_title', [
       'group' => $this->getContextValue('group')->id()
     ]);
-
     $link = Link::fromTextAndUrl(t('Edit Title'), $url);
-
     $link = $link->toRenderable();
-
     // If you need some attributes.
     $link['#attributes'] = array('class' => array('use-ajax'));
-
     return $link;
   }
 

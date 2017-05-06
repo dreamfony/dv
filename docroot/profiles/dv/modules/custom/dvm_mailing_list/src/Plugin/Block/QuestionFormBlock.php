@@ -2,10 +2,9 @@
 namespace Drupal\dvm_mailing_list\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Session\AccountInterface;
-use Drupal\group\Entity\Group;
-
+use Drupal\Core\Access\AccessResult;
 /**
- * Provides a 'Demo' block.
+ * Provides a 'Question form block' block.
  *
  * @Block(
  *   id = "question_form_block",
@@ -33,9 +32,19 @@ class QuestionFormBlock extends BlockBase {
     return $form;
   }
 
+  /**
+   * @param \Drupal\Core\Session\AccountInterface $account
+   * @param bool $return_as_object
+   * @return \Drupal\Core\Access\AccessResult|\Drupal\Core\Access\AccessResultForbidden
+   */
   public function access(AccountInterface $account, $return_as_object = FALSE) {
     $group = \Drupal::routeMatch()->getParameter('group');
-    return $group->hasPermission('edit group', $account);
+
+    if($group) {
+      return AccessResult::allowedIf($group->hasPermission('edit group', $account));
+    }
+
+    return AccessResult::forbidden();
   }
 
 }

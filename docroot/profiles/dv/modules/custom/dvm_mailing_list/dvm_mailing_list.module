@@ -12,7 +12,6 @@ use Drupal\group\Entity\Group;
 
 
 /**
- * Implements hook_inline_entity_form_entity_form_alter().
  *
  * @param $form
  * @param \Drupal\Core\Form\FormStateInterface $form_state
@@ -80,6 +79,25 @@ function dvm_mailing_list_form_node_question_form_alter(&$form, FormStateInterfa
     }
   }
 
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function dvm_mailing_list_form_comment_group_comments_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form['actions']['submit']['#submit'][] = 'dvm_mailing_list_form_comment_group_comments_form_submit';
+}
+
+/**
+ * Redirect to group/{group}/comments
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ */
+function dvm_mailing_list_form_comment_group_comments_form_submit($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $gid = \Drupal::routeMatch()->getRawParameter('entity');
+  $url = \Drupal\Core\Url::fromRoute('page_manager.page_view_group_comments_group_comments-panels_variant-0', ['group' => $gid]);
+  $form_state->setRedirectUrl($url);
 }
 
 /**
