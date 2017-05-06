@@ -96,17 +96,19 @@ class ModerationStatePluginConstraintValidator extends ConstraintValidator imple
       return;
     }
 
-    $plugin_id = $this->moderationStateMachineManager->getPluginIdByEntity($entity);
+    $plugin_ids = $this->moderationStateMachineManager->getPluginIdByEntity($entity);
 
-    /** @var \Drupal\moderation_state_machine\ModerationStateMachineBase $sms */
-    $sms = $this->moderationStateMachineManager->createInstance($plugin_id);
-    $violations = $sms->switchStateValidate($entity);
+    foreach ($plugin_ids as $plugin_id) {
+      /** @var \Drupal\moderation_state_machine\ModerationStateMachineBase $sms */
+      $sms = $this->moderationStateMachineManager->createInstance($plugin_id);
+      $violations = $sms->switchStateValidate($entity);
 
-    if(!empty($violations)) {
-      foreach ($violations as $violation) {
-        $this->context->buildViolation($violation['message'])
-          ->setCause(isset($violation['cause']) ? $violation['cause'] : NULL)
-          ->addViolation();
+      if (!empty($violations)) {
+        foreach ($violations as $violation) {
+          $this->context->buildViolation($violation['message'])
+            ->setCause(isset($violation['cause']) ? $violation['cause'] : NULL)
+            ->addViolation();
+        }
       }
     }
   }

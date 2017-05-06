@@ -39,11 +39,13 @@ function moderation_state_machine_entity_presave(Drupal\Core\Entity\EntityInterf
 
   /** @var \Drupal\moderation_state_machine\Plugin\Type\ModerationStateMachineManager $switch_moderation_state_manager */
   $switch_moderation_state_manager = \Drupal::service('plugin.manager.switch_moderation_state_manager');
-  $plugin_id = $switch_moderation_state_manager->getPluginIdByEntity($entity);
+  $plugin_ids = $switch_moderation_state_manager->getPluginIdByEntity($entity);
 
-  /** @var \Drupal\moderation_state_machine\ModerationStateMachineBase $sms */
-  $sms = $switch_moderation_state_manager->createInstance($plugin_id);
-  $sms->switchState($entity);
+  foreach ($plugin_ids as $plugin_id) {
+    /** @var \Drupal\moderation_state_machine\ModerationStateMachineBase $sms */
+    $sms = $switch_moderation_state_manager->createInstance($plugin_id);
+    $sms->switchState($entity);
+  }
 }
 
 /**
@@ -64,10 +66,11 @@ function moderation_state_machine_entity_insert(Drupal\Core\Entity\EntityInterfa
 
   /** @var \Drupal\moderation_state_machine\Plugin\Type\ModerationStateMachineManager $switch_moderation_state_manager */
   $switch_moderation_state_manager = \Drupal::service('plugin.manager.switch_moderation_state_manager');
-  $plugin_id = $switch_moderation_state_manager->getPluginIdByEntity($entity);
+  $plugin_ids = $switch_moderation_state_manager->getPluginIdByEntity($entity);
 
-  /** @var \Drupal\moderation_state_machine\ModerationStateMachineBase $sms */
-  $sms = $switch_moderation_state_manager->createInstance($plugin_id);
-  $sms->moderatedEntityInsert($entity);
-
+  foreach ($plugin_ids as $plugin_id) {
+    /** @var \Drupal\moderation_state_machine\ModerationStateMachineBase $sms */
+    $sms = $switch_moderation_state_manager->createInstance($plugin_id);
+    $sms->moderatedEntityInsert($entity);
+  }
 }

@@ -55,17 +55,27 @@ class ModerationStateMachineManager extends DefaultPluginManager {
    * Get Plugin Id By Entity.
    *
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
-   * @return int|string
+   * @return array
    */
   public function getPluginIdByEntity(ContentEntityInterface $entity) {
+    $plugin_ids = [];
+
     foreach ($this->getDefinitions() as $plugin_id => $plugin_definition) {
       if($plugin_definition['entity_type'] == $entity->getEntityTypeId() && $plugin_definition['entity_bundle'] == $entity->bundle()) {
-        return $plugin_id;
+        // if weight is not set we set it to 0
+        $plugin_definition['weight'] = isset($plugin_definition['weight']) ? $plugin_definition['weight'] : 0;
+        $plugin_ids[$plugin_definition['weight']] = $plugin_id;
       }
     }
 
+    if(!empty($plugin_ids)) {
+      // sort plugin_ids by weight
+      asort($plugin_ids, SORT_NUMERIC);
+      return $plugin_ids;
+    }
+
     // if no other plugins are implemented return default
-    return 'moderation_state_machine_default';
+    return ['moderation_state_machine_default'];
   }
 
 }
