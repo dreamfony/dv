@@ -85,10 +85,9 @@ class ModerationTransitionBlock extends BlockBase implements ContainerFactoryPlu
 
   /**
    * @param \Drupal\Core\Session\AccountInterface $account
-   * @param bool $return_as_object
    * @return \Drupal\Core\Access\AccessResultAllowed|\Drupal\Core\Access\AccessResultForbidden
    */
-  public function access(AccountInterface $account, $return_as_object = FALSE) {
+  public function blockAccess(AccountInterface $account){
     $entity = $this->getEntityFromRoute();
 
     if($entity && $this->moderationStateLinks->getLinksAccess($entity)) {
