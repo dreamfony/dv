@@ -154,6 +154,11 @@ class MailingListStateMachine extends ModerationStateMachineBase implements Cont
       }
     }
 
+    // set group roles
+    $group_content->set('group_roles', $group_roles->referencedEntities());
+    // save group membership
+    $group_content->save();
+
     // send message to moderator
     /** @var \Drupal\activity_moderation\Plugin\ActivityModeration\OpenModerationTicket $create_action */
     $activity_moderation = $this->activityModerationManager->createInstance('open_moderation_ticket');

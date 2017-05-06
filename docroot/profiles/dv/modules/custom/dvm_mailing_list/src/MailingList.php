@@ -94,7 +94,7 @@ class MailingList {
   /**
    * Check if user already has empty Survey
    *
-   * @return bool|\Drupal\group\Entity\Group
+   * @return bool|\Drupal\group\Entity\GroupInterface
    */
   protected function getUsersEmptyGroup() {
     $query = \Drupal::entityQuery('group');
@@ -123,7 +123,6 @@ class MailingList {
    * @param $mailing_list_id
    */
   public function addRecipients(array $gids, $mailing_list_id) {
-
     $mailing_list_group = Group::load($mailing_list_id);
 
     foreach ($gids as $gid) {
@@ -161,18 +160,14 @@ class MailingList {
       $group = Group::load($group_id);
       $group_content_questions = count($group->getContent('group_node:question'));
       $group_users = count($group->getMembers([$group->bundle() . '-organisation']));
-
       $count = (int) $group_content_questions * $group_users;
-
       $this->cacheBackend->set('dvm_mailing_list:total_activity_count:' . $group->id(), $count);
-
       return $count;
     }
   }
 
   /**
    * Check that all activities for mailing list have been created
-   * So that we can switch display mode that shows activities
    *
    * @param $group_id
    * @return bool
@@ -188,11 +183,12 @@ class MailingList {
    *
    * @param $group_id
    * @param string $view_mode
+   * @param string $panels_display
    */
-  public function switchDisplay($group_id, $view_mode = 'full') {
+  public function switchDisplay($group_id, $view_mode = 'full', $panels_display = 'default') {
     $group = Group::load($group_id);
     $panels_displays = $this->panelizer->getDefaultPanelsDisplays('group', 'mailing_list', $view_mode);
-    $this->panelizer->setPanelsDisplay($group, $view_mode, NULL, $panels_displays['default']);
+    $this->panelizer->setPanelsDisplay($group, $view_mode, NULL, $panels_displays[$panels_display]);
   }
 
 }
