@@ -63,6 +63,26 @@ class ModerationStateMachineBase extends PluginBase implements ModerationStateMa
   }
 
   /**
+   * Call insert method in corresponding plugin.
+   * @see: moderation_state_machine_entity_insert
+   *
+   * @param \Drupal\Core\Entity\ContentEntityInterface $entity
+   */
+  public function moderatedEntityInsert(ContentEntityInterface $entity) {
+    $this->insert($entity);
+  }
+
+  /**
+   * Empty insert method. Can be implemented in plugins.
+   *
+   * @param \Drupal\Core\Entity\ContentEntityInterface $entity
+   */
+  public function insert(ContentEntityInterface $entity) { }
+
+  /**
+   * Call _switch method in corresponding plugin.
+   * @see: moderation_state_machine_entity_presave
+   *
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
    */
   public function switchState(ContentEntityInterface $entity) {
