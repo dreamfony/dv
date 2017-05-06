@@ -61,6 +61,11 @@ class ModerationStateMachineManager extends DefaultPluginManager {
     $plugin_ids = [];
 
     foreach ($this->getDefinitions() as $plugin_id => $plugin_definition) {
+      // skip default plugin
+      if($plugin_id == 'moderation_state_machine_default') {
+        continue;
+      }
+
       if($plugin_definition['entity_type'] == $entity->getEntityTypeId() && $plugin_definition['entity_bundle'] == $entity->bundle()) {
         // if weight is not set we set it to 0
         $plugin_definition['weight'] = isset($plugin_definition['weight']) ? $plugin_definition['weight'] : 0;
