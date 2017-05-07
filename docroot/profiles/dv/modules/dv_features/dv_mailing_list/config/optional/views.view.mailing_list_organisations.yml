@@ -28,7 +28,7 @@ display:
       access:
         type: group_permission
         options:
-          group_permission: 'edit group'
+          group_permission: 'view group'
       cache:
         type: tag
         options: {  }

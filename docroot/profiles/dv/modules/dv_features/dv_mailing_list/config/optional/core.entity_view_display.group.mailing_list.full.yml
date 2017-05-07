@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.group.full
+    - field.field.group.mailing_list.field_group_comments
     - field.field.group.mailing_list.panelizer
     - group.type.mailing_list
   module:
@@ -117,6 +118,7 @@ content:
 hidden:
   changed: true
   created: true
+  field_group_comments: true
   langcode: true
   panelizer: true
   uid: true

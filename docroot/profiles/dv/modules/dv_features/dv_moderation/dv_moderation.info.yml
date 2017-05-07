@@ -5,6 +5,7 @@ core: 8.x
 dependencies:
   - activity_creator
   - allowed_formats
+  - block
   - content_moderation
   - dv_issue
   - dv_mailing_list

@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.group_comments.default
     - field.field.group.mailing_list.field_group_comments
     - field.field.group.mailing_list.panelizer
     - group.type.mailing_list
@@ -59,13 +60,23 @@ third_party_settings:
             uuid: 259875cd-8ca1-4a13-a43b-3512e374e960
             context_mapping:
               gid: '@panelizer.entity_context:entity'
+          86c53419-b48f-43f1-a5c6-1c6024fe6f7d:
+            id: group_operations
+            label: 'Group operations'
+            provider: group
+            label_display: visible
+            region: header
+            weight: 0
+            uuid: 86c53419-b48f-43f1-a5c6-1c6024fe6f7d
+            context_mapping:
+              group: '@panelizer.entity_context:entity'
         id: panels_variant
         uuid: 5a557251-3442-4926-8501-afdd5ea5ebf6
         label: 'Mailing List Default'
         weight: 0
         layout: radix_sutro_double
         layout_settings: {  }
-        page_title: '[group:title]'
+        page_title: ''
         storage_type: panelizer_default
         storage_id: 'group:mailing_list:default:mailing_list_default'
         pattern: panelizer
