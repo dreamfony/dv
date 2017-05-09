@@ -1,5 +1,0 @@
-dvm_mailing_list.group_comments:
-  route_name: page_manager.page_view_group_comments_group_comments-panels_variant-0
-  title: 'Comments'
-  base_route: entity.group.canonical
-  weight: 2

@@ -13,6 +13,7 @@ dependencies:
   - address
   - admin_toolbar
   - admin_toolbar_tools
+  - ajax_comments
   - allowed_formats
   - basic_auth
   - big_pipe

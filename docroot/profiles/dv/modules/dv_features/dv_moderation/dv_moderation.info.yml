@@ -13,9 +13,11 @@ dependencies:
   - field
   - geocoder_field
   - group
+  - moderation_state_machine
   - options
   - path
   - text
   - user
+  - views
   - workflows
 package: DV

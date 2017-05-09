@@ -43,16 +43,6 @@ dvm_mailing_list.ajax_cancel_link:
     node: \d+
   options:
     _node_operation_route: TRUE
-# there is something wrong here probably un needed
-#dvm_mailing_list.ajax_cancel_link:
-#  path: 'node/{group}/send-email'
-#  defaults:
-#    _controller: '\Drupal\dvm_mailing_list\Controller\QuestionAjaxController::cancel'
-#  requirements:
-#    _entity_access: 'node.view'
-#    node: \d+
-#  options:
-#    _node_operation_route: TRUE
 
 dvm_mailing_list.ajax_organisation_delete_link:
   path: 'ajax/{group}/{group_content}/ajax-delete'
