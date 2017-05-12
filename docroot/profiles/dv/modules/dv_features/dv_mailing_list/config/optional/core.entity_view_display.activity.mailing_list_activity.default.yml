@@ -15,13 +15,25 @@ dependencies:
   module:
     - dynamic_entity_reference
     - options
+    - panelizer
     - text
     - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
 id: activity.mailing_list_activity.default
 targetEntityType: activity
 bundle: mailing_list_activity
 mode: default
 content:
+  content_moderation_control:
+    weight: -20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_activity_destinations:
     weight: 1
     label: above

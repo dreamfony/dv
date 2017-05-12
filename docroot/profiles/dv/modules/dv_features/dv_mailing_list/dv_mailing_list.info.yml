@@ -16,7 +16,9 @@ dependencies:
   - dv_area_of_activity
   - dv_core
   - dv_geo_area_group
+  - dv_group_comments
   - dv_issue
+  - dv_notifications
   - dv_org_legal_status
   - dv_organisation
   - dv_organisation_founder

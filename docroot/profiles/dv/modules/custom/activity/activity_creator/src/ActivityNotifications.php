@@ -90,7 +90,7 @@ class ActivityNotifications extends ControllerBase {
 
     foreach ($ids as $activity_id) {
       $activity = Activity::load($activity_id);
-      $this->changeStatusOfActivity($activity, ACTIVITY_STATUS_READ);
+      $this->changeStatusOfActivity($activity, ACTIVITY_STATUS_SEEN);
     }
 
   }
@@ -110,7 +110,7 @@ class ActivityNotifications extends ControllerBase {
 
     foreach ($ids as $activity_id) {
       $activity = Activity::load($activity_id);
-      $this->changeStatusOfActivity($activity, ACTIVITY_STATUS_READ);
+      $this->changeStatusOfActivity($activity, ACTIVITY_STATUS_SEEN);
     }
 
   }
@@ -127,9 +127,8 @@ class ActivityNotifications extends ControllerBase {
    */
   public function changeStatusOfActivity(Activity $activity, $status = ACTIVITY_STATUS_PENDING) {
     $activity->setModerationState($status);
-
-    /// @todo: fix this
-    return $activity->save();
+    $activity->save();
+    return $activity;
   }
 
   /**

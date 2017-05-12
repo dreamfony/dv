@@ -10,7 +10,7 @@ dependencies:
 id: mainnavigation
 theme: patternlab
 region: navigation_collapsible
-weight: 0
+weight: -6
 provider: null
 plugin: 'system_menu_block:main'
 settings:

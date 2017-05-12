@@ -1,0 +1,13 @@
+name: 'Dv Notificatons'
+description: 'Provides Issue content type and related configuration. '
+type: module
+core: 8.x
+dependencies:
+  - activity_creator
+  - activity_viewer
+  - dv_core
+  - options
+  - text
+  - user
+  - views
+package: DV

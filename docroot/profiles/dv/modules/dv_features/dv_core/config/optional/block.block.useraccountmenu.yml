@@ -10,7 +10,7 @@ dependencies:
 id: useraccountmenu
 theme: patternlab
 region: navigation_collapsible
-weight: 0
+weight: -5
 provider: null
 plugin: 'system_menu_block:account'
 settings:

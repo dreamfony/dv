@@ -9,12 +9,14 @@ dependencies:
   - content_moderation
   - dv_issue
   - dv_mailing_list
+  - dv_notifications
   - dynamic_entity_reference
   - field
   - geocoder_field
   - group
   - moderation_state_machine
   - options
+  - panelizer
   - path
   - text
   - user

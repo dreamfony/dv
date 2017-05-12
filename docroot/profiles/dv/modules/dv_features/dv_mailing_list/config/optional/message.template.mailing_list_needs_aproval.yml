@@ -12,11 +12,12 @@ third_party_settings:
     activity_action: moderation_action
     activity_context: group_activity_context
     activity_destinations:
+      notifications: notifications
       stream_group: stream_group
     activity_create_direct: 0
     activity_aggregate: 0
     activity_entity_condition: ''
-    moderation_group: 5b31d36c-dfeb-4ef1-ab76-3cea2fe92cb1
+    moderation_group: '0'
 template: mailing_list_needs_aproval
 label: 'Mailing List Needs Aproval'
 description: 'Mailing List Needs Aproval'
