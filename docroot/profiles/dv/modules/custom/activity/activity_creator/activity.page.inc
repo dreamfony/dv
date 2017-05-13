@@ -75,7 +75,7 @@ function template_preprocess_activity(array &$variables) {
   $status = $activity->getActivityState();
 
   switch ($status) {
-    case ACTIVITY_STATUS_READ:
+    case ACTIVITY_STATUS_SEEN:
       $status_class = 'bg-white';
       break;
 

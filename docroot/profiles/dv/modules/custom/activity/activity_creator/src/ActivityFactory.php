@@ -297,6 +297,19 @@ class ActivityFactory extends ControllerBase {
   /**
    * Get related entity for activity aggregation.
    */
+  public static function getCommentedEntity($data) {
+    $related_object = $data['related_object'][0];
+
+    $comment_storage = \Drupal::entityTypeManager()->getStorage('comment');
+      // @TODO: Check if comment published?
+    /** @var \Drupal\comment\CommentInterface $comment */
+    $comment = $comment_storage->load($related_object['target_id']);
+    return $comment->getCommentedEntity();
+  }
+
+  /**
+   * Get related entity for activity aggregation.
+   */
   public static function getActivityRelatedEntity($data) {
     $related_object = $data['related_object'][0];
 

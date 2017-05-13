@@ -1,0 +1,107 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - activity_creator.activity_type.mailing_list_activity
+    - core.entity_view_mode.activity.notification
+    - field.field.activity.mailing_list_activity.field_activity_destinations
+    - field.field.activity.mailing_list_activity.field_activity_entity
+    - field.field.activity.mailing_list_activity.field_activity_hash
+    - field.field.activity.mailing_list_activity.field_activity_mailing_list
+    - field.field.activity.mailing_list_activity.field_activity_message
+    - field.field.activity.mailing_list_activity.field_activity_output_text
+    - field.field.activity.mailing_list_activity.field_activity_recipient_group
+    - field.field.activity.mailing_list_activity.field_activity_recipient_user
+    - field.field.activity.mailing_list_activity.field_activity_reply
+  module:
+    - dynamic_entity_reference
+    - options
+    - text
+    - user
+id: activity.mailing_list_activity.notification
+targetEntityType: activity
+bundle: mailing_list_activity
+mode: notification
+content:
+  content_moderation_control:
+    weight: -20
+    region: content
+  field_activity_destinations:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_activity_entity:
+    weight: 2
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: dynamic_entity_reference_label
+    region: content
+  field_activity_hash:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_activity_mailing_list:
+    weight: 10
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_activity_message:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_activity_output_text:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_activity_recipient_group:
+    weight: 6
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_activity_recipient_user:
+    weight: 7
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_activity_reply:
+    weight: 8
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
