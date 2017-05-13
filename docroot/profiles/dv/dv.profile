@@ -89,7 +89,6 @@ function dv_install_profile_modules(&$install_state) {
     'dv_moderation' => 'dv_moderation',
     'dmt_moderation' => 'dmt_moderation',
     'dmt_group_comments' => 'dmt_group_comments',
-    'dv_group_comments' => 'dv_group_comments',
     'dv_notifications' => 'dv_notifications'
   );
 
