@@ -87,7 +87,8 @@
         "drupal/allowed_formats": "1.x-dev",
         "drupal/page_manager": "1.x-dev",
         "drupal/agnian_material_admin": "^1.0",
-        "drupal/search_api_solr": "1.x-dev"
+        "drupal/search_api_solr": "1.x-dev",
+        "drupal/image_widget_crop": "^2.0"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^2.7",
