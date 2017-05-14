@@ -22,9 +22,14 @@ ML = Mailing List
 - U: can not edit group while in "email" state
 - M: Picks up notification about new moderation activity (TODO describe Moderation Stream)
 - M: SCENARIO a. Approve Sending
+  - S: TODO Open confirm dialog
   - S: changes ML state from email to published
   - S: Create Queue items that create activities and send emails
   - S: When last activity is created switch ML group view mode that uses View dependent on activities (mailing_list_answers_group_by_recipient)
+  - S: TODO notify User that ML is approved
      SCENARIO b. Send Mailing List back to User with comment
+  - M: clicks Draft
+  - S: TODO Opens confirm dialog with Form where M enters reason for not approving.
+    - Reason is saved as comment on ML
   - S: changes ML state from email to draft
   - S: TODO notify User that ML is back in Draft
