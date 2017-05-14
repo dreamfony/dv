@@ -32,3 +32,19 @@
 // Run through the entire patterns collection, finding all scss files included therein
 //
 @import "../source/**/*.scss";
+
+
+/// This CSS is added here out of necessity it should be removed before writing components
+
+.icon-medium {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: text-bottom;
+  background-color: grey;
+}
+
+.block-notifications-block {
+  display: inline-block;
+  float: right;
+}
