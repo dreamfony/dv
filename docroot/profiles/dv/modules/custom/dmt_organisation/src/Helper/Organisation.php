@@ -5,7 +5,7 @@ namespace Drupal\dmt_organisation\Helper;
 use Drupal\profile\Entity\Profile;
 use Drupal\user\Entity\User;
 use Drupal\user\UserInterface;
-use Drupal\dvm_user\Helper\UserSettings;
+use Drupal\dmt_user\Helper\UserSettings;
 
 /**
  * Class Organisation

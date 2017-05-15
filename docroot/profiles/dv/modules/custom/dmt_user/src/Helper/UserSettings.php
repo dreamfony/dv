@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dvm_user\Helper;
+namespace Drupal\dmt_user\Helper;
 
 /**
  * Class WebhookEvents
