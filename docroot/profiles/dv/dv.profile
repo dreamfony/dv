@@ -63,7 +63,7 @@ function dv_install_profile_modules(&$install_state) {
     'dv_blog' => 'dv_blog',
     'geo_area_group' => 'geo_area_group',
     'dv_user' => 'dv_user',
-    'dvm_user_groups' => 'dvm_user_groups',
+    'dmt_user_groups' => 'dmt_user_groups',
     'dv_organisation' => 'dv_organisation',
     'dmt_organisation_group' => 'dmt_organisation_group',
     'dv_issue' => 'dv_issue',

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dvm_user_groups;
+namespace Drupal\dmt_user_groups;
 
 use Drupal\group\Entity\Group;
 use Drupal\Core\Entity\ContentEntityInterface;
