@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dv_positions\Form;
+namespace Drupal\dmt_positions\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -8,9 +8,9 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Class PositionsSettingsForm.
  *
- * @package Drupal\dv_positions\Form
+ * @package Drupal\dmt_positions\Form
  *
- * @ingroup dv_positions
+ * @ingroup dmt_positions
  */
 class PositionsSettingsForm extends FormBase {
 

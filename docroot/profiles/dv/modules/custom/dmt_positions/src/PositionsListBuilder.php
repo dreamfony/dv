@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dv_positions;
+namespace Drupal\dmt_positions;
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityListBuilder;
@@ -10,7 +10,7 @@ use Drupal\Core\Url;
 /**
  * Defines a class to build a listing of Positions entities.
  *
- * @ingroup dv_positions
+ * @ingroup dmt_positions
  */
 class PositionsListBuilder extends EntityListBuilder {
 
@@ -28,7 +28,7 @@ class PositionsListBuilder extends EntityListBuilder {
    * {@inheritdoc}
    */
   public function buildRow(EntityInterface $entity) {
-    /* @var $entity \Drupal\dv_positions\Entity\Positions */
+    /* @var $entity \Drupal\dmt_positions\Entity\Positions */
     $row['id'] = $entity->id();
     $row['name'] = $this->l(
       $entity->id(),

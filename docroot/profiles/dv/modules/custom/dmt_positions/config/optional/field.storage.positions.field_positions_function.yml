@@ -2,14 +2,14 @@ langcode: en
 status: true
 dependencies:
   module:
-    - dv_positions
-    - user
-id: positions.field_positions_organisation
-field_name: field_positions_organisation
+    - dmt_positions
+    - taxonomy
+id: positions.field_positions_function
+field_name: field_positions_function
 entity_type: positions
 type: entity_reference
 settings:
-  target_type: user
+  target_type: taxonomy_term
 module: core
 locked: false
 cardinality: 1

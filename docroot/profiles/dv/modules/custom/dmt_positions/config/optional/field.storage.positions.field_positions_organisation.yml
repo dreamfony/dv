@@ -2,15 +2,15 @@ langcode: en
 status: true
 dependencies:
   module:
-    - datetime_range
-    - dv_positions
-id: positions.field_positions_time_period
-field_name: field_positions_time_period
+    - dmt_positions
+    - user
+id: positions.field_positions_organisation
+field_name: field_positions_organisation
 entity_type: positions
-type: daterange
+type: entity_reference
 settings:
-  datetime_type: datetime
-module: datetime_range
+  target_type: user
+module: core
 locked: false
 cardinality: 1
 translatable: true

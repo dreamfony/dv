@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dv_positions\Entity;
+namespace Drupal\dmt_positions\Entity;
 
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityChangedInterface;
@@ -9,7 +9,7 @@ use Drupal\user\EntityOwnerInterface;
 /**
  * Provides an interface for defining Positions entities.
  *
- * @ingroup dv_positions
+ * @ingroup dmt_positions
  */
 interface PositionsInterface extends ContentEntityInterface, EntityChangedInterface, EntityOwnerInterface {
 
@@ -29,7 +29,7 @@ interface PositionsInterface extends ContentEntityInterface, EntityChangedInterf
    * @param int $timestamp
    *   The Positions creation timestamp.
    *
-   * @return \Drupal\dv_positions\Entity\PositionsInterface
+   * @return \Drupal\dmt_positions\Entity\PositionsInterface
    *   The called Positions entity.
    */
   public function setCreatedTime($timestamp);
@@ -50,7 +50,7 @@ interface PositionsInterface extends ContentEntityInterface, EntityChangedInterf
    * @param bool $published
    *   TRUE to set this Positions to published, FALSE to set it to unpublished.
    *
-   * @return \Drupal\dv_positions\Entity\PositionsInterface
+   * @return \Drupal\dmt_positions\Entity\PositionsInterface
    *   The called Positions entity.
    */
   public function setPublished($published);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dv_positions\Form;
+namespace Drupal\dmt_positions\Form;
 
 use Drupal\Core\Entity\ContentEntityForm;
 use Drupal\Core\Form\FormStateInterface;
@@ -8,7 +8,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Form controller for Positions edit forms.
  *
- * @ingroup dv_positions
+ * @ingroup dmt_positions
  */
 class PositionsForm extends ContentEntityForm {
 
@@ -16,7 +16,7 @@ class PositionsForm extends ContentEntityForm {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    /* @var $entity \Drupal\dv_positions\Entity\Positions */
+    /* @var $entity \Drupal\dmt_positions\Entity\Positions */
     $form = parent::buildForm($form, $form_state);
     $entity = $this->entity;
 

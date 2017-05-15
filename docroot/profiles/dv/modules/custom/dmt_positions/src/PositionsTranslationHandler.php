@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dv_positions;
+namespace Drupal\dmt_positions;
 
 use Drupal\content_translation\ContentTranslationHandler;
 

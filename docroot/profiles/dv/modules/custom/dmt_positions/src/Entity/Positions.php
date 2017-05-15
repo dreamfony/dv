@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dv_positions\Entity;
+namespace Drupal\dmt_positions\Entity;
 
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
@@ -12,26 +12,26 @@ use Drupal\user\UserInterface;
 /**
  * Defines the Positions entity.
  *
- * @ingroup dv_positions
+ * @ingroup dmt_positions
  *
  * @ContentEntityType(
  *   id = "positions",
  *   label = @Translation("Positions"),
  *   handlers = {
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
- *     "list_builder" = "Drupal\dv_positions\PositionsListBuilder",
- *     "views_data" = "Drupal\dv_positions\Entity\PositionsViewsData",
- *     "translation" = "Drupal\dv_positions\PositionsTranslationHandler",
+ *     "list_builder" = "Drupal\dmt_positions\PositionsListBuilder",
+ *     "views_data" = "Drupal\dmt_positions\Entity\PositionsViewsData",
+ *     "translation" = "Drupal\dmt_positions\PositionsTranslationHandler",
  *
  *     "form" = {
- *       "default" = "Drupal\dv_positions\Form\PositionsForm",
- *       "add" = "Drupal\dv_positions\Form\PositionsForm",
- *       "edit" = "Drupal\dv_positions\Form\PositionsForm",
- *       "delete" = "Drupal\dv_positions\Form\PositionsDeleteForm",
+ *       "default" = "Drupal\dmt_positions\Form\PositionsForm",
+ *       "add" = "Drupal\dmt_positions\Form\PositionsForm",
+ *       "edit" = "Drupal\dmt_positions\Form\PositionsForm",
+ *       "delete" = "Drupal\dmt_positions\Form\PositionsDeleteForm",
  *     },
- *     "access" = "Drupal\dv_positions\PositionsAccessControlHandler",
+ *     "access" = "Drupal\dmt_positions\PositionsAccessControlHandler",
  *     "route_provider" = {
- *       "html" = "Drupal\dv_positions\PositionsHtmlRouteProvider",
+ *       "html" = "Drupal\dmt_positions\PositionsHtmlRouteProvider",
  *     },
  *   },
  *   base_table = "positions",

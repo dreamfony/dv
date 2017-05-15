@@ -2,15 +2,15 @@ langcode: en
 status: true
 dependencies:
   module:
-    - dv_positions
-    - taxonomy
-id: positions.field_positions_function
-field_name: field_positions_function
+    - datetime_range
+    - dmt_positions
+id: positions.field_positions_time_period
+field_name: field_positions_time_period
 entity_type: positions
-type: entity_reference
+type: daterange
 settings:
-  target_type: taxonomy_term
-module: core
+  datetime_type: datetime
+module: datetime_range
 locked: false
 cardinality: 1
 translatable: true

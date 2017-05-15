@@ -5,7 +5,6 @@ core: 8.x
 dependencies:
   - datetime_range
   - dv_organisation
-  - dv_positions
   - field
   - node
   - taxonomy

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dv_positions;
+namespace Drupal\dmt_positions;
 
 use Drupal\Core\Entity\EntityAccessControlHandler;
 use Drupal\Core\Entity\EntityInterface;
@@ -10,7 +10,7 @@ use Drupal\Core\Access\AccessResult;
 /**
  * Access controller for the Positions entity.
  *
- * @see \Drupal\dv_positions\Entity\Positions.
+ * @see \Drupal\dmt_positions\Entity\Positions.
  */
 class PositionsAccessControlHandler extends EntityAccessControlHandler {
 
@@ -18,7 +18,7 @@ class PositionsAccessControlHandler extends EntityAccessControlHandler {
    * {@inheritdoc}
    */
   protected function checkAccess(EntityInterface $entity, $operation, AccountInterface $account) {
-    /** @var \Drupal\dv_positions\Entity\PositionsInterface $entity */
+    /** @var \Drupal\dmt_positions\Entity\PositionsInterface $entity */
     switch ($operation) {
       case 'view':
         if (!$entity->isPublished()) {

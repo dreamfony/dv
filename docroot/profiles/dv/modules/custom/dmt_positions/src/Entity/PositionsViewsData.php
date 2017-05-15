@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dv_positions\Entity;
+namespace Drupal\dmt_positions\Entity;
 
 use Drupal\views\EntityViewsData;
 use Drupal\views\EntityViewsDataInterface;

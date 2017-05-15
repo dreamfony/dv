@@ -5,7 +5,7 @@ dependencies:
     - field.storage.positions.field_positions_time_period
   module:
     - datetime_range
-    - dv_positions
+    - dmt_positions
 id: positions.positions.field_positions_time_period
 field_name: field_positions_time_period
 entity_type: positions
