@@ -23,15 +23,6 @@ use Drupal\content_moderation\StateTransitionValidation;
  */
 class PageStateMachine extends ModerationStateMachineBase implements ContainerFactoryPluginInterface {
 
-
-  /**
-   * {@inheritdoc}
-   */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, StateTransitionValidation $stateTransitionValidation, ModerationInformation $moderationInformation, AccountInterface $account) {
-    parent::__construct($configuration, $plugin_id, $plugin_definition, $stateTransitionValidation, $moderationInformation, $account);
-  }
-
-
   /**
    * Validates publish transition
    * TransitionId_validate
@@ -41,11 +32,10 @@ class PageStateMachine extends ModerationStateMachineBase implements ContainerFa
    */
   public function publish_validate(ContentEntityInterface $entity) {
     $violations = [];
-
-    // TODO write some example validation for time
-    if(0 == 0) {
+    $current_time = strtotime('now');
+    if ($current_time > strtotime('12:00am') && $current_time < strtotime('08:00am')) {
       $violations[] = [
-        'message' => "Please don't publish pages after midnight.",
+        'message' => "Please don't publish pages while you moonwalk.",
         'cause' => 'allow_link' // send this cause if you want to ignore this violation when showing links
       ];
     }
