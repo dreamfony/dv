@@ -6,7 +6,7 @@ dependencies:
     - group.type.mailing_list
     - user.role.organisation
   module:
-    - dvm_mailing_list
+    - dmt_mailing_list
     - group
     - profile
     - user

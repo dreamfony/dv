@@ -1,0 +1,54 @@
+dmt_mailing_list.create_mailing_list:
+  path: 's/create'
+  defaults:
+    _controller: '\Drupal\dmt_mailing_list\Controller\MailingListController::createMailingList'
+    _title: 'Create Survey'
+  requirements:
+    _permission: 'create mailing_list group'
+
+dmt_mailing_list.edit_title:
+  path: 'group/{group}/edit_title'
+  defaults:
+    _controller: '\Drupal\dmt_mailing_list\Controller\MailingListController::editTitle'
+  requirements:
+    _entity_access: 'group.update'
+    group: \d+
+
+dmt_mailing_list.ajax_edit_form:
+  path: 'node/{node}/ajax-edit'
+  defaults:
+    _controller: '\Drupal\dmt_mailing_list\Controller\QuestionAjaxController::editForm'
+  requirements:
+    _entity_access: 'node.update'
+    node: \d+
+  options:
+    _node_operation_route: TRUE
+
+dmt_mailing_list.ajax_delete_link:
+  path: 'node/{node}/ajax-delete'
+  defaults:
+    _controller: '\Drupal\dmt_mailing_list\Controller\QuestionAjaxController::delete'
+  requirements:
+    _entity_access: 'node.delete'
+    node: \d+
+  options:
+    _node_operation_route: TRUE
+
+dmt_mailing_list.ajax_cancel_link:
+  path: 'node/{node}/ajax-cancel'
+  defaults:
+    _controller: '\Drupal\dmt_mailing_list\Controller\QuestionAjaxController::cancel'
+  requirements:
+    _entity_access: 'node.view'
+    node: \d+
+  options:
+    _node_operation_route: TRUE
+
+dmt_mailing_list.ajax_organisation_delete_link:
+  path: 'ajax/{group}/{group_content}/ajax-delete'
+  defaults:
+    _controller: '\Drupal\dmt_mailing_list\Controller\GroupContentAjaxController::delete'
+  requirements:
+    _entity_access: 'group.update'
+    group: \d+
+    group_content: \d+

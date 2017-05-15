@@ -4,4 +4,4 @@ description: DV Mailing list Examples
 core: 8.x
 package: DV
 dependencies:
-  - dvm_mailing_list
+  - dmt_mailing_list

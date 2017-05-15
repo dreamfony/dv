@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dvm_mailing_list;
+namespace Drupal\dmt_mailing_list;
 
 use Drupal\group\Entity\GroupContent;
 use Drupal\group\Plugin\GroupContentEnabler\GroupMembership;

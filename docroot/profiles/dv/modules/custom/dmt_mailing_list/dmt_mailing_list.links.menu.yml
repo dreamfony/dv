@@ -1,0 +1,15 @@
+dmt_mailing_list.create_mailing_list_admin:
+  title: 'Create Survey'
+  description: 'New Survey'
+  route_name: dmt_mailing_list.create_mailing_list
+  weight: 10
+  parent: dmt_configuration.dmt_survey
+  menu_name: admin
+
+dmt_mailing_list.create_mailing_list:
+  title: 'Create Survey'
+  description: 'New Survey'
+  route_name: dmt_mailing_list.create_mailing_list
+  weight: 10
+  menu_name: main
+

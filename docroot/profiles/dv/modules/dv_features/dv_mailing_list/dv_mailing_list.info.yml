@@ -24,7 +24,7 @@ dependencies:
   - dv_organisation_founder
   - dv_organisation_group
   - dv_user
-  - dvm_mailing_list
+  - dmt_mailing_list
   - dynamic_entity_reference
   - field
   - field_permissions

@@ -6,7 +6,7 @@ dependencies:
     - system.menu.main
   module:
     - content_moderation
-    - dvm_mailing_list
+    - dmt_mailing_list
     - group
 id: my_surveys
 label: 'My Surveys'

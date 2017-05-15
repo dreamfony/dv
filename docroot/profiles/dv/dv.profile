@@ -74,7 +74,7 @@ function dv_install_profile_modules(&$install_state) {
     'dv_organisation_founder' => 'dv_organisation_founder',
     'dv_org_legal_status' => 'dv_org_legal_status',
     'dmt_mail' => 'dmt_mail',
-    'dvm_mailing_list' => 'dvm_mailing_list',
+    'dmt_mailing_list' => 'dmt_mailing_list',
     'dv_mailing_list' => 'dv_mailing_list',
     'dv_answer_text' => 'dv_answer_text',
     'dv_answer_number' => 'dv_answer_number',
