@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.message.field_message_destination
+    - message.template.group_comment_notification
+  module:
+    - options
+id: message.group_comment_notification.field_message_destination
+field_name: field_message_destination
+entity_type: message
+bundle: group_comment_notification
+label: field_message_destination
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

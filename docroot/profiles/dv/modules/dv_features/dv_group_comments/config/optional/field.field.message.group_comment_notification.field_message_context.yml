@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.message.field_message_context
+    - message.template.group_comment_notification
+  module:
+    - options
+id: message.group_comment_notification.field_message_context
+field_name: field_message_context
+entity_type: message
+bundle: group_comment_notification
+label: field_message_context
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - activity_viewer
+  theme:
+    - socialbase
+id: socialbase_notificationsblock
+theme: socialbase
+region: header
+weight: -4
+provider: null
+plugin: notifications_block
+settings:
+  id: notifications_block
+  label: 'Notifications block'
+  provider: activity_viewer
+  label_display: '0'
+visibility: {  }

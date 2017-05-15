@@ -1,0 +1,39 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - dvm_mailing_list
+    - personas
+  theme:
+    - stark
+id: stark_mailinglisttitleblock
+theme: stark
+region: header
+weight: -3
+provider: null
+plugin: mailing_list_title_block
+settings:
+  id: mailing_list_title_block
+  label: 'Mailing List Title block'
+  provider: dvm_mailing_list
+  label_display: '0'
+  context_mapping:
+    group: '@group.group_route_context:group'
+visibility:
+  'entity_bundle:group':
+    id: 'entity_bundle:group'
+    bundles:
+      mailing_list: mailing_list
+    negate: false
+    context_mapping:
+      group: '@group.group_route_context:group'
+  persona:
+    id: persona
+    personas:
+      administrator: administrator
+      journalist: journalist
+      moderator: moderator
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

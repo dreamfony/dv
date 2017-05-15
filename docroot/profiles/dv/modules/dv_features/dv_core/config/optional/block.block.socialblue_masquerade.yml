@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - masquerade
+  theme:
+    - socialblue
+id: socialblue_masquerade
+theme: socialblue
+region: footer
+weight: 0
+provider: null
+plugin: masquerade
+settings:
+  id: masquerade
+  label: Masquerade
+  provider: masquerade
+  label_display: visible
+visibility: {  }
