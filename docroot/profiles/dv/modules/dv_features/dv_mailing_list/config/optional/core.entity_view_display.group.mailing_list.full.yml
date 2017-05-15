@@ -20,7 +20,7 @@ third_party_settings:
           400d312c-a495-468d-9c71-fe2dabc9d2ab:
             id: question_form_block
             label: 'Add Question'
-            provider: dvm_mailing_list
+            provider: dmt_mailing_list
             label_display: '0'
             region: column1
             weight: 0
@@ -29,7 +29,7 @@ third_party_settings:
           15c1c100-4437-4cfe-92e3-6e9a1be74c2d:
             id: organisation_form_block
             label: 'Organisation form block'
-            provider: dvm_mailing_list
+            provider: dmt_mailing_list
             label_display: '0'
             region: column2
             weight: -1

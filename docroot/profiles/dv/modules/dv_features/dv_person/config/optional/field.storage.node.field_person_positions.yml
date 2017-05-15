@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - dv_positions
+    - dmt_positions
     - node
 id: node.field_person_positions
 field_name: field_person_positions

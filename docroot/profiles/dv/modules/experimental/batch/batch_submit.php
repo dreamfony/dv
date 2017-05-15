@@ -6,7 +6,7 @@
  * @param $form
  * @param \Drupal\Core\Form\FormStateInterface $form_state
  */
-function _dvm_mailing_list_group_form_submit($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function _dmt_mailing_list_group_form_submit($form, \Drupal\Core\Form\FormStateInterface $form_state) {
 
   $group = $form_state->getFormObject()->getEntity();
   $mod_state = $group->get('moderation_state')->getValue()[0]['value'];
@@ -28,22 +28,22 @@ function _dvm_mailing_list_group_form_submit($form, \Drupal\Core\Form\FormStateI
       'title' => t('Set up Survey...'),
       'operations' => array(
         array(
-          '\Drupal\dvm_mailing_list\BatchMailingList::cleanGroup',
+          '\Drupal\dmt_mailing_list\BatchMailingList::cleanGroup',
           array($group_id)
         ),
         array(
-          '\Drupal\dvm_mailing_list\BatchMailingList::addMembers',
+          '\Drupal\dmt_mailing_list\BatchMailingList::addMembers',
           array($gids, $group_id)
         ),
         array(
-          '\Drupal\dvm_mailing_list\BatchMailingList::addQuestions',
+          '\Drupal\dmt_mailing_list\BatchMailingList::addQuestions',
           array($nids, $group_id)
         ),
       ),
       'init_message' => t('Example Batch is starting.'),
       'progress_message' => t('Processed @current out of @total.'),
       'error_message' => t('Example Batch has encountered an error.'),
-      'finished' => '\Drupal\dvm_mailing_list\BatchMailingList::deleteNodeExampleFinishedCallback',
+      'finished' => '\Drupal\dmt_mailing_list\BatchMailingList::deleteNodeExampleFinishedCallback',
     );
     batch_set($batch);
   }

@@ -7,7 +7,7 @@ dependencies:
     - field.field.positions.positions.field_positions_time_period
   module:
     - datetime_range
-    - dv_positions
+    - dmt_positions
 id: positions.positions.default
 targetEntityType: positions
 bundle: positions

@@ -3,7 +3,7 @@ status: true
 dependencies:
   module:
     - ctools
-    - dvm_mailing_list
+    - dmt_mailing_list
     - personas
   theme:
     - patternlab
@@ -16,7 +16,7 @@ plugin: mailing_list_title_block
 settings:
   id: mailing_list_title_block
   label: 'Mailing List Title block'
-  provider: dvm_mailing_list
+  provider: dmt_mailing_list
   label_display: '0'
   context_mapping:
     group: '@group.group_route_context:group'

@@ -10,7 +10,7 @@ dependencies:
   - dv_core
   - dv_organisation
   - dv_organisation_group
-  - dv_positions
+  - dmt_positions
   - field
   - gnode
   - group

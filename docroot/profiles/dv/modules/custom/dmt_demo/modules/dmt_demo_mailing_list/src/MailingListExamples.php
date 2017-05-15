@@ -3,10 +3,10 @@ namespace Drupal\dmt_demo_mailing_list;
 
 use Drupal\dmt_demo_mailing_list\Queue\ProcessQueue;
 use Drupal\dmt_demo_mailing_list\Yaml\YmlParser;
-use Drupal\dvm_mailing_list\MailingListAnswer;
+use Drupal\dmt_mailing_list\MailingListAnswer;
 use Drupal\user\Entity\User;
 use Drupal\group\Entity\Group;
-use Drupal\dvm_mailing_list\MailingList;
+use Drupal\dmt_mailing_list\MailingList;
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\node\Entity\Node;
 
@@ -31,7 +31,7 @@ class MailingListExamples {
   protected $groupStorage;
 
   /**
-   * @var \Drupal\dvm_mailing_list\MailingList
+   * @var \Drupal\dmt_mailing_list\MailingList
    */
   protected $mailingList;
 
@@ -46,7 +46,7 @@ class MailingListExamples {
   protected $user;
 
   /**
-   * @var \Drupal\dvm_mailing_list\MailingListAnswer
+   * @var \Drupal\dmt_mailing_list\MailingListAnswer
    */
   protected $mailingListAnswer;
 
@@ -63,8 +63,8 @@ class MailingListExamples {
   /**
    * MailingListExamples constructor.
    * @param \Drupal\Core\Entity\EntityTypeManager $entity_manager
-   * @param \Drupal\dvm_mailing_list\MailingList $mailing_list
-   * @param \Drupal\dvm_mailing_list\MailingListAnswer $mailing_list_answer
+   * @param \Drupal\dmt_mailing_list\MailingList $mailing_list
+   * @param \Drupal\dmt_mailing_list\MailingListAnswer $mailing_list_answer
    * @param \Drupal\dmt_demo_mailing_list\Yaml\YmlParser $yml_parser
    * @param \Drupal\dmt_demo_mailing_list\Queue\ProcessQueue $process_queue
    */

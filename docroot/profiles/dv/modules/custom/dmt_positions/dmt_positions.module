@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains dmt_positions.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function dmt_positions_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the dmt_positions module.
+    case 'help.page.dmt_positions':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('DMT Positions') . '</p>';
+      return $output;
+
+    default:
+  }
+}

@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - dv_positions
-id: positions.token
-label: Token
-targetEntityType: positions
-cache: true

@@ -12,7 +12,7 @@ use Drupal\activity_send\Plugin\QueueWorker\ActivitySendWorkerBase;
 use Drupal\activity_creator\Entity\Activity;
 use Drupal\message\MessageInterface;
 use Drupal\message\Entity\Message;
-use Drupal\dvm_user\Helper\UserSettings;
+use Drupal\dmt_user\Helper\UserSettings;
 use Drupal\user\Entity\User;
 
 

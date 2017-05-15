@@ -1,0 +1,10 @@
+name: DMT Mailing List
+type: module
+description: DMT Mailing list
+core: 8.x
+package: DV
+dependencies:
+  - activity_creator
+  - group
+  - node
+  - views
