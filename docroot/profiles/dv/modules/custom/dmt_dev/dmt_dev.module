@@ -14,7 +14,7 @@ use Drupal\personas\Entity\Persona;
  * Create Test User Accounts for every Role
  */
 
-function dv_dev_create_test_accounts() {
+function dmt_dev_create_test_accounts() {
   $personas = Persona::loadMultiple();
   foreach ($personas as $persona) {
     /** @var Persona $persona */
@@ -38,7 +38,7 @@ function dv_dev_create_test_accounts() {
  * Implements hook_mail_alter().
  */
 
-function dv_dev_mail_alter(&$message) {
+function dmt_dev_mail_alter(&$message) {
   $message['to'] = 'dmtit6@gmail.com';
 }
 
@@ -47,7 +47,7 @@ function dv_dev_mail_alter(&$message) {
  * TODO check user is admin
  * @param $account
  */
-function dv_dev_user_login($account) {
+function dmt_dev_user_login($account) {
   $session = \Drupal::request()->getSession();
   if (isset($session)) {
     $session->set('features_current_bundle', 'dv');
