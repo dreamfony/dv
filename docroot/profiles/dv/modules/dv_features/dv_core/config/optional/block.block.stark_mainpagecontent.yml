@@ -1,5 +1,5 @@
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -7,7 +7,7 @@ dependencies:
     - stark
 id: stark_mainpagecontent
 theme: stark
-region: content
+region: ''
 weight: -5
 provider: null
 plugin: system_main_block

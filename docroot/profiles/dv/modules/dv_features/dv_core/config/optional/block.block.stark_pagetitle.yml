@@ -1,11 +1,11 @@
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - stark
 id: stark_pagetitle
 theme: stark
-region: header
+region: ''
 weight: -2
 provider: null
 plugin: page_title_block

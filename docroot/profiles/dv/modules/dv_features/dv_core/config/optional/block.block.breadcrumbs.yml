@@ -1,5 +1,5 @@
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -7,7 +7,7 @@ dependencies:
     - patternlab
 id: breadcrumbs
 theme: patternlab
-region: header
+region: ''
 weight: -5
 provider: null
 plugin: system_breadcrumb_block

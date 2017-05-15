@@ -1,11 +1,11 @@
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - stark
 id: stark_tabs
 theme: stark
-region: header
+region: ''
 weight: -1
 provider: null
 plugin: local_tasks_block

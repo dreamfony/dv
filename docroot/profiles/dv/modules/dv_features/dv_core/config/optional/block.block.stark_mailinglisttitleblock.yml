@@ -1,15 +1,15 @@
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - ctools
-    - dvm_mailing_list
+    - dmt_mailing_list
     - personas
   theme:
     - stark
 id: stark_mailinglisttitleblock
 theme: stark
-region: header
+region: ''
 weight: -3
 provider: null
 plugin: mailing_list_title_block

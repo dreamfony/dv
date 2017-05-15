@@ -1,11 +1,11 @@
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - stark
 id: stark_primaryadminactions
 theme: stark
-region: header
+region: ''
 weight: 0
 provider: null
 plugin: local_actions_block

@@ -6,6 +6,9 @@ dependencies:
   - dv_core
   - dv_geo_area
   - field
+  - gnode
   - group
+  - node
+  - path
   - user
 package: DV

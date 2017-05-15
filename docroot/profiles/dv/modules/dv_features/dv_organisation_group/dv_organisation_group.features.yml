@@ -1,14 +1,2 @@
 bundle: dv
-required:
-  - core.entity_form_display.group_content.organisation-group_membership.default
-  - core.entity_view_display.group_content.organisation-group_membership.default
-  - field.field.group_content.organisation-group_membership.group_roles
-  - group.content_type.organisation-group_membership
-  - group.content_type.group_content_type_a8434534875b2
-  - group.content_type.group_content_type_ff207b9a231b8
-  - group.role.organisation-anonymous
-  - group.role.organisation-member
-  - group.role.organisation-outsider
-  - group.role.organisation-3f12549f7
-  - group.role.organisation-a416e6833
-  - group.type.organisation
+required: true

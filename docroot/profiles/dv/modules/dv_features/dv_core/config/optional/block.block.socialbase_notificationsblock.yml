@@ -1,8 +1,6 @@
 langcode: en
 status: true
 dependencies:
-  module:
-    - activity_viewer
   theme:
     - socialbase
 id: socialbase_notificationsblock

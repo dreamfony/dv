@@ -1,5 +1,5 @@
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -7,7 +7,7 @@ dependencies:
     - stark
 id: stark_messages
 theme: stark
-region: header
+region: ''
 weight: -4
 provider: null
 plugin: system_messages_block

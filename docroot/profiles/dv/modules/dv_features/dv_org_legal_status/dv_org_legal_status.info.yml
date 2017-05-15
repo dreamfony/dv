@@ -7,3 +7,4 @@ dependencies:
   - dv_core
   - field
   - group
+  - user

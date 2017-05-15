@@ -12,5 +12,7 @@ dependencies:
   - group
   - node
   - path
+  - rest
+  - serialization
   - user
   - views

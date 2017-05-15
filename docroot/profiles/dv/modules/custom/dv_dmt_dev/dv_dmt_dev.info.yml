@@ -1,0 +1,8 @@
+name: 'DV Development Module'
+type: module
+core: 8.x
+dependencies:
+  - block
+  - domain
+  - masquerade
+package: DV

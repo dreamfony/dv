@@ -3,7 +3,7 @@ status: true
 dependencies:
   module:
     - ctools
-    - dvm_mailing_list
+    - dmt_mailing_list
     - personas
   theme:
     - socialblue

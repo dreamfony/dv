@@ -1,5 +1,5 @@
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.main
@@ -9,7 +9,7 @@ dependencies:
     - stark
 id: stark_mainnavigation
 theme: stark
-region: sidebar_first
+region: ''
 weight: -6
 provider: null
 plugin: 'system_menu_block:main'

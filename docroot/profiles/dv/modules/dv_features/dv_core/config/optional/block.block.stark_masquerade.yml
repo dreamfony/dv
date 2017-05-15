@@ -1,5 +1,5 @@
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - masquerade
@@ -7,7 +7,7 @@ dependencies:
     - stark
 id: stark_masquerade
 theme: stark
-region: footer
+region: ''
 weight: 0
 provider: null
 plugin: masquerade

@@ -1,8 +1,6 @@
 langcode: en
 status: true
 dependencies:
-  config:
-    - comment.type.group_comments
   module:
     - content_moderation
 id: editorial
@@ -62,6 +60,4 @@ type_settings:
     published:
       published: true
       default_revision: true
-  entity_types:
-    comment:
-      - group_comments
+  entity_types: {  }

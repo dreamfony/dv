@@ -1,11 +1,11 @@
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - patternlab
 id: pagetitle
 theme: patternlab
-region: header
+region: ''
 weight: -2
 provider: null
 plugin: page_title_block

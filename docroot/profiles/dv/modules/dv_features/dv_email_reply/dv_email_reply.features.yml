@@ -1,7 +1,2 @@
 bundle: dv
-required:
-  - comment.type.email_reply
-  - language.content_settings.comment.email_reply
-  - core.entity_form_display.comment.email_reply.default
-  - core.entity_view_display.comment.email_reply.default
-  - field.field.comment.email_reply.comment_body
+required: true

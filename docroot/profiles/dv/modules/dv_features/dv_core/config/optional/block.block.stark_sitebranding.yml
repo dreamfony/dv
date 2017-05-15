@@ -1,5 +1,5 @@
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -7,7 +7,7 @@ dependencies:
     - stark
 id: stark_sitebranding
 theme: stark
-region: sidebar_first
+region: ''
 weight: -7
 provider: null
 plugin: system_branding_block

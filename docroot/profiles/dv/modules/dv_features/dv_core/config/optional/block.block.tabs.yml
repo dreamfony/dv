@@ -1,11 +1,11 @@
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - patternlab
 id: tabs
 theme: patternlab
-region: header
+region: ''
 weight: -1
 provider: null
 plugin: local_tasks_block

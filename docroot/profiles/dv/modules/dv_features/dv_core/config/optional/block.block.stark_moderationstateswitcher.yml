@@ -1,5 +1,5 @@
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - moderation_state_machine
@@ -7,7 +7,7 @@ dependencies:
     - stark
 id: stark_moderationstateswitcher
 theme: stark
-region: content
+region: ''
 weight: -6
 provider: null
 plugin: moderation_state_switch

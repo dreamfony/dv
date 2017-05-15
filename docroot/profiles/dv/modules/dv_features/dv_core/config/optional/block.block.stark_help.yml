@@ -1,5 +1,5 @@
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - help
@@ -7,7 +7,7 @@ dependencies:
     - stark
 id: stark_help
 theme: stark
-region: help
+region: ''
 weight: 0
 provider: null
 plugin: help_block

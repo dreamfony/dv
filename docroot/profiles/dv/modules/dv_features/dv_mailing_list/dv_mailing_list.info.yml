@@ -11,6 +11,7 @@ dependencies:
   - content_moderation
   - ctools
   - ctools_block
+  - dmt_mailing_list
   - dv_answer_number
   - dv_answer_text
   - dv_area_of_activity
@@ -24,7 +25,6 @@ dependencies:
   - dv_organisation_founder
   - dv_organisation_group
   - dv_user
-  - dmt_mailing_list
   - dynamic_entity_reference
   - field
   - field_permissions

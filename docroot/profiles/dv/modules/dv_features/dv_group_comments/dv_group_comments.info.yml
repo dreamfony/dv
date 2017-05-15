@@ -8,10 +8,12 @@ dependencies:
   - content_moderation
   - dv_core
   - dv_mailing_list
+  - dynamic_entity_reference
   - field
   - group
   - language
   - message
+  - options
   - text
   - workflows
 package: DV

@@ -90,7 +90,11 @@ function dv_install_profile_modules(&$install_state) {
     'dmt_moderation' => 'dmt_moderation',
     'dmt_group_comments' => 'dmt_group_comments',
     'dv_group_comments' => 'dv_group_comments',
-    'dv_notifications' => 'dv_notifications'
+    'dv_notifications' => 'dv_notifications',
+    'social_core' => 'social_core',
+    'social_user' => 'social_user',
+    'social_comment' => 'social_comment',
+    'social_profile' => 'social_profile'
   );
 
   $dv_modules = $modules;
