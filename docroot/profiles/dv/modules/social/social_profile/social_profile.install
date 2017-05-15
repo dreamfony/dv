@@ -37,5 +37,4 @@ function _social_profile_add_default_profile_image() {
   $default_image['width'] = 200;
 
   $field_image_config->set('settings.default_image', $default_image)->save(TRUE);
-  drupal_flush_all_caches();
 }
