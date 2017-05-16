@@ -7,10 +7,10 @@ dependencies:
   - captcha
   - content_moderation
   - datetime_range
+  - dmt_positions
   - dv_core
   - dv_organisation
   - dv_organisation_group
-  - dmt_positions
   - field
   - gnode
   - group

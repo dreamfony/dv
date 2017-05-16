@@ -1,5 +1,5 @@
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -7,7 +7,7 @@ dependencies:
     - patternlab
 id: sitebranding
 theme: patternlab
-region: navigation
+region: ''
 weight: -7
 provider: null
 plugin: system_branding_block

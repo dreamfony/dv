@@ -6,4 +6,6 @@ dependencies:
   - dv_core
   - field
   - group
+  - path
+  - user
 package: DV

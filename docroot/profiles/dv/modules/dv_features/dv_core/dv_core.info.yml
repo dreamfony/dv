@@ -17,9 +17,11 @@ dependencies:
   - comment
   - contact
   - content_moderation
+  - ctools
   - datetime
   - datetime_range
   - dmt_group
+  - dmt_mailing_list
   - dv_answer_number
   - dv_answer_text
   - dv_area_of_activity
@@ -52,15 +54,18 @@ dependencies:
   - like_and_dislike
   - link
   - locale
+  - masquerade
   - menu_link_content
   - menu_ui
   - message
+  - moderation_state_machine
   - node
   - options
   - panelizer
   - path
   - pathauto
   - persistent_login
+  - personas
   - profile
   - r4032login
   - rabbit_hole

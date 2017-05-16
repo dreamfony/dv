@@ -316,11 +316,15 @@ display:
         - user
         - user.roles
       tags:
+        - 'config:core.entity_view_display.activity.activity.default'
         - 'config:core.entity_view_display.activity.activity.notification'
         - 'config:core.entity_view_display.activity.activity.notification_archive'
-        - 'config:core.entity_view_display.activity.activity.default'
         - 'config:core.entity_view_display.activity.mailing_list_activity.default'
+        - 'config:core.entity_view_display.activity.mailing_list_activity.notification'
+        - 'config:core.entity_view_display.activity.mailing_list_activity.notification_archive'
         - 'config:core.entity_view_display.activity.moderation_activity.default'
+        - 'config:core.entity_view_display.activity.moderation_activity.notification'
+        - 'config:core.entity_view_display.activity.moderation_activity.notification_archive'
   block_1:
     display_plugin: block
     id: block_1
@@ -354,7 +358,11 @@ display:
         - 'config:core.entity_view_display.activity.activity.notification'
         - 'config:core.entity_view_display.activity.activity.notification_archive'
         - 'config:core.entity_view_display.activity.mailing_list_activity.default'
+        - 'config:core.entity_view_display.activity.mailing_list_activity.notification'
+        - 'config:core.entity_view_display.activity.mailing_list_activity.notification_archive'
         - 'config:core.entity_view_display.activity.moderation_activity.default'
+        - 'config:core.entity_view_display.activity.moderation_activity.notification'
+        - 'config:core.entity_view_display.activity.moderation_activity.notification_archive'
   page_1:
     display_plugin: page
     id: page_1
@@ -401,4 +409,8 @@ display:
         - 'config:core.entity_view_display.activity.activity.notification'
         - 'config:core.entity_view_display.activity.activity.notification_archive'
         - 'config:core.entity_view_display.activity.mailing_list_activity.default'
+        - 'config:core.entity_view_display.activity.mailing_list_activity.notification'
+        - 'config:core.entity_view_display.activity.mailing_list_activity.notification_archive'
         - 'config:core.entity_view_display.activity.moderation_activity.default'
+        - 'config:core.entity_view_display.activity.moderation_activity.notification'
+        - 'config:core.entity_view_display.activity.moderation_activity.notification_archive'

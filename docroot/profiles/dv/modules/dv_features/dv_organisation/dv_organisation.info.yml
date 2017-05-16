@@ -8,6 +8,7 @@ dependencies:
   - content_moderation
   - datetime_range
   - dmt_group
+  - dmt_positions
   - dv_admin_dashboard
   - dv_area_of_activity
   - dv_core
@@ -15,11 +16,11 @@ dependencies:
   - dv_issue
   - dv_mailing_list
   - dv_organisation_group
-  - dmt_positions
   - dv_user
   - entity_browser
   - field
   - field_permissions
+  - file
   - geo_area_group
   - geocoder_field
   - geofield

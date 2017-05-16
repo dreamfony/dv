@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function dmt_group_comments_comment_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  if($entity->bundle() == 'group_comments') {
+    $activity_action_manager = \Drupal::service('plugin.manager.activity_action_processor');
+    $create_action = $activity_action_manager->createInstance('create_activity_action');
+    $create_action->create($entity);
+  }
+}

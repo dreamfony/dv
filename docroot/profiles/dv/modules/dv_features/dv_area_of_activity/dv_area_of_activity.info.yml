@@ -9,3 +9,4 @@ dependencies:
   - field
   - group
   - path
+  - user

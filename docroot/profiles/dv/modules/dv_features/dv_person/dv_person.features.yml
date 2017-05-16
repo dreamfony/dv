@@ -1,19 +1,2 @@
 bundle: dv
-required:
-  - captcha.captcha_point.contact_message_personal_form
-  - captcha.captcha_point.node_person_form
-  - core.entity_form_display.node.person.default
-  - core.entity_form_display.group_content.organisation-group_node-person.default
-  - core.entity_form_display.role.role.default
-  - core.entity_view_display.node.person.default
-  - core.entity_view_display.node.person.teaser
-  - core.entity_view_display.group_content.organisation-group_node-person.default
-  - core.entity_view_display.role.role.default
-  - field.field.node.person.body
-  - field.field.node.person.field_p_role
-  - field.field.node.person.field_person_id
-  - field.storage.node.field_p_role
-  - field.storage.node.field_person_id
-  - language.content_settings.node.person
-  - node.type.person
-  - group.content_type.organisation-group_node-person
+required: true
