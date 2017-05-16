@@ -108,7 +108,7 @@ class MailingListEditTitleForm extends FormBase {
 
       $title = $form_state->getValue('title');
 
-      $response->addCommand(new HtmlCommand('h1.page-header', $title));
+      $response->addCommand(new HtmlCommand('h1.section-title', $title));
 
       return $response;
     }
