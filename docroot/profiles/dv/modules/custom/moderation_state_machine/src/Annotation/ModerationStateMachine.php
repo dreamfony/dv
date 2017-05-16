@@ -56,4 +56,11 @@ class ModerationStateMachine extends Plugin {
    */
   public $weight;
 
+  /**
+   * Plugin status enabled/disabled.
+   *
+   * @var integer
+   */
+  public $status;
+
 }

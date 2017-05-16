@@ -66,6 +66,11 @@ class ModerationStateMachineManager extends DefaultPluginManager {
         continue;
       }
 
+      // skip disabled plugins
+      if(isset($plugin_definition['status']) && $plugin_definition['status'] == 0) {
+        continue;
+      }
+
       if($plugin_definition['entity_type'] == $entity->getEntityTypeId() && $plugin_definition['entity_bundle'] == $entity->bundle()) {
         // if weight is not set we set it to 0
         $plugin_definition['weight'] = isset($plugin_definition['weight']) ? $plugin_definition['weight'] : 0;
