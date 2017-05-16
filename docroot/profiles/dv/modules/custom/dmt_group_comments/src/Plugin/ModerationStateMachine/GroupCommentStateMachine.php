@@ -15,10 +15,15 @@ use Drupal\Core\Session\AccountInterface;
 
 
 /**
+ * todo: this plugin is disabled we will enable it (remove status = 0)
+ * when we figure out how to make ajax comments work with content_moderation
+ * also remove comment_insert from dmt_group_comments.module once this is done
+ *
  * Group Comments State Machine.
  *
  * @ModerationStateMachine(
  *  id = "group_comments",
+ *  status = 0,
  *  entity_type = "comment",
  *  entity_bundle = "group_comments",
  *  label = @Translation("Group Comments"),
