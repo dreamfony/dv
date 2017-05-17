@@ -1,7 +1,7 @@
 // 2. Scaffolding
 // ==========================================================================
 //** Background color for `<body>`.
-$body-bg:                     $gray-lightest;
+$body-bg:                     $white;
 //** Global text color on `<body>`.
 $text-color:                  $default-color;
 
@@ -17,6 +17,7 @@ $border-radius-base:          10px;
 $border-radius-large:         12px;
 $border-radius-small:         8px;
 $border-radius-extrasmall:    5px;
+$border-radius-ultrasmall:    3px;
 
 $padding-base-vertical:       6px;
 $padding-base-horizontal:     12px;

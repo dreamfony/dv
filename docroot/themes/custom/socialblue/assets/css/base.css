@@ -304,7 +304,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #4d4d4d;
-  background-color: #f3f3f3;
+  background-color: #ffffff;
 }
 
 .table > thead > tr > td.active,
@@ -423,7 +423,7 @@ body {
 }
 
 table table {
-  background-color: #f3f3f3;
+  background-color: #ffffff;
 }
 
 .img-avatar {

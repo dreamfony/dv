@@ -533,7 +533,7 @@
   top: 0;
   width: 3px;
   height: 100%;
-  background-color: #f3f3f3;
+  background-color: #ffffff;
   -webkit-transition: background-color .3s, width .3s;
   transition: background-color .3s, width .3s;
 }

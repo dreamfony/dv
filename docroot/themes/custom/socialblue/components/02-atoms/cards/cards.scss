@@ -43,7 +43,10 @@
 }
 
 .card__link {
-  color: $brand-primary;
+  margin-left: 0;
+  margin-right: 10px;
+  float: none;
+  display: inline-block;
 
   &:hover {
     color: darken($brand-primary, 10%);

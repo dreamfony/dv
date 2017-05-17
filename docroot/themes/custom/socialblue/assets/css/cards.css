@@ -33,7 +33,10 @@
 }
 
 .card__link {
-  color: #29abe2;
+  margin-left: 0;
+  margin-right: 10px;
+  float: none;
+  display: inline-block;
 }
 
 .card__link:hover {
