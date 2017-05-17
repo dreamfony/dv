@@ -70,7 +70,11 @@ install:
   - source $BLT_DIR/scripts/travis/setup_project
 
 script:
-  - source $BLT_DIR/scripts/travis/run_tests
+#  - source $BLT_DIR/scripts/travis/run_tests
+# Copied from above file because we needed to add travis_wait
+  - yaml-cli update:value blt/project.yml project.local.hostname '127.0.0.1:8888'
+  - travis_wait 30 blt ci:build:validate:test -Dcreate_alias=false -Dbehat.run-server=true -Dblt.verbose=true
+
 # Support for CodeClimate
 #after_script:
 #  - ./vendor/bin/test-reporter
