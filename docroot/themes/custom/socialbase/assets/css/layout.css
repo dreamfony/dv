@@ -94,9 +94,6 @@
 
   .layout--with-complementary > .region--content {
     -webkit-box-flex: 0;
-    -ms-flex: 0 0 66.66667%;
-    flex: 0 0 66.66667%;
-    max-width: 66.66667%;
     -webkit-box-ordinal-group: 2;
     -ms-flex-order: 1;
     order: 1;
