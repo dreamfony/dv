@@ -73,4 +73,8 @@ To calculate score we need to merge all states into 3 possible
 **Explanation**
 Eg. When institution replies by saying that they do not hold requested information then Worker must either agree with institution and set answer to **Not Held** or Reject Response.
 
+If Response is Delayed (not received by required time), System created comment and sets it to Rejected state (?)
+
+Maybe we could immediately create empty comment and set it to Awaiting response (?)
+
 **Needs admin attention Process**
