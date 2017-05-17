@@ -1,0 +1,1 @@
+Configuration of Menu Links for DMT Core Menu

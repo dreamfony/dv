@@ -14,4 +14,4 @@ dependencies:
   - serialization
   - user
   - views
-package: DVM
+package: DMT

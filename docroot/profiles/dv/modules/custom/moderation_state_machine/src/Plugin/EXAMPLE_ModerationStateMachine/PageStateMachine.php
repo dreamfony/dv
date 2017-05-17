@@ -2,13 +2,9 @@
 
 namespace Drupal\moderation_state_machine\Plugin\ModerationStateMachine;
 
-use Drupal\content_moderation\ModerationInformation;
 use Drupal\Core\Entity\ContentEntityInterface;
-use Drupal\Core\Session\AccountInterface;
 use Drupal\moderation_state_machine\ModerationStateMachineBase;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\content_moderation\StateTransitionValidation;
 
 /**
  * Example plugin for "Editorial workflow".
@@ -36,7 +32,8 @@ class PageStateMachine extends ModerationStateMachineBase implements ContainerFa
     if ($current_time > strtotime('12:00am') && $current_time < strtotime('08:00am')) {
       $violations[] = [
         'message' => "Please don't publish pages while you moonwalk.",
-        'cause' => 'allow_link' // send this cause if you want to ignore this violation when showing links
+        'cause' => 'allow_link'
+        // send this cause if you want to ignore this violation when showing links
       ];
     }
 
@@ -50,8 +47,7 @@ class PageStateMachine extends ModerationStateMachineBase implements ContainerFa
    */
 
   public function publish_switch(ContentEntityInterface $entity) {
-
-
+    drupal_set_message(t("Page is published!"));
   }
 
   /**
@@ -59,6 +55,6 @@ class PageStateMachine extends ModerationStateMachineBase implements ContainerFa
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
    */
   public function insert(ContentEntityInterface $entity) {
-
+    drupal_set_message(t("New Page is created!"));
   }
 }
