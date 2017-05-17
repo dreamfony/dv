@@ -25,67 +25,30 @@ use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
  * Enhance the comment form.
  */
 function social_comment_form_comment_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  /*
   // Change value of 'Save' button.
   $form['actions']['submit']['#value'] = t('Comment');
   // Hide title of 'Comment' field.
   if (!empty($form['field_comment_body']['widget'][0]['value']['#title_display'])) {
     $form['field_comment_body']['widget'][0]['value']['#title_display'] = 'invisible';
   }
-  // Validate replies to comments deeper than 1.
-  $form['#validate'][] = 'social_comment_form_reply_validate';
 
   $route_name = \Drupal::routeMatch()->getRouteName();
 
   switch ($route_name) {
     // Comment reply form.
-    case 'comment.reply':
+    case 'ajax_comments.reply':
       $form['actions']['submit']['#attributes']['value'] = t('Reply');
       $form['actions']['submit']['#value'] = t('Reply');
       $form['field_comment_body']['widget'][0]['#placeholder'] = t('Add a reply');
       break;
 
     // Comment edit form.
-    case 'entity.comment.edit_form':
+    case 'ajax_comments.edit':
       $form['actions']['submit']['#attributes']['value'] = t('Submit');
       $form['actions']['submit']['#value'] = t('Submit');
       break;
-
-    default:
-      // By default the comment form has the "Reply comment" page URL in the "action" attribute.
-      // So we should set the current URL to exclude changing the route name.
-      // Otherwise this "switch" won't work.
-      $form['#action'] = \Drupal::request()->getRequestUri();
-      break;
   }
 
-  $form['#attached']['library'][] = 'social_post/keycode-submit';
-  */
-}
-
-/**
- * Form validation handler for comment_form().
- *
- * Validate replies to comments deeper than 1.
- */
-function social_comment_form_reply_validate($form, FormStateInterface $form_state) {
-  // Get parrent comment ID.
-  $pid = \Drupal::routeMatch()->getParameter('pid');
-  if ($pid) {
-    $comment = \Drupal::entityTypeManager()->getStorage('comment')->load($pid);
-    $bundle = $comment->bundle();
-    switch ($bundle) {
-      default:
-        if (!empty($comment->getParentComment())) {
-          $form_state->setErrorByName('', t('Replies to comments deeper than 1 is not allowed'));
-        }
-        break;
-
-      case "post_comment":
-        $form_state->setErrorByName('', t('Replies for comments on posts are not allowed'));
-        break;
-    }
-  }
 }
 
 /**

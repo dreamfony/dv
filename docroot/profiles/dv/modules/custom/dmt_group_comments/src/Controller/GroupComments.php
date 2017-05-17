@@ -26,7 +26,7 @@ class GroupComments extends ControllerBase {
       ->getViewBuilder($group->getEntityTypeId())
       ->view($group, $view_mode);
 
-    //$page['#pre_render'][] = [$this, 'buildTitle'];
+    $page['#pre_render'][] = [$this, 'buildTitle'];
     $page['#entity_type'] = $group->getEntityTypeId();
     $page['#' . $page['#entity_type']] = $group;
 
