@@ -39,7 +39,7 @@ options.rootPath = {
   styleGuide  : __dirname + '/styleguide/',
   theme       : __dirname + '/',
   basetheme   : __dirname + '/../socialbase/',
-  drupal      : __dirname + '/../../../../../core/'
+  drupal      : __dirname + '/../../core/'
 };
 
 options.theme = {
@@ -63,7 +63,7 @@ options.basetheme = {
 
 // Set the URL used to access the Drupal website under development. This will
 // allow Browser Sync to serve the website and update CSS changes on the fly.
-options.drupalURL = '';
+options.drupalURL = 'http://local.dv.com';
 //options.drupalURL = 'http://social.dev:32780';
 
 // Define the node-sass configuration. The includePaths is critical!
@@ -149,6 +149,7 @@ options.styleGuide = {
     'kss-assets/base/nav-book.css',
     'kss-assets/css/nav-book.css',
     'kss-assets/base/nav-tabs.css',
+    'kss-assets/base/links.css',
     'kss-assets/css/nav-tabs.css',
     'kss-assets/base/navbar.css',
     'kss-assets/css/navbar.css',
