@@ -1,6 +1,6 @@
-name: 'DV Positions'
+name: 'DMT Positions'
 type: module
-description: 'DV Positions'
+description: 'DMT Positions'
 core: 8.x
 dependencies:
   - datetime_range
@@ -8,4 +8,4 @@ dependencies:
   - field
   - node
   - taxonomy
-package: DV
+package: DMT
