@@ -23,4 +23,11 @@
     max-height: 400px;
   }
 
+  .comment-box-toggle {
+    background-color: $brand-primary;
+    color: $gray-lightest;
+    padding: $padding-xs-vertical $padding-xs-horizontal;
+    cursor: pointer;
+  }
+
 }

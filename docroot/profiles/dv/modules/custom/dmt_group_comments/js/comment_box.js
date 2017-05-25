@@ -9,7 +9,7 @@
 
       $comment_box_comments.collapse().removeClass('in');
 
-      $('.comment-box', context).click(function () {
+      $('.comment-box-toggle', context).click(function () {
         $comment_box_comments.toggle();
       });
     }

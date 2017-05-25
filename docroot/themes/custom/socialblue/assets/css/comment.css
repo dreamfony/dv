@@ -21,3 +21,10 @@
   overflow-y: scroll;
   max-height: 400px;
 }
+
+.radix-layouts-footer .comment-box-toggle {
+  background-color: #29abe2;
+  color: #f3f3f3;
+  padding: 1px 5px;
+  cursor: pointer;
+}
