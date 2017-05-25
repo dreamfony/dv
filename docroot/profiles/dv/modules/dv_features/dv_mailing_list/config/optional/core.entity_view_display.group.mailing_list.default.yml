@@ -12,7 +12,7 @@ dependencies:
 third_party_settings:
   panelizer:
     enable: true
-    custom: true
+    custom: false
     allow: true
     default: mailing_list_default
     displays:
@@ -32,7 +32,7 @@ third_party_settings:
             label: 'Organisation form block'
             provider: dmt_mailing_list
             label_display: '0'
-            region: column2
+            region: header
             weight: -1
             uuid: 15c1c100-4437-4cfe-92e3-6e9a1be74c2d
             context_mapping: {  }
@@ -56,27 +56,35 @@ third_party_settings:
             views_label: ''
             items_per_page: none
             region: column2
-            weight: 0
+            weight: -9
             uuid: 259875cd-8ca1-4a13-a43b-3512e374e960
             context_mapping:
               gid: '@panelizer.entity_context:entity'
-          86c53419-b48f-43f1-a5c6-1c6024fe6f7d:
-            id: group_operations
-            label: 'Group operations'
-            provider: group
-            label_display: visible
-            region: header
+          f8b6f696-8cf0-48a6-8c99-0848deb318a2:
+            id: 'entity_field:group:field_group_comments'
+            label: 'Group Comments'
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: visually_hidden
+              type: comment_default
+              settings:
+                view_mode: default
+                pager_id: 0
+              third_party_settings: {  }
+              weight: 0
+            region: footer
             weight: 0
-            uuid: 86c53419-b48f-43f1-a5c6-1c6024fe6f7d
+            uuid: f8b6f696-8cf0-48a6-8c99-0848deb318a2
             context_mapping:
-              group: '@panelizer.entity_context:entity'
+              entity: '@panelizer.entity_context:entity'
         id: panels_variant
         uuid: 5a557251-3442-4926-8501-afdd5ea5ebf6
         label: 'Mailing List Default'
         weight: 0
         layout: radix_sutro_double
         layout_settings: {  }
-        page_title: ''
+        page_title: '[group:title]'
         storage_type: panelizer_default
         storage_id: 'group:mailing_list:default:mailing_list_default'
         pattern: panelizer

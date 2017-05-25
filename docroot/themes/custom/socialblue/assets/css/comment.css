@@ -7,3 +7,17 @@
   color: #29abe2;
   fill: #29abe2;
 }
+
+.radix-layouts-footer {
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+  max-height: 600px;
+  width: 25%;
+  z-index: 200;
+}
+
+.radix-layouts-footer .card__block {
+  overflow-y: scroll;
+  max-height: 400px;
+}

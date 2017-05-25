@@ -8,9 +8,6 @@ dependencies:
 id: mailing_list_workflow
 label: 'Mailing list workflow'
 states:
-  published:
-    label: Approved
-    weight: -8
   archived:
     label: Archived
     weight: 0
@@ -20,6 +17,12 @@ states:
   email:
     label: Email
     weight: -9
+  published:
+    label: Approved
+    weight: -8
+  spam:
+    label: Spam
+    weight: 1
 transitions:
   approve_sending:
     label: 'Approve Sending'
@@ -47,6 +50,15 @@ transitions:
       - archived
     to: draft
     weight: 0
+  send:
+    label: Spam
+    from:
+      - archived
+      - email
+      - published
+      - spam
+    to: spam
+    weight: 1
   send_email:
     label: 'Send Email'
     from:
@@ -67,6 +79,9 @@ type_settings:
       default_revision: false
     published:
       published: true
+      default_revision: false
+    spam:
+      published: false
       default_revision: false
   entity_types:
     group:

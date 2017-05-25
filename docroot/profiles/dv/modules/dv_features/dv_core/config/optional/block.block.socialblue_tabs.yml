@@ -5,8 +5,8 @@ dependencies:
     - socialblue
 id: socialblue_tabs
 theme: socialblue
-region: content
-weight: -5
+region: content_top
+weight: -6
 provider: null
 plugin: local_tasks_block
 settings:

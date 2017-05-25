@@ -110,8 +110,8 @@ dependencies:
   - views
   - views_ui
 themes:
-  - socialblue
   - seven
+  - socialblue
 package: DV
 distribution:
   name: DV

@@ -1,5 +1,0 @@
-dmt_group_comments.group_comments:
-  route_name: dmt_group_comments.group_comments
-  title: 'Comments'
-  base_route: entity.group.canonical
-  weight: 2

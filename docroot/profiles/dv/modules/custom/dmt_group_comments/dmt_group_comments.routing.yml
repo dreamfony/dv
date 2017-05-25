@@ -1,7 +1,0 @@
-dmt_group_comments.group_comments:
-  path: 'group/{group}/comments'
-  defaults:
-    _controller: '\Drupal\dmt_group_comments\Controller\GroupComments::groupCommentsView'
-  requirements:
-    _entity_access: 'group.view'
-    group: \d+

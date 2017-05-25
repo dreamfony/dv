@@ -8,6 +8,7 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
+  - 'access kint'
   - 'access site-wide contact form'
   - 'view any organisation_profile profile'
   - 'view field_ac_contact_email'

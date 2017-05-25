@@ -9,3 +9,18 @@
   color: $link-color;
   fill: $link-color;
 }
+
+.radix-layouts-footer {
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+  max-height: 600px;
+  width: 25%;
+  z-index: 200;
+
+  .card__block {
+    overflow-y: scroll;
+    max-height: 400px;
+  }
+
+}

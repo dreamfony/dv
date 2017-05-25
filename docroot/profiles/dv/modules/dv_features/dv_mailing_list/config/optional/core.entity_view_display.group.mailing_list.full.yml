@@ -2,16 +2,18 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.group_comments.default
     - core.entity_view_mode.group.full
     - field.field.group.mailing_list.field_group_comments
     - field.field.group.mailing_list.panelizer
     - group.type.mailing_list
   module:
+    - comment
     - panelizer
 third_party_settings:
   panelizer:
     enable: true
-    custom: true
+    custom: false
     allow: true
     default: mailing_list_default
     displays:
@@ -31,7 +33,7 @@ third_party_settings:
             label: 'Organisation form block'
             provider: dmt_mailing_list
             label_display: '0'
-            region: column2
+            region: header
             weight: -1
             uuid: 15c1c100-4437-4cfe-92e3-6e9a1be74c2d
             context_mapping: {  }
@@ -55,10 +57,47 @@ third_party_settings:
             views_label: ''
             items_per_page: none
             region: column2
-            weight: 0
+            weight: -9
             uuid: 259875cd-8ca1-4a13-a43b-3512e374e960
             context_mapping:
               gid: '@panelizer.entity_context:entity'
+          a8375e06-5afc-45e4-8d01-b25cfc986341:
+            id: 'entity_field:group:field_group_comments'
+            label: 'Group Comments'
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: comment_default
+              settings:
+                view_mode: default
+                pager_id: 0
+              third_party_settings: {  }
+              weight: 0
+            region: footer
+            weight: 0
+            uuid: a8375e06-5afc-45e4-8d01-b25cfc986341
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+          7c4f8208-9575-4318-9f92-387722f0b7e6:
+            id: 'entity_field:group:created'
+            label: 'Created on'
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: timestamp
+              settings:
+                date_format: medium
+                custom_date_format: ''
+                timezone: ''
+              third_party_settings: {  }
+              weight: 0
+            region: header
+            weight: -2
+            uuid: 7c4f8208-9575-4318-9f92-387722f0b7e6
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
         id: panels_variant
         uuid: 5a557251-3442-4926-8501-afdd5ea5ebf6
         label: 'Mailing List Default'
@@ -67,7 +106,7 @@ third_party_settings:
         layout_settings: {  }
         page_title: '[group:title]'
         storage_type: panelizer_default
-        storage_id: 'group:mailing_list:default:mailing_list_default'
+        storage_id: 'group:mailing_list:full:mailing_list_default'
         pattern: panelizer
         builder: ipe
         static_context: {  }
@@ -103,14 +142,23 @@ bundle: mailing_list
 mode: full
 content:
   content_moderation_control:
-    weight: -20
+    weight: 0
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_group_comments:
+    type: comment_default
+    weight: 2
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
     third_party_settings: {  }
   label:
     label: hidden
     type: string
-    weight: -5
+    weight: 1
     region: content
     settings:
       link_to_entity: false
@@ -118,7 +166,6 @@ content:
 hidden:
   changed: true
   created: true
-  field_group_comments: true
   langcode: true
   panelizer: true
   uid: true

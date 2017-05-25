@@ -7,6 +7,7 @@ dependencies:
     - group.type.mailing_list
   module:
     - content_moderation
+    - panelizer
     - path
 id: group.mailing_list.default
 targetEntityType: group
@@ -27,6 +28,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  panelizer:
+    type: panelizer
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   path:
     type: path
     weight: 2
@@ -35,5 +42,4 @@ content:
     third_party_settings: {  }
 hidden:
   field_group_comments: true
-  panelizer: true
   uid: true
