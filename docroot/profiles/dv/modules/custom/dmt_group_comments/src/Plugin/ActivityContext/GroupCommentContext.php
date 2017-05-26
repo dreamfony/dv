@@ -40,12 +40,18 @@ class GroupCommentContext extends ActivityContextBase {
       /// @todo: most probably add all commentators to a group so we can send them notifications
       $memberships = $group->getMembers([$group->bundle() . '-owner']);
 
+      // get entity owner
+      $entity_owner = ActivityFactory::getEntityOwner($data);
+
       foreach ($memberships as $membership) {
         /** @var GroupMembership $membership */
-        $recipients[] = [
-          'target_type' => 'user',
-          'target_id' => $membership->getUser()->id(),
-        ];
+        // don't send messages for users own comments
+        if($membership->getUser()->id() != $entity_owner->id()) {
+          $recipients[] = [
+            'target_type' => 'user',
+            'target_id' => $membership->getUser()->id(),
+          ];
+        }
       }
     }
     return $recipients;

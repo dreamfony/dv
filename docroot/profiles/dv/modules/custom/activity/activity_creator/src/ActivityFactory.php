@@ -308,6 +308,21 @@ class ActivityFactory extends ControllerBase {
   }
 
   /**
+   * Get Entity owner.
+   *
+   * @param $data
+   * @return \Drupal\user\UserInterface
+   */
+  public static function getEntityOwner($data) {
+    $related_object = $data['related_object'][0];
+
+    $storage = \Drupal::entityTypeManager()->getStorage($data['entity_type_id']);
+    /** @var \Drupal\user\EntityOwnerInterface $entity */
+    $entity = $storage->load($related_object['target_id']);
+    return $entity->getOwner();
+  }
+
+  /**
    * Get related entity for activity aggregation.
    */
   public static function getActivityRelatedEntity($data) {
