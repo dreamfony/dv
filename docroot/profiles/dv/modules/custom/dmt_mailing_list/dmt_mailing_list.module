@@ -31,6 +31,7 @@ function dmt_mailing_list_form_node_question_form_alter(&$form, FormStateInterfa
   if ($entity_id) {
     // disable refocus so we don't end up on the bottom of the page
     $form['actions']['submit']['#attributes']['data-disable-refocus'] = 1;
+    $form['actions']['submit']['#value'] = t('Save');
     $ajax_id = 'ajax-form-entity-node-question-' . $entity_id;
 
     $form['actions']['cancel'] = [
@@ -50,6 +51,7 @@ function dmt_mailing_list_form_node_question_form_alter(&$form, FormStateInterfa
   }
   else {
     $form['actions']['submit']['#attributes']['data-disable-refocus'] = 1;
+    $form['actions']['submit']['#value'] = t('Add Question');
     // if we are adding new
     $form['#isNew'] = TRUE;
     $ajax_id = 'ajax-form-entity-node-question-new';
@@ -63,7 +65,7 @@ function dmt_mailing_list_form_node_question_form_alter(&$form, FormStateInterfa
     'wrapper' => $ajax_id,
     'effect' => 'fade',
   );
-  $form['actions']['submit']['#value'] = t('Add Question');
+
   $form['actions']['submit']['#ajax'] = $ajax_settings;
   $form['actions']['publish']['#ajax'] = $ajax_settings;
   $form['actions']['unpublish']['#ajax'] = $ajax_settings;

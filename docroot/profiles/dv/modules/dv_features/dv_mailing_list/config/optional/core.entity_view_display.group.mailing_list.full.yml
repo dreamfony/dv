@@ -21,9 +21,9 @@ third_party_settings:
         blocks:
           400d312c-a495-468d-9c71-fe2dabc9d2ab:
             id: question_form_block
-            label: 'Add Question'
+            label: Questions
             provider: dmt_mailing_list
-            label_display: '0'
+            label_display: visible
             region: column1
             weight: 0
             uuid: 400d312c-a495-468d-9c71-fe2dabc9d2ab
@@ -41,7 +41,7 @@ third_party_settings:
             id: 'views_block:mailing_list_items-block_1'
             label: ''
             provider: views
-            label_display: visible
+            label_display: '0'
             views_label: ''
             items_per_page: none
             region: column1

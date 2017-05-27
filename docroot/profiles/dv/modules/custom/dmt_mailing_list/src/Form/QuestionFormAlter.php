@@ -101,7 +101,7 @@ class QuestionFormAlter {
         //$response->addCommand(new ReplaceCommand('.alert', $message));
 
         // replace form with empty one
-        $response->addCommand(new ReplaceCommand('.ajax-form-entity-node-question-new', $form));
+        $response->addCommand(new ReplaceCommand('#node-question-form', $form));
 
         // remove view-empty
         $response->addCommand(new RemoveCommand('.view-mailing-list-items .view-empty'));

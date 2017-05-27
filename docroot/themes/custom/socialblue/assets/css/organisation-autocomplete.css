@@ -1,0 +1,17 @@
+.block-organisation-form-block .form-autocomplete {
+  float: left;
+  width: 87%;
+}
+
+.block-organisation-form-block .form-autocomplete .input-group {
+  max-width: none;
+}
+
+.block-organisation-form-block .form-autocomplete .input-group input {
+  max-width: none;
+  width: 100%;
+}
+
+.block-organisation-form-block .form-actions {
+  float: right;
+}

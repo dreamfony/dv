@@ -64,7 +64,9 @@ class OrganisationForm extends FormBase {
     $form['group'] = [
       '#type' => 'entity_autocomplete',
       '#target_type' => 'group',
-      '#title' => t('Recipients'),
+      '#attributes' => array(
+        'placeholder' => t('Recipients'),
+      ),
       '#description' => t('Select a recipient.'),
       '#tags' => TRUE,
       '#selection_settings' => array(
@@ -118,7 +120,7 @@ class OrganisationForm extends FormBase {
 
       // replace form with empty one
       $form['group']['#value'] = NULL;
-      $response->addCommand(new ReplaceCommand('.organisation_form', $form));
+      $response->addCommand(new ReplaceCommand('#organisation-form', $form));
 
       // replace view
       $view = self::getMailingListOrganisationsView();

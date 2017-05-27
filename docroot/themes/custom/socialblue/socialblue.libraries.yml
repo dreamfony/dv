@@ -72,6 +72,11 @@ form--datepicker:
     theme:
       assets/css/datepicker.css: {}
 
+form--organisation-autocomplete:
+  css:
+    theme:
+      assets/css/organisation-autocomplete.css: {}
+
 form--input-groups:
   css:
     theme:
