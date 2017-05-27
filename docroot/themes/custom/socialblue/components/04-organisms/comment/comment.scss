@@ -28,6 +28,10 @@
     color: $gray-lightest;
     padding: $padding-xs-vertical $padding-xs-horizontal;
     cursor: pointer;
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    user-select: none;
   }
 
 }

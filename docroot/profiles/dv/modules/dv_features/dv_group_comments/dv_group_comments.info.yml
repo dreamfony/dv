@@ -11,6 +11,7 @@ dependencies:
   - dv_mailing_list
   - dynamic_entity_reference
   - field
+  - geocoder_field
   - group
   - language
   - message

@@ -5,7 +5,25 @@ dependencies:
     - comment.type.group_comments
     - field.storage.comment.comment_body
   module:
+    - allowed_formats
+    - geocoder_field
     - text
+third_party_settings:
+  allowed_formats:
+    plain_text: plain_text
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
+  geocoder_field:
+    method: none
+    field: subject
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
 id: comment.group_comments.comment_body
 field_name: comment_body
 entity_type: comment
