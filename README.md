@@ -35,10 +35,6 @@ Make sure you have the latest versions of packages
 
 #### Initial setup (update this with instructions when forking repos and making pull requests)
 
-{{BUG}}
-Until we solve issue with accessing patternlab from vagrant it is neccessary to copy
-EXAMPLE_project.local.yml to blt/project.local.yml
-
 sudo apt-get install php7.0-bz2
 {{/BUG}}
 
@@ -58,17 +54,14 @@ sudo apt-get install php7.0-bz2
 
 import test data
 
-- drush mi organisation_groups
-- drush mi organisations_user --limit="50 items"
+- drush mi import_demo_content
 - drush mrs to kill busy operation
 
-#### PatternLab Front end
+#### Frontend
 
 On you local machine run
 
-- npm install # or `yarn install` if you want 3x the speed
-- npm start
-- check docroot/themes/custom/patternlab/README.md
+- check docroot/themes/custom/socialblue/readme.md
 
 node_modules directory should be deleted if it is created from inside VM
 
@@ -369,9 +362,6 @@ ili tako nesto pametno
 za palit gasit xdebug mozes koristit
 sudo phpenmod -s cli xdebug
 i phpdismod
-
-
-Saznat zašto krepava debugger. Timeout
 
 
 **TODO END**
