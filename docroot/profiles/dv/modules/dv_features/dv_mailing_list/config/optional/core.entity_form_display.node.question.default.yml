@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.node.question.body
+    - field.field.node.question.field_q_attachments
     - field.field.node.question.field_question_answers
     - field.field.node.question.field_question_comment_type
     - node.type.question
@@ -10,6 +11,7 @@ dependencies:
     - allowed_formats
     - comment
     - content_moderation
+    - file
     - path
     - text
 id: node.question.default
@@ -35,6 +37,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_q_attachments:
+    weight: 34
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
   field_question_answers:
     weight: 33
     settings: {  }

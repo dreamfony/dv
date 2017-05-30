@@ -4,11 +4,13 @@ dependencies:
   config:
     - core.entity_view_display.comment.answer_text.default
     - field.field.node.question.body
+    - field.field.node.question.field_q_attachments
     - field.field.node.question.field_question_answers
     - field.field.node.question.field_question_comment_type
     - node.type.question
   module:
     - comment
+    - file
     - options
     - panelizer
     - text
@@ -175,6 +177,13 @@ content:
     weight: 1
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_q_attachments:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: file_default
     region: content
   field_question_answers:
     weight: 4

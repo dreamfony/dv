@@ -8,6 +8,7 @@ use Drupal\Core\Entity\RevisionableContentEntityBase;
 use Drupal\Core\Entity\EntityChangedTrait;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\user\UserInterface;
+use Drupal\file\Entity\File;
 
 /**
  * Defines the Activity entity.
@@ -301,6 +302,56 @@ class Activity extends RevisionableContentEntityBase implements ActivityInterfac
       }
     }
     return $link;
+  }
+
+  /**
+   * Get related entity.
+   *
+   * @return bool|\Drupal\Core\Entity\EntityInterface|null
+   */
+  public function getRelatedEntity() {
+    $related_object = $this->get('field_activity_entity')->getValue();
+    if (!empty($related_object)) {
+      $entity = entity_load($related_object['0']['target_type'], $related_object['0']['target_id']);
+      if (!empty($entity)) {
+        /** @var \Drupal\Core\Url $link */
+        return $entity;
+      }
+    }
+    return FALSE;
+  }
+
+  /**
+   * Get related entity attachments.
+   *
+   * @return bool|\Drupal\Core\Entity\EntityInterface|null
+   */
+  public function getRelatedEntityAttachments() {
+    $attachments = [];
+
+    $related_object = $this->get('field_activity_entity')->getValue();
+    if (!empty($related_object)) {
+      /** @var \Drupal\Core\Entity\FieldableEntityInterface $entity */
+      $entity = entity_load($related_object['0']['target_type'], $related_object['0']['target_id']);
+      if (!empty($entity)) {
+        $attachments_field = 'field_q_attachments';
+        /** @var \Drupal\Core\Url $link */
+        \Drupal::moduleHandler()->alter('attachments_field', $attachments_field);
+        if($attachments_field && $entity->hasField($attachments_field)) {
+          /** @var \Drupal\file\Plugin\Field\FieldType\FileFieldItemList $files */
+          $files = $entity->{$attachments_field};
+          foreach ($files as $file_item) {
+            /** @var \Drupal\multiversion\FileItem $fid */
+            $file = File::load($file_item->getValue()['target_id']);
+            if($file) {
+              $attachments[] = \Drupal::service('file_system')->realpath($file->getFileUri());
+            }
+          }
+        }
+      }
+    }
+
+    return $attachments;
   }
 
   /**

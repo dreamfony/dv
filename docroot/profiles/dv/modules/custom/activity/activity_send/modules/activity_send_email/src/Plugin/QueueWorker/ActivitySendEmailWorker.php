@@ -81,6 +81,7 @@ class ActivitySendEmailWorker extends ActivitySendWorkerBase {
    */
   protected function getEmailParams(MessageInterface $message, Activity $activity, $data) {
     $params['body'] = $this->getEmailBody($message, $activity);
+    $params['attachments'] = $activity->getRelatedEntityAttachments();
 
     $hash = $activity->get('field_activity_hash')->getString();
     $reply_to = \Drupal::service('activity_send_email.replyto')->getAddress( strlen($hash) > 1 ? $hash : NULL );
