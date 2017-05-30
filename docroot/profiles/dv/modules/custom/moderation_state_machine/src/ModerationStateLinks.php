@@ -13,11 +13,14 @@ use Drupal\Core\Url;
 use Drupal\workflows\Transition;
 use Drupal\Core\Link;
 use Drupal\content_moderation\ModerationInformationInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
  * Base class for Activity moderation plugins.
  */
 class ModerationStateLinks {
+
+  use StringTranslationTrait;
 
   /**
    * @var \Drupal\content_moderation\StateTransitionValidation
@@ -60,7 +63,7 @@ class ModerationStateLinks {
 
     foreach ($valid_transitions as $transition) {
       /** @var \Drupal\workflows\Transition $transition */
-      if($link = $this->getLink($entity, $transition)) {
+      if($link = $this->getUrl($entity, $transition)) {
         return TRUE;
       }
     }
@@ -72,10 +75,6 @@ class ModerationStateLinks {
   /**
    * Get Links.
    *
-   * @param \Drupal\Core\Entity\ContentEntityInterface $entity
-   * @return array|void
-  */
-  /**
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
    * @return array
    */
@@ -91,32 +90,51 @@ class ModerationStateLinks {
 
     $valid_transitions = $this->stateTransitionValidation->getValidTransitions($original_entity, $this->account);
 
-    $links = [];
+    $links = [
+      'moderation' => array(
+        'classes' => 'dropdown',
+        'link_attributes' => 'data-toggle=dropdown aria-expanded=true aria-haspopup=true role=button',
+        'link_classes' => 'dropdown-toggle clearfix',
+        'icon_classes' => 'icon-add_box',
+        'title' => $this->t('Create New Content'),
+        'label' => $this->t('New content'),
+        'title_classes' => 'sr-only',
+        'url' => '#',
+        'below' => array(),
+      )
+    ];
 
     foreach ($valid_transitions as $transition) {
       /** @var \Drupal\workflows\Transition $transition */
-      if($original_entity->moderation_state->value != $transition->to()->id() && $link = $this->getLink($entity, $transition)) {
-        $links[] = $link;
+      if($original_entity->moderation_state->value != $transition->to()->id() && $url = $this->getUrl($entity, $transition)) {
+        $links['moderation']['below'][$transition->id()] = [
+          'classes' => '',
+          'link_attributes' => '',
+          'link_classes' => '',
+          'icon_classes' => '',
+          'icon_label' => '',
+          'title' => $transition->label(),
+          'label' => $transition->label(),
+          'title_classes' => '',
+          'url' => $url,
+        ];
       }
     }
 
     return [
-      '#theme' => 'item_list',
-      '#list_type' => 'ul',
-      '#items' => $links,
-      '#attributes' => ['class' => 'moderation-links'],
-      '#wrapper_attributes' => ['class' => 'container'],
+      '#theme' => 'moderation_state_links',
+      '#links' => $links,
     ];
   }
 
   /**
-   * Get Link.
+   * Get Moderation State Url.
    *
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
    * @param \Drupal\workflows\Transition $transition
-   * @return array|bool|\mixed[]
+   * @return bool|\Drupal\Core\Url
    */
-  private function getLink(ContentEntityInterface $entity, Transition $transition) {
+  private function getUrl(ContentEntityInterface $entity, Transition $transition) {
     $this->routeParameters = [
       'entity_type' => $entity->getEntityTypeId(),
       'entity' => $entity->id(),
@@ -125,16 +143,15 @@ class ModerationStateLinks {
 
     $url = Url::fromRoute($this->routeName, $this->routeParameters);
 
-    if ($this->linkAccess($entity, $transition->to()->id())) {
-      $link = Link::fromTextAndUrl($transition->label(), $url);
-      return $link->toRenderable();
+    if ($this->urlAccess($entity, $transition->to()->id())) {
+      return $url;
     }
 
     return FALSE;
   }
 
   /**
-   * Checks access for switch moderation state link.
+   * Checks access for switch moderation state url.
    *
    * @param ContentEntityInterface $entity
    *   Content Entity
@@ -143,7 +160,7 @@ class ModerationStateLinks {
    *
    * @return bool
    */
-  private function linkAccess(ContentEntityInterface $entity, $state_id) {
+  private function urlAccess(ContentEntityInterface $entity, $state_id) {
     $entity->set('moderation_state', $state_id);
 
     $causes = [];

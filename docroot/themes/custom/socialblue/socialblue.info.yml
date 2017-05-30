@@ -12,6 +12,7 @@ libraries:
   - socialblue/brand
   - socialblue/site-footer
   - socialblue/form--organisation-autocomplete
+  - socialblue/moderation-links
 
 libraries-extend:
   socialbase/base:

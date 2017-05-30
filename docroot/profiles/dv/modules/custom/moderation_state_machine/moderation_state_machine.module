@@ -74,3 +74,16 @@ function moderation_state_machine_entity_insert(Drupal\Core\Entity\EntityInterfa
     $sms->moderatedEntityInsert($entity);
   }
 }
+
+/**
+ * Implements hook_theme().
+ */
+function moderation_state_machine_theme() {
+  return array(
+    'moderation_state_links' => array(
+      'variables' => array(
+        'links' => NULL,
+      ),
+    ),
+  );
+}

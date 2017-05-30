@@ -138,6 +138,11 @@ comment:
     theme:
       assets/css/comment.css: {}
 
+moderation-links:
+  css:
+    theme:
+      assets/css/moderation-links.css: {}
+
 hero:
   css:
     theme:
