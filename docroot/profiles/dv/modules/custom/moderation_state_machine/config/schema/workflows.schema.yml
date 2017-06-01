@@ -1,0 +1,10 @@
+workflows.workflow.*.third_party.moderation_state_machine:
+  type: mapping
+  label: 'Moderation State Machine Transition Settings'
+  mapping:
+    parent_transitions:
+      type: array
+      label: 'Parent Transitions'
+    transition_descriptions:
+      type: array
+      label: 'Descriptions'

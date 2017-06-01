@@ -336,7 +336,7 @@ class Activity extends RevisionableContentEntityBase implements ActivityInterfac
       if (!empty($entity)) {
         $attachments_field = 'field_q_attachments';
         /** @var \Drupal\Core\Url $link */
-        \Drupal::moduleHandler()->alter('attachments_field', $attachments_field);
+        \Drupal::moduleHandler()->alter('attachments_field', $attachments_field, $entity);
         if($attachments_field && $entity->hasField($attachments_field)) {
           /** @var \Drupal\file\Plugin\Field\FieldType\FileFieldItemList $files */
           $files = $entity->{$attachments_field};

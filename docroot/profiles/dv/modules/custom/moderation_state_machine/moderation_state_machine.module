@@ -76,6 +76,52 @@ function moderation_state_machine_entity_insert(Drupal\Core\Entity\EntityInterfa
 }
 
 /**
+ * Implements hook_entity_presave().
+ */
+function moderation_state_machine_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
+
+  if(!$entity instanceof \Drupal\Core\Entity\ContentEntityInterface) {
+    return;
+  }
+
+  // check if entity is Moderated Entity
+  /** @var \Drupal\content_moderation\ModerationInformationInterface $moderationInfo */
+  $moderationInfo = \Drupal::service('content_moderation.moderation_information');
+  if (!$moderationInfo->isModeratedEntity($entity)) {
+    return;
+  }
+
+  $workflow = $moderationInfo->getWorkflowForEntity($entity);
+  $parent_transitions = $workflow->getThirdPartySetting('moderation_state_machine', 'parent_transitions');
+
+  // get current entity transition
+  $transition = \Drupal::service('moderation_state_machine.workflow_chain')->getTransition($entity, $workflow);
+
+  // check if parent transition is set
+  if(empty($parent_transitions)) {
+    return;
+  }
+
+  $parent_entity = NULL;
+  \Drupal::moduleHandler()->alter('moderation_state_machine_parent_entity', $parent_entity, $entity, $workflow);
+
+  // check if any hook has set $parent_entity
+  if(!$parent_entity) {
+    return;
+  }
+
+  $parent_transition_parts = explode('|', $parent_transitions[$transition->id()]);
+
+  /** @var \Drupal\workflows\WorkflowInterface $parent_entity_workflow */
+  $parent_entity_workflow = $moderationInfo->getWorkflowForEntity($parent_entity);
+  $parent_entity_transition = $parent_entity_workflow->getTransition($parent_transition_parts[1]);
+
+  /** @var \Drupal\Core\Entity\ContentEntityInterface $parent_entity */
+  $parent_entity->set('moderation_state', $parent_entity_transition->to()->id());
+  $parent_entity->save();
+}
+
+/**
  * Implements hook_theme().
  */
 function moderation_state_machine_theme() {
@@ -86,4 +132,76 @@ function moderation_state_machine_theme() {
       ),
     ),
   );
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function moderation_state_machine_get_workflow_transitions_options($current_transition_key) {
+  $options = [];
+
+  $options[] = t('None');
+
+  $workflows = \Drupal::EntityTypeManager()->getStorage('workflow')->loadMultiple();
+
+  foreach ($workflows as $workflow) {
+    /** @var \Drupal\workflows\Entity\Workflow $workflow */
+    $transitions = $workflow->getTransitions();
+    $options[$workflow->label()] = [];
+    foreach ($transitions as $transition) {
+      /** @var \Drupal\workflows\Transition $transition */
+      $transition_key = $workflow->id().'|'.$transition->id();
+      // skip current transition
+      if($transition_key == $current_transition_key) {
+        continue;
+      }
+      $options[$workflow->label()][$transition_key] = $transition->label();
+    }
+  }
+
+  return $options;
+
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function moderation_state_machine_form_workflow_transition_edit_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  /** @var \Drupal\workflows\Entity\Workflow $workflow */
+  $workflow = $form_state->getFormObject()->getEntity();
+
+  $form['parent_transition'] = [
+    '#type' => 'select',
+    '#required' => FALSE,
+    '#title' => t('Parent Transition'),
+    '#description' => t('Parent transition is going to be triggered when this transition activates.'),
+    '#default_value' => isset($workflow->getThirdPartySetting('moderation_state_machine', 'parent_transitions', NULL)[$form_state->getBuildInfo()['args'][0]]) ?
+      $workflow->getThirdPartySetting('moderation_state_machine', 'parent_transitions', NULL)[$form_state->getBuildInfo()['args'][0]]
+      : NULL,
+  ];
+
+  $current_transition_key = $workflow->id().'|'.$form_state->getBuildInfo()['args'][0];
+  $form['parent_transition']['#options'] = moderation_state_machine_get_workflow_transitions_options($current_transition_key);
+
+  $form['transition_description'] = [
+    '#type' => 'textarea',
+    '#title' => t('Description'),
+    '#default_value' => isset($workflow->getThirdPartySetting('moderation_state_machine', 'transition_descriptions', NULL)[$form_state->getBuildInfo()['args'][0]]) ?
+      $workflow->getThirdPartySetting('moderation_state_machine', 'transition_descriptions', NULL)[$form_state->getBuildInfo()['args'][0]]
+      : NULL,
+
+  ];
+  $form['#entity_builders'][] = 'moderation_state_machine_workflow_transition_form_builder';
+}
+
+function moderation_state_machine_workflow_transition_form_builder($entity_type, \Drupal\workflows\Entity\Workflow $workflow, &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $current_transition_id = $form_state->getBuildInfo()['args'][0];
+
+  $parent_transitions = $workflow->getThirdPartySetting('moderation_state_machine', 'parent_transitions', NULL);
+  $parent_transitions[$current_transition_id] = $form_state->getValue('parent_transition');
+  $workflow->setThirdPartySetting('moderation_state_machine', 'parent_transitions', $parent_transitions);
+
+  $transition_descriptions = $workflow->getThirdPartySetting('moderation_state_machine', 'transition_descriptions', NULL);
+  $transition_descriptions[$current_transition_id] = $form_state->getValue('transition_description');
+  $workflow->setThirdPartySetting('moderation_state_machine', 'transition_descriptions', $transition_descriptions);
 }

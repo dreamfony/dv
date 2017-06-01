@@ -6,3 +6,6 @@ services:
   moderation_state_machine.moderation_state_links:
     class: Drupal\moderation_state_machine\ModerationStateLinks
     arguments: ['@content_moderation.state_transition_validation', '@current_user', '@content_moderation.moderation_information']
+
+  moderation_state_machine.workflow_chain:
+    class: Drupal\moderation_state_machine\WorkflowChain

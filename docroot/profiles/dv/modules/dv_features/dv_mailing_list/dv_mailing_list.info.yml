@@ -37,6 +37,7 @@ dependencies:
   - language
   - menu_ui
   - message
+  - moderation_state_machine
   - node
   - options
   - page_manager

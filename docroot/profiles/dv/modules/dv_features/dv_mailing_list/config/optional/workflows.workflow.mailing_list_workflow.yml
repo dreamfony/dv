@@ -5,6 +5,13 @@ dependencies:
     - group.type.mailing_list
   module:
     - content_moderation
+    - moderation_state_machine
+third_party_settings:
+  moderation_state_machine:
+    parent_transitions:
+      send: '0'
+    transition_descriptions:
+      send: ''
 id: mailing_list_workflow
 label: 'Mailing list workflow'
 states:
@@ -50,21 +57,21 @@ transitions:
       - archived
     to: draft
     weight: 0
-  send:
-    label: Spam
-    from:
-      - archived
-      - email
-      - published
-      - spam
-    to: spam
-    weight: 1
   send_email:
     label: 'Send Email'
     from:
       - draft
     to: email
     weight: -9
+  spam:
+    label: Spam
+    from:
+      - archived
+      - draft
+      - email
+      - published
+    to: spam
+    weight: 1
 type: content_moderation
 type_settings:
   states:

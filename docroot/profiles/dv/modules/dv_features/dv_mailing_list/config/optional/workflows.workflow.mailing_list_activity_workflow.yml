@@ -5,6 +5,18 @@ dependencies:
     - activity_creator.activity_type.mailing_list_activity
   module:
     - activity_creator
+    - moderation_state_machine
+third_party_settings:
+  moderation_state_machine:
+    parent_transition: editorial_archived_published
+    transition_description: null
+    parent_transitions:
+      see: '0'
+      cancel: mailing_list_workflow_send
+      erred: mailing_list_workflow|spam
+    transition_descriptions:
+      see: test
+      erred: test2
 id: mailing_list_activity_workflow
 label: 'Mailing List Activity Workflow'
 states:
@@ -72,8 +84,8 @@ type: activity_workflow
 type_settings:
   states:
     answered:
-      published: 1
-      default_revision: 1
+      published: true
+      default_revision: true
     canceled:
       published: false
       default_revision: true
@@ -81,14 +93,14 @@ type_settings:
       published: true
       default_revision: true
     not_held:
-      published: 1
-      default_revision: 1
+      published: true
+      default_revision: true
     pending:
       published: true
       default_revision: true
     rejected:
-      published: 1
-      default_revision: 1
+      published: true
+      default_revision: true
     seen:
       published: true
       default_revision: true
