@@ -1,10 +1,14 @@
 Mailing List States:
 
 - Draft
-- Moderate
+- Pending_approval
 - Approved
+- Rejected
 - Archived
 - Spam
+
+
+
 
 
 
@@ -55,22 +59,23 @@ Requirement
 [State Change Diagram] (https://bramp.github.io/js-sequence-diagrams/)
 
 
-Title: Mailing List
-Draft->Moderate: Moderate
-Note right of Moderate: S: Validation
-Note right of Moderate: S: Notify \n Moderators
-Moderate->Moderate: M: Finds problems and \n informs user about \n them via comment
-Moderate->Draft: Back to Draft
-Note left of Draft: S: Notify User
-Draft->Moderate: Moderate
-Moderate->Moderate: M: Approves sending \n of Mailing List
-Moderate->Approved: Approve
-Note right of Approved: S: Notify User
-Note right of Approved: S: Sends Emails
-Draft->Archived: Archive
-Moderate->Archived: Archive
-Draft->Spam: Spam
-Moderate->Spam: Spam
+Title: Mailing List: U = User / M = Moderator
+Draft->Pending_approval: Moderate (U)
+Note left of Pending_approval: S: Validation
+Note left of Pending_approval: S: Notify \n Moderators
+Pending_approval->Pending_approval: M: Finds problems and \n informs user about \n them via comment
+Pending_approval->Draft: Back to Draft (M)
+Note right of Draft: S: Notify User
+Draft->Pending_approval: Moderate (U)
+Pending_approval->Pending_approval: M: Approves sending \n of Mailing List
+Pending_approval->Approved: Approve (M)
+Note left of Approved: S: Notify User
+Note left of Approved: S: Sends Emails
+Pending_approval->Rejected: Reject = Delete (M)
+Draft->Rejected: Reject = Delete (U)
+Approved->Archived: Archive (U)
+Draft->Spam: Spam (M)
+Pending_approval->Spam: Spam (M)
 Note right of Spam: Unpublished
 
 - 
