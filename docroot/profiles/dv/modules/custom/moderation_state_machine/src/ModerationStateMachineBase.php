@@ -69,6 +69,19 @@ class ModerationStateMachineBase extends PluginBase implements ModerationStateMa
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
    */
   public function moderatedEntityInsert(ContentEntityInterface $entity) {
+    /** @var \Drupal\workflows\Transition $transition */
+    $state = $entity->moderation_state->value;
+    if ($state) {
+
+      // if method named same as a {state}_insert exists call that method
+      $switch_method = $state . '_insert';
+
+      if (is_callable(array($this, $switch_method))) {
+        $this->$switch_method($entity);
+      }
+    }
+
+    // if there is no specific method call generic insert method
     $this->insert($entity);
   }
 
@@ -87,9 +100,10 @@ class ModerationStateMachineBase extends PluginBase implements ModerationStateMa
    */
   public function switchState(ContentEntityInterface $entity) {
     /** @var \Drupal\workflows\Transition $transition */
-    if ($transition = $this->getTransition($entity)) {
+    $transition = $this->getTransition($entity);
+    if ($transition) {
 
-      // if method named same as a transition exists call that method
+      // if method named same as a {transition}_switch exists call that method
       $switch_method = $transition->id() . '_switch';
 
       if (is_callable(array($this, $switch_method))) {
