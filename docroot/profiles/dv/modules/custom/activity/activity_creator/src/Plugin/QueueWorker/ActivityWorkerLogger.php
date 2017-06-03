@@ -40,8 +40,6 @@ class ActivityWorkerLogger extends ActivityWorkerBase {
    */
   public function processItem($data) {
 
-    $old_data = $data;
-
     // Get 100 Recipients at a time.
     $limit = 0;
     // TODO: Move all this logic to a service.
