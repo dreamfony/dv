@@ -74,7 +74,7 @@ class QuestionFormAlter {
       /** @var Node $entity */
       $entity = $userInputs['entity'];
       $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
-      $renderable_entity = $view_builder->view($entity, 'full');
+      $renderable_entity = $view_builder->view($entity, 'mailing_list_item');
       $question_view_class = '.question-view-' . $entity->id();
 
       // create ajax response

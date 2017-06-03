@@ -90,7 +90,7 @@ class QuestionAjaxController extends ControllerBase {
   public function cancel(EntityInterface $node) {
 
     $view_builder = $this->entityTypeManager->getViewBuilder('node');
-    $renderable_entity = $view_builder->view($node, 'full');
+    $renderable_entity = $view_builder->view($node, 'mailing_list_item');
 
     $response = new AjaxResponse();
     $selector = '.question-view-' . $node->id();

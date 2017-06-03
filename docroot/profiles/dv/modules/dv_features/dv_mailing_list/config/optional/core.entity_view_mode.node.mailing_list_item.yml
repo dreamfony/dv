@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.mailing_list_item
+label: 'Mailing List Item'
+targetEntityType: node
+cache: true
