@@ -9,6 +9,7 @@ use Drupal\Core\Block\BlockPluginInterface;
 use Drupal\block\Entity\Block;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\dmt_core\PersonaAccountUtility;
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -171,20 +172,30 @@ function social_user_theme() {
 /**
  * Implements hook_user_format_name_alter().
  */
-function social_user_user_format_name_alter(&$name, $account) {
+function social_user_user_format_name_alter(&$name, \Drupal\Core\Session\AccountInterface $account) {
 
   $accountname = '';
+
   // Let's get the First name Last name.
   /** @var \Drupal\profile\ProfileStorageInterface $storage */
   $storage = \Drupal::entityTypeManager()->getStorage('profile');
   if (!empty($storage)) {
-    // Returns false.
-    if ($user_profile = $storage->loadByUser($account, 'profile', TRUE)) {
-      $accountname = trim(t('@first @last', array(
-        '@first' => $user_profile->get('field_profile_first_name')->value,
-        '@last' => $user_profile->get('field_profile_last_name')->value
-      )));
+    $isOrganisation = PersonaAccountUtility::hasPersona($account, 'organisation');
+
+    if($isOrganisation) {
+      // Returns false.
+      $user_profile = $storage->loadByUser($account, 'organisation_profile', TRUE);
+      if ($user_profile) {
+        $accountname = trim($user_profile->get('field_org_title')->value);
+      }
+    } else {
+      // Returns false.
+      $user_profile = $storage->loadByUser($account, 'profile', TRUE);
+      if ($user_profile) {
+        $accountname = trim($user_profile->get('field_profile_first_name')->value) . ' '. trim($user_profile->get('field_profile_last_name')->value);
+      }
     }
+
   }
   $name = ($accountname !== '') ? $accountname : $name;
 }

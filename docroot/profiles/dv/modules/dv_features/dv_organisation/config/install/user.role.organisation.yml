@@ -5,4 +5,6 @@ id: organisation
 label: Organisation
 weight: 5
 is_admin: null
-permissions: {  }
+permissions:
+  - 'add own organisation_profile profile'
+  - 'edit own organisation_profile profile'
