@@ -112,13 +112,16 @@ function moderation_state_machine_entity_update(Drupal\Core\Entity\EntityInterfa
 
   $parent_transition_parts = explode('|', $parent_transitions[$transition->id()]);
 
-  /** @var \Drupal\workflows\WorkflowInterface $parent_entity_workflow */
-  $parent_entity_workflow = $moderationInfo->getWorkflowForEntity($parent_entity);
-  $parent_entity_transition = $parent_entity_workflow->getTransition($parent_transition_parts[1]);
+  if(isset($parent_transition_parts[1]) && !empty($parent_transition_parts[1])) {
+    /** @var \Drupal\workflows\WorkflowInterface $parent_entity_workflow */
+    $parent_entity_workflow = $moderationInfo->getWorkflowForEntity($parent_entity);
+    $parent_entity_transition = $parent_entity_workflow->getTransition($parent_transition_parts[1]);
 
-  /** @var \Drupal\Core\Entity\ContentEntityInterface $parent_entity */
-  $parent_entity->set('moderation_state', $parent_entity_transition->to()->id());
-  $parent_entity->save();
+    /** @var \Drupal\Core\Entity\ContentEntityInterface $parent_entity */
+    $parent_entity->set('moderation_state', $parent_entity_transition->to()
+      ->id());
+    $parent_entity->save();
+  }
 }
 
 /**
