@@ -79,6 +79,10 @@ class MailingListExamples {
     $this->comments = $yml_data->parseFile('Answers.yml');
     $this->processQueue = $process_queue;
     $this->mailingListAnswer = $mailing_list_answer;
+
+    // set current user to user 1 so state machine can work correctly
+    $user = User::load(1);
+    user_login_finalize($user);
   }
 
   /**
@@ -122,6 +126,10 @@ class MailingListExamples {
 
           $group_object->set('moderation_state', $state);
           $group_object->save();
+
+          if($state == 'email') {
+            continue;
+          }
 
           // process all activity queues before switching to next state
           $this->processQueue->queueProcess('activity_logger_message');
@@ -255,7 +263,7 @@ class MailingListExamples {
         'body' => [
           'summary' => '',
           'value' => $question['body'],
-          'format' => 'basic_html',
+          'format' => 'plain_text',
         ],
         'uid' => $user->id(),
         'created' => REQUEST_TIME,
