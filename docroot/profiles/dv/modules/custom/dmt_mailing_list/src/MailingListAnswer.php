@@ -88,7 +88,7 @@ class MailingListAnswer {
       'subject' => $values['subject'],
       'comment_body' => [
         'value' => $values['body'],
-        'format' => 'basic_html',
+        'format' => 'plain_text',
       ],
       'field_name' => 'field_question_answers', // wtf is this?
       'comment_type' => $values['comment_type'],
