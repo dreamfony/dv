@@ -40,12 +40,12 @@ class MailingListAnswer {
     $ref_entity_type = $referenced_object['0']['target_type'];
     $ref_entity_id = $referenced_object['0']['target_id'];
 
-    /** @var Node $question */
-    $question = $this->entityTypeManager
+    /** @var Node $content */
+    $content = $this->entityTypeManager
       ->getStorage($ref_entity_type)
       ->load($ref_entity_id);
 
-    $comment_type = $question->get('field_question_comment_type')
+    $comment_type = $content->get('field_content_comment_type')
       ->getString();
 
 
@@ -90,7 +90,7 @@ class MailingListAnswer {
         'value' => $values['body'],
         'format' => 'plain_text',
       ],
-      'field_name' => 'field_question_answers', // wtf is this?
+      'field_name' => 'field_content_answers', // wtf is this?
       'comment_type' => $values['comment_type'],
       'status' => CommentInterface::PUBLISHED,
     ]);

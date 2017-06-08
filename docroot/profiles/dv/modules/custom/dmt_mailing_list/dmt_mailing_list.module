@@ -16,7 +16,7 @@ use Drupal\group\Entity\Group;
  * @param $form
  * @param \Drupal\Core\Form\FormStateInterface $form_state
  */
-function dmt_mailing_list_form_node_question_form_alter(&$form, FormStateInterface &$form_state) {
+function dmt_mailing_list_form_node_content_form_alter(&$form, FormStateInterface &$form_state) {
   $form['title']['#access'] = FALSE;
   $form['revision_information']['#access'] = FALSE;
 
@@ -32,7 +32,7 @@ function dmt_mailing_list_form_node_question_form_alter(&$form, FormStateInterfa
     // disable refocus so we don't end up on the bottom of the page
     $form['actions']['submit']['#attributes']['data-disable-refocus'] = 1;
     $form['actions']['submit']['#value'] = t('Save');
-    $ajax_id = 'ajax-form-entity-node-question-' . $entity_id;
+    $ajax_id = 'ajax-form-entity-node-content-' . $entity_id;
 
     $form['actions']['cancel'] = [
       '#type' => 'link',
@@ -51,17 +51,17 @@ function dmt_mailing_list_form_node_question_form_alter(&$form, FormStateInterfa
   }
   else {
     $form['actions']['submit']['#attributes']['data-disable-refocus'] = 1;
-    $form['actions']['submit']['#value'] = t('Add Question');
+    $form['actions']['submit']['#value'] = t('Add Content');
     // if we are adding new
     $form['#isNew'] = TRUE;
-    $ajax_id = 'ajax-form-entity-node-question-new';
+    $ajax_id = 'ajax-form-entity-node-content-new';
   }
 
   $form['#attributes']['class'][] = $ajax_id;
 
   // Ajax settings of the buttons.
   $ajax_settings = array(
-    'callback' => 'Drupal\dmt_mailing_list\Form\QuestionFormAlter::ajaxFormEntityCallback',
+    'callback' => 'Drupal\dmt_mailing_list\Form\ContentFormAlter::ajaxFormEntityCallback',
     'wrapper' => $ajax_id,
     'effect' => 'fade',
   );
@@ -77,7 +77,7 @@ function dmt_mailing_list_form_node_question_form_alter(&$form, FormStateInterfa
   // Ajaxify the buttons.
   foreach (array_keys($form['actions']) as $action) {
     if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
-      $form['actions'][$action]['#submit'][] = 'Drupal\dmt_mailing_list\Form\QuestionFormAlter::ajaxFormEntityNodeFormSubmit';
+      $form['actions'][$action]['#submit'][] = 'Drupal\dmt_mailing_list\Form\ContentFormAlter::ajaxFormEntityNodeFormSubmit';
     }
   }
 
@@ -91,14 +91,14 @@ function dmt_mailing_list_form_node_question_form_alter(&$form, FormStateInterfa
  * @param array $context
  */
 function dmt_mailing_list_node_links_alter(array &$links, NodeInterface $entity, array &$context) {
-  if ($entity->bundle() == 'question') {
-    $links['question_ajax_links'] = array(
+  if ($entity->bundle() == 'content') {
+    $links['content_ajax_links'] = array(
       '#theme' => 'links',
       '#weight' => -10,
       '#links' => array(),
     );
     if ($entity->access('update')) {
-      $links['question_ajax_links']['#links']['ajax_edit_link'] = array(
+      $links['content_ajax_links']['#links']['ajax_edit_link'] = array(
         'title' => t('Edit'),
         'url' => Url::fromRoute(
           'dmt_mailing_list.ajax_edit_form',
@@ -112,7 +112,7 @@ function dmt_mailing_list_node_links_alter(array &$links, NodeInterface $entity,
       );
     }
     if ($entity->access('update')) {
-      $links['question_ajax_links']['#links']['ajax_delete_link'] = array(
+      $links['content_ajax_links']['#links']['ajax_delete_link'] = array(
         'title' => t('Delete'),
         'url' => Url::fromRoute(
           'dmt_mailing_list.ajax_delete_link',
@@ -129,14 +129,14 @@ function dmt_mailing_list_node_links_alter(array &$links, NodeInterface $entity,
 }
 
 /**
- * Auto generate title for question node.
+ * Auto generate title for content node.
  *
  * Implements hook_entity_presave().
  *
  * @param \Drupal\Core\Entity\EntityInterface $entity
  */
 function dmt_mailing_list_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
-  if ($entity->bundle() == 'question') {
+  if ($entity->bundle() == 'content') {
     /** @var  \Drupal\node\Entity\Node $entity */
     $body_value = strip_tags($entity->get('body')->getValue()[0]['value']);
     $title = substr($body_value, 0, 254);

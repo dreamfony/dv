@@ -14,7 +14,7 @@ dependencies:
     - node
     - text
 id: mailing_list_answers_group_by_recipient_sub_view
-label: 'Mailing List Answers :: Group By Recipient :: Question :: Activity'
+label: 'Mailing List Answers :: Group By Recipient :: Content :: Activity'
 module: views
 description: ''
 tag: ''

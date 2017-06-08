@@ -1,0 +1,87 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.content.body
+    - field.field.node.content.field_content_answers
+    - field.field.node.content.field_content_attachments
+    - field.field.node.content.field_content_comment_type
+    - node.type.content
+  module:
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: true
+    custom: false
+    allow: false
+    default: default
+    displays:
+      default:
+        blocks:
+          67a405bf-2804-4659-99d9-f8f49f902641:
+            id: 'entity_field:node:body'
+            label: Content
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: text_summary_or_trimmed
+              settings:
+                trim_length: 600
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            region: content
+            weight: 1
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: 67a405bf-2804-4659-99d9-f8f49f902641
+          7aaef0e2-3bad-4a4d-9eda-d57cd6103be5:
+            id: node_links
+            label: 'Node links'
+            provider: ctools
+            label_display: '0'
+            view_mode: default
+            region: content
+            weight: 0
+            uuid: 7aaef0e2-3bad-4a4d-9eda-d57cd6103be5
+            context_mapping:
+              node: '@panelizer.entity_context:entity'
+        id: panels_variant
+        label: Default
+        uuid: 1922032d-cd09-45b8-8a6b-282b7279bb67
+        weight: 0
+        layout: layout_onecol
+        layout_settings: {  }
+        page_title: ''
+        storage_type: panelizer_default
+        storage_id: 'node:content:teaser:default'
+        builder: ipe
+        pattern: panelizer
+        static_context: {  }
+id: node.content.teaser
+targetEntityType: node
+bundle: content
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_content_answers: true
+  field_content_attachments: true
+  field_content_comment_type: true
+  langcode: true

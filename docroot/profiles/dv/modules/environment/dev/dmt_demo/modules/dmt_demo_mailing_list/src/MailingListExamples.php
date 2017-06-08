@@ -75,7 +75,7 @@ class MailingListExamples {
     $this->mailingList = $mailing_list;
     $yml_data = $yml_parser;
     $this->groups = $yml_data->parseFile('MailingLists.yml');
-    $this->nodes = $yml_data->parseFile('Questions.yml');
+    $this->nodes = $yml_data->parseFile('Contents.yml');
     $this->comments = $yml_data->parseFile('Answers.yml');
     $this->processQueue = $process_queue;
     $this->mailingListAnswer = $mailing_list_answer;
@@ -112,9 +112,9 @@ class MailingListExamples {
           $this->addMembers($group_object, $group_data);
         }
 
-        // create questions
-        if($group_data['add_questions']){
-          $this->createQuestions($group_object, $user);
+        // create contents
+        if($group_data['add_contents']){
+          $this->createContents($group_object, $user);
         }
 
         // Loop trough states save each and process queues
@@ -254,21 +254,21 @@ class MailingListExamples {
     }
   }
 
-  public function createQuestions(Group $group_object, User $user) {
-    // add questions
-    foreach ($this->nodes as $question_uuid => $question) {
+  public function createContents(Group $group_object, User $user) {
+    // add contents
+    foreach ($this->nodes as $content_uuid => $content) {
       $node = Node::create([
-        'type' => 'question',
+        'type' => 'content',
         'title' => '',
         'body' => [
           'summary' => '',
-          'value' => $question['body'],
+          'value' => $content['body'],
           'format' => 'plain_text',
         ],
         'uid' => $user->id(),
         'created' => REQUEST_TIME,
         'changed' => REQUEST_TIME,
-        'field_question_comment_type' => $question['field_question_comment_type']
+        'field_content_comment_type' => $content['field_content_comment_type']
       ]);
       $node->save();
       // add node to created group

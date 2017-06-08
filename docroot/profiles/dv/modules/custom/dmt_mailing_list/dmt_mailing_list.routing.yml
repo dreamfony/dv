@@ -17,7 +17,7 @@ dmt_mailing_list.edit_title:
 dmt_mailing_list.ajax_edit_form:
   path: 'node/{node}/ajax-edit'
   defaults:
-    _controller: '\Drupal\dmt_mailing_list\Controller\QuestionAjaxController::editForm'
+    _controller: '\Drupal\dmt_mailing_list\Controller\ContentAjaxController::editForm'
   requirements:
     _entity_access: 'node.update'
     node: \d+
@@ -27,7 +27,7 @@ dmt_mailing_list.ajax_edit_form:
 dmt_mailing_list.ajax_delete_link:
   path: 'node/{node}/ajax-delete'
   defaults:
-    _controller: '\Drupal\dmt_mailing_list\Controller\QuestionAjaxController::delete'
+    _controller: '\Drupal\dmt_mailing_list\Controller\ContentAjaxController::delete'
   requirements:
     _entity_access: 'node.delete'
     node: \d+
@@ -37,7 +37,7 @@ dmt_mailing_list.ajax_delete_link:
 dmt_mailing_list.ajax_cancel_link:
   path: 'node/{node}/ajax-cancel'
   defaults:
-    _controller: '\Drupal\dmt_mailing_list\Controller\QuestionAjaxController::cancel'
+    _controller: '\Drupal\dmt_mailing_list\Controller\ContentAjaxController::cancel'
   requirements:
     _entity_access: 'node.view'
     node: \d+
@@ -52,3 +52,16 @@ dmt_mailing_list.ajax_organisation_delete_link:
     _entity_access: 'group.update'
     group: \d+
     group_content: \d+
+
+dmt_mailing_list.reply:
+  path: '/ajax_activity_reply/reply/{entity_type}/{entity}/{field_name}/{pid}'
+  defaults:
+    _controller: '\Drupal\dmt_mailing_list\Controller\ReplyLinkController::reply'
+    pid: ~
+  requirements:
+    _access: 'TRUE'
+    pid: ^[0-9]+
+  options:
+    parameters:
+      entity:
+        type: entity:{entity_type}

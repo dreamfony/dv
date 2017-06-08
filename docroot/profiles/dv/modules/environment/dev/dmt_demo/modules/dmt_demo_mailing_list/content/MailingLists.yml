@@ -7,16 +7,16 @@
   title: Empty - Test Survey 1
   group_type: mailing_list
   states: [draft]
-  add_questions: false
+  add_contents: false
 3bc51523-4f40-459c-887c-056432fe1001:
   status: true
   language: en
   user: TEST_journalist
   created: -60 day|15:30
-  title: Filled with questions and recipients - Test Survey 2
+  title: Filled with contents and recipients - Test Survey 2
   group_type: mailing_list
   states: [draft]
-  add_questions: true
+  add_contents: true
   recipients:
     - 35332
 3bc51523-4f40-459c-887c-056432fe1002:
@@ -27,7 +27,7 @@
   title: Waiting for Approval - Test Survey 3
   group_type: mailing_list
   states: [draft, email]
-  add_questions: true
+  add_contents: true
   recipients:
     - 35332
 3bc51523-4f40-459c-887c-056432fe1005:
@@ -38,7 +38,7 @@
   title: Approved and Sent - Test Survey 6
   group_type: mailing_list
   states: [draft, email, published]
-  add_questions: true
+  add_contents: true
   recipients:
     - 35332
 3bc51523-4f40-459c-887c-056432fe1006:
@@ -49,7 +49,7 @@
   title: Partialy Answered - Test Survey 7
   group_type: mailing_list
   states: [draft, email, published]
-  add_questions: true
+  add_contents: true
   answers: 10
   recipients:
     - 35332
@@ -61,7 +61,7 @@
   title: Fully Answered - Test Survey 8
   group_type: mailing_list
   states: [draft, email, published]
-  add_questions: true
+  add_contents: true
   answered: 0 # 0 = all
   recipients:
     - 35332

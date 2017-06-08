@@ -113,7 +113,7 @@ class DmtMailComment extends HandlerBase implements ContainerFactoryPluginInterf
           $this->entity = $this->entityTypeManager
             ->getStorage($ref_entity_type)
             ->load($ref_entity_id);
-          $this->commentType = $this->entity->get('field_question_comment_type')
+          $this->commentType = $this->entity->get('field_content_comment_type')
             ->getString();
 
         }
@@ -203,7 +203,7 @@ class DmtMailComment extends HandlerBase implements ContainerFactoryPluginInterf
         'value' => $result->getBody(),
         'format' => 'basic_html',
       ],
-      'field_name' => 'field_question_answers',
+      'field_name' => 'field_content_answers',
       'comment_type' => $this->commentType,
       'status' => CommentInterface::PUBLISHED,
     ]);

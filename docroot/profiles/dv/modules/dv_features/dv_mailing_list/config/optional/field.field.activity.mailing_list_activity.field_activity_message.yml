@@ -4,7 +4,7 @@ dependencies:
   config:
     - activity_creator.activity_type.mailing_list_activity
     - field.storage.activity.field_activity_message
-    - message.template.question
+    - message.template.content
 id: activity.mailing_list_activity.field_activity_message
 field_name: field_activity_message
 entity_type: activity
@@ -19,7 +19,7 @@ settings:
   handler: 'default:message'
   handler_settings:
     target_bundles:
-      question: question
+      content: content
     sort:
       field: _none
     auto_create: false

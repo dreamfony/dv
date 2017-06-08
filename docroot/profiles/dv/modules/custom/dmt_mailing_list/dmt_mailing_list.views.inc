@@ -28,4 +28,12 @@ function dmt_mailing_list_views_data_alter(array &$data) {
       'id' => 'mailing_list_stats',
     ),
   );
+  $data['activity']['reply_link'] = array(
+    'title' => t('Reply Link'),
+    'field' => array(
+      'title' => t('Reply Link'),
+      'help' => t('Reply link.'),
+      'id' => 'activity_reply_link',
+    ),
+  );
 }

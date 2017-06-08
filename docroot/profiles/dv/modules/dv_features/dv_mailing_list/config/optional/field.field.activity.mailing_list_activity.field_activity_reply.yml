@@ -3,8 +3,7 @@ status: true
 dependencies:
   config:
     - activity_creator.activity_type.mailing_list_activity
-    - comment.type.answer_number
-    - comment.type.answer_text
+    - comment.type.answer
     - field.storage.activity.field_activity_reply
 id: activity.mailing_list_activity.field_activity_reply
 field_name: field_activity_reply
@@ -20,10 +19,9 @@ settings:
   handler: 'default:comment'
   handler_settings:
     target_bundles:
-      answer_number: answer_number
-      answer_text: answer_text
+      answer: answer
     sort:
       field: _none
-    auto_create: false
-    auto_create_bundle: answer_number
+    auto_create: null
+    auto_create_bundle: null
 field_type: entity_reference

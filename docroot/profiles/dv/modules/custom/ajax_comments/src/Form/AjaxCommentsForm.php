@@ -115,13 +115,12 @@ class AjaxCommentsForm extends CommentForm {
     /** @var \Drupal\comment\CommentInterface $comment */
     $comment = $form_state->getFormObject()->getEntity();
     // Check to see if this comment field uses ajax comments.
-    /*
-    $comment_formatter = $this->fieldSettingsHelper->getFieldFormatterFromComment($comment, 'full');
+    $comment_formatter = $this->fieldSettingsHelper->getFieldFormatterFromComment($comment, 'comments');
     if (!$comment_formatter || !$this->fieldSettingsHelper->isEnabled($comment_formatter)) {
       // If not using Ajax Comments, return the unmodified form.
       return $form;
     }
-    */
+
 
     /** @var \Drupal\Core\Entity\ContentEntityInterface $commented_entity */
     $commented_entity = $comment->getCommentedEntity();

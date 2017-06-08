@@ -11,5 +11,5 @@ audience: member
 group_type: mailing_list
 permissions_ui: true
 permissions:
-  - 'view group_node:question entity'
+  - 'view group_node:content entity'
   - 'view group'

@@ -128,7 +128,7 @@ JS;
 
     // Export the updated content of the page.
     if ($this->htmlOutputEnabled) {
-      $out = $page->getContent();
+      $out = $page->getQuestion();
       $this->htmlOutput($out);
     }
     $this->assertSession()->pageTextContains('Your comment has been posted.');
@@ -158,7 +158,7 @@ JS;
 JS;
     $this->getSession()->executeScript($ckeditor_javascript);
     if ($this->htmlOutputEnabled) {
-      $out = $page->getContent();
+      $out = $page->getQuestion();
       $html_output = $out . '<hr />' . $this->getHtmlOutputHeaders();
       $this->htmlOutput($html_output);
     }
@@ -171,7 +171,7 @@ JS;
     $this->assertSession()->assertWaitOnAjaxRequest(20000);
 
     if ($this->htmlOutputEnabled) {
-      $out = $page->getContent();
+      $out = $page->getQuestion();
       $html_output = $out . '<hr />' . $this->getHtmlOutputHeaders();
       $this->htmlOutput($html_output);
     }
@@ -183,7 +183,7 @@ JS;
     $this->assertSession()->assertWaitOnAjaxRequest(20000);
     $this->assertSession()->elementExists('css', 'form.ajax-comments-form-edit');
     if ($this->htmlOutputEnabled) {
-      $out = $page->getContent();
+      $out = $page->getQuestion();
       $html_output = $out . '<hr />' . $this->getHtmlOutputHeaders();
       $this->htmlOutput($html_output);
     }
@@ -192,7 +192,7 @@ JS;
     $cancel_button->press();
     $this->assertSession()->assertWaitOnAjaxRequest(20000);
     if ($this->htmlOutputEnabled) {
-      $out = $page->getContent();
+      $out = $page->getQuestion();
       $html_output = $out . '<hr />' . $this->getHtmlOutputHeaders();
       $this->htmlOutput($html_output);
     }
@@ -208,7 +208,7 @@ JS;
 JS;
     $this->getSession()->executeScript($ckeditor_javascript);
     if ($this->htmlOutputEnabled) {
-      $out = $page->getContent();
+      $out = $page->getQuestion();
       $html_output = $out . '<hr />' . $this->getHtmlOutputHeaders();
       $this->htmlOutput($html_output);
     }
@@ -217,7 +217,7 @@ JS;
     $save_button->press();
     $this->assertSession()->assertWaitOnAjaxRequest(20000);
     if ($this->htmlOutputEnabled) {
-      $out = $page->getContent();
+      $out = $page->getQuestion();
       $html_output = $out . '<hr />' . $this->getHtmlOutputHeaders();
       $this->htmlOutput($html_output);
     }
@@ -242,26 +242,26 @@ JS;
         $comment_to_delete->getEntityTypeId(), 'delete'
       );
     $delete_form->setEntity($comment_to_delete);
-    // The delete confirmation question has tags stripped and is truncated
+    // The delete confirmation content has tags stripped and is truncated
     // in the modal dialog box.
-    $confirm_question = substr(strip_tags($delete_form->getQuestion()), 0, 50);
+    $confirm_content = substr(strip_tags($delete_form->getQuestion()), 0, 50);
 
     $delete_link->click();
     $this->assertSession()->assertWaitOnAjaxRequest(20000);
 
     if ($this->htmlOutputEnabled) {
-      $out = $page->getContent();
+      $out = $page->getQuestion();
       $html_output = $out . '<hr />' . $this->getHtmlOutputHeaders();
       $this->htmlOutput($html_output);
     }
-    $this->assertSession()->pageTextContains($confirm_question);
+    $this->assertSession()->pageTextContains($confirm_content);
 
     $delete_button = $page->find('css', '.ui-dialog button.button--primary.js-form-submit');
     $this->assertTrue(!empty($delete_button));
     $delete_button->click();
     $this->assertSession()->assertWaitOnAjaxRequest(20000);
     if ($this->htmlOutputEnabled) {
-      $out = $page->getContent();
+      $out = $page->getQuestion();
       $html_output = $out . '<hr />' . $this->getHtmlOutputHeaders();
       $this->htmlOutput($html_output);
     }
@@ -296,7 +296,7 @@ JS;
     $this->assertSession()->pageTextContains('You do not have permission to post a comment.');
 
     if ($this->htmlOutputEnabled) {
-      $out = $page->getContent();
+      $out = $page->getQuestion();
       $html_output = $out . '<hr />' . $this->getHtmlOutputHeaders();
       $this->htmlOutput($html_output);
     }
@@ -329,7 +329,7 @@ JS;
     $this->assertSession()->assertWaitOnAjaxRequest(20000);
 
     if ($this->htmlOutputEnabled) {
-      $out = $page->getContent();
+      $out = $page->getQuestion();
       $html_output = $out . '<hr />' . $this->getHtmlOutputHeaders();
       $this->htmlOutput($html_output);
     }
@@ -361,7 +361,7 @@ JS;
 JS;
     $this->getSession()->executeScript($ckeditor_javascript);
     if ($this->htmlOutputEnabled) {
-      $out = $page->getContent();
+      $out = $page->getQuestion();
       $html_output = $out . '<hr />' . $this->getHtmlOutputHeaders();
       $this->htmlOutput($html_output);
     }
@@ -381,7 +381,7 @@ JS;
     $this->assertSession()->assertWaitOnAjaxRequest(20000);
 
     if ($this->htmlOutputEnabled) {
-      $out = $page->getContent();
+      $out = $page->getQuestion();
       $html_output = $out . '<hr />' . $this->getHtmlOutputHeaders();
       $this->htmlOutput($html_output);
     }

@@ -4,9 +4,9 @@ dependencies:
   config:
     - activity_creator.activity_type.moderation_activity
     - field.storage.activity.field_activity_message
+    - message.template.content
     - message.template.issue
     - message.template.mailing_list_needs_aproval
-    - message.template.question
 id: activity.moderation_activity.field_activity_message
 field_name: field_activity_message
 entity_type: activity
@@ -23,7 +23,7 @@ settings:
     target_bundles:
       issue: issue
       mailing_list_needs_aproval: mailing_list_needs_aproval
-      question: question
+      content: content
     sort:
       field: _none
     auto_create: false

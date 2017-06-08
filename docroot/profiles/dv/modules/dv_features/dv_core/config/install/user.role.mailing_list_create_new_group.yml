@@ -6,13 +6,13 @@ label: 'Create Mailing list'
 weight: 9
 is_admin: null
 permissions:
+  - 'create content content'
   - 'create mailing_list group'
-  - 'create question content'
-  - 'edit own question content'
-  - 'revert question revisions'
+  - 'edit own content content'
+  - 'revert content revisions'
+  - 'use content_workflow transition create_new_draft'
+  - 'use content_workflow transition publish'
   - 'use mailing_list_workflow transition create_new_draft'
   - 'use mailing_list_workflow transition restore_to_draft'
   - 'use mailing_list_workflow transition send_email'
-  - 'use question_workflow transition create_new_draft'
-  - 'use question_workflow transition publish'
   - 'view own unpublished content'

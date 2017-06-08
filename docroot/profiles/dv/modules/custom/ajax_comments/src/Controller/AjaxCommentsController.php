@@ -668,12 +668,19 @@ class AjaxCommentsController extends ControllerBase {
       // Build the comment entity form.
       // This approach is very similar to the one taken in
       // \Drupal\comment\CommentLazyBuilders::renderForm().
-      $comment = $this->entityTypeManager()->getStorage('comment')->create(array(
+      $comment_data = [
         'entity_id' => $entity->id(),
         'pid' => $pid,
         'entity_type' => $entity->getEntityTypeId(),
-        'field_name' => $field_name,
-      ));
+        'field_name' => $field_name
+      ];
+
+      if($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'content') {
+        $comment_data['comment_type'] = 'comment';
+      }
+
+      $comment = $this->entityTypeManager()->getStorage('comment')->create($comment_data);
+
       // Build the comment form.
       $form = $this->entityFormBuilder()->getForm($comment);
       $response->addCommand(new AfterCommand(static::getCommentSelectorPrefix() . $pid, $form));
@@ -754,12 +761,18 @@ class AjaxCommentsController extends ControllerBase {
     // @endcode
     // This approach is very similar to the one taken in
     // \Drupal\comment\CommentLazyBuilders::renderForm().
-    $comment = $this->entityTypeManager()->getStorage('comment')->create(array(
+    $comment_data = [
       'entity_id' => $entity->id(),
       'pid' => $pid,
       'entity_type' => $entity->getEntityTypeId(),
-      'field_name' => $field_name,
-    ));
+      'field_name' => $field_name
+    ];
+
+    if($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'content') {
+      $comment_data['comment_type'] = 'comment';
+    }
+
+    $comment = $this->entityTypeManager()->getStorage('comment')->create($comment_data);
     // Rebuild the form to trigger form submission.
     return $this->save($request, $comment);
   }

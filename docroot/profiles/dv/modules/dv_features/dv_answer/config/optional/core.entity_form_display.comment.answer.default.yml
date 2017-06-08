@@ -1,0 +1,51 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.answer
+    - field.field.comment.answer.comment_body
+    - field.field.comment.answer.field_c_attachments
+  module:
+    - content_moderation
+    - file
+    - text
+id: comment.answer.default
+targetEntityType: comment
+bundle: answer
+mode: default
+content:
+  author:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  comment_body:
+    type: text_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_attachments:
+    weight: 3
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  subject:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

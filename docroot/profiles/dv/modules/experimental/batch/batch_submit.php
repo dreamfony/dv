@@ -22,7 +22,7 @@ function _dmt_mailing_list_group_form_submit($form, \Drupal\Core\Form\FormStateI
 
 //  getIssue nids
     $group = Group::load($group_id);
-    $nids = $group->get('field_ml_questions')->getValue();
+    $nids = $group->get('field_ml_contents')->getValue();
 
     $batch = array(
       'title' => t('Set up Survey...'),
@@ -36,7 +36,7 @@ function _dmt_mailing_list_group_form_submit($form, \Drupal\Core\Form\FormStateI
           array($gids, $group_id)
         ),
         array(
-          '\Drupal\dmt_mailing_list\BatchMailingList::addQuestions',
+          '\Drupal\dmt_mailing_list\BatchMailingList::addContents',
           array($nids, $group_id)
         ),
       ),

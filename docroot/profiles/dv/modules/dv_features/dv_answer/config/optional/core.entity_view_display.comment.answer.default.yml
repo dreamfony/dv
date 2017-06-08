@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.answer
+    - field.field.comment.answer.comment_body
+    - field.field.comment.answer.field_c_attachments
+  module:
+    - file
+    - text
+id: comment.answer.default
+targetEntityType: comment
+bundle: answer
+mode: default
+content:
+  comment_body:
+    type: text_default
+    weight: 2
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_c_attachments:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

@@ -13,5 +13,5 @@ permissions_ui: true
 permissions:
   - 'approve sending'
   - 'edit group'
-  - 'update any group_node:question entity'
-  - 'view group_node:question entity'
+  - 'update any group_node:content entity'
+  - 'view group_node:content entity'

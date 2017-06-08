@@ -22,8 +22,7 @@ dependencies:
   - datetime_range
   - dmt_group
   - dmt_mailing_list
-  - dv_answer_number
-  - dv_answer_text
+  - dv_answer
   - dv_area_of_activity
   - dv_blog
   - dv_geo_area_group

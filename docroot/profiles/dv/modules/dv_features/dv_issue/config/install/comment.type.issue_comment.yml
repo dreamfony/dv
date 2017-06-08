@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: issue_comment
-label: 'Issue comment'
-target_entity_type_id: node
-description: ''

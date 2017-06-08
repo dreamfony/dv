@@ -4,7 +4,7 @@ dependencies:
   config:
     - field.storage.activity.field_activity_reply
     - field.storage.profile.field_org_title
-    - node.type.question
+    - node.type.content
   module:
     - activity_creator
     - profile
@@ -282,7 +282,7 @@ display:
             fail: 'not found'
           validate_options:
             bundles:
-              question: question
+              content: content
             access: true
             operation: view
             multiple: 0

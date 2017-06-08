@@ -87,7 +87,7 @@ class MailingListStateMachine extends ModerationStateMachineBase implements Cont
     // prevent sending for approval with a message
     if($this->mailingList->allActivitiesCount($entity->id()) == 0) {
       $violations[] = [
-        'message' => 'Please add questions and recipients before sending for approval.',
+        'message' => 'Please add contents and recipients before sending for approval.',
         'cause' => 'allow_link' // send this cause if you want to ignore this violation when showing links
       ];
     }
@@ -99,9 +99,9 @@ class MailingListStateMachine extends ModerationStateMachineBase implements Cont
     /** @var \Drupal\group\Entity\GroupInterface $group */
     $group = $entity;
 
-    $group_content_questions = $group->getContent('group_node:question');
+    $group_content_contents = $group->getContent('group_node:content');
 
-    foreach ($group_content_questions as $group_content) {
+    foreach ($group_content_contents as $group_content) {
       /** @var GroupContent $group_content */
       $activity_entity = $group_content->getEntity();
       $data['group_id'] = $group->id();
@@ -125,7 +125,7 @@ class MailingListStateMachine extends ModerationStateMachineBase implements Cont
     // prevent sending for approval with a message
     if($this->mailingList->allActivitiesCount($entity->id()) == 0) {
       $violations[] = [
-        'message' => 'Please add questions and recipients before sending for approval.',
+        'message' => 'Please add contents and recipients before sending for approval.',
         'cause' => 'allow_link' // send this cause if you want to ignore this violation when showing links
         ];
     }

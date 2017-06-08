@@ -12,8 +12,7 @@ dependencies:
   - ctools
   - ctools_block
   - dmt_mailing_list
-  - dv_answer_number
-  - dv_answer_text
+  - dv_answer
   - dv_area_of_activity
   - dv_core
   - dv_geo_area_group

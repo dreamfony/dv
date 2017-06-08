@@ -12,10 +12,10 @@ ML = Mailing List
   - S: redirect to group/[id] (TODO configure pathauto survey/)
 - U: enters organisation group name in the autocomplete field and clicks "Add Recipient" (repeatable action)
   - S: adds all Organisation members of the selected group to current ML Group
-- U: enters question and Answer type, clicks save (repeatable action)
-  - S: create Question node (question nodes will be reusable later)
+- U: enters content and Answer type, clicks save (repeatable action)
+  - S: create Content node (content nodes will be reusable later)
 - U: clicks Send Email
-  - S: validates that there is at least one question and one recipient in ML Group
+  - S: validates that there is at least one content and one recipient in ML Group
   - S: changes ML state from draft to email
   - S: Adds Moderation Message
   - S: TODO system logs state change as comment (project/nodechanges)

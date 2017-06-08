@@ -19,8 +19,8 @@ third_party_settings:
       mailing_list_default:
         blocks:
           400d312c-a495-468d-9c71-fe2dabc9d2ab:
-            id: question_form_block
-            label: Questions
+            id: content_form_block
+            label: Contents
             provider: dmt_mailing_list
             label_display: visible
             region: column1

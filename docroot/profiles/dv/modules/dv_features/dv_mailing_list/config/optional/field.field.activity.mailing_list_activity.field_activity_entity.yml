@@ -21,17 +21,16 @@ settings:
     handler: 'default:comment'
     handler_settings:
       target_bundles:
-        answer_number: answer_number
-        answer_text: answer_text
+        answer: answer
       sort:
         field: _none
       auto_create: false
-      auto_create_bundle: answer_number
+      auto_create_bundle: ''
   node:
     handler: 'default:node'
     handler_settings:
       target_bundles:
-        question: question
+        content: content
       sort:
         field: _none
       auto_create: false
@@ -49,7 +48,7 @@ settings:
     handler: 'default:message'
     handler_settings:
       target_bundles:
-        question: question
+        content: content
       sort:
         field: _none
       auto_create: false

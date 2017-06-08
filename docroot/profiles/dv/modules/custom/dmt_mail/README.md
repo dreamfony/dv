@@ -1,6 +1,6 @@
 Email related processes are handled by two entities (activity and comment)
 
-1. Email that is sent is derived from message (question) and constructed as Activity entity (mailing_list_activity)
+1. Email that is sent is derived from message (content) and constructed as Activity entity (mailing_list_activity)
 
 **Workflow**
 
@@ -38,7 +38,7 @@ Currently webhook data is serialized and saved as revision_log_message in activi
 
 
 
-2. Comment entity of bundle email_reply that is then transformed to either answer_number , answer_text or answer_list
+2. Comment entity of bundle email_reply that is then transformed to either answer_number , answer or answer_list
 
 Usecase
 

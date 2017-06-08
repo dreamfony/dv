@@ -228,7 +228,7 @@ function social_profile_form_user_form_alter(&$form, FormStateInterface $form_st
       if ($global_show_email == TRUE) {
         $form['profile_privacy']['social_profile_show_email']['#disabled'] = TRUE;
         $form['profile_privacy']['social_profile_show_email']['#value'] = TRUE;
-        $form['profile_privacy']['social_profile_show_email']['#description'] = t('This setting is currently being controlled by a platform wide setting and cannot be changed. Please contact a sitemanager if you have questions.');
+        $form['profile_privacy']['social_profile_show_email']['#description'] = t('This setting is currently being controlled by a platform wide setting and cannot be changed. Please contact a sitemanager if you have contents.');
       }
       else {
         // Submit function only when the data is actualy editable.

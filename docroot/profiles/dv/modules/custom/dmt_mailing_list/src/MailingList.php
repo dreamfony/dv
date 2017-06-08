@@ -107,7 +107,7 @@ class MailingList {
       /** @var \Drupal\group\Entity\GroupInterface $group */
       $group = Group::load($result);
 
-      $group_content = $group->getContent('group_node:question');
+      $group_content = $group->getContent('group_node:content');
       $group_users = $group->getMembers([$this->mailingListType . '-organisation']);
       if (empty($group_content) AND empty($group_users)) {
         return $group;
@@ -158,9 +158,9 @@ class MailingList {
     }
     else {
       $group = Group::load($group_id);
-      $group_content_questions = count($group->getContent('group_node:question'));
+      $group_content_contents = count($group->getContent('group_node:content'));
       $group_users = count($group->getMembers([$group->bundle() . '-organisation']));
-      $count = (int) $group_content_questions * $group_users;
+      $count = (int) $group_content_contents * $group_users;
       $this->cacheBackend->set('dmt_mailing_list:total_activity_count:' . $group->id(), $count);
       return $count;
     }

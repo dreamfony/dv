@@ -18,8 +18,8 @@ third_party_settings:
       mailing_list_default:
         blocks:
           400d312c-a495-468d-9c71-fe2dabc9d2ab:
-            id: question_form_block
-            label: 'Add Question'
+            id: content_form_block
+            label: 'Add Content'
             provider: dmt_mailing_list
             label_display: visible
             region: column1
@@ -28,10 +28,10 @@ third_party_settings:
             context_mapping: {  }
           396e1432-6e37-4c9e-9fb5-b40618a06f52:
             id: 'views_block:mailing_list_items-block_1'
-            label: Questions
+            label: Contents
             provider: views
             label_display: visible
-            views_label: Questions
+            views_label: Contents
             items_per_page: none
             region: column1
             weight: 1
