@@ -22,13 +22,26 @@ Use Case 1: Create Mailig List / Survey
   - S: redirect to group/[id] (TODO configure pathauto survey/[id])
 - U: enters organisation group name in the autocomplete field and clicks "Add Recipient" (repeatable action)
   - S: adds all Organisation members of the selected group to current ML Group
-- U: enters question and Answer type, clicks save (repeatable action)
+<<<<<<< HEAD
+- U: enters content and Answer type, clicks save (repeatable action)
   - S: create Content node (content nodes will be reusable later)
 - U: clicks Send Email
   - S: validates that there is at least one content and one recipient in ML Group
+  - S: changes ML state from draft to email
+  - S: Adds Moderation Message
+  - S: TODO system logs state change as comment (project/nodechanges)
+- U: can not edit group while in "email" state
+- M: Picks up notification about new moderation activity (TODO describe Moderation Stream)
+- M: SCENARIO a. Approve Sending
+=======
+- U: enters Question and Question (Answer) type, clicks save (repeatable action)
+  - S: create Question node (question nodes will be reusable later)
+- U: clicks Send Email
+  - S: validates that there is at least one question and one recipient in ML Group
   - S: changes ML state from Draft to Moderate (see STATE CHANGE DIAGRAM)
 - M: Picks up notification about new moderation activity (see Use Case 2: Moderation Stream)
 - M: SCENARIO a. Click Approve Sending ML
+>>>>>>> Mailing List states and Use Case update
   - S: TODO Open confirm dialog
   - M: Clicks Yes
   - S: changes ML state from Moderate to Published (see STATE CHANGE DIAGRAM)
@@ -39,6 +52,10 @@ Use Case 1: Create Mailig List / Survey
   - M: clicks Back to Draft
   - S: TODO Opens confirm dialog with Form where M enters reason for not approving.
     - Reason is saved as comment on ML
+<<<<<<< HEAD
+  - S: changes ML state from email to draft
+  - S: TODO notify User that ML is back in Draft
+=======
   - S: changes ML state from Moderate to Draft (see STATE CHANGE DIAGRAM)
 
 
@@ -78,3 +95,4 @@ Note right of Spam: Unpublished
 
 TODO
 Use Case 2: Moderation Stream
+>>>>>>> Mailing List states and Use Case update
