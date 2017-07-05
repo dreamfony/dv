@@ -1,7 +1,11 @@
 Email related processes are handled by two entities (activity and comment)
 They constitute the core of Task Management System
 
-1. Email that is sent is derived from message (question) and constructed as Activity entity (mailing_list_activity)
+<<<<<<< HEAD
+1. Email that is sent is derived from message (content) and constructed as Activity entity (mailing_list_activity)
+=======
+Email that is sent is derived from message (question) and constructed as Activity entity (mailing_list_activity)
+>>>>>>> Use cases Update Readme
 
 **Workflow**
 
@@ -42,7 +46,12 @@ Currently webhook data is serialized and saved as revision_log_message in activi
 **TODO** save data as **collect** entity
 
 
+<<<<<<< HEAD
+
 2. Comment entity of bundle email_reply that is then transformed to either answer_number , answer or answer_list
+=======
+2. Comment entity of bundle email_reply that is then transformed to either answer_number , answer_text or answer_list
+>>>>>>> Use cases Update Readme
 
 ## Usecase 1
 As a Journalist I want to gather data so I can make insights into logic behind smart government decisions.
