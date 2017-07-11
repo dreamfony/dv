@@ -19,6 +19,9 @@ targetEntityType: activity
 bundle: activity
 mode: notification
 content:
+  extra_field_activity_status:
+    weight: -30
+    region: content
   field_activity_output_text:
     type: text_default
     weight: 0

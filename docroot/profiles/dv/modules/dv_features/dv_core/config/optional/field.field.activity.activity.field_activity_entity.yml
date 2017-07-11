@@ -3,7 +3,9 @@ status: true
 dependencies:
   config:
     - activity_creator.activity_type.activity
+    - comment.type.comment
     - field.storage.activity.field_activity_entity
+    - node.type.content
   module:
     - dynamic_entity_reference
 id: activity.activity.field_activity_entity

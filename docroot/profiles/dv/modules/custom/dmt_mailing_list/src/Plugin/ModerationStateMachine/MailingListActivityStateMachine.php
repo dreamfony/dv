@@ -10,6 +10,8 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\dmt_mailing_list\MailingList;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\content_moderation\StateTransitionValidation;
+use Drupal\comment\Entity\Comment;
+use Drupal\comment\CommentInterface;
 
 
 /**
@@ -52,17 +54,35 @@ class MailingListActivityStateMachine extends ModerationStateMachineBase impleme
   }
 
   /**
-   * On insertion of mailing_list_activity switch display mode.
+   * On insertion of mailing_list_activity.
    *
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
    */
   public function insert(ContentEntityInterface $entity) {
+
+    // switch group display mode
     $group_id = $entity->field_activity_mailing_list->target_id;
     if (!empty($group_id)) {
       if ($this->mailingList->checkActivitiesCreated($group_id)) {
         $this->mailingList->switchDisplay($group_id);
       }
     }
+
+    // create activity_reference comment
+    $entity_id = $entity->field_activity_entity->target_id;
+    $comment = Comment::create([
+      'entity_type' => 'node',
+      'entity_id' => $entity_id,
+      'uid' => 1,
+      'subject' => $entity->id(),
+      'comment_type' => 'activity',
+      'field_name' => 'field_content_answers', // field comment is attached to
+      'status' => CommentInterface::PUBLISHED,
+    ]);
+
+    $comment->field_comment_activity->target_id = $entity->id();
+
+    $comment->save();
   }
 
 }

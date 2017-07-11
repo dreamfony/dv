@@ -1,0 +1,20 @@
+{#
+/**
+ * @file activity.html.twig
+ * Default theme implementation to present Activity data.
+ *
+ * This template is used when viewing Activity pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_activity()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if content.extra_field_activity_status %}
+  {{ content.extra_field_activity_status }}
+{% endif %}

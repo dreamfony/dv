@@ -4,12 +4,16 @@ type: module
 core: 8.x
 package: DV
 dependencies:
+  - ajax_comments
+  - allowed_formats
   - comment
   - content_moderation
+  - dmt_mailing_list
   - dv_core
   - dv_mailing_list
   - field
   - file
+  - geocoder_field
   - language
   - options
   - panelizer

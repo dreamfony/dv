@@ -1,6 +1,8 @@
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.page
   module:
     - content_moderation
 id: editorial
@@ -60,4 +62,6 @@ type_settings:
     published:
       published: true
       default_revision: true
-  entity_types: {  }
+  entity_types:
+    node:
+      - page

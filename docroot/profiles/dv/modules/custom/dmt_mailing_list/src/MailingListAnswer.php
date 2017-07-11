@@ -52,7 +52,8 @@ class MailingListAnswer {
     $values = $values +
       [
         'entity_id' => $ref_entity_id,
-        'comment_type' => $comment_type
+        'comment_type' => $comment_type,
+        'pid' => $this->getAnswerPid($activity)
       ];
 
     // if user has not being set get user from activity
@@ -73,6 +74,21 @@ class MailingListAnswer {
     $activity->save();
   }
 
+  /**
+   * Get answer parent activity comment id
+   *
+   * @param \Drupal\activity_creator\Entity\Activity $activity
+   * @return mixed
+   */
+  private function getAnswerPid(Activity $activity) {
+    $query = \Drupal::entityQuery('comment')
+      ->condition('field_comment_activity.target_id', $activity->id());
+
+    $result = $query->execute();
+
+    return key($result);
+  }
+
 
   /**
    * Create new Mailing List Answer.
@@ -86,11 +102,12 @@ class MailingListAnswer {
       'entity_id' => $values['entity_id'],
       'uid' => $values['uid'],
       'subject' => $values['subject'],
+      'pid' => $values['pid'],
       'comment_body' => [
         'value' => $values['body'],
         'format' => 'plain_text',
       ],
-      'field_name' => 'field_content_answers', // wtf is this?
+      'field_name' => 'field_content_answers', // field comment is attached to
       'comment_type' => $values['comment_type'],
       'status' => CommentInterface::PUBLISHED,
     ]);

@@ -88,7 +88,8 @@
         "drupal/page_manager": "1.x-dev",
         "drupal/agnian_material_admin": "^1.0",
         "drupal/search_api_solr": "1.x-dev",
-        "drupal/image_widget_crop": "^2.0"
+        "drupal/image_widget_crop": "^2.0",
+        "drupal/extra_field": "^1.0@alpha"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^2.7",
@@ -169,11 +170,8 @@
             "drupal/inline_entity_form": {
                 "Save revisions Node - https://www.drupal.org/node/2367235": "https://www.drupal.org/files/issues/support_entity_revision-2367235-92.patch"
             },
-            "drupal/profile": {
-                "Fixes access control on entities": "https://www.drupal.org/files/issues/profile-accesscontrol-2703825-6.patch"
-            },
             "drupal/group": {
-                "https://www.drupal.org/node/2736233": "https://www.drupal.org/files/issues/group-add_subgroups_module-2736233-57-D8.patch",
+                "https://www.drupal.org/node/2736233": "https://www.drupal.org/files/issues/group-add_subgroups_module-2736233-114_0.patch",
                 "https://www.drupal.org/node/2746839 - develgenerate": "https://www.drupal.org/files/issues/develGenerate.patch"
             },
             "drupal/user_registrationpassword": {
@@ -193,9 +191,7 @@
             },
             "drupal/core": {
                 "https://www.drupal.org/files/issues/2817305.patch": "https://www.drupal.org/files/issues/2817305.patch",
-                "slash latest": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/slash_latest.patch",
-                "https://www.drupal.org/node/2744069": "https://www.drupal.org/files/issues/2744069-5-views-in-queries.patch",
-                "add menu link patch": "https://raw.githubusercontent.com/dreamfony/dv/da434a5adb17690c00bd14451573f1a1b14f2c9d/patches/drupal/content_moderation_add_link.patch"
+                "slash latest": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/slash_latest.patch"
             },
             "drupal/mailgun": {
                 "https://www.drupal.org/node/2847665": "https://www.drupal.org/files/issues/remove-composer-manager-2847665-2.patch",

@@ -4,6 +4,8 @@ dependencies: {  }
 id: mailing_list
 label: 'Mailing list'
 description: ''
+creator_membership: true
+creator_wizard: true
 creator_roles:
   - mailing_list-administrator
   - mailing_list-owner

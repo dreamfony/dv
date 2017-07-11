@@ -1,7 +1,17 @@
-Email related processes are handled by two entities (activity and comment)
-They constitute the core of Task Management System
+MN - machine name
+UL - user label
+L - Label
 
-1. Email that is sent is derived from message (question) and constructed as Activity entity (mailing_list_activity)
+Email related processes are handled by entities:
+ - activity
+ - comment
+   - activity (references activity; recipient, has link to log which shows activity status + date )
+   - comment (comment on activity or answer)
+   - answer ( answer to a question )
+   - log (question revision log written in comment)
+ - message
+
+1. Email that is sent is constructed from Message entity type Question (mn. question) and it creates Activity entity type Mailing List Activity (mn. mailing_list_activity)
 
 **Workflow**
 
@@ -9,14 +19,19 @@ Workflow (mailing_list_activity_workflow) states on Mailing List Activity should
 States that describe quality of response (eg. Not Held / Rejected) are attached to Comment which represents response.
 FOI law has SLA (Service Level Agreement) of 20 days and our states have to be aware of that. Time directly influences state.
 
-**Activity States: that are set by transactional email service via webhook**
+**Activity and Comment States:**
 
-- Inactive/Pending Canceled
-- Inactive/Pending Pending
-- Inactive/Pending Delivery Error
-- Inactive/Pending Rejected (TODO this state)
-- In progress Sent = Awaiting response
-- In progress Seen = Awaiting response
+- L: Canceled MN: Canceled
+- L: Pending MN. Pending
+- L: Pending (Delivery Error) MN: delivery_error (set by MailGun)
+- L: Pending (Rejected) MN: rejected (TODO this state)
+
+- L: Awaiting Response (Sent) MN: sent
+     Comment: N/A
+  
+- L: Awaiting Response (Seen) MN: seen
+     Comment: N/A
+     
 - In progress Delayed = Awaiting response
 - In progress Awaiting Classification Response / Received **Any matching response will set activity to state**
 - Finished Successfully

@@ -10,7 +10,7 @@ dependencies:
     - field.field.node.content.field_content_comment_type
     - node.type.content
   module:
-    - comment
+    - dmt_mailing_list
     - options
     - panelizer
     - text
@@ -40,17 +40,24 @@ third_party_settings:
             uuid: 75047371-8127-4565-950b-9a8ec6507fa9
             context_mapping:
               entity: '@panelizer.entity_context:entity'
-          6e999f8f-d3a5-4862-8897-c435c79dc88c:
-            id: node_links
-            label: 'Node links'
-            provider: ctools
-            label_display: '0'
-            view_mode: default
+          b1b0c96a-2dba-4324-841c-d503f975acbd:
+            id: 'entity_field:node:field_content_answers'
+            label: Answers
+            provider: ctools_block
+            label_display: visible
+            formatter:
+              label: above
+              type: comment_default
+              settings:
+                view_mode: default
+                pager_id: 0
+              third_party_settings: {  }
+              weight: 0
             region: contentmain
-            weight: 0
-            uuid: 6e999f8f-d3a5-4862-8897-c435c79dc88c
+            weight: 2
+            uuid: b1b0c96a-2dba-4324-841c-d503f975acbd
             context_mapping:
-              node: '@panelizer.entity_context:entity'
+              entity: '@panelizer.entity_context:entity'
         id: panels_variant
         uuid: e6f8a35e-fcc3-4a01-a484-5442beedc5f2
         label: 'Content Default'
@@ -188,7 +195,7 @@ content:
       view_mode: default
       pager_id: 0
     third_party_settings: {  }
-    type: comment_default
+    type: comment_content
     region: content
   field_content_comment_type:
     weight: 2

@@ -109,6 +109,7 @@ dependencies:
   - user_registrationpassword
   - views
   - views_ui
+  - extra_field
 themes:
   - seven
   - socialblue

@@ -2,6 +2,6 @@ langcode: en
 status: true
 dependencies: {  }
 id: answer
-label: 'Answer Text'
+label: Answer
 target_entity_type_id: node
 description: ''

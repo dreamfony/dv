@@ -6,7 +6,7 @@
  */
 function socialbase_preprocess_activity(&$variables) {
   // Check if the view mode is one of the notification view modes.
-  if (in_array($variables['content']['field_activity_output_text']['#view_mode'], array(
+  if (isset($variables['content']['field_activity_output_text']) && in_array($variables['content']['field_activity_output_text']['#view_mode'], array(
     'notification',
     'notification_archive'
   ))) {

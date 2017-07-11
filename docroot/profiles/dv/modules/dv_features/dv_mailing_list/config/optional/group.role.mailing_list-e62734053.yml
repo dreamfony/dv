@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.mailing_list
+  enforced:
+    config:
+      - user.role.masquerade_as_any_user_except_super_user
+id: mailing_list-e62734053
+label: 'Masquerade as any user except super user'
+weight: 6
+internal: true
+audience: outsider
+group_type: mailing_list
+permissions_ui: false
+permissions: {  }

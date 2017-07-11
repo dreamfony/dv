@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - activity_creator
+id: activity.comment_activity
+label: 'Comment Activity'
+targetEntityType: activity
+cache: true

@@ -112,8 +112,8 @@ class MailingListExamples {
           $this->addMembers($group_object, $group_data);
         }
 
-        // create contents
-        if($group_data['add_contents']){
+        // create content
+        if($group_data['add_content']){
           $this->createContents($group_object, $user);
         }
 
@@ -255,7 +255,7 @@ class MailingListExamples {
   }
 
   public function createContents(Group $group_object, User $user) {
-    // add contents
+    // add content
     foreach ($this->nodes as $content_uuid => $content) {
       $node = Node::create([
         'type' => 'content',

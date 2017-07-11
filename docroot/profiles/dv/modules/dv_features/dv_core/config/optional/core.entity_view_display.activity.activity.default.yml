@@ -19,6 +19,9 @@ targetEntityType: activity
 bundle: activity
 mode: default
 content:
+  extra_field_activity_status:
+    weight: -30
+    region: content
   field_activity_entity:
     weight: 1
     label: hidden

@@ -3,7 +3,11 @@ status: true
 dependencies:
   config:
     - activity_creator.activity_type.moderation_activity
+    - comment.type.comment
     - field.storage.activity.field_activity_entity
+    - group.type.mailing_list
+    - message.template.content
+    - message.template.issue
   module:
     - dynamic_entity_reference
 id: activity.moderation_activity.field_activity_entity

@@ -5,3 +5,5 @@ id: organisation_founder
 label: 'Organisation Founder'
 description: ''
 creator_roles: {  }
+creator_membership: true
+creator_wizard: true

@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.org_legal_status
+  enforced:
+    config:
+      - user.role.administer_blocks
+id: org_legal_status-080461a4a
+label: 'Administer blocks'
+weight: 7
+internal: true
+audience: outsider
+group_type: org_legal_status
+permissions_ui: false
+permissions: {  }

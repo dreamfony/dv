@@ -30,6 +30,9 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  extra_field_activity_status:
+    weight: -30
+    region: content
   field_activity_destinations:
     weight: 4
     label: above

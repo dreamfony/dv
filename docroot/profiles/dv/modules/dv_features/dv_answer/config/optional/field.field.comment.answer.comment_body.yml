@@ -5,12 +5,30 @@ dependencies:
     - comment.type.answer
     - field.storage.comment.comment_body
   module:
+    - allowed_formats
+    - geocoder_field
     - text
+third_party_settings:
+  allowed_formats:
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
+    plain_text: '0'
+  geocoder_field:
+    method: none
+    field: subject
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
 id: comment.answer.comment_body
 field_name: comment_body
 entity_type: comment
 bundle: answer
-label: Comment
+label: Answer
 description: ''
 required: true
 translatable: true
