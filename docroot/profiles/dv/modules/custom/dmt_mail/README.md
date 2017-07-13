@@ -1,9 +1,14 @@
 MN - machine name
 UL - user label
 L - Label
+TBD - To be decided
+
+TASKS:
+ - Make State Description Field extend Content Moderation
 
 Email related processes are handled by entities:
  - activity
+ - node (content type 'content')
  - comment
    - activity (references activity; recipient, has link to log which shows activity status + date )
    - comment (comment on activity or answer)
@@ -21,24 +26,23 @@ FOI law has SLA (Service Level Agreement) of 20 days and our states have to be a
 
 **Activity and Comment States:**
 
-- L: Canceled MN: Canceled
-- L: Pending MN. Pending
-- L: Pending (Delivery Error) MN: delivery_error (set by MailGun)
-- L: Pending (Rejected) MN: rejected (TODO this state)
+- Canceled MN: canceled
+- Pending (Waiting to be sent) MN. pending
+- Pending (Delivery Error) MN: delivery_error _set by MailGun_
+- Pending (Rejected) MN: rejected _TODO this state ... maybe this state should be Finished?_
+- Pending (Auto response) NM. auto_response
 
-- L: Awaiting Response (Sent) MN: sent
-     Comment: N/A
-  
-- L: Awaiting Response (Seen) MN: seen
-     Comment: N/A
-     
-- In progress Delayed = Awaiting response
-- In progress Awaiting Classification Response / Received **Any matching response will set activity to state**
-- Finished Successfully
-- Finished Successfully with delay
-- Finished Unsuccessfully (because unsatisfactory answer and timed out )
-- Finished Expired (because Timed out)
-- Finished Need more info
+- Awaiting Response (Sent) MN: sent
+- Awaiting Response (Seen) MN: seen
+- Awaiting Response (Delayed) MN: delayed
+
+- Awaiting Classification NM. unclassified _Any matching response will set activity to state_
+
+- Finished (Successfully) MN. answered _TBD maybe just Answered?_
+- Finished (Successfully with delay) MN. delayed
+- Finished (Unsuccessfully) NM. unsuccessful _unsatisfactory answer and timed out_
+- Finished (Expired) NM. expired _Timed out_
+- Finished (Need more info) NM. more_info
 
 **TODO Begin**
  ACTIVITY_STATUS_REJECTED is undefined
