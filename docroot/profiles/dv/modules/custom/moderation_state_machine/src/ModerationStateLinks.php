@@ -165,7 +165,7 @@ class ModerationStateLinks {
 
     $causes = [];
 
-    $violations = $entity->validate();
+    $violations = $entity->moderation_state->validate();
     if ($violations->count()) {
       foreach ($violations as $violation) {
         /** @var \Symfony\Component\Validator\ConstraintViolation $violation */

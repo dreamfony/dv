@@ -25,7 +25,7 @@ class ModerationStateMachine extends ControllerBase {
 
     /** @var \Drupal\Core\Entity\EntityConstraintViolationList $violations */
     // Validate the entity before saving.
-    $violations = $entity->validate();
+    $violations = $entity->moderation_state->validate();
     if ($violations->count()) {
       foreach ($violations as $violation) {
         drupal_set_message($this->t('@message', [
