@@ -44,7 +44,7 @@ class EmailActivityDestination extends SendActivityDestinationBase {
   /**
    * Get field value for 'output_text' field from data array.
    *
-   * @param \Drupal\contact\MessageInterface $message
+   * @param \Drupal\message\MessageInterface $message
    * @return mixed
    */
   public static function getSendEmailOutputText(MessageInterface $message) {
