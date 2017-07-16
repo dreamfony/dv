@@ -48,9 +48,9 @@ class ModerationStateMachine extends ControllerBase {
    * @param \Symfony\Component\HttpFoundation\Request $request
    * @param $entity_type
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
-   * @param string $view_mode
+   * @param $view_mode
    * @param $state_id
-   * @return \Symfony\Component\HttpFoundation\RedirectResponse
+   * @return \Drupal\Core\Ajax\AjaxResponse|\Symfony\Component\HttpFoundation\RedirectResponse
    */
   public function switchState(Request $request, $entity_type, ContentEntityInterface $entity, $view_mode, $state_id) {
     $is_ajax = $this->isAjaxRequest($request);
@@ -67,6 +67,8 @@ class ModerationStateMachine extends ControllerBase {
         ]), 'error');
       }
 
+      /// @todo: write ajax response in case of the error
+
       return new RedirectResponse($entity->toUrl()->toString(), 302);
     }
 
@@ -79,6 +81,7 @@ class ModerationStateMachine extends ControllerBase {
       $response = new AjaxResponse();
       $selector = '.msm-'. $entity->getEntityTypeId() . '-' . $entity->id();
       $response->addCommand(new ReplaceCommand($selector, $renderable_entity));
+
       return $response;
     }
 
