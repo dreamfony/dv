@@ -208,3 +208,23 @@ function moderation_state_machine_workflow_transition_form_builder($entity_type,
   $transition_descriptions[$current_transition_id] = $form_state->getValue('transition_description');
   $workflow->setThirdPartySetting('moderation_state_machine', 'transition_descriptions', $transition_descriptions);
 }
+
+/**
+ * Implements hook_entity_view_alter().
+ */
+function moderation_state_machine_entity_view_alter(array &$build, Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display) {
+
+  if(!$entity instanceof \Drupal\Core\Entity\ContentEntityInterface) {
+    return;
+  }
+
+  // check if entity is Moderated Entity
+  /** @var \Drupal\content_moderation\ModerationInformationInterface $moderationInfo */
+  $moderationInfo = \Drupal::service('content_moderation.moderation_information');
+  if (!$moderationInfo->isModeratedEntity($entity)) {
+    return;
+  }
+
+  // add class on all entity types for ajax replace (Ex. msm-comment-12)
+  $build['#attributes']['class'][] = 'msm-' . $entity->getEntityTypeId() . '-' . $entity->id();
+}

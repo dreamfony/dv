@@ -57,19 +57,9 @@ class ModerationTransitionField extends ExtraFieldFormatterBase implements Conta
   /**
    * {@inheritdoc}
    */
-  public function build(EntityInterface $entity) {
-    $links = $this->moderationStateLinks->getLinks($entity);
-    $rendered_links = render($links);
-    return $rendered_links;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function view(EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
     if($this->moderationStateLinks->getLinksAccess($entity)) {
-      $markup = ['#markup' => $this->build($entity)];
-      return $markup;
+      return $this->moderationStateLinks->getLinks($entity, $view_mode, TRUE);
     }
 
     return FALSE;

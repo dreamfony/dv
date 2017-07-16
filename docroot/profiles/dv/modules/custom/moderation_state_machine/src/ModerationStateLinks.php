@@ -63,7 +63,7 @@ class ModerationStateLinks {
 
     foreach ($valid_transitions as $transition) {
       /** @var \Drupal\workflows\Transition $transition */
-      if($link = $this->getUrl($entity, $transition)) {
+      if($link = $this->getUrl($entity, false, $transition)) {
         return TRUE;
       }
     }
@@ -76,9 +76,11 @@ class ModerationStateLinks {
    * Get Links.
    *
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
+   * @param string $view_mode
+   * @param bool $ajax
    * @return array
    */
-  public function getLinks(ContentEntityInterface $entity) {
+  public function getLinks(ContentEntityInterface $entity, $view_mode = false, $ajax = FALSE) {
     // get original entity
     $original_entity = $this->moderationInformation->getLatestRevision($entity->getEntityTypeId(), $entity->id());
     if (!$entity->isDefaultTranslation() && $original_entity->hasTranslation($entity->language()
@@ -106,11 +108,11 @@ class ModerationStateLinks {
 
     foreach ($valid_transitions as $transition) {
       /** @var \Drupal\workflows\Transition $transition */
-      if($original_entity->moderation_state->value != $transition->to()->id() && $url = $this->getUrl($entity, $transition)) {
+      if($original_entity->moderation_state->value != $transition->to()->id() && $url = $this->getUrl($entity, $view_mode, $transition)) {
         $links['moderation']['below'][$transition->id()] = [
           'classes' => '',
           'link_attributes' => '',
-          'link_classes' => '',
+          'link_classes' => $ajax ? 'use-ajax' : '',
           'icon_classes' => '',
           'icon_label' => '',
           'title' => $transition->label(),
@@ -134,12 +136,16 @@ class ModerationStateLinks {
    * @param \Drupal\workflows\Transition $transition
    * @return bool|\Drupal\Core\Url
    */
-  private function getUrl(ContentEntityInterface $entity, Transition $transition) {
+  private function getUrl(ContentEntityInterface $entity, $view_mode = FALSE, Transition $transition) {
     $this->routeParameters = [
       'entity_type' => $entity->getEntityTypeId(),
       'entity' => $entity->id(),
       'state_id' => $transition->to()->id()
     ];
+
+    if($view_mode) {
+      $this->routeParameters['view_mode'] = $view_mode;
+    }
 
     $url = Url::fromRoute($this->routeName, $this->routeParameters);
 
