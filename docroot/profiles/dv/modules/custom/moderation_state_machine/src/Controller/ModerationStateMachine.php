@@ -12,6 +12,8 @@ use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Entity\EntityTypeManager;
+use Drupal\Core\Render\RendererInterface;
+use Drupal\Core\Ajax\BeforeCommand;
 
 /**
  * Class ModerationStateMachine
@@ -25,12 +27,21 @@ class ModerationStateMachine extends ControllerBase {
   protected $entityTypeManager;
 
   /**
-   * ContentAjaxController constructor.
+   * Service to turn render arrays into HTML strings.
+   *
+   * @var \Drupal\Core\Render\RendererInterface
+   */
+  protected $renderer;
+
+  /**
+   * ModerationStateMachine constructor.
    *
    * @param \Drupal\Core\Entity\EntityTypeManager $entity_type_manager
+   * @param \Drupal\Core\Render\RendererInterface $renderer
    */
-  public function __construct(EntityTypeManager $entity_type_manager) {
+  public function __construct(EntityTypeManager $entity_type_manager, RendererInterface $renderer) {
     $this->entityTypeManager = $entity_type_manager;
+    $this->renderer = $renderer;
   }
 
   /**
@@ -38,7 +49,8 @@ class ModerationStateMachine extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('entity_type.manager')
+      $container->get('entity_type.manager'),
+      $container->get('renderer')
     );
   }
 
@@ -67,7 +79,27 @@ class ModerationStateMachine extends ControllerBase {
         ]), 'error');
       }
 
-      /// @todo: write ajax response in case of the error
+      if($is_ajax) {
+        $view_builder = $this->entityTypeManager->getViewBuilder($entity_type);
+        $storage = $this->entityTypeManager->getStorage($entity_type);
+        $storage->resetCache([$entity->id()]);
+        $entity = $storage->load($entity->id());
+
+        $renderable_entity = $view_builder->view($entity, $view_mode);
+
+        $selector = '.msm-'. $entity->getEntityTypeId() . '-' . $entity->id();
+        $response = new AjaxResponse();
+
+        $status_messages = ['#type' => 'status_messages'];
+        $response->addCommand(new BeforeCommand(
+          $selector,
+          $this->renderer->renderRoot($status_messages)
+        ));
+
+        $response->addCommand(new ReplaceCommand($selector, $renderable_entity));
+
+        return $response;
+      }
 
       return new RedirectResponse($entity->toUrl()->toString(), 302);
     }
