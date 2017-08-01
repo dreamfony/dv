@@ -13,27 +13,31 @@ Email related processes are handled by entities:
    - log (question revision log written in comment)
  - message
 
-1. Email that is sent is constructed from Message entity type Question (mn. question) and it creates Activity entity type Mailing List Activity (mn. mailing_list_activity)
+1. Email that is sent is constructed from Message entity type Question [question] and it creates Activity entity of type Mailing List Activity [mailing_list_activity]
 
 **Workflow**
 
-Workflow (mailing_list_activity_workflow) states on Mailing List Activity should only be changed by system (in code).
+Workflow [mailing_list_activity_workflow] states on Mailing List Activity should only be changed by system (in code).
 States that describe quality of response (eg. Not Held / Rejected) are attached to Comment which represents response.
 FOI law has SLA (Service Level Agreement) of 20 days and our states have to be aware of that. Time directly influences state.
 
 **Mailing List Activity States:**
 
+Pending States
 - Pending (Waiting to be sent) [p_waiting]
 - Pending (Delivery Error) [p_delivery_error] _set by MailGun_
 - Pending (Rejected) [p_rejected] _set by MailGun_
 - Pending (Auto response) [p_auto_response]
 
+Awaiting Response States
 - Awaiting Response (Sent) [ar_sent]
 - Awaiting Response (Seen) [ar_seen]
 - Awaiting Response (Delayed) [ar_delayed]
 
+Awaiting Classification States
 - Awaiting Classification [unclassified] _Any matching response will set activity to state_
 
+Finished States
 - Finished (Successfully) [f_answered] _TBD maybe just Answered?_
 - Finished (Successfully with delay) [f_delayed]
 - Finished (Unsuccessfully) [f_unsuccessful] _unsatisfactory answer and timed out_
@@ -48,9 +52,10 @@ Mark as Delivery error [erred] | [p_waiting] -> [p_delivery_error]
   - triggers: 
     - system - mail service returns delivery error response
   - uc:
-    - system - sends a message to moderator with link to activity view
-    - moderator - checks the validity of email address edits if necessary
-    - moderator clicks Mark as Pending (Waiting to be sent)
+    - sys - sends a message to moderator with link to activity view
+    - mod - checks the validity of email address edits if necessary
+    - mod - clicks Mark as Pending (Waiting to be sent)
+    - sys - puts message in queue again
     
 Mark as Pending (Waiting to be sent) [p_waiting] | [p_delivery_error] -> [p_waiting]
     
