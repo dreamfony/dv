@@ -24,25 +24,31 @@ FOI law has SLA (Service Level Agreement) of 20 days and our states have to be a
 **Mailing List Activity States:**
 
 Pending States
+
 - Pending (Waiting to be sent) [p_waiting]
 - Pending (Delivery Error) [p_delivery_error] _set by MailGun_
 - Pending (Rejected) [p_rejected] _set by MailGun_
 - Pending (Auto response) [p_auto_response]
 
 Awaiting Response States
+
 - Awaiting Response (Sent) [ar_sent]
 - Awaiting Response (Seen) [ar_seen]
 - Awaiting Response (Delayed) [ar_delayed]
 
 Awaiting Classification States
+
 - Awaiting Classification [unclassified] _Any matching response will set activity to state_
 
 Finished States
+
 - Finished (Successfully) [f_answered] _TBD maybe just Answered?_
 - Finished (Successfully with delay) [f_delayed]
 - Finished (Unsuccessfully) [f_unsuccessful] _unsatisfactory answer and timed out_
 - Finished (Expired) [f_expired] _Timed out_
 - Finished (Need more info) [f_more_info]
+
+Canceled States
 
 - Canceled [canceled]
 
