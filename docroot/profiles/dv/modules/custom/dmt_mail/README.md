@@ -1,6 +1,3 @@
-MN - machine name
-UL - user label
-L - Label
 TBD - To be decided
 
 TASKS:
@@ -24,25 +21,53 @@ Workflow (mailing_list_activity_workflow) states on Mailing List Activity should
 States that describe quality of response (eg. Not Held / Rejected) are attached to Comment which represents response.
 FOI law has SLA (Service Level Agreement) of 20 days and our states have to be aware of that. Time directly influences state.
 
-**Activity and Comment States:**
+**Mailing List Activity States:**
 
-- Canceled MN: canceled
-- Pending (Waiting to be sent) MN. pending
-- Pending (Delivery Error) MN: delivery_error _set by MailGun_
-- Pending (Rejected) MN: rejected _TODO this state ... maybe this state should be Finished?_
-- Pending (Auto response) NM. auto_response
+- Pending (Waiting to be sent) [p_waiting]
+- Pending (Delivery Error) [p_delivery_error] _set by MailGun_
+- Pending (Rejected) [p_rejected] _set by MailGun_
+- Pending (Auto response) [p_auto_response]
 
-- Awaiting Response (Sent) MN: sent
-- Awaiting Response (Seen) MN: seen
-- Awaiting Response (Delayed) MN: delayed
+- Awaiting Response (Sent) [ar_sent]
+- Awaiting Response (Seen) [ar_seen]
+- Awaiting Response (Delayed) [ar_delayed]
 
-- Awaiting Classification NM. unclassified _Any matching response will set activity to state_
+- Awaiting Classification [unclassified] _Any matching response will set activity to state_
 
-- Finished (Successfully) MN. answered _TBD maybe just Answered?_
-- Finished (Successfully with delay) MN. delayed
-- Finished (Unsuccessfully) NM. unsuccessful _unsatisfactory answer and timed out_
-- Finished (Expired) NM. expired _Timed out_
-- Finished (Need more info) NM. more_info
+- Finished (Successfully) [f_answered] _TBD maybe just Answered?_
+- Finished (Successfully with delay) [f_delayed]
+- Finished (Unsuccessfully) [f_unsuccessful] _unsatisfactory answer and timed out_
+- Finished (Expired) [f_expired] _Timed out_
+- Finished (Need more info) [f_more_info]
+
+- Canceled [canceled]
+
+**Mailing List Activity Transitions:**
+
+Mark as Delivery error [erred] | [p_waiting] -> [p_delivery_error]
+  - triggers: 
+    - system - mail service returns delivery error response
+  - uc:
+    - system - sends a message to moderator with link to activity view
+    - moderator - checks the validity of email address edits if necessary
+    - moderator clicks Mark as Pending (Waiting to be sent)
+    
+Mark as Pending (Waiting to be sent) [p_waiting] | [p_delivery_error] -> [p_waiting]
+    
+Mark as Sent [sent]	| [p_waiting]	-> [ar_sent]
+  - triggers:
+    - system - mail service returns sent response; if not possible mail sent to mailing service
+ 
+Mark as Seen [seen]	| [ar_sent]	-> [ar_seen]	
+  - triggers:
+    - system - mail service returns seen response 
+
+Mark as Answered	[answer] | [p_waiting], [p_delivery_error], [ar_sent], [ar_seen] -> [f_answered]
+
+Cancel [cancel] | [p_waiting], [p_delivery_error], [ar_sent], [ar_seen] -> [canceled]
+
+
+
 
 **TODO Begin**
  ACTIVITY_STATUS_REJECTED is undefined
