@@ -26,15 +26,31 @@
  
 - **Send Email** [send_email]
   - from: [draft]
-  - to: [email]
-  - triggers:
-    - own - mail service returns delivery error response
+  - to: [email]    
   - uc:
-    - **sys** - remove administrator role from the mailing_list group
-    - **sys** - send message to moderator
-    - **mod** - clicks Mark as Pending (Waiting to be sent)
-    - **sys** - puts message in queue again
-- Approve Sending	EmailApproved	Approved	
-- Archive	EmailApproved	Archived	
-- Restore to Draft	Archived	Draft	
-- Spam
+    - **own** - triggers this transition
+    - **sys** - validates [mailing_list] contains > 0 [node](../entities/node.md) [content] and > 0 recipients 
+    - **sys** - remove administrator role from the [mailing_list] [group](../entities/group.md)
+    - **sys** - send [mailing_list_needs_approval] [message](../entities/message.md)
+    
+- **Approve Sending**	[approve]
+  - from: [email]
+  - to: [approved]
+  - uc:
+    - **mod** - triggers this transition
+    - **sys** - validates [mailing_list] contains > 0 [node](../entities/node.md) [content] and > 0 recipients 
+    - **sys** - gets all the content form group of type [group_node:content] 
+    - **sys** - foreach group content gets referenced entity [node] of type [content] and triggers [create_activity_action]
+    - **sys** - triggers [close_mailing_list_ticket] for the [group](../entities/group.md) [mailing_list]
+    
+- **Archive	Email** [archive]
+  - form: [draft], [email], [approved]
+  - to: [archived]
+  
+- **Restore to Draft**	[restore_to_draft]
+  - from: [send_email]
+  - to: [draft]
+  
+- **Spam** [spam]
+  - from: [draft]
+  - to: [spam]
