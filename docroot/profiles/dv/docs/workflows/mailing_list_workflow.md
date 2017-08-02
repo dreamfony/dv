@@ -1,15 +1,15 @@
-##Mailing list Workflow [mailing_list_workflow]
+## Mailing list Workflow [mailing_list_workflow]
 
 [Mailing list Workflow MSM](../../modules/custom/dmt_mailing_list/src/Plugin/ModerationStateMachine/MailingListStateMachine.php)
 
-###Related entities
+### Related entities
 
 - **Group** [group](../entities/group.md)
   - mailing_list
 
-###Workflow
+### Workflow
 
-####Mailing list Workflow States
+#### Mailing list Workflow States
 
 - Draft [draft]
 - Email [email]
@@ -17,9 +17,9 @@
 - Archived [archived]
 - Spam [spam]
 
-####Mailing List Activity Transitions
+#### Mailing List Activity Transitions
 
-- **Create new Draft** [crate_new_draft]
+- **Create new Draft** [create_new_draft]
   - from: [draft]
   - to: [draft]
   - this transition is never used find a way to remove it
