@@ -68,10 +68,10 @@ FOI law has SLA (Service Level Agreement) of 20 days and our states have to be a
   - triggers: 
     - system - mail service returns delivery error response
   - uc:
-    - **sys** - sends a message to moderator with link to activity view
-    - **mod** - checks the validity of email address edits if necessary
-    - **mod** - clicks Mark as Pending (Waiting to be sent)
-    - **sys** - puts message in queue again
+    - [ ] **sys** - sends a message to moderator with link to activity view
+    - [ ] **mod** - checks the validity of email address edits if necessary
+    - [ ] **mod** - clicks Mark as Pending (Waiting to be sent)
+    - [ ] **sys** - puts message in queue again
     
 **Mark as Pending (Waiting to be sent)** [p_waiting]
   - form: [p_delivery_error]
@@ -81,14 +81,14 @@ FOI law has SLA (Service Level Agreement) of 20 days and our states have to be a
   - from: [p_waiting]
   - to: [ar_sent]
   - triggers:
-    - **sys** - mail service returns sent response; if not possible mail sent to mailing service
+    - [ ] **sys** - mail service returns sent response; if not possible mail sent to mailing service
  
 **Mark as Seen** [seen]
 	- from: [ar_sent]
 	- to: [ar_seen]
   - triggers:
-    - **sys** - when mail service returns seen response, trigger this transaction 
-
+    - [ ] **sys** - when mail service returns seen response, trigger this transaction 
+ 
 **Mark as Answered**	[answer]
   - from: [p_waiting], [p_delivery_error], [ar_sent], [ar_seen]
   - to: [f_answered]

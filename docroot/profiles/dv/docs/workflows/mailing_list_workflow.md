@@ -28,20 +28,20 @@
   - from: [draft]
   - to: [email]    
   - uc:
-    - **own** - triggers this transition
-    - **sys** - validates [mailing_list] contains > 0 [node](../entities/node.md) [content] and > 0 recipients 
-    - **sys** - remove administrator role from the [mailing_list] [group](../entities/group.md)
-    - **sys** - send [mailing_list_needs_approval] [message](../entities/message.md)
+    - [x] **own** - triggers this transition
+    - [x] **sys** - validates [mailing_list] contains > 0 [node](../entities/node.md) [content] and > 0 recipients 
+    - [x] **sys** - remove administrator role from the [mailing_list] [group](../entities/group.md)
+    - [x] **sys** - send [mailing_list_needs_approval] [message](../entities/message.md)
     
 - **Approve Sending**	[approve]
   - from: [email]
   - to: [approved]
   - uc:
-    - **mod** - triggers this transition
-    - **sys** - validates [mailing_list] contains > 0 [node](../entities/node.md) [content] and > 0 recipients 
-    - **sys** - gets all the content form group of type [group_node:content] 
-    - **sys** - foreach group content gets referenced entity [node] of type [content] and triggers [create_activity_action]
-    - **sys** - triggers [close_mailing_list_ticket] for the [group](../entities/group.md) [mailing_list]
+    - [x] **mod** - triggers this transition
+    - [x] **sys** - validates [mailing_list] contains > 0 [node](../entities/node.md) [content] and > 0 recipients 
+    - [x] **sys** - gets all the content form group of type [group_node:content] 
+    - [x] **sys** - foreach group content gets referenced entity [node] of type [content] and triggers [create_activity_action]
+    - [x] **sys** - triggers [close_mailing_list_ticket] for the [group](../entities/group.md) [mailing_list]
     
 - **Archive	Email** [archive]
   - form: [draft], [email], [approved]
@@ -50,7 +50,11 @@
 - **Restore to Draft**	[restore_to_draft]
   - from: [send_email]
   - to: [draft]
+  - uc:
+    - [ ] **sys** - adds administrator role to user that created [mailing_list]
   
 - **Spam** [spam]
   - from: [draft]
   - to: [spam]
+  - uc:
+    - [ ] **sys** - 
