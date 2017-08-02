@@ -1,8 +1,8 @@
-#Comment [comment]
+## Comment [comment]
 
 Module: Drupal core Comment module.
 
-##Comment types
+### Comment types
 
 **Activity** [activity] 
  - references activity; recipient, has link to log which shows activity status + date

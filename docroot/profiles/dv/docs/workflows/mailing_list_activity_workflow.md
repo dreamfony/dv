@@ -1,10 +1,10 @@
-##Mailing List Activity Workflow [mailing_list_activity_workflow]
+## Mailing List Activity Workflow [mailing_list_activity_workflow]
 
 **Legend:**
   - TBD - to be decided
   - [] - machine name
   
-###Related Entities
+### Related Entities
 
 **Activity** [activity](../entities/activity.md)
   - Mailing List Activity [mailing_list_activity]
@@ -26,13 +26,13 @@
 
 1. Email that is sent is constructed from Message entity type Question [question] and it creates Activity entity of type Mailing List Activity [mailing_list_activity]
 
-###Workflow
+### Workflow
 
 Workflow [mailing_list_activity_workflow] states on Mailing List Activity should only be changed by system (in code).
 States that describe quality of response (eg. Not Held / Rejected) are attached to Comment which represents response.
 FOI law has SLA (Service Level Agreement) of 20 days and our states have to be aware of that. Time directly influences state.
 
-###Mailing List Activity States
+### Mailing List Activity States
 
 **Pending States**
 - Pending (Waiting to be sent) [p_waiting]
@@ -60,7 +60,7 @@ FOI law has SLA (Service Level Agreement) of 20 days and our states have to be a
 **Canceled States**
 - Canceled [canceled]
 
-###Mailing List Activity Transitions
+### Mailing List Activity Transitions
 
 **Mark as Delivery error** [erred] 
   - from: [p_waiting]
