@@ -80,13 +80,13 @@ FOI law has SLA (Service Level Agreement) of 20 days and our states have to be a
 **Mark as Sent** [sent]
   - from: [p_waiting]
   - to: [ar_sent]
-  - triggers:
+  - uc:
     - [ ] **sys** - mail service returns sent response; if not possible mail sent to mailing service
  
 **Mark as Seen** [seen]
 	- from: [ar_sent]
 	- to: [ar_seen]
-  - triggers:
+  - uc:
     - [ ] **sys** - when mail service returns seen response, trigger this transaction 
  
 **Mark as Answered**	[answer]
