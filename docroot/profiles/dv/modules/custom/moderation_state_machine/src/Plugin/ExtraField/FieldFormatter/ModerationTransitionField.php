@@ -21,7 +21,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *     "activity.*"
  *   },
  *   weight = -30,
- *   visible = true
+ *   visible = false
  * )
  */
 class ModerationTransitionField extends ExtraFieldFormatterBase implements ContainerFactoryPluginInterface {

@@ -2,9 +2,8 @@ moderation_state_machine.switch_moderation_state:
   path: 'switch-moderation-state/{entity_type}/{entity}/{view_mode}/{state_id}'
   defaults:
     _controller: '\Drupal\moderation_state_machine\Controller\ModerationStateMachine::switchState'
-    view_mode: 'FALSE'
+    view_mode: 'false'
   requirements:
-    _entity_access: 'entity.update'
     entity: \d+
     entity_type: ^[a-z_]+
     view_mode: ^[a-z_]+
