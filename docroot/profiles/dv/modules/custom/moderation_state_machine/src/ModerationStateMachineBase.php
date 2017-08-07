@@ -99,6 +99,15 @@ class ModerationStateMachineBase extends PluginBase implements ModerationStateMa
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
    */
   public function switchState(ContentEntityInterface $entity) {
+
+    if($entity->isNew()) {
+      $switch_method = 'presave_new';
+
+      if (is_callable(array($this, $switch_method))) {
+        $this->$switch_method($entity);
+      }
+    }
+
     /** @var \Drupal\workflows\Transition $transition */
     $transition = $this->getTransition($entity);
     if ($transition) {
