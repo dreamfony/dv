@@ -54,6 +54,19 @@ class MailingListActivityStateMachine extends ModerationStateMachineBase impleme
   }
 
   /**
+   * @param \Drupal\Core\Entity\ContentEntityInterface $entity
+   */
+  public function presave_new(ContentEntityInterface $entity) {
+    // set activity owner to mailing list owner
+    $group_id = $entity->field_activity_mailing_list->target_id;
+    /** @var \Drupal\group\Entity\Group $group */
+    $group = \Drupal::entityTypeManager()->getStorage('group')->load($group_id);
+    $owner_id = $group->getOwnerId();
+    /** @var \Drupal\activity_creator\Entity\Activity $entity */
+    $entity->setOwnerId($owner_id);
+  }
+
+  /**
    * On insertion of mailing_list_activity.
    *
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
