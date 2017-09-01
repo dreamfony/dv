@@ -15,9 +15,14 @@
  * @ingroup themeable
  */
 #}
-{% if content.extra_field_activity_status %}
-  {{ content.extra_field_activity_status }}
-{% endif %}
-{% if content.extra_field_activity_status %}
-  {{ content.extra_field_moderation_transition }}
-{% endif %}
+<div{{ attributes.addClass(classes) }}>
+  {% if content.extra_field_activity_status %}
+    <div class="status">{{ content.extra_field_activity_status }}</div>
+  {% endif %}
+  {% if content.extra_field_activity_status %}
+    <div class="moderation-transition">{{ content.extra_field_moderation_transition }}</div>
+  {% endif %}
+  {% if content.field_activity_reply %}
+    <div>{{ content.field_activity_reply }}</div>
+  {% endif %}
+</div>
