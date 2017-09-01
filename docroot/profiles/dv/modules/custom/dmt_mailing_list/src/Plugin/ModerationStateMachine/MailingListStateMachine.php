@@ -87,7 +87,7 @@ class MailingListStateMachine extends ModerationStateMachineBase implements Cont
     // prevent sending for approval with a message
     if($this->mailingList->allActivitiesCount($entity->id()) == 0) {
       $violations[] = [
-        'message' => 'Please add contents and recipients before sending for approval.',
+        'message' => 'Please add content and recipients before sending for approval.',
         'cause' => 'allow_link' // send this cause if you want to ignore this violation when showing links
       ];
     }
@@ -125,7 +125,7 @@ class MailingListStateMachine extends ModerationStateMachineBase implements Cont
     // prevent sending for approval with a message
     if($this->mailingList->allActivitiesCount($entity->id()) == 0) {
       $violations[] = [
-        'message' => 'Please add contents and recipients before sending for approval.',
+        'message' => 'Please add content and recipients before sending for approval.',
         'cause' => 'allow_link' // send this cause if you want to ignore this violation when showing links
         ];
     }
@@ -137,7 +137,7 @@ class MailingListStateMachine extends ModerationStateMachineBase implements Cont
     /** @var \Drupal\group\Entity\GroupInterface $group */
     $group = $entity;
 
-    // remove administrator role
+    // remove administrator role from the group
     $account = $group->getOwner();
     $group_membership = $this->groupMembershipLoader->load($group, $account);
 
