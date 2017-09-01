@@ -23,6 +23,6 @@ variables and adds item to
 
 [Activity Worker Activities](../activity_creator/src/Plugin/QueueWorker/ActivityWorkerActivities.php) worker.
 
-##### Process 4 activity_creator_activities.
+##### Process 4 activity_send_email_worker.
 
 [Activity Send Email Worker](../activity_send/modules/activity_send_email/src/Plugin/QueueWorker/ActivitySendEmailWorker.php) worker.
