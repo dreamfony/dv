@@ -62,20 +62,33 @@ FOI law has SLA (Service Level Agreement) of 20 days and our states have to be a
 
 ### Mailing List Activity Transitions
 
-**Mark as Delivery error** [erred] 
+**Mark as Delivery error** [delivery_error] 
   - from: [p_waiting]
   - to: [p_delivery_error]
   - triggers: 
     - system - mail service returns delivery error response
   - uc:
-    - [ ] **sys** - sends a message to moderator with link to activity view
+    - [ ] **sys** - sends [activity_delivery_error] [message](../entities/message.md)
     - [ ] **mod** - checks the validity of email address edits if necessary
     - [ ] **mod** - clicks Mark as Pending (Waiting to be sent)
-    - [ ] **sys** - puts message in queue again
     
-**Mark as Pending (Waiting to be sent)** [p_waiting]
+**Mark as Pending (Waiting to be sent)** [waiting]
   - form: [p_delivery_error]
   - to: [p_waiting]
+  - uc:
+    - [ ] **mod, (own?)** - triggers [waiting] transition 
+    - [ ] **sys** - triggers [email_activity_send] action
+      - @see [activity_send_email_activity_insert](../../modules/custom/activity/activity_send/modules/activity_send_email/activity_send_email.module)
+      
+**Pending (Auto response)** [auto_response]
+   - form: [unclassified]
+   - to: [p_auto_response]
+   - uc: 
+     - [ ] **mod, own** - triggers [auto_response] transition
+     - [ ] **sys** - adds flag on organisation that it sends auto response messages
+       - will be used as one of the criteria to automatically set messages as auto_response
+       - other criteria may include response time, message subject
+       - [Detecting autoresponders](https://github.com/jpmckinney/multi_mail/wiki/Detecting-autoresponders)
     
 **Mark as Sent** [sent]
   - from: [p_waiting]
@@ -90,12 +103,14 @@ FOI law has SLA (Service Level Agreement) of 20 days and our states have to be a
     - [ ] **sys** - when mail service returns seen response, trigger this transaction 
  
 **Mark as Answered**	[answer]
-  - from: [p_waiting], [p_delivery_error], [ar_sent], [ar_seen]
+  - from: [p_waiting], [ar_sent], [ar_seen]
   - to: [f_answered]
 
 **Cancel** [cancel]
   - from: [p_waiting], [p_delivery_error], [ar_sent], [ar_seen]
   - to: [canceled]
+  - uc:
+    - [ ] **sys** - unpublishes related [activity_comment]
 
 
 ___

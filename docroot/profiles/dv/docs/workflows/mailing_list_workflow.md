@@ -43,8 +43,8 @@
     - [x] **sys** - foreach group content gets referenced entity [node] of type [content] and triggers [create_activity_action]
     - [x] **sys** - triggers [close_mailing_list_ticket] for the [group](../entities/group.md) [mailing_list]
     
-- **Archive	Email** [archive]
-  - form: [draft], [email], [approved]
+- **Archive** [archive]
+  - from: [draft], [email], [approved]
   - to: [archived]
   
 - **Restore to Draft**	[restore_to_draft]
@@ -57,4 +57,4 @@
   - from: [draft]
   - to: [spam]
   - uc:
-    - [ ] **sys** - 
+    - [ ] **sys** - adds mailing list to queue to be deleted
