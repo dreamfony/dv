@@ -86,24 +86,24 @@ apache_vhosts:
           DirectoryIndex index.html
 
 # This is required for front-end building tools.
-nodejs_version: "7.x"
-nodejs_npm_global_packages:
-  - name: bower
-  - name: gulp-cli
-  - name: npm-check-updates
-  - name: marked
-  - name: colorguard
-  - name: varstream
-  - name: svgicons2svgfont
-  - name: node-gyp
-  - name: ttf2woff
-  - name: yarn
+# nodejs_version: "7.x"
+# nodejs_npm_global_packages:
+  # - name: bower
+  # - name: gulp-cli
+  # - name: npm-check-updates
+  # - name: marked
+  # - name: colorguard
+  # - name: varstream
+  # - name: svgicons2svgfont
+  # - name: node-gyp
+  # - name: ttf2woff
+  # - name: yarn
 
 nodejs_install_npm_user: "{{ drupalvm_user }}"
 npm_config_prefix: "/home/{{ drupalvm_user }}/.npm-global"
 installed_extras:
   - adminer
-  - nodejs
+  # - nodejs
   - selenium
   - mailhog
   - pimpmylog
