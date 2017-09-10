@@ -1,4 +1,5 @@
 #!/bin/bash
+alias drush="/var/www/dv/vendor/drush/drush/drush"
 
 PHP_DIR="/etc/php/7.0"
 
