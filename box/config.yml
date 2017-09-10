@@ -86,15 +86,15 @@ apache_vhosts:
           DirectoryIndex index.html
 
 # This is required for front-end building tools.
-# nodejs_version: "7.x"
-# nodejs_npm_global_packages:
+nodejs_version: "7.x"
+nodejs_npm_global_packages:
    - name: bower
    - name: gulp-cli
    - name: npm-check-updates
    - name: marked
    - name: colorguard
    - name: varstream
-   #- name: svgicons2svgfont
+  #- name: svgicons2svgfont
    - name: node-gyp
    - name: ttf2woff
    - name: yarn
