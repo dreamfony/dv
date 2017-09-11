@@ -41,16 +41,19 @@ sudo apt-get install php7.0-bz2
 - git clone
 - git checkout develop
 - cd dv
+- obtain dv_secure module directory from stakholders and put it in proper place (should be made more automatic)
 - composer install
 - vagrant up
 - vagrant ssh
 - cd /var/www/dv
-- composer blt-alias 
+- composer blt-alias
 - (restart ssh terminal: exit / vagrant ssh)
 - cd /var/www/dv
 - blt local:setup
 - cd docroot
 - drupal init
+- to install alias for blt on local machine, run "sudo composer run-script blt-alias"
+
 
 import test data
 
@@ -123,7 +126,7 @@ If you don’t want to run a build for a particular commit for any reason add [c
 
 
 **Phing**
-Common project tasks are executed via a build tool (Phing) so that they can be executed exactly the same in all circumstances. 
+Common project tasks are executed via a build tool (Phing) so that they can be executed exactly the same in all circumstances.
 Custom and overridden Commands can be found in **/custom/blt_custom_phing_commands.xml**
 Phing Variables are here
 https://github.com/acquia/blt/blob/8.x/phing/build.yml
@@ -135,11 +138,11 @@ To use syslog instead of DB log
 ### Acquia
 #### Cloud Hooks
 
-post-code-update.sh 
+post-code-update.sh
 
 - blt deploy:update
 
-db-scrub.sh 
+db-scrub.sh
 
 - scrubs db before copy from production **TODO - test**
 
@@ -160,38 +163,38 @@ The default Drupal cron (poor man's cron) is enabled by default and you should d
 https://www.jeffgeerling.com/blog/2017/drupal-vm-on-windows-fast-container-blt-project-development
 
 Install the Vagrant::Hostsupdater plugin with
-`vagrant plugin install vagrant-hostsupdater` 
+`vagrant plugin install vagrant-hostsupdater`
 which will manage the host’s /etc/hosts file by adding and removing hostname entries for you
 
     vagrant plugin install vagrant-cachier
     vagrant plugin install vagrant-vbguest
- 
+
  On windows you have to do multiple things to make NFS sharing work
 
     1. vagrant plugin install vagrant-winnfsd
-    
+
     2. COPY EXAMPLE FILES from custom folder
     local.config.yml
     Vagrantfile.local
-    
+
     3. Download and run WinNFSd.exe C:\DV
     4. Delete node_modules folder to make it speedier
     5. Sometimes also settings.php needs to be chmod ed
-    
+
     It works with thoose 4 steps, no single article online is correct
     But some info and code parts can be found at:
     https://hollyit.net/blog/windowsvagrantwinnfsd-without-file-update-problems
     http://docs.drupalvm.com/en/latest/other/performance/#improving-performance-on-windows
-    
-    
-   
-    
+
+
+
+
  On linux and mac if your /var/www/dv mounted folder is not owned by vagrant and has group www-data install:
-    
+
     vagrant plugin install vagrant-bindfs
- 
+
  create `/box/Vagrantfile.local` and insert this code
- 
+
     vconfig['vagrant_synced_folders'].each do |synced_folder|
       case synced_folder['type']
       when "nfs"
@@ -207,12 +210,12 @@ which will manage the host’s /etc/hosts file by adding and removing hostname e
         config.nfs.map_gid = Process.gid
       end
     end
-    
+
   after that you will have to destroy machine and provision it again
-  
+
     vagrant destroy
     vagrant up
-    
+
 {{BUG}}
 On MAC we had to change VirtualBox Machine network setting: Adapter1 / NAT / Cable connect
 
@@ -232,7 +235,7 @@ The merge of the variables in these two files is shallow, so if you want to over
     vagrant up
     vagrant halt
     vagrant reload
-    
+
     vagrant login
     #share http
     vagrant share
@@ -250,7 +253,7 @@ Restart appache after init and registration
 
     sudo /etc/init.d/blackfire-agent restart
     sudo systemctl restart apache2.service
-    
+
     blackfire curl http://local.dv.com/
 
 
@@ -274,7 +277,7 @@ Check that your drush alias is set up correctly
     /var/www/dv/docroot drush @dv.local status
 
 To be able to use drush from any folder for this site and in this session type:
- 
+
 
     drush use @dv.local
 
@@ -393,7 +396,7 @@ This should be in your local.settings.php
 Import with
 
     drush cim devel --partial
-    
+
 Configuration files that should be exported to that module are listed in dmt_devel.info.yml
 And should be exported with the help of config_devel module using
 
@@ -411,7 +414,7 @@ https://www.drupal.org/project/config_readonly
 
 All site code should reside in `docroot\profiles\custom\dv`
 
-There are many reasons that features can fail to install or import properly. The most frequent cause is circular dependencies. For instance, imagine that feature A depends on a field exported in feature B, and feature B depends on a field exported in feature B. Neither feature can be enabled first, and site installs will break. 
+There are many reasons that features can fail to install or import properly. The most frequent cause is circular dependencies. For instance, imagine that feature A depends on a field exported in feature B, and feature B depends on a field exported in feature B. Neither feature can be enabled first, and site installs will break.
 
 A safer alternative is to create a separate wrapper module to contain any custom functionality and have this module depend on your feature in order to segregate Feature-managed and manually-managed code.
 
@@ -440,10 +443,10 @@ We have 4 environments
  - Staging (master branch)
  - Live (TAG from master)
 
-We are using an install profile driven development. Install profile is build by features. 
+We are using an install profile driven development. Install profile is build by features.
 We will also for now deploy site with features although this is not best practice.
 
-Best practice would be to 
+Best practice would be to
 
 - Clone DB from Live env to Staging env
 - Revert Features on Staging env
@@ -464,9 +467,9 @@ Features is patched so that it exports permissions with roles
 - exlude this settings from beeing exported in features bundle settings
 
   `// Store API Keys and things outside of version control.`
-  
+
   `// @see settings/sample-secrets.settings.php for sample code.`
-  
+
   `$secrets_file = sprintf('/mnt/gfs/%s.%s/secrets.settings.php', $_ENV['AH_SITE_GROUP'], $_ENV['AH_SITE_ENVIRONMENT']);
   if (file_exists($secrets_file)) {
     require $secrets_file;
@@ -489,7 +492,7 @@ Use the default_content module to export the referenced content as JSON files, a
 
 local.settings.php
 
- 
+
 ### Naming Conventions
 
 We utilize Features **Namespace** assignment plugin
@@ -513,7 +516,7 @@ master-build has been merged to master on stage. Db from live has been copied to
 - Clear Drupal caches `drush cc all`
 
 
-Deployment to a staging server is fully automated.	
+Deployment to a staging server is fully automated.
 No gradual roll out and roll-back if required.
 
 
@@ -522,12 +525,12 @@ No gradual roll out and roll-back if required.
 All of the code should comply to the coding standards defined on drupal.org/coding-standards.
 
 
-### Source control and branching 
+### Source control and branching
 
 Gitflow with a mandatory Code Review
 
-The master branch should always be in a stable state. When working on specific bugs, 
-features or improvements you should always work in a separate branch (preferably prefixed with feature/) 
+The master branch should always be in a stable state. When working on specific bugs,
+features or improvements you should always work in a separate branch (preferably prefixed with feature/)
 which can eventually be merged into master.
 
 
