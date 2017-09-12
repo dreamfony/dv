@@ -42,7 +42,9 @@ install_site: false
 
 # Drupal VM automatically creates a drush alias file in your ~/.drush folder if
 # this variable is 'true'.
-configure_drush_aliases: false
+configure_drush_aliases: true
+drush_aliases_host_template: "templates/drupalvm.aliases.drushrc.php.j2"
+drush_aliases_guest_template: "templates/drupalvm-local.aliases.drushrc.php.j2"
 
 # Pattern Lab
 pattern_lab_path: "/var/www/patternlab"
@@ -104,6 +106,8 @@ npm_config_prefix: "/home/{{ drupalvm_user }}/.npm-global"
 installed_extras:
   - adminer
   - nodejs
+  - drupalconsole
+  - drush
   - selenium
   - mailhog
   - pimpmylog
