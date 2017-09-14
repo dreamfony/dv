@@ -38,10 +38,10 @@ Make sure you have the latest versions of packages
 sudo apt-get install php7.0-bz2
 {{/BUG}}
 
-- git clone
-- git checkout develop
+- git clone https://github.com/dreamfony/dv.git
 - cd dv
-- obtain dv_secure module directory from stakholders and put it in proper place (should be made more automatic)
+- git checkout develop
+- obtain dv_secure module directory from stakholders and put it in proper place (*should be made more automatic)
 - composer install
 - vagrant up
 - vagrant ssh
