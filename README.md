@@ -41,7 +41,7 @@ sudo apt-get install php7.0-bz2
 - git clone https://github.com/dreamfony/dv.git
 - cd dv
 - git checkout develop
-- obtain dv_secure module directory from stakholders and put it in proper place (*should be made more automatic)
+- obtain dv_secure module directory from stakholders and put it in proper place /dv/docroot/profiles/dv/modules/dv_features/dv_secure (* we should make this more automatic)
 - composer install
 - vagrant up
 - vagrant ssh
@@ -54,9 +54,7 @@ sudo apt-get install php7.0-bz2
 - drupal init
 - to install alias for blt on local machine, run "sudo composer run-script blt-alias"
 
-
 import test data
-
 - drush mi import_demo_content
 - drush mrs to kill busy operation
 
