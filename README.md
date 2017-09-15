@@ -58,6 +58,15 @@ import test data
 - drush mi import_demo_content
 - drush mrs to kill busy operation
 
+### Highly recommended if you are using local machine for work
+- Install drush on your local machine  http://docs.drush.org/en/8.x/install-alternative/
+make sure drush aliases are set for remote (should be automatically set per drupalvm config, if not do it manually, search this part "drush/site-aliases/aliases.drushrc.php" on this link https://www.jeffgeerling.com/blog/2017/soup-nuts-using-drupal-vm-build-local-and-prod
+- Install drupal console on your local machine https://docs.drupalconsole.com/en/getting/project.html
+run "drupal init" to copy configuration if not mentioned and add alias manually to proper place
+https://docs.drupalconsole.com/en/alias/connecting-to-a-virtual-environment.html
+
+with above, you can run git/drush/drupal console commands all on local machine, with no need to go to remote.
+
 #### Frontend
 
 On you local machine run
