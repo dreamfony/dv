@@ -45,7 +45,7 @@ class CreateDefaultModerationGroups {
         continue;
       }
 
-      $user = user_load_by_name($group_data['user']);
+      $user = user_load_by_mail($group_data['user']);
 
       $this->createGroup($uuid, $group_data, $user);
 

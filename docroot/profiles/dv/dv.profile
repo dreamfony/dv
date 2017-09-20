@@ -182,7 +182,7 @@ function dv_final_site_setup(&$install_state) {
  */
 function dv_install_finished(&$install_state) {
 
-  //  Enable multiversion on entites because they dont get enabled properly via features.
+  // Enable multiversion on entities because they don't get enabled properly via features.
   $entity_types = [
     "group" => "group",
     "profile" => "profile"

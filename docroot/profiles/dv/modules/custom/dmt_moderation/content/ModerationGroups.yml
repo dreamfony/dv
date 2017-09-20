@@ -2,12 +2,12 @@
 3bc51523-4f40-459c-887c-956432fe1000:
   status: true
   language: und
-  user: admin
+  user: dv@dv.com
   title: Moderation Group 1
   group_type: moderation
 3bc51523-4f40-459c-887c-956432fe1001:
   status: true
   language: en
-  user: admin
+  user: dv@dv.com
   title: Moderation Group 2
   group_type: moderation
