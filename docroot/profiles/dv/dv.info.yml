@@ -43,6 +43,7 @@ dependencies:
   - editor
   - email_registration
   - entity_browser
+  - extra_field
   - features
   - field
   - field_ui
@@ -109,7 +110,6 @@ dependencies:
   - user_registrationpassword
   - views
   - views_ui
-  - extra_field
 themes:
   - seven
   - socialblue

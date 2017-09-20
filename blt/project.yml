@@ -17,26 +17,6 @@ drush:
     local: self
     ci: self
   default_alias: '${drush.aliases.local}'
-target-hooks:
-  frontend-setup:
-    dir: '${docroot}/themes/custom/patternlab'
-    command: 'npm install'
-  frontend-build:
-    dir: '${docroot}/themes/custom/patternlab'
-    command: 'npm run compile'
-  pre-config-import:
-    dir: '${docroot}'
-    command: 'echo ''No pre-config-import configured.'''
-  post-deploy-build:
-    dir: '${docroot}'
-    command: 'echo ''No post-deploy build configured.'''
-  post-setup-build:
-    dir: '${docroot}'
-    command: 'echo ''No post-setup build configured.'''
-  post-deploy:
-    dir: '${docroot}'
-    command: 'echo ''No post-deploy build configured.'''
-import: '${repo.root}/custom/blt_custom_phing_commands.xml'
 modules:
   local:
     enable: [devel, kint, field_ui, seckit, features_ui, views_ui, geo_area_migrate, hr_organisation_migrate, masquerade, dmt_dev, queue_ui, dblog, mailgun, dv_secure, page_manager_ui, dmt_configuration, dmt_demo_mailing_list]
@@ -59,6 +39,25 @@ modules:
   pimpmylog:
     enable: [syslog]
     uninstall: [dblog]
+target-hooks:
+  frontend-setup:
+    dir: '${docroot}/themes/custom/patternlab'
+    command: 'npm install'
+  frontend-build:
+    dir: '${docroot}/themes/custom/patternlab'
+    command: 'npm run compile'
+  pre-config-import:
+    dir: '${docroot}'
+    command: 'echo ''No pre-config-import configured.'''
+  post-deploy-build:
+    dir: '${docroot}'
+    command: 'echo ''No post-deploy build configured.'''
+  post-setup-build:
+    dir: '${docroot}'
+    command: 'echo ''No post-setup build configured.'''
+  post-deploy:
+    dir: '${docroot}'
+    command: 'echo ''No post-deploy build configured.'''
 cm:
   features:
     bundle: dv
@@ -76,4 +75,7 @@ disable-targets:
     phpcs: true
   local:
     sync: true
-
+behat:
+  web-driver: selenium
+vm:
+  enable: true

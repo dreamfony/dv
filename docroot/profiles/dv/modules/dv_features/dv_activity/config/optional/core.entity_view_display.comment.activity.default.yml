@@ -24,4 +24,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  extra_field_moderation_transition: true
   langcode: true

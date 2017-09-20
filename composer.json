@@ -14,7 +14,7 @@
         "composer/installers": "^1.0.20",
         "cweagans/composer-patches": "*",
         "drupal-composer/drupal-scaffold": "^2.0.1",
-        "drupal/core": "~8.4",
+        "drupal/core": "~8.3",
         "drupal/address": "^1@beta",
         "drupal/geofield": "~1.0",
         "drupal/config_inspector": "~1@beta",
@@ -49,7 +49,7 @@
         "drupal/like_and_dislike": "~1.0",
         "drupal/email_registration": "~1.0",
         "drupal/user_registrationpassword": "~1.0",
-        "acquia/blt": "^8.6.10",
+        "acquia/blt": "~8.6",
         "drupal/libraries": "3.x-dev#fa93a5aec2cfcfd5717e42c7112e381487fed9fd",
         "drupal/token": "^1.0",
         "drupal/memcache": "2.0.0-alpha2",
@@ -158,7 +158,9 @@
                 "type:drupal-custom-theme"
             ],
             "docroot/libraries/{$name}": [
-                "type:drupal-library"
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
             ],
             "drush/contrib/{$name}": [
                 "type:drupal-drush"
@@ -177,9 +179,6 @@
             },
             "drupal/user_registrationpassword": {
                 "https://www.drupal.org/node/2805963": "https://www.drupal.org/files/issues/user_registrationpassword-register-config-save-2805963-5.patch"
-            },
-            "drupal/file_entity": {
-                "https://www.drupal.org/node/2758043": "https://www.drupal.org/files/issues/field_storage_not_installed-2758043-36.patch"
             },
             "drupal/features": {
                 "https://www.drupal.org/node/2668562 #4": "https://www.drupal.org/files/issues/features-not_detecting_profile_files-2668562-4.patch"
@@ -217,6 +216,15 @@
             "merge-extra-deep": true,
             "merge-scripts": true,
             "replace": true
+        },
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ]
+    },
+    "config": {
+        "platform": {
+            "php": "5.6"
         }
     }
 }

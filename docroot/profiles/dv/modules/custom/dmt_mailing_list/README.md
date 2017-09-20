@@ -12,7 +12,7 @@ Mailing List States:
 
 
 
-Use Case 1: Create Mailig List / Survey
+Use Case 1: Create Mailing List / Survey
 
 - U = user
 - M = moderator user
@@ -46,7 +46,7 @@ Use Case 1: Create Mailig List / Survey
   - S: changes ML state from Moderate to Draft (see STATE CHANGE DIAGRAM)
 
 
-Permission
+Constraints
 
 - U: can only edit group while in "draft" state
 - M: can only edit group while in "moderate" state

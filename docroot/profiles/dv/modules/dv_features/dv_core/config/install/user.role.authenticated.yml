@@ -17,6 +17,8 @@ permissions:
   - 'change own username'
   - 'edit own profile profile'
   - 'flag follow_issue'
+  - 'owner can use mailing_list_activity_workflow transition cancel'
+  - 'owner can use moderation_activity_workflow transition cancel'
   - 'post comments'
   - 'select account cancellation method'
   - 'skip comment approval'

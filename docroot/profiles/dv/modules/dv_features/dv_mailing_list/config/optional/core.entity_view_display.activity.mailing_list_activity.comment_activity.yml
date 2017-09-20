@@ -36,6 +36,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  extra_field_moderation_transition:
+    weight: -30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_activity_reply:
     type: entity_reference_entity_view
     weight: 2

@@ -1,10 +1,11 @@
 # Table of contents
 
-## Entities
+## Entities and Bundles
  - [Node](entities/node.md)
  - [Comment](entities/comment.md)
  - [User](entities/user.md)
- - [Group](entities/group.md)
+ - [Group](entities/group/group.md)
+   - [Mailing List](entities/group/mailing_list.md) 
  - [Activity](entities/activity.md)
  - [Message](entities/message.md)
  - [Profile](entities/profile.md)

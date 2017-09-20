@@ -75,20 +75,22 @@ class MailingList {
    */
   public function createMailingList() {
 
+    // check if user already has an empty survey
     $emptyGroup = $this->getUsersEmptyGroup();
 
-    if (!$emptyGroup) {
-      $group = Group::create([
-        'label' => $this->mailingListLabel,
-        'type' => $this->mailingListType
-      ]);
-
-      $group->save();
-
-      return $group->id();
+    if($emptyGroup) {
+      return $emptyGroup->id();
     }
 
-    return $emptyGroup->id();
+    // create a new empty survey
+    $group = Group::create([
+      'label' => $this->mailingListLabel,
+      'type' => $this->mailingListType
+    ]);
+
+    $group->save();
+
+    return $group->id();
   }
 
   /**
@@ -109,7 +111,7 @@ class MailingList {
 
       $group_content = $group->getContent('group_node:content');
       $group_users = $group->getMembers([$this->mailingListType . '-organisation']);
-      if (empty($group_content) AND empty($group_users)) {
+      if (empty($group_content) && empty($group_users)) {
         return $group;
       }
     }

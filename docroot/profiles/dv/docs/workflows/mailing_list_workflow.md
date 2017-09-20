@@ -6,6 +6,9 @@
 
 - **Group** [group](../entities/group.md)
   - mailing_list
+  
+### Usecases
+  
 
 ### Workflow
 

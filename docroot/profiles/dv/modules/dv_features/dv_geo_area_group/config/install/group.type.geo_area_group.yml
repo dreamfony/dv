@@ -4,6 +4,6 @@ dependencies: {  }
 id: geo_area_group
 label: 'Geo Area Group'
 description: ''
-creator_roles: {  }
 creator_membership: true
 creator_wizard: true
+creator_roles: {  }

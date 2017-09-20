@@ -1,12 +1,12 @@
-# Update the hostname to the local development environment hostname
+# Update the hostname to the local development environment hostname.
 vagrant_hostname: local.dv.com
 vagrant_machine_name: dv
+
+# Set the IP address so it doesn't conflict with other Drupal VM instances.
 vagrant_ip: 192.168.88.88
 
-drupalvm_vagrant_version_min: '1.8.5'
-
-# Sometimes, on windows, VM http is only accessible with this
-# vagrant_public_ip: "192.168.1.55"
+# Use Ubuntu 16.04 LTS to match Acquia Cloud environments.
+vagrant_box: geerlingguy/ubuntu1604
 
 # Set drupal_site_name to the project's human-readable name.
 drupal_site_name: "Dv"
@@ -23,14 +23,14 @@ vagrant_synced_folders:
     destination: /var/www/dv
     type: nfs
 
-build_composer_project: false
-
+drupal_build_composer_project: false
 # Toggling this to `true` would invoke `composer install` with the
 # projects own `composer.json` successfully.
-build_composer: false
+drupal_build_composer: false
 drupal_composer_path: false
 drupal_composer_install_dir: "/var/www/dv"
-drupal_core_path: "{{ drupal_composer_install_dir }}/docroot"
+drupal_core_path: "/var/www/dv/docroot"
+ssh_home: /var/www/dv
 
 drupal_db_user: drupal
 drupal_db_password: drupal
@@ -38,54 +38,11 @@ drupal_db_name: drupal
 
 # Set this to 'false' if you don't need to install drupal (using the drupal_*
 # settings below), but instead copy down a database (e.g. using drush sql-sync).
-install_site: false
+drupal_install_site: false
 
 # Drupal VM automatically creates a drush alias file in your ~/.drush folder if
 # this variable is 'true'.
-configure_drush_aliases: true
-drush_aliases_host_template: "templates/drupalvm.aliases.drushrc.php.j2"
-drush_aliases_guest_template: "templates/drupalvm-local.aliases.drushrc.php.j2"
-
-# Pattern Lab
-pattern_lab_path: "/var/www/patternlab"
-
-# Apache VirtualHosts. Add one for each site you are running inside the VM. For
-# multisite deployments, you can point multiple servernames at one documentroot.
-# View the geerlingguy.apache Ansible Role README for more options.
-apache_vhosts:
-  - servername: "{{ drupal_domain }}"
-    documentroot: "{{ drupal_core_path }}"
-    extra_parameters: |
-          ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000{{ drupal_core_path }}"
-
-  - servername: "adminer.{{ vagrant_hostname }}"
-    documentroot: "{{ adminer_install_dir }}"
-    extra_parameters: |
-          ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000{{ adminer_install_dir }}"
-
-  - servername: "xhprof.{{ vagrant_hostname }}"
-    documentroot: "{{ php_xhprof_html_dir }}"
-    extra_parameters: |
-          ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000{{ php_xhprof_html_dir }}"
-
-  - servername: "pimpmylog.{{ vagrant_hostname }}"
-    documentroot: "{{ pimpmylog_install_dir }}"
-    extra_parameters: |
-          ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000{{ pimpmylog_install_dir }}"
-
-  - servername: "{{ vagrant_ip }}"
-    serveralias: "dashboard.{{ vagrant_hostname }}"
-    documentroot: "{{ dashboard_install_dir }}"
-    extra_parameters: |
-          ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000{{ dashboard_install_dir }}"
-          DirectoryIndex index.html
-
-  - servername: "{{ vagrant_ip }}"
-    serveralias: "patternlab.{{ vagrant_hostname }}"
-    documentroot: "{{ pattern_lab_path }}"
-    extra_parameters: |
-          ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000{{ pattern_lab_path }}"
-          DirectoryIndex index.html
+configure_drush_aliases: false
 
 # This is required for front-end building tools.
 nodejs_version: "7.x"
@@ -105,27 +62,36 @@ nodejs_install_npm_user: "{{ drupalvm_user }}"
 npm_config_prefix: "/home/{{ drupalvm_user }}/.npm-global"
 installed_extras:
   - adminer
-  - nodejs
-  - drupalconsole
   - drush
-  - selenium
   - mailhog
-  - pimpmylog
-  - varnish
+  - nodejs
+  - selenium
   - xdebug
-  - drupalconsole
   - solr
 
 solr_version: "4.5.0"
 
-php_xdebug_default_enable: 1
-php_xdebug_coverage_enable: 1
-php_xdebug_idekey: PHPSTORM
+# PHP 5.6 (PHP 7.1 is being tested, see: https://docs.acquia.com/node/25726).
+php_version: "7.0"
+php_packages_extra:
+  - "php{{ php_version }}-bz2"
+  - "php{{ php_version }}-imagick"
+  - imagemagick
+  - php{{ php_version }}-imap
 
-extra_packages:
-  # This is required for PhantomJS Installer.
-  - php7.0-bz2
-  - php7.0-imap
+# XDebug configuration.
+# Change this value to 1 in order to enable xdebug by default.
+php_xdebug_default_enable: 1
+php_xdebug_coverage_enable: 0
+# Change this value to 1 in order to enable xdebug on the cli.
+php_xdebug_cli_enable: 1
+php_xdebug_remote_enable: 1
+php_xdebug_remote_connect_back: 1
+# Use PHPSTORM for PHPStorm, sublime.xdebug for Sublime Text.
+php_xdebug_idekey: PHPSTORM
+php_xdebug_max_nesting_level: 256
+php_xdebug_remote_port: "9000"
+php_memory_limit: "512M"
 
 post_provision_scripts:
   - "../../../acquia/blt/scripts/drupal-vm/post-provision.sh"

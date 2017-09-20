@@ -21,28 +21,28 @@ id: mailing_list_activity_workflow
 label: 'Mailing List Activity Workflow'
 states:
   answered:
-    label: Answered
+    label: 'Finished (Successfully)'
     weight: -10
   canceled:
     label: Canceled
     weight: -10
   delivery_error:
-    label: 'Delivery Error'
+    label: 'Pending (Delivery Error)'
     weight: 0
   not_held:
     label: 'Not Held'
     weight: -10
   pending:
-    label: Pending
+    label: 'Pending (Waiting to be sent)'
     weight: -5
   rejected:
     label: Rejected
     weight: -10
   seen:
-    label: Seen
+    label: 'Awaiting Response (Seen)'
     weight: 10
   sent:
-    label: Sent
+    label: 'Awaiting Response (Sent)'
     weight: 5
 transitions:
   answer:
