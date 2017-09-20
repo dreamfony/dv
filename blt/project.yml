@@ -62,6 +62,7 @@ cm:
   features:
     bundle: dv
   strategy: features
+  allow-overrides: true
 drupal:
   account.name: admin
   account.password: admin
@@ -79,3 +80,34 @@ behat:
   web-driver: selenium
 vm:
   enable: true
+import-content:
+  local:
+    migrate:
+      geoarea:
+        import: true
+        options:
+          limit: "50 items"
+          feedback: "10 items"
+      organisation_groups:
+        import: true
+      organisation_user:
+        import: true
+        options:
+          limit: "50 items"
+          feedback: "10 items"
+    custom:
+      demo-mailing-list:
+        import: true
+  dev:
+    migrate:
+      organisation_user:
+        import: true
+        options:
+          limit: "50 items"
+          feedback: "10 items"
+  test:
+    migrate: false
+    custom: false
+
+
+
