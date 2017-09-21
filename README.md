@@ -33,10 +33,10 @@ Make sure you have the latest versions of packages
 - nodejs (for patternLab; it should install gulp / bower etc)
 
 
-#### Initial setup (update this with instructions when forking repos and making pull requests)
+#### First Time Installation
+@todo: update this with instructions when forking repos and making pull requests)
 
-sudo apt-get install php7.0-bz2
-{{/BUG}}
+- sudo apt-get install php7.0-bz2
 
 - git clone https://github.com/dreamfony/dv.git
 - cd dv
@@ -48,15 +48,13 @@ sudo apt-get install php7.0-bz2
 - cd /var/www/dv
 - composer blt-alias
 - (restart ssh terminal: exit / vagrant ssh)
+- create /var/www/dv/project.local.yml add 'environment: local'
 - cd /var/www/dv
-- blt local:setup
+- blt setup
 - cd docroot
 - drupal init
 - to install alias for blt on local machine, run "sudo composer run-script blt-alias"
-
-import test data
-- drush mi import_demo_content
-- drush mrs to kill busy operation
+- blt custom:import-content
 
 ### Highly recommended if you are using local machine for work
 - Install drush on your local machine  http://docs.drush.org/en/8.x/install-alternative/
@@ -69,9 +67,7 @@ with above, you can run git/drush/drupal console commands all on local machine, 
 
 #### Frontend
 
-On you local machine run
-
-- check docroot/themes/custom/socialblue/readme.md
+[Theme readme.md](docroot/profiles/dv/themes/socialblue/readme.md)
 
 node_modules directory should be deleted if it is created from inside VM
 
