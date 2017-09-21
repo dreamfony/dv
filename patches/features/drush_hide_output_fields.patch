@@ -3,8 +3,8 @@ IDEA additional info:
 Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 <+>UTF-8
 ===================================================================
---- ../docroot/modules/contrib/features/drush/features.drush.inc	(revision )
-+++ ../docroot/modules/contrib/features/drush/features.drush.inc	(revision )
+--- a/modules/contrib/features/drush/features.drush.inc	(revision )
++++ b/modules/contrib/features/drush/features.drush.inc	(revision )
 @@ -215,7 +215,7 @@
 
    // If no package was specified, list all packages.
