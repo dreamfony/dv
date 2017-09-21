@@ -87,7 +87,7 @@ behat:
   web-driver: selenium
 vm:
   enable: true
-  # todo test inject issue
+  # todo #4 test inject issue
 import-content:
   local:
     migrate:
