@@ -68,7 +68,7 @@ Make sure you have the latest versions of packages
 - github-todos config inject-issue true
 - github-todos config confirm-create false
 
-
+- test phpstorm git push with hooks
 ### Highly recommended if you are using local machine for work
 - Install drush on your local machine  http://docs.drush.org/en/8.x/install-alternative/
 make sure drush aliases are set for remote (should be automatically set per drupalvm config, if not do it manually, search this part "drush/site-aliases/aliases.drushrc.php" on this link https://www.jeffgeerling.com/blog/2017/soup-nuts-using-drupal-vm-build-local-and-prod
