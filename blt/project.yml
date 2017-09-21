@@ -90,7 +90,7 @@ import-content:
           feedback: "10 items"
       organisation_groups:
         import: true
-      organisation_user:
+      organisations_user:
         import: true
         options:
           limit: "50 items"
