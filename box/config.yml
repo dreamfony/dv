@@ -29,6 +29,8 @@ drupal_build_composer_project: false
 drupal_build_composer: false
 drupal_composer_path: false
 drupal_composer_install_dir: "/var/www/dv"
+drupal_composer_dependencies: []
+
 drupal_core_path: "/var/www/dv/docroot"
 ssh_home: /var/www/dv
 
