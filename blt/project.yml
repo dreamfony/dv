@@ -87,7 +87,7 @@ behat:
   web-driver: selenium
 vm:
   enable: true
-# todo test close issue
+# todo #5 test close issue
 import-content:
   local:
     migrate:
