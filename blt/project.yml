@@ -41,6 +41,7 @@ modules:
     uninstall: [dblog]
 target-hooks:
   frontend-setup:
+    # todo make a decision about using pattern lab
     # pattern lab build if we ever need it again
     #dir: '${docroot}/themes/custom/patternlab'
     #command: 'npm install'
