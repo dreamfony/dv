@@ -181,8 +181,7 @@
                 "https://www.drupal.org/node/2805963": "https://www.drupal.org/files/issues/user_registrationpassword-register-config-save-2805963-5.patch"
             },
             "drupal/features": {
-                "https://www.drupal.org/node/2668562 #4": "https://www.drupal.org/files/issues/features-not_detecting_profile_files-2668562-4.patch",
-                "drush 9 compatibility": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/features/drush_hide_output_fields.patch"
+                "https://www.drupal.org/node/2668562 #4": "https://www.drupal.org/files/issues/features-not_detecting_profile_files-2668562-4.patch"
             },
             "drupal/entity_browser": {
                 "https://www.drupal.org/node/2845037": "https://www.drupal.org/files/issues/2845037-4.patch"
