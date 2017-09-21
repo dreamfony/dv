@@ -48,7 +48,7 @@ Make sure you have the latest versions of packages
 - cd /var/www/dv
 - composer blt-alias
 - (restart ssh terminal: exit / vagrant ssh)
-- create /var/www/dv/project.local.yml add 'environment: local'
+- go to /var/www/dv/blt/project.local.yml and add 'environment: local'
 - cd /var/www/dv
 - blt setup
 - cd docroot
