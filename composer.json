@@ -97,7 +97,7 @@
         "jcalderonzumba/gastonjs": "~1.0.2",
         "mikey179/vfsStream": "~1.2",
         "symfony/css-selector": "~2.8",
-        "geerlingguy/drupal-vm": "~3.4",
+        "geerlingguy/drupal-vm": "~4.3",
         "codeclimate/php-test-reporter": "^0.3.2",
         "jakoch/phantomjs-installer": "^2.1.1-p07"
     },
