@@ -56,6 +56,19 @@ Make sure you have the latest versions of packages
 - to install alias for blt on local machine, run "sudo composer run-script blt-alias"
 - blt custom:import-content
 
+#### Setup [github-todos](https://github.com/naholyr/github-todos)
+- npm install -g github-todos
+- in project root run
+- github-todos config repo dreamfony/dv
+- github-todos init
+  - if you get Error: ENOENT: no such file or directory, open '.git/hooks/pre-push'
+  - cd .git
+  - mkdir hooks
+  - github-todos init
+- github-todos config inject-issue true
+- github-todos config confirm-create false
+
+
 ### Highly recommended if you are using local machine for work
 - Install drush on your local machine  http://docs.drush.org/en/8.x/install-alternative/
 make sure drush aliases are set for remote (should be automatically set per drupalvm config, if not do it manually, search this part "drush/site-aliases/aliases.drushrc.php" on this link https://www.jeffgeerling.com/blog/2017/soup-nuts-using-drupal-vm-build-local-and-prod
