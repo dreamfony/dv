@@ -41,11 +41,17 @@ modules:
     uninstall: [dblog]
 target-hooks:
   frontend-setup:
-    dir: '${docroot}/themes/custom/patternlab'
-    command: 'npm install'
+    # pattern lab build if we ever need it again
+    #dir: '${docroot}/themes/custom/patternlab'
+    #command: 'npm install'
+    dir: '${docroot}'
+    command: 'echo ''No pre-config-import configured.'''
   frontend-build:
-    dir: '${docroot}/themes/custom/patternlab'
-    command: 'npm run compile'
+    # pattern lab build if we ever need it again
+    #dir: '${docroot}/themes/custom/patternlab'
+    #command: 'npm run compile'
+    dir: '${docroot}'
+    command: 'echo ''No pre-config-import configured.'''
   pre-config-import:
     dir: '${docroot}'
     command: 'echo ''No pre-config-import configured.'''
