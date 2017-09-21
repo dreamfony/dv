@@ -66,7 +66,7 @@ target-hooks:
     command: 'echo ''No post-deploy build configured.'''
 cm:
   features:
-    bundle: dv
+    bundle: [dv]
   strategy: features
   allow-overrides: true
 drupal:
