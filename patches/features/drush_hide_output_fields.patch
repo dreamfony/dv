@@ -1,0 +1,32 @@
+Index: docroot/modules/contrib/features/drush/features.drush.inc
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- a/modules/contrib/features/drush/features.drush.inc	(revision )
++++ b/modules/contrib/features/drush/features.drush.inc	(revision )
+@@ -215,7 +215,7 @@
+
+   // If no package was specified, list all packages.
+   if (empty($package_name)) {
+-    drush_hide_output_fields(array('object'));
++    //drush_hide_output_fields(array('object'));
+     foreach ($packages as $package) {
+       $overrides = $manager->detectOverrides($package);
+       $state = $package->getState();
+@@ -239,6 +239,7 @@
+   else {
+     foreach ($packages as $package) {
+       if ($package->getMachineName() == $package_name) {
++        /*
+         drush_hide_output_fields(array(
+           'machine_name',
+           'name',
+@@ -246,6 +247,7 @@
+           'version',
+           'state',
+         ));
++        */
+         foreach ($package->getConfig() as $item_name) {
+           $result[$item_name] = array(
+             'object' => $item_name,

@@ -8,6 +8,7 @@ box/local.config.yml
 *.local
 project.local.yml
 docroot/profiles/dv/modules/dv_features/dv_secure
+.github-todos
 
 # Ignore drupal core.
 docroot/core

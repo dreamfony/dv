@@ -41,6 +41,7 @@ modules:
     uninstall: [dblog]
 target-hooks:
   frontend-setup:
+    # todo make a decision about using pattern lab test
     # pattern lab build if we ever need it again
     #dir: '${docroot}/themes/custom/patternlab'
     #command: 'npm install'
@@ -66,7 +67,7 @@ target-hooks:
     command: 'echo ''No post-deploy build configured.'''
 cm:
   features:
-    bundle: dv
+    bundle: [dv]
   strategy: features
   allow-overrides: true
 drupal:
