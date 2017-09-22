@@ -185,6 +185,8 @@ function social_user_user_format_name_alter(&$name, \Drupal\Core\Session\Account
   if (!empty($storage)) {
     $isOrganisation = PersonaAccountUtility::hasPersona($account, 'organisation');
 
+    // todo tralala
+    // fshdkjfdhjsk
     if($isOrganisation) {
       // Returns false.
       $user_profile = $storage->loadByUser($account, 'organisation_profile', TRUE);
