@@ -19,7 +19,7 @@ drush:
   default_alias: '${drush.aliases.local}'
 modules:
   local:
-    enable: [devel, kint, field_ui, seckit, features_ui, views_ui, geo_area_migrate, hr_organisation_migrate, masquerade, dmt_dev, queue_ui, dblog, mailgun, dv_secure, page_manager_ui, dmt_configuration, dmt_demo_mailing_list]
+    enable: [devel, kint, field_ui, seckit, features_ui, views_ui, geo_area_migrate, hr_organisation_migrate, masquerade, dmt_dev, queue_ui, dblog, mailgun, dv_secure, page_manager_ui, dmt_configuration, dmt_demo_mailing_list, migrate_tools]
     uninstall: {  }
   ci:
     enable: {  }
