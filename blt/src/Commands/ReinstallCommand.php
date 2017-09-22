@@ -36,6 +36,12 @@ class ReinstallCommand extends BltTasks {
     }
 
     $this->invokeCommand('setup');
+
+    // clear caches
+    $this->taskDrush()
+      ->drush('cr')
+      ->run();
+
     $this->invokeCommand('custom:import-content');
 
   }
