@@ -42,7 +42,9 @@ drupal_install_site: false
 
 # Drupal VM automatically creates a drush alias file in your ~/.drush folder if
 # this variable is 'true'.
-configure_drush_aliases: false
+configure_drush_aliases: true
+drush_aliases_host_template: "templates/drupalvm.aliases.drushrc.php.j2"
+drush_aliases_guest_template: "templates/drupalvm-local.aliases.drushrc.php.j2"
 
 # This is required for front-end building tools.
 nodejs_version: "7.x"
@@ -69,7 +71,10 @@ installed_extras:
   - xdebug
   - solr
 
-solr_version: "4.5.0"
+# Solr Configuration (if enabled above).
+solr_version: "5.5.3"
+solr_xms: "64M"
+solr_xmx: "128M"
 
 # PHP 5.6 (PHP 7.1 is being tested, see: https://docs.acquia.com/node/25726).
 php_version: "7.0"
@@ -95,5 +100,3 @@ php_memory_limit: "512M"
 
 post_provision_scripts:
   - "../../../acquia/blt/scripts/drupal-vm/post-provision.sh"
-  - "../../../../box/postprovision-solr.sh"
-  - "../../../../box/postprovision-tweaks.sh"
