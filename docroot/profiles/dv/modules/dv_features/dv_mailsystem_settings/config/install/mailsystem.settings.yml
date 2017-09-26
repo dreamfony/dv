@@ -1,4 +1,4 @@
 theme: current
 defaults:
-  sender: mailgun_mail
-  formatter: mailgun_mail
+  sender: php_mail
+  formatter: php_mail

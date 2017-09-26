@@ -16,3 +16,4 @@ roles:
   mailing_list_create_new_group: '0'
 weight: 0
 use_revisions: false
+description: null
