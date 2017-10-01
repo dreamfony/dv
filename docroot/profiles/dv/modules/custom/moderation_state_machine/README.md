@@ -22,3 +22,7 @@ You can also hook into entity insert
 `insert()`
 
 You can try an example plugin if you attach **Editorial workflow** to a Page
+
+// TODO Make this module have separate file for each transition
+// Module currently has just one plugin for the whole workflow
+// it would be much cleaner if we had separate file for each transition
