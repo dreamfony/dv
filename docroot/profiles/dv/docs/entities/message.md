@@ -4,7 +4,7 @@ Entity: [Message.php](../../../../modules/contrib/message/src/Entity/Message.php
 
 ### Bundles
 
-// TODO document Question mail template correctly
+// TODO #17 document Question mail template correctly
 // current template is called Content is hardcoded to Croatian language
 // and does not have recipient-data and sender-data tokens
 **Question**
