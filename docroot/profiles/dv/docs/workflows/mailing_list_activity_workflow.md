@@ -1,9 +1,11 @@
 ## Mailing List Activity Workflow [mailing_list_activity_workflow]
 
+todo analyze this workflow @dreamfony
+
 **Legend:**
   - TBD - to be decided
   - [] - machine name
-  
+
 ### Related Entities
 
 **Activity** [activity](../entities/activity.md)
@@ -17,11 +19,11 @@
    - references activity; recipient, has link to log which shows activity status + date
  - Comment [comment]
    - comment on activity or answer
- - Answer [answer] 
+ - Answer [answer]
    - answer to a question
- - Log [log] 
+ - Log [log]
    - question revision log written in comment
-   
+
 **Message** [message](../entities/message.md)
 
 1. Email that is sent is constructed from Message entity type Question [question] and it creates Activity entity of type Mailing List Activity [mailing_list_activity]
@@ -53,7 +55,7 @@ FOI law has SLA (Service Level Agreement) of 20 days and our states have to be a
 - Finished (Successfully with delay) [f_delayed]
 - Finished (Unsuccessfully) [f_unsuccessful]
   - unsatisfactory answer and timed out
-- Finished (Expired) [f_expired] 
+- Finished (Expired) [f_expired]
   - Timed out
 - Finished (Need more info) [f_more_info]
 
@@ -62,46 +64,47 @@ FOI law has SLA (Service Level Agreement) of 20 days and our states have to be a
 
 ### Mailing List Activity Transitions
 
-**Mark as Delivery error** [delivery_error] 
+**Mark as Delivery error** [delivery_error]
   - from: [p_waiting]
   - to: [p_delivery_error]
-  - triggers: 
+  - triggers:
     - system - mail service returns delivery error response
   - uc:
     - [ ] **sys** - sends [activity_delivery_error] [message](../entities/message.md)
     - [ ] **mod** - checks the validity of email address edits if necessary
     - [ ] **mod** - clicks Mark as Pending (Waiting to be sent)
-    
+
 **Mark as Pending (Waiting to be sent)** [waiting]
   - form: [p_delivery_error]
   - to: [p_waiting]
   - uc:
-    - [ ] **mod, (own?)** - triggers [waiting] transition 
+    - [ ] **mod, (own?)** - triggers [waiting] transition
     - [ ] **sys** - triggers [email_activity_send] action
       - @see [activity_send_email_activity_insert](../../modules/custom/activity/activity_send/modules/activity_send_email/activity_send_email.module)
-      
+
 **Pending (Auto response)** [auto_response]
    - form: [unclassified]
    - to: [p_auto_response]
-   - uc: 
+   - uc:
      - [ ] **mod, own** - triggers [auto_response] transition
      - [ ] **sys** - adds flag on organisation that it sends auto response messages
+       - todo make a module to handle auto response messages
        - will be used as one of the criteria to automatically set messages as auto_response
        - other criteria may include response time, message subject
        - [Detecting autoresponders](https://github.com/jpmckinney/multi_mail/wiki/Detecting-autoresponders)
-    
+
 **Mark as Sent** [sent]
   - from: [p_waiting]
   - to: [ar_sent]
   - uc:
     - [ ] **sys** - mail service returns sent response; if not possible mail sent to mailing service
- 
+
 **Mark as Seen** [seen]
 	- from: [ar_sent]
 	- to: [ar_seen]
   - uc:
-    - [ ] **sys** - when mail service returns seen response, trigger this transaction 
- 
+    - [ ] **sys** - when mail service returns seen response, trigger this transaction
+
 **Mark as Answered**	[answer]
   - from: [p_waiting], [ar_sent], [ar_seen]
   - to: [f_answered]
