@@ -49,6 +49,8 @@ class DvMailgunWebhook extends QueueWorkerBase {
         $status = ACTIVITY_STATUS_DELIVERY_ERROR;
         break;
 
+      // @todo ACTIVITY_STATUS_REJECTED constant does not exist
+      // figure out a workflow for this state
       case 'complained':
         $status = ACTIVITY_STATUS_REJECTED;
         break;
@@ -72,6 +74,8 @@ class DvMailgunWebhook extends QueueWorkerBase {
     }
 
     if (isset($data['entity_id'])) {
+      // @todo Are we using collect for emails and if we are why?
+      // should this code be enabled then?
 //    Save raw message
 //    TODO Enable this when collect is fixed
 //      https://www.drupal.org/node/2859839
@@ -94,7 +98,7 @@ class DvMailgunWebhook extends QueueWorkerBase {
 //    Update activity
 
       /** @var \Drupal\activity_creator\Entity\Activity $activity */
-      /// @todo: inject Entity Type Manager
+      // @todo: Inject Entity Type Manager
       $activity = \Drupal::entityTypeManager()
         ->getStorage('activity')
         ->load($data['entity_id']);
