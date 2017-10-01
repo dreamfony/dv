@@ -88,7 +88,7 @@ class DmtMailComment extends HandlerBase implements ContainerFactoryPluginInterf
    * {@inheritdoc}
    */
   public function invoke(MimeMessageInterface $message, ProcessorResultInterface $processor_result) {
-    // @todo find a clean way to remove this plugin
+    // @todo #10 find a clean way to remove this plugin
     // the whole thing has been moved to dmt_mailing_list/src/Plugin/inmail/Handler/InMailAnswer.php
     // make sure this plugin does NOT run at all
     // we can probably just delete the whole plugin
