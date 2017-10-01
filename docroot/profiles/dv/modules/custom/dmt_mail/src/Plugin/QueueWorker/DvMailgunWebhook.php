@@ -74,7 +74,7 @@ class DvMailgunWebhook extends QueueWorkerBase {
     }
 
     if (isset($data['entity_id'])) {
-      // @todo Are we using collect for emails and if we are why?
+      // @todo #9 Are we using collect for emails and if we are why?
       // should this code be enabled then?
 //    Save raw message
 //    TODO Enable this when collect is fixed
