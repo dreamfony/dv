@@ -3,3 +3,7 @@
  * @file
  * Responsive layouts built on the Bootstrap 3 grid system.
  */
+
+// @todo: radix_layouts module has been updated to use core layout_discovery
+// module has been added here as a quick fix until it this update
+// remove this module and add it as a normal dependency using composer
