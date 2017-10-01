@@ -29,7 +29,7 @@ use Drupal\Core\Render\Element;
 use Drupal\Core\Routing\RouteMatch;
 use Symfony\Component\HttpFoundation\Request;
 
-// todo create new folder /docroot/profiles/dv/modules/forked and move this module there
+// todo #22 create new folder /docroot/profiles/dv/modules/forked and move this module there
 /**
  * Implements hook_comment_links_alter().
  *
