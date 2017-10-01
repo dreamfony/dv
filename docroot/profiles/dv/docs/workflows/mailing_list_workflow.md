@@ -51,7 +51,7 @@
   - to: [archived]
 
 
-todo implement Restore to Draft transition
+todo #28 implement Restore to Draft transition
 - **Restore to Draft**	[restore_to_draft]
   - from: [send_email]
   - to: [draft]

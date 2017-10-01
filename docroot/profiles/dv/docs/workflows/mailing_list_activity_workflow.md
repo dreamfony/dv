@@ -1,6 +1,6 @@
 ## Mailing List Activity Workflow [mailing_list_activity_workflow]
 
-todo analyze this workflow @dreamfony
+todo #25 analyze this workflow @dreamfony
 
 **Legend:**
   - TBD - to be decided
