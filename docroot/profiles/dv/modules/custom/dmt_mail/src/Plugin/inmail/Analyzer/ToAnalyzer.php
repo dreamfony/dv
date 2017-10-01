@@ -71,7 +71,7 @@ class ToAnalyzer extends AnalyzerBase {
       $result->setContext('hash', $context);
     }
     else {
-      // todo the mail that does not have hash should never enter the system
+      // todo #19 the mail that does not have hash should never enter the system
       // check with tomislav if we are still receiving mails that don't have hash
       \Drupal::logger('dmt_mail')
         ->notice('Email with no hash entered the system: @message_id',
