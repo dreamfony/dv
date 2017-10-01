@@ -7,6 +7,8 @@
 
 use Drupal\Core\Routing\RouteMatchInterface;
 
+// @todo this whole file is currently unneeded so it should be removed
+
 /**
  * Implements hook_help().
  */
