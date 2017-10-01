@@ -185,7 +185,7 @@ function social_profile_user_insert(UserInterface $account) {
   // If the new account has a UID, we can create a default profile.
   // Default image is added through the field settings.
 
-  /// @todo fix this to ignore organisations
+  // todo fix this to ignore organisations and then enable for normal users
   /*
   if (!empty($account->id())) {
     $profile = Profile::create($expected = [
