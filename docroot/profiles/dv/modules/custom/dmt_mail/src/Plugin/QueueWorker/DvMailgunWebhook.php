@@ -74,12 +74,12 @@ class DvMailgunWebhook extends QueueWorkerBase {
     }
 
     if (isset($data['entity_id'])) {
-      // @todo #9 Are we using collect for emails and if we are why?
-      // should this code be enabled then?
-//    Save raw message
-//    TODO Enable this when collect is fixed
-//      https://www.drupal.org/node/2859839
-      /*
+      // We need to store all data in a uniform way for historical reference.
+      // Not relying on any particular third party service like mailgun or gmail for data availability.
+      // Save raw message
+      // TODO Enable this when collect is fixed
+      // https://www.drupal.org/node/2859839
+    /*
          $message_id = str_replace(['<', '>'], '', $data['Message-Id']);
          $origin_uri = Url::fromUri('base:webhook/mailgun/message-id/' . $message_id, ['absolute' => TRUE])->toString();
          $origin_uri = str_replace(['%40', '%3D', '%2B'], ['@', '=', '+'], $origin_uri);
