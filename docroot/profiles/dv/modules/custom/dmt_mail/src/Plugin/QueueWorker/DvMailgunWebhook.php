@@ -28,6 +28,10 @@ class DvMailgunWebhook extends QueueWorkerBase {
    */
   public function processItem($data) {
 
+    // TODO refactor this code to have separate methods for everything this is not readable
+    // create separate methods collectContainerCreate and activityUpdate
+    // and or move collectContainerCreate method to more appropriate place
+
     /**
      * accepted    Mailgun accepted the request to send/forward the email and the message has been placed in queue.
      * rejected    Mailgun rejected the request to send/forward the email.
@@ -98,7 +102,7 @@ class DvMailgunWebhook extends QueueWorkerBase {
 //    Update activity
 
       /** @var \Drupal\activity_creator\Entity\Activity $activity */
-      // @todo: Inject Entity Type Manager
+      // @todo Inject Entity Type Manager
       $activity = \Drupal::entityTypeManager()
         ->getStorage('activity')
         ->load($data['entity_id']);
