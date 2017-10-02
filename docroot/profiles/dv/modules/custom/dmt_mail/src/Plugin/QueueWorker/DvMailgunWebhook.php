@@ -102,7 +102,7 @@ class DvMailgunWebhook extends QueueWorkerBase {
 //    Update activity
 
       /** @var \Drupal\activity_creator\Entity\Activity $activity */
-      // @todo Inject Entity Type Manager
+      // @todo #32 Inject Entity Type Manager
       $activity = \Drupal::entityTypeManager()
         ->getStorage('activity')
         ->load($data['entity_id']);
