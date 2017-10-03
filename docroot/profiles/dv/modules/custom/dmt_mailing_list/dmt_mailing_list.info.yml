@@ -8,3 +8,4 @@ dependencies:
   - group
   - node
   - views
+  - dmt_content
