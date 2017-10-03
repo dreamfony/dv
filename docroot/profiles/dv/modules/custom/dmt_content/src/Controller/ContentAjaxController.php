@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dmt_mailing_list\Controller;
+namespace Drupal\dmt_content\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Ajax\AjaxResponse;

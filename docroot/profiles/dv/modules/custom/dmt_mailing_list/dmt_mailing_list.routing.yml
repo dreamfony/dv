@@ -14,36 +14,6 @@ dmt_mailing_list.edit_title:
     _entity_access: 'group.update'
     group: \d+
 
-dmt_mailing_list.ajax_edit_form:
-  path: 'node/{node}/ajax-edit'
-  defaults:
-    _controller: '\Drupal\dmt_mailing_list\Controller\ContentAjaxController::editForm'
-  requirements:
-    _entity_access: 'node.update'
-    node: \d+
-  options:
-    _node_operation_route: TRUE
-
-dmt_mailing_list.ajax_delete_link:
-  path: 'node/{node}/ajax-delete'
-  defaults:
-    _controller: '\Drupal\dmt_mailing_list\Controller\ContentAjaxController::delete'
-  requirements:
-    _entity_access: 'node.delete'
-    node: \d+
-  options:
-    _node_operation_route: TRUE
-
-dmt_mailing_list.ajax_cancel_link:
-  path: 'node/{node}/ajax-cancel'
-  defaults:
-    _controller: '\Drupal\dmt_mailing_list\Controller\ContentAjaxController::cancel'
-  requirements:
-    _entity_access: 'node.view'
-    node: \d+
-  options:
-    _node_operation_route: TRUE
-
 dmt_mailing_list.ajax_organisation_delete_link:
   path: 'ajax/{group}/{group_content}/ajax-delete'
   defaults:

@@ -1,23 +1,15 @@
 <?php
 
-namespace Drupal\dmt_mailing_list\Form;
+namespace Drupal\dmt_content\Form;
 
-use Drupal\Core\Ajax\AppendCommand;
 use Drupal\Core\Ajax\PrependCommand;
-use Drupal\Core\Block\BlockManager;
 use Drupal\Core\Entity\Entity;
 use Drupal\Core\Form\FormState;
 use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Ajax\BeforeCommand;
-use Drupal\Core\Ajax\AfterCommand;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Ajax\RemoveCommand;
-use Drupal\Core\Entity\EntityManager;
 use Drupal\node\Entity\Node;
-use Drupal\views\Plugin\Block\ViewsBlock;
-use Drupal\views\Plugin\views\access\AccessPluginBase;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\group\Entity\Group;
+
 
 class ContentFormAlter {
 
