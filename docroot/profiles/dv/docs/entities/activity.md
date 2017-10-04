@@ -4,7 +4,7 @@ Entity: [Activity.php](../../modules/custom/activity/activity_creator/src/Entity
 
 ### Activity Bundles
 
-**Mailing List Activity**
+**Mailing List Activity** [mailing_list_activity]
 
 - Destinations [field_activity_destinations]    
   - type: List (text)
