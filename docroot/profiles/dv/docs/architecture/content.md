@@ -8,11 +8,11 @@ All related code should be placed in [dmt_content](../../modules/custom/dmt_cont
 
 - Title
   - Title is hidden and it is generated in presave hook in [dmt_content](../../modules/custom/dmt_content/dmt_content.module) module
-- Content type ?
+- Content type
   - Currently missing field that should be choice field with options like:
     - Question
     - Issue
-    - ...
+    - Story
 - Content (body)
 - Answer format
   - Current options:
