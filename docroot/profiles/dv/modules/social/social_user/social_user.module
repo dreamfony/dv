@@ -60,7 +60,8 @@ function social_user_form_user_form_alter(&$form, FormStateInterface $form_state
     $form['#attached']['library'][] = 'social_user/user_form_protection';
     // We prepend it because a user first has to be saved :) and the profile
     // user save needs to fire first!
-    $form['actions']['submit']['#submit'][] = '_social_user_pass_reset_submit';
+      // Disable below submit handler because routing paths in it dont exsist
+    //$form['actions']['submit']['#submit'][] = '_social_user_pass_reset_submit';
 
     // We have to pass some values, because at this point the user is still
     // unsaved and the createdTime and the changedTime are still the same!
@@ -115,6 +116,8 @@ function _social_user_pass_reset_submit($form, FormStateInterface $form_state) {
     else {
       // We redirect them to the home page stream.
       $form_state->setRedirect('social_core.homepage');
+
+
     }
   }
 }
