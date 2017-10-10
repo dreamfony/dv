@@ -24,6 +24,8 @@ docroot/themes/contrib
 docroot/profiles/contrib
 docroot/libraries
 drush/contrib
+drush/site-aliases
+
 
 # Ignore build artifacts
 /deploy
