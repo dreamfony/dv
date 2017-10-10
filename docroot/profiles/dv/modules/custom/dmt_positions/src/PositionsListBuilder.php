@@ -21,6 +21,7 @@ class PositionsListBuilder extends EntityListBuilder {
    */
   public function buildHeader() {
     $header['id'] = $this->t('Positions ID');
+    $header['position'] = $this->t('Position');
     return $header + parent::buildHeader();
   }
 
@@ -29,7 +30,15 @@ class PositionsListBuilder extends EntityListBuilder {
    */
   public function buildRow(EntityInterface $entity) {
     /* @var $entity \Drupal\dmt_positions\Entity\Positions */
+      // Get all referenced entites, currently fixed at one.
+      $ref_entities = $entity->get('field_positions_function')->referencedEntities();
+      $ref_entity = reset($ref_entities);
+      $postion_array = $ref_entity->get('name')->getValue();
+      $position_name = $postion_array[0]['value'];
+
+
     $row['id'] = $entity->id();
+    $row['position'] = $position_name;
     $row['name'] = $this->l(
       $entity->id(),
       new Url(
