@@ -90,7 +90,8 @@
         "drupal/search_api_solr": "1.x-dev",
         "drupal/image_widget_crop": "^2.0",
         "drupal/extra_field": "^1.0@alpha",
-        "drupal/console": "~1.0"
+        "drupal/console": "~1.0",
+        "drupal/permissions_filter": "~1.0",
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^2.7",
