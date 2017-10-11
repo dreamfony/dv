@@ -36,7 +36,6 @@ class PositionsListBuilder extends EntityListBuilder {
       $postion_array = $ref_entity->get('name')->getValue();
       $position_name = $postion_array[0]['value'];
 
-
     $row['id'] = $entity->id();
     $row['position'] = $position_name;
     $row['name'] = $this->l(
