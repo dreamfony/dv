@@ -11,4 +11,5 @@ class PositionsTranslationHandler extends ContentTranslationHandler {
 
   // Override here the needed methods from ContentTranslationHandler.
 
+
 }

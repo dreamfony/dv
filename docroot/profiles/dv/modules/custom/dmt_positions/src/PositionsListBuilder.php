@@ -30,14 +30,10 @@ class PositionsListBuilder extends EntityListBuilder {
    */
   public function buildRow(EntityInterface $entity) {
     /* @var $entity \Drupal\dmt_positions\Entity\Positions */
-      // Get all referenced entites, currently fixed at one.
-      $ref_entities = $entity->get('field_positions_function')->referencedEntities();
-      $ref_entity = reset($ref_entities);
-      $postion_array = $ref_entity->get('name')->getValue();
-      $position_name = $postion_array[0]['value'];
 
     $row['id'] = $entity->id();
-    $row['position'] = $position_name;
+    // Get referenced entity value, which is tax term name
+    $row['position'] = $entity->field_positions_function->entity->name->value;
     $row['name'] = $this->l(
       $entity->id(),
       new Url(
