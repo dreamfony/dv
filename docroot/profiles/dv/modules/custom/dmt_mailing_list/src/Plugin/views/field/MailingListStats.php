@@ -8,8 +8,8 @@ use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\ResultRow;
 use Drupal\workflows\Entity\Workflow;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\dmt_mailing_list\MailingListAnswer;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\dmt_mailing_list_activity\MailingListActivity;
 
 /**
  * Field handler to delete group content.
@@ -21,9 +21,9 @@ use Drupal\Core\Form\FormStateInterface;
 class MailingListStats extends FieldPluginBase {
 
   /**
-   * @var \Drupal\dmt_mailing_list\MailingListAnswer
+   * @var MailingListActivity
    */
-  protected $mailingListAnswers;
+  protected $mailingListActivity;
 
   /**
    * GroupContentMailingListStats constructor.
@@ -31,12 +31,12 @@ class MailingListStats extends FieldPluginBase {
    * @param array $configuration
    * @param string $plugin_id
    * @param mixed $plugin_definition
-   * @param \Drupal\dmt_mailing_list\MailingListAnswer $mailing_list_answers
+   * @param MailingListActivity $mailing_list_activity
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, MailingListAnswer $mailing_list_answers) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, MailingListActivity $mailing_list_activity) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
 
-    $this->mailingListAnswers = $mailing_list_answers;
+    $this->mailingListActivity = $mailing_list_activity;
   }
 
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
@@ -44,7 +44,7 @@ class MailingListStats extends FieldPluginBase {
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('dmt_mailing_list.mailing_list_answer')
+      $container->get('dmt_mailing_list_activity.mailing_list_activity')
     );
   }
 
@@ -106,7 +106,7 @@ class MailingListStats extends FieldPluginBase {
     // if total count then status is FALSE
     $status = $this->options['status'] == 'all' ? FALSE : $this->options['status'];
 
-    $count = $this->mailingListAnswers->getAnswerCount($group_id, $user_id, $status);
+    $count = $this->mailingListActivity->getAnswerCount($group_id, $user_id, $status);
 
     return $count;
   }

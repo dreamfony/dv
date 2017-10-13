@@ -76,6 +76,7 @@ function dv_install_profile_modules(&$install_state) {
     'dv_org_legal_status' => 'dv_org_legal_status',
     'dmt_mail' => 'dmt_mail',
     'dmt_mailing_list' => 'dmt_mailing_list',
+    'dmt_mailing_list_activity' => 'dmt_mailing_list_activity',
     'dv_mailing_list' => 'dv_mailing_list',
     'dv_answer' => 'dv_answer',
     'ggroup' => 'ggroup', // we add ggroup here since it can't be enabled without any groups

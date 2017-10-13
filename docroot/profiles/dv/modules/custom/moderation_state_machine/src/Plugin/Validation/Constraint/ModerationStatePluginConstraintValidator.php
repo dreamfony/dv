@@ -96,12 +96,12 @@ class ModerationStatePluginConstraintValidator extends ConstraintValidator imple
       return;
     }
 
-    $plugin_ids = $this->moderationStateMachineManager->getPluginIdByEntity($entity);
+    $plugin_ids = $this->moderationStateMachineManager->getPluginId($entity);
 
     foreach ($plugin_ids as $plugin_id) {
       /** @var \Drupal\moderation_state_machine\ModerationStateMachineBase $sms */
       $sms = $this->moderationStateMachineManager->createInstance($plugin_id);
-      $violations = $sms->switchStateValidate($entity);
+      $violations = $sms->validate($entity);
 
       if (!empty($violations)) {
         foreach ($violations as $violation) {

@@ -36,6 +36,13 @@ class ModerationStateMachine extends Plugin {
   public $label;
 
   /**
+   * The transition Id.
+   *
+   * @var integer
+   */
+  public $transition_id;
+
+  /**
    * Entity Type
    *
    * @var string

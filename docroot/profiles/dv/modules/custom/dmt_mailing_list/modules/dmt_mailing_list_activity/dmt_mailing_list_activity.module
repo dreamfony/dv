@@ -1,0 +1,88 @@
+<?php
+
+use Drupal\comment\Entity\Comment;
+use Drupal\comment\CommentInterface;
+use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_moderation_state_machine_parent_entity_alter().
+ */
+function dmt_mailing_list_activity_moderation_state_machine_parent_entity_alter(&$parent_entity, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\workflows\Entity\Workflow $workflow) {
+  if($entity->getEntityTypeId() == 'activity' && $entity->bundle() == 'mailing_list_activity') {
+    /** @var \Drupal\activity_creator\Entity\Activity $entity */
+    $parent_entity = $entity->get('field_activity_mailing_list')->entity;
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ *
+ * @param EntityInterface $entity
+ */
+function dmt_mailing_list_activity_entity_presave(EntityInterface $entity) {
+
+  if(!$entity instanceof ContentEntityInterface) {
+    return;
+  }
+
+  if($entity->getEntityTypeId() !== 'activity') {
+    return;
+  }
+
+  if($entity->bundle() !== 'mailing_list_activity') {
+    return;
+  }
+
+  // set activity owner to mailing list owner
+  /** @var \Drupal\group\Entity\Group $group */
+  $group = $entity->field_activity_mailing_list->entity;
+  $owner_id = $group->getOwnerId();
+  /** @var \Drupal\activity_creator\Entity\Activity $entity */
+  $entity->setOwnerId($owner_id);
+}
+
+/**
+ * On insertion of mailing_list_activity.
+ *
+ * @param EntityInterface $entity
+ */
+function dmt_mailing_list_activity_entity_insert(EntityInterface $entity) {
+
+  if(!$entity instanceof ContentEntityInterface) {
+    return;
+  }
+
+  if($entity->getEntityTypeId() !== 'activity') {
+    return;
+  }
+
+  if($entity->bundle() !== 'mailing_list_activity') {
+    return;
+  }
+
+  // switch group display mode
+  $group_id = $entity->field_activity_mailing_list->target_id;
+
+  if (!empty($group_id)) {
+    if (\Drupal::service('dmt_mailing_list_activity.mailing_list_activity')->checkActivitiesCreated($group_id)) {
+      \Drupal::service('dmt_mailing_list.mailing_list')->switchDisplay($group_id);
+    }
+  }
+
+  // create activity_reference comment
+  $entity_id = $entity->field_activity_entity->target_id;
+  $comment = Comment::create([
+    'entity_type' => 'node',
+    'entity_id' => $entity_id,
+    'uid' => 1,
+    'subject' => $entity->id(),
+    'comment_type' => 'activity',
+    'field_name' => 'field_content_answers', // field comment is attached to
+    'status' => CommentInterface::PUBLISHED,
+  ]);
+
+  $comment->field_comment_activity->target_id = $entity->id();
+
+  $comment->save();
+}

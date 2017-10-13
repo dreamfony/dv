@@ -1,0 +1,4 @@
+services:
+  dmt_mailing_list_activity.mailing_list_activity:
+    class: Drupal\dmt_mailing_list_activity\MailingListActivity
+    arguments: ['@cache.static', '@dmt_mailing_list.mailing_list_answer']
