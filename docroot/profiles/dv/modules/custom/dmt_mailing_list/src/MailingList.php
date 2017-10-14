@@ -2,20 +2,10 @@
 
 namespace Drupal\dmt_mailing_list;
 
-use Drupal\activity_creator\Plugin\Type\ActivityActionManager;
-use Drupal\activity_moderation\Plugin\Type\ActivityModerationManager;
-use Drupal\Core\Entity\ContentEntityInterface;
-use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Field\EntityReferenceFieldItemList;
-use Drupal\group\Entity\GroupContent;
 use Drupal\group\Entity\Group;
-use Drupal\node\Entity\Node;
-use Drupal\group\GroupMembershipLoaderInterface;
 use Drupal\group\GroupMembership;
 use Drupal\panelizer\PanelizerInterface;
 use Drupal\user\Entity\User;
-use Drupal\Core\Cache\CacheBackendInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 
 /**
@@ -40,12 +30,6 @@ class MailingList {
   protected $panelizer;
 
   /**
-   * @var CacheBackendInterface
-   *   Cache backend.
-   */
-  protected $cacheBackend;
-
-  /**
    * @var \Drupal\dmt_mailing_list\MailingListAnswer
    */
   protected $mailingListAnswer;
@@ -55,12 +39,10 @@ class MailingList {
    * MailingList constructor.
    *
    * @param \Drupal\panelizer\PanelizerInterface $panelizer
-   * @param \Drupal\Core\Cache\CacheBackendInterface $cache_backend
    * @param \Drupal\dmt_mailing_list\MailingListAnswer $mailing_list_answer
    */
-  public function __construct(PanelizerInterface $panelizer, CacheBackendInterface $cache_backend, MailingListAnswer $mailing_list_answer) {
+  public function __construct(PanelizerInterface $panelizer, MailingListAnswer $mailing_list_answer) {
     $this->panelizer = $panelizer;
-    $this->cacheBackend = $cache_backend;
     $this->mailingListAnswer = $mailing_list_answer;
 
 
@@ -148,36 +130,6 @@ class MailingList {
       }
     }
 
-  }
-
-  /**
-   * @param $group_id
-   * @return false|int|object
-   */
-  public function allActivitiesCount($group_id) {
-    if ($count = $this->cacheBackend->get('dmt_mailing_list:total_activity_count:' . $group_id)) {
-      return $count->data;
-    }
-    else {
-      $group = Group::load($group_id);
-      $group_content_contents = count($group->getContent('group_node:content'));
-      $group_users = count($group->getMembers([$group->bundle() . '-organisation']));
-      $count = (int) $group_content_contents * $group_users;
-      $this->cacheBackend->set('dmt_mailing_list:total_activity_count:' . $group->id(), $count);
-      return $count;
-    }
-  }
-
-  /**
-   * Check that all activities for mailing list have been created
-   *
-   * @param $group_id
-   * @return bool
-   */
-  public function checkActivitiesCreated($group_id) {
-    $all_activities_count = $this->allActivitiesCount($group_id);
-    $current_activities_count = (int) $this->mailingListAnswer->getAnswerCount($group_id);
-    return $current_activities_count < $all_activities_count ? FALSE : TRUE;
   }
 
   /**

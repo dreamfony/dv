@@ -1,7 +1,7 @@
 services:
   dmt_mailing_list.mailing_list:
     class: Drupal\dmt_mailing_list\MailingList
-    arguments: ['@panelizer', '@cache.static', '@dmt_mailing_list.mailing_list_answer']
+    arguments: ['@panelizer', '@dmt_mailing_list.mailing_list_answer']
 
   dmt_mailing_list.mailing_list_answer:
     class: Drupal\dmt_mailing_list\MailingListAnswer

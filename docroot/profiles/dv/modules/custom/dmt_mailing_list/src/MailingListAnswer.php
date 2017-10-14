@@ -121,31 +121,4 @@ class MailingListAnswer {
     return $comment;
   }
 
-  /**
-   * Get answer count.
-   *
-   * @param $group_id
-   * @param $user_id
-   * @param bool $status
-   * @return array|int
-   */
-  public function getAnswerCount($group_id, $user_id = FALSE, $status = FALSE) {
-    $query = \Drupal::entityQuery('activity')
-      ->condition('field_activity_mailing_list.target_id', $group_id);
-
-    if($user_id) {
-      $query->condition('field_activity_recipient_user.target_id', $user_id);
-    }
-
-    if ($status) {
-      /** @see activity_creator_query_cm_states_alter */
-      $query->addTag('cm_states');
-      $query->addMetaData('states', [$status]);
-    }
-
-    $count = $query->count()->execute();
-
-    return $count;
-  }
-
 }
