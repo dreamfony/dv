@@ -36,9 +36,16 @@ class ReplyTo {
     }
   }
 
+  /**
+   * Example output: dmtit6+543543543fdsfdse43+dmitit222@gmail.com
+   * @param $hash
+   * @return string
+   */
   protected function getReplyTo($hash) {
     $address = explode('@', $this->replyto);
     return $address[0] . '+' . $hash . '+' . $this->filterstring . '@' . $address[1];
   }
+
+
 
 }

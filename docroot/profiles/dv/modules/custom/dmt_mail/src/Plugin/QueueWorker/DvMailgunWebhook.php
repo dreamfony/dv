@@ -28,6 +28,10 @@ class DvMailgunWebhook extends QueueWorkerBase {
    */
   public function processItem($data) {
 
+    // TODO refactor this code to have separate methods for everything this is not readable
+    // create separate methods collectContainerCreate and activityUpdate
+    // and or move collectContainerCreate method to more appropriate place
+
     /**
      * accepted    Mailgun accepted the request to send/forward the email and the message has been placed in queue.
      * rejected    Mailgun rejected the request to send/forward the email.
@@ -49,6 +53,8 @@ class DvMailgunWebhook extends QueueWorkerBase {
         $status = ACTIVITY_STATUS_DELIVERY_ERROR;
         break;
 
+      // @todo ACTIVITY_STATUS_REJECTED constant does not exist
+      // figure out a workflow for this state
       case 'complained':
         $status = ACTIVITY_STATUS_REJECTED;
         break;
@@ -72,10 +78,12 @@ class DvMailgunWebhook extends QueueWorkerBase {
     }
 
     if (isset($data['entity_id'])) {
-//    Save raw message
-//    TODO Enable this when collect is fixed
-//      https://www.drupal.org/node/2859839
-      /*
+      // We need to store all data in a uniform way for historical reference.
+      // Not relying on any particular third party service like mailgun or gmail for data availability.
+      // Save raw message
+      // TODO Enable this when collect is fixed
+      // https://www.drupal.org/node/2859839
+    /*
          $message_id = str_replace(['<', '>'], '', $data['Message-Id']);
          $origin_uri = Url::fromUri('base:webhook/mailgun/message-id/' . $message_id, ['absolute' => TRUE])->toString();
          $origin_uri = str_replace(['%40', '%3D', '%2B'], ['@', '=', '+'], $origin_uri);
@@ -94,7 +102,7 @@ class DvMailgunWebhook extends QueueWorkerBase {
 //    Update activity
 
       /** @var \Drupal\activity_creator\Entity\Activity $activity */
-      /// @todo: inject Entity Type Manager
+      // @todo #32 Inject Entity Type Manager
       $activity = \Drupal::entityTypeManager()
         ->getStorage('activity')
         ->load($data['entity_id']);

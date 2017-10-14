@@ -154,5 +154,10 @@ function activity_logger_tokens($type, $tokens, array $data, array $options, Bub
     }
   }
 
+  // todo #18 Make [activity:recipient-data] and [activity:sender-data] tokens
+  // prerequisite github issue #17
+  // this might not be the right place to do this but it is closest to what I can
+  // find in a current code base
+
   return $replacements;
 }

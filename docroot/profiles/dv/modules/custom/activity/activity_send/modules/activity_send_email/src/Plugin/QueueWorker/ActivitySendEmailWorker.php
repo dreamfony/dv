@@ -130,6 +130,7 @@ class ActivitySendEmailWorker extends ActivitySendWorkerBase {
   protected function getEmailRecipient(User $target_account) {
     // get organisation email in case user role is organisation
     if ($target_account->hasRole(UserSettings::ROLE_ORGANISATION)){
+      // todo #30 use dependency injection
       $profile = \Drupal::entityManager()->getStorage('profile')
         ->loadByUser($target_account, UserSettings::PROFILE_ORGANISATION);
       if($profile) {
