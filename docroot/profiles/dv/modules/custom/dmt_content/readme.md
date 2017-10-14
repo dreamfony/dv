@@ -1,22 +1,24 @@
 Menus:
 
+// TODO #15 this should be moved to github wiki
+
 - **Main Menu**:
   - Questions
   - Issues
   - Surveys
   - Tags/Topics
   - Organisations
-  
+
 - **New Content Menu**:
   - New Question
   - New Issue
   - New Survey
-  
+
   Notes:
   - Leave button in Toolbar
   - Add A block in appropriate places Ask Question and New Issue
-  
-  
+
+
 - **Profile Menu**:
   - My Surveys
   - My Questions
@@ -41,11 +43,11 @@ Content types:
       - Multiple Choice
     - Created date
     - Updated date
-    
+
   Notes:
    - Question can be part of Survey
-    
-    
+
+
   - **Issue**
     - Body
     - Tags/Topics

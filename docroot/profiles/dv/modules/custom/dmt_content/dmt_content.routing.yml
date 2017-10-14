@@ -1,0 +1,29 @@
+dmt_content.ajax_edit_form:
+  path: 'node/{node}/ajax-edit'
+  defaults:
+    _controller: '\Drupal\dmt_content\Controller\ContentAjaxController::editForm'
+  requirements:
+    _entity_access: 'node.update'
+    node: \d+
+  options:
+    _node_operation_route: TRUE
+
+dmt_content.ajax_delete_link:
+  path: 'node/{node}/ajax-delete'
+  defaults:
+    _controller: '\Drupal\dmt_content\Controller\ContentAjaxController::delete'
+  requirements:
+    _entity_access: 'node.delete'
+    node: \d+
+  options:
+    _node_operation_route: TRUE
+
+dmt_content.ajax_cancel_link:
+  path: 'node/{node}/ajax-cancel'
+  defaults:
+    _controller: '\Drupal\dmt_content\Controller\ContentAjaxController::cancel'
+  requirements:
+    _entity_access: 'node.view'
+    node: \d+
+  options:
+    _node_operation_route: TRUE
