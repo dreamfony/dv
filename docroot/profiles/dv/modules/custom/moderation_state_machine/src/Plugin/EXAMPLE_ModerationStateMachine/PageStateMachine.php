@@ -4,7 +4,6 @@ namespace Drupal\moderation_state_machine\Plugin\ModerationStateMachine;
 
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\moderation_state_machine\ModerationStateMachineBase;
-use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 
 /**
  * Example plugin for "Editorial workflow".
@@ -12,12 +11,13 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
  *
  * @ModerationStateMachine(
  *  id = "page_state_machine",
+ *  transition_id = "publish",
  *  entity_type = "node",
  *  entity_bundle = "page",
  *  label = @Translation("Switch Moderation State"),
  * )
  */
-class PageStateMachine extends ModerationStateMachineBase implements ContainerFactoryPluginInterface {
+class PageStateMachine extends ModerationStateMachineBase {
 
   /**
    * Validates publish transition
@@ -26,7 +26,7 @@ class PageStateMachine extends ModerationStateMachineBase implements ContainerFa
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
    * @return array
    */
-  public function publish_validate(ContentEntityInterface $entity) {
+  public function validate(ContentEntityInterface $entity) {
     $violations = [];
     $current_time = strtotime('now');
     if ($current_time > strtotime('12:00am') && $current_time < strtotime('08:00am')) {
@@ -46,15 +46,8 @@ class PageStateMachine extends ModerationStateMachineBase implements ContainerFa
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
    */
 
-  public function publish_switch(ContentEntityInterface $entity) {
+  public function switch(ContentEntityInterface $entity) {
     drupal_set_message(t("Page is published!"));
   }
 
-  /**
-   * Act on Insert
-   * @param \Drupal\Core\Entity\ContentEntityInterface $entity
-   */
-  public function insert(ContentEntityInterface $entity) {
-    drupal_set_message(t("New Page is created!"));
-  }
 }
