@@ -53,7 +53,7 @@ function moderation_state_machine_entity_presave(Drupal\Core\Entity\EntityInterf
  */
 function moderation_state_machine_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
 
-  // todo check if code in this hook is still valid and decide if we need this functionality at all
+  // todo #34 check if code in this hook is still valid and decide if we need this functionality at all
 
   if(!$entity instanceof \Drupal\Core\Entity\ContentEntityInterface) {
     return;
