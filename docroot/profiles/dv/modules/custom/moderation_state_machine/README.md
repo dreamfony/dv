@@ -10,15 +10,4 @@ This is where this module comes in.
 It allows developers to write plugins of type "**ModerationStatePlugin**".
 Plugins can subscribe to state transition events and define state change validations and violation message.
 
-To hook into transition and validation a simple naming convention is used for functions in plugin.
-
-For Transition Validation
-`[transitionId]_validate()`
-
-For Transition itself
-`[transitionId]_switch()`
-
-You can also hook into entity insert
-`insert()`
-
 You can try an example plugin if you attach **Editorial workflow** to a Page

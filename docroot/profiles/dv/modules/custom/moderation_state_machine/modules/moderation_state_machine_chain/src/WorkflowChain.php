@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\moderation_state_machine;
+namespace Drupal\moderation_state_machine_chain;
 
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\workflows\WorkflowInterface;
@@ -37,6 +37,38 @@ class WorkflowChain {
 
       }
     }
+
+  }
+
+  /**
+   * Get Workflow Transition Options.
+   *
+   * @param $current_transition_key
+   * @return array
+   */
+  public function getWorkflowTransitionOptions($current_transition_key) {
+    $options = [];
+
+    $options[] = t('None');
+
+    $workflows = \Drupal::EntityTypeManager()->getStorage('workflow')->loadMultiple();
+
+    foreach ($workflows as $workflow) {
+      /** @var \Drupal\workflows\Entity\Workflow $workflow */
+      $transitions = $workflow->getTransitions();
+      $options[$workflow->label()] = [];
+      foreach ($transitions as $transition) {
+        /** @var \Drupal\workflows\Transition $transition */
+        $transition_key = $workflow->id().'|'.$transition->id();
+        // skip current transition
+        if($transition_key == $current_transition_key) {
+          continue;
+        }
+        $options[$workflow->label()][$transition_key] = $transition->label();
+      }
+    }
+
+    return $options;
 
   }
 

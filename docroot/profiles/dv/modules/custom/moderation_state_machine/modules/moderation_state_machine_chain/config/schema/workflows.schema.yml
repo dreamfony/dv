@@ -1,4 +1,4 @@
-workflows.workflow.*.third_party.moderation_state_machine:
+workflows.workflow.*.third_party.moderation_state_machine_chain:
   type: mapping
   label: 'Moderation State Machine Transition Settings'
   mapping:
