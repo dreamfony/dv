@@ -104,9 +104,6 @@ function _social_user_pass_reset_submit($form, FormStateInterface $form_state) {
     // If created & changed user time are the same, the user has never submitted
     // the user save form before. Which means we can redirect to user profile.
     if ($first_time_login) {
-      // todo #6 fix route entity.profile.type.profile.user_profile_form
-      // when user wants to change account credentials after logging with drush uli
-      // gets a route not found error
       $form_state->setRedirect(
         'entity.profile.type.profile.user_profile_form',
         array('user' => $submitted_user_id, 'profile_type' => 'profile', array())
