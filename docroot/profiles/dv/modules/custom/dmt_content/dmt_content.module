@@ -79,7 +79,7 @@ function dmt_content_form_node_content_form_alter(&$form, FormStateInterface &$f
   $form['actions']['submit']['#ajax'] = $ajax_settings;
   $form['actions']['publish']['#ajax'] = $ajax_settings;
   $form['actions']['unpublish']['#ajax'] = $ajax_settings;
-  // @todo #33 : does not work with dropbuttons (needs javascript magic presumably).
+  // @todo #38 #33 : does not work with dropbuttons (needs javascript magic presumably).
   unset($form['actions']['publish']['#dropbutton']);
   unset($form['actions']['unpublish']['#dropbutton']);
   $form['actions']['delete']['#access'] = FALSE;

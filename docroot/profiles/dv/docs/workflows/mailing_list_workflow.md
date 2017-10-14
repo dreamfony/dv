@@ -58,7 +58,7 @@ todo #28 implement Restore to Draft transition
   - uc:
     - [ ] **sys** - adds administrator role to user that created [mailing_list]
 
-todo implement spam transition
+todo #29 implement spam transition
 - **Spam** [spam]
   - from: [draft]
   - to: [spam]

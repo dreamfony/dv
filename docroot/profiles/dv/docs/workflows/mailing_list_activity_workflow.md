@@ -88,7 +88,7 @@ FOI law has SLA (Service Level Agreement) of 20 days and our states have to be a
    - uc:
      - [ ] **mod, own** - triggers [auto_response] transition
      - [ ] **sys** - adds flag on organisation that it sends auto response messages
-       - todo make a module to handle auto response messages
+       - todo #26 make a module to handle auto response messages
        - will be used as one of the criteria to automatically set messages as auto_response
        - other criteria may include response time, message subject
        - [Detecting autoresponders](https://github.com/jpmckinney/multi_mail/wiki/Detecting-autoresponders)
