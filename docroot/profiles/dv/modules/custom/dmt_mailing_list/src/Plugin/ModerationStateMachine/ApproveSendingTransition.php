@@ -10,23 +10,23 @@ use Drupal\moderation_state_machine\ModerationStateMachineBase;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\group\GroupMembershipLoader;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-
+use Drupal\group\Entity\GroupContent;
 
 /**
  * Provides a 'ModerationAction' activity action.
  *
  * @ModerationStateMachine(
- *  id = "send_email",
- *  label = @Translation("Mailing List Send Email Transition"),
- *  transition_id = "send_email",
+ *  id = "approve_sending",
+ *  label = @Translation("Mailing List Approve Sending Transition"),
+ *  transition_id = "approve_sending",
  *  entity_type = "group",
  *  entity_bundle = "mailing_list",
  * )
  */
-class MailingListSendEmailTransition extends ModerationStateMachineBase implements ContainerFactoryPluginInterface {
+class ApproveSendingTransition extends ModerationStateMachineBase implements ContainerFactoryPluginInterface {
 
   /**
-   * @var MailingListActivity
+   * @var \Drupal\dmt_mailing_list_activity\MailingListActivity
    */
   protected $mailingListActivity;
 
@@ -73,7 +73,8 @@ class MailingListSendEmailTransition extends ModerationStateMachineBase implemen
   }
 
   /**
-   * {@inheritdoc}
+   * @param \Drupal\Core\Entity\ContentEntityInterface $entity
+   * @return array
    */
   public function validate(ContentEntityInterface $entity) {
     $violations = [];
@@ -83,45 +84,30 @@ class MailingListSendEmailTransition extends ModerationStateMachineBase implemen
       $violations[] = [
         'message' => 'Please add content and recipients before sending for approval.',
         'cause' => 'allow_link' // send this cause if you want to ignore this violation when showing links
-        ];
+      ];
     }
 
     return $violations;
   }
 
-  /**
-   * {@inheritdoc}
-   */
   public function switch(ContentEntityInterface $entity) {
     /** @var \Drupal\group\Entity\GroupInterface $group */
     $group = $entity;
 
-    // remove administrator role from the group
-    $account = $group->getOwner();
-    $group_membership = $this->groupMembershipLoader->load($group, $account);
+    $group_content_contents = $group->getContent('group_node:content');
 
-    $group_content = $group_membership->getGroupContent();
-
-    /** @var \Drupal\Core\Field\EntityReferenceFieldItemList $group_roles */
-    $group_roles = $group_content->get('group_roles');
-
-    foreach ($group_roles->referencedEntities() as $delta => $role) {
-      /** @var ContentEntityInterface $role */
-      if ($role->id() == 'mailing_list-administrator') {
-        $group_roles->removeItem($delta);
-        break;
-      }
+    foreach ($group_content_contents as $group_content) {
+      /** @var GroupContent $group_content */
+      $activity_entity = $group_content->getEntity();
+      $data['group_id'] = $group->id();
+      $data['context'] = 'organisation_activity_context';
+      $create_action = $this->activityActionManager->createInstance('create_activity_action');
+      $create_action->create($activity_entity, $data);
     }
 
-    // set group roles
-    $group_content->set('group_roles', $group_roles->referencedEntities());
-    // save group membership
-    $group_content->save();
-
-    // send message to moderator
     /** @var \Drupal\activity_moderation\Plugin\ActivityModeration\OpenModerationTicket $create_action */
-    $activity_moderation = $this->activityModerationManager->createInstance('open_moderation_ticket');
-    $activity_moderation->createModerationActivity($group);
+    $activity_moderation = $this->activityModerationManager->createInstance('close_mailing_list_ticket');
+    $activity_moderation->closeModerationActivity($group);
   }
 
 }
