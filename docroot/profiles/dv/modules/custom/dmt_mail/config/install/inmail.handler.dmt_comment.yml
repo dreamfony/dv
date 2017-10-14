@@ -1,4 +1,4 @@
-# todo #12 this file should be removed together with DmtMailComment Handler
+# todo #45 #12 this file should be removed together with DmtMailComment Handler
 langcode: en
 status: false
 id: dmt_comment
