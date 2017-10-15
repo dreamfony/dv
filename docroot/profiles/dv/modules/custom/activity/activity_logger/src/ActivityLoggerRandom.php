@@ -3,7 +3,7 @@
 namespace Drupal\activity_logger;
 
 /**
- * Defines a utility class for creating random data.
+ * Defines a utility class for creating random hash.
  */
 class ActivityLoggerRandom {
 

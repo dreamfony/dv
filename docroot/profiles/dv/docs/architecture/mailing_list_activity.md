@@ -1,40 +1,44 @@
-## Mailing List Activity Workflow [mailing_list_activity_workflow]
+## Mailing List Activity
 
-todo #25 analyze this workflow @dreamfony
+All related code should be placed in [dmt_mailing_list_activity](../../modules/custom/dmt_mailing_list/modules/dmt_mailing_list_activity/dmt_mailing_list_activity.info.yml) module.
 
-**Legend:**
-  - TBD - to be decided
-  - [] - machine name
+#### Mailing List Activity is a bundle of [activity](../../modules/custom/activity/activity_creator/src/Entity/Activity.php) entity
+ 
+##### **[Fields](http://local.dv.com/admin/structure/activity_type/mailing_list_activity/edit/fields)**:
 
-### Related Entities
+- Destinations [field_activity_destinations]    
+  - type: List (text)
+   
+- Entity [field_activity_entity]
+  - type: Entity reference [content](content.md)
 
-**Activity** [activity](../entities/activity.md)
-  - Mailing List Activity [mailing_list_activity]
+- Hash [field_activity_hash]
+  - type: Text (plain)
+  - hash is generated with [ActivityLoggerRandom](../../modules/custom/activity/activity_logger/src/ActivityLoggerRandom.php)
+  - and the field is populated in [ActivityFactory](../../modules/custom/activity/activity_creator/src/ActivityFactory.php)
+    
+- Mailing List [field_activity_mailing_list]
+  - type: Entity reference [mailing_list](mailing_list.md)
+  
+- Message [field_activity_message]
+  - type: Entity reference [question message](question_message.md)
+   
+- Output text [field_activity_output_text]
+  - type: Text (formatted, long)
+  
+- Recipient group [field_activity_recipient_group]
+  - type: Entity reference
+  - not used but we wont remove it since its tied deep in to activity base module
+  
+- Recipient user [field_activity_recipient_user]
+  - type: Entity reference [user](user.md)
+   
+- Reply [field_activity_reply]
+  - type: Entity reference [answer](answer_comment.md) (comment)
+  
+##### **[Mailing List Activity Workflow](http://local.dv.com/admin/config/workflow/workflows/manage/mailing_list_activity_workflow)**:
 
-**Node** [node](../entities/node.md)
- - Content [content]
-
-**Comment** [comment](../entities/comment.md)
- - Activity [activity]
-   - references activity; recipient, has link to log which shows activity status + date
- - Comment [comment]
-   - comment on activity or answer
- - Answer [answer]
-   - answer to a question
- - Log [log]
-   - question revision log written in comment
-
-**Message** [message](../entities/message.md)
-
-1. Email that is sent is constructed from Message entity type Question [question] and it creates Activity entity of type Mailing List Activity [mailing_list_activity]
-
-### Workflow
-
-Workflow [mailing_list_activity_workflow] states on Mailing List Activity should only be changed by system (in code).
-States that describe quality of response (eg. Not Held / Rejected) are attached to Comment which represents response.
-FOI law has SLA (Service Level Agreement) of 20 days and our states have to be aware of that. Time directly influences state.
-
-### Mailing List Activity States
+###### States
 
 **Pending States**
 - Pending (Waiting to be sent) [p_waiting]
@@ -62,7 +66,7 @@ FOI law has SLA (Service Level Agreement) of 20 days and our states have to be a
 **Canceled States**
 - Canceled [canceled]
 
-### Mailing List Activity Transitions
+###### Transitions
 
 **Mark as Delivery error** [delivery_error]
   - from: [p_waiting]
@@ -88,7 +92,7 @@ FOI law has SLA (Service Level Agreement) of 20 days and our states have to be a
    - uc:
      - [ ] **mod, own** - triggers [auto_response] transition
      - [ ] **sys** - adds flag on organisation that it sends auto response messages
-       - todo #26 make a module to handle auto response messages
+       - make a module to handle auto response messages
        - will be used as one of the criteria to automatically set messages as auto_response
        - other criteria may include response time, message subject
        - [Detecting autoresponders](https://github.com/jpmckinney/multi_mail/wiki/Detecting-autoresponders)
@@ -115,5 +119,4 @@ FOI law has SLA (Service Level Agreement) of 20 days and our states have to be a
   - uc:
     - [ ] **sys** - unpublishes related [activity_comment]
 
-
-___
+  

@@ -2,15 +2,19 @@
 
 ##### Main high level features overview from dev. perspective
 
-- [Content](architecture/content.md)
-   - [Comments](architecture/comments.md)
-- [Organisations](architecture/organisations.md)
-   - [Positions](architecture/positions.md)
-- [Mailing List](architecture/mailing_list.md)
+- [Content](architecture/content.md) (node)
+  - [Answer](architecture/answer_comment.md) (comment)
+  - [Activity](architecture/activity_comment.md) (comment)
+  - [Default Comment](architecture/default_comment.md) (comment)
+  - [Log](architecture/log_comment.md) (comment)
+- [Organisations](architecture/organisations.md) (user, group, profile)
+   - [Positions](architecture/positions.md) (custom entity)
+- [Mailing List](architecture/mailing_list.md) (group)
+  - [Mailing List Activity](architecture/mailing_list_activity.md) (activity)
 - [Moderation](architecture/moderation.md)
 - [Sending Emails](architecture/sending_emails.md)
 - [Receiving Emails](architecture/recieving_emails.md)
-- [Geo Area](architecture/geoarea.md)
+- [Geo Area](architecture/geoarea.md) (node, group)
 
 ##### Support modules
 

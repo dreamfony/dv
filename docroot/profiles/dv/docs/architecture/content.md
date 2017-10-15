@@ -1,5 +1,8 @@
 ## Content
 
+![Content](images/content.jpg "Figure 1 - Survey Content")
+**Figure 1** - Survey Content
+
 All related code should be placed in [dmt_content](../../modules/custom/dmt_content/dmt_content.module) module.
 
 #### Content is a bundle of node entity (Content type). 
@@ -25,4 +28,9 @@ All related code should be placed in [dmt_content](../../modules/custom/dmt_cont
     - We send these in email    
 - Answers
   - Field that references [comments](comments.md) (answer, activity)
+  
+**Views:**
+- [Mailing list items](http://local.dv.com/admin/structure/views/view/mailing_list_items)
+  - is used to show questions in Figure 1
     
+
