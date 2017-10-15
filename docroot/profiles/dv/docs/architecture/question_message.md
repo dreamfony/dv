@@ -1,6 +1,6 @@
 ## Question Message
 
-// TODO document Question mail template
+// document Question mail template
 // current template is called Content is hardcoded to Croatian language
 // and does not have recipient-data and sender-data tokens
 
