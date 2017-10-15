@@ -92,7 +92,8 @@
         "drupal/extra_field": "^1.0@alpha",
         "drupal/console": "~1.0",
         "drupal/permissions_filter": "~1.0",
-        "drupal/search_kint": "~1.0"
+        "drupal/search_kint": "~1.0",
+        "drupal/radix_layouts": "^4.0"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^2.7",

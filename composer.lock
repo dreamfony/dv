@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "85c3bf33a1287f4cfaf2c0a661beedfd",
-    "content-hash": "8fd63187367960cf080d343a4b51017a",
+    "hash": "0f75431ea29e6dcc1e02314eb3215043",
+    "content-hash": "f1c62958feb10091d5ee53cbe31c69bb",
     "packages": [
         {
             "name": "acquia/blt",
@@ -6179,6 +6179,53 @@
             }
         },
         {
+            "name": "drupal/permissions_filter",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/permissions_filter",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/permissions_filter-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "ad554347d564db530ec552c703aaad44826c0f88"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1477463040",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "ajay_reddy",
+                    "homepage": "https://www.drupal.org/user/3261994"
+                }
+            ],
+            "description": "Create a filter for permission page.",
+            "homepage": "https://www.drupal.org/project/permissions_filter",
+            "support": {
+                "source": "http://cgit.drupalcode.org/permissions_filter"
+            }
+        },
+        {
             "name": "drupal/persistent_login",
             "version": "1.0.0-alpha3",
             "source": {
@@ -6529,6 +6576,57 @@
             }
         },
         {
+            "name": "drupal/radix_layouts",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/radix_layouts",
+                "reference": "8.x-4.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/radix_layouts-8.x-4.0.zip",
+                "reference": "8.x-4.0",
+                "shasum": "a07eee14b7ec597b4c0c6daba22573a8a5e7091d"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-4.x": "4.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-4.0",
+                    "datestamp": "1495563184",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "arshadcn",
+                    "homepage": "https://www.drupal.org/user/571032"
+                },
+                {
+                    "name": "dsnopek",
+                    "homepage": "https://www.drupal.org/user/266527"
+                }
+            ],
+            "description": "Responsive layouts built on the Bootstrap 3 grid system.",
+            "homepage": "https://www.drupal.org/project/radix_layouts",
+            "support": {
+                "source": "http://cgit.drupalcode.org/radix_layouts"
+            }
+        },
+        {
             "name": "drupal/recaptcha",
             "version": "2.2.0",
             "source": {
@@ -6818,6 +6916,53 @@
                 "irc": "irc://irc.freenode.org/drupal-search-api"
             },
             "time": "2017-09-15 11:08:05"
+        },
+        {
+            "name": "drupal/search_kint",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/search_kint",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/search_kint-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "b9ce4cc38a84837d9969748127fe79755e0ea738"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1461628928",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "dahousecat",
+                    "homepage": "https://www.drupal.org/user/1410992"
+                }
+            ],
+            "description": "Allows searching through the kint dump",
+            "homepage": "https://www.drupal.org/project/search_kint",
+            "support": {
+                "source": "http://cgit.drupalcode.org/search_kint"
+            }
         },
         {
             "name": "drupal/sitemap",
