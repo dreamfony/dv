@@ -2,7 +2,7 @@
 
 #### User
 
-Every organisations has its own user.
+Every organisations has its own user entry.
 
 #### Profile
 

@@ -1,6 +1,6 @@
-## Architecture - Getting around
+# Architecture - Getting around
 
-##### Main high level features overview from dev. perspective
+#### Main high level features overview
 
 - [Content](architecture/content.md) (node)
   - [Answer](architecture/answer_comment.md) (comment)
@@ -16,9 +16,10 @@
 - [Receiving Emails](architecture/recieving_emails.md)
 - [Geo Area](architecture/geoarea.md) (node, group)
 
-##### Support modules
+#### Support modules
 
 - Moderation state machine
+  - Moderation state machine chain
 - Ajax Comments
 
 

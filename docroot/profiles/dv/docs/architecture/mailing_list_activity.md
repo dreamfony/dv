@@ -1,10 +1,10 @@
-## Mailing List Activity
+# Mailing List Activity
 
 All related code should be placed in [dmt_mailing_list_activity](../../modules/custom/dmt_mailing_list/modules/dmt_mailing_list_activity/dmt_mailing_list_activity.info.yml) module.
 
-#### Mailing List Activity is a bundle of [activity](../../modules/custom/activity/activity_creator/src/Entity/Activity.php) entity
+## Mailing List Activity is a bundle of [activity](../../modules/custom/activity/activity_creator/src/Entity/Activity.php) entity
  
-##### **[Fields](http://local.dv.com/admin/structure/activity_type/mailing_list_activity/edit/fields)**:
+#### **[Fields](http://local.dv.com/admin/structure/activity_type/mailing_list_activity/edit/fields)**
 
 - Destinations [field_activity_destinations]    
   - type: List (text)
@@ -35,10 +35,15 @@ All related code should be placed in [dmt_mailing_list_activity](../../modules/c
    
 - Reply [field_activity_reply]
   - type: Entity reference [answer](answer_comment.md) (comment)
-  
-##### **[Mailing List Activity Workflow](http://local.dv.com/admin/config/workflow/workflows/manage/mailing_list_activity_workflow)**:
 
-###### States
+#### **[View modes](http://local.dv.com/admin/group/types/manage/mailing_list/display)**
+- Comment Activity
+  - Moderation Information
+  - Reply 
+  
+### **[Mailing List Activity Workflow](http://local.dv.com/admin/config/workflow/workflows/manage/mailing_list_activity_workflow)**
+
+#### States
 
 **Pending States**
 - Pending (Waiting to be sent) [p_waiting]
@@ -66,7 +71,7 @@ All related code should be placed in [dmt_mailing_list_activity](../../modules/c
 **Canceled States**
 - Canceled [canceled]
 
-###### Transitions
+#### Transitions
 
 **Mark as Delivery error** [delivery_error]
   - from: [p_waiting]

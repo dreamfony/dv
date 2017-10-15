@@ -1,20 +1,25 @@
-## Mailing List
+# Mailing List
 
 All related code should be placed in [dmt_mailing_list](../../modules/custom/dmt_mailing_list/dmt_mailing_list.info.yml) module.
 
-#### Mailing List is a bundle of group entity
+## Mailing List is a bundle of group entity
  
-##### **[Fields](http://local.dv.com/admin/group/types/manage/mailing_list/fields)**:
+#### **[Fields](http://local.dv.com/admin/group/types/manage/mailing_list/fields)**
 
 - Group Comments
   - Is used to store comments on particular Survey probably just for moderation purposes. Comments are handled by [ajax_comments](../../modules/custom/ajax_comments/ajax_comments.info.yml) module and [dmt_group_comments](../../modules/custom/dmt_group_comments/dmt_group_comments.info.yml) module.
 - Panelizer
   - Is used for storing current view mode for the group. 
-    Mailing List has 2 view modes:
+
+#### **[View modes](http://local.dv.com/admin/group/types/manage/mailing_list/display)**
+- Full
+  - Full view mode is split in to 2 sub modes with [panelizer](https://www.drupal.org/project/panelizer) contrib. module
     - Mailing List Default - Used for survey creation form
-    - Default - Used for Viewing the survey
-    
-##### **[Group content plugins](http://local.dv.com/admin/group/types/manage/mailing_list/content)**:
+    - Default - Used for Viewing the survey using [Mailing List Answers :: Group By Recipient view](http://local.dv.com/admin/structure/views/view/mailing_list_answers_group_by_recipient)
+- Comments
+- My Survey Teaser
+
+#### **[Group content plugins](http://local.dv.com/admin/group/types/manage/mailing_list/content)**
 - Group node (Content) 
   - Is used to add [content](content.md) to the group.
 - Group membership
@@ -23,10 +28,11 @@ All related code should be placed in [dmt_mailing_list](../../modules/custom/dmt
     - Edit Mailing List	- Special role used to allow editing - not sure where it is used right now
     - Owner - Is the owner/creator of the survey	
     - Moderator - Survey moderators
+  
 
-##### **[Mailing list workflow](http://local.dv.com/admin/config/workflow/workflows/manage/mailing_list_workflow)**:
+### **[Mailing list workflow](http://local.dv.com/admin/config/workflow/workflows/manage/mailing_list_workflow)**
 
-###### States
+#### States
 
 - Draft [draft]
 - Email [email]
@@ -34,7 +40,7 @@ All related code should be placed in [dmt_mailing_list](../../modules/custom/dmt
 - Archived [archived]
 - Spam [spam]
 
-###### Transitions
+#### Transitions
 
 - **Create new Draft** [create_new_draft]
   - from: [draft]
