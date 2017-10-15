@@ -1,8 +1,5 @@
 ## Content
 
-![Content](images/content.jpg "Figure 1 - Survey Content")
-**Figure 1** - Survey Content
-
 All related code should be placed in [dmt_content](../../modules/custom/dmt_content/dmt_content.module) module.
 
 #### Content is a bundle of node entity (Content type). 
