@@ -11,9 +11,10 @@
    - [Positions](architecture/positions.md) (custom entity)
 - [Mailing List](architecture/mailing_list.md) (group)
   - [Mailing List Activity](architecture/mailing_list_activity.md) (activity)
-- [Moderation](architecture/moderation.md)
 - [Sending Emails](architecture/sending_emails.md)
 - [Receiving Emails](architecture/recieving_emails.md)
+--------------------------------------------------------
+- [Moderation](architecture/moderation.md)
 - [Geo Area](architecture/geoarea.md) (node, group)
 
 #### Support modules

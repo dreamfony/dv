@@ -17,7 +17,7 @@
     - Organisation
     - Moderator
 - Membership history - currently does not exist
-  - The idea behind this plugin is to better solve what positions entity is doing currently
+  - The idea behind this plugin is to better solve what [positions](positions.md) entity is doing currently
   - Get some ideas form: https://www.drupal.org/node/2801603#comment-12031080
 
 ## User
