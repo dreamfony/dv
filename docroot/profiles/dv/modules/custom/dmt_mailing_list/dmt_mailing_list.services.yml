@@ -7,16 +7,6 @@ services:
     class: Drupal\dmt_mailing_list\MailingListAnswer
     arguments: ['@entity_type.manager']
 
-  access_check.mailing_list_approve:
-    class: Drupal\dmt_mailing_list\Access\MailingListApproveAccessCheck
-    tags:
-      - { name: access_check, applies_to: _mailing_list_approve_access }
-
-  access_check.mailing_list_send:
-    class: Drupal\dmt_mailing_list\Access\MailingListSendAccessCheck
-    tags:
-      - { name: access_check, applies_to: _mailing_list_send_access }
-
   access_check.mailing_list_edit:
     class: Drupal\dmt_mailing_list\Access\MailingListEditAccessCheck
     tags:
