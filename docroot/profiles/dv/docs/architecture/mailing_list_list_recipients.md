@@ -7,7 +7,8 @@ Module handles ui elements and business logic for adding/removing recipients to 
 
 #### Module defines:
 
-- [Recipients](../../modules/custom/dmt_mailing_list/modules/dmt_mailing_list_recipients/src/Recipients.php) service.
+- [Recipients](../../modules/custom/dmt_mailing_list/modules/dmt_mailing_list_recipients/src/Recipients.php) service. Has one method for adding
+recipients to the [mailing_list](mailing_list.md) group.
 
 - [RecipientsForm Block](../../modules/custom/dmt_mailing_list/modules/dmt_mailing_list_recipients/src/Plugin/Block/RecipientsFormBlock.php) which contains
 [Recipients Form](../../modules/custom/dmt_mailing_list/modules/dmt_mailing_list_recipients/src/Form/RecipientsForm.php) which has two elements
