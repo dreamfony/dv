@@ -11,6 +11,7 @@
    - [Positions](architecture/positions.md) (custom entity)
 - [Mailing List](architecture/mailing_list.md) (group)
   - [Mailing List Activity](architecture/mailing_list_activity.md) (activity)
+  - [Mailing List Recipients](architecture/mailing_list_recipients.md)
 - [Sending Emails](architecture/sending_emails.md)
 - [Receiving Emails](architecture/recieving_emails.md)
 --------------------------------------------------------

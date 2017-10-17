@@ -14,7 +14,9 @@ All related code should be placed in [dmt_mailing_list](../../modules/custom/dmt
 #### **[View modes](http://local.dv.com/admin/group/types/manage/mailing_list/display)**
 - Full
   - Full view mode is split in to 2 sub modes with [panelizer](https://www.drupal.org/project/panelizer) contrib. module
-    - Mailing List Default - Used for survey creation form
+    - Mailing List Default - Used for survey creation ui
+      - see [Content](content.md)
+      - see [Mailing List Recipients](mailing_list_list_recipients.md)
     - Default - Used for Viewing the survey using [Mailing List Answers :: Group By Recipient view](http://local.dv.com/admin/structure/views/view/mailing_list_answers_group_by_recipient)
 - Comments
 - My Survey Teaser
