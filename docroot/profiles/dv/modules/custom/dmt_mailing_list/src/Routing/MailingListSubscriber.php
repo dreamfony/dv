@@ -14,7 +14,9 @@ class MailingListSubscriber extends RouteSubscriberBase {
    * {@inheritdoc}
    */
   protected function alterRoutes(RouteCollection $collection) {
-    if ($route = $collection->get('entity.group.edit_form')) {
+    $route = $collection->get('entity.group.edit_form');
+
+    if ($route) {
       $route->setRequirement('_mailing_list_edit_access', 'FALSE');
     }
   }

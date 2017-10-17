@@ -1,32 +1,32 @@
 <?php
 
-namespace Drupal\dmt_mailing_list\Form;
+namespace Drupal\dmt_mailing_list_recipients\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Block\BlockManager;
+use Drupal\dmt_mailing_list_recipients\Recipients;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\dmt_mailing_list\MailingList;
 
 /**
  * Form for editing Persistent Login module settings.
  */
-class OrganisationForm extends FormBase {
+class RecipientsForm extends FormBase {
 
   /**
-   * @var \Drupal\dmt_mailing_list\MailingList $mailingList
+   * @var Recipients $recipients
    */
-  protected $mailingList;
+  protected $recipients;
 
   /**
-   * OrganisationForm constructor.
+   * RecipientsForm constructor.
    *
-   * @param \Drupal\dmt_mailing_list\MailingList $mailing_list
+   * @param \Drupal\dmt_mailing_list_recipients\Recipients $recipients
    */
-  public function __construct(MailingList $mailing_list) {
-    $this->mailingList = $mailing_list;
+  public function __construct(Recipients $recipients) {
+    $this->recipients = $recipients;
   }
 
   /**
@@ -34,7 +34,7 @@ class OrganisationForm extends FormBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('dmt_mailing_list.mailing_list')
+      $container->get('dmt_mailing_list_recipients.recipients')
     );
   }
 
@@ -42,7 +42,7 @@ class OrganisationForm extends FormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'organisation_form';
+    return 'recipients_form';
   }
 
   /**
@@ -50,13 +50,13 @@ class OrganisationForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    $ajax_id = 'organisation_form';
+    $ajax_id = 'recipients_form';
 
     $form['#attributes']['class'][] = $ajax_id;
 
     // Ajax settings of the buttons.
     $ajax_settings = array(
-      'callback' => '\Drupal\dmt_mailing_list\Form\OrganisationForm::ajaxFormCallback',
+      'callback' => '\Drupal\dmt_mailing_list_recipients\Form\RecipientsForm::ajaxFormCallback',
       'wrapper' => $ajax_id,
       'effect' => 'fade',
     );
@@ -97,7 +97,7 @@ class OrganisationForm extends FormBase {
     $gids = $form_state->getValue('group');
     $mailing_list_id = $form['#mailing_list_id'];
 
-    $this->mailingList->addRecipients($gids, $mailing_list_id);
+    $this->recipients->addRecipients($gids, $mailing_list_id);
   }
 
   public function ajaxFormCallback(array &$form, FormStateInterface $form_state) {
@@ -120,17 +120,17 @@ class OrganisationForm extends FormBase {
 
       // replace form with empty one
       $form['group']['#value'] = NULL;
-      $response->addCommand(new ReplaceCommand('#organisation-form', $form));
+      $response->addCommand(new ReplaceCommand('#recipients-form', $form));
 
       // replace view
-      $view = self::getMailingListOrganisationsView();
+      $view = self::getRecipientsView();
       $response->addCommand(new ReplaceCommand('.view-mailing-list-organisations', $view));
 
       return $response;
     }
   }
 
-  static function getMailingListOrganisationsView() {
+  static function getRecipientsView() {
     // replace items view
     /** @var BlockManager $block_manager */
     $block_manager = \Drupal::service('plugin.manager.block');

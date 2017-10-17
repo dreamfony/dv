@@ -13,25 +13,3 @@ dmt_mailing_list.edit_title:
   requirements:
     _entity_access: 'group.update'
     group: \d+
-
-dmt_mailing_list.ajax_organisation_delete_link:
-  path: 'ajax/{group}/{group_content}/ajax-delete'
-  defaults:
-    _controller: '\Drupal\dmt_mailing_list\Controller\GroupContentAjaxController::delete'
-  requirements:
-    _entity_access: 'group.update'
-    group: \d+
-    group_content: \d+
-
-dmt_mailing_list.reply:
-  path: '/ajax_activity_reply/reply/{entity_type}/{entity}/{field_name}/{pid}'
-  defaults:
-    _controller: '\Drupal\dmt_mailing_list\Controller\ReplyLinkController::reply'
-    pid: ~
-  requirements:
-    _access: 'TRUE'
-    pid: ^[0-9]+
-  options:
-    parameters:
-      entity:
-        type: entity:{entity_type}

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dmt_mailing_list\Plugin\views\field;
+namespace Drupal\dmt_mailing_list_recipients\Plugin\views\field;
 
 use Drupal\group\Entity\GroupContent;
 use Drupal\group\Entity\Group;
@@ -16,7 +16,7 @@ use Drupal\Core\Link;
  *
  * @ViewsField("group_content_ajax_delete_link")
  */
-class GroupContentAjaxDeleteLink extends FieldPluginBase {
+class RecipientDeleteLink extends FieldPluginBase {
 
   /**
    * @{inheritdoc}
@@ -36,7 +36,7 @@ class GroupContentAjaxDeleteLink extends FieldPluginBase {
 
     if ($group->bundle() == 'mailing_list' && $group->access('update')) {
 
-      $url = Url::fromRoute('dmt_mailing_list.ajax_organisation_delete_link', [
+      $url = Url::fromRoute('dmt_mailing_list_recipients.ajax_recipient_delete_link', [
         'group' => $group->id(),
         'group_content' => $group_content->id()
       ]);

@@ -1,0 +1,8 @@
+dmt_mailing_list_recipients.ajax_recipient_delete_link:
+  path: 'ajax/{group}/{group_content}/ajax-delete'
+  defaults:
+    _controller: '\Drupal\dmt_mailing_list_recipients\Controller\RecipientsController::delete'
+  requirements:
+    _entity_access: 'group.update'
+    group: \d+
+    group_content: \d+

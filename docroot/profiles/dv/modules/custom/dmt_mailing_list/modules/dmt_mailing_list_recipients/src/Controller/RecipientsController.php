@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dmt_mailing_list\Controller;
+namespace Drupal\dmt_mailing_list_recipients\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Ajax\AjaxResponse;
@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Block\BlockManager;
 
-class GroupContentAjaxController extends ControllerBase {
+class RecipientsController extends ControllerBase {
 
   /**
    * @var \Drupal\Core\Entity\EntityFormBuilder
@@ -24,7 +24,7 @@ class GroupContentAjaxController extends ControllerBase {
   protected $blockManager;
 
   /**
-   * GroupContentAjaxController constructor.
+   * Recipients Controller constructor.
    *
    * @param \Drupal\Core\Entity\EntityFormBuilder $entity_form_builder
    * @param \Drupal\Core\Block\BlockManager $block_manager
@@ -45,6 +45,7 @@ class GroupContentAjaxController extends ControllerBase {
   }
 
   /**
+   * @param \Drupal\Core\Entity\ContentEntityInterface $group
    * @param \Drupal\Core\Entity\ContentEntityInterface $group_content
    * @return \Drupal\Core\Ajax\AjaxResponse
    */
@@ -55,13 +56,13 @@ class GroupContentAjaxController extends ControllerBase {
     $response = new AjaxResponse();
     $selector = '.view-mailing-list-organisations';
 
-    $view = $this->getMailingListOrganisationsView();
+    $view = $this->getRecipientsView();
     $response->addCommand(new ReplaceCommand($selector, $view));
 
     return $response;
   }
 
-  public function getMailingListOrganisationsView() {
+  public function getRecipientsView() {
     $plugin_block = $this->blockManager->createInstance('views_block:mailing_list_organisations-block_1');
     if ($plugin_block->access(\Drupal::currentUser())) {
       return $plugin_block->build();
