@@ -7,6 +7,8 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Block\BlockManager;
+use Drupal\Core\Routing\RouteMatch;
+use Drupal\Core\Session\AccountInterface;
 use Drupal\dmt_mailing_list_recipients\Recipients;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -21,12 +23,18 @@ class RecipientsForm extends FormBase {
   protected $recipients;
 
   /**
-   * RecipientsForm constructor.
-   *
-   * @param \Drupal\dmt_mailing_list_recipients\Recipients $recipients
+   * @var RouteMatch
    */
-  public function __construct(Recipients $recipients) {
+  protected $routeMatch;
+
+  /**
+   * RecipientsForm constructor.
+   * @param \Drupal\dmt_mailing_list_recipients\Recipients $recipients
+   * @param \Drupal\Core\Routing\RouteMatch $routeMatch
+   */
+  public function __construct(Recipients $recipients, RouteMatch $routeMatch) {
     $this->recipients = $recipients;
+    $this->routeMatch = $routeMatch;
   }
 
   /**
@@ -34,7 +42,8 @@ class RecipientsForm extends FormBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('dmt_mailing_list_recipients.recipients')
+      $container->get('dmt_mailing_list_recipients.recipients'),
+      $container->get('current_route_match')
     );
   }
 
@@ -74,7 +83,7 @@ class RecipientsForm extends FormBase {
       ),
     ];
 
-    $group = \Drupal::routeMatch()->getParameter('group');
+    $group = $this->routeMatch->getParameter('group');
     $form['#mailing_list_id'] = $group->id();
 
     $form['actions']['#type'] = 'actions';
