@@ -6,8 +6,6 @@
 
 [Admin link](http://local.dv.com/admin/structure/message/manage/content)
 
-Entity: [Message.php](../../../../modules/contrib/message/src/Entity/Message.php)
-
 **Settings**:
   - subject: ?
   - body:

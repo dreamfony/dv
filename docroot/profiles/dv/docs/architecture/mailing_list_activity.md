@@ -79,7 +79,7 @@ All related code should be placed in [dmt_mailing_list_activity](../../modules/c
   - triggers:
     - system - mail service returns delivery error response
   - uc:
-    - [ ] **sys** - sends [activity_delivery_error] [message](../entities/message.md)
+    - [ ] **sys** - sends [activity_delivery_error] [message](activity_delivery_error_message.md)
     - [ ] **mod** - checks the validity of email address edits if necessary
     - [ ] **mod** - clicks Mark as Pending (Waiting to be sent)
 
