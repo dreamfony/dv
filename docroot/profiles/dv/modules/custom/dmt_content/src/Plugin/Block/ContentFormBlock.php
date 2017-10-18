@@ -1,5 +1,5 @@
 <?php
-namespace Drupal\dmt_mailing_list\Plugin\Block;
+namespace Drupal\dmt_content\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Access\AccessResult;
