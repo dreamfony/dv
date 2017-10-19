@@ -89,7 +89,7 @@ class RecipientsForm extends FormBase {
 
     $form['actions']['submit'] = array(
       '#type' => 'submit',
-      '#value' => $this->t('Add Recipient'),
+      '#value' => $this->t('Add Recipients'),
       '#button_type' => 'primary',
       '#ajax' => $ajax_settings
     );
