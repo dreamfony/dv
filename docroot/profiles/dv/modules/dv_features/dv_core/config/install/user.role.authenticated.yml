@@ -31,5 +31,6 @@ permissions:
   - 'view files'
   - 'view own profile profile'
   - 'view own unpublished content'
+  - 'view profile'
   - 'view published activity entities'
   - 'view published positions entities'
