@@ -7,7 +7,6 @@ Feature: Create Survey
   @javascript
   Scenario: Successfully Create Survey
     Given I am logged in as a user with the "journalist" persona
-    Then I should see the link "Edit"
     Then I should see the link "Create Survey"
     When I click "Create Survey"
     Then I should see "Edit Title"
@@ -17,3 +16,12 @@ Feature: Create Survey
     And I press the "Save" button
     And I wait for AJAX to finish
     Then I should see "Test Survey"
+    When I select the first autocomplete option for "Hrv" on the "Recipients" field
+    Then the "Recipients" field should contain "HRVATSKI SABOR (55)"
+    And I press "Add Recipient"
+    And I wait for AJAX to finish
+    And I wait for 5 seconds
+
+    ##When I press the "Add recipient" button
+    #And I wait for AJAX to finish
+    #Then I should not see the text "10000 Zagreb"
