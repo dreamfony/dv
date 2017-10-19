@@ -12,7 +12,9 @@ use Drupal\Core\Entity\ContentEntityInterface;
 abstract class ModerationStateMachineBase extends PluginBase implements ModerationStateMachineInterface {
 
   /**
-   * @inheritdoc
+   *
+   *
+   * @param \Drupal\Core\Entity\ContentEntityInterface $entity
    */
   public function validate(ContentEntityInterface $entity) {
 
@@ -21,8 +23,6 @@ abstract class ModerationStateMachineBase extends PluginBase implements Moderati
   /**
    * @inheritdoc
    */
-  public function switch(ContentEntityInterface $entity) {
-
-  }
+  abstract function switch(ContentEntityInterface $entity);
 
 }
