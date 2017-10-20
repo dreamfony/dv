@@ -9,7 +9,7 @@ Feature: Create Survey
     Given I am logged in as a user with the "journalist" persona
     Then I should see the link "Create Survey"
     When I click "Create Survey"
-    Then I should see "Edit Title"
+    Then I should see the link "Edit Title"
     And I should see the text "New Survey"
 
     # Edit title
