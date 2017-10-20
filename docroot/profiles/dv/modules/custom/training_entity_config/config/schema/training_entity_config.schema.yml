@@ -1,0 +1,13 @@
+training_entity_config.announcement.*:
+  type: config_entity
+  label: "Site config"
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'label'
+    message:
+      type: text
+      label: 'Text'
