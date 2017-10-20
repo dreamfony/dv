@@ -1,0 +1,9 @@
+
+# Marko entity useless menu items definition
+entity.marko_entity_useless.collection:
+  title: 'Marko entity useless'
+  route_name: entity.marko_entity_useless.collection
+  description: 'List Marko entity useless (bundles)'
+  parent: system.admin_structure
+  weight: 99
+
