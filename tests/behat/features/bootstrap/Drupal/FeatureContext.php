@@ -8,6 +8,11 @@ use Behat\Mink\Exception\ExpectationException;
 use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Testwork\Environment\Environment;
+use Behat\Gherkin\Node\TableNode;
+use Behat\Behat\Hook\Scope\AfterScenarioScope;
+use Drupal\profile\Entity\Profile;
+use Drupal\group\Entity\Group;
+use Drupal\DrupalExtension\Hook\Scope\EntityScope;
 
 /**
  * FeatureContext class defines custom step definitions for Behat.
@@ -157,6 +162,169 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
     $region = $this->minkContext->getRegion($region);
 
     $this->assertSession()->fieldValueEquals($field, $value, $region);
+  }
+
+  /**
+   * Hook into user creation to add profile fields `@afterUserCreate`
+   *
+   * @afterUserCreate
+   */
+  public function alterUserParameters(EntityScope $event) {
+    $account = $event->getEntity();
+    // Get profile of current user.
+    if (!empty($account->uid)) {
+      $user_account = \Drupal::entityTypeManager()->getStorage('user')->load($account->uid);
+      $storage = \Drupal::entityTypeManager()->getStorage('profile');
+      if (!empty($storage)) {
+        $user_profile = $storage->loadByUser($user_account, 'profile', TRUE);
+        if ($user_profile) {
+          // Set given profile field values.
+          foreach ($user_profile->toArray() as $field_name => $value) {
+            if (isset($account->{$field_name})) {
+              $user_profile->set($field_name, $account->{$field_name});
+            }
+          }
+          $user_profile->save();
+        }
+      }
+    }
+  }
+
+  /**
+   * Creates group of a given type provided in the form:
+   * | name     | mail            | address                       |
+   * | My title | test@test.com   | 10000 Zagreb, Trg sv. Marka 6 |
+   * | ...      | ...             | ...                           |
+   *
+   * @Given organisations:
+   */
+  public function createOrganisations(TableNode $orgTable) {
+
+
+    $group =  (object) [
+      'language' => 'en',
+      'title' => 'Test Activity Group',
+      'type' => 'area_of_activity'
+    ];
+
+    $activity_group = $this->groupCreate($group);
+
+    foreach ($orgTable->getHash() as $orgHash) {
+      $org = (object) $orgHash;
+      $org_user = $this->orgCreate($org);
+
+      $activity_group->addMember($org_user, ['group_roles' => [$activity_group->bundle() . '-organisation']]);
+    }
+  }
+
+  /**
+   * Create a organisation.
+   *
+   * @param $org
+   * @return mixed
+   * @throws \Exception
+   */
+  public function orgCreate($org) {
+    // Get Org Id
+    $org_user_id = \Drupal::service('dmt_organisation.organisation')
+        ->createOrganisation();
+
+    $org_user = user_load($org_user_id);
+
+    $address = $this->formatAddressField($org->address);
+
+    $org_profile = Profile::create([
+      'type' => 'organisation_profile',
+      'uid' => $org_user_id,
+      'field_org_title' => $org->name,
+      'field_org_email' => [$org->mail],
+      'field_org_address' => $address
+    ]);
+
+    $org_profile->save();
+
+    return $org_user;
+  }
+
+  /**
+   * Format Address Field
+   *
+   * @param $value
+   * @return array
+   */
+  public function formatAddressField($value) {
+    // example address:
+    // 10000 Zagreb, Trg sv. Marka 6
+
+    // $address_prep
+    // [0] => 10000 Zagreb
+    // [1] => Trg sv. Marka 6
+    $address_prep = explode(', ', $value, 2);
+
+    // $address_postal_code_and_city
+    // [0] => 10000
+    // [1] => Zagreb
+    $address_postal_code_and_city = explode(" ", $address_prep[0], 2);
+
+    $address = [
+      'address_line1' => $address_prep[1],
+      'postal_code' => $address_postal_code_and_city[0],
+      'locality' => $address_postal_code_and_city[1],
+      'country_code' => 'HR'
+    ];
+
+    return $address;
+  }
+
+  /**
+   * Creates group of a given type provided in the form:
+   * | title    | description     | author   | type        | language
+   * | My title | My description  | username | open_group  | en
+   * | ...      | ...             | ...      | ...         | ...
+   *
+   * @Given groups:
+   */
+  public function createGroups(TableNode $groupsTable) {
+    foreach ($groupsTable->getHash() as $groupHash) {
+      $group = (object) $groupHash;
+      $this->groupCreate($group);
+    }
+  }
+
+  /**
+   * Create a group.
+   *
+   * @param $group
+   * @return mixed
+   * @throws \Exception
+   */
+  public function groupCreate($group) {
+    $account = user_load(1);
+
+    // Let's create some groups.
+    $group_object = Group::create([
+      'langcode' => $group->language,
+      'uid' => $account->id(),
+      'type' => $group->type,
+      'label' => $group->title
+    ]);
+    $group_object->save();
+    return $group_object;
+  }
+
+  /**
+   * @AfterScenario @groups
+   */
+  public function cleanupGroups(AfterScenarioScope $scope) {
+    $query = \Drupal::entityQuery('group')
+      ->condition('label', array(
+        'Test %'
+      ), 'LIKE');
+    $group_ids = $query->execute();
+    $groups = entity_load_multiple('group', $group_ids);
+    foreach ($groups as $group) {
+      $group->delete();
+    }
   }
 
 }

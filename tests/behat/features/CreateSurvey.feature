@@ -4,9 +4,15 @@ Feature: Create Survey
   Role: As a LU
   Goal/desire: I want see and get notified when content is created
 
-  @javascript
+  @javascript @groups
   Scenario: Successfully Create Survey
-    Given I am logged in as a user with the "journalist" persona
+    Given organisations:
+      | name  | mail        | address                       |
+      | Test Org 1 | org1@dv.com | 10000 Zagreb, Trg sv. Marka 6 |
+      | Test Org 2 | org2@dv.com | 10000 Zagreb, Trg sv. Marka 6 |
+      | Test Org 3 | org3@dv.com | 10000 Zagreb, Trg sv. Marka 6 |
+      | Test Org 4 | org4@dv.com | 10000 Zagreb, Trg sv. Marka 6 |
+    And I am logged in as a user with the "journalist" persona
     Then I should see the link "Create Survey"
     When I click "Create Survey"
     Then I should see the link "Edit Title"
@@ -42,24 +48,24 @@ Feature: Create Survey
     Then I should see the text "Test Test" in the "Survey content list"
 
     # Add one recipient
-    When I select the first autocomplete option for "Hrv" on the "Recipients" field
-    Then the "Recipients" field should contain "HRVATSKI SABOR (55)"
+    When I select the first autocomplete option for "Test Org" on the "Recipients" field
+    # Then the "Recipients" field should contain "HRVATSKI SABOR (55)"
     And I press "Add Recipients"
     And I wait for AJAX to finish
-    Then I should see the link "HRVATSKI SABOR"
+    Then I should see the link "Test Org 1"
 
     # Remove recipient
     When I click "Remove" in the "Survey recipients list" region
     And I wait for AJAX to finish
-    Then I should not see the link "HRVATSKI SABOR"
+    Then I should not see the link "Org 1"
     And I should see the text "No Recipients selected yet." in the "Survey recipients list" region
 
     # Add Multiple recipients
-    When I select the first autocomplete option for "Politika i" on the "Recipients" field
-    Then the "Recipients" field should contain "Politika i javna vlast (54)"
+    When I select the first autocomplete option for "Test Activity Group" on the "Recipients" field
+    # Then the "Recipients" field should contain "Politika i javna vlast (54)"
     And I press "Add Recipients"
     And I wait for AJAX to finish
-    Then I should see the link "HRVATSKI SABOR" in the "Survey recipients list" region
-    And I should see the link "Odbor za izbor, imenovanja i upravne poslove Hrvatskoga sabora" in the "Survey recipients list" region
+    Then I should see the link "Test Org 1" in the "Survey recipients list" region
+    And I should see the link "Test Org 2" in the "Survey recipients list" region
 
     And I wait for 5 seconds

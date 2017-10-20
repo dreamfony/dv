@@ -128,7 +128,6 @@ class OrganisationsPostRowSave implements EventSubscriberInterface {
         $activity_ids = $row->getDestinationProperty('field_org_area_of_activity')[0];
 
         if (is_array($activity_ids)) {
-          /// @todo Fix Area of activity add members during import
           foreach ($activity_ids as $activity_id) {
             $activity_group = Group::load($activity_id);
             $activity_group->addMember($organisation_user, ['group_roles' => [$activity_group->bundle() . '-organisation']]);
