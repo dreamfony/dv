@@ -18,6 +18,24 @@ default:
     Drupal\DrupalExtension:
       blackbox: ~
       api_driver: "drupal"
+      region_map:
+        'Page title': '.region--title'
+        'Hero': '.region--hero'
+        'Hero buttons': '.region--hero .btn-group'
+        'Main content': '.region--content'
+        'Main content front': '.region--content'
+        'Sidebar second': 'aside[role=complementary]'
+        'Modal footer': '.modal-footer'
+        'WYSIWYG dialog': '.editor-image-dialog .form-actions'
+        'Survey header': '.block-region-header'
+        'Survey recipients add': '.recipients-form'
+        'Survey recipients list': '.block-views-blockmailing-list-organisations-block-1'
+        'Survey content add': '.ajax-form-entity-node-content-new'
+        'Survey content list': '.block-views-blockmailing-list-items-block-1'
+      selectors:
+        message_selector: '.messages'
+        error_message_selector: '.messages.messages-error'
+        success_message_selector: '.messages.messages-status'
     jarnaiz\JUnitFormatter\JUnitFormatterExtension:
         filename: report.xml
         outputDir: %paths.base%/build/tests
