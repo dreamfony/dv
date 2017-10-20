@@ -70,7 +70,7 @@ install:
   - source ${BLT_DIR}/scripts/travis/setup_project
 
 before_script:
-  - phpenv config-add ci/travis.php.ini
+  - phpenv config-add travis.php.ini
 
 script:
 #  - source $BLT_DIR/scripts/travis/run_tests
