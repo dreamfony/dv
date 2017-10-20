@@ -67,7 +67,7 @@ install:
   - nvm install 4.4.1
   - nvm use 4.4.1
   - source ${BLT_DIR}/scripts/travis/setup_environment
-  - source $BLT_DIR/scripts/travis/setup_project
+  - source ${BLT_DIR}/scripts/travis/setup_project
 
 script:
 #  - source $BLT_DIR/scripts/travis/run_tests
