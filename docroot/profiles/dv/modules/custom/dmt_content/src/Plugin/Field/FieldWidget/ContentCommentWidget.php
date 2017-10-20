@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dmt_mailing_list\Plugin\Field\FieldWidget;
+namespace Drupal\dmt_content\Plugin\Field\FieldWidget;
 
 use Drupal\comment\Plugin\Field\FieldType\CommentItemInterface;
 use Drupal\comment\Plugin\Field\FieldWidget\CommentWidget;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dmt_mailing_list\Plugin\Field\FieldFormatter;
+namespace Drupal\dmt_content\Plugin\Field\FieldFormatter;
 
 use Drupal\comment\Plugin\Field\FieldFormatter\CommentDefaultFormatter;
 use Drupal\comment\Plugin\Field\FieldType\CommentItemInterface;
