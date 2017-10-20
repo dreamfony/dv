@@ -40,7 +40,7 @@ class RecipientDeleteLink extends FieldPluginBase {
         'group' => $group->id(),
         'group_content' => $group_content->id()
       ]);
-      $project_link = Link::fromTextAndUrl(t('Delete'), $url);
+      $project_link = Link::fromTextAndUrl(t('Remove'), $url);
 
       $project_link = $project_link->toRenderable();
       // If you need some attributes.
