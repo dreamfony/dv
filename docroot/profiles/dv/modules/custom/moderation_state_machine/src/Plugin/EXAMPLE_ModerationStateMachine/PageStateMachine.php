@@ -46,7 +46,7 @@ class PageStateMachine extends ModerationStateMachineBase {
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
    */
 
-  public function switch(ContentEntityInterface $entity) {
+  public function switchTransition(ContentEntityInterface $entity) {
     drupal_set_message(t("Page is published!"));
   }
 

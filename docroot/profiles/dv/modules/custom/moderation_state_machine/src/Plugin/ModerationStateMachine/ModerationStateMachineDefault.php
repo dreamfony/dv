@@ -15,7 +15,7 @@ use Drupal\moderation_state_machine\ModerationStateMachineBase;
  */
 class ModerationStateMachineDefault extends ModerationStateMachineBase {
 
-  public function switch (ContentEntityInterface $entity) {
+  public function switchTransition (ContentEntityInterface $entity) {
     // TODO: Implement switch() method.
   }
 }

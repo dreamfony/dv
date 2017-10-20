@@ -44,7 +44,7 @@ function moderation_state_machine_entity_presave(Drupal\Core\Entity\EntityInterf
   foreach ($plugin_ids as $plugin_id) {
     /** @var \Drupal\moderation_state_machine\ModerationStateMachineBase $sms */
     $sms = $switch_moderation_state_manager->createInstance($plugin_id);
-    $sms->switch($entity);
+    $sms->switchTransition($entity);
   }
 }
 

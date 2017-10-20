@@ -25,7 +25,7 @@ use Drupal\group\Entity\GroupContent;
 */
 class DeliveryErrorTransition extends ModerationStateMachineBase {
 
-  public function switch (ContentEntityInterface $entity) {
+  public function switchTransition(ContentEntityInterface $entity) {
 
   }
 }

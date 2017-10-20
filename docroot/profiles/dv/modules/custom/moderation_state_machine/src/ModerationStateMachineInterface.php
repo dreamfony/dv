@@ -15,6 +15,6 @@ interface ModerationStateMachineInterface extends PluginInspectionInterface {
    *
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
    */
-  public function switch(ContentEntityInterface $entity);
+  public function switchTransition(ContentEntityInterface $entity);
 
 }

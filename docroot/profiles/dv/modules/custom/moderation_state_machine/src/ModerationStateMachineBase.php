@@ -23,6 +23,6 @@ abstract class ModerationStateMachineBase extends PluginBase implements Moderati
   /**
    * @inheritdoc
    */
-  abstract function switch(ContentEntityInterface $entity);
+  abstract function switchTransition(ContentEntityInterface $entity);
 
 }

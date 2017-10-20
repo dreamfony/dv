@@ -90,7 +90,7 @@ class ApproveSendingTransition extends ModerationStateMachineBase implements Con
     return $violations;
   }
 
-  public function switch(ContentEntityInterface $entity) {
+  public function switchTransition(ContentEntityInterface $entity) {
     /** @var \Drupal\group\Entity\GroupInterface $group */
     $group = $entity;
 

@@ -92,7 +92,7 @@ class SendEmailTransition extends ModerationStateMachineBase implements Containe
   /**
    * {@inheritdoc}
    */
-  public function switch(ContentEntityInterface $entity) {
+  public function switchTransition(ContentEntityInterface $entity) {
     /** @var \Drupal\group\Entity\GroupInterface $group */
     $group = $entity;
 
