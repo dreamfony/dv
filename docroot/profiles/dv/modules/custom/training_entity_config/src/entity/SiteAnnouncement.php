@@ -2,10 +2,7 @@
 
 namespace Drupal\training_entity_config\Entity;
 
-use Drupal\Core\Annotation\Translation;
 use Drupal\Core\Config\Entity\ConfigEntityBase;
-use Drupal\Core\Entity\Annotation\ConfigEntityType;
-
 
 
 /**
@@ -14,13 +11,17 @@ use Drupal\Core\Entity\Annotation\ConfigEntityType;
  *   id = "announcement",
  *   label= @Translation("Site Announcement"),
  *   handlers= {
+ *      "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
  *      "list_builder" = "Drupal\training_entity_config\SiteAnnouncementListBuilder",
  *      "form" = {
  *         "default" = "Drupal\training_entity_config\SiteAnnouncementForm",
  *         "add" = "Drupal\training_entity_config\SiteAnnouncementForm",
  *         "edit" = "Drupal\training_entity_config\SiteAnnouncementForm",
  *         "delete" = "Drupal\Core\Entity\EntityDeleteForm"
- *      }
+ *      },
+ *       "route_provider" = {
+ *       "html" = "Drupal\training_entity_config\SiteAnnouncementRouteProvider",
+ *     },
  *   },
  *   config_prefix = "announcement",
  *   entity_keys = {
@@ -29,6 +30,7 @@ use Drupal\Core\Entity\Annotation\ConfigEntityType;
  *   },
  *   links = {
  *     "canonical" = "/admin/config/sa/{announcement}",
+ *     "add-form" = "/admin/config/sa/add",
  *     "delete-form" = "/admin/config/sa/{announcement}/delete",
  *     "edit-form" = "/admin/config/sa/{announcement}/edit",
  *     "collection" = "/admin/config/sa",
