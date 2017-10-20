@@ -4,7 +4,6 @@ namespace Drupal;
 
 use Drupal\DrupalExtension\Context\RawDrupalContext;
 use Behat\Behat\Context\SnippetAcceptingContext;
-use Drupal\dmt_core\PersonaAccountUtility;
 use Behat\Mink\Exception\ExpectationException;
 use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
@@ -14,6 +13,17 @@ use Behat\Testwork\Environment\Environment;
  * FeatureContext class defines custom step definitions for Behat.
  */
 class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext {
+
+  /**
+   * @var \Drupal\DrupalExtension\Context\MinkContext
+   */
+  protected $minkContext;
+
+  /**
+   * @var \Drupal\DrupalExtension\Context\DrupalContext
+   */
+  protected $drupalContext;
+
 
   /**
    * Every scenario gets its own context instance.
@@ -26,7 +36,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   }
 
   /**
-   * Gives us acesss to the other contexts so we can access their properties.
+   * Gives us access to the other contexts so we can access their properties.
    *
    * @BeforeScenario
    */
@@ -34,8 +44,8 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
     /** @var Environment $environment */
     $environment = $scope->getEnvironment();
 
-    $this->contexts['drupal'] = $environment->getContext('Drupal\DrupalExtension\Context\DrupalContext');
-    $this->contexts['mink'] = $environment->getContext('Drupal\DrupalExtension\Context\MinkContext');
+    $this->drupalContext = $environment->getContext('Drupal\DrupalExtension\Context\DrupalContext');
+    $this->minkContext = $environment->getContext('Drupal\DrupalExtension\Context\MinkContext');
   }
 
   /**
@@ -72,8 +82,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
    *   Returns TRUE if the current logged in user has this role (or roles).
    */
   public function loggedInWithPersona($persona) {
-    $persona_utility = new PersonaAccountUtility();
-    return $this->loggedIn() && $this->user && isset($this->user->personas) && $persona_utility::hasPersona($this->user, 'journalist');
+    return $this->loggedIn() && $this->user && isset($this->user->personas) && in_array($persona, $this->user->personas);
   }
 
 
@@ -101,14 +110,14 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
     // Press the down arrow to open the autocomplete options.
     $driver->keyDown($xpath, 40);
     $driver->keyUp($xpath, 40);
-    $this->contexts['mink']->iWaitForAjaxToFinish();
+    $this->minkContext->iWaitForAjaxToFinish();
     // Select the first option.
     $driver->keyDown($xpath, 40);
     $driver->keyUp($xpath, 40);
     // Press the Enter key to confirm selection, copying the value into the field.
     $driver->keyDown($xpath, 13);
     $driver->keyUp($xpath, 13);
-    $this->contexts['mink']->iWaitForAjaxToFinish();
+    $this->minkContext->iWaitForAjaxToFinish();
   }
 
   /**
@@ -123,4 +132,32 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
     return str_replace('\\"', '"', $argument);
   }
 
+  /**
+   * @Then I should see the text :text exactly :times times
+   */
+  public function iShouldSeeTextSoManyTimes($text, $times)
+  {
+    $content = $this->getSession()->getPage()->getText();
+    $found = substr_count($content, $text);
+    if ($times != $found) {
+      throw new \Exception('Found '.$found.' occurences of "'.$text.'" when expecting '.$times);
+    }
+  }
+
+  /**
+   * Checks, that form field with specified id|name|label|value has specified value in the region
+   *
+   * @Then the :field field should contain :value in the :region region
+   */
+  public function assertFieldValueRegion($field, $value, $region) {
+    $field = $this->fixStepArgument($field);
+    $value = $this->fixStepArgument($value);
+    $region = $this->fixStepArgument($region);
+
+    $region = $this->minkContext->getRegion($region);
+
+    $this->assertSession()->fieldValueEquals($field, $value, $region);
+  }
+
 }
+
