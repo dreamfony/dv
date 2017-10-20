@@ -2,17 +2,12 @@
 
 namespace Drupal\moderation_state_machine;
 
-use Drupal\content_moderation\ContentModerationStateInterface;
-use Drupal\content_moderation\ModerationInformation;
-use Drupal\Core\Access\AccessResultAllowed;
-use Drupal\Core\Access\AccessResultForbidden;
+use Drupal\content_moderation\ModerationInformationInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
-use Drupal\content_moderation\StateTransitionValidation;
+use Drupal\content_moderation\StateTransitionValidationInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Url;
 use Drupal\workflows\Transition;
-use Drupal\Core\Link;
-use Drupal\content_moderation\ModerationInformationInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
@@ -23,7 +18,7 @@ class ModerationStateLinks {
   use StringTranslationTrait;
 
   /**
-   * @var \Drupal\content_moderation\StateTransitionValidation
+   * @var \Drupal\content_moderation\StateTransitionValidationInterface
    */
   protected $stateTransitionValidation;
 
@@ -33,7 +28,7 @@ class ModerationStateLinks {
   protected $account;
 
   /**
-   * @var \Drupal\content_moderation\ModerationInformation
+   * @var \Drupal\content_moderation\ModerationInformationInterface
    */
   protected $moderationInformation;
 
@@ -44,11 +39,11 @@ class ModerationStateLinks {
   /**
    * ModerationStateLinks constructor.
    *
-   * @param \Drupal\content_moderation\StateTransitionValidation $stateTransitionValidation
+   * @param \Drupal\content_moderation\StateTransitionValidationInterface $stateTransitionValidation
    * @param \Drupal\Core\Session\AccountInterface $account
-   * @param \Drupal\content_moderation\ModerationInformation $moderationInformation
+   * @param \Drupal\content_moderation\ModerationInformationInterface $moderationInformation
    */
-  public function __construct(StateTransitionValidation $stateTransitionValidation, AccountInterface $account, ModerationInformation $moderationInformation) {
+  public function __construct(StateTransitionValidationInterface $stateTransitionValidation, AccountInterface $account, ModerationInformationInterface $moderationInformation) {
     $this->stateTransitionValidation = $stateTransitionValidation;
     $this->account = $account;
     $this->moderationInformation = $moderationInformation;
