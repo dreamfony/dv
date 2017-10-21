@@ -41,6 +41,14 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   }
 
   /**
+   * @BeforeScenario
+   */
+  public function beforeScenario(BeforeScenarioScope $scope)
+  {
+    $this->getSession()->getDriver()->resizeWindow(1200, 2000);
+  }
+
+  /**
    * Gives us access to the other contexts so we can access their properties.
    *
    * @BeforeScenario
