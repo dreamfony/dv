@@ -4,6 +4,10 @@ Feature: Create Survey
   Role: As a LU
   Goal/desire: I want see and get notified when content is created
 
+  #@javascript @groups
+  #Scenario: Spam Survey
+
+
   @javascript @groups
   Scenario: Successfully Create Survey
     Given organisations:
@@ -28,11 +32,11 @@ Feature: Create Survey
     And I wait for AJAX to finish
     Then I should see "New survey title" in the "Page title" region
 
-    # TODO Send email error /// there is some css problem with these links
-    # When I click "Send Email"
-    # Then I should see the error message "Please add content and recipients before sending for approval."
-    # When I close error message "Please add content and recipients before sending for approval."
-    # Then I should not see the error message "Please add content and recipients before sending for approval."
+    # Send email error
+    When I click "Send Email"
+    Then I should see the error message "Please add content and recipients before sending for approval."
+    When I close the error message
+    Then I should not see the error message "Please add content and recipients before sending for approval."
 
     # Add content
     When I fill in "Content" with "Test content 1" in the "Survey content add" region
@@ -94,6 +98,7 @@ Feature: Create Survey
     Then I should see the link "Test Org 1" in the "Survey recipients list" region
     And I should see the link "Test Org 2" in the "Survey recipients list" region
 
-    # TODO Send email
-    # When I click "Send Email"
-    # Then I should not see the link "Edit Title"
+    # Send email
+    When I click "Send Email"
+    Then I should not see the link "Edit Title"
+    # And I should see the message ...

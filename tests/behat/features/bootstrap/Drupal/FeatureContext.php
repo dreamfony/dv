@@ -335,5 +335,29 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
     }
   }
 
+  /**
+   * Log out.
+   *
+   * @Given I logout
+   */
+  public function iLogOut() {
+    $page = '/user/logout';
+    $this->visitPath($page);
+  }
+
+  /**
+   * @When I close the error message
+   */
+  public function iCloseTheErrorMessage() {
+    $locator = 'a.close';
+    $session = $this->getSession();
+    $element = $session->getPage()->find('css', $locator);
+    if ($element === NULL) {
+      throw new \InvalidArgumentException(sprintf('Could not evaluate CSS selector: "%s"', $locator));
+    }
+    // Now click the element.
+    $element->click();
+  }
+
 }
 

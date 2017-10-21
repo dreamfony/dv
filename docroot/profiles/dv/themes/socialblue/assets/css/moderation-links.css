@@ -21,6 +21,6 @@
     background-clip: padding-box;
   }
   .block-moderation-state-switch .dropdown-menu li {
-    float: left;
+    display: inline-block;
   }
 }
