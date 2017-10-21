@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.answer.default
     - core.entity_view_mode.node.mailing_list_item
     - field.field.node.content.body
     - field.field.node.content.field_content_answers
@@ -10,8 +9,6 @@ dependencies:
     - field.field.node.content.field_content_comment_type
     - node.type.content
   module:
-    - comment
-    - file
     - options
     - panelizer
     - text
@@ -37,7 +34,7 @@ third_party_settings:
               third_party_settings: {  }
               weight: 0
             region: contentmain
-            weight: 0
+            weight: 1
             uuid: 75047371-8127-4565-950b-9a8ec6507fa9
             context_mapping:
               entity: '@panelizer.entity_context:entity'
@@ -60,7 +57,7 @@ third_party_settings:
         layout_settings: {  }
         page_title: ''
         storage_type: panelizer_default
-        storage_id: 'node:content:default:content_default'
+        storage_id: 'node:content:mailing_list_item:content_default'
         pattern: panelizer
         builder: ipe
         static_context: {  }
@@ -182,22 +179,6 @@ content:
   content_edit_link:
     weight: 100
     region: content
-  field_content_answers:
-    weight: 4
-    label: above
-    settings:
-      view_mode: default
-      pager_id: 0
-    third_party_settings: {  }
-    type: comment_default
-    region: content
-  field_content_attachments:
-    weight: 101
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: file_default
-    region: content
   field_content_comment_type:
     weight: 2
     label: inline
@@ -211,4 +192,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_content_answers: true
+  field_content_attachments: true
   langcode: true

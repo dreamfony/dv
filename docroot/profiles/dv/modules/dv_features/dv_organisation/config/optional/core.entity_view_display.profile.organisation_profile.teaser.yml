@@ -108,13 +108,30 @@ third_party_settings:
             context_mapping:
               entity: '@panelizer.entity_context:entity'
             uuid: db9df9e1-b4c3-47d0-955e-5dcedce1b201
+          0978e050-7a72-4dbf-b129-e8ff484e6d6a:
+            id: 'entity_field:profile:field_org_title'
+            label: Name
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: string
+              settings:
+                link_to_entity: true
+              third_party_settings: {  }
+              weight: 0
+            region: content
+            weight: 0
+            uuid: 0978e050-7a72-4dbf-b129-e8ff484e6d6a
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
         id: panels_variant
         label: Default
         uuid: d713e416-db64-4332-95af-65697cba5966
         weight: 0
         layout: layout_onecol
         layout_settings: {  }
-        page_title: '[profile:field_org_title]'
+        page_title: '[entity_field:profile:field_org_title]'
         storage_type: panelizer_default
         storage_id: 'profile:organisation_profile:teaser:default'
         builder: ipe
