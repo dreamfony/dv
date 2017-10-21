@@ -28,6 +28,12 @@ Feature: Create Survey
     And I wait for AJAX to finish
     Then I should see "New survey title" in the "Page title" region
 
+    # TODO Send email error /// there is some css problem with these links
+    # When I click "Send Email"
+    # Then I should see the error message "Please add content and recipients before sending for approval."
+    # When I close error message "Please add content and recipients before sending for approval."
+    # Then I should not see the error message "Please add content and recipients before sending for approval."
+
     # Add content
     When I fill in "Content" with "Test content 1" in the "Survey content add" region
     And I press the "Add Content" button
@@ -87,3 +93,7 @@ Feature: Create Survey
     And I wait for AJAX to finish
     Then I should see the link "Test Org 1" in the "Survey recipients list" region
     And I should see the link "Test Org 2" in the "Survey recipients list" region
+
+    # TODO Send email
+    # When I click "Send Email"
+    # Then I should not see the link "Edit Title"

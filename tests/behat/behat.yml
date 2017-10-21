@@ -33,9 +33,9 @@ default:
         'Survey content add': '.ajax-form-entity-node-content-new'
         'Survey content list': '.block-views-blockmailing-list-items-block-1'
       selectors:
-        message_selector: '.messages'
-        error_message_selector: '.messages.messages-error'
-        success_message_selector: '.messages.messages-status'
+        message_selector: '.alert'
+        error_message_selector: '.alert.alert-danger'
+        success_message_selector: '.alert.alert-success'
     jarnaiz\JUnitFormatter\JUnitFormatterExtension:
         filename: report.xml
         outputDir: %paths.base%/build/tests
