@@ -29,24 +29,18 @@ class ContentFormAlter {
       $form_state->getBuildInfo()['callback_object']->setEntity($new_entity);
     }
 
-    // Clear user input.
-    $input = $form_state->getUserInput();
-    // We should not clear the system items from the user input.
-    $clean_keys = $form_state->getCleanValueKeys();
-    $clean_keys[] = 'ajax_page_state';
-    foreach ($input as $key => $item) {
-      if (!in_array($key, $clean_keys) && substr($key, 0, 1) !== '_') {
-        unset($input[$key]);
-      }
+    $userInput = $form_state->getUserInput();
+    $keys = $form_state->getCleanValueKeys();
+    $newInputArray = [];
+    foreach ($keys as $key) {
+      if ($key == "op")  continue;
+      $newInputArray[$key] = $userInput[$key];
     }
 
-    // Store new entity for display in the AJAX callback.
-    $input['entity'] = $entity;
-    $form_state->setUserInput($input);
+    $newInputArray['entity'] = $entity;
 
-    // Rebuild the form state values.
-    $form_state->setRebuild();
-    $form_state->setStorage([]);
+    $form_state->setUserInput($newInputArray);
+    $form_state->setRebuild(true);
   }
 
 
@@ -92,8 +86,8 @@ class ContentFormAlter {
         //$response->addCommand(new RemoveCommand('.alert'));
         //$response->addCommand(new ReplaceCommand('.alert', $message));
 
-        // replace form with empty one
-        $response->addCommand(new ReplaceCommand('#node-content-form', $form));
+        // replace form with empty form
+        $response->addCommand(new ReplaceCommand('.node-content-form', $form));
 
         // remove view-empty
         $response->addCommand(new RemoveCommand('.view-mailing-list-items .view-empty'));
