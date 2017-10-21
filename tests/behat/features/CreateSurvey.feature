@@ -4,9 +4,44 @@ Feature: Create Survey
   Role: As a LU
   Goal/desire: I want see and get notified when content is created
 
-  #@javascript @groups
-  #Scenario: Spam Survey
+  @javascript
+  Scenario: Try to send Survey before filling in Content and Recipients
+    Given I am logged in as a user with the "journalist" persona
+    Then I should see the link "Create Survey"
+    When I click "Create Survey"
+    Then I should see the text "Empty." in the "Survey content list" region
+    And I should see the text "No Recipients selected yet." in the "Survey recipients list" region
+    When I click "Send Email"
+    Then I should see the error message "Please add content and recipients before sending for approval."
+    When I close the error message
+    Then I should not see the error message "Please add content and recipients before sending for approval."
 
+  @javascript
+  Scenario: I click on Create Survey previously changing only the title
+    Given I am logged in as a user with the "journalist" persona
+    Then I should see the link "Create Survey"
+    When I click "Create Survey"
+    And I should see the text "New Survey"
+    When I click "Edit Title" in the "Page title" region
+    And I wait for AJAX to finish
+    When I fill in "Title" with "New survey title"
+    And I press the "Save" button
+    And I wait for AJAX to finish
+    Then I should see "New survey title" in the "Page title" region
+    When I click "Create Survey"
+    # We expect the "New Survey to be created"
+    And I should see the text "New Survey" in the "Page title" region
+
+  @javascript
+  Scenario: I click on Create Survey more than once without any changes
+    Given I am logged in as a user with the "journalist" persona
+    Then I should see the link "Create Survey"
+    When I click "Create Survey"
+    And I should see the text "New Survey" in the "Page title" region
+    And I remember the current url
+    When I click "Create Survey"
+    And I should see the text "New Survey" in the "Page title" region
+    Then I check that the url is the same as I remembered it
 
   @javascript @groups
   Scenario: Successfully Create Survey
@@ -31,12 +66,6 @@ Feature: Create Survey
     And I press the "Save" button
     And I wait for AJAX to finish
     Then I should see "New survey title" in the "Page title" region
-
-    # Send email error
-    When I click "Send Email"
-    Then I should see the error message "Please add content and recipients before sending for approval."
-    When I close the error message
-    Then I should not see the error message "Please add content and recipients before sending for approval."
 
     # Add content
     When I fill in "Content" with "Test content 1" in the "Survey content add" region

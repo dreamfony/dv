@@ -29,6 +29,11 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
    */
   protected $drupalContext;
 
+  /**
+   * @var string
+   */
+  private $url;
+
 
   /**
    * Every scenario gets its own context instance.
@@ -357,6 +362,24 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
     }
     // Now click the element.
     $element->click();
+  }
+
+  /**
+   * @When I remember the current url
+   */
+  public function iRememberCurrentUrl() {
+    $session = $this->getSession();
+    $this->url = $session->getCurrentUrl();
+  }
+
+  /**
+   * @When I check that the url is the same as I remembered it
+   */
+  public function iCheckThatUrlIsTheSame() {
+    $session = $this->getSession();
+    if($this->url != $session->getCurrentUrl()) {
+      throw new \Exception('Current url is not the same as before');
+    }
   }
 
 }
