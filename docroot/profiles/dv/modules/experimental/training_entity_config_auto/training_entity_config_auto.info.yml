@@ -1,5 +1,0 @@
-name: Training entity config auto
-type: module
-description: My Awesome Module which was auto generated
-core: 8.x
-package: Custom
