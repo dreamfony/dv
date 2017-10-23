@@ -1,6 +1,0 @@
-entity.marko_entity_useless.add_form:
-  route_name: entity.marko_entity_useless.add_form
-  title: 'Add Marko entity useless'
-  appears_on:
-    - entity.marko_entity_useless.collection
-
