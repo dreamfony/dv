@@ -1,7 +1,44 @@
 # Mailing List
 
+## Tests
+[Survey.feature](../../../../../tests/behat/features/Survey.feature)
+
 All related code should be placed in [dmt_mailing_list](../../modules/custom/dmt_mailing_list/dmt_mailing_list.info.yml) module.
 
+## Pages
+
+- **Create Survey page**
+  - Survey header - region
+    - Edit Title - link
+    - Title
+  - Survey recipients add - region
+    - Add recipients - autocomplete field
+    - Add recipients - button
+  - Survey recipients list - region
+    - Recipients - view
+      - Remove recipient - link - view row
+      - Recipient - view row
+        - Organisation Profile - display mode
+          - Name - field
+          - Address - field
+  - Survey content add - region
+    - Survey content add - form
+      - Content - field
+      - Type - field
+      - Attachments - field
+      - Submit - button
+  - Survey content list
+    - Survey content - view
+      - Content Teaser - display mode
+        - Edit - link
+        - Remove - link
+        - Content - field view
+        - Type - field view
+        - Attachments - field view
+- **Survey view page**
+  - View of all recipients
+      
+  
 ## Mailing List is a bundle of group entity
  
 #### **[Fields](http://local.dv.com/admin/group/types/manage/mailing_list/fields)**
@@ -82,4 +119,6 @@ All related code should be placed in [dmt_mailing_list](../../modules/custom/dmt
   - from: [draft]
   - to: [spam]
   - uc:
-    - [ ] **sys** - adds mailing list to queue to be deleted    
+    - [ ] **sys** - adds mailing list to queue to be deleted
+      
+      
