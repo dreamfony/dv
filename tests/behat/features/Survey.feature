@@ -1,8 +1,8 @@
 @api
-Feature: Create Survey
-  Benefit: So I can discover new facts about the country
-  Role: As a LU
-  Goal/desire: I want see and get notified when content is created
+Feature: Survey
+  Benefit: So I can discover new facts about my country :)
+  Persona: Journalist
+  Goal/desire: I want to get answers to my questions
 
   @javascript
   Scenario: Try to send Survey before filling in Content and Recipients
@@ -130,4 +130,9 @@ Feature: Create Survey
     # Send email
     When I click "Send Email"
     Then I should not see the link "Edit Title"
-    # And I should see the message ...
+    And I should see the text "Test Org 1" in the "Survey recipients list" region
+    And I should see the text "Test Org 2" in the "Survey recipients list" region
+    And I should see the text "Test content 1"
+    And I should see the text "Test content 2"
+    ### TODO And I should see the message ...
+    And I logout

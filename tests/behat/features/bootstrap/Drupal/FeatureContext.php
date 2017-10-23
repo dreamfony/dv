@@ -4,7 +4,6 @@ namespace Drupal;
 
 use Drupal\DrupalExtension\Context\RawDrupalContext;
 use Behat\Behat\Context\SnippetAcceptingContext;
-use Behat\Mink\Exception\ExpectationException;
 use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Testwork\Environment\Environment;
@@ -13,6 +12,8 @@ use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Drupal\profile\Entity\Profile;
 use Drupal\group\Entity\Group;
 use Drupal\DrupalExtension\Hook\Scope\EntityScope;
+use Drupal\Core\Queue\QueueFactory;
+use Drupal\Core\Queue\QueueInterface;
 
 /**
  * FeatureContext class defines custom step definitions for Behat.
@@ -79,7 +80,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
       $user = (object) array(
         'name' => $this->getRandom()->name(8),
         'pass' => $this->getRandom()->name(16),
-        'personas' => array('journalist'),
+        'personas' => array($persona),
       );
       $user->mail = "{$user->name}@example.com";
 
@@ -107,7 +108,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   /**
    * @Given I wait for :seconds second/seconds
    */
-  public function iWaitForOneSecond($seconds) {
+  public function iWaitForXSeconds($seconds) {
     sleep($seconds);
   }
 
@@ -139,18 +140,6 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   }
 
   /**
-   * Returns fixed step argument (with \\" replaced back to ").
-   *
-   * @param string $argument
-   *
-   * @return string
-   */
-  protected function fixStepArgument($argument)
-  {
-    return str_replace('\\"', '"', $argument);
-  }
-
-  /**
    * @Then I should see the text :text exactly :times times
    */
   public function iShouldSeeTextSoManyTimes($text, $times)
@@ -168,12 +157,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
    * @Then the :field field should contain :value in the :region region
    */
   public function assertFieldValueRegion($field, $value, $region) {
-    $field = $this->fixStepArgument($field);
-    $value = $this->fixStepArgument($value);
-    $region = $this->fixStepArgument($region);
-
     $region = $this->minkContext->getRegion($region);
-
     $this->assertSession()->fieldValueEquals($field, $value, $region);
   }
 
@@ -212,7 +196,6 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
    * @Given organisations:
    */
   public function createOrganisations(TableNode $orgTable) {
-
 
     $group =  (object) [
       'language' => 'en',
@@ -379,6 +362,29 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
     $session = $this->getSession();
     if($this->url != $session->getCurrentUrl()) {
       throw new \Exception('Current url is not the same as before');
+    }
+  }
+
+  /**
+   * @When I wait for the queue to be empty
+   */
+  public function iWaitForTheQueueToBeEmpty() {
+    $workerManager = \Drupal::service('plugin.manager.queue_worker');
+    /** @var QueueFactory $queue */
+    $queue = \Drupal::service('queue');
+    for ($i = 0; $i < 20; $i++) {
+      foreach ($workerManager->getDefinitions() as $name => $info) {
+        /** @var QueueInterface $worker */
+        $worker = $queue->get($name);
+        /** @var \Drupal\Core\Queue\QueueWorkerInterface $queue_worker */
+        $queue_worker = $workerManager->createInstance($name);
+        if ($worker->numberOfItems() > 0) {
+          while ($item = $worker->claimItem()) {
+            $queue_worker->processItem($item->data);
+            $worker->deleteItem($item);
+          }
+        }
+      }
     }
   }
 
