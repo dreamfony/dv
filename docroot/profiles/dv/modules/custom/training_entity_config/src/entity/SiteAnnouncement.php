@@ -14,7 +14,6 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *      "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
  *      "list_builder" = "Drupal\training_entity_config\SiteAnnouncementListBuilder",
  *      "form" = {
- *         "default" = "Drupal\training_entity_config\SiteAnnouncementForm",
  *         "add" = "Drupal\training_entity_config\SiteAnnouncementForm",
  *         "edit" = "Drupal\training_entity_config\SiteAnnouncementForm",
  *         "delete" = "Drupal\Core\Entity\EntityDeleteForm"
@@ -24,6 +23,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *     },
  *   },
  *   config_prefix = "announcement",
+ *   admin_permission = "administer site configuration",
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "label"

@@ -10,3 +10,6 @@ training_entity_config_auto.marko_entity_useless.*:
       label: 'Label'
     uuid:
       type: string
+    message:
+      type: text
+      label: 'Text'

@@ -10,4 +10,5 @@ use Drupal\Core\Config\Entity\ConfigEntityInterface;
 interface MarkoEntityUselessInterface extends ConfigEntityInterface {
 
   // Add get/set methods for your configuration properties here.
+  public  function  getMessage();
 }

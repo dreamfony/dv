@@ -35,6 +35,13 @@ class MarkoEntityUselessForm extends EntityForm {
       '#disabled' => !$marko_entity_useless->isNew(),
     ];
 
+    $form['message'] = [
+      '#type' => 'texteare',
+      '#title' => t('Message'),
+      '#required' => TRUE,
+      '#default_value' => $entity->getMessage(),
+    ];
+
     /* You will need additional form elements for your custom properties. */
 
     return $form;

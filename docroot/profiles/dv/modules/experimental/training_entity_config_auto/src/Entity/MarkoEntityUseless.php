@@ -54,4 +54,10 @@ class MarkoEntityUseless extends ConfigEntityBase implements MarkoEntityUselessI
    */
   protected $label;
 
+
+  protected $message;
+
+  public function getMessage() {
+    return $this->message;
+  }
 }
