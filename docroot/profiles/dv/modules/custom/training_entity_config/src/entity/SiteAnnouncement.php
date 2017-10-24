@@ -44,7 +44,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  */
 class SiteAnnouncement extends  ConfigEntityBase implements SiteAnnouncementInterface{
 
-  public $message;
+  protected $message;
 
   public function getMessage() {
     return $this->message;

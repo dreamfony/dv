@@ -1,5 +1,5 @@
 name: Training module
 type: module
-description: My Awesome Module for entity config
+description: Module for testing config entity
 core: 8.x
 package: Custom

@@ -23,7 +23,7 @@ class SiteAnnouncementForm extends EntityForm{
     ];
 
     $form['message'] = [
-      '#type' => 'texteare',
+      '#type' => 'textarea',
       '#title' => t('Message'),
       '#required' => TRUE,
       '#default_value' => $entity->getMessage(),
