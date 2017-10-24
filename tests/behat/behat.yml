@@ -2,9 +2,11 @@ default:
   suites:
     default:
       paths:
-        - %paths.base%/features
+        features: %paths.base%/features
+        bootstrap: %paths.base%/features/bootstrap
       contexts:
         - Drupal\FeatureContext
+        - Drupal\PersonaContext
         - Drupal\DrupalExtension\Context\DrupalContext
         - Drupal\DrupalExtension\Context\MinkContext
         - Drupal\DrupalExtension\Context\MessageContext
@@ -42,5 +44,5 @@ default:
     Bex\Behat\ScreenshotExtension:
       image_drivers:
         local:
-          screenshot_directory: /var/www/travis_artifacts
+          screenshot_directory: %paths.base%/screenshots
           clear_screenshot_directory: true  # Enable removing all images before each test run. It is false by default.
