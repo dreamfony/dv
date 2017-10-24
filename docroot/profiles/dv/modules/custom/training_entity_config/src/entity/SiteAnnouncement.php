@@ -26,7 +26,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *   admin_permission = "administer site configuration",
  *   entity_keys = {
  *     "id" = "id",
- *     "label" = "label"
+ *     "label" = "label",
  *   },
  *   links = {
  *     "canonical" = "/admin/config/sa/{announcement}",
@@ -44,7 +44,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  */
 class SiteAnnouncement extends  ConfigEntityBase implements SiteAnnouncementInterface{
 
-  protected $message;
+  public $message;
 
   public function getMessage() {
     return $this->message;
