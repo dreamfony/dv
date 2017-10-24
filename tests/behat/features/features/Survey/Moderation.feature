@@ -1,5 +1,5 @@
 @api
-Feature: Moderation
+Feature: Survey Moderation
   Benefit: So Organisations are getting clean and clear surveys to answer
   Persona: Moderator
   Goal/desire: I want to edit the survey so it is appropriate to send
@@ -53,6 +53,8 @@ Feature: Moderation
     And I should see the text "Test Org 2" in the "Survey recipients list" region
     And I should see the text "Test content 1"
     And I should see the text "Test content 2"
+    ### if you get error on this step go to http://local.dv.com/admin/config/system/queue-ui and clear the queue manually
+    ### TODO find a way to remove items in queue that lost reference automatically
     And I wait for the queue to be empty
 
     # Logout
