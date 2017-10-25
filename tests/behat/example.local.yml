@@ -17,6 +17,7 @@ local:
         - Drupal\PersonaContext
         - Drupal\GroupContext
         - Site\OrganisationContext
+        - Site\SurveyContext
         - Drupal\DrupalExtension\Context\DrupalContext
         - Drupal\DrupalExtension\Context\MinkContext
         - Drupal\DrupalExtension\Context\MessageContext

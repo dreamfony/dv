@@ -1,5 +1,5 @@
 @api
-Feature: Survey
+Feature: Create Survey
   Benefit: So I can discover new facts about my country :)
   Persona: Journalist
   Goal/desire: I want to get answers to my questions

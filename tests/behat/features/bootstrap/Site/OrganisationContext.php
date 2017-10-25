@@ -61,7 +61,7 @@ class OrganisationContext extends RawDrupalContext implements SnippetAcceptingCo
 
 
   /**
-   * Creates group of a given type provided in the form:
+   * Creates organisation:
    * | name     | mail            | address                       |
    * | My title | test@test.com   | 10000 Zagreb, Trg sv. Marka 6 |
    * | ...      | ...             | ...                           |

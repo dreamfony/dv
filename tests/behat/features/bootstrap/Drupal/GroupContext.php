@@ -85,7 +85,13 @@ class GroupContext extends RawDrupalContext implements SnippetAcceptingContext {
       'type' => $group->type,
       'label' => $group->title
     ]);
+
     $group_object->save();
+
+    if(!$group_object->id()) {
+      throw new \Exception("Survey with the title ". $group->label . " was not created.");
+    }
+
     return $group_object;
   }
 
@@ -102,6 +108,34 @@ class GroupContext extends RawDrupalContext implements SnippetAcceptingContext {
     foreach ($groups as $group) {
       $group->delete();
     }
+  }
+
+  /**
+   * Load Group by Label and Title
+   *
+   * @param $label
+   * @param $type
+   * @return \Drupal\group\Entity\GroupInterface|object
+   * @throws \Exception
+   */
+  public function loadGroupByLabelAndType($label, $type) {
+    $group = (object) [];
+
+    $query = \Drupal::entityQuery('group');
+    $query->condition('type', $type);
+    $query->condition('label', $label);
+    $results = $query->execute();
+
+    foreach ($results as $id) {
+      /** @var \Drupal\group\Entity\GroupInterface $group */
+      $group = Group::load($id);
+    }
+
+    if(!$group->id()) {
+      throw new \Exception("Group with the title ". $label. " not found.");
+    }
+
+    return $group;
   }
 
 }
