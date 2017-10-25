@@ -32,7 +32,7 @@ drush/site-aliases
 bin/*
 tmp
 reports
-screenshots/*
+screenshots
 
 # OS X
 .DS_Store
