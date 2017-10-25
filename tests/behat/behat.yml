@@ -6,7 +6,6 @@ default:
         bootstrap: %paths.base%/features/bootstrap
       contexts:
         - Drupal\FeatureContext
-        - Drupal\PersonaContext
         - Drupal\DrupalExtension\Context\DrupalContext
         - Drupal\DrupalExtension\Context\MinkContext
         - Drupal\DrupalExtension\Context\MessageContext
@@ -41,8 +40,3 @@ default:
     jarnaiz\JUnitFormatter\JUnitFormatterExtension:
         filename: report.xml
         outputDir: %paths.base%/build/tests
-    Bex\Behat\ScreenshotExtension:
-      image_drivers:
-        local:
-          screenshot_directory: %paths.base%/screenshots
-          clear_screenshot_directory: true  # Enable removing all images before each test run. It is false by default.
