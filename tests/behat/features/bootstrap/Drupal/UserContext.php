@@ -60,9 +60,9 @@ class UserContext extends RawDrupalContext implements SnippetAcceptingContext {
   }
 
   /**
-   * @BeforeScenario @user
+   * @AfterScenario @user
    */
-  public function cleanupUsers(BeforeScenarioScope $scope) {
+  public function cleanupUsers(AfterScenarioScope $scope) {
     $this->featureContext->cleanUp('user','name', 'Test', FALSE);
   }
 

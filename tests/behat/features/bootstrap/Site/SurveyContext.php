@@ -135,16 +135,21 @@ class SurveyContext extends RawDrupalContext implements SnippetAcceptingContext 
 
       // find organisation users with names
       /** @var Profile $recipient_profile */
-      $recipient_profile = \Drupal::entityTypeManager()->getStorage('profile')
+      $recipient_profiles = \Drupal::entityTypeManager()->getStorage('profile')
         ->loadByProperties(['field_org_title' => $recObj->name]);
 
-      $recipient = $recipient_profile->getOwner();
+      foreach ($recipient_profiles as $recipient_profile) {
+        $recipient = $recipient_profile->getOwner();
+        break;
+      }
 
       // get survey
       $survey = $this->groupContext->loadGroupByLabelAndType($surveyTitle, 'mailing_list');
 
       // add organisation user to mailing list
-      $survey->addMember($recipient, ['group_roles' => ['mailing_list-organisation']]);
+      if(isset($recipient)) {
+        $survey->addMember($recipient, ['group_roles' => ['mailing_list-organisation']]);
+      }
     }
   }
 
