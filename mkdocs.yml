@@ -13,12 +13,10 @@ theme: readthedocs
 
 #use_directory_urls
 
-extra:
-  logo: images/unicorn.png
 extra_javascript:
   - js/fix_search.js
 extra_css:
-  - css/theme.css
+  - css/dv_theme.css
 
 #google_analytics: ['']
 markdown_extensions:
@@ -29,3 +27,4 @@ markdown_extensions:
 pages:
   - 'Home': 'index.md'
   - 'Architecture': 'architecture.md'
+    - 'test': 'index.md'
