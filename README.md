@@ -6,6 +6,9 @@ develop:
 master:
 [![Build Status master](https://travis-ci.org/dreamfony/dv.svg?branch=master)](https://travis-ci.org/dreamfony/dv)
 
+docs
+[![Build Status master](https://readthedocs.org/projects/dv/badge/?version=develop)](http://dv.readthedocs.io/en/develop/)
+
 
 
 

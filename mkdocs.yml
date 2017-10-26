@@ -4,19 +4,23 @@ site_url: "http://dev.trans.ink"
 # Repository
 repo_name: 'GitHub'
 repo_url: https://github.com/dreamfony/dv
+edit_uri: 'docroot/profiles/dv/docs'
 
-#theme_dir: '_theme/material'
-theme: readthedocs
+docs_dir: 'docroot/profiles/dv/docs/'
 strict: true
 
-docs_dir: 'docroot/profiles/dv/docs'
-#extra:
-  #logo: images/limitless-logo.png
+theme: readthedocs
 
-#google_analytics: ['UA-26768009-4', 'docs.projectlimitless.io']
-#extra_javascript:
-#  - readme/js/fix_search.js
-#extra_css: [themefix.css]
+#use_directory_urls
+
+extra:
+  logo: images/unicorn.png
+extra_javascript:
+  - js/fix_search.js
+extra_css:
+  - css/theme.css
+
+#google_analytics: ['']
 markdown_extensions:
   - toc:
       permalink: True
@@ -25,5 +29,26 @@ markdown_extensions:
 pages:
   - Home: 'index.md'
   - Overview: 'architecture.md'
-  - Architecture:
-      - Content: architecture/content.md
+  - Operations:
+    - Deployment:
+  - System Overview:
+  - Architecture: 'architecture.md'
+    - Content: architecture/content.md
+      - Answer: architecture/answer_comment.md
+      - Activity: architecture/activity_comment.md
+      - Default Comment: architecture/default_comment.md
+      - Log: architecture/log_comment.md
+    - Organisations: architecture/organisations.md
+       - Positions: architecture/positions.md
+    - Mailing List: architecture/mailing_list.md
+      - Mailing List Activity: architecture/mailing_list_activity.md
+      - Mailing List Recipients: architecture/mailing_list_recipients.md
+    - Sending Emails: architecture/sending_emails.md
+    - Receiving Emails: architecture/recieving_emails.md
+    - Moderation: architecture/moderation.md
+    - Geo Area: architecture/geoarea.md
+  - Testing:
+  - Documentation Architecture:
+  - Feature Documentation:
+  - Overview of issue labels:
+  - Designer Documentation:
