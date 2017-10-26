@@ -32,6 +32,11 @@ class OrganisationContext extends RawDrupalContext implements SnippetAcceptingCo
   protected $groupContext;
 
   /**
+   * @var \Drupal\UserContext
+   */
+  protected $userContext;
+
+  /**
    * Every scenario gets its own context instance.
    *
    * You can also pass arbitrary arguments to the
@@ -53,6 +58,7 @@ class OrganisationContext extends RawDrupalContext implements SnippetAcceptingCo
     $this->drupalContext = $environment->getContext('Drupal\DrupalExtension\Context\DrupalContext');
     $this->minkContext = $environment->getContext('Drupal\DrupalExtension\Context\MinkContext');
     $this->groupContext = $environment->getContext('Drupal\GroupContext');
+    $this->userContext = $environment->getContext('Drupal\UserContext');
   }
 
 
@@ -98,15 +104,15 @@ class OrganisationContext extends RawDrupalContext implements SnippetAcceptingCo
 
     $address = $this->formatAddressField($org->address);
 
-    $org_profile = Profile::create([
+    $org_profile = [
       'type' => 'organisation_profile',
       'uid' => $org_uid,
       'field_org_title' => $org->name,
       'field_org_email' => [$org->mail],
       'field_org_address' => $address
-    ]);
+    ];
 
-    $org_profile->save();
+    $this->userContext->createProfile($org_profile);
 
     return $org_user;
   }

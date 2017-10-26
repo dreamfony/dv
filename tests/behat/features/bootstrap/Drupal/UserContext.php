@@ -14,6 +14,7 @@ use Drupal\group\Entity\Group;
 use Drupal\DrupalExtension\Hook\Scope\EntityScope;
 use Drupal\Core\Queue\QueueFactory;
 use Drupal\Core\Queue\QueueInterface;
+use Drupal\profile\Entity\ProfileInterface;
 
 /**
  * FeatureContext class defines custom step definitions for Behat.
@@ -34,6 +35,8 @@ class UserContext extends RawDrupalContext implements SnippetAcceptingContext {
    * @var \Drupal\FeatureContext
    */
   protected $featureContext;
+
+  protected $profiles;
 
   /**
    * Every scenario gets its own context instance.
@@ -64,6 +67,23 @@ class UserContext extends RawDrupalContext implements SnippetAcceptingContext {
    */
   public function cleanupUsers(AfterScenarioScope $scope) {
     $this->featureContext->cleanUp('user','name', 'Test', FALSE);
+
+    foreach ($this->profiles as $profile) {
+      /** @var Profile $profile */
+      $pr = Profile::load($profile->id());
+
+      if($pr instanceof ProfileInterface) {
+        throw new \Exception("Profiles not deleted");
+      }
+    }
+
+  }
+
+  public function createProfile($profile) {
+    $org_profile = Profile::create($profile);
+    $org_profile->save();
+
+    $this->profiles[] = $org_profile;
   }
 
   /**

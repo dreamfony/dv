@@ -6,8 +6,11 @@ Feature: Profile
 
   Check: https://github.com/goalgorilla/open_social/tree/8.x-1.x/tests/behat/features/capabilities/profile for some ideas
 
-  #@javascript @groups
-  #Scenario: Edit profile Journalist
-    #Given I am logged in as a user with the "journalist" persona
-    # When I click "Profile of TEST_journalist" ## we need a method here to get current logged in profile link
-    # ...
+  @javascript @groups @user
+  Scenario: Delete orphaned profiles
+    Given organisations:
+      | name       | mail        | address                       |
+      | Test Org 1 | org1@dv.com | 10000 Zagreb, Trg sv. Marka 6 |
+      | Test Org 2 | org2@dv.com | 10000 Zagreb, Trg sv. Marka 6 |
+      | Test Org 3 | org3@dv.com | 10000 Zagreb, Trg sv. Marka 6 |
+
