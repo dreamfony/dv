@@ -29,9 +29,6 @@ markdown_extensions:
 pages:
   - Home: 'index.md'
   - Overview: 'architecture.md'
-  - Operations:
-    - Deployment:
-  - System Overview:
   - Architecture: 'architecture.md'
     - Content: 'architecture/content.md'
       - Answer: 'architecture/answer_comment.md'
@@ -47,8 +44,3 @@ pages:
     - Receiving Emails: 'architecture/recieving_emails.md'
     - Moderation: 'architecture/moderation.md'
     - Geo Area: 'architecture/geoarea.md'
-  - Testing:
-  - Documentation Architecture:
-  - Feature Documentation:
-  - Overview of issue labels:
-  - Designer Documentation:
