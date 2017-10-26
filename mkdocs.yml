@@ -43,5 +43,5 @@ pages:
       - 'Mailing List Recipients': 'architecture/mailing_list_recipients.md'
     - 'Sending Emails': 'architecture/sending_emails.md'
     - 'Receiving Emails': 'architecture/recieving_emails.md'
-    - 'Moderation': 'architecture/moderation.md'
+    - 'Moderation': 'architecture/moderation_activity.md'
     - 'Geo Area': 'architecture/geoarea.md'
