@@ -76,6 +76,7 @@ class ContentFormAlter {
       // if entity is new
       if (isset($form['#isNew'])) {
 
+        // todo find better place for adding content
         $group = \Drupal::routeMatch()->getParameter('group');
 
         // add node to created group

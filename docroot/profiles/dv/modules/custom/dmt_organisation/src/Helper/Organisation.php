@@ -61,27 +61,40 @@ class Organisation {
   }
 
   public function checkOrganisationIdIsUsed($id) {
-    $user = user_load_by_mail($this->getOrganisationDummyEmail($id));
+    $user = user_load_by_mail($this->generateMail($id));
     return $user ? TRUE : FALSE;
   }
 
-  public function getOrganisationDummyEmail($organisation_id) {
+  /**
+   * Generate e-mail address for the organisation.
+   *
+   * @param $organisation_id
+   * @return string
+   */
+  public function generateMail($organisation_id) {
 //    TODO make dv.com configurable
     return $organisation_id . '@dv.com';
   }
 
   /**
-   * @param $email
+   * @param $user_data
    * @return mixed
    */
-  public function createOrganisationUser($email) {
+  public function createOrganisationUser($user_data) {
+
+    $name = isset($user_data['name']) ? $user_data['name'] : $user_data['mail'];
+
+    $mail = $user_data['mail'];
+
     $user = User::create(array(
-      'name' => $email,
-      'mail' => $email,
+      'name' => $name,
+      'mail' => $mail,
       'status' => 1,
       'personas' => array('organisation')
     ));
+
     $user->save();
+
     return $user;
   }
 
@@ -91,10 +104,13 @@ class Organisation {
    *
    * @return string
    */
-  public function createOrganisation() {
+  public function createOrganisation($user_data = []) {
     $organisation_id = $this->getOrganisationId();
-    $dummy_email = $this->getOrganisationDummyEmail($organisation_id);
-    $user = $this->createOrganisationUser($dummy_email);
+    $dummy_email = $this->generateMail($organisation_id);
+
+    $user_data['mail'] = $dummy_email;
+
+    $user = $this->createOrganisationUser($user_data);
 
     return $user->id();
   }

@@ -4,6 +4,7 @@ namespace Drupal\dmt_demo_mailing_list;
 use Drupal\dmt_demo_mailing_list\Queue\ProcessQueue;
 use Drupal\dmt_demo_mailing_list\Yaml\YmlParser;
 use Drupal\dmt_mailing_list\MailingListAnswer;
+use Drupal\dmt_mailing_list_recipients\Recipients;
 use Drupal\user\Entity\User;
 use Drupal\group\Entity\Group;
 use Drupal\dmt_mailing_list\MailingList;
@@ -31,11 +32,6 @@ class MailingListExamples {
   protected $groupStorage;
 
   /**
-   * @var \Drupal\dmt_mailing_list\MailingList
-   */
-  protected $mailingList;
-
-  /**
    * @var
    */
   protected $nodes;
@@ -61,24 +57,29 @@ class MailingListExamples {
   protected $activityStorage;
 
   /**
+   * @var \Drupal\dmt_mailing_list_recipients\Recipients
+   */
+  protected $recipients;
+
+  /**
    * MailingListExamples constructor.
    * @param \Drupal\Core\Entity\EntityTypeManager $entity_manager
-   * @param \Drupal\dmt_mailing_list\MailingList $mailing_list
+   * @param \Drupal\dmt_mailing_list_recipients\Recipients $recipients
    * @param \Drupal\dmt_mailing_list\MailingListAnswer $mailing_list_answer
    * @param \Drupal\dmt_demo_mailing_list\Yaml\YmlParser $yml_parser
    * @param \Drupal\dmt_demo_mailing_list\Queue\ProcessQueue $process_queue
    */
-  public function __construct(EntityTypeManager $entity_manager, MailingList $mailing_list, MailingListAnswer $mailing_list_answer, YmlParser $yml_parser, ProcessQueue $process_queue) {
+  public function __construct(EntityTypeManager $entity_manager, Recipients $recipients, MailingListAnswer $mailing_list_answer, YmlParser $yml_parser, ProcessQueue $process_queue) {
     $this->userStorage = $entity_manager->getStorage('user');
     $this->groupStorage = $entity_manager->getStorage('group');
     $this->activityStorage = $entity_manager->getStorage('activity');
-    $this->mailingList = $mailing_list;
     $yml_data = $yml_parser;
     $this->groups = $yml_data->parseFile('MailingLists.yml');
     $this->nodes = $yml_data->parseFile('Contents.yml');
     $this->comments = $yml_data->parseFile('Answers.yml');
     $this->processQueue = $process_queue;
     $this->mailingListAnswer = $mailing_list_answer;
+    $this->recipients = $recipients;
 
     // set current user to user 1 so state machine can work correctly
     $user = User::load(1);
@@ -249,7 +250,7 @@ class MailingListExamples {
           $result_target_id[$r] = ['target_id' => $r];
         }
 
-        $this->mailingList->addRecipients($result_target_id, $group_object->id());
+        $this->recipients->addRecipients($result_target_id, $group_object->id());
       }
     }
   }

@@ -120,7 +120,7 @@ class SendEmailTransition extends ModerationStateMachineBase implements Containe
 
     // send message to moderator
     /** @var \Drupal\activity_moderation\Plugin\ActivityModeration\OpenModerationTicket $create_action */
-    $activity_moderation = $this->activityModerationManager->createInstance('open_moderation_ticket');
+    $activity_moderation = $this->activityModerationManager->createInstance('open_mailing_list_ticket');
     $activity_moderation->createModerationActivity($group);
   }
 
