@@ -31,6 +31,11 @@ class GroupContext extends RawDrupalContext implements SnippetAcceptingContext {
   protected $drupalContext;
 
   /**
+   * @var \Drupal\FeatureContext
+   */
+  protected $featureContext;
+
+  /**
    * Every scenario gets its own context instance.
    *
    * You can also pass arbitrary arguments to the
@@ -51,6 +56,7 @@ class GroupContext extends RawDrupalContext implements SnippetAcceptingContext {
 
     $this->drupalContext = $environment->getContext('Drupal\DrupalExtension\Context\DrupalContext');
     $this->minkContext = $environment->getContext('Drupal\DrupalExtension\Context\MinkContext');
+    $this->featureContext = $environment->getContext('Drupal\FeatureContext');
   }
 
   /**
@@ -96,18 +102,10 @@ class GroupContext extends RawDrupalContext implements SnippetAcceptingContext {
   }
 
   /**
-   * @AfterScenario @groups
+   * @AfterScenario @group
    */
   public function cleanupGroups(AfterScenarioScope $scope) {
-    $query = \Drupal::entityQuery('group')
-      ->condition('label', array(
-        'Test %'
-      ), 'LIKE');
-    $group_ids = $query->execute();
-    $groups = entity_load_multiple('group', $group_ids);
-    foreach ($groups as $group) {
-      $group->delete();
-    }
+    $this->featureContext->cleanUp('group','label', 'Test');
   }
 
   /**

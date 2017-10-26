@@ -16,6 +16,7 @@ local:
         - Drupal\FeatureContext
         - Drupal\PersonaContext
         - Drupal\GroupContext
+        - Drupal\UserContext
         - Site\OrganisationContext
         - Site\SurveyContext
         - Drupal\DrupalExtension\Context\DrupalContext

@@ -188,5 +188,29 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
     }
   }
 
+  /**
+   * Cleanup data after scenario.
+   */
+  public function cleanUp($entityType, $fieldName, $fieldValue, $isArray = TRUE) {
+    $query = \Drupal::entityQuery($entityType);
+
+    if($isArray) {
+      $query->condition($fieldName, array(
+        $fieldValue . ' %'
+      ), 'LIKE');
+    }
+
+    $query->condition($fieldName,$fieldValue . ' %', 'LIKE');
+
+    $ids = $query->execute();
+
+    $entities = \Drupal::entityTypeManager()->getStorage($entityType)
+      ->loadMultiple($ids);
+
+    foreach ($entities as $entity) {
+      $entity->delete();
+    }
+  }
+
 }
 

@@ -4,17 +4,12 @@ namespace Site;
 
 use Drupal\DrupalExtension\Context\RawDrupalContext;
 use Behat\Behat\Context\SnippetAcceptingContext;
-use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Testwork\Environment\Environment;
 use Behat\Gherkin\Node\TableNode;
-use Behat\Behat\Hook\Scope\AfterScenarioScope;
-use Drupal\field_group\Plugin\field_group\FieldGroupFormatter\Tab;
 use Drupal\profile\Entity\Profile;
 use Drupal\group\Entity\Group;
-use Drupal\DrupalExtension\Hook\Scope\EntityScope;
-use Drupal\Core\Queue\QueueFactory;
-use Drupal\Core\Queue\QueueInterface;
+use Drupal\user\Entity\User;
 
 /**
  * FeatureContext class defines custom step definitions for Behat.
@@ -85,7 +80,7 @@ class SurveyContext extends RawDrupalContext implements SnippetAcceptingContext 
     );
     $user->mail = "{$user->name}@example.com";
 
-    $this->surveyUser = user_load($this->userCreate($user)->uid);
+    $this->surveyUser = User::load($this->userCreate($user)->uid);
 
     $survey_data =  (object) [
       'language' => 'en',
@@ -119,10 +114,10 @@ class SurveyContext extends RawDrupalContext implements SnippetAcceptingContext 
         'field_answer_format' => $cObj->answer_format
       );
 
-      $saved = $this->nodeCreate($node);
+      $node_obj = node_load($this->nodeCreate($node)->nid);
 
       // add content to survey
-      $survey->addContent($saved, 'group_node:' . $saved->bundle());
+      $survey->addContent($node_obj, 'group_node:' . $node_obj->bundle());
     }
   }
 
@@ -135,17 +130,20 @@ class SurveyContext extends RawDrupalContext implements SnippetAcceptingContext 
    * @Given :survey_title survey has recipients:
    */
   public function addSurveyRecipients($surveyTitle, TableNode $rTable) {
-    // find organisation users with names
-    // add organisation user to mailing list
     foreach ($rTable->getHash() as $r) {
-      $recipients = (object) $r;
+      $recObj = (object) $r;
 
-      $recipient = \Drupal::entityTypeManager()->getStorage('user')
-        ->loadByProperties(['name' => $recipients->name]);
+      // find organisation users with names
+      /** @var Profile $recipient_profile */
+      $recipient_profile = \Drupal::entityTypeManager()->getStorage('profile')
+        ->loadByProperties(['field_org_title' => $recObj->name]);
+
+      $recipient = $recipient_profile->getOwner();
 
       // get survey
       $survey = $this->groupContext->loadGroupByLabelAndType($surveyTitle, 'mailing_list');
 
+      // add organisation user to mailing list
       $survey->addMember($recipient, ['group_roles' => ['mailing_list-organisation']]);
     }
   }

@@ -4,7 +4,7 @@ Feature: Survey Moderation
   Persona: Moderator
   Goal/desire: I want to edit the survey so it is appropriate to send
 
-  @javascript @groups
+  @javascript @group @user
   Scenario: Successfully Approve Survey
     Given organisations:
       | name       | mail        | address                       |

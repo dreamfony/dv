@@ -4,16 +4,12 @@ namespace Site;
 
 use Drupal\DrupalExtension\Context\RawDrupalContext;
 use Behat\Behat\Context\SnippetAcceptingContext;
-use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Testwork\Environment\Environment;
 use Behat\Gherkin\Node\TableNode;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Drupal\profile\Entity\Profile;
-use Drupal\group\Entity\Group;
-use Drupal\DrupalExtension\Hook\Scope\EntityScope;
-use Drupal\Core\Queue\QueueFactory;
-use Drupal\Core\Queue\QueueInterface;
+use Drupal\user\Entity\User;
 
 /**
  * FeatureContext class defines custom step definitions for Behat.
@@ -95,16 +91,16 @@ class OrganisationContext extends RawDrupalContext implements SnippetAcceptingCo
    */
   public function orgCreate($org) {
     // Get Org Id
-    $org_user_id = \Drupal::service('dmt_organisation.organisation')
-        ->createOrganisation();
+    $org_uid = \Drupal::service('dmt_organisation.organisation')
+        ->createOrganisation(['name' => $org->name]);
 
-    $org_user = user_load($org_user_id);
+    $org_user = User::load($org_uid);
 
     $address = $this->formatAddressField($org->address);
 
     $org_profile = Profile::create([
       'type' => 'organisation_profile',
-      'uid' => $org_user_id,
+      'uid' => $org_uid,
       'field_org_title' => $org->name,
       'field_org_email' => [$org->mail],
       'field_org_address' => $address
