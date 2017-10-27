@@ -23,8 +23,9 @@ Feature: Survey Moderation
 
     # Moderation
     And I am logged in as a user with the "moderator" persona
-    Then I should see the link "Test Survey needs approval"
-    And I click "Test Survey needs approval"
+    When I click "Moderation Dashboard"
+    Then I should see the link "Test Survey"
+    And I click "Test Survey"
     Then I should see the text "Test Survey" in the "Page Title" region
     And I should see the link "Approve"
 

@@ -1,9 +1,10 @@
 # Mailing List
 
-## Tests
-[Survey.feature](../../../../../tests/behat/features/Survey.feature)
-
 All related code should be placed in [dmt_mailing_list](../../modules/custom/dmt_mailing_list/dmt_mailing_list.info.yml) module.
+
+## Tests
+
+[Survey.feature](../../../../../tests/behat/features/Survey.feature)
 
 ## Pages
 
@@ -37,7 +38,8 @@ All related code should be placed in [dmt_mailing_list](../../modules/custom/dmt
         - Attachments - field view
 - **Survey view page**
   - View of all recipients
-      
+  
+  
   
 ## Mailing List is a bundle of group entity
  
