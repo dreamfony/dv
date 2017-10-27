@@ -26,7 +26,6 @@ markdown_extensions:
 pages:
   - Home: 'index.md'
   - 'Features': 'features.md'
-  - Operations:
   - Architecture:
     - 'System Overview': 'architecture.md'
     - Content:
@@ -45,7 +44,3 @@ pages:
     - 'Sending Emails': 'architecture/sending_emails.md'
     - 'Receiving Emails': 'architecture/recieving_emails.md'
     - 'Moderation': 'architecture/moderation_activity.md'
-  - Testing:
-  - Documentation Architecture:
-  - Overview of issue labels:
-  - Designer Documentation:
