@@ -4,11 +4,37 @@ namespace Drupal\wireframe_overlay\Form;
 
 use Drupal\Core\Entity\EntityForm;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteBuilderInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Class WireframeOverlayForm.
  */
 class WireframeOverlayForm extends EntityForm {
+
+  /**
+   * @var \Drupal\Core\Routing\RouteBuilderInterface
+   */
+  protected $routeBuilder;
+
+  /**
+   * WireframeOverlayForm constructor.
+   *
+   * @param \Drupal\Core\Routing\RouteBuilderInterface $routeBuilder
+   */
+  public function __construct(RouteBuilderInterface $routeBuilder) {
+    $this->routeBuilder = $routeBuilder;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('router.builder')
+    );
+  }
+
 
   /**
    * {@inheritdoc}
@@ -86,6 +112,9 @@ class WireframeOverlayForm extends EntityForm {
           '%label' => $wireframe_overlay->label(),
         ]));
     }
+
+    $this->routeBuilder->rebuild();
+
     $form_state->setRedirectUrl($wireframe_overlay->toUrl('collection'));
   }
 
