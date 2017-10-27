@@ -1,13 +1,8 @@
 # Features
 
-## Moderation
-
-**Scenarios:**
-- [Visit Moderation Dashboard](../../../../tests/behat/features/features/Moderation/Moderation.feature)
-- [Moderate Organisation Emails](../../../../tests/behat/features/features/Moderation/OrganisationModeration.feature)
-- [Successfully Approve Survey](../../../../tests/behat/features/features/Moderation/SurveyModeration.feature)
-
 ## Survey
+
+**Goal:** Fight the corruption and crime like Batman.
 
 **Scenarios:**
 - [Try to send Survey before filling in Content and Recipients](../../../../tests/behat/features/features/Survey/Survey.feature)
@@ -23,9 +18,19 @@
 - View existing Organisation
 - Find existing Organisation
 
+## Positions
+
+## Moderation
+
+**Scenarios:**
+- [Visit Moderation Dashboard](../../../../tests/behat/features/features/Moderation/Moderation.feature)
+- [Moderate Organisation Emails](../../../../tests/behat/features/features/Moderation/OrganisationModeration.feature)
+- [Successfully Approve Survey](../../../../tests/behat/features/features/Moderation/SurveyModeration.feature)
+
 ## User Profile
 
 
 ## User Account
 - Login
 - Register
+- Change account details
