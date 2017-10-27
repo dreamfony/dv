@@ -4,7 +4,6 @@ site_url: "http://dev.trans.ink"
 # Repository
 repo_name: 'GitHub'
 repo_url: https://github.com/dreamfony/dv
-edit_uri: 'docroot/profiles/dv/docs'
 
 docs_dir: 'docroot/profiles/dv/docs/'
 strict: true
@@ -26,8 +25,9 @@ markdown_extensions:
 # Page tree
 pages:
   - Home: 'index.md'
+  - 'Features': 'features.md'
   - Architecture:
-    - 'Overview': 'architecture.md'
+    - 'System Overview': 'architecture.md'
     - Content:
       - 'Content': 'architecture/content.md'
       - 'Answer': 'architecture/answer_comment.md'
