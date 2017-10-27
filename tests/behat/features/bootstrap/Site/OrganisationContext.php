@@ -108,9 +108,12 @@ class OrganisationContext extends RawDrupalContext implements SnippetAcceptingCo
       'type' => 'organisation_profile',
       'uid' => $org_uid,
       'field_org_title' => $org->name,
-      'field_org_email' => [$org->mail],
       'field_org_address' => $address
     ];
+
+    if (!empty($org->mail)) {
+      $org_profile['field_org_email'] = [$org->mail];
+    }
 
     $this->userContext->createProfile($org_profile);
 

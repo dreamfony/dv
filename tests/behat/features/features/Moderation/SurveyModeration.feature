@@ -23,7 +23,6 @@ Feature: Survey Moderation
 
     # Moderation
     And I am logged in as a user with the "moderator" persona
-    And I click "Notification Centre"
     Then I should see the link "Test Survey needs approval"
     And I click "Test Survey needs approval"
     Then I should see the text "Test Survey" in the "Page Title" region

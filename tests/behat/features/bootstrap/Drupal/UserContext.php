@@ -72,9 +72,9 @@ class UserContext extends RawDrupalContext implements SnippetAcceptingContext {
       /** @var Profile $profile */
       $pr = Profile::load($profile->id());
 
-      if($pr instanceof ProfileInterface) {
-        throw new \Exception("Profiles not deleted");
-      }
+       if($pr instanceof ProfileInterface) {
+         throw new \Exception("Profiles not deleted");
+       }
     }
 
   }

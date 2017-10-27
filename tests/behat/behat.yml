@@ -21,6 +21,7 @@ default:
       api_driver: "drupal"
       region_map:
         'Page title': '.region--title'
+        'Secondary Navigation': '.navbar-secondary'
         'Hero': '.region--hero'
         'Hero buttons': '.region--hero .btn-group'
         'Main content': '.region--content'
