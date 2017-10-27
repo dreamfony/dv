@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains wireframe_overlay.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function wireframe_overlay_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the wireframe_overlay module.
+    case 'help.page.wireframe_overlay':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Wireframe Overlay.') . '</p>';
+      return $output;
+
+    default:
+  }
+}

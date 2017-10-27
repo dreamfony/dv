@@ -1,0 +1,21 @@
+wireframe_overlay.wireframe_overlay.*:
+  type: config_entity
+  label: 'Wireframe overlay config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string
+    route:
+      type: string
+      label: 'Route'
+    image:
+      type: string
+      label: 'Image'
+    description:
+      type: string
+      label: 'Description'

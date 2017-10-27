@@ -1,0 +1,2 @@
+route_callbacks:
+  - 'wireframe_overlay.route_subscriber:routes'

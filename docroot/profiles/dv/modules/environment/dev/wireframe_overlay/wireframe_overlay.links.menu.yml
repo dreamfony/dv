@@ -1,0 +1,9 @@
+
+# Wireframe overlay menu items definition
+entity.wireframe_overlay.collection:
+  title: 'Wireframe overlay'
+  route_name: entity.wireframe_overlay.collection
+  description: 'List Wireframe overlay (bundles)'
+  parent: system.admin_structure
+  weight: 99
+

@@ -1,0 +1,6 @@
+services:
+  wireframe_overlay.route_subscriber:
+    class: Drupal\wireframe_overlay\Routing\RouteSubscriber
+    arguments: ['@config.factory', '@router.route_provider']
+    tags:
+      - { name: 'event_subscriber' }
