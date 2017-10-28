@@ -1,9 +1,20 @@
 <?php
 
+use Drupal\block_content\BlockContentInterface;
+use Drupal\block_content\Entity\BlockContent;
+
 function wireframe_overlay_preprocess_html(&$variables) {
 
-  $block_content = \Drupal::service('block')->load("ttter");
+  $bid = 'wireframe_overlay';
 
-  $variables['#attached']['drupalSettings']['wireframe_overlay']['block'] = $block_content;
+  /** @var BlockContentInterface $block */
+  $block = BlockContent::load($bid)->getUntranslated();
+
+
+
+
+  // $block_content = \Drupal::service('block')->load("ttter");
+
+  // $variables['#attached']['drupalSettings']['wireframe_overlay']['block'] = $block_content;
 
 }
