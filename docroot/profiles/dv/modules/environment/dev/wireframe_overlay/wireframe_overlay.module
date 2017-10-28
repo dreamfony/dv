@@ -22,3 +22,14 @@ function wireframe_overlay_help($route_name, RouteMatchInterface $route_match) {
     default:
   }
 }
+
+/**
+ * Implements hook_theme().
+ */
+function wireframe_overlay_theme($existing, $type, $theme, $path) {
+  return [
+    'wireframe_overlay' => [
+      'variables' => ['toggle' => NULL, 'label' => NULL, 'description' => NULL, 'image' => NULL],
+    ],
+  ];
+}

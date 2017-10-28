@@ -1,0 +1,15 @@
+wireframe_overlay:
+  version: VERSION
+  css:
+    component:
+      css/wireframe_overlay.css: {}
+
+wireframe_overlay.js:
+  version: VERSION
+  js:
+    js/wireframe_overlay.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once

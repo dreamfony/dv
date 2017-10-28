@@ -67,7 +67,7 @@ class WireframeOverlayForm extends EntityForm {
       '#type' => 'textfield',
       '#title' => $this->t('Route'),
       '#maxlength' => 255,
-      '#default_value' => $wireframe_overlay->label(),
+      '#default_value' => isset($wireframe_overlay->route) ? $wireframe_overlay->route : '',
       '#description' => $this->t("Route for the Wireframe overlay."),
       '#required' => TRUE,
     ];
@@ -76,7 +76,7 @@ class WireframeOverlayForm extends EntityForm {
       '#type' => 'textfield',
       '#title' => $this->t('Image'),
       '#maxlength' => 255,
-      '#default_value' => $wireframe_overlay->label(),
+      '#default_value' => isset($wireframe_overlay->image) ? $wireframe_overlay->image : '',
       '#description' => $this->t("Image for the Wireframe overlay."),
       '#required' => TRUE,
     ];
@@ -85,9 +85,9 @@ class WireframeOverlayForm extends EntityForm {
       '#type' => 'textarea',
       '#title' => $this->t('Description'),
       '#maxlength' => 255,
-      '#default_value' => $wireframe_overlay->label(),
+      '#default_value' => isset($wireframe_overlay->description) ? $wireframe_overlay->description : '',
       '#description' => $this->t("Description for the Wireframe overlay."),
-      '#required' => TRUE,
+      '#required' => FALSE,
     ];
 
     return $form;
