@@ -40,7 +40,7 @@ function dmt_dev_create_test_accounts() {
  */
 
 function dmt_dev_mail_alter(&$message) {
-  $message['to'] = 'dmtit6@gmail.com';
+  $message['to'] = 'adriadrop@gmail.com';
 }
 
 /**

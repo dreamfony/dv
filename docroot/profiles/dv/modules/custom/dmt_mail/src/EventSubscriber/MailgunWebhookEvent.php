@@ -18,7 +18,7 @@ class MailgunWebhookEvent implements EventSubscriberInterface {
 
     /** @var Webhook $webhook */
     $webhook = $receive->getWebhook();
-    $payload = static::decode($webhozok->getPayload());
+    $payload = static::decode($webhook->getPayload());
 
     $drupalMailgun = new DrupalMailgun();
     $isverified = $drupalMailgun->verifyWebhookSignature($payload);
