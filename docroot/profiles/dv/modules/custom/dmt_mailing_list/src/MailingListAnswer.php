@@ -35,30 +35,22 @@ class MailingListAnswer {
    * @param array $values
    */
   public function createAnswerFromActivity(Activity $activity, array $values) {
-    $referenced_object = $activity->get('field_activity_entity')->getValue();
-
-    $ref_entity_type = $referenced_object['0']['target_type'];
-    $ref_entity_id = $referenced_object['0']['target_id'];
-
     /** @var Node $content */
-    $content = $this->entityTypeManager
-      ->getStorage($ref_entity_type)
-      ->load($ref_entity_id);
+    $content = $activity->get('field_activity_entity')->entity;
 
     $comment_type = $content->get('field_content_comment_type')
       ->getString();
 
-
     $values = $values +
       [
-        'entity_id' => $ref_entity_id,
+        'entity_id' => $content->id(),
         'comment_type' => $comment_type,
         'pid' => $this->getAnswerPid($activity)
       ];
 
     // if user has not being set get user from activity
     if(empty($values['user'])) {
-      $values['uid'] = $activity->get('field_activity_recipient_user')->getValue()[0]['target_id'];
+      $values['uid'] = $activity->get('field_activity_recipient_user')->entity;
     }
 
     // Create a comment.
