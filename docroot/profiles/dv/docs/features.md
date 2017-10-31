@@ -15,7 +15,7 @@
 **Scenarios:**
 - Add new Organisation
 - Edit existing Organisation
-- View existing Organisation
+- [View existing Organisation](../../../../tests/behat/features/features/Organisations/ViewOrganisation.feature)
 - Find existing Organisation
 
 ## Positions
@@ -23,9 +23,12 @@
 ## Moderation
 
 **Scenarios:**
-- [Visit Moderation Dashboard](../../../../tests/behat/features/features/Moderation/Moderation.feature)
-- [Moderate Organisation Emails](../../../../tests/behat/features/features/Moderation/OrganisationModeration.feature)
-- [Successfully Approve Survey](../../../../tests/behat/features/features/Moderation/SurveyModeration.feature)
+- moderation.feature:
+  - [Visit Moderation Dashboard](../../../../tests/behat/features/features/Moderation/Moderation.feature)
+- OrganisationModeation.feature
+  - [Moderate Organisation Emails](../../../../tests/behat/features/features/Moderation/OrganisationModeration.feature)
+- tttretrt
+  - [Successfully Approve Survey](../../../../tests/behat/features/features/Moderation/SurveyModeration.feature)
 
 ## User Profile
 
