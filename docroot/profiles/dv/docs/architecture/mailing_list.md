@@ -4,7 +4,7 @@ All related code should be placed in [dmt_mailing_list](../../modules/custom/dmt
 
 ## Tests
 
-[Survey.feature](../../../../../tests/behat/features/Survey.feature)
+[Survey.feature](../../../../../tests/behat/features/features/Survey/Survey.feature)
 
 ## Pages
 
@@ -95,7 +95,7 @@ All related code should be placed in [dmt_mailing_list](../../modules/custom/dmt
     - [x] **own** - triggers this transition
     - [x] **sys** - validates [mailing_list] contains > 0 [node](../entities/node.md) [content] and > 0 recipients
     - [x] **sys** - remove administrator role from the [mailing_list] [group](../entities/group.md)
-    - [x] **sys** - send [mailing_list_needs_approval] [message](../entities/message.md)
+    - [x] **sys** - send [mailing_list_needs_approval](mailing_list_needs_approval_message.md) message
 
 - **Approve Sending**	[approve plugin](../../modules/custom/dmt_mailing_list/src/Plugin/ModerationStateMachine/ApproveSendingTransition.php)
   - from: [email]

@@ -1,5 +1,12 @@
 # Organisations
 
+## Pages
+- View Organisation
+  - Block Organisation details form Profile
+    - Name
+    - Phone
+    - Email
+
 ## Group bundle "organisation"
 
 #### **[Fields](http://local.dv.com/admin/group/types/manage/organisation/fields)**
