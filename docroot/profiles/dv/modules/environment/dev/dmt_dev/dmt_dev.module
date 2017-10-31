@@ -36,6 +36,7 @@ function dmt_dev_create_test_accounts() {
 /**
  * Mail Reroute
  * Implements hook_mail_alter().
+ * Override ALL 'to' parametars in email sending so you can test survey sending with your email
  */
 
 function dmt_dev_mail_alter(&$message) {
