@@ -198,7 +198,8 @@
             },
             "drupal/mailgun": {
                 "https://www.drupal.org/node/2847665": "https://www.drupal.org/files/issues/remove-composer-manager-2847665-2.patch",
-                "https://www.drupal.org/node/2851007": "https://www.drupal.org/files/issues/extract-params-2851007-2.patch"
+                "https://www.drupal.org/node/2851007": "https://www.drupal.org/files/issues/extract-params-2851007-2.patch",
+                "https://www.drupal.org/node/2842962#comment-12324804": "https://www.drupal.org/files/issues/mailgun-typo—4_0.patch"
             },
             "drupal/webhooks": {
                 "https://www.drupal.org/node/2851615": "https://www.drupal.org/files/issues/return-data-2851615-2.patch"
