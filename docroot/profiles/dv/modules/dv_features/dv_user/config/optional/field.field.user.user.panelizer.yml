@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.panelizer
+  module:
+    - panelizer
+    - user
+id: user.user.panelizer
+field_name: panelizer
+entity_type: user
+bundle: user
+label: Panelizer
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: panelizer

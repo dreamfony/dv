@@ -512,7 +512,7 @@ display:
             group_items: {  }
           plugin_id: string
       sorts: {  }
-      title: 'Manage:: View Organisations without email'
+      title: 'Organisations without email'
       header: {  }
       footer: {  }
       empty: {  }

@@ -3,9 +3,13 @@ status: true
 dependencies:
   config:
     - group.type.mailing_list
+    - system.menu.admin
+    - user.role.administrator
+    - user.role.moderator
   module:
     - content_moderation
     - group
+    - user
 id: survey_moderation
 label: 'Survey Moderation'
 module: views
@@ -22,8 +26,11 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            administrator: administrator
+            moderator: moderator
       cache:
         type: tag
         options: {  }
@@ -426,7 +433,7 @@ display:
           entity_type: group
           entity_field: changed
           plugin_id: date
-      title: 'Survey Approval Queue'
+      title: 'Survey Moderation'
       header: {  }
       footer: {  }
       empty: {  }
@@ -448,6 +455,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - user.roles
       tags: {  }
   block_1:
     display_plugin: block
@@ -461,4 +469,29 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - user.roles
+      tags: {  }
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: Page
+    position: 2
+    display_options:
+      display_extenders: {  }
+      path: admin/survey-moderation
+      menu:
+        type: normal
+        title: 'Survey Moderation'
+        description: ''
+        expanded: false
+        parent: dmt_configuration.dmt_survey
+        weight: 0
+        context: '0'
+        menu_name: admin
+    cache_metadata:
+      max-age: 0
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - user.roles
       tags: {  }

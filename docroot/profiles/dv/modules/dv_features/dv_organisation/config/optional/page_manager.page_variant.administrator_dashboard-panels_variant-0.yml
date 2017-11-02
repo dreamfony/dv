@@ -22,7 +22,7 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: contentmain
-      weight: 0
+      weight: 3
       uuid: 6a87d2df-68bc-40be-9d3a-83b09333a897
       context_mapping: {  }
     a0b1a970-abe7-43ca-a2a9-bb8d4b81c506:
@@ -33,7 +33,7 @@ variant_settings:
       views_label: 'Organisations without email'
       items_per_page: none
       region: contentmain
-      weight: 0
+      weight: 1
       uuid: a0b1a970-abe7-43ca-a2a9-bb8d4b81c506
       context_mapping: {  }
     a1689750-bba0-4022-826e-0dec64fd8fa7:
@@ -44,7 +44,7 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: contentmain
-      weight: 0
+      weight: 2
       uuid: a1689750-bba0-4022-826e-0dec64fd8fa7
       context_mapping: {  }
   id: panels_variant
