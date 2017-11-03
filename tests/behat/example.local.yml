@@ -6,6 +6,8 @@ imports:
 local:
   suites:
     default:
+      filters:
+        tags: "~@skip"
       paths:
         # Set features to repo root so that .feature files belonging to contrib
         # modules, themes, and profiles can be discovered. Enable these

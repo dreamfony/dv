@@ -4,7 +4,7 @@ Feature: View Organisation
   Persona: All
   Goal/desire: So I can find more detail about the organisation
 
-  @javascript @groups
+  @javascript @groups @skip
   Scenario: View Organisation
     Given organisations:
       | name       | mail        | address                       |
@@ -19,6 +19,6 @@ Feature: View Organisation
     # TODO And I should see
 
 
-    #Given I am logged in as a user with the "journalist" persona
+    # Given I am logged in as a user with the "journalist" persona
     # When I click "Profile of TEST_journalist" ## we need a method here to get current logged in profile link
     # ...

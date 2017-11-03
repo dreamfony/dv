@@ -3,7 +3,7 @@ Feature: Organisation Moderation
   Benefit: So we can manage the content on the site better
   Persona: Moderator
 
-  @javascript @group @user
+  @javascript @group @user @skip
   Scenario: Moderate Organisation Emails
     Given organisations:
       | name       | mail        | address                       |

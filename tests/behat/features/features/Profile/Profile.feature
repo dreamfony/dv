@@ -6,7 +6,7 @@ Feature: Profile
 
   Check: https://github.com/goalgorilla/open_social/tree/8.x-1.x/tests/behat/features/capabilities/profile for some ideas
 
-  @javascript @groups @user
+  @javascript @groups @user @skip
   Scenario: Delete orphaned profiles
     Given organisations:
       | name       | mail        | address                       |
