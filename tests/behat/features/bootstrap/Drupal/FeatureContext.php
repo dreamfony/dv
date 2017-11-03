@@ -47,7 +47,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   }
 
   /**
-   * @BeforeScenario
+   * @BeforeScenario @javascript
    */
   public function beforeScenario(BeforeScenarioScope $scope)
   {
