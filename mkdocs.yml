@@ -19,8 +19,10 @@ extra_css:
 
 #google_analytics: ['']
 markdown_extensions:
-  - toc:
-      permalink: True
+    - smarty
+    - toc:
+        permalink: True
+    - sane_lists
 
 # Page tree
 pages:
