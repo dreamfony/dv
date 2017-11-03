@@ -15,13 +15,13 @@ use Drupal\Core\Url;
  * A report worker.
  *
  * @QueueWorker(
- *   id = "dv_mailgun_webhook",
- *   title = @Translation("Process dv_mailgun_webhook queue."),
+ *   id = "dmt_mailgun",
+ *   title = @Translation("Process dmt_mailgun queue."),
  *   cron = {"time" = 60}
  * )
  *
  */
-class DvMailgunWebhook extends QueueWorkerBase {
+class MailgunWorker extends QueueWorkerBase {
 
   /**
    * {@inheritdoc}
