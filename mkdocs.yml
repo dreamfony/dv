@@ -9,6 +9,7 @@ docs_dir: 'docroot/profiles/dv/docs/'
 strict: true
 
 theme: material
+theme_dir: 'docroot/profiles/dv/docs/material'
 
 #use_directory_urls
 
