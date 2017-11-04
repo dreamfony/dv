@@ -43,7 +43,7 @@ Feature: Create Survey
     And I should see the text "New Survey" in the "Page title" region
     Then I check that the url is the same as I remembered it
 
-  @javascript @groups
+  @javascript @groups @user
   Scenario: Successfully Create Survey
     Given organisations:
       | name       | mail        | address                       |
@@ -111,6 +111,7 @@ Feature: Create Survey
     ### TODO Then the "Recipients" field should contain "Test Org 1" // make a method for partial string matching
     And I press "Add Recipients"
     And I wait for AJAX to finish
+    And I wait for 30 seconds
     Then I should see the link "Test Org 1"
 
     # Remove recipient
