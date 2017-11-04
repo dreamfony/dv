@@ -1,13 +1,13 @@
 # Story workflow
 
 - Write the story. (PO, SM)
-  - Format: As a <persona/s>, I want <feature> so that <reason>.
+  - Format: As a **persona**, I want **feature** so that **reason**.
   - Add the story to the backlog. (PO, SM)
   - Set the story priority. (PO)
   - Make a wire frames if necessary. (PO)
   - Write the Behat scenarios
 
-- Organise a sprint planing event every 2 weeks (SM)
+- Organise a sprint planing event every X weeks (SM)
   - Present the stories (PO)
   - Estimate the stories (DEV TEAM)
   - Select the Story Owner
