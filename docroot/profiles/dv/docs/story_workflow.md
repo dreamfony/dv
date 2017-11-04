@@ -16,8 +16,11 @@
 
 - Grooming (DEV TEAM optionally PO)
   - Split the story in to tasks
+    - Implement behat methods
     - Site building
     - Drupal Coding
+    - Theming
+    - Styling
   - Make a high level solution for the story
   
 - Develop the stories (DEV TEAM)
