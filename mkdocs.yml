@@ -8,7 +8,7 @@ repo_url: https://github.com/dreamfony/dv
 docs_dir: 'docroot/profiles/dv/docs/'
 strict: true
 
-theme: readthedocs
+theme: material
 
 #use_directory_urls
 
