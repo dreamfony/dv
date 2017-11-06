@@ -60,8 +60,6 @@ nodejs_npm_global_packages:
    - name: ttf2woff
    - name: yarn
    - name: phantomjs
-   - name: selenium-standalone
-   - name: webdriver
 
 nodejs_install_npm_user: "{{ drupalvm_user }}"
 npm_config_prefix: "/home/{{ drupalvm_user }}/.npm-global"
