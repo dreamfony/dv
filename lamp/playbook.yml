@@ -1,0 +1,19 @@
+- hosts: localhost
+
+  vars_files:
+    - vars/php.yml
+    - vars/apache.yml
+
+  roles:
+    - role: gantsign.oh-my-zsh
+      users:
+        - username: "{{ ansible_user_id }}"
+    - role: geerlingguy.apache
+      become: true
+    - role: geerlingguy.php-versions
+    - role: geerlingguy.php
+      become: true
+    - role: geerlingguy.apache-php-fpm
+      become: true
+    - role: geerlingguy.composer
+      become: true
