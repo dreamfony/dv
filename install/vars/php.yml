@@ -14,9 +14,7 @@ php_packages:
   - php-cli
   - php-common
   - php-devel
-  - php-fpm
   - php-gd
-  - php-imap
   - php-ldap
   - php-mbstring
   - php-mcrypt
@@ -29,16 +27,15 @@ php_packages:
   - php-pecl-yaml
   - php-curl
   - php-bz2
-  - php-mysql
 
 # Whether to install recommended packages. Used only for Debian/Ubuntu.
 php_install_recommends: yes
 
 # Set this to false if you're not using PHP with Apache/Nginx/etc.
-php_enable_webserver: true
+php_enable_webserver: false
 
 # PHP-FPM configuration.
-php_enable_php_fpm: true
+php_enable_php_fpm: false
 php_fpm_listen: "127.0.0.1:9000"
 php_fpm_listen_allowed_clients: "127.0.0.1"
 php_fpm_pm_max_children: 50

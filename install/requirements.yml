@@ -1,7 +1,5 @@
 # Install a roles from the Ansible Galaxy
 - src: gantsign.oh-my-zsh
-- src: geerlingguy.apache
 - src: geerlingguy.php-versions
 - src: geerlingguy.php
-- src: geerlingguy.apache-php-fpm
 - src: geerlingguy.composer

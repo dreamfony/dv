@@ -21,3 +21,12 @@ ansible-galaxy install -r requirements.yml
 title "Provision playbook for $(whoami)"
 ansible-playbook -i "localhost" -c local playbook.yml
 
+title "Run Composer Install"
+composer install
+
+title "Remove PHP used only for Composer setup"
+#sudo apt-get remove -y purge php*
+
+title "Provison server playbook"
+#ansible-playbook -i "localhost" -c local lamp/playbook.yml
+

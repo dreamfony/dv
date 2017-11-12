@@ -1,5 +1,0 @@
-apache_vhosts:
-  - servername: "local.dv.com"
-    documentroot: "/var/www/dv/docroot"
-    extra_parameters: |
-          ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/dv/docroot"
