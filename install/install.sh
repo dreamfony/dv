@@ -22,11 +22,18 @@ title "Provision playbook for $(whoami)"
 ansible-playbook -i "localhost" -c local playbook.yml
 
 title "Run Composer Install"
-composer install
+composer install --no-interaction
 
 title "Remove PHP used only for Composer setup"
-#sudo apt-get remove -y purge php*
+sudo apt-get remove -y --purge php*
+sudo rm /etc/php -R
 
-title "Provison server playbook"
-#ansible-playbook -i "localhost" -c local lamp/playbook.yml
+title "Provision server playbook"
+cd lamp
+ansible-playbook playbook.yml
+
+cd /var/www/dv/
+vednor/bin/blt custom:reinstall
+
+
 

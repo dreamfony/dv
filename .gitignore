@@ -138,3 +138,5 @@ npm-debug.log
 php_errors.log
 # Drupal console
 console
+
+playbook.retry

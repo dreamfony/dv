@@ -32,7 +32,6 @@
 
   roles:
     # Essential roles.
-    - { role: geerlingguy.repo-remi, when: ansible_os_family == 'RedHat', tags: ['webserver', 'php'] }
     - { role: drupalvm.hostname, when: hostname_configure }
     - { role: geerlingguy.firewall, when: firewall_enabled }
     - { role: geerlingguy.git }
@@ -46,11 +45,8 @@
     - { role: geerlingguy.composer }
     - { role: geerlingguy.mysql, when: drupal_db_backend == 'mysql', tags: ['database'] }
     - { role: geerlingguy.php-mysql, when: drupal_db_backend == 'mysql', tags: ['php', 'database'] }
-    - { role: geerlingguy.postgresql, when: drupal_db_backend == 'pgsql', tags: ['database'] }
-    - { role: geerlingguy.php-pgsql, when: drupal_db_backend == 'pgsql', tags: ['php', 'database'] }
 
     # Conditionally-installed roles.
-    - { role: geerlingguy.drupal-console, when: 'drupal_major_version > 7 and "drupalconsole" in installed_extras' }
     - { role: geerlingguy.drush, when: '"drush" in installed_extras' }
     - { role: geerlingguy.memcached, when: '"memcached" in installed_extras' }
     - { role: geerlingguy.php-memcached, when: '"memcached" in installed_extras', tags: ['php'] }
@@ -104,7 +100,7 @@
     - { role: geerlingguy.security, when: extra_security_enabled }
 
   tasks:
-    - include: ../../vendor/geerlingguy/drupal-vm/provisioning/tasks/sshd.yml
+    #- include: ../../vendor/geerlingguy/drupal-vm/provisioning/tasks/sshd.yml
     - include: ../../vendor/geerlingguy/drupal-vm/provisioning/tasks/extras.yml
 
     - include: ../../vendor/geerlingguy/drupal-vm/provisioning/tasks/apparmor.yml

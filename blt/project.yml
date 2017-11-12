@@ -86,7 +86,7 @@ disable-targets:
 behat:
   web-driver: selenium
 vm:
-  enable: true
+  enable: false
 import-content:
   local:
     migrate:

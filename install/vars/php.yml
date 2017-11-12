@@ -1,10 +1,6 @@
 ---
 php_version: '7.1'
 
-# Pass in a comma-separated list of repos to use (e.g. "remi,epel"). Used only
-# for RHEL/CentOS.
-php_enablerepo: ""
-
 # PHP package state; use 'installed' to make sure it's installed, or 'latest' if
 # you want to upgrade or switch versions using a new repo.
 php_packages_state: installed
@@ -26,6 +22,9 @@ php_packages:
   - php-xmlrpc
   - php-pecl-yaml
   - php-curl
+  - php-bz2
+
+php_packages_extra:
   - php-bz2
 
 # Whether to install recommended packages. Used only for Debian/Ubuntu.
@@ -116,6 +115,7 @@ php_source_configure_command: >
   --with-config-file-path={{ php_conf_paths | first }}
   --enable-mbstring
   --enable-zip
+  --enable-bz2
   --enable-bcmath
   --enable-pcntl
   --enable-ftp

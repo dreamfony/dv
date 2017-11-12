@@ -32,9 +32,9 @@ drupal_composer_install_dir: "/var/www/dv"
 drupal_core_path: "/var/www/dv/docroot"
 ssh_home: /var/www/dv
 
-drupal_db_user: drupal
-drupal_db_password: drupal
-drupal_db_name: drupal
+drupal_db_user: dv
+drupal_db_password: dv
+drupal_db_name: dv
 
 # Set this to 'false' if you don't need to install drupal (using the drupal_*
 # settings below), but instead copy down a database (e.g. using drush sql-sync).
