@@ -6,6 +6,9 @@ title() {
     printf "\n${color}$1${nc}\n"
 }
 
+title "Unzip secure config files if you dont know the password ask someone form the organisation"
+unzip /var/www/dv/docroot/profiles/dv/modules/dv_features/dv_secure/config/install/yml.zip /var/www/dv/docroot/profiles/dv/modules/dv_features/dv_secure/config/install/
+
 title "Install Ansible"
 sudo apt-get install software-properties-common -y
 sudo apt-add-repository ppa:ansible/ansible -y
