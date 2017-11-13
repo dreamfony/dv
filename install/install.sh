@@ -32,7 +32,7 @@ sudo apt-get remove -y --purge php*
 sudo rm /etc/php -R
 
 title "Provision server playbook"
-cd lamp
+cd /var/www/dv/
 ansible-playbook playbook.yml
 
 cd /var/www/dv/
