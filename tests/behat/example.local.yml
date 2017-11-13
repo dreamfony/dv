@@ -10,11 +10,15 @@ local:
         tags: "~@skip"
       paths:
         # Set features to repo root so that .feature files belonging to contrib
-        # modules, themes, and profiles can be discovered. Enable these
-        # additional paths in build/phing/build.yml.
+        # modules, themes, and profiles can be discovered.
         features: ${repo.root}
         bootstrap: ${repo.root}/tests/behat/features/bootstrap
       contexts:
+        - Drupal\FeatureContext:
+          parameters:
+            environment:
+              # absolute path to local directory to store screenshots - do not include trailing slash
+              screenshot_dir: ${reports.localDir}
         - Drupal\FeatureContext
         - Drupal\PersonaContext
         - Drupal\GroupContext
@@ -26,8 +30,10 @@ local:
         - Drupal\DrupalExtension\Context\MessageContext
         - Drupal\DrupalExtension\Context\DrushContext
   extensions:
+    DMore\ChromeExtension\Behat\ServiceContainer\ChromeExtension: ~
     Behat\MinkExtension:
-      javascript_session: selenium2
+      browser_name: chrome
+      javascript_session: default
       # configure the base url for your site
       base_url: ${project.local.uri}
       # set default command for "Show last response" step.
@@ -43,12 +49,35 @@ local:
       #       CURLOPT_CERTINFO: false
       #       CURLOPT_TIMEOUT: 120
       selenium2:
-        wd_host: http://127.0.0.1:4444/wd/hub
+        wd_host: ${behat.selenium.url}
         browser: chrome
+      sessions:
+        default:
+          chrome:
+            api_url: "http://localhost:9222"
     Drupal\DrupalExtension:
       drupal:
         # This must be an absolute path.
         drupal_root: ${docroot}
+      region_map:
+        'Page title': '.region--title'
+        'Secondary Navigation': '.navbar-secondary'
+        'Hero': '.region--hero'
+        'Hero buttons': '.region--hero .btn-group'
+        'Main content': '.region--content'
+        'Main content front': '.region--content'
+        'Sidebar second': 'aside[role=complementary]'
+        'Modal footer': '.modal-footer'
+        'WYSIWYG dialog': '.editor-image-dialog .form-actions'
+        'Survey header': '.block-region-header'
+        'Survey recipients add': '.recipients-form'
+        'Survey recipients list': '.block-views-blockmailing-list-organisations-block-1'
+        'Survey content add': '.ajax-form-entity-node-content-new'
+        'Survey content list': '.block-views-blockmailing-list-items-block-1'
+      selectors:
+        message_selector: '.alert'
+        error_message_selector: '.alert.alert-danger'
+        success_message_selector: '.alert.alert-success'
       drush:
         alias: '@self'
 
@@ -62,7 +91,7 @@ example-multisite:
       # set default command for "Show last response" step.
       show_cmd: "open %s"
       selenium2:
-        wd_host: http://127.0.0.1:4444/wd/hub
+        wd_host: ${behat.selenium.url}
         browser: chrome
     Drupal\DrupalExtension:
       drupal:
@@ -70,13 +99,3 @@ example-multisite:
         drupal_root: ${docroot}
       drush:
         alias: '@self'
-    Bex\Behat\ScreenshotExtension:
-      screenshot_taking_mode: failed_steps
-        # Available modes:
-        #  - failed_steps: Image contains only the screenshot of the failed step. [Default]
-        #  - failed_scenarios: Image contains screenshots of all steps in a failed scenario.
-        #  - all_scenarios: Each scenario has a combined image created, regardless of failing or passing.
-      image_drivers:
-        local:
-          screenshot_directory: ../tests/behat/screenshots
-          clear_screenshot_directory: true  # Enable removing all images before each test run. It is false by default.

@@ -2,42 +2,22 @@ default:
   suites:
     default:
       paths:
-        features: %paths.base%/features
-        bootstrap: %paths.base%/features/bootstrap
-      contexts:
-        - Drupal\FeatureContext
-        - Drupal\DrupalExtension\Context\DrupalContext
-        - Drupal\DrupalExtension\Context\MinkContext
-        - Drupal\DrupalExtension\Context\MessageContext
-        - Drupal\DrupalExtension\Context\DrushContext
+        - %paths.base%/features
   extensions:
     Behat\MinkExtension:
       default_session: goutte
-      javascript_session: selenium2
+      browser_name: chrome
+      javascript_session: default
       goutte: ~
       files_path: "%paths.base%/media"
     Drupal\DrupalExtension:
       blackbox: ~
       api_driver: "drupal"
-      region_map:
-        'Page title': '.region--title'
-        'Secondary Navigation': '.navbar-secondary'
-        'Hero': '.region--hero'
-        'Hero buttons': '.region--hero .btn-group'
-        'Main content': '.region--content'
-        'Main content front': '.region--content'
-        'Sidebar second': 'aside[role=complementary]'
-        'Modal footer': '.modal-footer'
-        'WYSIWYG dialog': '.editor-image-dialog .form-actions'
-        'Survey header': '.block-region-header'
-        'Survey recipients add': '.recipients-form'
-        'Survey recipients list': '.block-views-blockmailing-list-organisations-block-1'
-        'Survey content add': '.ajax-form-entity-node-content-new'
-        'Survey content list': '.block-views-blockmailing-list-items-block-1'
-      selectors:
-        message_selector: '.alert'
-        error_message_selector: '.alert.alert-danger'
-        success_message_selector: '.alert.alert-success'
     jarnaiz\JUnitFormatter\JUnitFormatterExtension:
         filename: report.xml
         outputDir: %paths.base%/build/tests
+    Bex\Behat\ScreenshotExtension:
+      screenshot_taking_mode: failed_steps
+      image_drivers:
+        local:
+          screenshot_directory: /tmp

@@ -84,7 +84,7 @@ disable-targets:
   local:
     sync: true
 behat:
-  web-driver: selenium
+  web-driver: chrome
 vm:
   enable: false
 import-content:
