@@ -24,6 +24,15 @@ class ReinstallCommand extends BltTasks {
    */
   public function reinstall() {
 
+    if(extension_loaded('xdebug')) {
+      // disable xdebug in cli
+      $this->taskExecStack()
+        ->stopOnFail()
+        ->exec('sudo phpdismod -s cli xdebug')
+        ->exec('sudo service php7.1-fpm restart')
+        ->run();
+    }
+
     // dump db in backup.sql
     $options = ['result-file' => 'db-backup-'.time().'.sql'];
     $drush = $this->taskDrush()->drush("sql-dump")
@@ -32,7 +41,7 @@ class ReinstallCommand extends BltTasks {
     $exit_code = $result->getExitCode();
 
     if($exit_code) {
-      throw new BltException("Could not dump the database.");
+      $this->say("Database not dumped! If it's your first time installation this is normal.");
     }
 
     $this->invokeCommand('setup');
@@ -43,6 +52,15 @@ class ReinstallCommand extends BltTasks {
       ->run();
 
     $this->invokeCommand('custom:import-content');
+
+    // enable xdebug in cli
+    if(!extension_loaded('xdebug')) {
+      $this->taskExecStack()
+        ->stopOnFail()
+        ->exec('sudo phpenmod -s cli xdebug')
+        ->exec('sudo service php7.1-fpm restart')
+        ->run();
+    }
 
   }
 

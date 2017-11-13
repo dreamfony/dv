@@ -36,6 +36,8 @@ cd /var/www/dv/
 ansible-playbook playbook.yml
 
 cd /var/www/dv/
+touch blt/project.local.yml
+echo "environment: local" >> blt/project.local.yml
 vednor/bin/blt custom:reinstall
 
 

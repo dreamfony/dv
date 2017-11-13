@@ -15,13 +15,19 @@
 - if you get some wierd page on local.dv.com clear chrome caches
 - logout as your linux user and log back in to get zsh to work
 
-
 todo:
  - add adminer to /etc/hosts
  - sort out drush aliases
+ - install phpmyadmin ?
  - check if firewall is interrupting xdebug
  
 ## PHPSTORM
-xdebug port 9001
+
+- Set xdebug port 9001
+
+**Add Plugins**:
+- .ignore
+- Drupal Symphony Bridge
+- set code style to Drupal
 
 
