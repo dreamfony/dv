@@ -1,0 +1,6 @@
+name: Secure
+type: module
+core: 8.x
+dependencies:
+  - inmail
+package: DV

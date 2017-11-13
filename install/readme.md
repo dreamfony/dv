@@ -20,6 +20,7 @@ todo:
  - add adminer to /etc/hosts
  - sort out dv_secure
  - sort out drush aliases
+ - check if firewall is interrupting xdebug
  
 ## PHPSTORM
 xdebug port 9001
