@@ -24,6 +24,7 @@ class ReinstallCommand extends BltTasks {
    */
   public function reinstall() {
 
+    // TODO refactor to custom:xdebug that excepts en and dis parameter
     if(extension_loaded('xdebug')) {
       // disable xdebug in cli
       $this->taskExecStack()
@@ -33,8 +34,9 @@ class ReinstallCommand extends BltTasks {
         ->run();
     }
 
+    // TODO refactor to custom:dbdump
     // dump db in backup.sql
-    $options = ['result-file' => 'db-backup-'.time().'.sql'];
+    $options = ['result-file' => $this->getConfigValue('repo.root') . '/db_backup/db-backup-'.time().'.sql'];
     $drush = $this->taskDrush()->drush("sql-dump")
       ->options($options, '=');
     $result = $drush->run();
@@ -53,6 +55,7 @@ class ReinstallCommand extends BltTasks {
 
     $this->invokeCommand('custom:import-content');
 
+    // TODO refactor to custom:xdebug that excepts en and dis parameter
     // enable xdebug in cli
     if(!extension_loaded('xdebug')) {
       $this->taskExecStack()
