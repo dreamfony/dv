@@ -12,11 +12,10 @@
 - sudo chown your_linux_user_name:your_linux_user_name /var/www/dv
 - cd /var/www
 - git clone your forked repo
-- git checkout develop
-- cd dv/lamp
-- bash ./install.sh
-- if you get some wierd page on local.dv.com clear chrome caches
+- bash /var/www/dv/install/install.sh
+
 - logout as your linux user and log back in to get zsh to work
+- if you get some wierd page on local.dv.com clear chrome caches
 
 todo:
  - add adminer to /etc/hosts

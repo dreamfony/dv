@@ -18,6 +18,8 @@ fi
 sudo apt-get update
 sudo apt-get install ansible -y
 
+cd /var/www/dv/install
+
 title "Get Ansible roles"
 ansible-galaxy install -r requirements.yml
 
