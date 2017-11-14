@@ -1,0 +1,1 @@
+When doing blt custom:reinstall database backups will be dumped here.
