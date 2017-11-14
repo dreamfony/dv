@@ -1,9 +1,8 @@
 # Installation instructions
 
-## Linux Ubuntu
+## Linux - Ubuntu/Mint
 
 - fork https://github.com/dreamfony/dv repo
-
 - sudo apt-get install git -y
 - git config --global user.name "John Doe"
 - git config --global user.email "email@example.com"
@@ -13,15 +12,14 @@
 - cd /var/www
 - git clone your forked repo
 - bash /var/www/dv/install/install.sh
-
 - logout as your linux user and log back in to get zsh to work
-- if you get some wierd page on local.dv.com clear chrome caches
+- if you get some weird page on local.dv.com clear chrome caches
 
 todo:
  - add adminer to /etc/hosts
- - sort out drush aliases
  - install phpmyadmin ?
  - check if firewall is interrupting xdebug
+ - figure out weather we want to keep built css files in repo
  
 ## PHPSTORM
 
