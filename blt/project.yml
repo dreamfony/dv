@@ -41,18 +41,11 @@ modules:
     uninstall: [dblog]
 target-hooks:
   frontend-setup:
-    # todo make a decision about using pattern lab test
-    # pattern lab build if we ever need it again
-    #dir: '${docroot}/themes/custom/patternlab'
-    #command: 'npm install'
-    dir: '${docroot}'
-    command: 'echo ''No pre-config-import configured.'''
+    dir: '${docroot}/profiles/dv/themes/socialblue'
+    command: 'yarn install'
   frontend-build:
-    # pattern lab build if we ever need it again
-    #dir: '${docroot}/themes/custom/patternlab'
-    #command: 'npm run compile'
-    dir: '${docroot}'
-    command: 'echo ''No pre-config-import configured.'''
+    dir: '${docroot}/profiles/dv/themes/socialblue'
+    command: 'gulp'
   pre-config-import:
     dir: '${docroot}'
     command: 'echo ''No pre-config-import configured.'''
