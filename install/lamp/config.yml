@@ -36,6 +36,7 @@ nodejs_version: "4.x"
 nodejs_npm_global_packages:
   - name: bower
   - name: gulp-cli
+  - name: yarn
 nodejs_install_npm_user: "{{ ansible_user_id }}"
 npm_config_prefix: "/home/{{ ansible_user_id }}/.npm-global"
 
