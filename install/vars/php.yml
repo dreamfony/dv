@@ -22,7 +22,6 @@ php_packages:
   - php-xmlrpc
   - php-pecl-yaml
   - php-curl
-  - php-bz2
 
 php_packages_extra:
   - php-bz2
