@@ -7,7 +7,8 @@
 - git config --global user.name "John Doe"
 - git config --global user.email "email@example.com"
 - git config --global push.default matching
-- sudo mkdir /var/www/dv
+- git config core.fileMode false
+- sudo mkdir /var/www/dv -p
 - sudo chown your_linux_user_name:your_linux_user_name /var/www/dv
 - cd /var/www
 - git clone your forked repo
