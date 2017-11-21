@@ -26,8 +26,6 @@ ansible-galaxy install -r requirements.yml
 title "Provision playbook for $(whoami)"
 ansible-playbook -i "localhost" -c local playbook.yml
 
-cd ..
-
 title "Run Composer Install"
 composer install --no-interaction
 
