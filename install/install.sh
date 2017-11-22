@@ -26,6 +26,8 @@ ansible-galaxy install -r requirements.yml
 title "Provision playbook for $(whoami)"
 ansible-playbook -i "localhost" -c local playbook.yml
 
+cd ..
+
 title "Run Composer Install"
 composer install --no-interaction
 
@@ -42,6 +44,3 @@ cd /var/www/dv/
 touch blt/project.local.yml
 echo "environment: local" >> blt/project.local.yml
 vendor/bin/blt custom:reinstall
-
-
-

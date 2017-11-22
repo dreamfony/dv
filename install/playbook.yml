@@ -16,6 +16,11 @@
     - role: gantsign.inotify
       inotify_max_user_watches: 524288
       become: true
+    - role: maanas.curl
+      become: true
     - role: wtanaka.slack
+      become: true
     - role: manala.yarn
+      become: true
+    - role: AsianChris.gulp
       become: true
