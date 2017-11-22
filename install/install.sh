@@ -7,7 +7,7 @@ title() {
 }
 
 title "Unzip secure config files if you don't know the password ask someone form the organisation"
-unzip /var/www/dv/docroot/profiles/dv/modules/dv_features/dv_secure/config/install/yml.zip /var/www/dv/docroot/profiles/dv/modules/dv_features/dv_secure/config/install/
+unzip /var/www/dv/docroot/profiles/dv/modules/dv_features/dv_secure/config/install/yml.zip -d /var/www/dv/docroot/profiles/dv/modules/dv_features/dv_secure/config/install/
 
 title "Install Ansible"
 sudo apt-get install software-properties-common -y
@@ -30,7 +30,7 @@ title "Run Composer Install"
 composer install --no-interaction
 
 title "Remove PHP used only for Composer setup"
-sudo apt-get remove -y --purge php*
+sudo apt-get remove -y --purge "php*"
 sudo rm /etc/php -R
 
 cd /var/www/dv/install/lamp

@@ -1,5 +1,4 @@
 - hosts: localhost
-  become: true
 
   vars_files:
     - vars/php.yml
@@ -9,8 +8,14 @@
       users:
         - username: "{{ ansible_user_id }}"
     - role: geerlingguy.php-versions
+      become: true
     - role: geerlingguy.php
+      become: true
     - role: geerlingguy.composer
+      become: true
     - role: gantsign.inotify
       inotify_max_user_watches: 524288
+      become: true
     - role: wtanaka.slack
+    - role: manala.yarn
+      become: true

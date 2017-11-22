@@ -5,3 +5,4 @@
 - src: geerlingguy.composer
 - src: gantsign.inotify
 - src: wtanaka.slack
+- src: manala.yarn
