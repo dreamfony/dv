@@ -163,12 +163,21 @@ function activity_logger_tokens($type, $tokens, array $data, array $options, Bub
           break;
 
         case 'recipient-data':
-          //$user_id = $data['activity']->values['field_activity_recipient_user']['x-default'][0]['target_id'];
           $user_id = $activity->get('field_activity_recipient_user')->target_id;
           $user = \Drupal::entityTypeManager()->getStorage("user")->load($user_id);
           $active_profile = \Drupal::entityTypeManager()->getStorage('profile')->loadByUser($user, "organisation_profile");
 
-          $replacements[$original] = $active_profile->get('field_org_title')->value;
+          // TODO add method that autoformats address from array
+          $address = $active_profile->get('address_line1')->locality . ' '  . $active_profile->get('field_org_address')->locality . ' ' . $active_profile->get('field_org_address')->postal_code;
+          $replacements[$original] = $active_profile->get('field_org_title')->value . "\r\n" . $address;
+          break;
+
+
+        case 'sender-data':
+          $user_id = $activity->get('user_id')->target_id;
+          $user = \Drupal::entityTypeManager()->getStorage("user")->load($user_id);
+
+          $replacements[$original] = $user->get('name')->value;
           break;
       }
     }
