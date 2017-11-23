@@ -11,7 +11,7 @@ use Drupal\group\Entity\Group;
 use Drupal\group\Entity\GroupContent;
 
 /**
- * Implements hook_token_info().
+ * Implements git ().
  */
 function activity_logger_token_info() {
   $type = [
@@ -53,6 +53,16 @@ function activity_logger_token_info() {
   $activity['replyto-email'] = [
     'name' => t("ReplyTo Email"),
     'description' => t("ReplyTo Email"),
+  ];
+
+  $activity['recipient-data'] = [
+    'name' => t("Recipient data"),
+    'description' => t("Information about recipient"),
+  ];
+
+  $activity['sender-data'] = [
+    'name' => t("Sender data"),
+    'description' => t("Information about sender"),
   ];
 
   return [

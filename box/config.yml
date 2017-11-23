@@ -65,7 +65,6 @@ npm_config_prefix: "/home/{{ drupalvm_user }}/.npm-global"
 installed_extras:
   - adminer
   - drush
-  - mailhog
   - nodejs
   - selenium
   - xdebug
@@ -97,6 +96,7 @@ php_xdebug_idekey: PHPSTORM
 php_xdebug_max_nesting_level: 256
 php_xdebug_remote_port: "9000"
 php_memory_limit: "512M"
+php_sendmail_path: "/usr/sbin/sendmail -t -i"
 
 post_provision_scripts:
   - "../../../acquia/blt/scripts/drupal-vm/post-provision.sh"
