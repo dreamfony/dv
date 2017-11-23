@@ -158,7 +158,17 @@ function activity_logger_tokens($type, $tokens, array $data, array $options, Bub
 
         case 'replyto-email':
           $hash = $activity->get('field_activity_hash')->getString();
-          $replacements[$original] = \Drupal::service('activity_send_email.replyto')->getAddress( strlen($hash) > 1 ? $hash : NULL );
+          $replacements[$original] = \Drupal::service('activity_send_email.replyto')
+            ->getAddress(strlen($hash) > 1 ? $hash : NULL);
+          break;
+
+        case 'recipient-data':
+          //$user_id = $data['activity']->values['field_activity_recipient_user']['x-default'][0]['target_id'];
+          $user_id = $activity->get('field_activity_recipient_user')->target_id;
+          $user = \Drupal::entityTypeManager()->getStorage("user")->load($user_id);
+          $active_profile = \Drupal::entityTypeManager()->getStorage('profile')->loadByUser($user, "organisation_profile");
+
+          $replacements[$original] = $active_profile->get('field_org_title')->value;
           break;
       }
     }
