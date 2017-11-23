@@ -3,6 +3,12 @@
   vars_files:
     - vars/php.yml
 
+  pre_tasks:
+    - name: Set git file.Mode false
+      shell: git config core.fileMode false
+    - name: Git Push default matching
+      shell: git config --global push.default matching
+
   roles:
     - role: gantsign.oh-my-zsh
       users:
