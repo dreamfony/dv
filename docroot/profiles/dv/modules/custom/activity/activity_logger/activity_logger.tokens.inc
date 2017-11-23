@@ -168,7 +168,7 @@ function activity_logger_tokens($type, $tokens, array $data, array $options, Bub
           $active_profile = \Drupal::entityTypeManager()->getStorage('profile')->loadByUser($user, "organisation_profile");
 
           // TODO add method that autoformats address from array
-          $address = $active_profile->get('address_line1')->locality . ' '  . $active_profile->get('field_org_address')->locality . ' ' . $active_profile->get('field_org_address')->postal_code;
+          $address = $active_profile->get('field_org_address')->address_line1 . ' '  . $active_profile->get('field_org_address')->locality . ' ' . $active_profile->get('field_org_address')->postal_code;
           $replacements[$original] = $active_profile->get('field_org_title')->value . "\r\n" . $address;
           break;
 
