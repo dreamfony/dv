@@ -9,10 +9,9 @@ dependencies:
     - geofield
 third_party_settings:
   geocoder_field:
-    method: source
+    method: none
     field: field_org_address
-    plugins:
-      - googlemaps
+    plugins: {  }
     dumper: wkt
     delta_handling: m_to_s
     failure:

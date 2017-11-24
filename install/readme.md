@@ -6,8 +6,6 @@
 - sudo apt-get install git -y
 - git config --global user.name "John Doe"
 - git config --global user.email "email@example.com"
-- git config --global push.default matching
-- git config core.fileMode false
 - sudo mkdir /var/www/dv -p
 - sudo chown your_linux_user_name:your_linux_user_name /var/www/dv
 - cd /var/www
@@ -21,6 +19,8 @@ todo:
  - install phpmyadmin ?
  - check if firewall is interrupting xdebug
  - figure out weather we want to keep built css files in repo
+ - fix file writing permissions for features
+ 
  
 ## PHPSTORM
 
