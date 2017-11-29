@@ -167,17 +167,17 @@ function activity_logger_tokens($type, $tokens, array $data, array $options, Bub
           $user = \Drupal::entityTypeManager()->getStorage("user")->load($user_id);
           $active_profile = \Drupal::entityTypeManager()->getStorage('profile')->loadByUser($user, "organisation_profile");
 
-          // TODO add method that autoformats address from array
-          //$address = $active_profile->get('field_org_address')->address_line1 . ' '  . $active_profile->get('field_org_address')->locality . ' ' . $active_profile->get('field_org_address')->postal_code;
           // Designate the field we want to render.
           $field_name = 'field_org_address';
+          $display = [
+            'label' => 'hidden',
+            'type' => 'field_address',
+          ];
           // Retrieve a render array for that field with the given view mode.
-          $build = $active_profile->$field_name->view('full');
-
+          $build = $active_profile->$field_name->view($display);
           // Render the result.
-          $address = strip_tags(\Drupal::service('renderer')->renderRoot($build), '<br>'); ;
-
-          $replacements[$original] = $active_profile->get('field_org_title')->value . "\r\n" . $address;
+          $address = \Drupal::service('renderer')->renderRoot($build);
+          $replacements[$original] = \Drupal\Core\Render\Markup::create($active_profile->get('field_org_title')->value . $address);
           break;
 
 
