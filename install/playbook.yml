@@ -1,34 +1,64 @@
 - hosts: localhost
+  become: yes
 
   vars_files:
     - vars/php.yml
 
   pre_tasks:
+    - name: get the username running the deploy
+      local_action: >
+        command whoami
+      register: local_username
+      become: no
+
     - name: Set git file.Mode false
       shell: git config core.fileMode false
+      become: no
+
     - name: Git Push default matching
       shell: git config --global push.default matching
+      become: no
+
     - name: Cache Github credentials
       shell: git config credential.helper 'cache --timeout=3000000000000000000000'
+      become: no
 
   roles:
     - role: gantsign.oh-my-zsh
       users:
-        - username: "{{ ansible_user_id }}"
+        - username: "{{ local_username }}"
     - role: geerlingguy.php-versions
-      become: true
     - role: geerlingguy.php
-      become: true
     - role: geerlingguy.composer
-      become: true
     - role: gantsign.inotify
       inotify_max_user_watches: 524288
-      become: true
     - role: maanas.curl
-      become: true
     - role: wtanaka.slack
-      become: true
     - role: manala.yarn
-      become: true
     - role: AsianChris.gulp
-      become: true
+
+  tasks:
+    - name: Install project using Composer
+      shell: chdir=/opt/tools/temp composer install --no-interaction
+      become: no
+
+    - name: Purge PHP used for Composer
+      shell: apt-get remove -y --purge "php*"
+
+    - name: Remove PHP config
+      shell: rm /etc/php -R
+
+    - name: Run server install playbook
+      shell: chdir=/var/www/dv/install/lamp ansible-playbook playbook.yml --extra-vars "php_user={{ local_username }}"
+
+    - name: Create project.local.yml
+      shell: touch /var/www/dv/blt/project.local.yml
+      become: no
+
+    - name: Add config to project.local.yml
+      shell: "echo 'environment: local' >> test.txt"
+      become: no
+
+    - name: Run site installation with BLT
+      shell: chdir=/var/www/dv vendor/bin/blt custom:reinstall
+      become: no
