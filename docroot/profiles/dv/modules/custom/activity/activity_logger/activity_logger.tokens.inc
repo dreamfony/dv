@@ -11,7 +11,7 @@ use Drupal\group\Entity\Group;
 use Drupal\group\Entity\GroupContent;
 
 /**
- * Implements git ().
+ * Implements hook_token_info().
  */
 function activity_logger_token_info() {
   $type = [
@@ -167,15 +167,17 @@ function activity_logger_tokens($type, $tokens, array $data, array $options, Bub
           $user = \Drupal::entityTypeManager()->getStorage("user")->load($user_id);
           $active_profile = \Drupal::entityTypeManager()->getStorage('profile')->loadByUser($user, "organisation_profile");
 
+          // TODO add method that autoformats address from array
+          //$address = $active_profile->get('field_org_address')->address_line1 . ' '  . $active_profile->get('field_org_address')->locality . ' ' . $active_profile->get('field_org_address')->postal_code;
           // Designate the field we want to render.
           $field_name = 'field_org_address';
           // Retrieve a render array for that field with the given view mode.
-          $render_array = $active_profile->$field_name->view('full');
+          $build = $active_profile->$field_name->view('full');
 
           // Render the result.
-          $address = \Drupal::service('renderer')->renderRoot($render_array);
+          $address = strip_tags(\Drupal::service('renderer')->renderRoot($build), '<br>'); ;
 
-          $replacements[$original] = $active_profile->get('field_org_title')->value . "\r\n\r\n" . $address;
+          $replacements[$original] = $active_profile->get('field_org_title')->value . "\r\n" . $address;
           break;
 
 
@@ -189,10 +191,7 @@ function activity_logger_tokens($type, $tokens, array $data, array $options, Bub
     }
   }
 
-  // todo #40 #18 Make [activity:recipient-data] and [activity:sender-data] tokens
-  // prerequisite github issue #17
-  // this might not be the right place to do this but it is closest to what I can
-  // find in a current code base
+
 
   return $replacements;
 }
