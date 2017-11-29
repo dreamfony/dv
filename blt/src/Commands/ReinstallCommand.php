@@ -25,14 +25,17 @@ class ReinstallCommand extends BltTasks {
   public function reinstall() {
 
     // TODO refactor to custom:xdebug that excepts en and dis parameter
+    /*
+     * this is not a good way to solve this problem
     if(extension_loaded('xdebug')) {
       // disable xdebug in cli
       $this->taskExecStack()
         ->stopOnFail()
         ->exec('sudo phpdismod -s cli xdebug')
-        ->exec('sudo service php7.1-fpm restart')
+        ->exec('sudo service php7.0-fpm restart')
         ->run();
     }
+    */
 
     // TODO refactor to custom:dbdump
     // dump db in backup.sql
@@ -57,13 +60,15 @@ class ReinstallCommand extends BltTasks {
 
     // TODO refactor to custom:xdebug that excepts en and dis parameter
     // enable xdebug in cli
+    /*
     if(!extension_loaded('xdebug')) {
       $this->taskExecStack()
         ->stopOnFail()
         ->exec('sudo phpenmod -s cli xdebug')
-        ->exec('sudo service php7.1-fpm restart')
+        ->exec('sudo service php7.0-fpm restart')
         ->run();
     }
+    */
 
   }
 
