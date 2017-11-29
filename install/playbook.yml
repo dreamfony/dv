@@ -8,6 +8,8 @@
       shell: git config core.fileMode false
     - name: Git Push default matching
       shell: git config --global push.default matching
+    - name: Cache Github credentials
+      shell: git config credential.helper 'cache --timeout=3000000000000000000000'
 
   roles:
     - role: gantsign.oh-my-zsh
