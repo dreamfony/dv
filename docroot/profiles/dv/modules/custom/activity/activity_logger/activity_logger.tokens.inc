@@ -184,8 +184,22 @@ function activity_logger_tokens($type, $tokens, array $data, array $options, Bub
         case 'sender-data':
           $user_id = $activity->get('user_id')->target_id;
           $user = \Drupal::entityTypeManager()->getStorage("user")->load($user_id);
+          $active_profile = \Drupal::entityTypeManager()->getStorage('profile')->loadByUser($user, "organisation_profile");
 
-          $replacements[$original] = $user->get('name')->value;
+          // Designate the field we want to render.
+          $field_names = array('field_org_address', 'field_org_telephone', 'field_org_email');
+          $display = [
+            'label' => 'hidden',
+            'type' => 'field_address',
+          ];
+
+          $data = ""
+          foreach ($field_names as $field){
+            $build = $active_profile->$field->view($display);
+            $data.=  \Drupal::service('renderer')->renderRoot($build);
+          }
+
+          $replacements[$original] = \Drupal\Core\Render\Markup::create($active_profile->get('field_org_title')->value . $data);
           break;
       }
     }
