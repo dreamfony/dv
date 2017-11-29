@@ -3,6 +3,12 @@
   vars_files:
     - vars/php.yml
 
+  pre_tasks:
+    - name: Set git file.Mode false
+      shell: git config core.fileMode false
+    - name: Git Push default matching
+      shell: git config --global push.default matching
+
   roles:
     - role: gantsign.oh-my-zsh
       users:
@@ -16,6 +22,11 @@
     - role: gantsign.inotify
       inotify_max_user_watches: 524288
       become: true
+    - role: maanas.curl
+      become: true
     - role: wtanaka.slack
+      become: true
     - role: manala.yarn
+      become: true
+    - role: AsianChris.gulp
       become: true

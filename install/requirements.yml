@@ -4,5 +4,7 @@
 - src: geerlingguy.php
 - src: geerlingguy.composer
 - src: gantsign.inotify
+- src: maanas.curl
 - src: wtanaka.slack
 - src: manala.yarn
+- src: AsianChris.gulp
