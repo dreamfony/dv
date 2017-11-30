@@ -65,11 +65,11 @@ npm_config_prefix: "/home/{{ drupalvm_user }}/.npm-global"
 installed_extras:
   - adminer
   - drush
-  - mailhog
   - nodejs
   - selenium
   - xdebug
   - solr
+  - mailhog
 
 # Solr Configuration (if enabled above).
 solr_version: "5.5.3"
