@@ -69,6 +69,7 @@ installed_extras:
   - selenium
   - xdebug
   - solr
+  - mailhog
 
 # Solr Configuration (if enabled above).
 solr_version: "5.5.3"
@@ -96,7 +97,6 @@ php_xdebug_idekey: PHPSTORM
 php_xdebug_max_nesting_level: 256
 php_xdebug_remote_port: "9000"
 php_memory_limit: "512M"
-php_sendmail_path: "/usr/sbin/sendmail -t -i"
 
 post_provision_scripts:
   - "../../../acquia/blt/scripts/drupal-vm/post-provision.sh"
