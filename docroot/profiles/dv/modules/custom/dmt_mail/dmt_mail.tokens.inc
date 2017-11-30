@@ -187,7 +187,7 @@ function dmt_mail_tokens($type, $tokens, array $data, array $options, Bubbleable
           $active_profile = \Drupal::entityTypeManager()->getStorage('profile')->loadByUser($user, "organisation_profile");
 
           // Designate the field we want to render.
-          $field_names = array('field_org_address', 'field_org_telephone', 'field_org_email');
+          $field_names = array('field_org_title', 'field_org_address', 'field_org_telephone', 'field_org_email');
           $display = [
             'label' => 'hidden',
             'type' => 'field_address',
@@ -198,14 +198,12 @@ function dmt_mail_tokens($type, $tokens, array $data, array $options, Bubbleable
             $build = $active_profile->$field->view($display);
             $data.=  \Drupal::service('renderer')->renderRoot($build);
           }
-
-          $replacements[$original] = \Drupal\Core\Render\Markup::create($active_profile->get('field_org_title')->value . $data);
+          //$replacements[$original] = \Drupal\Core\Render\Markup::create($data);
+          $replacements[$original] = \Drupal\Core\Render\Markup::create($data);
           break;
       }
     }
   }
-
-
 
   return $replacements;
 }
