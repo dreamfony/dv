@@ -59,6 +59,9 @@
       shell: "echo 'environment: local' >> test.txt"
       become: no
 
+    - name: Make default directory writable
+      shell: chmod -R +w default
+
     - name: Run site installation with BLT
       shell: chdir=/var/www/dv vendor/bin/blt custom:reinstall
       become: no
