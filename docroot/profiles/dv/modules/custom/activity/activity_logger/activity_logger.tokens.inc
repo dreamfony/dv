@@ -193,7 +193,7 @@ function activity_logger_tokens($type, $tokens, array $data, array $options, Bub
             'type' => 'field_address',
           ];
 
-          $data = ""
+          $data = "";
           foreach ($field_names as $field){
             $build = $active_profile->$field->view($display);
             $data.=  \Drupal::service('renderer')->renderRoot($build);
