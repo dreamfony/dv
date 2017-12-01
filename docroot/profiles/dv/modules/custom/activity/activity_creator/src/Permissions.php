@@ -20,9 +20,9 @@ class Permissions {
    */
   public function transitionPermissions() {
     $permissions = [];
-    /** @var \Drupal\workflows\WorkflowInterface $workflow */
+    /** @var \Drupal\workflows\Entity\Workflow $workflow */
     foreach (Workflow::loadMultipleByType('activity_workflow') as $id => $workflow) {
-      foreach ($workflow->getTransitions() as $transition) {
+      foreach ($workflow->getTypePlugin()->getTransitions() as $transition) {
         $permissions['use ' . $workflow->id() . ' transition ' . $transition->id()] = [
           'title' => $this->t('Use %transition transition from %workflow workflow.', [
             '%transition' => $transition->label(),

@@ -24,38 +24,6 @@ use Drupal\workflows\WorkflowInterface;
 class ActivityWorkflow extends ContentModeration implements ContainerFactoryPluginInterface {
 
   /**
-   * {@inheritdoc}
-   */
-  public function initializeWorkflow(WorkflowInterface $workflow) {
-    $workflow
-      ->addState('canceled', $this->t('Canceled'))
-      ->setStateWeight('canceled', -10)
-      ->addState('pending', $this->t('Pending'))
-      ->setStateWeight('pending', -5)
-      ->addState('delivery_error', $this->t('Delivery Error'))
-      ->setStateWeight('delivery_error', 0)
-      ->addState('sent', $this->t('Sent'))
-      ->setStateWeight('sent', 5)
-      ->addState('seen', $this->t('Seen'))
-      ->setStateWeight('seen', 10)
-      ->addTransition('erred', $this->t('Erred'), ['pending'], 'delivery_error')
-      ->addTransition('send', $this->t('Send'), ['pending'], 'sent')
-      ->addTransition('cancel', $this->t('Cancel'), ['pending', 'sent', 'seen', 'delivery_error'], 'canceled')
-      ->addTransition('see', $this->t('See'), ['sent'], 'seen');
-    return $workflow;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function checkWorkflowAccess(WorkflowInterface $entity, $operation, AccountInterface $account) {
-    if ($operation === 'view') {
-      return AccessResult::allowedIfHasPermission($account, 'view activity moderation');
-    }
-    return parent::checkWorkflowAccess($entity, $operation, $account);
-  }
-
-  /**
    * {@inheritDoc}
    */
   public function defaultConfiguration() {
@@ -63,27 +31,74 @@ class ActivityWorkflow extends ContentModeration implements ContainerFactoryPlug
     return [
       'states' => [
         'canceled' => [
+          'label' => 'Canceled',
           'published' => FALSE,
           'default_revision' => TRUE,
+          'weight' => -10
         ],
         'pending' => [
+          'label' => 'Pending',
           'published' => TRUE,
           'default_revision' => TRUE,
+          'weight' => -5
         ],
         'delivery_error' => [
+          'label' => 'Delivery Error',
           'published' => TRUE,
           'default_revision' => TRUE,
+          'weight' => 0
         ],
         'sent' => [
+          'label' => 'Sent',
           'published' => TRUE,
           'default_revision' => TRUE,
+          'weight' => 5
         ],
         'seen' => [
+          'label' => 'Seen',
           'published' => TRUE,
           'default_revision' => TRUE,
+          'weight' => 10
         ],
       ],
-      'entity_types' => [],
+      'transitions' => [
+        'erred' => [
+          'label' => 'Erred',
+          'to' => 'delivery_error',
+          'weight' => 0,
+          'from' => [
+            'pending'
+          ],
+        ],
+        'send' => [
+          'label' => 'Send',
+          'to' => 'sent',
+          'weight' => 1,
+          'from' => [
+            'pending'
+          ],
+        ],
+        'cancel' => [
+          'label' => 'Cancel',
+          'to' => 'canceled',
+          'weight' => 2,
+          'from' => [
+            'pending',
+            'sent',
+            'seen',
+            'delivery_error'
+          ],
+        ],
+        'see' => [
+          'label' => 'See',
+          'to' => 'seen',
+          'weight' => 3,
+          'from' => [
+            'sent'
+          ],
+        ],
+      ],
+      'entity_types' => ['activity'],
     ];
   }
 
