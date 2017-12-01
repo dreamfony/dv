@@ -172,11 +172,8 @@
                 "Save revisions Node - https://www.drupal.org/node/2367235": "https://www.drupal.org/files/issues/support_entity_revision-2367235-92.patch"
             },
             "drupal/group": {
-                "https://www.drupal.org/node/2736233": "https://www.drupal.org/files/issues/group-add_subgroups_module-2736233-114_0.patch",
+                "https://www.drupal.org/node/2736233": "https://www.drupal.org/files/issues/group-add_subgroups_module-2736233-141.patch",
                 "https://www.drupal.org/node/2746839 - develgenerate": "https://www.drupal.org/files/issues/develGenerate.patch"
-            },
-            "drupal/user_registrationpassword": {
-                "https://www.drupal.org/node/2805963": "https://www.drupal.org/files/issues/user_registrationpassword-register-config-save-2805963-5.patch"
             },
             "drupal/features": {
                 "https://www.drupal.org/node/2668562 #4": "https://www.drupal.org/files/issues/features-not_detecting_profile_files-2668562-4.patch"
@@ -188,13 +185,7 @@
                 "https://www.drupal.org/node/2825567": "https://www.drupal.org/files/issues/leaflet-viewstyle-id-typo-2825567-2.patch"
             },
             "drupal/core": {
-                "https://www.drupal.org/files/issues/2817305.patch": "https://www.drupal.org/files/issues/2817305.patch",
-                "slash latest": "https://raw.githubusercontent.com/dreamfony/dv/develop/patches/drupal/slash_latest.patch"
-            },
-            "drupal/mailgun": {
-                "https://www.drupal.org/node/2847665": "https://www.drupal.org/files/issues/remove-composer-manager-2847665-2.patch",
-                "https://www.drupal.org/node/2851007": "https://www.drupal.org/files/issues/extract-params-2851007-2.patch",
-                "https://www.drupal.org/node/2842962#comment-12324804": "https://www.drupal.org/files/issues/mailgun-typo--2.patch"
+                "https://www.drupal.org/files/issues/2817305.patch": "https://www.drupal.org/files/issues/2817305.patch"
             },
             "drupal/webhooks": {
                 "https://www.drupal.org/node/2851615": "https://www.drupal.org/files/issues/return-data-2851615-2.patch"
