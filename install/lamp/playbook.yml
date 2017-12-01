@@ -22,10 +22,6 @@
       set_fact:
         php_fpm_pool_group: '{{ local_username }}'
 
-    - name: Remove outdated git version
-      apt: pkg=git
-           state=absent
-
     - include: ../../vendor/geerlingguy/drupal-vm/provisioning/tasks/config.yml
       tags: ['always']
 
