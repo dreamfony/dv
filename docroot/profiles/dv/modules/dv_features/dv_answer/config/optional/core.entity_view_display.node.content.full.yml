@@ -10,7 +10,7 @@ dependencies:
     - field.field.node.content.field_content_comment_type
     - node.type.content
   module:
-    - dmt_mailing_list
+    - dmt_content
     - options
     - panelizer
     - text

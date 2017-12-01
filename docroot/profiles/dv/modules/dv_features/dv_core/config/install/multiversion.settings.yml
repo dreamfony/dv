@@ -1,11 +1,20 @@
-enabled_entity_types:
+enabled_entity_types: {  }
+supported_entity_types:
   - node
   - taxonomy_term
   - comment
+  - menu_link_content
   - block_content
   - file
   - media
+  - shortcut
+  - entity_test
+  - entity_test_rev
+  - entity_test_mul
+  - entity_test_mulrev
+  - entity_test_local
   - content_moderation_state
   - replication_log
-  - group
-  - profile
+  - paragraph
+  - poll
+  - poll_choice
