@@ -14,8 +14,8 @@
         "composer/installers": "^1.0.20",
         "cweagans/composer-patches": "*",
         "drupal-composer/drupal-scaffold": "^2.0.1",
-        "drupal/core": "~8.3",
-        "drupal/address": "^1@beta",
+        "drupal/core": "~8.4",
+        "drupal/address": "~1.0",
         "drupal/geofield": "~1.0",
         "drupal/config_inspector": "~1@beta",
         "drupal/group": "~1",
@@ -93,16 +93,11 @@
         "drupal/console": "~1.0",
         "drupal/permissions_filter": "~1.0",
         "drupal/search_kint": "~1.0",
-        "drupal/radix_layouts": "^4.0"
+        "drupal/radix_layouts": "^4.0",
+        "drupal/features": "^3.5"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "^2.7",
-        "jcalderonzumba/gastonjs": "~1.0.2",
-        "mikey179/vfsStream": "~1.2",
-        "symfony/css-selector": "~2.8",
-        "geerlingguy/drupal-vm": "~4.3",
-        "codeclimate/php-test-reporter": "^0.3.2",
-        "jakoch/phantomjs-installer": "^2.1.1-p07"
+        "geerlingguy/drupal-vm": "~4.3"
     },
     "repositories": [
         {
