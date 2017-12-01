@@ -16,11 +16,11 @@
 
     - name: Set php_fpm_pool_user variable
       set_fact:
-        php_fpm_pool_user: '{{ local_username }}'
+        php_fpm_pool_user: '{{ local_username.stdout }}'
 
     - name: Set php_fpm_pool_group variable
       set_fact:
-        php_fpm_pool_group: '{{ local_username }}'
+        php_fpm_pool_group: '{{ local_username.stdout }}'
 
     - include: ../../vendor/geerlingguy/drupal-vm/provisioning/tasks/config.yml
       tags: ['always']

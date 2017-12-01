@@ -26,7 +26,7 @@
   roles:
     - role: gantsign.oh-my-zsh
       users:
-        - username: "{{ local_username }}"
+        - username: "{{ local_username.stdout }}"
     - role: geerlingguy.php-versions
     - role: geerlingguy.php
     - role: geerlingguy.composer
