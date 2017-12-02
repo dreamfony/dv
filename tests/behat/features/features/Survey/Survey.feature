@@ -111,7 +111,6 @@ Feature: Create Survey
     ### TODO Then the "Recipients" field should contain "Test Org 1" // make a method for partial string matching
     And I press "Add Recipients"
     And I wait for AJAX to finish
-    And I wait for 30 seconds
     Then I should see the link "Test Org 1"
 
     # Remove recipient
