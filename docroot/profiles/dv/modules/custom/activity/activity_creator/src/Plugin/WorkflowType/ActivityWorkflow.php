@@ -19,6 +19,10 @@ use Drupal\workflows\WorkflowInterface;
  *     "canceled",
  *     "pending"
  *   },
+ *   forms = {
+ *     "configure" = "\Drupal\content_moderation\Form\ContentModerationConfigureForm",
+ *     "state" = "\Drupal\content_moderation\Form\ContentModerationStateForm"
+ *   },
  * )
  */
 class ActivityWorkflow extends ContentModeration implements ContainerFactoryPluginInterface {
