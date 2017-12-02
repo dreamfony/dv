@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "503f6e9b8827bcb2cb491d81c31dc77a",
+    "content-hash": "3838cf0a2be1da83e6c8731a88a3e5db",
     "packages": [
         {
             "name": "acquia/blt",
@@ -5324,11 +5324,17 @@
         },
         {
             "name": "drupal/mailgun",
-            "version": "dev-1.x",
+            "version": "1.0.0-alpha1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/mailgun",
-                "reference": "247ad78785d63aa843e104f5d5adbab2915412cc"
+                "reference": "8.x-1.0-alpha1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/mailgun-8.x-1.0-alpha1.zip",
+                "reference": "8.x-1.0-alpha1",
+                "shasum": "7c289dc0e9f3b11cc69c91f73fb2ccac56afa21b"
             },
             "require": {
                 "drupal/core": "~8.0",
@@ -5344,11 +5350,11 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha1+8-dev",
-                    "datestamp": "1511360585",
+                    "version": "8.x-1.0-alpha1",
+                    "datestamp": "1510582684",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "message": "Alpha releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -5374,12 +5380,11 @@
                     "homepage": "https://www.drupal.org/user/289861"
                 }
             ],
-            "description": "Allows site to send emails using Mailgun email service.",
+            "description": "Allows site to send emails using Mailgun.com",
             "homepage": "https://www.drupal.org/project/mailgun",
             "support": {
                 "source": "http://cgit.drupalcode.org/mailgun"
-            },
-            "time": "2017-12-01T16:21:22+00:00"
+            }
         },
         {
             "name": "drupal/mailhandler",
@@ -14465,7 +14470,7 @@
         "drupal/webform": 10,
         "drupal/inmail": 20,
         "drupal/mailhandler": 20,
-        "drupal/mailgun": 20,
+        "drupal/mailgun": 15,
         "drupal/facets": 20,
         "drupal/webhooks": 20,
         "drupal/personas": 10,

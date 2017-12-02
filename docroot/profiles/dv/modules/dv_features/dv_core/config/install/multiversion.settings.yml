@@ -1,4 +1,12 @@
-enabled_entity_types: {  }
+enabled_entity_types:
+  - node
+  - taxonomy_term
+  - comment
+  - menu_link_content
+  - block_content
+  - activity
+  - profile
+  - group
 supported_entity_types:
   - node
   - taxonomy_term
@@ -18,3 +26,6 @@ supported_entity_types:
   - paragraph
   - poll
   - poll_choice
+  - group
+  - activity
+  - profile

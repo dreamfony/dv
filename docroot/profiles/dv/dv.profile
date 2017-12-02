@@ -84,7 +84,7 @@ function dv_install_profile_modules(&$install_state) {
     'dv_mailsystem_settings' => 'dv_mailsystem_settings',
     'dmt_organisation' => 'dmt_organisation',
     'dmt_user' => 'dmt_user',
-    'dv_domain_dmtit_dev' => 'dv_domain_dmtit_dev',
+
     'dv_admin_dashboard' => 'dv_admin_dashboard',
     'dmt_configuration' => 'dmt_configuration',
     'dv_moderation' => 'dv_moderation',
@@ -97,6 +97,9 @@ function dv_install_profile_modules(&$install_state) {
     'social_comment' => 'social_comment',
     'social_profile' => 'social_profile'
   );
+
+  // currently making problems during installation we will fit this in later
+  // 'dv_domain_dmtit_dev' => 'dv_domain_dmtit_dev',
 
   $dv_modules = $modules;
   // Always install required modules first. Respect the dependencies between
@@ -159,6 +162,7 @@ function dv_final_site_setup(&$install_state) {
 
   // Add some finalising steps.
   $final_batched = [
+    'mulitversion' => t('Activate Multiversion'),
     'profile_weight' => t('Set weight of profile.'),
     'router_rebuild' => t('Rebuild router.'),
     'config_import' => t('Import optional configuration.'),
@@ -185,13 +189,6 @@ function dv_final_site_setup(&$install_state) {
  */
 function dv_install_finished(&$install_state) {
 
-  // Enable multiversion on entities because they don't get enabled properly via features.
-  $entity_types = [
-    "group" => "group",
-    "profile" => "profile"
-  ];
-  \Drupal::service('multiversion.manager')->enableEntityTypes($entity_types);
-
   // create default moderation groups
   \Drupal::service('dmt_moderation.create_default_groups')->createContent();
 
@@ -205,6 +202,9 @@ function dv_install_finished(&$install_state) {
     $account = User::load(1);
     user_login_finalize($account);
   }
+
+  // add social profile default image
+  _social_profile_add_default_profile_image();
 
 }
 
@@ -240,6 +240,16 @@ function _dv_uninstall_module_batch($module, $module_name, &$context) {
 function _dv_finalise_batch($process, $description, &$context) {
 
   switch ($process) {
+    case 'multiversion':
+      // Enable multiversion on entities because they don't get enabled properly via features.
+      $entity_types = [
+        "group" => "group",
+        "profile" => "profile",
+        "activity" => "activity"
+      ];
+      \Drupal::service('multiversion.manager')->enableEntityTypes($entity_types);
+      break;
+
     case 'profile_weight':
       $profile = drupal_get_profile();
 

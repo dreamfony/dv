@@ -182,6 +182,7 @@ function dmt_mail_tokens($type, $tokens, array $data, array $options, Bubbleable
 
 
         case 'sender-data':
+          /*
           $user_id = $activity->get('user_id')->target_id;
           $user = \Drupal::entityTypeManager()->getStorage("user")->load($user_id);
           $active_profile = \Drupal::entityTypeManager()->getStorage('profile')->loadByUser($user, "organisation_profile");
@@ -198,8 +199,9 @@ function dmt_mail_tokens($type, $tokens, array $data, array $options, Bubbleable
             $build = $active_profile->$field->view($display);
             $data.=  \Drupal::service('renderer')->renderRoot($build);
           }
-          //$replacements[$original] = \Drupal\Core\Render\Markup::create($data);
           $replacements[$original] = \Drupal\Core\Render\Markup::create($data);
+          */
+          $replacements[$original] = '';
           break;
       }
     }
