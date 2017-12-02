@@ -39,7 +39,6 @@
         "drupal/coffee": "~1.0",
         "drupal/hook_event_dispatcher": "~1.0",
         "nikkobautista/geonames": "~1.0",
-        "drupal/file_entity": "~2.0",
         "drupal/message": "~1.0",
         "drupal/dynamic_entity_reference": "~1.0",
         "drupal/queue_ui": "~2.0",
@@ -52,14 +51,14 @@
         "acquia/blt": "~8.6",
         "drupal/libraries": "3.x-dev#fa93a5aec2cfcfd5717e42c7112e381487fed9fd",
         "drupal/token": "^1.0",
-        "drupal/memcache": "2.0.0-alpha2",
-        "drupal/search_api": "^1.0@beta",
+        "drupal/memcache": "~2.0",
+        "drupal/search_api": "~1.0",
         "drupal/default_content": "~1.0",
         "drupal/config_readonly": "^1.0@beta",
         "drupal/environment_indicator": "^3.0@beta",
         "drupal/cors": "^1.0",
         "drupal/sitemap": "^1.2",
-        "drupal/search_api_autocomplete": "^1.0@alpha",
+        "drupal/search_api_autocomplete": "~1.0@beta",
         "drupal/components": "^1.0",
         "drupal/bootstrap": "^3.1",
         "drupal/leaflet": "1.x-dev",
@@ -86,7 +85,6 @@
         "drupal/panelizer": "^4",
         "drupal/allowed_formats": "1.x-dev",
         "drupal/page_manager": "1.x-dev",
-        "drupal/agnian_material_admin": "^1.0",
         "drupal/search_api_solr": "1.x-dev",
         "drupal/image_widget_crop": "^2.0",
         "drupal/extra_field": "^1.0@alpha",
@@ -173,7 +171,8 @@
             },
             "drupal/group": {
                 "https://www.drupal.org/node/2736233": "https://www.drupal.org/files/issues/group-add_subgroups_module-2736233-141.patch",
-                "https://www.drupal.org/node/2746839 - develgenerate": "https://www.drupal.org/files/issues/develGenerate.patch"
+                "https://www.drupal.org/node/2746839 - develgenerate": "https://www.drupal.org/files/issues/develGenerate.patch",
+                "https://www.drupal.org/project/group/issues/2908830": "https://www.drupal.org/files/issues/2908830-04.patch"
             },
             "drupal/features": {
                 "https://www.drupal.org/node/2668562 #4": "https://www.drupal.org/files/issues/features-not_detecting_profile_files-2668562-4.patch"
