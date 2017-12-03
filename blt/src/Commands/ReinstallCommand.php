@@ -37,23 +37,19 @@ class ReinstallCommand extends BltTasks {
     }
     */
 
-    // TODO refactor to custom:dbdump
-    // dump db in backup.sql
-    $options = ['result-file' => $this->getConfigValue('repo.root') . '/db_backup/db-backup-'.time().'.sql'];
-    $drush = $this->taskDrush()->drush("sql-dump")
-      ->options($options, '=');
-    $result = $drush->run();
-    $exit_code = $result->getExitCode();
-
-    if($exit_code) {
-      $this->say("Database not dumped! If it's your first time installation this is normal.");
-    }
+    $this->invokeCommand('custom:dbdump');
 
     $this->invokeCommand('setup');
 
     // clear caches
     $this->taskDrush()
       ->drush('cr')
+      ->run();
+
+    // clear caches
+    $this->taskDrush()
+      ->drush('fra')
+      ->assume(TRUE)
       ->run();
 
     $this->invokeCommand('custom:import-content');

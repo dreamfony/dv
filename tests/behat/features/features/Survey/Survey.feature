@@ -4,7 +4,7 @@ Feature: Create Survey
   Persona: Journalist
   Goal/desire: I want to get answers to my questions
 
-  @javascript
+  @javascript @group
   Scenario: Try to send Survey before filling in Content and Recipients
     Given I am logged in as a user with the "journalist" persona
     Then I should see the link "Create Survey"
@@ -16,7 +16,7 @@ Feature: Create Survey
     When I close the error message
     Then I should not see the error message "Please add content and recipients before sending for approval."
 
-  @javascript
+  @javascript @group
   Scenario: I click on Create Survey previously changing only the title
     Given I am logged in as a user with the "journalist" persona
     Then I should see the link "Create Survey"
@@ -32,7 +32,7 @@ Feature: Create Survey
     # We expect the "New Survey to be created"
     And I should see the text "New Survey" in the "Page title" region
 
-  @javascript
+  @javascript @group
   Scenario: I click on Create Survey more than once without any changes
     Given I am logged in as a user with the "journalist" persona
     Then I should see the link "Create Survey"
@@ -43,7 +43,7 @@ Feature: Create Survey
     And I should see the text "New Survey" in the "Page title" region
     Then I check that the url is the same as I remembered it
 
-  @javascript @groups @user
+  @javascript @group @user
   Scenario: Successfully Create Survey
     Given organisations:
       | name       | mail        | address                       |
@@ -111,7 +111,6 @@ Feature: Create Survey
     ### TODO Then the "Recipients" field should contain "Test Org 1" // make a method for partial string matching
     And I press "Add Recipients"
     And I wait for AJAX to finish
-    And I wait for 30 seconds
     Then I should see the link "Test Org 1"
 
     # Remove recipient

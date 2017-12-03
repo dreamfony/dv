@@ -20,7 +20,7 @@ use Drupal\file\Entity\File;
  *   label = @Translation("Activity"),
  *   bundle_label = @Translation("Activity type"),
  *   handlers = {
- *     "storage" = "Drupal\activity_creator\ActivityStorage",
+ *     "storage" = "Drupal\Core\Entity\Sql\SqlContentEntityStorage",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
  *     "list_builder" = "Drupal\activity_creator\ActivityListBuilder",
  *     "views_data" = "Drupal\activity_creator\Entity\ActivityViewsData",
@@ -45,7 +45,7 @@ use Drupal\file\Entity\File;
  *   admin_permission = "administer activity entities",
  *   entity_keys = {
  *     "id" = "id",
- *     "revision" = "vid",
+ *     "revision" = "revision_id",
  *     "bundle" = "type",
  *     "uuid" = "uuid",
  *     "uid" = "user_id",

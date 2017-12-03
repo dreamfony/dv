@@ -8,6 +8,7 @@ dependencies:
   - allowed_formats
   - comment
   - content_moderation
+  - dmt_content
   - dmt_mailing_list
   - dv_core
   - dv_mailing_list

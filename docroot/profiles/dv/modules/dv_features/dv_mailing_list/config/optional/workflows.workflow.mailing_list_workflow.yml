@@ -6,90 +6,78 @@ dependencies:
   module:
     - content_moderation
     - moderation_state_machine
-third_party_settings:
-  moderation_state_machine:
-    parent_transitions:
-      send: '0'
-    transition_descriptions:
-      send: ''
 id: mailing_list_workflow
 label: 'Mailing list workflow'
-states:
-  archived:
-    label: Archived
-    weight: 0
-  draft:
-    label: Draft
-    weight: -10
-  email:
-    label: Email
-    weight: -9
-  published:
-    label: Approved
-    weight: -8
-  spam:
-    label: Spam
-    weight: 1
-transitions:
-  approve_sending:
-    label: 'Approve Sending'
-    from:
-      - published
-      - email
-    to: published
-    weight: -8
-  archive:
-    label: Archive
-    from:
-      - published
-      - email
-    to: archived
-    weight: -7
-  create_new_draft:
-    label: 'Create new Draft'
-    from:
-      - draft
-    to: draft
-    weight: -10
-  restore_to_draft:
-    label: 'Restore to Draft'
-    from:
-      - archived
-    to: draft
-    weight: 0
-  send_email:
-    label: 'Send Email'
-    from:
-      - draft
-    to: email
-    weight: -9
-  spam:
-    label: Spam
-    from:
-      - archived
-      - draft
-      - email
-      - published
-    to: spam
-    weight: 1
 type: content_moderation
 type_settings:
   states:
     archived:
+      label: Archived
       published: false
       default_revision: false
+      weight: 0
     draft:
+      label: Draft
       published: false
       default_revision: false
+      weight: -10
     email:
+      label: Email
       published: false
       default_revision: false
+      weight: -9
     published:
+      label: Approved
       published: true
       default_revision: false
+      weight: -8
     spam:
+      label: Spam
       published: false
       default_revision: false
+      weight: 1
+  transitions:
+    approve_sending:
+      label: 'Approve Sending'
+      from:
+        - published
+        - email
+      to: published
+      weight: -8
+    archive:
+      label: Archive
+      from:
+        - published
+        - email
+      to: archived
+      weight: -7
+    create_new_draft:
+      label: 'Create new Draft'
+      from:
+        - draft
+      to: draft
+      weight: -10
+    restore_to_draft:
+      label: 'Restore to Draft'
+      from:
+        - archived
+      to: draft
+      weight: 0
+    send_email:
+      label: 'Send Email'
+      from:
+        - draft
+      to: email
+      weight: -9
+    spam:
+      label: Spam
+      from:
+        - archived
+        - draft
+        - email
+        - published
+      to: spam
+      weight: 1
   entity_types:
     group:
       - mailing_list

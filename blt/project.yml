@@ -45,7 +45,7 @@ target-hooks:
     command: 'yarn install'
   frontend-build:
     dir: '${docroot}/profiles/dv/themes/socialblue'
-    command: 'gulp'
+    command: gulp
   pre-config-import:
     dir: '${docroot}'
     command: 'echo ''No pre-config-import configured.'''
@@ -82,32 +82,10 @@ vm:
   enable: false
 import-content:
   local:
-    migrate:
-      geoarea:
-        import: true
-        options:
-          limit: "50 items"
-          feedback: "10 items"
-      organisation_groups:
-        import: true
-      organisations_user:
-        import: true
-        options:
-          limit: "50 items"
-          feedback: "10 items"
-    custom:
-      demo-mailing-list:
-        import: true
+    migrate: { geoarea: { import: true, options: { limit: '50 items', feedback: '10 items' } }, organisation_groups: { import: true }, organisations_user: { import: true, options: { limit: '50 items', feedback: '10 items' } } }
+    custom: { demo-mailing-list: { import: true } }
   dev:
-    migrate:
-      organisation_user:
-        import: true
-        options:
-          limit: "50 items"
-          feedback: "10 items"
+    migrate: { organisation_user: { import: true, options: { limit: '50 items', feedback: '10 items' } } }
   test:
     migrate: false
     custom: false
-
-
-
