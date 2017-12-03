@@ -162,7 +162,7 @@ function dv_final_site_setup(&$install_state) {
 
   // Add some finalising steps.
   $final_batched = [
-    'mulitversion' => t('Activate Multiversion'),
+    'multiversion' => t('Activate Multiversion'),
     'profile_weight' => t('Set weight of profile.'),
     'router_rebuild' => t('Rebuild router.'),
     'config_import' => t('Import optional configuration.'),
