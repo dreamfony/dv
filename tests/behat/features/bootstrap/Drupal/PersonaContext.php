@@ -65,10 +65,10 @@ class PersonaContext extends RawDrupalContext implements SnippetAcceptingContext
       );
       $user->mail = "{$user->name}@example.com";
 
-      $this->userCreate($user);
+      $user = $this->userCreate($user);
 
       // Login.
-      $this->login();
+      $this->login($user);
     }
   }
 
@@ -82,7 +82,8 @@ class PersonaContext extends RawDrupalContext implements SnippetAcceptingContext
    *   Returns TRUE if the current logged in user has this role (or roles).
    */
   public function loggedInWithPersona($persona) {
-    return $this->loggedIn() && $this->user && isset($this->user->personas) && in_array($persona, $this->user->personas);
+    $user = $this->getUserManager()->getCurrentUser();
+    return $this->loggedIn() && $user && isset($user->personas) && in_array($persona, $user->personas);
   }
 
 

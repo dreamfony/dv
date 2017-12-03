@@ -2,10 +2,30 @@ enabled_entity_types:
   - node
   - taxonomy_term
   - comment
+  - menu_link_content
+  - block_content
+  - activity
+  - profile
+  - group
+supported_entity_types:
+  - node
+  - taxonomy_term
+  - comment
+  - menu_link_content
   - block_content
   - file
   - media
+  - shortcut
+  - entity_test
+  - entity_test_rev
+  - entity_test_mul
+  - entity_test_mulrev
+  - entity_test_local
   - content_moderation_state
   - replication_log
+  - paragraph
+  - poll
+  - poll_choice
   - group
+  - activity
   - profile

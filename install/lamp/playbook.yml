@@ -7,11 +7,21 @@
     - ../../vendor/geerlingguy/drupal-vm/default.config.yml
     - config.yml
 
-  vars:
-    - php_fpm_pool_user: '{{ php_user }}'
-    - php_fpm_pool_group: '{{ php_user }}'
-
   pre_tasks:
+    - name: get the username running the deploy
+      local_action: >
+        command whoami
+      register: local_username
+      become: no
+
+    - name: Set php_fpm_pool_user variable
+      set_fact:
+        php_fpm_pool_user: '{{ local_username.stdout }}'
+
+    - name: Set php_fpm_pool_group variable
+      set_fact:
+        php_fpm_pool_group: '{{ local_username.stdout }}'
+
     - include: ../../vendor/geerlingguy/drupal-vm/provisioning/tasks/config.yml
       tags: ['always']
 
@@ -33,6 +43,10 @@
       with_fileglob: "{{ pre_provision_tasks_dir|default(omit) }}"
 
     - include: ../../vendor/geerlingguy/drupal-vm/provisioning/tasks/php.yml
+
+    - name: Install C libraries for compilation packages from source (Debian).
+      apt: "name={{ item }} state=installed"
+      with_items: ["libcurl4-openssl-dev", "libexpat1-dev", "libz-dev", "libssl-dev"]
 
   roles:
     # Essential roles.

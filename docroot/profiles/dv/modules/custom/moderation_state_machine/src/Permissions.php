@@ -22,7 +22,7 @@ class Permissions {
     $permissions = [];
     /** @var \Drupal\workflows\WorkflowInterface $workflow */
     foreach (Workflow::loadMultiple() as $id => $workflow) {
-      foreach ($workflow->getTransitions() as $transition) {
+      foreach ($workflow->getTypePlugin()->getTransitions() as $transition) {
         $permissions['owner can use ' . $workflow->id() . ' transition ' . $transition->id()] = [
           'title' => $this->t('Owner can use %transition transition from %workflow workflow.', [
             '%transition' => $transition->label(),
