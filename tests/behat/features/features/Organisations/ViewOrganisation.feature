@@ -4,7 +4,7 @@ Feature: View Organisation
   Persona: All
   Goal/desire: So I can find more detail about the organisation
 
-  @javascript @groups @skip
+  @javascript @group @skip
   Scenario: View Organisation
     Given organisations:
       | name       | mail        | address                       |
