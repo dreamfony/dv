@@ -184,8 +184,8 @@ function dmt_mail_tokens($type, $tokens, array $data, array $options, Bubbleable
         case 'sender-data':
 
           $user_id = $activity->get('user_id')->target_id;
-          $user_persona = $activity->get('persona')->target_id;
           $user = \Drupal::entityTypeManager()->getStorage("user")->load($user_id);
+          $user_persona = $user->get('persona')->target_id;
 
           if ($user_persona == "organisation"){
             $active_profile = \Drupal::entityTypeManager()->getStorage('profile')->loadByUser($user, "organisation_profile");
@@ -196,7 +196,7 @@ function dmt_mail_tokens($type, $tokens, array $data, array $options, Bubbleable
             $active_profile = \Drupal::entityTypeManager()->getStorage('profile')->loadByUser($user, "profile");
             // Designate the field we want to render.
             $field_names = array('field_profile_first_name', 'field_profile_last_name', 'field_profile_address', 'field_profile_phone_number', 'field_profile_organization');
-            $extra = $activity->get('mail')->value;
+            $extra = $user->get('mail')->value;
           }
 
 
@@ -205,12 +205,17 @@ function dmt_mail_tokens($type, $tokens, array $data, array $options, Bubbleable
             'type' => 'field_profiles',
           ];
 
+          if (!empty($active_profile)){
           $data = "";
           foreach ($field_names as $field){
             $build = $active_profile->$field->view($display);
             $data.=  \Drupal::service('renderer')->renderRoot($build);
           }
-          $replacements[$original] = \Drupal\Core\Render\Markup::create($data. $extra);
+            $replacements[$original] = \Drupal\Core\Render\Markup::create($data. $extra);
+          } else{
+            // If there is no profile, just build basic info of user data
+            $replacements[$original] = $user->get('name')->value . ' ' .$user->get('mail')->value;
+          }
           break;
       }
     }
