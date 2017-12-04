@@ -17,14 +17,21 @@
 todo:
  - add adminer to /etc/hosts
  - install phpmyadmin ?
- - check if firewall is interrupting xdebug
  - figure out weather we want to keep built css files in repo
- - fix file writing permissions for features
- 
+
  
 ## PHPSTORM
 
 - Set xdebug port 9001
+- Max connections 100 (to be on a safe side)
+- Turn off all Break on first line checkboxes there should be 3 of them
+
+## Setup CLI debugging
+- sudo phpenmod -v 7.0 -cli xdebug
+- sudo service php7.0-fpm restart
+- https://www.shooflydesign.org/buzz/configuring-phpstorm-to-debugging-command-line-php-scripts
+- export XDEBUG_CONFIG="idekey=PHPSTORM"
+~ export PHP_IDE_CONFIG="serverName=localhost"      
 
 **Add Plugins**:
 - .ignore
