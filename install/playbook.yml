@@ -37,6 +37,7 @@
     - role: bearandgiraffe.yarn
     - role: martinmicunda.nodejs
     - role: martinmicunda.gulp
+    - role: geerlingguy.git
 
   tasks:
     - name: Install project using Composer
