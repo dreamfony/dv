@@ -182,16 +182,27 @@ function dmt_mail_tokens($type, $tokens, array $data, array $options, Bubbleable
 
 
         case 'sender-data':
-          /*
-          $user_id = $activity->get('user_id')->target_id;
-          $user = \Drupal::entityTypeManager()->getStorage("user")->load($user_id);
-          $active_profile = \Drupal::entityTypeManager()->getStorage('profile')->loadByUser($user, "organisation_profile");
 
-          // Designate the field we want to render.
-          $field_names = array('field_org_title', 'field_org_address', 'field_org_telephone', 'field_org_email');
+          $user_id = $activity->get('user_id')->target_id;
+          $user_persona = $activity->get('persona')->target_id;
+          $user = \Drupal::entityTypeManager()->getStorage("user")->load($user_id);
+
+          if ($user_persona == "organisation"){
+            $active_profile = \Drupal::entityTypeManager()->getStorage('profile')->loadByUser($user, "organisation_profile");
+            // Designate the field we want to render.
+            $field_names = array('field_org_title', 'field_org_address', 'field_org_telephone', 'field_org_email');
+          }
+          else {
+            $active_profile = \Drupal::entityTypeManager()->getStorage('profile')->loadByUser($user, "profile");
+            // Designate the field we want to render.
+            $field_names = array('field_profile_first_name', 'field_profile_last_name', 'field_profile_address', 'field_profile_phone_number', 'field_profile_organization');
+            $extra = $activity->get('mail')->value;
+          }
+
+
           $display = [
             'label' => 'hidden',
-            'type' => 'field_address',
+            'type' => 'field_profiles',
           ];
 
           $data = "";
@@ -199,9 +210,7 @@ function dmt_mail_tokens($type, $tokens, array $data, array $options, Bubbleable
             $build = $active_profile->$field->view($display);
             $data.=  \Drupal::service('renderer')->renderRoot($build);
           }
-          $replacements[$original] = \Drupal\Core\Render\Markup::create($data);
-          */
-          $replacements[$original] = '';
+          $replacements[$original] = \Drupal\Core\Render\Markup::create($data. $extra);
           break;
       }
     }
