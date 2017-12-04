@@ -11,7 +11,7 @@ dependencies:
     - node.type.content
   module:
     - ajax_comments
-    - dmt_mailing_list
+    - dmt_content
     - file
     - options
     - panelizer

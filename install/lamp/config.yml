@@ -71,6 +71,10 @@ php_xdebug_max_nesting_level: 256
 php_xdebug_remote_port: "9001"
 php_xdebug_remote_host: "127.0.0.1"
 
+git_install_from_source: true
+git_install_from_source_force_update: true
+git_version: "2.14.1"
+
 post_provision_scripts:
   - "../../box/postprovision-solr.sh"
   - "../../box/postprovision-tweaks.sh"

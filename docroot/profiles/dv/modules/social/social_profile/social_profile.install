@@ -2,15 +2,6 @@
 
 use Drupal\file\Entity\File;
 
-/**
- * Implements hook_install().
- *
- * Perform actions related to the installation of social_profile.
- */
-function social_profile_install() {
-  // Add default profile image
-  _social_profile_add_default_profile_image();
-}
 
 /**
  * Function to set default profile image if not set already.

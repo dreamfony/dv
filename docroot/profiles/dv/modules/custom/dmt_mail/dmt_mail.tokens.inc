@@ -13,7 +13,7 @@ use Drupal\group\Entity\GroupContent;
 /**
  * Implements hook_token_info().
  */
-function activity_logger_token_info() {
+function dmt_mail_token_info() {
   $type = [
     'name' => t('Message tokens from activity'),
     'description' => t('Tokens from the activity logger module.'),
@@ -55,6 +55,16 @@ function activity_logger_token_info() {
     'description' => t("ReplyTo Email"),
   ];
 
+  $activity['recipient-data'] = [
+    'name' => t("Recipient data"),
+    'description' => t("Information about recipient"),
+  ];
+
+  $activity['sender-data'] = [
+    'name' => t("Sender data"),
+    'description' => t("Information about sender"),
+  ];
+
   return [
     'types' => [
       'message' => $type,
@@ -70,7 +80,7 @@ function activity_logger_token_info() {
 /**
  * Implements hook_tokens().
  */
-function activity_logger_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
+function dmt_mail_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
   $replacements = [];
 
   if ($type == 'message' && !empty($data['message'])) {
@@ -148,16 +158,54 @@ function activity_logger_tokens($type, $tokens, array $data, array $options, Bub
 
         case 'replyto-email':
           $hash = $activity->get('field_activity_hash')->getString();
-          $replacements[$original] = \Drupal::service('activity_send_email.replyto')->getAddress( strlen($hash) > 1 ? $hash : NULL );
+          $replacements[$original] = \Drupal::service('activity_send_email.replyto')
+            ->getAddress(strlen($hash) > 1 ? $hash : NULL);
+          break;
+
+        case 'recipient-data':
+          $user_id = $activity->get('field_activity_recipient_user')->target_id;
+          $user = \Drupal::entityTypeManager()->getStorage("user")->load($user_id);
+          $active_profile = \Drupal::entityTypeManager()->getStorage('profile')->loadByUser($user, "organisation_profile");
+
+          // Designate the field we want to render.
+          $field_name = 'field_org_address';
+          $display = [
+            'label' => 'hidden',
+            'type' => 'field_address',
+          ];
+          // Retrieve a render array for that field with the given view mode.
+          $build = $active_profile->$field_name->view($display);
+          // Render the result.
+          $address = \Drupal::service('renderer')->renderRoot($build);
+          $replacements[$original] = \Drupal\Core\Render\Markup::create($active_profile->get('field_org_title')->value . $address);
+          break;
+
+
+        case 'sender-data':
+          /*
+          $user_id = $activity->get('user_id')->target_id;
+          $user = \Drupal::entityTypeManager()->getStorage("user")->load($user_id);
+          $active_profile = \Drupal::entityTypeManager()->getStorage('profile')->loadByUser($user, "organisation_profile");
+
+          // Designate the field we want to render.
+          $field_names = array('field_org_title', 'field_org_address', 'field_org_telephone', 'field_org_email');
+          $display = [
+            'label' => 'hidden',
+            'type' => 'field_address',
+          ];
+
+          $data = "";
+          foreach ($field_names as $field){
+            $build = $active_profile->$field->view($display);
+            $data.=  \Drupal::service('renderer')->renderRoot($build);
+          }
+          $replacements[$original] = \Drupal\Core\Render\Markup::create($data);
+          */
+          $replacements[$original] = '';
           break;
       }
     }
   }
-
-  // todo #40 #18 Make [activity:recipient-data] and [activity:sender-data] tokens
-  // prerequisite github issue #17
-  // this might not be the right place to do this but it is closest to what I can
-  // find in a current code base
 
   return $replacements;
 }

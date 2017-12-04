@@ -7,44 +7,46 @@ dependencies:
     - activity_creator
 id: moderation_activity_workflow
 label: 'Moderation Activity Workflow'
-states:
-  canceled:
-    label: Canceled
-    weight: -10
-  pending:
-    label: Pending
-    weight: -5
-  resolved:
-    label: Resolved
-    weight: 0
-transitions:
-  cancel:
-    label: Cancel
-    from:
-      - pending
-    to: canceled
-    weight: 2
 type: activity_workflow
 type_settings:
   states:
     canceled:
+      label: Canceled
       published: false
       default_revision: true
+      weight: -10
     delivery_error:
+      label: Delivery Error
       published: true
       default_revision: true
+      weight: -1
     pending:
+      label: Pending
       published: true
       default_revision: true
+      weight: -5
     resolved:
+      label: Resolved
       published: true
       default_revision: true
+      weight: 0
     seen:
+      label: Seen
       published: true
       default_revision: true
+      weight: 10
     sent:
+      label: Sent
       published: true
       default_revision: true
+      weight: 5
+  transitions:
+    cancel:
+      label: Cancel
+      from:
+        - pending
+      to: canceled
+      weight: 2
   entity_types:
     activity:
       - moderation_activity

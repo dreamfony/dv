@@ -6,5 +6,6 @@
 - src: gantsign.inotify
 - src: maanas.curl
 - src: wtanaka.slack
-- src: manala.yarn
-- src: AsianChris.gulp
+- src: bearandgiraffe.yarn
+- src: martinmicunda.nodejs
+- src: martinmicunda.gulp
