@@ -25,3 +25,14 @@ ansible-galaxy install -r requirements.yml
 
 title "Provision playbook for $(whoami)"
 ansible-playbook -i "localhost" -c local playbook.yml
+
+cd /var/www/dv/install/lamp
+
+title "Provision server playbook"
+ansible-playbook playbook.yml
+
+cd /var/www/dv/
+touch blt/project.local.yml
+echo "environment: local" >> blt/project.local.yml
+chmod -R +w /var/www/dv/docroot/sites/default
+vendor/bin/blt custom:reinstall

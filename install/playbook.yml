@@ -48,21 +48,3 @@
 
     - name: Remove PHP config
       shell: rm /etc/php -R
-
-    - name: Run server install playbook
-      shell: chdir=/var/www/dv/install/lamp ansible-playbook playbook.yml
-
-    - name: Create project.local.yml
-      shell: touch /var/www/dv/blt/project.local.yml
-      become: no
-
-    - name: Add config to project.local.yml
-      shell: "echo 'environment: local' >> test.txt"
-      become: no
-
-    - name: Make default directory writable
-      shell: chmod -R +w /var/www/dv/docroot/sites/default
-
-    - name: Run site installation with BLT
-      shell: chdir=/var/www/dv vendor/bin/blt custom:reinstall
-      become: no
