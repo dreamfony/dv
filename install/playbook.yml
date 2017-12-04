@@ -4,6 +4,9 @@
   vars_files:
     - vars/php.yml
 
+  vars:
+    - nodejs_version: "5.12.0"
+
   pre_tasks:
     - name: get the username running the deploy
       local_action: >
@@ -35,7 +38,8 @@
     - role: maanas.curl
     - role: wtanaka.slack
     - role: bearandgiraffe.yarn
-    - role: AsianChris.gulp
+    - role: martinmicunda.nodejs
+    - role: martinmicunda.gulp
 
   tasks:
     - name: Install project using Composer
