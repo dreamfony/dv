@@ -2,6 +2,9 @@
 
 ## Linux - Ubuntu/Mint
 
+- do-release-upgrade
+- sudo reboot
+
 - fork https://github.com/dreamfony/dv repo
 - sudo apt-get install git -y
 - git config --global user.name "John Doe"
@@ -37,5 +40,25 @@ todo:
 - .ignore
 - Drupal Symphony Bridge
 - set code style to Drupal
+
+
+## Additional software
+
+### Chrome (required)
+- https://www.google.com/chrome/browser/desktop/index.html?brand=CHBD&gclid=Cj0KCQiAgZTRBRDmARIsAJvVWAteXkC1MBW19_nCIW8rYor7LO4XqslVVDnpcwifDkU6gw-D9vg-04QaAj7mEALw_wcB
+
+### TeamViewer (required)
+- https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+
+### Flux
+- sudo add-apt-repository ppa:nathan-renniewaldock/flux
+- sudo apt-get update
+- sudo apt-get install fluxgui
+
+### Pinta
+- sudo add-apt-repository ppa:pinta-maintainers/pinta-stable
+- sudo apt-get update
+- sudo apt-get install pinta
+
 
 

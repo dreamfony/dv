@@ -4,12 +4,22 @@
   vars_files:
     - vars/php.yml
 
+  vars:
+    - git_install_from_source: true
+    - git_install_from_source_force_update: true
+    - git_version: "2.14.1"
+
   pre_tasks:
     - name: get the username running the deploy
       local_action: >
         command whoami
       register: local_username
       become: no
+
+    - name: Install C libraries for compilation packages from source (Debian).
+      apt: "name={{ item }} state=installed"
+      with_items: ["libcurl4-openssl-dev", "libexpat1-dev", "libz-dev", "libssl-dev"]
+      update_cache: yes
 
     - name: Set git file.Mode false
       shell: git config core.fileMode false

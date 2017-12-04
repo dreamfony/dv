@@ -44,15 +44,10 @@
 
     - include: ../../vendor/geerlingguy/drupal-vm/provisioning/tasks/php.yml
 
-    - name: Install C libraries for compilation packages from source (Debian).
-      apt: "name={{ item }} state=installed"
-      with_items: ["libcurl4-openssl-dev", "libexpat1-dev", "libz-dev", "libssl-dev"]
-
   roles:
     # Essential roles.
     - { role: drupalvm.hostname, when: hostname_configure }
     - { role: geerlingguy.firewall, when: firewall_enabled }
-    - { role: geerlingguy.git }
     - { role: geerlingguy.postfix }
     - { role: geerlingguy.apache, when: drupalvm_webserver == 'apache', tags: ['webserver']}
     - { role: geerlingguy.apache-php-fpm, when: drupalvm_webserver == 'apache', tags: ['webserver'] }
@@ -95,7 +90,6 @@
     - { role: geerlingguy.daemonize, when: '"mailhog" in installed_extras' }
     - { role: geerlingguy.mailhog, when: '"mailhog" in installed_extras' }
     - { role: franklinkim.newrelic, when: '"newrelic" in installed_extras' }
-    - { role: geerlingguy.nodejs, when: '"nodejs" in installed_extras' }
     - { role: geerlingguy.redis, when: '"redis" in installed_extras' }
     - { role: geerlingguy.php-redis, when: '"redis" in installed_extras', tags: ['php'] }
     - { role: geerlingguy.ruby, when: '"ruby" in installed_extras' }
