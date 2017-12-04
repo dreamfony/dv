@@ -40,7 +40,7 @@
 
   tasks:
     - name: Install project using Composer
-      shell: chdir=/opt/tools/temp composer install --no-interaction
+      shell: chdir=/var/www/dv composer install --no-interaction
       become: no
 
     - name: Purge PHP used for Composer
