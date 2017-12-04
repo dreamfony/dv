@@ -19,6 +19,7 @@
 - Find existing Organisation
 
 ## Positions
+- This needs to be refactored to use group membership in organisations
 
 ## Moderation
 

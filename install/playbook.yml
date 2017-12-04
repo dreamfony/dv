@@ -34,7 +34,7 @@
       inotify_max_user_watches: 524288
     - role: maanas.curl
     - role: wtanaka.slack
-    - role: manala.yarn
+    - role: bearandgiraffe.yarn
     - role: AsianChris.gulp
 
   tasks:
