@@ -185,7 +185,7 @@ function dmt_mail_tokens($type, $tokens, array $data, array $options, Bubbleable
 
           $user_id = $activity->get('user_id')->target_id;
           $user = \Drupal::entityTypeManager()->getStorage("user")->load($user_id);
-          $user_persona = $user->get('persona')->target_id;
+          $user_persona = $user->get('personas')->target_id;
 
           if ($user_persona == "organisation"){
             $active_profile = \Drupal::entityTypeManager()->getStorage('profile')->loadByUser($user, "organisation_profile");
