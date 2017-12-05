@@ -1,11 +1,17 @@
 # Installation instructions
 
-## Linux - Ubuntu/Mint
+### Linux - Ubuntu/Mint
 
+Ctrl + Alt + T to open terminal.
+
+```bash
 - do-release-upgrade
 - sudo reboot
+```
 
-- fork https://github.com/dreamfony/dv repo
+Fork https://github.com/dreamfony/dv git repository.
+
+```bash
 - sudo apt-get install git -y
 - git config --global user.name "John Doe"
 - git config --global user.email "email@example.com"
@@ -14,51 +20,62 @@
 - cd /var/www
 - git clone your forked repo
 - bash /var/www/dv/install/install.sh
-- logout as your linux user and log back in to get zsh to work
-- if you get some weird page on local.dv.com clear chrome caches
+```
 
-todo:
- - add adminer to /etc/hosts
- - install phpmyadmin ?
- - figure out weather we want to keep built css files in repo
+Logout as your linux user and log back in to get zsh to work. if you get some weird page on local.dv.com clear chrome caches
+
+> todo:
+> - add adminer to /etc/hosts
+> - install phpmyadmin ?
+> - figure out weather we want to keep built css files in repo
 
  
-## PHPSTORM
+### PHPSTORM
 
-- Set xdebug port 9001
-- Max connections 100 (to be on a safe side)
-- Turn off all Break on first line checkboxes there should be 3 of them
+Install https://www.jetbrains.com/phpstorm/download/#section=linux
 
-## Setup CLI debugging
-- sudo phpenmod -v 7.0 -cli xdebug
-- sudo service php7.0-fpm restart
-- https://www.shooflydesign.org/buzz/configuring-phpstorm-to-debugging-command-line-php-scripts
-- export XDEBUG_CONFIG="idekey=PHPSTORM"
-~ export PHP_IDE_CONFIG="serverName=localhost"      
-
-**Add Plugins**:
+#### Plugins:
 - .ignore
 - Drupal Symphony Bridge
 - set code style to Drupal
 
+#### PHP Debug
 
-## Additional software
+Follow instructions https://www.shooflydesign.org/buzz/configuring-phpstorm-to-debugging-command-line-php-scripts
 
-### Chrome (required)
-- https://www.google.com/chrome/browser/desktop/index.html?brand=CHBD&gclid=Cj0KCQiAgZTRBRDmARIsAJvVWAteXkC1MBW19_nCIW8rYor7LO4XqslVVDnpcwifDkU6gw-D9vg-04QaAj7mEALw_wcB
+> - Set xdebug port 9001
+> - Max connections 20 (to be on a safe side)
+> - Turn off all Break on first line checkboxes there should be 3 of them
 
-### TeamViewer (required)
+```bash
+- sudo phpenmod -v 7.0 -cli xdebug
+- sudo service php7.0-fpm restart
+- export XDEBUG_CONFIG="idekey=PHPSTORM"
+~ export PHP_IDE_CONFIG="serverName=localhost"
+```
+
+### Additional software
+
+#### Chrome (required)
+- https://www.google.com/chrome/browser/desktop/index.html
+Make sure you pick Ubuntu version.
+
+#### TeamViewer (required)
 - https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 
-### Flux
+#### Flux
+```bash
 - sudo add-apt-repository ppa:nathan-renniewaldock/flux
 - sudo apt-get update
 - sudo apt-get install fluxgui
+```
 
-### Pinta
+#### Pinta
+```bash
 - sudo add-apt-repository ppa:pinta-maintainers/pinta-stable
 - sudo apt-get update
 - sudo apt-get install pinta
+```
 
 
 
