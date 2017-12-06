@@ -85,13 +85,24 @@ function social_profile_form_profile_profile_edit_form_alter(&$form, FormStateIn
  * Implements hook_local_tasks_alter().
  */
 function social_profile_local_tasks_alter(&$local_tasks) {
+
+  // Hide profile tab for organisations and hide organisation tab for others
+  $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+  if (in_array("", $user->get("personas")->getValue()) == "organisation"){
+    if (!empty($local_tasks['entity.profile.user_profile_form:profile.type.profile'])) {
+      unset($local_tasks['entity.profile.user_profile_form:profile.type.profile']);
+    }
+  } else {
+    if (!empty($local_tasks['entity.profile.user_profile_form:profile.type.organisation_profile'])) {
+      unset($local_tasks['entity.profile.user_profile_form:profile.type.organisation_profile']);
+    }
+  }
+  //TODO not sure this below is needed, if it is uncomment
   // Remove the profile main "Profile information" from the local tabs.
   if (!empty($local_tasks['entity.profile.user_profile_form:profile.type.main'])) {
-    unset($local_tasks['entity.profile.user_profile_form:profile.type.main']);
+    //unset($local_tasks['entity.profile.user_profile_form:profile.type.main']);
   }
-  if (!empty($local_tasks['entity.profile.user_profile_form:profile.type.profile'])) {
-    unset($local_tasks['entity.profile.user_profile_form:profile.type.profile']);
-  }
+
 }
 
 /**
