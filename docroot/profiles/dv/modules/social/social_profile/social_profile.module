@@ -87,22 +87,27 @@ function social_profile_form_profile_profile_edit_form_alter(&$form, FormStateIn
 function social_profile_local_tasks_alter(&$local_tasks) {
 
   // Hide profile tab for organisations and hide organisation tab for others
+  // TODO as this alter is only activly changing on cache refresh, probably would be a good idea to have this somewhere else
+  // TODO or somehow implement cache context
   $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
-  if (in_array("", $user->get("personas")->getValue()) == "organisation"){
-    if (!empty($local_tasks['entity.profile.user_profile_form:profile.type.profile'])) {
+  $org_flag = FALSE;
+  foreach ( $user->get("personas")->getValue() as $item) {
+    if ($item["target_id"] == "organisation") {
+      $org_flag = TRUE;
+    }
+  }
+  if (!empty($local_tasks['entity.profile.user_profile_form:profile.type.profile']) && $org_flag) {
       unset($local_tasks['entity.profile.user_profile_form:profile.type.profile']);
-    }
-  } else {
-    if (!empty($local_tasks['entity.profile.user_profile_form:profile.type.organisation_profile'])) {
+  }
+
+  if (!empty($local_tasks['entity.profile.user_profile_form:profile.type.organisation_profile']) && !$org_flag) {
       unset($local_tasks['entity.profile.user_profile_form:profile.type.organisation_profile']);
-    }
   }
   //TODO not sure this below is needed, if it is uncomment
   // Remove the profile main "Profile information" from the local tabs.
   if (!empty($local_tasks['entity.profile.user_profile_form:profile.type.main'])) {
     //unset($local_tasks['entity.profile.user_profile_form:profile.type.main']);
   }
-
 }
 
 /**
