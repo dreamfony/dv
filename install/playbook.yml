@@ -7,7 +7,7 @@
   vars:
     - git_install_from_source: true
     - git_install_from_source_force_update: true
-    - git_version: "2.14.1"
+    - git_version: "2.14.1" # has to be > 2.10 because of composer patching
 
   pre_tasks:
     - name: get the username running the deploy
