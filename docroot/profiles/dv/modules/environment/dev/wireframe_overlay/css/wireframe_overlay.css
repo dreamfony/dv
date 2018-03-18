@@ -1,5 +1,5 @@
-#overlay {
-  position:fixed;
+#wireframe-overlay {
+  position:absolute;
   top:0;
   left:0;
   bottom:0;
@@ -8,9 +8,20 @@
   width: 100%;
   margin: 0;
   padding: 0;
-  background: #000000;
+  z-index: 101;
+  display:none;
+}
+
+.wf-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   opacity: .3;
   filter: alpha(opacity=30);
   -moz-opacity: .3;
-  z-index: 101;
+}
+
+.wf-label, .wf-description {
+  display: block;
+  text-align: center;
 }
