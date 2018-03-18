@@ -40,6 +40,7 @@ Function wireframe_overlay_preprocess_html(&$variables) {
   //Add a JS library
   if($wireframe_overlay) {
     $variables['#attached']['library'][] = 'wireframe_overlay/wireframe-overlay';
+    $variables['#attached']['library'][] = 'core/jquery.ui.slider';
     $variables['#attached']['drupalSettings']['wireframe_overlay'] = $wireframe_overlay;
   }
 }

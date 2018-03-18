@@ -25,3 +25,14 @@
   display: block;
   text-align: center;
 }
+
+#wf-slider {
+  position: relative;
+  z-index: 3000;
+  width: 200px;
+  display:none;
+}
+
+#wf-slider .ui-slider-handle {
+  background-color: #0c97ed;
+}
