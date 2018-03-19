@@ -29,16 +29,18 @@
 
                 // slider stuff
                 var wf_slider = $('<div>', {id: 'wf-slider'});
+                var wf_slider_opacity = 37;
 
                 toolbar.once('wf-slider').append(wf_slider);
 
                 wf_slider.slider({
                     range: "min",
-                    value: 37,
+                    value: wf_slider_opacity,
                     min: 1,
                     max: 100,
                     slide: function( event, ui ) {
-                        wf_image.css('opacity', ui.value/100);
+                        wf_slider_opacity = ui.value;
+                        wf_image.css('opacity', wf_slider_opacity/100);
                     }
                 });
 
@@ -49,12 +51,10 @@
 
                 toggle_link.click(function () {
                     overlay_wrapper.toggle();
-                    wf_image.css('opacity', 37/100);
+                    wf_image.css('opacity', wf_slider_opacity/100);
                     wf_slider.toggle();
+                    // save opacity to a cookie?
                 });
-
-
-
             }
         }
     };
