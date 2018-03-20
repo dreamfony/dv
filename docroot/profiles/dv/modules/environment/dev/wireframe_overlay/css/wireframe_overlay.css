@@ -1,6 +1,5 @@
 #wireframe-overlay {
   position:absolute;
-  top:0;
   left:0;
   bottom:0;
   right:0;
@@ -24,6 +23,7 @@
 .wf-label, .wf-description {
   display: block;
   text-align: center;
+  background-color: #fff;
 }
 
 #wf-slider {
@@ -35,4 +35,11 @@
 
 #wf-slider .ui-slider-handle {
   background-color: #0c97ed;
+}
+
+.description {
+  background-color: #fff;
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }

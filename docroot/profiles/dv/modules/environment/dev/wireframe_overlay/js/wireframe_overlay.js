@@ -5,6 +5,8 @@
             // can access setting from 'drupalSettings';
             var wireframe_overlay = drupalSettings.wireframe_overlay;
 
+            mermaid.initialize({startOnLoad:true});
+
             if(wireframe_overlay) {
 
                 var toolbar = $('#toolbar-bar');
@@ -18,16 +20,22 @@
 
                 wf_wrapper.once('wf-overlay').append(overlay_wrapper);
 
+                var navbar_top_position = $('.navbar-default').offset().top;
+                overlay_wrapper.css('top', navbar_top_position);
+
+                // wireframe image
                 var wf_image = $('<img>', {src: drupalSettings.wireframe_overlay.image, class: 'wf-image'});
                 overlay_wrapper.once('wf-image').append(wf_image);
 
-                var wf_label = $('<p>', {class: "wf-label"}).text(drupalSettings.wireframe_overlay.label);
+                // wireframe label
+                var wf_label = $('<h2>', {class: "wf-label"}).text(drupalSettings.wireframe_overlay.label);
                 overlay_wrapper.once('wf-label').append(wf_label);
 
-                var wf_description = $('<p>', {class: "wf-description"}).text(drupalSettings.wireframe_overlay.description);
+                // wireframe description
+                var wf_description = $('<div>', {class: "description"}).append(drupalSettings.wireframe_overlay.description);
                 overlay_wrapper.once('wf-description').append(wf_description);
 
-                // slider stuff
+                // opacity slider
                 var wf_slider = $('<div>', {id: 'wf-slider'});
                 var wf_slider_opacity = 37;
 

@@ -5,6 +5,7 @@ wireframe-overlay:
       css/wireframe_overlay.css: {}
   js:
     js/wireframe_overlay.js: {}
+    https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js: { type: external, minified: true }
   dependencies:
     - core/jquery
     - core/drupal
