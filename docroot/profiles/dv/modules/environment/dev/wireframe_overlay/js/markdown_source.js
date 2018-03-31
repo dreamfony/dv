@@ -17,41 +17,55 @@
     Drupal.behaviors.MarkdownSourceBehavior = {
         attach: function (context, settings) {
 
-            // get wireframe settings - currently unused
-            var wireframe_overlay = drupalSettings.wireframe_overlay;
+            if(!Drupal.behaviors.MarkdownSourceBehavior.done){
+                // get wireframe settings - currently unused
+                var wireframe_overlay = drupalSettings.wireframe_overlay;
 
-            // initialize mermaid
-            mermaid.initialize({startOnLoad:true});
+                // initialize mermaid
+                mermaid.initialize({startOnLoad:true});
 
-            // convert markdown to parsable html
-            var converter = new showdown.Converter();
-            var html = $( '<div>' + converter.makeHtml( WireframeOverlay.markdown ) + '</div>');
+                // convert markdown to parsable html
+                var converter = new showdown.Converter();
+                var url = 'https://raw.githubusercontent.com/dreamfony/dv/develop/docroot/profiles/dv/docs/workflow.md';
 
-            // get mermaid objects from html
-            var objects = WireframeOverlay.getMermaidObjects(html);
-            console.log(objects);
+                $.ajax({
+                    url: url,
+                    type: 'get',
+                    async: false,
+                    success: function(markdown) {
 
-            // add proper indentations to lists
-            html = WireframeOverlay.addIndentations(html);
+                        var html = $( '<div>' + converter.makeHtml( markdown ) + '</div>');
 
-            // get mermaid syntax
-            var mermaid_syntax = WireframeOverlay.genMermaidSyntax(objects, html);
-            console.log(mermaid_syntax);
+                        // get mermaid objects from html
+                        var objects = WireframeOverlay.getMermaidObjects(html);
+                        console.log(objects);
 
-            // append html and mermaid graph to document
-            var append_element = $('#block-socialblue-mainpagecontent');
-            append_element.once('wf-slider').append(html);
-            append_element.once('mermaid').append( $('<div class="mermaid" id="toc">' + mermaid_syntax + '</div>') );
+                        // add proper indentations to lists
+                        html = WireframeOverlay.addIndentations(html);
 
-            var svg = $('#toc svg');
+                        // get mermaid syntax
+                        var mermaid_syntax = WireframeOverlay.genMermaidSyntax(objects, html);
+                        console.log(mermaid_syntax);
 
-            $("g.label", svg).click(function() {
-                var markupid = $(this).closest('g').attr('id');
-                $('html, body').animate({
-                    scrollTop: $(markupid).offset().top
-                }, 2000);
-            });
+                        // append html and mermaid graph to document
+                        var append_element = $('#block-socialblue-mainpagecontent');
+                        append_element.once('wf-slider').append(html);
+                        append_element.once('mermaid').append( $('<div class="mermaid" id="toc">' + mermaid_syntax + '</div>') );
 
+                    }
+                });
+
+                // on click label
+                $("#toc").on("click", "g.label", function() {
+                    var markupid = $(this).parent('g').attr('id');
+                    $('html, body').animate({
+                        scrollTop: $('h2#' + markupid).offset().top - 100
+                    }, 100);
+                });
+
+                Drupal.behaviors.MarkdownSourceBehavior.done = true;
+
+            }
         }
     };
 
@@ -92,7 +106,7 @@
                     }
 
                     if(res[0] === 'doc' && res[1].length > 0) {
-                        doc = res[1];
+                        doc = res[1].trim() + res[2].trim();
                     }
 
                     if(res[0] === 'type' && res[1].length > 0) {
@@ -192,64 +206,22 @@
         return mermaid_syntax;
     };
 
-    WireframeOverl2222222ay.markdown  = '# Global Workflow\n' +
-            '\n' +
-            '## Development\n' +
-            '- relations: Code repository\n' +
-            '- icons:\n' +
-            '  - roles:\n' +
-            '     - Developer\n' +
-            '     - DevOps\n' +
-            '  - tools:\n' +
-            '     - Drupal\n' +
-            '- doc: http://some-path/doc.md#drupal\n' +
-            '\n' +
-            '## Code repository\n' +
-            '- relations: Documentation, Continous integration\n' +
-            '- icons:\n' +
-            '  - roles:\n' +
-            '     - Developer\n' +
-            '     - DevOps\n' +
-            '  - tools:\n' +
-            '     - Drupal\n' +
-            '- doc: http://some-path/doc1.md#github\n' +
-            '\n' +
-            '## Documentation\n' +
-            '- icons:\n' +
-            '  - roles:\n' +
-            '     - Developer\n' +
-            '     - DevOps\n' +
-            '  - tools:\n' +
-            '     - Drupal\n' +
-            '- doc: http://some-path/doc-about-doc.md#read-the-docs\n' +
-            '\n' +
-            '## Continous integration\n' +
-            '- relations: "Notifications"\n' +
-            '- icons:\n' +
-            '  - roles:\n' +
-            '     - Developer\n' +
-            '     - DevOps\n' +
-            '  - tools:\n' +
-            '     - Drupal\n' +
-            '- doc: http://some-path/doc.md\n' +
-            '\n' +
-            '## Notifications\n' +
-            '- relations: "Test passed?"\n' +
-            '- icons:\n' +
-            '  - roles:\n' +
-            '     - Developer\n' +
-            '     - DevOps\n' +
-            '  - tools:\n' +
-            '     - Drupal\n' +
-            '- doc: http://some-path/doc3.md#slack\n' +
-            '\n' +
-            '## Test passed?\n' +
-            '- type: decision\n' +
-            '- relations: Yes|Artifact, No|Development\n' +
-            '\n' +
-            '## Artifact\n' +
-            '- role: "DevOps"\n' +
-            '- tool: "Travis"\n' +
-            '- doc: http://some-path/doc.md#artifact';
+
+    /**
+     * This function is unused try to figure out how to make it work
+     * for inclusion of other mds
+     *
+     * @param url
+     */
+    WireframeOverlay.getMarkdown = function (url) {
+        $.ajax({
+            url: url,
+            type: 'get',
+            async: false,
+            success: function(markdown) {
+                return markdown;
+            }
+        });
+    };
 
 })(jQuery, Drupal, drupalSettings);
