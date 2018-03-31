@@ -1,5 +1,14 @@
 # Features
 
+Behat tests tips:
+- blt tests:behat:definitions
+  - shows all defined assertions
+- blt tests:behat 
+  - runs all behat tests without @skip tag
+- blt tests:behat -D behat.tags=@f1s1 
+  - runs only a test with @f1s1 this does not ignore @skip tag
+
+
 ## Survey
 
 **Goal:** Fight the corruption and crime like Batman.

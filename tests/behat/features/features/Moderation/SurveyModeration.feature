@@ -1,10 +1,10 @@
-@api
+@api @f1
 Feature: Survey Moderation
   Benefit: So Organisations are getting clean and clear surveys to answer
   Persona: Moderator
   Goal/desire: I want to edit the survey so it is appropriate to send
 
-  @javascript @group @user @skip
+  @javascript @group @user @skip @f1s1
   Scenario: Successfully Approve Survey
     Given organisations:
       | name       | mail        | address                       |
@@ -28,6 +28,9 @@ Feature: Survey Moderation
     And I click "Test Survey"
     Then I should see the text "Test Survey" in the "Page Title" region
     And I should see the link "Approve"
+    And I click "Approve"
+    And I wait for the queue to be empty
+
 
     #And I wait for 30 seconds
 

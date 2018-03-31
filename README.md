@@ -22,9 +22,8 @@ Making government officials responsible, accountable and taming their power.
 
 Documentation
 =============
-Read more about DV in the ReadTheDocs documentation:
+Read more about DV in the [ReadTheDocs documentation](https://docs.trans.ink)
 
-docs.trans.ink
 
 Getting Help/Contact
 =================

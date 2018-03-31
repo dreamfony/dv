@@ -84,7 +84,6 @@ class WireframeOverlayForm extends EntityForm {
     $form['description'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Description'),
-      '#maxlength' => 255,
       '#default_value' => isset($wireframe_overlay->description) ? $wireframe_overlay->description : '',
       '#description' => $this->t("Description for the Wireframe overlay."),
       '#required' => FALSE,

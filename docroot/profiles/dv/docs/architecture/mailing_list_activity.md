@@ -73,7 +73,7 @@ All related code should be placed in [dmt_mailing_list_activity](../../modules/c
 
 #### Transitions
 
-**Mark as Delivery error** [delivery_error]
+**Mark as Delivery error** [delivery_error] (maybe change to sending error, is there a way to check if mail was delivered to the sender?)
   - from: [p_waiting]
   - to: [p_delivery_error]
   - triggers:

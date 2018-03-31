@@ -42,7 +42,7 @@ class Wireframe extends ControllerBase {
 
     $build = array(
       '#type' => 'markup',
-      '#markup' => $config->get('description'),
+      '#markup' => 'Check wireframes.',
     );
 
     return $build;

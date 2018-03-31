@@ -17,5 +17,5 @@ wireframe_overlay.wireframe_overlay.*:
       type: string
       label: 'Image'
     description:
-      type: string
+      type: text
       label: 'Description'

@@ -1,13 +1,13 @@
-wireframe_overlay:
-  version: VERSION
+wireframe-overlay:
+  version: 1.x
   css:
     component:
       css/wireframe_overlay.css: {}
-
-wireframe_overlay.js:
-  version: VERSION
   js:
     js/wireframe_overlay.js: {}
+    js/markdown_source.js: {}
+    https://unpkg.com/mermaid@8.0.0-rc.6/dist/mermaid.js: { type: external }
+    https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js: { type: external }
   dependencies:
     - core/jquery
     - core/drupal
