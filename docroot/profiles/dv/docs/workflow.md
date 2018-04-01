@@ -34,7 +34,7 @@ Bla bla bla ... Trrrttt
 - doc: http://some-path/doc-about-doc.md#read-the-docs
 
 ## Continuous integration
-- relations: "Notifications"
+- relations: Notifications
 - meta:
   - roles:
     - Developer
@@ -44,7 +44,7 @@ Bla bla bla ... Trrrttt
 - doc: http://some-path/doc.md
 
 ## Notifications
-- relations: "Test passed?"
+- relations: Test passed?
 - meta:
   - roles:
     - Developer
