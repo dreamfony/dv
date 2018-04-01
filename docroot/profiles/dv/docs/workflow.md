@@ -4,52 +4,53 @@
 - relations: Code repository
 - meta:
   - roles:
-     - Developer
-     - DevOps
+    - Developer
+    - DevOps
   - tools:
-     - Drupal
+    - Drupal
 - doc: http://some-path/doc.md#drupal
+
 ### Test h3
 I ondak nastavis tu pisati sta te volja!
 Bla bla bla ... Trrrttt
 
 ## Code repository
-- relations: Documentation, Continous integration
-- icons:
+- relations: Documentation, Continuous integration
+- meta:
   - roles:
-     - Developer
-     - DevOps
+    - Developer
+    - DevOps
   - tools:
-     - Drupal
+    - Drupal
 - doc: http://some-path/doc1.md#github
 
 ## Documentation
-- icons:
+- meta:
   - roles:
-     - Developer
-     - DevOps
+    - Developer
+    - DevOps
   - tools:
-     - Drupal
+    - Drupal
 - doc: http://some-path/doc-about-doc.md#read-the-docs
 
-## Continous integration
+## Continuous integration
 - relations: "Notifications"
-- icons:
+- meta:
   - roles:
-     - Developer
-     - DevOps
+    - Developer
+    - DevOps
   - tools:
-     - Drupal
+    - Drupal
 - doc: http://some-path/doc.md
 
 ## Notifications
 - relations: "Test passed?"
-- icons:
+- meta:
   - roles:
-     - Developer
-     - DevOps
+    - Developer
+    - DevOps
   - tools:
-     - Drupal
+    - Drupal
 - doc: http://some-path/doc3.md#slack
 
 ## Test passed?
@@ -57,7 +58,9 @@ Bla bla bla ... Trrrttt
 - relations: Yes|Artifact, No|Development
 
 ## Artifact
-- role: "DevOps"
+- meta: 
+  - roles:
+    - DevOps
 - tool: "Travis"
 - doc: http://some-path/doc.md#artifact;
 
