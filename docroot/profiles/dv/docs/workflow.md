@@ -15,7 +15,7 @@ I ondak nastavis tu pisati sta te volja!
 Bla bla bla ... Trrrttt
 
 ## Code repository
-- relations: Documentation, Continuous integration
+- relations: Documentation, test|Continuous integration
 - meta:
   - roles:
     - Developer
