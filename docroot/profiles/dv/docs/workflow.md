@@ -22,7 +22,7 @@ Bla bla bla ... Trrrttt
     - DevOps
   - tools:
     - Drupal
-- doc: http://some-path/doc1.md#github
+- doc: [test](architecture/answer_comment.md)
 
 ## Documentation
 - meta:
