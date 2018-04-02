@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <title>My Project </title>
+    <meta name="description" content="My Stylish Documentation">
+    <meta name="author" content="I, Me & Myself">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="icon" href="themes/daux/img/favicon-blue.png" type="image/x-icon">
+
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    
+    <!-- CSS -->
+    <link href='themes/daux/css/theme-blue.min.css' rel='stylesheet' type='text/css'><link href='themes/daux/css/mermaid.css' rel='stylesheet' type='text/css'>
+            <!-- Tipue Search -->
+        <link href="tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="themes/daux/js/html5shiv-3.7.3.min.js"></script>
+    <![endif]-->
+</head>
+<body class=" homepage">
+    
+
+<div class="Navbar NoPrint">
+    <div class="Container">
+        <a class="Brand" href="index.html">My Project</a>
+
+    <div class="Search">
+        <svg class="Search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451">
+            <path d="M447.05 428l-109.6-109.6c29.4-33.8 47.2-77.9 47.2-126.1C384.65 86.2 298.35 0 192.35 0 86.25 0 .05 86.3.05 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126.1-47.2L428.05 447c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.2-5.2 5.2-13.8 0-19zM26.95 192.3c0-91.2 74.2-165.3 165.3-165.3 91.2 0 165.3 74.2 165.3 165.3s-74.1 165.4-165.3 165.4c-91.1 0-165.3-74.2-165.3-165.4z"/>
+        </svg>
+        <input type="search" id="tipue_search_input" class="Search__field" placeholder="Search..." autocomplete="on"
+               results=25 autosave=text_search>
+    </div>
+    </div>
+</div>
+
+<div class="Homepage">
+    <div class="HomepageTitle Container">
+        <h2>My Stylish Documentation</h2>    </div>
+
+    <div class="HomepageImage Container">
+            </div>
+
+    <div class="HomepageButtons">
+        <div class="Container">
+            <a href="architecture.html" class="Button Button--primary Button--hero">View Documentation</a>        </div>
+    </div>
+</div>
+
+<div class="HomepageContent">
+    <div class="Container">
+        <div class="Container--inner">
+            <div class="doc_content s-content">
+                <p>Please see the <a href="http://blt.readthedocs.io/en/latest/" class="Link--external">BLT documentation</a> for information on build, testing, and deployment processes.</p>
+<p>develop:
+<a href="https://travis-ci.org/dreamfony/dv" class="Link--external"><img src="https://travis-ci.org/dreamfony/dv.svg?branch=develop" alt="Build Status develop" /></a></p>
+<p>master:
+<a href="https://travis-ci.org/dreamfony/dv" class="Link--external"><img src="https://travis-ci.org/dreamfony/dv.svg?branch=master" alt="Build Status master" /></a></p>
+<p>docs
+<a href="http://dv.readthedocs.io/en/develop/" class="Link--external"><img src="https://readthedocs.org/projects/dv/badge/?version=develop" alt="Build Status master" /></a></p>
+<h3 id="page_Onboarding">Onboarding</h3>
+<p>For building, testing and launching drupal sites we use bundle of scripts called <a href="https://github.com/acquia/blt" class="Link--external">BLT</a>
+BLT works as a composer plugin.</p>
+<p>http://blt.readthedocs.io/en/latest/INSTALL/
+http://blt.readthedocs.io/en/latest/readme/onboarding/</p>
+<h4 id="page_Setup-github-todos">Setup <a href="https://github.com/naholyr/github-todos" class="Link--external">github-todos</a></h4>
+<ul>
+<li>npm install -g github-todos</li>
+<li>in project root run</li>
+<li>github-todos config repo dreamfony/dv</li>
+<li>github-todos init
+<ul>
+<li>if you get Error: ENOENT: no such file or directory, open '.git/hooks/pre-push'</li>
+<li>cd .git</li>
+<li>mkdir hooks</li>
+<li>github-todos init</li>
+</ul>
+</li>
+<li>github-todos config inject-issue true</li>
+<li>github-todos config confirm-create false</li>
+</ul>
+<h3 id="page_Highly-recommended-if-you-are-using-local-machine-for-work">Highly recommended if you are using local machine for work</h3>
+<ul>
+<li>Install drush on your local machine  http://docs.drush.org/en/8.x/install-alternative/
+make sure drush aliases are set for remote (should be automatically set per drupalvm config, if not do it manually, search this part &quot;drush/site-aliases/aliases.drushrc.php&quot; on this link https://www.jeffgeerling.com/blog/2017/soup-nuts-using-drupal-vm-build-local-and-prod</li>
+<li>Install drupal console on your local machine https://docs.drupalconsole.com/en/getting/project.html
+run &quot;drupal init&quot; to copy configuration if not mentioned and add alias manually to proper place
+https://docs.drupalconsole.com/en/alias/connecting-to-a-virtual-environment.html</li>
+</ul>
+<p>with above, you can run git/drush/drupal console commands all on local machine, with no need to go to remote.</p>
+<h4 id="page_Frontend">Frontend</h4>
+<p>node_modules directory should be deleted if it is created from inside VM</p>
+<h4 id="page_Pushing-Local-changes-and-Ongoing-development">Pushing Local changes and Ongoing development</h4>
+<ul>
+<li>export configuration into feature</li>
+<li>git commit</li>
+<li>git pull / merge / create pull request</li>
+<li>blt local:refresh (which does)
+<ul>
+<li>composer install</li>
+<li>enable / uninstall local modules</li>
+<li>config-import --partial</li>
+<li>updb</li>
+<li>config-import --partial</li>
+<li>drush fra -- bundle (bundle names are defined in project.yml)</li>
+<li>drush cr</li>
+</ul>
+</li>
+<li>git push</li>
+</ul>
+<p>Automated testing ensures that the feature can be installed from scratch on a new site as well as imported without conflicts on an existing site.
+After the feature is deployed, deployment hooks automatically import the new or updated configuration.</p>
+<p>In the beginning of the project life cycle we use <code>blt local:setup</code> to reinstall drupal, instead of <code>blt local:refresh</code> so we dont have to write hook_updates when we do big structural configuration changes.
+When the site goes to production then <code>local:refresh</code> is enough.</p>
+<pre><code>&lt;target name=&quot;local:refresh&quot; description=&quot;Refreshes local environment from upstream testing database.&quot; depends=&quot;setup:build, local:sync, local:update&quot;/&gt;
+</code></pre>
+<h4 id="page_Updating-Module">Updating Module</h4>
+<p>When updating module, it can happen that modules configuration has changed.
+Thats why the process of updating module is:</p>
+<ul>
+<li>composer update drupal/{module_name}</li>
+<li>on features page check if configuration has changed</li>
+<li>export feature if neccessary</li>
+<li>only now you can push or pull and refresh local</li>
+</ul>
+<p>If someone pushes lock file with new updated module and doesnt export configuration,
+then when other persons pull and do local:refresh they will override new configuration of the module with the old!</p>
+<h4 id="page_BLT-update">BLT update</h4>
+<p>http://blt.readthedocs.io/en/8.x/readme/updating-blt/</p>
+<p>during update BLT will change some files so its necesserry to examine
+composer.json, .gitignore, .project.yml etc.</p>
+<h4 id="page_Various">Various</h4>
+<p><strong>Continuous Delivery</strong></p>
+<p>http://blt.readthedocs.io/en/latest/readme/ci/</p>
+<p>The repository is never pushed directly to the cloud. Instead, changes to the repository on GitHub trigger tests to be run via Continuous Integration. Changes that pass testing on master branch will automatically cause a build artifact to be created and deployed to the cloud.</p>
+<p>We use Travis for CI</p>
+<p>If you don’t want to run a build for a particular commit for any reason add [ci skip] or <strong>[skip ci]</strong> to the git commit message. Commits that have [ci skip] or [skip ci] anywhere in the commit messages are ignored by Travis CI.</p>
+<p><strong>Phing</strong>
+Common project tasks are executed via a build tool (Phing) so that they can be executed exactly the same in all circumstances.
+Custom and overridden Commands can be found in <strong>/custom/blt_custom_phing_commands.xml</strong>
+Phing Variables are here
+https://github.com/acquia/blt/blob/8.x/phing/build.yml</p>
+<p>To use syslog instead of DB log</p>
+<pre><code>blt pimpmylog
+</code></pre>
+<h3 id="page_Acquia">Acquia</h3>
+<h4 id="page_Cloud-Hooks">Cloud Hooks</h4>
+<p>post-code-update.sh</p>
+<ul>
+<li>blt deploy:update</li>
+</ul>
+<p>db-scrub.sh</p>
+<ul>
+<li>scrubs db before copy from production <strong>TODO - test</strong>
+</li>
+</ul>
+<h4 id="page_Cron">Cron</h4>
+<p>You should use the Scheduled Jobs page for scheduled jobs, rather than the default Drupal cron or any of the contributed cron modules, such as Elysia Cron or Ultimate Cron . Compared to other cron solutions, using the Scheduled Jobs page is more reliable and provides extensive and integrated logging for Acquia Cloud applications.
+The default Drupal cron (poor man's cron) is enabled by default and you should disable it. Click Never.</p>
+<pre><code>drush core-cron
+</code></pre>
+<h3 id="page_BlackFire">BlackFire</h3>
+<ul>
+<li>create account on blackfire.io</li>
+<li>enter server and client id
+https://github.com/geerlingguy/ansible-role-blackfire#requirements</li>
+</ul>
+<p>Restart appache after init and registration</p>
+<pre><code>sudo /etc/init.d/blackfire-agent restart
+sudo systemctl restart apache2.service
+
+blackfire curl http://local.dv.com/
+</code></pre>
+<h3 id="page_Testing">Testing</h3>
+<p>http://blt.readthedocs.io/en/latest/readme/testing/</p>
+<h3 id="page_Github">Github</h3>
+<p>In order to more easily identify developers in a project, please be sure to set a name and profile picture in your GitHub profile.</p>
+<p><strong>Tools</strong>
+https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc</p>
+<p>https://github.com/github/hub</p>
+<h3 id="page_Drush">Drush</h3>
+<p>Check that your drush alias is set up correctly</p>
+<pre><code>/var/www/dv/docroot drush @dv.local status
+</code></pre>
+<p>To be able to use drush from any folder for this site and in this session type:</p>
+<pre><code>drush use @dv.local
+</code></pre>
+<h3 id="page_Drupal-Console">Drupal Console</h3>
+<p><strong>TODO</strong>
+Initialize drupal console after provision</p>
+<h3 id="page_Phpstorm">Phpstorm</h3>
+<p>You can SSH to Vagrant machine using phpstorm by ShiftShift, type: Start SSH</p>
+<p><strong>TODO</strong> - repo with shared liveTemplates
+https://www.drupal.org/project/phpstorm_templates
+and sharing of code snippets via gists or snip2code
+https://youtrack.jetbrains.com/issue/IDEA-155623
+<strong>TODO END</strong></p>
+<h3 id="page_Composer">Composer</h3>
+<p>http://blt.readthedocs.io/en/latest/readme/dependency-management/</p>
+<p>We use composer to build our dependencies, add patches etc.. , that means you do not use drupal console or drush to download modules but you do it with composer. You must run composer from DV root folder, not docroot</p>
+<pre><code>composer global require &quot;hirak/prestissimo:^0.3&quot;
+</code></pre>
+<h4 id="page_Add-dependencies">Add dependencies</h4>
+<pre><code>composer require drupal/devel:8.*
+</code></pre>
+<p><strong>examples:</strong>
+Latest stable that is greater then or equal to 1.0
+^1.0
+Always Dev (ignore stables)
+1.x-dev
+Exact version
+1.14</p>
+<p>^ - sticks to semantic versioning, and will always allow non-breaking updates.</p>
+<pre><code>~1.2.3 is equivalent to &gt;=1.2.3 &lt;1.3.0
+</code></pre>
+<p>vs.</p>
+<pre><code>^1.2.3 is equivalent to &gt;=1.2.3 &lt;2.0.0
+</code></pre>
+<h4 id="page_Update-dependencies-core-profile-module-theme-libraries">Update dependencies (core, profile, module, theme, libraries)</h4>
+<pre><code>composer update drupal/panels --with-dependencies
+</code></pre>
+<h4 id="page_Remove-dependencies">Remove dependencies</h4>
+<pre><code>composer remove drupal/pathauto
+</code></pre>
+<p>When adding new patch you can just update existing project and patch will be applied.</p>
+<h3 id="page_Debuging">Debuging</h3>
+<p>if u need to debug drush or any site code that is initiated within drush (PHP CLI) follow this <a href="http://blokspeed.net/blog/2016/02/debugging-drush-scripts-with-xdebug-and-phpstorm-on-vagrant-in-2016/" class="Link--external">tutorial</a></p>
+<ul>
+<li>In PhpStorm set up a “PHP Web Application” for debugging the command line. The sole purpose of this is to be able to provide a <strong>path mapping</strong> when running the command in Vagrant.</li>
+<li>Enable xdebug debugging for the command line in your Vagrant box. In my case, this simply meant symlinking the same xdebug.ini from my /etc/php5/cli/conf.d directory as I was using in the /etc/php5/apache/conf.d for web debugging.</li>
+<li>
+<code>export XDEBUG_CONFIG=&quot;idekey=phpstorm remote_host=192.168.33.1&quot;</code>
+</li>
+<li>
+<code>export PHP_IDE_CONFIG=&quot;serverName=cli&quot;</code>
+</li>
+<li>
+<code>../vendor/drush/drush/drush.launcher status</code>
+</li>
+</ul>
+<h4 id="page_Twig-Debugging">Twig Debugging</h4>
+<p>services.local.php
+twig.config debug:true</p>
+<p><strong>TODO</strong></p>
+<p>blt clidebug
+blt clidebug --on
+i off
+ili tako nesto pametno
+za palit gasit xdebug mozes koristit
+sudo phpenmod -s cli xdebug
+i phpdismod</p>
+<p><strong>TODO END</strong></p>
+<h3 id="page_Configuration-Management">Configuration Management</h3>
+<p>http://blt.readthedocs.io/en/latest/readme/features-workflow/</p>
+<p>The main use case for Features 3.x is to assist with building and maintaining well designed and interoperable Drupal distributions.</p>
+<blockquote>
+<p>As great as CMI is in Drupal 8, it is likely that you will still want
+to use Features to organize your configuration as you develop your
+site.  Whether you use Features or CMI (or both) to deploy your
+development into production is your choice.  In my narrow experience
+with features on Drupal 8, I've found the &quot;features for development
+and config for deployment&quot; idea, the more natural way to do it</p>
+</blockquote>
+<p>Sites will often need to contain a single &quot;sitewide&quot; feature that defines global configuration and is required by all other features. This can be viewed as a &quot;core&quot; feature but should not be abused as a dumping ground for miscellany.</p>
+<p>Our core feature module is <strong>dv_core</strong></p>
+<h4 id="page_Sharing-configuration-of-development-modules-and-different-configuration-for-differnet-environments">Sharing configuration of development modules and different configuration for differnet environments</h4>
+<p>Instead of using conf_split module, we store partial various configuration that is used only in devel environment in config/devel folder.
+This should be in your local.settings.php</p>
+<pre><code>$config_directories['devel'] = $dir . &quot;$config_directories['devel'] = $dir . &quot;/docroot/profiles/dv/modules/environment/dmt_devel/optional&quot;;
+</code></pre>
+<p>Import with</p>
+<pre><code>drush cim devel --partial
+</code></pre>
+<p>Configuration files that should be exported to that module are listed in dmt_devel.info.yml
+And should be exported with the help of config_devel module using</p>
+<pre><code>drush config-devel-export dmt_devel
+</code></pre>
+<p>Also you can use configuration override system in local.settings.php</p>
+<p>Exclude settings from beeing exported in features by configuring features bundle</p>
+<p>Modules that should be enabled uninstalled for each environment are listed in project.yml</p>
+<p>Production configuration is made read only using
+https://www.drupal.org/project/config_readonly</p>
+<p>All site code should reside in <code>docroot\profiles\custom\dv</code></p>
+<p>There are many reasons that features can fail to install or import properly. The most frequent cause is circular dependencies. For instance, imagine that feature A depends on a field exported in feature B, and feature B depends on a field exported in feature B. Neither feature can be enabled first, and site installs will break.</p>
+<p>A safer alternative is to create a separate wrapper module to contain any custom functionality and have this module depend on your feature in order to segregate Feature-managed and manually-managed code.</p>
+<h4 id="page_Hook-_-updates">Hook_updates</h4>
+<p>https://www.drupal.org/docs/8/api/update-api/updating-configuration-in-drupal-8</p>
+<p>All site specific configuration updates should be written in <strong>dv_core.install</strong></p>
+<p><strong>TODO add snippets for</strong>
+Deleting a field
+Reverting features and feature components features_revert_module()
+Enable / disable module module_enable()
+Adding indexes to databases db_add_index()</p>
+<p>For specific use cases see
+https://www.drupal.org/project/hook_update_deploy_tools
+also we will continuously update this document as we find out which things can not be deployed through features and must be deployed using hook_updates</p>
+<h4 id="page_Environments">Environments</h4>
+<p>We have 4 environments</p>
+<ul>
+<li>Local environment build with vagrant</li>
+<li>and 3 remote environments which reside on Acquia</li>
+<li>Devel ( master-build branch)</li>
+<li>Staging (master branch)</li>
+<li>Live (TAG from master)</li>
+</ul>
+<p>We are using an install profile driven development. Install profile is build by features.
+We will also for now deploy site with features although this is not best practice.</p>
+<p>Best practice would be to</p>
+<ul>
+<li>Clone DB from Live env to Staging env</li>
+<li>Revert Features on Staging env</li>
+<li>Test</li>
+<li>Export Configuration on Staging and push to master</li>
+<li>git TAG release</li>
+<li>Import Configuration on Live</li>
+</ul>
+<p>Other options include installing site from existing configuration either with drush --config option or with config_installer profile which also sets site UUID from existing configuration.</p>
+<h5 id="page_Managing-roles-and-permissions">Managing roles and permissions</h5>
+<p>Features is patched so that it exports permissions with roles</p>
+<h5 id="page_Managing-Secrets-TODO">Managing Secrets (TODO)</h5>
+<ul>
+<li>
+<p>exlude this settings from beeing exported in features bundle settings</p>
+<p><code>// Store API Keys and things outside of version control.</code></p>
+<p><code>// @see settings/sample-secrets.settings.php for sample code.</code></p>
+<p><code>$secrets_file = sprintf('/mnt/gfs/%s.%s/secrets.settings.php', $_ENV['AH_SITE_GROUP'], $_ENV['AH_SITE_ENVIRONMENT']); if (file_exists($secrets_file)) { require $secrets_file; }</code></p>
+</li>
+</ul>
+<h4 id="page_Using-Features-Bundles">Using Features Bundles</h4>
+<h4 id="page_Config-vs-content">Config vs. content</h4>
+<p>If exported configuration view will contain a defined dependency on a content object (referenced by UUID). If that content doesn’t exist when the feature is installed, the installation will fail.</p>
+<p>The solution is to make sure that the referenced content exists before the feature is installed.</p>
+<p>Use the default_content module to export the referenced content as JSON files, and store these files with your feature or in a dependency.</p>
+<p><strong>TODO</strong> Create default_content module just for that</p>
+<h4 id="page_Local-Settings">Local Settings</h4>
+<p>local.settings.php</p>
+<h3 id="page_Naming-Conventions">Naming Conventions</h3>
+<p>We utilize Features <strong>Namespace</strong> assignment plugin</p>
+<p>so For example, a date field specific to events and attached to an <strong>event content type</strong> could be named <strong>field_event_date</strong>, while a vocabulary of event types could be named <strong>event_type</strong>, with a corresponding entity reference field of field_event_type on the event content type. By following this naming convention, you ensure that by default your event-related field storages and taxonomies are assigned to the event feature.</p>
+<h3 id="page_Release-Process">Release Process</h3>
+<p>It is expected that at this point build artifact has been deployed to master-build on dev.
+master-build has been merged to master on stage. Db from live has been copied to stage.</p>
+<ul>
+<li>Put the site into maintenance mode <code>drush vset maintenance_mode 1</code>
+</li>
+<li>Flush Caches to empty the cache tables and ensure maintenance mode is set. <code>drush cc all</code>
+</li>
+<li>Perform any necessary backups, notably the database drush sql-dump &gt; backup-yyyy-mm-dd.sql (or via UI)</li>
+<li>Pull the latest code onto the server git pull origin/master (Drag&amp;Drop in UI)</li>
+<li>Doing this in Acquia UI will tag release.</li>
+<li>Run update.php <code>drush updb -y</code>
+</li>
+<li>Feature should be explicitly reverted via a call to features_revert_module() in a  hook_update_N()</li>
+<li>Take the site out of maintenance mode <code>drush vset maintenance_mode 0</code>
+</li>
+<li>Clear Drupal caches <code>drush cc all</code>
+</li>
+</ul>
+<p>Deployment to a staging server is fully automated.
+No gradual roll out and roll-back if required.</p>
+<h3 id="page_Coding-standards">Coding standards</h3>
+<p>All of the code should comply to the coding standards defined on drupal.org/coding-standards.</p>
+<h3 id="page_Source-control-and-branching">Source control and branching</h3>
+<p>Gitflow with a mandatory Code Review</p>
+<p>The master branch should always be in a stable state. When working on specific bugs,
+features or improvements you should always work in a separate branch (preferably prefixed with feature/)
+which can eventually be merged into master.</p>
+<h3 id="page_Definition-of-done">Definition of done</h3>
+<p>We consider the work of the developer done when:</p>
+<ul>
+<li>Functionality passes the acceptance criteria</li>
+<li>Manual test is provided, modified if needed and passing</li>
+<li>Automated test is provided if needed and passing</li>
+<li>Code complies to Drupal coding standards</li>
+<li>A pull request is created, assigned to a reviewer and How-To-Test are provided</li>
+<li>CI build is passing</li>
+<li>If issue type is bug, a short description of the solution is provided</li>
+<li>The issue has been set to a reviewer with the correct status</li>
+</ul>
+<p>We consider the work of the reviewer done when:</p>
+<ul>
+<li>The code looks good</li>
+<li>The How-To-Test steps can be executed</li>
+<li>The manual test is executed successfully</li>
+<li>The pull request is merged into the correct branch</li>
+<li>The issue has been completed</li>
+</ul>
+<p>Code review guidlines</p>
+<ul>
+<li>Ask questions rather than state facts when critiquing.</li>
+<li>Scratch each other’s back w/constructive criticism.</li>
+<li>Practice egoless programming, separate the work from the person.</li>
+<li>Direct comments to the work product, not to the author.</li>
+</ul>
+<h3 id="page_Commit-messages-guidelines">Commit messages guidelines</h3>
+<h3 id="page_Various-2">Various</h3>
+<p>Comments should not reiterate code but explain the why behind its design. Readable code will explain the what and how, therefore prefer good names and documentation over comments.</p>
+<p>Good bug reports must, at a minimum:</p>
+<ul>
+<li>Should not be a duplicate; search the existing before creating new ones.</li>
+<li>Have a concise summary</li>
+<li>Have a specific factual details:</li>
+<li>What was expected, and what happened.</li>
+<li>Precise steps to reproduce</li>
+<li>Severity</li>
+</ul>
+<h3 id="page_Tips-Tricks">Tips &amp; Tricks</h3>
+<h2 id="page_TODO">TODO</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="HomepageFooter">
+    <div class="Container">
+        <div class="Container--inner">
+            
+                    </div>
+    </div>
+</div>
+
+    
+    <!-- JS -->
+    <script src="themes/daux/js/jquery-1.11.3.min.js"></script><script src="themes/daux/js/highlight.pack.js"></script><script src="themes/daux/js/daux.js"></script><script src="https://unpkg.com/mermaid@8.0.0-rc.6/dist/mermaid.js"></script><script src="themes/daux/js/markdown_source.js"></script>
+            <!-- Tipue Search -->
+        <script type="text/javascript" src="tipuesearch/tipuesearch.js"></script>
+
+        <script>
+            window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
+            $(function() {
+                tipuesearch({
+                    'base_url': ''
+                });
+            });
+        </script>
+    
+</body>
+</html>

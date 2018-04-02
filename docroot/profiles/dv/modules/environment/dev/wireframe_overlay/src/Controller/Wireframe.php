@@ -40,10 +40,12 @@ class Wireframe extends ControllerBase {
 
     $config = $this->configFactory->get($config_key);
 
-    $build = array(
+    $build = [
       '#type' => 'markup',
       '#markup' => 'Check wireframes.',
-    );
+    ];
+
+    $build = [];
 
     return $build;
   }
