@@ -49,3 +49,25 @@
   position: relative;
   left: 20px;
 }
+
+#toc .active, #md-html .active {
+  color: red;
+}
+
+#md-html {
+  position: relative;
+  z-index: 200;
+  float: left;
+}
+
+#toc {
+  width: 400px !important;
+  float: right;
+}
+
+.fixed {
+  position:fixed !important;
+  top:50px;
+  z-index:99999;
+  left: 650px;
+}

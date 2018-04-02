@@ -9,6 +9,9 @@
      */
     WireframeOverlay = WireframeOverlay || {};
 
+    WireframeOverlay.active_g = [];
+    WireframeOverlay.active_h2 = [];
+
     /**
      * Behaviour
      *
@@ -32,9 +35,10 @@
                     url: url,
                     type: 'get',
                     async: false,
+                    cache: false,
                     success: function(markdown) {
 
-                        var html = $( '<div>' + converter.makeHtml( markdown ) + '</div>');
+                        var html = $( '<div id="md-html">' + converter.makeHtml( markdown ) + '</div>');
 
                         // get mermaid objects from html
                         var objects = WireframeOverlay.getMermaidObjects(html);
@@ -48,25 +52,88 @@
                         console.log(mermaid_syntax);
 
                         // append html and mermaid graph to document
-                        var append_element = $('#block-socialblue-mainpagecontent');
+                        var append_element = $('.region--content');
+                        var append_element_position = append_element.offset().right;
                         append_element.once('wf-slider').append(html);
-                        append_element.once('mermaid').append( $('<div class="mermaid" id="toc">' + mermaid_syntax + '</div>') );
 
+                        WireframeOverlay.toc = $('<div class="mermaid" id="toc">' + mermaid_syntax + '</div>');
+                        append_element.once('mermaid').append( WireframeOverlay.toc );
+/*
+
+                        var top = WireframeOverlay.toc.offset().top;
+
+                        $(window).scroll(function (event) {
+                            var y = $(this).scrollTop();
+                            if (y >= top)
+                                WireframeOverlay.toc.addClass('fixed');
+                            else
+                                WireframeOverlay.toc.removeClass('fixed');
+                            WireframeOverlay.toc.width( WireframeOverlay.toc.parent().width() );
+                        });
+*/
                     }
                 });
 
                 // on click label
-                $("#toc").on("click", "g.label", function() {
+                WireframeOverlay.toc.on("click", "g.label", function() {
+
                     var markupid = $(this).parent('g').attr('id');
                     $('html, body').animate({
                         scrollTop: $('h2#' + markupid).offset().top - 100
                     }, 100);
+
+                    WireframeOverlay.setInactive();
+                    WireframeOverlay.setActive(markupid);
                 });
+
+                // on click h2
+                $("#md-html").on("click", "h2", function() {
+
+                    var h2id = $(this).attr('id');
+                    $('html, body').animate({
+                        scrollTop: $('#toc').offset().top - 100
+                    }, 100);
+
+                    WireframeOverlay.setInactive();
+                    WireframeOverlay.setActive(h2id);
+                });
+
 
                 Drupal.behaviors.MarkdownSourceBehavior.done = true;
 
             }
         }
+    };
+
+    /**
+     * Set element Inactive.
+     */
+    WireframeOverlay.setInactive = function () {
+        if(WireframeOverlay.active_h2 instanceof jQuery && WireframeOverlay.active_h2.hasClass('active')) {
+            WireframeOverlay.active_h2.removeClass('active');
+        }
+
+        if(WireframeOverlay.active_g instanceof jQuery && WireframeOverlay.active_g.hasClass('active')) {
+            WireframeOverlay.active_g.removeClass('active');
+        }
+    };
+
+    /**
+     * Set element active.
+     *
+     * @param elementId
+     */
+    WireframeOverlay.setActive = function (elementId) {
+
+        var active_g = $('#toc g#' + elementId + ' div');
+        var active_h2 = $('#md-html h2#' + elementId);
+
+        // mark active element for color change
+        active_h2.addClass('active');
+        active_g.addClass('active');
+
+        WireframeOverlay.active_h2 = active_h2;
+        WireframeOverlay.active_g = active_g;
     };
 
 
@@ -101,7 +168,7 @@
                         relations = res[1].split(",");
                         relations_count = relations.length;
                     }
-                    if(res[0] === 'icons' && res[1].length > 0) {
+                    if(res[0] === 'meta' && res[1].length > 0) {
                         icons = res[1].split(",");
                     }
 
@@ -209,7 +276,7 @@
 
     /**
      * This function is unused try to figure out how to make it work
-     * for inclusion of other mds
+     * for inclusion of other md files
      *
      * @param url
      */
