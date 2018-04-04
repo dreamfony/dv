@@ -48,6 +48,7 @@
     - role: martinmicunda.nodejs
     - role: martinmicunda.gulp
     - role: geerlingguy.git
+    - role: andrewrothstein.hub
 
   tasks:
     - name: Install project using Composer
