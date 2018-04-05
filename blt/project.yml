@@ -76,6 +76,8 @@ disable-targets:
     phpcs: true
   local:
     sync: true
+  tests:
+    security-updates: false
 behat:
   web-driver: chrome
 vm:
