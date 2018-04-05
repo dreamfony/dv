@@ -31,6 +31,10 @@ cd /var/www/dv/install/lamp
 title "Provision server playbook"
 ansible-playbook playbook.yml
 
+title "Install daux.io"
+composer global require daux/daux.io
+
+title "Install dv"
 cd /var/www/dv/
 touch blt/project.local.yml
 echo "environment: local" >> blt/project.local.yml
@@ -38,3 +42,5 @@ chmod -R +w /var/www/dv/docroot/sites/default
 rm -rf vendor && rm -rf docroot/core && rm -rf docroot/modules/contrib && rm -f composer.lock
 composer install
 vendor/bin/blt custom:reinstall
+
+
