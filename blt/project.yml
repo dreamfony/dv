@@ -72,12 +72,12 @@ disable-targets:
     git-hooks: true
   tests:
     phpunit: true
+    security-updates: false
   validate:
     phpcs: true
   local:
     sync: true
-  tests:
-    security-updates: false
+
 behat:
   web-driver: chrome
 vm:
