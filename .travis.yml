@@ -64,8 +64,8 @@ before_install:
   - composer install
 
 install:
-  - nvm install 4.4.1
-  - nvm use 4.4.1
+  - nvm install 6.2.2
+  - nvm use 6.2.2
   - source ${BLT_DIR}/scripts/travis/setup_environment
   - source ${BLT_DIR}/scripts/travis/setup_project
 
