@@ -72,7 +72,7 @@ disable-targets:
     git-hooks: true
   tests:
     phpunit: true
-    security-updates: false
+    security-updates: true
   validate:
     phpcs: true
   local:
