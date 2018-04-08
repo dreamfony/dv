@@ -55,7 +55,7 @@ All related code should be placed in [dmt_mailing_list](../../../modules/custom/
   - Full view mode is split in to 2 sub modes with [panelizer](https://www.drupal.org/project/panelizer) contrib. module
     - Mailing List Default - Used for survey creation ui
       - see [Content](content.md)
-      - see [Mailing List Recipients](mailing_list_list_recipients.md)
+      - see [Mailing List Recipients](mailing_list_recipients.md)
     - Default - Used for Viewing the survey using [Mailing List Answers :: Group By Recipient view](http://local.dv.com/admin/structure/views/view/mailing_list_answers_group_by_recipient)
 - Comments
 - My Survey Teaser
@@ -75,7 +75,7 @@ All related code should be placed in [dmt_mailing_list](../../../modules/custom/
 
 #### States
 
-- Draft [draft](Draft.md)
+- Draft [draft]
 - Email [email]
 - Approved [approved]
 - Archived [archived]
@@ -102,8 +102,8 @@ All related code should be placed in [dmt_mailing_list](../../../modules/custom/
   - to: [email]
   - uc:
     - [x] **own** - triggers this transition
-    - [x] **sys** - validates [mailing_list] contains > 0 [node](../entities/node.md) [content] and > 0 recipients
-    - [x] **sys** - remove administrator role from the [mailing_list] [group](../entities/group.md)
+    - [x] **sys** - validates [mailing_list] contains > 0 [content](content.md) and > 0 recipients
+    - [x] **sys** - remove administrator role from the [mailing_list](mailing_list.md)
     - [x] **sys** - send [mailing_list_needs_approval](mailing_list_needs_approval_message.md) message
 
 - **Approve Sending**	[approve plugin](../../../modules/custom/dmt_mailing_list/src/Plugin/ModerationStateMachine/ApproveSendingTransition.php)
@@ -111,10 +111,10 @@ All related code should be placed in [dmt_mailing_list](../../../modules/custom/
   - to: [approved]
   - uc:
     - [x] **mod** - triggers this transition
-    - [x] **sys** - validates [mailing_list] contains > 0 [node](../entities/node.md) [content] and > 0 recipients
+    - [x] **sys** - validates [mailing_list] contains > 0 [content](content.md) and > 0 recipients
     - [x] **sys** - gets all the content form group of type [group_node:content]
     - [x] **sys** - foreach group content gets referenced entity [node] of type [content] and triggers [create_activity_action]
-    - [x] **sys** - triggers [close_mailing_list_ticket] for the [group](../entities/group.md) [mailing_list]
+    - [x] **sys** - triggers [close_mailing_list_ticket] for the [mailing_list](mailing_list.md)
 
 - **Archive** [archive]
   - from: [draft], [email], [approved]

@@ -26,7 +26,7 @@ All related code should be placed in [dmt_content](../../../modules/custom/dmt_c
     - We need to configure attachment types here 
     - We send these in email    
 - Answers
-  - Field that references [comments](comments.md) (answer, activity)
+  - Field that references [comments](answer_comment.md) (answer, activity)
   
 **Views:**
 - [Mailing list items](http://local.dv.com/admin/structure/views/view/mailing_list_items)

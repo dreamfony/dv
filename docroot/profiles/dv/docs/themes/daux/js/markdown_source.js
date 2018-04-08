@@ -23,7 +23,7 @@ $(function () {
         var markupid = $(this).parent('g').attr('id');
         $('.Columns__right').animate({
             scrollTop: $('h2#' + markupid).offset().top
-        }, 100);
+        }, 200);
 
         setInactive();
         setActive(markupid);
