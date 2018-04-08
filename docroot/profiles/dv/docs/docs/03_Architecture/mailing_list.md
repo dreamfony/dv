@@ -1,6 +1,6 @@
 # Mailing List
 
-All related code should be placed in [dmt_mailing_list](../../modules/custom/dmt_mailing_list/dmt_mailing_list.info.yml) module.
+All related code should be placed in [dmt_mailing_list](../../../modules/custom/dmt_mailing_list/dmt_mailing_list.info.yml) module.
 
 ## Tests
 
@@ -46,7 +46,7 @@ All related code should be placed in [dmt_mailing_list](../../modules/custom/dmt
 #### **[Fields](http://local.dv.com/admin/group/types/manage/mailing_list/fields)**
 
 - Group Comments
-  - Is used to store comments on particular Survey probably just for moderation purposes. Comments are handled by [ajax_comments](../../modules/custom/ajax_comments/ajax_comments.info.yml) module and [dmt_group_comments](../../modules/custom/dmt_group_comments/dmt_group_comments.info.yml) module.
+  - Is used to store comments on particular Survey probably just for moderation purposes. Comments are handled by [ajax_comments](../../../modules/custom/ajax_comments/ajax_comments.info.yml) module and [dmt_group_comments](../../../modules/custom/dmt_group_comments/dmt_group_comments.info.yml) module.
 - Panelizer
   - Is used for storing current view mode for the group. 
 
@@ -97,7 +97,7 @@ All related code should be placed in [dmt_mailing_list](../../modules/custom/dmt
   
   
     
-- **Send Email** [send_email plugin](../../modules/custom/dmt_mailing_list/src/Plugin/ModerationStateMachine/SendEmailTransition.php)
+- **Send Email** [send_email plugin](../../../modules/custom/dmt_mailing_list/src/Plugin/ModerationStateMachine/SendEmailTransition.php)
   - from: [draft]
   - to: [email]
   - uc:
@@ -106,7 +106,7 @@ All related code should be placed in [dmt_mailing_list](../../modules/custom/dmt
     - [x] **sys** - remove administrator role from the [mailing_list] [group](../entities/group.md)
     - [x] **sys** - send [mailing_list_needs_approval](mailing_list_needs_approval_message.md) message
 
-- **Approve Sending**	[approve plugin](../../modules/custom/dmt_mailing_list/src/Plugin/ModerationStateMachine/ApproveSendingTransition.php)
+- **Approve Sending**	[approve plugin](../../../modules/custom/dmt_mailing_list/src/Plugin/ModerationStateMachine/ApproveSendingTransition.php)
   - from: [email]
   - to: [approved]
   - uc:

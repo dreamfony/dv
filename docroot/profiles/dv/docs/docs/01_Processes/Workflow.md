@@ -30,8 +30,16 @@ Bla bla bla ... Trrrttt
     - Developer
     - DevOps
   - tools:
-    - Drupal
-- doc: http://some-path/doc-about-doc.md#read-the-docs
+    - [daux.io](https://github.com/dauxio/daux.io)
+    
+    
+
+- Documentation in docroot/profiles/dv/docs contains:
+  - daux theme
+  - docs folder where the actual markup files reside
+  - global.json for daux configuration
+- Access documentation locally by `$daux serve` in docroot/profiles/dv/docs 
+
 
 ## Continuous integration
 - relations: Notifications
@@ -39,8 +47,6 @@ Bla bla bla ... Trrrttt
   - roles:
     - Developer
     - DevOps
-  - tools:
-    - Drupal
 - doc: http://some-path/doc.md
 
 ## Notifications
