@@ -62,6 +62,7 @@ before_install:
   - composer self-update
   - composer validate --no-check-all --ansi
   - composer install
+  - composer global require daux/daux.io
 
 install:
   - nvm install 6.2.2
@@ -94,6 +95,7 @@ before_deploy:
   - ls -lash ~/.ssh
   - eval "$(ssh-agent -s)"
   - ssh-add ~/.ssh/id_rsa
+  - ${BUILD_DIR}/docroot/profiles/dv/docs/daux --destination=../../../../docs --configuration=global.json
 
 deploy:
    - provider: script
@@ -102,3 +104,10 @@ deploy:
      on:
        branch: master
        php: 5.6
+   - provider: pages
+     local-dir: docs
+     skip-cleanup: true
+     github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+     keep-history: true
+     on:
+       branch: develop
