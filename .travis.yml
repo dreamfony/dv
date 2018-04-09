@@ -96,7 +96,7 @@ before_deploy:
   - eval "$(ssh-agent -s)"
   - ssh-add ~/.ssh/id_rsa
   - cd ${BUILD_DIR}/docroot/profiles/dv/docs
-  - ~/.config/composer/vendor/bin/daux --destination=${BUILD_DIR}/docs --configuration=global.json
+  - ~/.config/composer/vendor/daux/daux.io/bin/daux --destination=${BUILD_DIR}/docs --configuration=global.json
 
 deploy:
    - provider: script
