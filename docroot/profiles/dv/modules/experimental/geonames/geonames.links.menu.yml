@@ -1,7 +1,0 @@
-geonames.geonames_config_form:
-  title: 'GeoNames'
-  route_name: geonames.geonames_config_form
-  description: 'GeoNames Configuration.'
-  parent: system.admin_config
-  weight: 99
-

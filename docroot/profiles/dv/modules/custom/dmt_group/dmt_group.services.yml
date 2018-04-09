@@ -1,3 +1,0 @@
-services:
-  dmt_group.helper_service:
-    class: Drupal\dmt_group\GroupHelper

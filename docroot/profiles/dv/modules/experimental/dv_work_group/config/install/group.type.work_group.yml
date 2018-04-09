@@ -1,6 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: work_group
-label: 'Work Group'
-description: 'Work groups are special groups where users can join to discuss certain Issues.'

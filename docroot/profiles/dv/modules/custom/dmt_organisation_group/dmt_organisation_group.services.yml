@@ -1,3 +1,0 @@
-services:
-  dmt_organisation_group.add_group_to_subgroup:
-    class: Drupal\dmt_organisation_group\AddGroupToSubgroup

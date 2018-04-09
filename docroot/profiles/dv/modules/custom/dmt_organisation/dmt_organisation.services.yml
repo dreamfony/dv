@@ -1,3 +1,0 @@
-services:
-  dmt_organisation.organisation:
-    class: Drupal\dmt_organisation\Helper\Organisation

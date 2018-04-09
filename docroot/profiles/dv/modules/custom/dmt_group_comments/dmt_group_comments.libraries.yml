@@ -1,6 +1,0 @@
-comment-box:
-  version: VERSION
-  js:
-    js/comment_box.js: {}
-  dependencies:
-    - core/jquery

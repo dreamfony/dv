@@ -1,3 +1,0 @@
-services:
-  moderation_state_machine_chain.workflow_chain:
-    class: Drupal\moderation_state_machine_chain\WorkflowChain

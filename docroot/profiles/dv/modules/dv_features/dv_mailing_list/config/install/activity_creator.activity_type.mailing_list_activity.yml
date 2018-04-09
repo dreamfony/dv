@@ -1,8 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: mailing_list_activity
-label: 'Mailing List Activity'
-help: ''
-new_revision: true
-display_submitted: true

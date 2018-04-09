@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-machine: production
-description: null
-name: Production
-url: 'http://acquia.com'
-fg_color: '#d0d0d0'
-bg_color: '#0d0d0d'

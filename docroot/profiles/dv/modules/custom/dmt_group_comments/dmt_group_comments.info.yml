@@ -1,8 +1,0 @@
-name: DMT Group Comments
-type: module
-description: DMT Group Comments.
-core: 8.x
-package: DMT
-dependencies:
-  - group
-  - comment

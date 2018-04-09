@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: org_legal_status
-label: 'Organisation Legal Status'
-description: ''
-creator_membership: true
-creator_wizard: true
-creator_roles: {  }

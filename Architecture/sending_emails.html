@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <title>sending emails - DV</title>
+    <meta name="description" content="My Stylish Documentation">
+    <meta name="author" content="I, Me & Myself">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="icon" href="../themes/daux/img/favicon-blue.png" type="image/x-icon">
+
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    
+    <!-- CSS -->
+    <link href='../themes/daux/css/theme-blue.min.css' rel='stylesheet' type='text/css'><link href='../themes/daux/css/mermaid.css' rel='stylesheet' type='text/css'>
+            <!-- Tipue Search -->
+        <link href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="../themes/daux/js/html5shiv-3.7.3.min.js"></script>
+    <![endif]-->
+</head>
+<body class=" ">
+    <div class="Columns content">
+    <aside class="Columns__left Collapsible">
+        <button type="button" class="Button Collapsible__trigger">
+            <span class="Collapsible__trigger__bar"></span>
+            <span class="Collapsible__trigger__bar"></span>
+            <span class="Collapsible__trigger__bar"></span>
+        </button>
+
+        <a class="Brand" href="../index.html">DV</a>
+
+    <div class="Search">
+        <svg class="Search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451">
+            <path d="M447.05 428l-109.6-109.6c29.4-33.8 47.2-77.9 47.2-126.1C384.65 86.2 298.35 0 192.35 0 86.25 0 .05 86.3.05 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126.1-47.2L428.05 447c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.2-5.2 5.2-13.8 0-19zM26.95 192.3c0-91.2 74.2-165.3 165.3-165.3 91.2 0 165.3 74.2 165.3 165.3s-74.1 165.4-165.3 165.4c-91.1 0-165.3-74.2-165.3-165.4z"/>
+        </svg>
+        <input type="search" id="tipue_search_input" class="Search__field" placeholder="Search..." autocomplete="on"
+               results=25 autosave=text_search>
+    </div>
+
+        <div class="Collapsible__content">
+            <!-- Navigation -->
+            <ul class='Nav'><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Processes</a><ul class='Nav'><li class='Nav__item '><a href="../Processes/Workflow.html">Workflow</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Install</a><ul class='Nav'><li class='Nav__item '><a href="../Install/linux.html">linux</a></li><li class='Nav__item '><a href="../Install/vm.html">vm</a></li></ul></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Architecture</a><ul class='Nav'><li class='Nav__item '><a href="../Architecture/activity_comment.html">activity comment</a></li><li class='Nav__item '><a href="../Architecture/activity_delivery_error_message.html">activity delivery error message</a></li><li class='Nav__item '><a href="../Architecture/answer_comment.html">answer comment</a></li><li class='Nav__item '><a href="../Architecture/content.html">content</a></li><li class='Nav__item '><a href="../Architecture/default_comment.html">default comment</a></li><li class='Nav__item '><a href="../Architecture/documentation.html">documentation</a></li><li class='Nav__item '><a href="../Architecture/geoarea.html">geoarea</a></li><li class='Nav__item '><a href="../Architecture/log_comment.html">log comment</a></li><li class='Nav__item '><a href="../Architecture/mailing_list.html">mailing list</a></li><li class='Nav__item '><a href="../Architecture/mailing_list_activity.html">mailing list activity</a></li><li class='Nav__item '><a href="../Architecture/mailing_list_needs_approval_message.html">mailing list needs approval message</a></li><li class='Nav__item '><a href="../Architecture/mailing_list_recipients.html">mailing list recipients</a></li><li class='Nav__item '><a href="../Architecture/moderation.html">moderation</a></li><li class='Nav__item '><a href="../Architecture/moderation_activity.html">moderation activity</a></li><li class='Nav__item '><a href="../Architecture/organisations.html">organisations</a></li><li class='Nav__item '><a href="../Architecture/positions.html">positions</a></li><li class='Nav__item '><a href="../Architecture/question_message.html">question message</a></li><li class='Nav__item '><a href="../Architecture/recieving_emails.html">recieving emails</a></li><li class='Nav__item Nav__item--active'><a href="../Architecture/sending_emails.html">sending emails</a></li><li class='Nav__item '><a href="../Architecture/user.html">user</a></li></ul></li><li class='Nav__item '><a href="../architecture.html">architecture</a></li><li class='Nav__item '><a href="../features.html">features</a></li><li class='Nav__item '><a href="../issue_template.html">issue template</a></li><li class='Nav__item '><a href="../story_workflow.html">story workflow</a></li><li class='Nav__item '><a href="../tools.html">tools</a></li></ul>
+
+            <div class="Links">
+                            </div>
+
+                                <div class="CodeToggler">
+                        <hr/>
+                                                    <label class="Checkbox">Show Code Blocks                                <input type="checkbox" class="CodeToggler__button--main" checked="checked"/>
+                                <div class="Checkbox__indicator"></div>
+                            </label>
+                                            </div>
+                
+                
+                        </div>
+    </aside>
+    <div class="Columns__right Columns__right--full">
+        <div class="Columns__right__content">
+            <div class="doc_content">
+                <article class="Page">
+
+    <div class="Page__header">
+        <h1><a href="../Architecture/activity_comment.html">Architecture</a> <svg class="Page__header--separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175"><path d="M360.73 229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1 0s-5.3 13.8 0 19.1l215.5 215.5-215.5 215.5c-5.3 5.3-5.3 13.8 0 19.1 2.6 2.6 6.1 4 9.5 4 3.4 0 6.9-1.3 9.5-4l225.1-225.1c5.3-5.2 5.3-13.8.1-19z"/></svg> <a href="../Architecture/sending_emails.html">sending emails</a></h1>
+                    </div>
+
+    <div class="s-content">
+        <h2 id="page_Sending-Emails-Mail-OUT">Sending Emails - Mail OUT</h2>
+<ul>
+<li>
+<p>in develop environment we use hook_mail in <a href="https://github.com/dreamfony/dv/tree/develop/docroot/profiles/dv/modules/environment/dev/dmt_dev/dmt_dev.module" class="Link--external">dmt_dev</a> to reroute all emails to a single for testing purposes</p>
+</li>
+<li>
+<p><a href="https://github.com/dreamfony/dv/tree/develop/docroot/modules/contrib/message/message.info.yml" class="Link--external">message</a> contrib. module</p>
+</li>
+<li>
+<p>Activity Module Suite</p>
+<ul>
+<li>how it works:
+<ul>
+<li>
+<p><a href="https://github.com/dreamfony/dv/tree/develop/docroot/profiles/dv/modules/custom/activity/activity_basics/src/Plugin/ActivityAction/CreateActivityAction.php" class="Link--external">Create Activity Action</a> creates an entry in activity_logger_message queue.</p>
+</li>
+<li>
+<p>Process 1 activity_logger_message</p>
+<ul>
+<li>
+<a href="https://github.com/dreamfony/dv/tree/develop/docroot/profiles/dv/modules/custom/activity/activity_logger/src/Plugin/QueueWorker/MessageQueueCreator.php" class="Link--external">Message Queue Creator</a> adds item back to queue if it is not older than 5 seconds or creates a message using <a href="https://github.com/dreamfony/dv/tree/develop/docroot/profiles/dv/modules/custom/activity/activity_logger/src/Service/ActivityLoggerFactory.php" class="Link--external">Activity Logger Factory</a>::createMessages</li>
+<li>for each created message activity_creator_message_insert hook in <a href="https://github.com/dreamfony/dv/tree/develop/docroot/profiles/dv/modules/custom/activity/activity_creator/activity_creator.module" class="Link--external">Activity Creator Module</a> prepares
+variables and adds item to activity_creator_logger queue.</li>
+</ul>
+</li>
+<li>
+<p>Process 2 activity_creator_logger</p>
+<ul>
+<li>
+<a href="https://github.com/dreamfony/dv/tree/develop/docroot/profiles/dv/modules/custom/activity/activity_creator/src/Plugin/QueueWorker/ActivityWorkerLogger.php" class="Link--external">Activity Worker Logger</a> worker gets the Recipients from context and adds them to activity_creator_activities queue.</li>
+</ul>
+</li>
+<li>
+<p>Process 3 activity_creator_activities</p>
+<ul>
+<li>
+<a href="https://github.com/dreamfony/dv/tree/develop/docroot/profiles/dv/modules/custom/activity/activity_creator/src/Plugin/QueueWorker/ActivityWorkerActivities.php" class="Link--external">Activity Worker Activities</a> worker creates the activities.</li>
+</ul>
+</li>
+<li>
+<p>Process 4 activity_send_email_worker</p>
+<ul>
+<li>process is used if activity needs to be sent by email</li>
+<li>
+<a href="https://github.com/dreamfony/dv/tree/develop/docroot/profiles/dv/modules/custom/activity/activity_send/modules/activity_send_email/src/Plugin/QueueWorker/ActivitySendEmailWorker.php" class="Link--external">Activity Send Email Worker</a> worker.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Mailgun service using contrib module <a href="https://github.com/dreamfony/dv/tree/develop/docroot/profiles/modules/contrib/mailgun/mailgun.info.yml" class="Link--external">mailgun</a></p>
+</li>
+<li>
+<p><a href="https://github.com/dreamfony/dv/tree/develop/docroot/profiles/dv/modules/custom/dmt_mail/dmt_mail.info.yml" class="Link--external">dmt_mail</a> module:</p>
+<ul>
+<li>Webhook is configured <a href="http://local.dv.com/admin/config/services/webhook/mailgun/edit" class="Link--external">here</a>.</li>
+<li>
+<a href="https://github.com/dreamfony/dv/tree/develop/docroot/profiles/dv/modules/custom/dmt_mail/src/EventSubscriber/MailgunWebhookEvent.php" class="Link--external">Event Subscriber</a> creates items for <a href="https://github.com/dreamfony/dv/tree/develop/docroot/profiles/dv/modules/custom/dmt_mail/src/Plugin/QueueWorker/MailgunWorker.php" class="Link--external">Queue Worker</a>
+</li>
+</ul>
+</li>
+</ul>
+    </div>
+
+        <nav>
+        <ul class="Pager">
+            <li class=Pager--prev><a href="../Architecture/recieving_emails.html">Previous</a></li>            <li class=Pager--next><a href="../Architecture/user.html">Next</a></li>        </ul>
+    </nav>
+    </article>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+    <!-- JS -->
+    <script src="../themes/daux/js/jquery-1.11.3.min.js"></script><script src="../themes/daux/js/highlight.pack.js"></script><script src="../themes/daux/js/daux.js"></script><script src="https://unpkg.com/mermaid@8.0.0-rc.6/dist/mermaid.js"></script><script src="../themes/daux/js/markdown_source.js"></script>
+            <!-- Tipue Search -->
+        <script type="text/javascript" src="../tipuesearch/tipuesearch.js"></script>
+
+        <script>
+            window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
+            $(function() {
+                tipuesearch({
+                    'base_url': '../'
+                });
+            });
+        </script>
+    
+</body>
+</html>

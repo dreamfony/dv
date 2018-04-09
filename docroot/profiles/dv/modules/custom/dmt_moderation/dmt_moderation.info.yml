@@ -1,5 +1,0 @@
-name: DVM Moderation
-type: module
-description: Moderation Related Stuff
-core: 8.x
-package: DMT

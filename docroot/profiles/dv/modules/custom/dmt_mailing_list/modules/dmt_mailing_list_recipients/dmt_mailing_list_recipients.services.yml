@@ -1,3 +1,0 @@
-services:
-  dmt_mailing_list_recipients.recipients:
-    class: Drupal\dmt_mailing_list_recipients\Recipients

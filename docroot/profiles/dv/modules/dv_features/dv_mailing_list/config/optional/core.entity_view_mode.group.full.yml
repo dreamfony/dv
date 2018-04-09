@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - group
-id: group.full
-label: Full
-targetEntityType: group
-cache: true

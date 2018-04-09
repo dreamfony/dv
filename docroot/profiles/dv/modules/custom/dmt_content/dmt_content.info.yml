@@ -1,7 +1,0 @@
-name: DMT Content
-type: module
-description: DMT Content
-core: 8.x
-package: DMT
-dependencies:
-  - node

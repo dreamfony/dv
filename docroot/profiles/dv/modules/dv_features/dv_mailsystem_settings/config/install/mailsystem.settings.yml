@@ -1,4 +1,0 @@
-theme: current
-defaults:
-  sender: mailgun_mail
-  formatter: mailgun_mail

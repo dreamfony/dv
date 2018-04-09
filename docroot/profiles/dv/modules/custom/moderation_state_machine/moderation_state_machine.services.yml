@@ -1,9 +1,0 @@
-services:
-  plugin.manager.switch_moderation_state_manager:
-    class: Drupal\moderation_state_machine\Plugin\Type\ModerationStateMachineManager
-    arguments: ['@container.namespaces', '@cache.discovery', '@module_handler', '@content_moderation.state_transition_validation', '@current_user', '@content_moderation.moderation_information']
-
-  moderation_state_machine.moderation_state_links:
-    class: Drupal\moderation_state_machine\ModerationStateLinks
-    arguments: ['@content_moderation.state_transition_validation', '@current_user', '@content_moderation.moderation_information']
-

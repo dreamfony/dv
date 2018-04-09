@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <title>mailing list - DV</title>
+    <meta name="description" content="My Stylish Documentation">
+    <meta name="author" content="I, Me & Myself">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="icon" href="../themes/daux/img/favicon-blue.png" type="image/x-icon">
+
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    
+    <!-- CSS -->
+    <link href='../themes/daux/css/theme-blue.min.css' rel='stylesheet' type='text/css'><link href='../themes/daux/css/mermaid.css' rel='stylesheet' type='text/css'>
+            <!-- Tipue Search -->
+        <link href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="../themes/daux/js/html5shiv-3.7.3.min.js"></script>
+    <![endif]-->
+</head>
+<body class=" ">
+    <div class="Columns content">
+    <aside class="Columns__left Collapsible">
+        <button type="button" class="Button Collapsible__trigger">
+            <span class="Collapsible__trigger__bar"></span>
+            <span class="Collapsible__trigger__bar"></span>
+            <span class="Collapsible__trigger__bar"></span>
+        </button>
+
+        <a class="Brand" href="../index.html">DV</a>
+
+    <div class="Search">
+        <svg class="Search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451">
+            <path d="M447.05 428l-109.6-109.6c29.4-33.8 47.2-77.9 47.2-126.1C384.65 86.2 298.35 0 192.35 0 86.25 0 .05 86.3.05 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126.1-47.2L428.05 447c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.2-5.2 5.2-13.8 0-19zM26.95 192.3c0-91.2 74.2-165.3 165.3-165.3 91.2 0 165.3 74.2 165.3 165.3s-74.1 165.4-165.3 165.4c-91.1 0-165.3-74.2-165.3-165.4z"/>
+        </svg>
+        <input type="search" id="tipue_search_input" class="Search__field" placeholder="Search..." autocomplete="on"
+               results=25 autosave=text_search>
+    </div>
+
+        <div class="Collapsible__content">
+            <!-- Navigation -->
+            <ul class='Nav'><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Processes</a><ul class='Nav'><li class='Nav__item '><a href="../Processes/Workflow.html">Workflow</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Install</a><ul class='Nav'><li class='Nav__item '><a href="../Install/linux.html">linux</a></li><li class='Nav__item '><a href="../Install/vm.html">vm</a></li></ul></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Architecture</a><ul class='Nav'><li class='Nav__item '><a href="../Architecture/activity_comment.html">activity comment</a></li><li class='Nav__item '><a href="../Architecture/activity_delivery_error_message.html">activity delivery error message</a></li><li class='Nav__item '><a href="../Architecture/answer_comment.html">answer comment</a></li><li class='Nav__item '><a href="../Architecture/content.html">content</a></li><li class='Nav__item '><a href="../Architecture/default_comment.html">default comment</a></li><li class='Nav__item '><a href="../Architecture/documentation.html">documentation</a></li><li class='Nav__item '><a href="../Architecture/geoarea.html">geoarea</a></li><li class='Nav__item '><a href="../Architecture/log_comment.html">log comment</a></li><li class='Nav__item Nav__item--active'><a href="../Architecture/mailing_list.html">mailing list</a></li><li class='Nav__item '><a href="../Architecture/mailing_list_activity.html">mailing list activity</a></li><li class='Nav__item '><a href="../Architecture/mailing_list_needs_approval_message.html">mailing list needs approval message</a></li><li class='Nav__item '><a href="../Architecture/mailing_list_recipients.html">mailing list recipients</a></li><li class='Nav__item '><a href="../Architecture/moderation.html">moderation</a></li><li class='Nav__item '><a href="../Architecture/moderation_activity.html">moderation activity</a></li><li class='Nav__item '><a href="../Architecture/organisations.html">organisations</a></li><li class='Nav__item '><a href="../Architecture/positions.html">positions</a></li><li class='Nav__item '><a href="../Architecture/question_message.html">question message</a></li><li class='Nav__item '><a href="../Architecture/recieving_emails.html">recieving emails</a></li><li class='Nav__item '><a href="../Architecture/sending_emails.html">sending emails</a></li><li class='Nav__item '><a href="../Architecture/user.html">user</a></li></ul></li><li class='Nav__item '><a href="../architecture.html">architecture</a></li><li class='Nav__item '><a href="../features.html">features</a></li><li class='Nav__item '><a href="../issue_template.html">issue template</a></li><li class='Nav__item '><a href="../story_workflow.html">story workflow</a></li><li class='Nav__item '><a href="../tools.html">tools</a></li></ul>
+
+            <div class="Links">
+                            </div>
+
+                                <div class="CodeToggler">
+                        <hr/>
+                                                    <label class="Checkbox">Show Code Blocks                                <input type="checkbox" class="CodeToggler__button--main" checked="checked"/>
+                                <div class="Checkbox__indicator"></div>
+                            </label>
+                                            </div>
+                
+                
+                        </div>
+    </aside>
+    <div class="Columns__right Columns__right--full">
+        <div class="Columns__right__content">
+            <div class="doc_content">
+                <article class="Page">
+
+    <div class="Page__header">
+        <h1><a href="../Architecture/activity_comment.html">Architecture</a> <svg class="Page__header--separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175"><path d="M360.73 229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1 0s-5.3 13.8 0 19.1l215.5 215.5-215.5 215.5c-5.3 5.3-5.3 13.8 0 19.1 2.6 2.6 6.1 4 9.5 4 3.4 0 6.9-1.3 9.5-4l225.1-225.1c5.3-5.2 5.3-13.8.1-19z"/></svg> <a href="../Architecture/mailing_list.html">mailing list</a></h1>
+                    </div>
+
+    <div class="s-content">
+        <h1 id="page_Mailing-List">Mailing List</h1>
+<p>All related code should be placed in <a href="https://github.com/dreamfony/dv/tree/develop/docroot/profiles/dv/modules/custom/dmt_mailing_list/dmt_mailing_list.info.yml" class="Link--external">dmt_mailing_list</a> module.</p>
+<h2 id="page_Tests">Tests</h2>
+<p><a href="https://github.com/dreamfony/dv/tree/develop/docroot/tests/behat/features/features/Survey/Survey.feature" class="Link--external">Survey.feature</a></p>
+<h2 id="page_Pages">Pages</h2>
+<ul>
+<li>
+<strong>Create Survey page</strong>
+<ul>
+<li>Survey header - region
+<ul>
+<li>Edit Title - link</li>
+<li>Title</li>
+</ul>
+</li>
+<li>Survey recipients add - region
+<ul>
+<li>Add recipients - autocomplete field</li>
+<li>Add recipients - button</li>
+</ul>
+</li>
+<li>Survey recipients list - region
+<ul>
+<li>Recipients - view
+<ul>
+<li>Remove recipient - link - view row</li>
+<li>Recipient - view row
+<ul>
+<li>Organisation Profile - display mode
+<ul>
+<li>Name - field</li>
+<li>Address - field</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Survey content add - region
+<ul>
+<li>Survey content add - form
+<ul>
+<li>Content - field</li>
+<li>Type - field</li>
+<li>Attachments - field</li>
+<li>Submit - button</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Survey content list
+<ul>
+<li>Survey content - view
+<ul>
+<li>Content Teaser - display mode
+<ul>
+<li>Edit - link</li>
+<li>Remove - link</li>
+<li>Content - field view</li>
+<li>Type - field view</li>
+<li>Attachments - field view</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<strong>Survey view page</strong>
+<ul>
+<li>View of all recipients</li>
+</ul>
+</li>
+</ul>
+<h2 id="page_Mailing-List-is-a-bundle-of-group-entity">Mailing List is a bundle of group entity</h2>
+<h4 id="page_Fields"><strong><a href="http://local.dv.com/admin/group/types/manage/mailing_list/fields" class="Link--external">Fields</a></strong></h4>
+<ul>
+<li>Group Comments
+<ul>
+<li>Is used to store comments on particular Survey probably just for moderation purposes. Comments are handled by <a href="https://github.com/dreamfony/dv/tree/develop/docroot/profiles/dv/modules/custom/ajax_comments/ajax_comments.info.yml" class="Link--external">ajax_comments</a> module and <a href="https://github.com/dreamfony/dv/tree/develop/docroot/profiles/dv/modules/custom/dmt_group_comments/dmt_group_comments.info.yml" class="Link--external">dmt_group_comments</a> module.</li>
+</ul>
+</li>
+<li>Panelizer
+<ul>
+<li>Is used for storing current view mode for the group.</li>
+</ul>
+</li>
+</ul>
+<h4 id="page_View-modes"><strong><a href="http://local.dv.com/admin/group/types/manage/mailing_list/display" class="Link--external">View modes</a></strong></h4>
+<ul>
+<li>Full
+<ul>
+<li>Full view mode is split in to 2 sub modes with <a href="https://www.drupal.org/project/panelizer" class="Link--external">panelizer</a> contrib. module
+<ul>
+<li>Mailing List Default - Used for survey creation ui
+<ul>
+<li>see <a href="content.html">Content</a>
+</li>
+<li>see <a href="mailing_list_recipients.html">Mailing List Recipients</a>
+</li>
+</ul>
+</li>
+<li>Default - Used for Viewing the survey using <a href="http://local.dv.com/admin/structure/views/view/mailing_list_answers_group_by_recipient" class="Link--external">Mailing List Answers :: Group By Recipient view</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Comments</li>
+<li>My Survey Teaser</li>
+</ul>
+<h4 id="page_Group-content-plugins"><strong><a href="http://local.dv.com/admin/group/types/manage/mailing_list/content" class="Link--external">Group content plugins</a></strong></h4>
+<ul>
+<li>Group node (Content)
+<ul>
+<li>Is used to add <a href="content.html">content</a> to the group.</li>
+</ul>
+</li>
+<li>Group membership
+<ul>
+<li>Member roles:
+<ul>
+<li>
+<a href="organisations.html">Organisations</a>
+</li>
+<li>Edit Mailing List	- Special role used to allow editing - not sure where it is used right now</li>
+<li>Owner - Is the owner/creator of the survey</li>
+<li>Moderator - Survey moderators</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="page_Mailing-list-workflow"><strong><a href="http://local.dv.com/admin/config/workflow/workflows/manage/mailing_list_workflow" class="Link--external">Mailing list workflow</a></strong></h3>
+<h4 id="page_States">States</h4>
+<ul>
+<li>Draft [draft]</li>
+<li>Email [email]</li>
+<li>Approved [approved]</li>
+<li>Archived [archived]</li>
+<li>Spam [spam]</li>
+</ul>
+<h4 id="page_Transitions">Transitions</h4>
+<ul>
+<li>
+<p><strong>Create new Draft</strong> [create_new_draft]</p>
+<ul>
+<li>from: [draft]</li>
+<li>to: [draft]</li>
+<li>Create new Draft transition is never used find a way to remove it if possible</li>
+</ul>
+</li>
+<li>
+<p><strong>Create new Draft</strong></p>
+<ul>
+<li>from: Draft
+<ul>
+<li>x: ttrtt
+p: jkfjkdkfjdik</li>
+</ul>
+</li>
+<li>to: Email</li>
+<li>link: http://www.google.com</li>
+</ul>
+</li>
+<li>
+<p><strong>Send Email</strong> <a href="https://github.com/dreamfony/dv/tree/develop/docroot/profiles/dv/modules/custom/dmt_mailing_list/src/Plugin/ModerationStateMachine/SendEmailTransition.php" class="Link--external">send_email plugin</a></p>
+<ul>
+<li>from: [draft]</li>
+<li>to: [email]</li>
+<li>uc:
+<ul>
+<li>[x] <strong>own</strong> - triggers this transition</li>
+<li>[x] <strong>sys</strong> - validates [mailing_list] contains &gt; 0 <a href="content.html">content</a> and &gt; 0 recipients</li>
+<li>[x] <strong>sys</strong> - remove administrator role from the <a href="">mailing_list</a>
+</li>
+<li>[x] <strong>sys</strong> - send <a href="mailing_list_needs_approval_message.html">mailing_list_needs_approval</a> message</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Approve Sending</strong>	<a href="https://github.com/dreamfony/dv/tree/develop/docroot/profiles/dv/modules/custom/dmt_mailing_list/src/Plugin/ModerationStateMachine/ApproveSendingTransition.php" class="Link--external">approve plugin</a></p>
+<ul>
+<li>from: [email]</li>
+<li>to: [approved]</li>
+<li>uc:
+<ul>
+<li>[x] <strong>mod</strong> - triggers this transition</li>
+<li>[x] <strong>sys</strong> - validates [mailing_list] contains &gt; 0 <a href="content.html">content</a> and &gt; 0 recipients</li>
+<li>[x] <strong>sys</strong> - gets all the content form group of type [group_node:content]</li>
+<li>[x] <strong>sys</strong> - foreach group content gets referenced entity [node] of type [content] and triggers [create_activity_action]</li>
+<li>[x] <strong>sys</strong> - triggers [close_mailing_list_ticket] for the <a href="">mailing_list</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Archive</strong> [archive]</p>
+<ul>
+<li>from: [draft], [email], [approved]</li>
+<li>to: [archived]</li>
+</ul>
+</li>
+<li>
+<p><strong>Restore to Draft</strong>	[restore_to_draft]</p>
+<ul>
+<li>from: [send_email]</li>
+<li>to: [draft]</li>
+<li>uc:
+<ul>
+<li>[ ] <strong>sys</strong> - adds administrator role to user that created [mailing_list]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Spam</strong> [spam]</p>
+<ul>
+<li>from: [draft]</li>
+<li>to: [spam]</li>
+<li>uc:
+<ul>
+<li>[ ] <strong>sys</strong> - adds mailing list to queue to be deleted</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+    </div>
+
+        <nav>
+        <ul class="Pager">
+            <li class=Pager--prev><a href="../Architecture/log_comment.html">Previous</a></li>            <li class=Pager--next><a href="../Architecture/mailing_list_activity.html">Next</a></li>        </ul>
+    </nav>
+    </article>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+    <!-- JS -->
+    <script src="../themes/daux/js/jquery-1.11.3.min.js"></script><script src="../themes/daux/js/highlight.pack.js"></script><script src="../themes/daux/js/daux.js"></script><script src="https://unpkg.com/mermaid@8.0.0-rc.6/dist/mermaid.js"></script><script src="../themes/daux/js/markdown_source.js"></script>
+            <!-- Tipue Search -->
+        <script type="text/javascript" src="../tipuesearch/tipuesearch.js"></script>
+
+        <script>
+            window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
+            $(function() {
+                tipuesearch({
+                    'base_url': '../'
+                });
+            });
+        </script>
+    
+</body>
+</html>

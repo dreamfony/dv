@@ -1,3 +1,0 @@
-services:
-  dmt_user_groups.user_group:
-    class: Drupal\dmt_user_groups\UserGroupService

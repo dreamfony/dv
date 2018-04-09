@@ -1,8 +1,0 @@
-name: DMT Mail
-type: module
-description: DMT mail.
-core: 8.x
-package: DMT
-dependencies:
-  - inmail
-  - webhooks

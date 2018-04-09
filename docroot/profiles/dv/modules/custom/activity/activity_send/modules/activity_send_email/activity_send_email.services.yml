@@ -1,5 +1,0 @@
-services:
-  activity_send_email.replyto:
-    class: Drupal\activity_send_email\ReplyTo
-    factory: Drupal\activity_send_email\ReplyToFactory::create
-    arguments: ['@config.factory']

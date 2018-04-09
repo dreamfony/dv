@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - message
-id: message_template.token
-label: Token
-targetEntityType: message_template
-cache: true

@@ -1,8 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: hr
-label: Croatian
-direction: ltr
-weight: 1
-locked: false

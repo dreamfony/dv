@@ -1,5 +1,0 @@
-services:
-  dmt_mail.mailgun_subscriber:
-    class: Drupal\dmt_mail\EventSubscriber\MailgunWebhookEvent
-    tags:
-      - { name: event_subscriber }

@@ -1,8 +1,0 @@
-# Activity type menu items definition
-entity.activity_type.collection:
-  title: 'Activity type'
-  route_name: entity.activity_type.collection
-  description: 'List Activity type (bundles)'
-  parent: dmt_configuration.dmt_activities
-  weight: 99
-

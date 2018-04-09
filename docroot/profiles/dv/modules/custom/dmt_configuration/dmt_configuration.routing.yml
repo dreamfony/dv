@@ -1,7 +1,0 @@
-dmt_configuration.dmtcore:
-  path: '/admin/dmt_configuration'
-  defaults:
-    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
-    _title: 'DMT Configuration'
-  requirements:
-    _permission: 'access administration pages'

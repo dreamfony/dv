@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: moderation
-label: Moderation
-description: ''
-creator_membership: true
-creator_wizard: true
-creator_roles: {  }

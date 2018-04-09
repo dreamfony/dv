@@ -1,7 +1,0 @@
-name: Activity Send
-type: module
-description: Used to store and manage external notifications
-core: 8.x
-package: Activity
-dependencies:
-  - activity_basics

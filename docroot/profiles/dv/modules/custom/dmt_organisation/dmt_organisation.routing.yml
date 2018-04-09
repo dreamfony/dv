@@ -1,7 +1,0 @@
-dmt_organisation.create_organisation:
-  path: 'o/create'
-  defaults:
-    _controller: '\Drupal\dmt_organisation\Controller\OrganisationController::createOrganisation'
-    _title: 'Create Organisation'
-  requirements:
-    _permission: 'create organisation user'

@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - group
-id: group.comments
-label: Comments
-targetEntityType: group
-cache: true

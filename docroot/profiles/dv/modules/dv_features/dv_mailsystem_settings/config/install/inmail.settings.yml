@@ -1,3 +1,0 @@
-return_path: ''
-batch_size: 20
-log_raw_emails: false

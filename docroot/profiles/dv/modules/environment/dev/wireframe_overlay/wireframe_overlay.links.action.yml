@@ -1,6 +1,0 @@
-entity.wireframe_overlay.add_form:
-  route_name: entity.wireframe_overlay.add_form
-  title: 'Add Wireframe overlay'
-  appears_on:
-    - entity.wireframe_overlay.collection
-

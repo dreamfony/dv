@@ -1,8 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: 'Issue Type'
-vid: issue_type
-description: ''
-hierarchy: 0
-weight: 0

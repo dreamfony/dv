@@ -1,5 +1,0 @@
-langcode: en
-status: true
-id: mailing_list_answer
-label: Post answers via email
-plugin: mailing_list_answer

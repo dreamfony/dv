@@ -1,7 +1,0 @@
-name: 'Custom Organisation Lists'
-description: 'Provides Custom Organisation Lists group type and related configuration. '
-type: module
-core: 8.x
-dependencies:
-  - group
-package: DV

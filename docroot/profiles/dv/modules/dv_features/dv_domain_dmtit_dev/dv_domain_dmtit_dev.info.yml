@@ -1,7 +1,0 @@
-name: 'Domain DMT IT'
-description: 'Provides domain DMT IT related configuration.'
-type: module
-core: 8.x
-dependencies:
-  - domain
-package: DV

@@ -1,8 +1,0 @@
-name: Activity Send Email
-type: module
-description: Used to send activity notifications by Email
-core: 8.x
-package: Activity
-dependencies:
-  - activity_send
-  - dmt_configuration
