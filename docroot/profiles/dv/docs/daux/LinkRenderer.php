@@ -16,9 +16,21 @@ class LinkRenderer extends \League\CommonMark\Inline\Renderer\LinkRenderer
      */
     protected $daux;
 
+    protected $pathsFromRoot = [];
+
     public function __construct($daux)
     {
         $this->daux = $daux;
+        $this->pathsFromRoot = explode('/', $this->daux->getConfigurationOverrideFile());
+        foreach ($this->pathsFromRoot as $key => $value) {
+          if( $value == 'docroot') {
+            break;
+          }
+          unset($this->pathsFromRoot[$key]);
+        }
+
+        $this->pathsFromRoot = array_values($this->pathsFromRoot);
+        print_r($this->pathsFromRoot);
     }
 
     /**
@@ -56,7 +68,6 @@ class LinkRenderer extends \League\CommonMark\Inline\Renderer\LinkRenderer
             return $file;
         }
 
-        print_r($url);
         throw new LinkNotFoundException("Could not locate file '$url'");
     }
 
@@ -67,7 +78,42 @@ class LinkRenderer extends \League\CommonMark\Inline\Renderer\LinkRenderer
 
     protected function isExternalUrl($url)
     {
-        return preg_match('#^(?:[a-z]+:)?//|^mailto:|../../#', $url);
+
+        return preg_match('#^(?:[a-z]+:)?//|^mailto:#', $url);
+    }
+
+    protected function isSameRepoUrl($url) {
+      try {
+        $file = $this->resolveInternalFile($url);
+        $url = DauxHelper::getRelativePath($this->daux->getCurrentPage()->getUrl(), $file->getUrl());
+      } catch (LinkNotFoundException $e) {
+        if ($this->daux->isStatic()) {
+          return preg_match('#^../../#', $url);
+        }
+      }
+    }
+
+    protected function getRepoDir($url) {
+      $count_subdirs = substr_count($url, '../');
+
+      $current_page_url = $this->daux->getCurrentPage()->getUrl();
+
+      $count_current_page_subpaths = count(explode('/', $current_page_url)) - 1;
+
+      $dirs = $this->pathsFromRoot;
+      $path = '';
+
+      for ($i = 1; $i <= ($count_subdirs - $count_current_page_subpaths); $i++) {
+        if(is_array($dirs)) {
+          array_pop($dirs);
+        }
+      }
+
+      if(is_array($dirs)) {
+        $path = implode('/', $dirs);
+      }
+
+      return $path;
     }
 
     /**
@@ -105,6 +151,18 @@ class LinkRenderer extends \League\CommonMark\Inline\Renderer\LinkRenderer
 
             return $element;
         }
+
+      // Absolute urls, shouldn't either
+      if ($this->isSameRepoUrl($url)) {
+        $element->setAttribute('class', 'Link--repo');
+        $element->setAttribute('class', 'Link--external');
+
+        $path = $this->getRepoDir($url);
+        $url = str_replace('../', '', $url);
+        $element->setAttribute('href', 'https://github.com/' . $this->daux->getHtml()['repo'] . '/tree/develop/' . $path . '/' . $url);
+
+        return $element;
+      }
 
         // if there's a hash component in the url, ensure we
         // don't put that part through the resolver.

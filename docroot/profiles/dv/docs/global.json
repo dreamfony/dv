@@ -9,7 +9,7 @@
   "languages": {},
 
   "format": "html",
-  "processor": "",
+  "processor": "Processor",
 
   "ignore": {
     "files": [],
@@ -82,7 +82,6 @@
     "auto_toc": false,
     "inherit_index": false,
     "jump_buttons": true,
-
     "repo": "dreamfony/dv",
     "twitter": [],
     "links": {

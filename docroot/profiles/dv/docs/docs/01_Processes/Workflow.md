@@ -8,7 +8,6 @@
     - DevOps
   - tools:
     - Drupal
-- doc: http://some-path/doc.md#drupal
 
 ### Test h3
 I ondak nastavis tu pisati sta te volja!
@@ -22,7 +21,6 @@ Bla bla bla ... Trrrttt
     - DevOps
   - tools:
     - Drupal
-- doc: [test](../03_Architecture/answer_comment.md)
 
 ## Documentation
 - meta:
@@ -32,7 +30,7 @@ Bla bla bla ... Trrrttt
   - tools:
     - [daux.io](https://github.com/dauxio/daux.io)
     
-    
+------    
 
 - Documentation in docroot/profiles/dv/docs contains:
   - daux theme
@@ -47,7 +45,6 @@ Bla bla bla ... Trrrttt
   - roles:
     - Developer
     - DevOps
-- doc: http://some-path/doc.md
 
 ## Notifications
 - relations: Test passed?
@@ -57,18 +54,17 @@ Bla bla bla ... Trrrttt
     - DevOps
   - tools:
     - Drupal
-- doc: http://some-path/doc3.md#slack
 
 ## Test passed?
 - type: decision
 - relations: Yes|Artifact, No|Development
 
 ## Artifact
+- relations: Jos jedan
 - meta: 
   - roles:
     - DevOps
 - tool: "Travis"
-- doc: http://some-path/doc.md#artifact;
 
 
 
