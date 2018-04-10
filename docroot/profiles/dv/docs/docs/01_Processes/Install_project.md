@@ -17,30 +17,35 @@ and then follow the steps bellow:
 - relations: Fork the repository
 
 **Upgrade Linux**
+
 ```
 do-release-upgrade
 sudo reboot
 ```
+
 **Install and configure git**
+
 ```
 sudo apt-get install git -y
 git config --global user.name "github_username"
 git config --global user.email "github_email"
 ```
-You can edit the ```~/.gitconfig``` file in your home folder. This is where all ```--global``` settings are saved.
 
 ## Fork the repository
 - relations: Clone the forked repository
 
-[How to fork a repository?](https://help.github.com/articles/fork-a-repo/)
+Go to [DV](https://github.com/dreamfony/dv) and [fork a repository](https://help.github.com/articles/fork-a-repo/)
 
 ## Clone the forked repository
-- relations: Install project requirements
+- relations: Add upstream repository
+
 ```
 sudo mkdir /var/www/dv -p
 sudo chown $USERNAME:$USERNAME /var/www/dv
 cd /var/www
 git clone https://github.com/github_username/dv
+#Add upstream repository
+git remote add upstream https://github.com/dreamfony/dv.git
 ```
 
 ## Install project requirements
