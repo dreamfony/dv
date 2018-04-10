@@ -1,3 +1,8 @@
+---
+Title: Tools
+Diagram: Yes
+---
+
 # Tools / technologies
 
 | Name | Purpose / Scope | Description  | Learn more |
@@ -22,7 +27,34 @@
 
 #### <a name="drupal"></a>Drupal
 
-#### <a name="github"></a>GitHub
+#### <a name="github"></a>Git & GitHub
+
+**Git branching model and naming convention **
+
+- master
+- develop
+- gh-pages
+- dreamfony/dv#XXX
+
+To link PR with issues on waffle a branch name has to look like this username/repo#issueNumber
+
+Related issue:
+https://github.com/waffleio/waffle.io/issues/1899
+
+Use of keywords (eg. close) in commit messages is not necessary.
+
+
+You can edit the ```~/.gitconfig``` file in your home folder. This is where all ```--global``` settings are saved.
+
+
+##### PULL REQUESTS
+
+Open a Pull Request to initiate code review
+
+**Tips for PR Authors**
+
+**Tips for PR Reviewers**
+
 
 #### <a name="travis-ci"></a>Travis CI
 
@@ -35,3 +67,5 @@
 #### <a name="gdrive"></a>Gdrive
 
 #### <a name="composer"></a>Composer
+
+#### <a name="blt"></a>BLT
