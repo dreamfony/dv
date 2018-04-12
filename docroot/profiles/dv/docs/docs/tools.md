@@ -36,6 +36,7 @@ Diagram: Yes
 - gh-pages
 - dreamfony/dv#XXX
 
+
 To link PR with issues on waffle a branch name has to look like this username/repo#issueNumber
 
 Related issue:
@@ -47,13 +48,6 @@ Use of keywords (eg. close) in commit messages is not necessary.
 You can edit the ```~/.gitconfig``` file in your home folder. This is where all ```--global``` settings are saved.
 
 
-##### PULL REQUESTS
-
-Open a Pull Request to initiate code review
-
-**Tips for PR Authors**
-
-**Tips for PR Reviewers**
 
 
 #### <a name="travis-ci"></a>Travis CI
