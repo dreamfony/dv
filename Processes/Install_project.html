@@ -71,31 +71,57 @@
 
     <div class="s-content">
         <h1 id="page_Install-project">Install project</h1>
-<h2 id="page_Operating-system-Fresh-installation-of-Ubuntu-16-04-LTS">Operating system: Fresh installation of Ubuntu 16.04 LTS</h2>
+<p><strong>Requirements</strong></p>
+<p>To use our build system and run documentation locally you will need</p>
 <ul>
-<li>relations: Setup local environment</li>
+<li>Fresh installation of <strong>Ubuntu 16.04 LTS</strong>
+</li>
+<li>Github account</li>
 </ul>
+<p>and then follow the steps bellow:</p>
 <h2 id="page_Setup-local-environment">Setup local environment</h2>
-<ul>
-<li>relations: GitHub account: register / log in</li>
-</ul>
-<h2 id="page_GitHub-account-register-log-in">GitHub account: register / log in</h2>
 <ul>
 <li>relations: Fork the repository</li>
 </ul>
+<p><strong>Upgrade Linux</strong></p>
+<pre><code>do-release-upgrade
+sudo reboot
+</code></pre>
+<p><strong>Install and configure git</strong></p>
+<pre><code>sudo apt-get install git -y
+git config --global user.name &quot;github_username&quot;
+git config --global user.email &quot;github_email&quot;
+</code></pre>
 <h2 id="page_Fork-the-repository">Fork the repository</h2>
 <ul>
 <li>relations: Clone the forked repository</li>
 </ul>
+<p>Go to <a href="https://github.com/dreamfony/dv" class="Link--external">DV</a> and <a href="https://help.github.com/articles/fork-a-repo/" class="Link--external">fork a repository</a></p>
 <h2 id="page_Clone-the-forked-repository">Clone the forked repository</h2>
 <ul>
-<li>relations: Install project requirements</li>
+<li>relations: Add upstream repository</li>
 </ul>
+<pre><code>sudo mkdir /var/www/dv -p
+sudo chown $USERNAME:$USERNAME /var/www/dv
+cd /var/www
+git clone https://github.com/github_username/dv
+#Add upstream repository
+git remote add upstream https://github.com/dreamfony/dv.git
+</code></pre>
 <h2 id="page_Install-project-requirements">Install project requirements</h2>
 <ul>
-<li>relations: Test the installation: visit local.dv.com</li>
+<li>relations: Test the installation</li>
 </ul>
-<h2 id="page_Test-the-installation-visit-local-dv-com">Test the installation: visit local.dv.com</h2>
+<pre><code>bash /var/www/dv/install/install.sh
+</code></pre>
+<p>Project requirements are installed using ansible playbooks taken from drupal VM</p>
+<p>Install.sh script will among other things run</p>
+<ul>
+<li>composer install</li>
+<li>blt custom:reinstall</li>
+</ul>
+<h2 id="page_Test-the-installation">Test the installation</h2>
+<p>Visit <a href="http://local.dv.com" class="Link--external">local.dv.com</a></p>
     </div>
 
         <nav>

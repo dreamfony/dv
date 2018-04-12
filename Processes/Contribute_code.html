@@ -71,15 +71,153 @@
 
     <div class="s-content">
         <h1 id="page_Contribute-code-to-upstream-repository">Contribute code to upstream repository</h1>
-<p>cool
-adsdaddsdasdas sadsd</p>
-<h2 id="page_Add-upstream-repository">Add upstream repository</h2>
-<pre><code>git remote add upstream https://github.com/dreamfony/dv.git
-</code></pre>
 <h2 id="page_Sync-the-fork-with-upstream-repository">Sync the fork with upstream repository</h2>
-<pre><code>git remote add upstream https://github.com/dreamfony/dv.git
+<ul>
+<li>relations: Create new branch</li>
+<li>meta:
+<ul>
+<li>tools:
+<ul>
+<li>GitHub</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>git fetch upstream
+git checkout develop
+git rebase upstream/develop
+git push
 </code></pre>
-<p>tipkam malo</p>
+<h2 id="page_Create-new-branch">Create new branch</h2>
+<ul>
+<li>relations: Commit the code</li>
+</ul>
+<pre><code>git checkout -b dreamfony/dv#issueNumber-[feature / fix / misc]
+</code></pre>
+<h2 id="page_Commit-the-code">Commit the code</h2>
+<ul>
+<li>relations: Push the branch</li>
+</ul>
+<pre><code>git status
+git add [file1] [file2]
+git commit -m &quot;dreamfony/dv#issueNuber Description shorter than 50 characters&quot;
+</code></pre>
+<h2 id="page_Push-the-branch">Push the branch</h2>
+<ul>
+<li>relations: Open or update a Pull Request</li>
+</ul>
+<pre><code>git push -u origin new_branch_name
+</code></pre>
+<h2 id="page_Open-or-update-a-Pull-Request">Open or update a Pull Request</h2>
+<ul>
+<li>relations: CI status check, Update issue status, Notifications</li>
+<li>meta:
+<ul>
+<li>tools:
+<ul>
+<li>GitHub</li>
+<li>hub</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Tips for PR Authors</strong></p>
+<ul>
+<li>Once the pull request is ready for review, add reviewers to it through the web interface</li>
+</ul>
+<p><strong>Using GitHub UI</strong></p>
+<p>Create a <a href="https://help.github.com/articles/creating-a-pull-request/" class="Link--external">pull request</a> from newly pushed branch.</p>
+<p><strong>Using hub</strong></p>
+<pre><code>hub pull-request
+</code></pre>
+<p><strong>Using PhpStorm</strong></p>
+<pre><code>VCS-&gt;GIT-&gt;Create Pull Request
+</code></pre>
+<h2 id="page_CI-status-check">CI status check</h2>
+<ul>
+<li>relations: Discuss and peer review Code</li>
+<li>meta:
+<ul>
+<li>roles:
+<ul>
+<li>System</li>
+</ul>
+</li>
+<li>tools:
+<ul>
+<li>Travis</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="page_Update-issue-status">Update issue status</h2>
+<ul>
+<li>meta:
+<ul>
+<li>roles:
+<ul>
+<li>System</li>
+</ul>
+</li>
+<li>tools:
+<ul>
+<li>Waffle.io</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Move Issue to Review column</li>
+</ul>
+<h2 id="page_Notifications">Notifications</h2>
+<ul>
+<li>meta:
+<ul>
+<li>roles:
+<ul>
+<li>System</li>
+</ul>
+</li>
+<li>tools:
+<ul>
+<li>Slack</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="page_Discuss-and-peer-review-Code">Discuss and peer review Code</h2>
+<ul>
+<li>relations: Pull request accepted|Deploy, Pull request rejected|Commit the code</li>
+<li>meta:
+<ul>
+<li>tools:
+<ul>
+<li>GitHub</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Tips for PR Reviewers</strong></p>
+<p><a href="https://help.github.com/categories/collaborating-with-issues-and-pull-requests/" class="Link--external">Review the changes</a> in the pull request, and optionally, comment on specific lines.</p>
+<h2 id="page_Deploy">Deploy</h2>
+<ul>
+<li>meta:
+<ul>
+<li>tools:
+<ul>
+<li>GitHub</li>
+<li>Acquia</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
     </div>
 
         <nav>
