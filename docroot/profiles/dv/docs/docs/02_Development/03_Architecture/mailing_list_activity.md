@@ -1,8 +1,8 @@
 # Mailing List Activity
 
-All related code should be placed in [dmt_mailing_list_activity](../../../modules/custom/dmt_mailing_list/modules/dmt_mailing_list_activity/dmt_mailing_list_activity.info.yml) module.
+All related code should be placed in [dmt_mailing_list_activity](../../../../modules/custom/dmt_mailing_list/modules/dmt_mailing_list_activity/dmt_mailing_list_activity.info.yml) module.
 
-## Mailing List Activity is a bundle of [activity](../../../modules/custom/activity/activity_creator/src/Entity/Activity.php) entity
+## Mailing List Activity is a bundle of [activity](../../../../modules/custom/activity/activity_creator/src/Entity/Activity.php) entity
  
 #### **[Fields](http://local.dv.com/admin/structure/activity_type/mailing_list_activity/edit/fields)**
 
@@ -14,8 +14,8 @@ All related code should be placed in [dmt_mailing_list_activity](../../../module
 
 - Hash [field_activity_hash]
   - type: Text (plain)
-  - hash is generated with [ActivityLoggerRandom](../../../modules/custom/activity/activity_logger/src/ActivityLoggerRandom.php)
-  - and the field is populated in [ActivityFactory](../../../modules/custom/activity/activity_creator/src/ActivityFactory.php)
+  - hash is generated with [ActivityLoggerRandom](../../../../modules/custom/activity/activity_logger/src/ActivityLoggerRandom.php)
+  - and the field is populated in [ActivityFactory](../../../../modules/custom/activity/activity_creator/src/ActivityFactory.php)
     
 - Mailing List [field_activity_mailing_list]
   - type: Entity reference [mailing_list](mailing_list.md)
@@ -89,7 +89,7 @@ All related code should be placed in [dmt_mailing_list_activity](../../../module
   - uc:
     - [ ] **mod, (own?)** - triggers [waiting] transition
     - [ ] **sys** - triggers [email_activity_send] action
-      - @see [activity_send_email_activity_insert](../../../modules/custom/activity/activity_send/modules/activity_send_email/activity_send_email.module)
+      - @see [activity_send_email_activity_insert](../../../../modules/custom/activity/activity_send/modules/activity_send_email/activity_send_email.module)
 
 **Pending (Auto response)** [auto_response]
    - form: [unclassified]

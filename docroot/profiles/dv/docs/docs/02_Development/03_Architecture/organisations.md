@@ -37,5 +37,5 @@ Every organisation has a organisation_profile. Using [Profile](https://www.drupa
 
 #### Import
 
-Organisations are imported from xml file using [Hr Organisations Module](../../../modules/migrations/hr_organisation_migrate/hr_organisation_migrate.info.yml)
+Organisations are imported from xml file using [Hr Organisations Module](../../../../modules/migrations/hr_organisation_migrate/hr_organisation_migrate.info.yml)
 

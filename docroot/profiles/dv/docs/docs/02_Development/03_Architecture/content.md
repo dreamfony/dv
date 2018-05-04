@@ -2,14 +2,14 @@
 
 ![Content](images/content.jpg)
 
-All related code should be placed in [dmt_content](../../../modules/custom/dmt_content/dmt_content.module) module.
+All related code should be placed in [dmt_content](../../../../modules/custom/dmt_content/dmt_content.module) module.
 
 #### Content is a bundle of node entity (Content type). 
 
 **Fields:**
 
 - Title
-  - Title is hidden and it is generated in presave hook in [dmt_content](../../../modules/custom/dmt_content/dmt_content.module) module
+  - Title is hidden and it is generated in presave hook in [dmt_content](../../../../modules/custom/dmt_content/dmt_content.module) module
 - Content type
   - Currently missing field that should be choice field with options like:
     - Question
