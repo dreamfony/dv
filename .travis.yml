@@ -87,6 +87,7 @@ script:
 #after_script:
 #  - ./vendor/bin/test-reporter
 
+if: fork = false
 
 before_deploy:
 # Decrypt private key
