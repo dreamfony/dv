@@ -87,9 +87,9 @@ script:
 #after_script:
 #  - ./vendor/bin/test-reporter
 
+if: fork = false
 
 before_deploy:
-  if: fork = false
 # Decrypt private key
   - openssl aes-256-cbc -K $encrypted_3fec15fb840c_key -iv $encrypted_3fec15fb840c_iv -in travis_acquia_pri.ppk.enc -out ~/.ssh/id_rsa -d
   - chmod 600 ~/.ssh/id_rsa
@@ -100,7 +100,6 @@ before_deploy:
   - ~/.composer/vendor/daux/daux.io/bin/daux --destination=${BUILD_DIR}/docs --configuration=global.json
 
 deploy:
-  if: fork = false
    - provider: script
      script: "$BLT_DIR/scripts/travis/deploy_branch"
      skip_cleanup: true
