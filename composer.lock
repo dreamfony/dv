@@ -3713,7 +3713,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0-alpha10",
-                    "datestamp": "1512154384",
+                    "datestamp": "1512159913",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
@@ -4189,8 +4189,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha11+61-dev",
-                    "datestamp": "1510299485",
+                    "version": "8.x-1.0-alpha11+62-dev",
+                    "datestamp": "1510398786",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -5324,17 +5324,17 @@
         },
         {
             "name": "drupal/mailgun",
-            "version": "1.0.0-alpha1",
+            "version": "1.0.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/mailgun",
-                "reference": "8.x-1.0-alpha1"
+                "reference": "8.x-1.0-beta1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/mailgun-8.x-1.0-alpha1.zip",
-                "reference": "8.x-1.0-alpha1",
-                "shasum": "7c289dc0e9f3b11cc69c91f73fb2ccac56afa21b"
+                "url": "https://ftp.drupal.org/files/projects/mailgun-8.x-1.0-beta1.zip",
+                "reference": "8.x-1.0-beta1",
+                "shasum": "6fa011c86f7975fa833f6518593ffd52dc8fb9f8"
             },
             "require": {
                 "drupal/core": "~8.0",
@@ -5350,11 +5350,11 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha1",
-                    "datestamp": "1510582684",
+                    "version": "8.x-1.0-beta1",
+                    "datestamp": "1512638285",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
+                        "message": "Beta releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -5380,7 +5380,7 @@
                     "homepage": "https://www.drupal.org/user/289861"
                 }
             ],
-            "description": "Allows site to send emails using Mailgun.com",
+            "description": "Allows site to send emails using Mailgun email service.",
             "homepage": "https://www.drupal.org/project/mailgun",
             "support": {
                 "source": "http://cgit.drupalcode.org/mailgun"
@@ -8703,16 +8703,16 @@
         },
         {
             "name": "mailgun/mailgun-php",
-            "version": "2.3.4",
+            "version": "v2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mailgun/mailgun-php.git",
-                "reference": "f58c5914aefa16fa6ed2b5cf9ee84d40cbda1b3a"
+                "reference": "20783215042b181b0dec92c9e01947b93cb5d085"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mailgun/mailgun-php/zipball/f58c5914aefa16fa6ed2b5cf9ee84d40cbda1b3a",
-                "reference": "f58c5914aefa16fa6ed2b5cf9ee84d40cbda1b3a",
+                "url": "https://api.github.com/repos/mailgun/mailgun-php/zipball/20783215042b181b0dec92c9e01947b93cb5d085",
+                "reference": "20783215042b181b0dec92c9e01947b93cb5d085",
                 "shasum": ""
             },
             "require": {
@@ -8746,7 +8746,7 @@
                 }
             ],
             "description": "The Mailgun SDK provides methods for all API functions.",
-            "time": "2017-06-20T19:56:09+00:00"
+            "time": "2017-12-07T21:05:43+00:00"
         },
         {
             "name": "masterminds/html5",
